@@ -1,50 +1,28 @@
 <?php
 
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once(__DIR__ . '/lib/utils/generators.php');
+/**
+* Generated at Mon Feb 26 2018 13:37:50 GMT+0100 (CET)
+* Author: Talon.One
+* The contents of this file are auto generated
+*/
 
-// ---- modify accordingly ----
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setHost('http://localhost:9000');
-$config->setApplicationId('1');
-$config->setApiKey('Authorization', 'ff164d01c11d9571');
+include 'integration_api.php';
+include 'management_api.php';
 
-$apiInstance = new Swagger\Client\Api\IntegrationAPIApi( new GuzzleHttp\Client(), $config);
+$t = new TalonOne();
+$tm = new TalonOneManagement();
 
-// ----- create a customer profile
-try {
-    $result = $apiInstance->updateCustomerProfile(generateStr());
-    $profileId = $result->getProfile()->getIntegrationId();
-    echo("profile created:\t\t" . $profileId . "\n");
-} catch (Exception $e) {
-    echo 'Exception when calling IntegrationAPIApi->updateCustomerProfile: ', $e->getMessage(), PHP_EOL;
+$t->subdomain = "demo";
+$t->applicationId = 1;
+$t->applicationKey = "ff164d01c11d9571";
+
+// Refer to http://developers.talon.one/data-model/attribute-library/ for additional attributes
+$response = $t->update_customer_profile("any_give_integration_id",
+                    array('attributes' => array('Email' => 'your@customer.org')));
+print_r($response);
+
+// get an application by id
+if ($tm->createManagementSession("demo@talon.one","demo1234")) {
+    print_r($tm->get_campaign_analytics(1, 1, array('rangeStart' => '2016-06-14T13:09:35.835Z', 'rangeEnd' => '2018-06-14T13:09:35.835Z')));
+    $tm->destroyManagementSession();
 }
-
-// ----- updates the created customer profile with a valid attribute
-try {
-    $result = $apiInstance->updateCustomerProfile($profileId, "{\"attributes\": {\"Name\": \"John McClient\"}}");
-    echo("profile updated with name:\t" . $result->getProfile()->getAttributes()["Name"] . "\n");
-} catch (Exception $e) {
-    echo 'Exception when calling IntegrationAPIApi->updateCustomerProfile: ', $e->getMessage(), PHP_EOL;
-}
-
-// ----- create a new customer session (associated with $profileId)
-$customerSessionBody = new Swagger\Client\Model\NewCustomerSession();
-$customerSessionBody->setProfileId($profileId);
-try {
-    $result = $apiInstance->updateCustomerSession($profileId . '_session', $customerSessionBody);
-    $sessionId = $result->getSession()->getIntegrationId();
-    echo("session created:\t\t" . $sessionId . "\n");
-} catch (Exception $e) {
-    echo 'Exception when calling IntegrationAPIApi->updateCustomerSession: ', $e->getMessage(), PHP_EOL;
-}
-
-// ---- closes the previous opened session
-$customerSessionBody->setState('closed');
-try {
-    $result = $apiInstance->updateCustomerSession($sessionId, $customerSessionBody);
-    echo("session closed:\t\t\t" . $sessionId . "\n");
-} catch (Exception $e) {
-    echo 'Exception when calling IntegrationAPIApi->updateCustomerSession: ', $e->getMessage(), PHP_EOL;
-}
-
-?>
