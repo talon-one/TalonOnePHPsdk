@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Mon Feb 26 2018 13:37:50 GMT+0100 (CET)
+* Generated at Tue Feb 27 2018 14:21:39 GMT+0100 (CET)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -78,12 +78,12 @@ class TalonOneManagement {
 
     /**
     * List all application in the current account.
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+
     *
     */
    
@@ -93,10 +93,14 @@ class TalonOneManagement {
 
     /**
     * Create a new application in the current account.
-    * 
-    * Payload:
-    * 
     *
+    * $body accepted parameters
+    *
+    * @param	string	name	-
+    * @param	string	description	-
+    * @param	string	key	-
+    * @param	string	timezone	-
+    * @param	string	currency	-
     */
    
     public function create_application($body, $query) {
@@ -105,11 +109,17 @@ class TalonOneManagement {
 
     /**
     * Change the application specified by the ID.
-    * 
-    * Payload:
-    * 
-    * @param 	integer	   $applicationId -
+    * Arguments
     *
+    * @param 	integer	   $applicationId -
+
+    * $body accepted parameters
+    *
+    * @param	string	name	-
+    * @param	string	description	-
+    * @param	string	key	-
+    * @param	string	timezone	-
+    * @param	string	currency	-
     */
    
     public function update_application($applicationId, $body, $query) {
@@ -118,10 +128,10 @@ class TalonOneManagement {
 
     /**
     * Get the application specified by the ID.
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId -
+
     *
     */
    
@@ -131,10 +141,10 @@ class TalonOneManagement {
 
     /**
     * Delete the application specified by the ID. Also deletes associated data.
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId -
+
     *
     */
    
@@ -144,13 +154,13 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
+
     *
     */
    
@@ -160,11 +170,25 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
-    * @param 	integer	   $applicationId -
+    * Arguments
     *
+    * @param 	integer	   $applicationId -
+
+    * $body accepted parameters
+    *
+    * @param	string	name	-
+    * @param	string	description	-
+    * @param	string	startTime	-
+    * @param	string	endTime	-
+    * @param	object	attributes	-
+    * @param	string	state	-
+    * @param	integer	activeRulesetId	-
+    * @param	array	tags	-
+    * @param	array	features	-
+    * @param	array	limits	-
+    *     @param	string	action	The limitable action to which this limit will be applied
+    *     @param	number	limit	The value to set for the limit
+    *     @param	array	entities	The entities that make the address of this limit
     */
    
     public function create_campaign($applicationId, $body, $query) {
@@ -173,11 +197,13 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
-    * @param 	integer	   $applicationId 
+    * Arguments
     *
+    * @param 	integer	   $applicationId 
+
+    * $body accepted parameters
+    *
+    * @param	integer	applicationId	-
     */
    
     public function update_campaign_set($applicationId, $body, $query) {
@@ -186,10 +212,10 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId 
+
     *
     */
    
@@ -199,12 +225,26 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId -
     * @param 	integer	   $campaignId 
+
+    * $body accepted parameters
     *
+    * @param	string	name	-
+    * @param	string	description	-
+    * @param	string	startTime	-
+    * @param	string	endTime	-
+    * @param	object	attributes	-
+    * @param	string	state	-
+    * @param	integer	activeRulesetId	-
+    * @param	array	tags	-
+    * @param	array	features	-
+    * @param	array	limits	-
+    *     @param	string	action	The limitable action to which this limit will be applied
+    *     @param	number	limit	The value to set for the limit
+    *     @param	array	entities	The entities that make the address of this limit
     */
    
     public function update_campaign($applicationId, $campaignId, $body, $query) {
@@ -213,11 +253,11 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId -
     * @param 	integer	   $campaignId 
+
     *
     */
    
@@ -227,11 +267,11 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId -
     * @param 	integer	   $campaignId 
+
     *
     */
    
@@ -241,14 +281,14 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId 
     * @param 	integer	   $campaignId 
+
     *
     */
    
@@ -258,12 +298,19 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId -
     * @param 	integer	   $campaignId 
+
+    * $body accepted parameters
     *
+    * @param	array	rules	-
+    *     @param	string	title	A short description of the rule.
+    *     @param	string	description	A longer, more detailed description of the rule.
+    *     @param	array	bindings	An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array.
+    *     @param	array	condition	A Talang expression that will be evaluated in the context of the given event.
+    *     @param	array	effects	An array of effectful Talang expressions in arrays that will be evaluated when a rule matches.
     */
    
     public function create_ruleset($applicationId, $campaignId, $body, $query) {
@@ -272,13 +319,20 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId -
     * @param 	integer	   $campaignId 
     * @param 	integer	   $rulesetId 
+
+    * $body accepted parameters
     *
+    * @param	array	rules	-
+    *     @param	string	title	A short description of the rule.
+    *     @param	string	description	A longer, more detailed description of the rule.
+    *     @param	array	bindings	An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array.
+    *     @param	array	condition	A Talang expression that will be evaluated in the context of the given event.
+    *     @param	array	effects	An array of effectful Talang expressions in arrays that will be evaluated when a rule matches.
     */
    
     public function update_ruleset($applicationId, $campaignId, $rulesetId, $body, $query) {
@@ -287,12 +341,12 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId -
     * @param 	integer	   $campaignId 
     * @param 	integer	   $rulesetId 
+
     *
     */
    
@@ -302,12 +356,12 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId -
     * @param 	integer	   $campaignId 
     * @param 	integer	   $rulesetId 
+
     *
     */
    
@@ -317,9 +371,8 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
@@ -333,6 +386,7 @@ class TalonOneManagement {
     * @param 	integer	   $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
     * @param 	string	   $recipientIntegrationId Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
     * @param 	boolean	   $exactMatch Filter results to an exact case-insensitive matching against the coupon code
+
     *
     */
    
@@ -342,13 +396,22 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	string	   $silent If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated.
     * @param 	integer	   $applicationId -
     * @param 	integer	   $campaignId 
+
+    * $body accepted parameters
     *
+    * @param	integer	usageLimit	-
+    * @param	string	startDate	-
+    * @param	string	expiryDate	-
+    * @param	array	validCharacters	-
+    * @param	string	couponPattern	-
+    * @param	integer	numberOfCoupons	-
+    * @param	object	attributes	-
+    * @param	string	recipientIntegrationId	-
     */
    
     public function create_coupons($applicationId, $campaignId, $body, $query) {
@@ -357,11 +420,11 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId 
     * @param 	integer	   $campaignId 
+
     *
     */
    
@@ -371,13 +434,19 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId 
     * @param 	integer	   $campaignId 
     * @param 	string	   $couponId The ID of the coupon code to update
+
+    * $body accepted parameters
     *
+    * @param	string	value	-
+    * @param	integer	usageLimit	-
+    * @param	string	startDate	-
+    * @param	string	expiryDate	-
+    * @param	string	recipientIntegrationId	-
     */
    
     public function update_coupon($applicationId, $campaignId, $couponId, $body, $query) {
@@ -386,12 +455,12 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId 
     * @param 	integer	   $campaignId 
     * @param 	string	   $couponId The ID of the coupon code to delete
+
     *
     */
    
@@ -401,9 +470,8 @@ class TalonOneManagement {
 
     /**
     * Gets a list of all the coupons that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request. 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
@@ -416,7 +484,10 @@ class TalonOneManagement {
     * @param 	string	   $usable Either "true" or "false". If "true", only coupons where `usageCounter < usageLimit` will be returned, "false" will return only coupons where `usageCounter >= usageLimit`.
     * @param 	integer	   $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
     * @param 	boolean	   $exactMatch Filter results to an exact case-insensitive matching against the coupon code
+
+    * $body accepted parameters
     *
+    * @param	object	attributes	-
     */
    
     public function get_coupons_by_attributes($applicationId, $campaignId, $body, $query) {
@@ -425,9 +496,8 @@ class TalonOneManagement {
 
     /**
     * Gets a list of all the coupons that exactly match a set of attributes from all campaigns.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request. 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
@@ -439,7 +509,10 @@ class TalonOneManagement {
     * @param 	string	   $usable Either "true" or "false". If "true", only coupons where `usageCounter < usageLimit` will be returned, "false" will return only coupons where `usageCounter >= usageLimit`.
     * @param 	integer	   $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
     * @param 	boolean	   $exactMatch Filter results to an exact case-insensitive matching against the coupon code
+
+    * $body accepted parameters
     *
+    * @param	object	attributes	-
     */
    
     public function get_coupons_by_attributes_application_wide($applicationId, $body, $query) {
@@ -448,9 +521,8 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
@@ -461,6 +533,7 @@ class TalonOneManagement {
     * @param 	string	   $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
     * @param 	string	   $valid Either "expired", "validNow", or "validFuture". The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.
     * @param 	string	   $usable Either "true" or "false". If "true", only referrals where `usageCounter < usageLimit` will be returned, "false" will return only referrals where `usageCounter >= usageLimit`.
+
     *
     */
    
@@ -470,12 +543,12 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId 
     * @param 	integer	   $campaignId 
     * @param 	string	   $referralId The ID of the referral code to delete
+
     *
     */
    
@@ -485,10 +558,10 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId 
+
     *
     */
    
@@ -498,9 +571,8 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId 
     * @param 	string	   $path Only return results where the request path matches the given regular expresssion.
     * @param 	string	   $method Only return results where the request method matches the given regular expresssion.
@@ -509,6 +581,7 @@ class TalonOneManagement {
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+
     *
     */
    
@@ -518,9 +591,8 @@ class TalonOneManagement {
 
     /**
     * Fetches the access logs for the entire account. Sensitive requests (logins) are _always_ filtered from the logs. 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	string	   $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string
     * @param 	string	   $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string
     * @param 	string	   $path Only return results where the request path matches the given regular expresssion.
@@ -528,6 +600,7 @@ class TalonOneManagement {
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+
     *
     */
    
@@ -537,9 +610,8 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
@@ -547,6 +619,7 @@ class TalonOneManagement {
     * @param 	string	   $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string
     * @param 	integer	   $applicationId 
     * @param 	integer	   $campaignId 
+
     *
     */
    
@@ -556,10 +629,10 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId 
+
     *
     */
    
@@ -569,11 +642,11 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId 
     * @param 	integer	   $customerId 
+
     *
     */
    
@@ -583,9 +656,8 @@ class TalonOneManagement {
 
     /**
     * Fetch summary reports for all application customers based on a time range
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
@@ -596,6 +668,7 @@ class TalonOneManagement {
     * @param 	string	   $integrationId Only return reports matching the integrationId
     * @param 	string	   $campaignName Only return reports matching the campaignName
     * @param 	string	   $advocateName Only return reports matching the current customer referrer name
+
     *
     */
    
@@ -605,15 +678,15 @@ class TalonOneManagement {
 
     /**
     * Fetch summary report for single application customer based on a time range
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string
     * @param 	string	   $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string
     * @param 	integer	   $applicationId 
     * @param 	integer	   $customerId 
+
     *
     */
    
@@ -623,14 +696,14 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	string	   $profile Profile integration ID filter for sessions. Must be exact match.
     * @param 	integer	   $applicationId 
+
     *
     */
    
@@ -640,11 +713,11 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $applicationId 
     * @param 	integer	   $sessionId 
+
     *
     */
    
@@ -654,9 +727,8 @@ class TalonOneManagement {
 
     /**
     * Lists all events recorded for an application. 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
@@ -672,6 +744,7 @@ class TalonOneManagement {
     * @param 	string	   $ruleQuery Rule name filter for events
     * @param 	string	   $campaignQuery Campaign name filter for events
     * @param 	integer	   $applicationId 
+
     *
     */
    
@@ -681,13 +754,13 @@ class TalonOneManagement {
 
     /**
     * Get all of the distinct values of the Event `type` property for events recorded in the application.  See also: [Track an event](/integration-api/reference/#trackEvent) 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
+
     *
     */
    
@@ -697,12 +770,12 @@ class TalonOneManagement {
 
     /**
     * Retrieve all users in your account. 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $pageSize The number of items to include in this response.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+
     *
     */
    
@@ -711,27 +784,19 @@ class TalonOneManagement {
     }
 
     /**
-    * Get list of changes caused by API calls for an account. Only accessible for admins.
     * 
-    * Payload:
-    * 
-    * @param 	integer	   $pageSize The number of items to include in this response.
-    * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
-    * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+    * Arguments
     *
-    */
-   
-    public function get_changes($query) {
-      return $this->get("changes", $query);
-    }
-
-    /**
-    * 
-    * 
-    * Payload:
-    * 
     * @param 	integer	   $userId 
+
+    * $body accepted parameters
     *
+    * @param	string	email	-
+    * @param	string	name	-
+    * @param	string	password	-
+    * @param	string	newPassword	-
+    * @param	string	state	-
+    * @param	boolean	releaseUpdate	-
     */
    
     public function update_user($userId, $body, $query) {
@@ -740,10 +805,10 @@ class TalonOneManagement {
 
     /**
     * Retrieves the data (including an invitation code) for a user. Non-admin users can only get themselves. 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $userId 
+
     *
     */
    
@@ -752,11 +817,27 @@ class TalonOneManagement {
     }
 
     /**
-    * Creates a new invitation within your account. To trigger sending of an invitation email, use the `createInviteEmail` operation below. 
-    * 
-    * Payload:
-    * 
+    * Get list of changes caused by API calls for an account. Only accessible for admins.
+    * Arguments
     *
+    * @param 	integer	   $pageSize The number of items to include in this response.
+    * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
+    * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+
+    *
+    */
+   
+    public function get_changes($query) {
+      return $this->get("changes", $query);
+    }
+
+    /**
+    * Creates a new invitation within your account. To trigger sending of an invitation email, use the `createInviteEmail` operation below. 
+    *
+    * $body accepted parameters
+    *
+    * @param	string	name	-
+    * @param	string	email	-
     */
    
     public function create_invite($body, $query) {
@@ -765,10 +846,11 @@ class TalonOneManagement {
 
     /**
     * Given a token & email address, send an invitation email. 
-    * 
-    * Payload:
-    * 
     *
+    * $body accepted parameters
+    *
+    * @param	string	email	-
+    * @param	string	token	-
     */
    
     public function create_invite_email($body, $query) {
@@ -777,10 +859,11 @@ class TalonOneManagement {
 
     /**
     * Update the details of your companies Talon.One account. The fields below are the only ones that accept updates via the API. 
-    * 
-    * Payload:
-    * 
     *
+    * $body accepted parameters
+    *
+    * @param	string	companyName	-
+    * @param	string	billingEmail	-
     */
    
     public function update_account($accountId, $body, $query) {
@@ -789,10 +872,10 @@ class TalonOneManagement {
 
     /**
     * Return the details of your companies Talon.One account. 
-    * 
-    * Payload:
-    * 
+    * Arguments
+    *
     * @param 	integer	   $accountId 
+
     *
     */
    
@@ -802,10 +885,11 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
     *
+    * $body accepted parameters
+    *
+    * @param	string	email	-
+    * @param	string	password	-
     */
    
     public function create_session($body, $query) {
@@ -814,9 +898,7 @@ class TalonOneManagement {
 
     /**
     * 
-    * 
-    * Payload:
-    * 
+    *
     *
     */
    
@@ -826,10 +908,10 @@ class TalonOneManagement {
 
     /**
     * Updates your personal configuration of the Campaign Manager. As mentioned above, this configuration has no effect on the behaviour of the API or environment. 
-    * 
-    * Payload:
-    * 
     *
+    * $body accepted parameters
+    *
+    * @param	integer	schemaVersion	-
     */
    
     public function update_manager_config($body, $query) {
@@ -838,10 +920,8 @@ class TalonOneManagement {
 
     /**
     * Get the current users individual campaign manager configuration. This configuration contains settings for the UI that have no effect on the operation of the API or environment. 
-    * 
-    * Payload:
-    * 
     * -
+    *
     */
    
     public function get_manager_config($query) {
@@ -850,9 +930,7 @@ class TalonOneManagement {
 
     /**
     * Get a list of all past exports 
-    * 
-    * Payload:
-    * 
+    *
     *
     */
    
@@ -862,10 +940,11 @@ class TalonOneManagement {
 
     /**
     * This endpoint can be used to record the date and time of an Export. 
-    * 
-    * Payload:
-    * 
     *
+    * $body accepted parameters
+    *
+    * @param	string	entity	-
+    * @param	object	filter	-
     */
    
     public function create_export($body, $query) {

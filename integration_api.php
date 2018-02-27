@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Mon Feb 26 2018 13:37:50 GMT+0100 (CET)
+* Generated at Tue Feb 27 2018 14:21:39 GMT+0100 (CET)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -61,8 +61,13 @@ class TalonOne {
     * 
     * Payload:
     * 
-    * @param 	string	   $integrationId The custom identifier for this profile, must be unique within the account.
+    * Arguments
     *
+    * @param 	string	   $integrationId The custom identifier for this profile, must be unique within the account.
+
+    * $body accepted parameters
+    *
+    * @param	object	attributes	-
     */
    
     public function update_customer_profile($integrationId, $body) {
@@ -75,6 +80,9 @@ class TalonOne {
     * Payload:
     * 
     *
+    * $body accepted parameters
+    *
+    * @param	object	attributes	-
     */
    
     public function get_customer_profiles_by_attributes($body) {
@@ -86,8 +94,31 @@ class TalonOne {
     * 
     * Payload:
     * 
-    * @param 	string	   $customerSessionId The custom identifier for this session, must be unique within the account.
+    * Arguments
     *
+    * @param 	string	   $customerSessionId The custom identifier for this session, must be unique within the account.
+
+    * $body accepted parameters
+    *
+    * @param	string	profileId	-
+    * @param	string	coupon	-
+    * @param	string	referral	-
+    * @param	string	state	-
+    * @param	array	cartItems	-
+    *     @param	string	name	undefined
+    *     @param	string	sku	undefined
+    *     @param	integer	quantity	undefined
+    *     @param	number	price	undefined
+    *     @param	string	category	undefined
+    *     @param	number	weight	Weight of item in mm
+    *     @param	number	height	Height of item in mm
+    *     @param	number	width	Width of item in mm
+    *     @param	number	length	Length of item in mm
+    *     @param	number	position	Position of the Cart Item in the Cart (calculated internally)
+    *     @param	object	attributes	Arbitrary properties associated with this item
+    *     @param	undefined	adjustment	undefined
+    * @param	number	total	-
+    * @param	object	attributes	-
     */
    
     public function update_customer_session($customerSessionId, $body) {
@@ -100,6 +131,12 @@ class TalonOne {
     * Payload:
     * 
     *
+    * $body accepted parameters
+    *
+    * @param	string	profileId	-
+    * @param	string	sessionId	-
+    * @param	string	type	-
+    * @param	object	attributes	-
     */
    
     public function track_event($body) {
@@ -112,6 +149,13 @@ class TalonOne {
     * Payload:
     * 
     *
+    * $body accepted parameters
+    *
+    * @param	integer	campaignId	-
+    * @param	string	advocateProfileIntegrationId	-
+    * @param	string	friendProfileIntegrationId	-
+    * @param	string	startDate	-
+    * @param	string	expiryDate	-
     */
    
     public function create_referral($body) {
