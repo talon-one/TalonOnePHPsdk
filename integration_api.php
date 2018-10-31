@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Fri Oct 12 2018 15:18:42 GMT+0200 (CEST)
+* Generated at Wed Oct 31 2018 10:04:49 GMT+0100 (CET)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -131,6 +131,19 @@ class TalonOne {
  
     public function create_referral($body) {
         return $this->apiRequest("POST", "referrals", $body);
+    }
+
+    /**
+    * Delete all attributes on the customer profile and on entities that reference that customer profile. 
+    * Arguments
+    *
+    * @param 	string	   $integrationId The custom identifier for this profile, must be unique within the account.
+
+    *
+    */
+ 
+    public function delete_customer_data($integrationId, $body) {
+        return $this->apiRequest("DELETE", "customer_data/$integrationId", $body);
     }
 
 }
