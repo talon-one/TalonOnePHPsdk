@@ -142,7 +142,7 @@ class TalonOne {
     *
     */
  
-    public function delete_customer_data($integrationId, $body) {
+    public function delete_customer_data($integrationId, $body = array()) {
         return $this->apiRequest("DELETE", "customer_data/$integrationId", $body);
     }
 
