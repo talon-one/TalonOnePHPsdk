@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Mon Feb 26 2018 13:37:50 GMT+0100 (CET)
+* Generated at Mon Apr 15 2019 14:16:52 GMT+0200 (Central European Summer Time)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -13,8 +13,8 @@ $t = new TalonOne();
 $tm = new TalonOneManagement();
 
 $t->subdomain = "demo";
-$t->applicationId = 1;
-$t->applicationKey = "ff164d01c11d9571";
+$t->applicationId = 73;
+$t->applicationKey = "e3b620ed8144f292";
 
 // Refer to http://developers.talon.one/data-model/attribute-library/ for additional attributes
 $response = $t->update_customer_profile("any_give_integration_id",
