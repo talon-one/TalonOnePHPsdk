@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Mon Apr 15 2019 14:16:52 GMT+0200 (Central European Summer Time)
+* Generated at Mon May 20 2019 17:06:29 GMT+0200 (CEST)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -839,7 +839,7 @@ class TalonOneManagement {
     }
 
     /**
-    * Gets a list of all the cusomer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile 
+    * Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile 
     * Arguments
     *
     * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
@@ -870,7 +870,8 @@ class TalonOneManagement {
     * 
     * Arguments
     *
-    * @param 	integer	   $applicationId 
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
 
     *
     */
@@ -880,7 +881,7 @@ class TalonOneManagement {
     }
 
     /**
-    * Gets a list of all the cusomer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile 
+    * Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile 
     * Arguments
     *
 
@@ -965,6 +966,23 @@ class TalonOneManagement {
  
     public function get_customer_activity_report($applicationId, $customerId, $query) {
       return $this->get("applications/$applicationId/customer_activity_reports/$customerId", $query);
+    }
+
+    /**
+    * Fetch analytics for single application customer
+    * Arguments
+    *
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
+    * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+    * @param 	integer	   $applicationId 
+    * @param 	integer	   $customerId 
+
+    *
+    */
+ 
+    public function get_customer_analytics($applicationId, $customerId, $query) {
+      return $this->get("applications/$applicationId/customers/$customerId/analytics", $query);
     }
 
     /**
@@ -1259,6 +1277,45 @@ class TalonOneManagement {
  
     public function get_account($accountId, $query) {
       return $this->get("accounts/$accountId", $query);
+    }
+
+    /**
+    * Return the analytics of your companies Talon.One account. 
+    * Arguments
+    *
+    * @param 	integer	   $accountId 
+
+    *
+    */
+ 
+    public function get_account_analytics($accountId, $query) {
+      return $this->get("accounts/$accountId/analytics", $query);
+    }
+
+    /**
+    * Returns a list of all account limits set 
+    * Arguments
+    *
+    * @param 	integer	   $accountId 
+
+    *
+    */
+ 
+    public function get_account_limits($accountId, $query) {
+      return $this->get("accounts/$accountId/limits", $query);
+    }
+
+    /**
+    * sets account limits  
+    * Arguments
+    *
+    * @param 	integer	   $accountId 
+
+    *
+    */
+ 
+    public function set_account_limits($accountId, $body) {
+      return $this->put("accounts/$accountId/limits", $body);
     }
 
     /**

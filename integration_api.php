@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Wed Oct 31 2018 10:04:49 GMT+0100 (CET)
+* Generated at Mon May 20 2019 17:06:29 GMT+0200 (CEST)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -57,7 +57,7 @@ class TalonOne {
     }
 
     /**
-    * Update (or create) a [Customer Profile][]. This profile information can then be matched and/or updated by campaign [Rules][].  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /entities/#customer-profile [Rules]: /entities/#campaigns-rulesets-and-coupons 
+    * Update (or create) a [Customer Profile][]. This profile information can then be matched and/or updated by campaign [Rules][].  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons 
     * Arguments
     *
     * @param 	string	   $integrationId The custom identifier for this profile, must be unique within the account.
@@ -70,31 +70,12 @@ class TalonOne {
     }
 
     /**
-    * Update (or create) a [Customer Session][]. For example, the items in a customers cart are part of a session.  The Talon.One platform supports multiple simultaneous sessions for the same profile, so if you have multiple ways of accessing the same application you have the option of either tracking multiple independent sessions or using the same session across all of them. You should share sessions when application access points share other state, such as the users cart. If two points of access to the application have independent state (e.g. a user can have different items in their cart across the two) they should use independent customer session ID's.  The `profileId` parameter in the request body should correspond to an `integrationId` for a customer profile, to track an anonymous session use the empty string (`""`) as the `profileId`. Note that you do **not** need to create a customer profile first: if the specified profile does not yet exist, an empty profile will be created automatically.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated.  [Customer Session]: /entities/#customer-session 
+    * Update (or create) a [Customer Session][]. For example, the items in a customers cart are part of a session.  The Talon.One platform supports multiple simultaneous sessions for the same profile, so if you have multiple ways of accessing the same application you have the option of either tracking multiple independent sessions or using the same session across all of them. You should share sessions when application access points share other state, such as the users cart. If two points of access to the application have independent state (e.g. a user can have different items in their cart across the two) they should use independent customer session ID's.  The `profileId` parameter in the request body should correspond to an `integrationId` for a customer profile, to track an anonymous session use the empty string (`""`) as the `profileId`. Note that you do **not** need to create a customer profile first: if the specified profile does not yet exist, an empty profile will be created automatically.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated.  [Customer Session]: /Getting-Started/entities#customer-session 
     * Arguments
     *
     * @param 	string	   $customerSessionId The custom identifier for this session, must be unique within the account.
 
-    * $body accepted parameters
-    * profileId	| string	| ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
-    * coupon	| string	| Any coupon code entered.
-    * referral	| string	| Any referral code entered.
-    * state	| string	| Indicates the current state of the session. All sessions must*start in the "open" state, after which valid transitions are...**1. open -> closed*2. open -> cancelled*3. closed -> cancelled*
-    * cartItems	| array	| Serialized JSON representation.
-    * cartItems[]
-    *    [name]	string	Name of item
-    *    [sku]	string	SKU of item
-    *    [quantity]	integer	Quantity of item
-    *    [price]	number	Price of item
-    *    [category]	string	Item category
-    *    [weight]	number	Weight of item
-    *    [height]	number	Height of item
-    *    [width]	number	Width of item
-    *    [length]	number	Length of item
-    *    [position]	number	Position of Cart Item
-    *    [attributes]	object	Item attributes
-    *    [adjustment]	object	-
-    * total	| number	| The total sum of the cart in one session.
+    *
     */
  
     public function update_customer_session($customerSessionId, $body) {
@@ -106,10 +87,7 @@ class TalonOne {
     * Arguments
     *
 
-    * $body accepted parameters
-    * profileId	| string	| ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
-    * sessionId	| string	| The ID of the session that this event occurred in.
-    * type	| string	| A string representing the event. Must not be a reserved event name.
+    *
     */
  
     public function track_event($body) {
@@ -121,12 +99,7 @@ class TalonOne {
     * Arguments
     *
 
-    * $body accepted parameters
-    * campaignId	| integer	| ID of the campaign from which the referral received the referral code.
-    * advocateProfileIntegrationId	| string	| The Integration Id of the Advocate's Profile
-    * friendProfileIntegrationId	| string	| An optional Integration ID of the Friend's Profile
-    * startDate	| string	| Timestamp at which point the referral code becomes valid.
-    * expiryDate	| string	| Expiry date of the referral code. Referral never expires if this is omitted, zero, or negative.
+    *
     */
  
     public function create_referral($body) {
@@ -142,7 +115,7 @@ class TalonOne {
     *
     */
  
-    public function delete_customer_data($integrationId, $body = array()) {
+    public function delete_customer_data($integrationId, $body) {
         return $this->apiRequest("DELETE", "customer_data/$integrationId", $body);
     }
 
