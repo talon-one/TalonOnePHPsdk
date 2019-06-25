@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Mon May 20 2019 17:06:29 GMT+0200 (CEST)
+* Generated at Tue Jun 25 2019 15:10:26 GMT+0200 (CEST)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -9,17 +9,16 @@
 class TalonOne {
     public $applicationId;
     public $applicationKey;
+    public $apikey;
     public $subdomain;
-    
+
     public function apiRequest($method, $resource, $payload) {
         $baseUrl = "https://".$this->subdomain.".talon.one/v1";
-        $key = hex2bin($this->applicationKey);
         $jsonString = json_encode($payload);
-        $signature = hash_hmac('md5', $jsonString, $key);
         $url = $baseUrl.'/'.$resource;
         $headers = array(
             'Content-Type: application/json',
-            'Content-Signature: signer='.$this->applicationId.'; signature='.$signature
+            'Authorization: ApiKey-v1 ' .$this->apikey
         );
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);

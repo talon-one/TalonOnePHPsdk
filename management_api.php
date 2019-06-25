@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Mon May 20 2019 17:06:29 GMT+0200 (CEST)
+* Generated at Tue Jun 25 2019 15:10:26 GMT+0200 (CEST)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -80,7 +80,7 @@ class TalonOneManagement {
     * List all application in the current account.
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
@@ -121,7 +121,7 @@ class TalonOneManagement {
     * 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
@@ -220,7 +220,7 @@ class TalonOneManagement {
     * Gets a list of all the campaigns that exactly match a set of attributes. 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
@@ -251,7 +251,7 @@ class TalonOneManagement {
     * 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId 
@@ -342,7 +342,7 @@ class TalonOneManagement {
     * 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
@@ -399,7 +399,7 @@ class TalonOneManagement {
     * 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
@@ -455,7 +455,7 @@ class TalonOneManagement {
     * Gets a list of all the coupons that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request. 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
@@ -481,7 +481,7 @@ class TalonOneManagement {
     * Gets a list of all the coupons with attributes matching the query criteria Application wide 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
@@ -507,7 +507,7 @@ class TalonOneManagement {
     * Gets a list of all the coupons with attributes matching the query criteria 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
@@ -533,7 +533,7 @@ class TalonOneManagement {
     * Gets a list of all the coupons with attributes matching the query criteria 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
@@ -559,7 +559,7 @@ class TalonOneManagement {
     * Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
@@ -585,7 +585,7 @@ class TalonOneManagement {
     * Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
@@ -611,7 +611,7 @@ class TalonOneManagement {
     * 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId 
@@ -649,7 +649,7 @@ class TalonOneManagement {
     * 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId 
@@ -756,7 +756,7 @@ class TalonOneManagement {
     * @param 	string	   $status Filter results by HTTP status codes.
     * @param 	string	   $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string
     * @param 	string	   $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
@@ -777,7 +777,7 @@ class TalonOneManagement {
     * @param 	string	   $status Filter results by HTTP status codes.
     * @param 	string	   $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string
     * @param 	string	   $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
@@ -797,7 +797,7 @@ class TalonOneManagement {
     * @param 	string	   $path Only return results where the request path matches the given regular expresssion.
     * @param 	string	   $method Only return results where the request method matches the given regular expresssion.
     * @param 	string	   $status Filter results by HTTP status codes.
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
@@ -842,7 +842,7 @@ class TalonOneManagement {
     * Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
 
     *
@@ -870,7 +870,7 @@ class TalonOneManagement {
     * 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
 
     *
@@ -910,7 +910,7 @@ class TalonOneManagement {
     * Fetch summary reports for all application customers based on a time range
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	string	   $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string
@@ -932,7 +932,7 @@ class TalonOneManagement {
     * Fetch summary reports for all application customers based on a time range. Instead of having the total number of results in the response, this endpoint only if there are more results.
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	string	   $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string
@@ -954,7 +954,7 @@ class TalonOneManagement {
     * Fetch summary report for single application customer based on a time range
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string
     * @param 	string	   $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string
@@ -972,7 +972,7 @@ class TalonOneManagement {
     * Fetch analytics for single application customer
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId 
@@ -989,7 +989,7 @@ class TalonOneManagement {
     * 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	string	   $profile Profile integration ID filter for sessions. Must be exact match.
@@ -1020,7 +1020,7 @@ class TalonOneManagement {
     * Lists all events recorded for an application. 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	string	   $type Comma-separated list of types by which to filter events. Must be exact match(es).
@@ -1047,7 +1047,7 @@ class TalonOneManagement {
     * Lists all events recorded for an application. Instead of having the total number of results in the response, this endpoint only if there are more results. 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	string	   $type Comma-separated list of types by which to filter events. Must be exact match(es).
@@ -1074,7 +1074,7 @@ class TalonOneManagement {
     * Get all of the distinct values of the Event `type` property for events recorded in the application.  See also: [Track an event](/integration-api/reference/#trackEvent) 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	integer	   $applicationId -
@@ -1105,7 +1105,7 @@ class TalonOneManagement {
     *
     * @param 	string	   $applicationIds Filter by one or more application ids separated by comma
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
 
     *
@@ -1132,7 +1132,7 @@ class TalonOneManagement {
     * Webhook activation log entries would be created as soon as an integration request triggered an effect with a webhook
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	string	   $integrationRequestUuid Filter results by integration request UUID.
@@ -1153,7 +1153,7 @@ class TalonOneManagement {
     * 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
     * @param 	string	   $status Filter results by HTTP status codes.
@@ -1178,7 +1178,7 @@ class TalonOneManagement {
     * @param 	string	   $applicationIds Filter by one or more application ids separated by comma
     * @param 	string	   $name Filter results to event types with the given name. This parameter implies `includeOldVersions`.
     * @param 	boolean	   $includeOldVersions Include all versions of every event type.
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
@@ -1203,7 +1203,7 @@ class TalonOneManagement {
     * Retrieve all users in your account. 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
@@ -1231,7 +1231,7 @@ class TalonOneManagement {
     * Get list of changes caused by API calls for an account. Only accessible for admins.
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
@@ -1334,7 +1334,7 @@ class TalonOneManagement {
     * Get a list of all past exports 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	integer	   $applicationId -
     * @param 	integer	   $campaignId -
@@ -1351,7 +1351,7 @@ class TalonOneManagement {
     * Get a list of all past imports 
     * Arguments
     *
-    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1500 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
 
     *
