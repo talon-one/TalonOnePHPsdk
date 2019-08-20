@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Tue Jun 25 2019 15:10:26 GMT+0200 (CEST)
+* Generated at Tue Aug 20 2019 15:48:11 GMT+0200 (CEST)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -11,9 +11,6 @@ include 'management_api.php';
 
 $t = new TalonOne();
 $tm = new TalonOneManagement();
-
-$t->applicationId = 1;
-$t->applicationKey = "2f276f93baf3d415";
 
 // set apikey for the integration api
 $t->apikey = "dbc644d33aa74d582bd9479c59e16f970fe13bf34a208c39d6c7fa7586968468";

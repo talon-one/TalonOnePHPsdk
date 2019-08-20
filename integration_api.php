@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Tue Jun 25 2019 15:10:26 GMT+0200 (CEST)
+* Generated at Tue Aug 20 2019 15:48:11 GMT+0200 (CEST)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -116,6 +116,58 @@ class TalonOne {
  
     public function delete_customer_data($integrationId, $body) {
         return $this->apiRequest("DELETE", "customer_data/$integrationId", $body);
+    }
+
+    /**
+    * Creates a coupon reservation for all passed customer profiles on this couponID 
+    * Arguments
+    *
+    * @param 	string	   $couponValue The value of a coupon
+
+    *
+    */
+ 
+    public function create_coupon_reservation($couponValue, $body) {
+        return $this->apiRequest("POST", "coupon_reservations/$couponValue", $body);
+    }
+
+    /**
+    * Removes all passed customer profiles reservation from this coupon 
+    * Arguments
+    *
+    * @param 	string	   $couponValue The value of a coupon
+
+    *
+    */
+ 
+    public function delete_coupon_reservation($couponValue, $body) {
+        return $this->apiRequest("DELETE", "coupon_reservations/$couponValue", $body);
+    }
+
+    /**
+    * Returns all users that have this coupon marked as reserved 
+    * Arguments
+    *
+    * @param 	string	   $couponValue The value of a coupon
+
+    *
+    */
+ 
+    public function get_reserved_customers($couponValue, $body) {
+        return $this->apiRequest("GET", "coupon_reservations/customerprofiles/$couponValue", $body);
+    }
+
+    /**
+    * Returns all coupons this user is subscribed to that are valid and usable 
+    * Arguments
+    *
+    * @param 	string	   $integrationId The custom identifier for this profile, must be unique within the account.
+
+    *
+    */
+ 
+    public function get_reserved_coupons($integrationID, $body) {
+        return $this->apiRequest("GET", "coupon_reservations/coupons/$integrationID", $body);
     }
 
 }
