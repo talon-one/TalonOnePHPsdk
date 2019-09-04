@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Tue Aug 20 2019 15:48:11 GMT+0200 (CEST)
+* Generated at Wed Sep 04 2019 15:59:06 GMT+0200 (CEST)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -166,8 +166,8 @@ class TalonOne {
     *
     */
  
-    public function get_reserved_coupons($integrationID, $body) {
-        return $this->apiRequest("GET", "coupon_reservations/coupons/$integrationID", $body);
+    public function get_reserved_coupons($integrationId, $body) {
+        return $this->apiRequest("GET", "coupon_reservations/coupons/$integrationId", $body);
     }
 
 }

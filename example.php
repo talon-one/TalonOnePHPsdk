@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Tue Aug 20 2019 15:48:11 GMT+0200 (CEST)
+* Generated at Wed Sep 04 2019 15:59:06 GMT+0200 (CEST)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -12,6 +12,9 @@ include 'management_api.php';
 $t = new TalonOne();
 $tm = new TalonOneManagement();
 
+// set your subdomain
+$t->subdomain = "demo";
+
 // set apikey for the integration api
 $t->apikey = "dbc644d33aa74d582bd9479c59e16f970fe13bf34a208c39d6c7fa7586968468";
 
@@ -21,7 +24,7 @@ $response = $t->update_customer_profile("any_given_integration_id",
 print_r($response);
 
 // get an application by id
-if ($tm->createManagementSession("demo@talon.one","Demo1234")) {
+if ($tm->createManagementSession("admin@talon.one","VerySecurePassword!")) {
     print_r($tm->get_campaign_analytics(1, 1, array('rangeStart' => '2016-06-14T13:09:35.835Z', 'rangeEnd' => '2018-06-14T13:09:35.835Z')));
     $tm->destroyManagementSession();
 }
