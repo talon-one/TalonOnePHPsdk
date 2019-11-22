@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Wed Sep 04 2019 15:59:06 GMT+0200 (CEST)
+* Generated at Fri Nov 22 2019 16:26:27 GMT+0100 (CET)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -816,7 +816,7 @@ class TalonOneManagement {
     * 
     * Arguments
     *
-    * @param 	integer	   $applicationId The identifier for the application
+    * @param 	integer	   $applicationId -
     * @param 	integer	   $campaignId 
     * @param 	string	   $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string
     * @param 	string	   $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string
@@ -1240,6 +1240,13 @@ class TalonOneManagement {
     * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
     * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+    * @param 	integer	   $applicationId -
+    * @param 	string	   $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
+    * @param 	string	   $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
+    * @param 	boolean	   $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets.
+    *                                         With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero.
+    *                                         With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.
+    * @param 	boolean	   $includeOld When this flag is set to false, the state without the change will not be returned. The default value is true.
 
     *
     */
