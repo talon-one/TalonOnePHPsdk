@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Fri Nov 22 2019 16:26:27 GMT+0100 (CET)
+* Generated at Fri Dec 20 2019 10:13:59 GMT+0100 (CET)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -314,7 +314,7 @@ class TalonOneManagement {
     }
 
     /**
-    * Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupns can be created.
+    * Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupons can be created.
     * Arguments
     *
     * @param 	string	   $silent If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000).
@@ -755,8 +755,8 @@ class TalonOneManagement {
     * Arguments
     *
     * @param 	integer	   $applicationId 
-    * @param 	string	   $path Only return results where the request path matches the given regular expresssion.
-    * @param 	string	   $method Only return results where the request method matches the given regular expresssion.
+    * @param 	string	   $path Only return results where the request path matches the given regular expression.
+    * @param 	string	   $method Only return results where the request method matches the given regular expression.
     * @param 	string	   $status Filter results by HTTP status codes.
     * @param 	string	   $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string
     * @param 	string	   $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string
@@ -776,8 +776,8 @@ class TalonOneManagement {
     * Arguments
     *
     * @param 	integer	   $applicationId 
-    * @param 	string	   $path Only return results where the request path matches the given regular expresssion.
-    * @param 	string	   $method Only return results where the request method matches the given regular expresssion.
+    * @param 	string	   $path Only return results where the request path matches the given regular expression.
+    * @param 	string	   $method Only return results where the request method matches the given regular expression.
     * @param 	string	   $status Filter results by HTTP status codes.
     * @param 	string	   $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string
     * @param 	string	   $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string
@@ -798,8 +798,8 @@ class TalonOneManagement {
     *
     * @param 	string	   $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string
     * @param 	string	   $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string
-    * @param 	string	   $path Only return results where the request path matches the given regular expresssion.
-    * @param 	string	   $method Only return results where the request method matches the given regular expresssion.
+    * @param 	string	   $path Only return results where the request path matches the given regular expression.
+    * @param 	string	   $method Only return results where the request method matches the given regular expression.
     * @param 	string	   $status Filter results by HTTP status codes.
     * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
     * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
@@ -843,7 +843,7 @@ class TalonOneManagement {
     }
 
     /**
-    * Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile 
+    * Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
     * Arguments
     *
     * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
@@ -885,7 +885,7 @@ class TalonOneManagement {
     }
 
     /**
-    * Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile 
+    * Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
     * Arguments
     *
 
@@ -1093,6 +1093,33 @@ class TalonOneManagement {
     }
 
     /**
+    * Defines a new _custom attribute_ in this account. Custom attributes allow you to attach new fields to Talon.One domain objects like campaigns, coupons, customers and so on. These attributes can then be given values when creating / updating these objects, and these values can be used in your campaign rules. For example, you could define a `zipCode` field for customer sessions, and add a rule to your campaign that only allows certain ZIP codes.  These attributes are shared across all applications in your account, and are never required. 
+    * Arguments
+    *
+
+    *
+    */
+ 
+    public function create_attribute($body) {
+      return $this->post("attributes", $body);
+    }
+
+    /**
+    * Returns all the defined custom attributes for the account. 
+    * Arguments
+    *
+    * @param 	integer	   $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+    * @param 	integer	   $skip Skips the given number of items when paging through large result sets.
+    * @param 	string	   $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+
+    *
+    */
+ 
+    public function get_attributes($query) {
+      return $this->get("attributes", $query);
+    }
+
+    /**
     * Returns custom attribute for the account by its id. 
     * Arguments
     *
@@ -1103,6 +1130,19 @@ class TalonOneManagement {
  
     public function get_attribute($attributeId, $query) {
       return $this->get("attributes/$attributeId", $query);
+    }
+
+    /**
+    * Updates an existing custom attribute. Once created, the only property of a custom attribute that can be changed is the title (human readable description). This restriction is in place to prevent accidentally breaking live integrations. E.g. if you have a customer profile attribute with the name `region`, and your integration is sending `attributes.region` with customer profile updates, changing the name to `locale` would cause the integration requests to begin failing.  If you **really** need to change the `type` or `name` property of a custom attribute, create a new attribute and update any relevant integrations and rules to use the new attribute. Then delete the old attribute when you are confident you have migrated any needed data from the old attribute to the new one. 
+    * Arguments
+    *
+    * @param 	integer	   $attributeId -
+
+    *
+    */
+ 
+    public function update_attribute($attributeId, $body) {
+      return $this->put("attributes/$attributeId", $body);
     }
 
     /**
@@ -1303,32 +1343,6 @@ class TalonOneManagement {
  
     public function get_account_analytics($accountId, $query) {
       return $this->get("accounts/$accountId/analytics", $query);
-    }
-
-    /**
-    * Returns a list of all account limits set 
-    * Arguments
-    *
-    * @param 	integer	   $accountId 
-
-    *
-    */
- 
-    public function get_account_limits($accountId, $query) {
-      return $this->get("accounts/$accountId/limits", $query);
-    }
-
-    /**
-    * sets account limits 
-    * Arguments
-    *
-    * @param 	integer	   $accountId 
-
-    *
-    */
- 
-    public function set_account_limits($accountId, $body) {
-      return $this->put("accounts/$accountId/limits", $body);
     }
 
     /**

@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Generated at Fri Nov 22 2019 16:26:27 GMT+0100 (CET)
+* Generated at Fri Dec 20 2019 10:13:59 GMT+0100 (CET)
 * Author: Talon.One
 * The contents of this file are auto generated
 */
@@ -168,6 +168,21 @@ class TalonOne {
  
     public function get_reserved_coupons($integrationId, $body) {
         return $this->apiRequest("GET", "coupon_reservations/coupons/$integrationId", $body);
+    }
+
+    /**
+    * Get information regarding entities referencing this customer profile's integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+    * Arguments
+    *
+    * @param 	string	   $integrationId The custom identifier for this profile, must be unique within the account.
+    * @param 	bool	   $profile optional flag to decide if you would like customer profile information in the response
+    * @param 	bool	   $referrals optional flag to decide if you would like referral information in the response
+
+    *
+    */
+ 
+    public function get_customer_inventory($integrationId, $body) {
+        return $this->apiRequest("GET", "customer_profiles/$integrationId/inventory", $body);
     }
 
 }
