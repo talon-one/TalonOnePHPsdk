@@ -325,8 +325,8 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     $config
 );
 $integration_id = 'integration_id_example'; // string | The custom identifier for this profile, must be unique within the account.
-$profile = new \stdClass; // object | optional flag to decide if you would like customer profile information in the response
-$referrals = new \stdClass; // object | optional flag to decide if you would like referral information in the response
+$profile = True; // bool | optional flag to decide if you would like customer profile information in the response
+$referrals = True; // bool | optional flag to decide if you would like referral information in the response
 
 try {
     $result = $apiInstance->getCustomerInventory($integration_id, $profile, $referrals);
@@ -343,8 +343,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **integration_id** | **string**| The custom identifier for this profile, must be unique within the account. |
- **profile** | [**object**](../Model/.md)| optional flag to decide if you would like customer profile information in the response | [optional]
- **referrals** | [**object**](../Model/.md)| optional flag to decide if you would like referral information in the response | [optional]
+ **profile** | **bool**| optional flag to decide if you would like customer profile information in the response | [optional]
+ **referrals** | **bool**| optional flag to decide if you would like referral information in the response | [optional]
 
 ### Return type
 

@@ -1176,8 +1176,8 @@ class IntegrationApi
      * Get an inventory of all data associated with a specific customer profile.
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
-     * @param  object $profile optional flag to decide if you would like customer profile information in the response (optional)
-     * @param  object $referrals optional flag to decide if you would like referral information in the response (optional)
+     * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
+     * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1195,8 +1195,8 @@ class IntegrationApi
      * Get an inventory of all data associated with a specific customer profile.
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
-     * @param  object $profile optional flag to decide if you would like customer profile information in the response (optional)
-     * @param  object $referrals optional flag to decide if you would like referral information in the response (optional)
+     * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
+     * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1285,8 +1285,8 @@ class IntegrationApi
      * Get an inventory of all data associated with a specific customer profile.
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
-     * @param  object $profile optional flag to decide if you would like customer profile information in the response (optional)
-     * @param  object $referrals optional flag to decide if you would like referral information in the response (optional)
+     * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
+     * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1307,8 +1307,8 @@ class IntegrationApi
      * Get an inventory of all data associated with a specific customer profile.
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
-     * @param  object $profile optional flag to decide if you would like customer profile information in the response (optional)
-     * @param  object $referrals optional flag to decide if you would like referral information in the response (optional)
+     * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
+     * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1356,8 +1356,8 @@ class IntegrationApi
      * Create request for operation 'getCustomerInventory'
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
-     * @param  object $profile optional flag to decide if you would like customer profile information in the response (optional)
-     * @param  object $referrals optional flag to decide if you would like referral information in the response (optional)
+     * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
+     * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
