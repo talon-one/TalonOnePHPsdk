@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * LoyaltySubLedger Class Doc Comment
  *
  * @category Class
  * @description Ledger of Balance in Loyalty Program for a Customer
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,8 +59,8 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'total' => 'float',
-        'transactions' => '\OpenAPI\Client\Model\LoyaltyLedgerEntry[]',
-        'expiring_points' => '\OpenAPI\Client\Model\LoyaltyLedgerEntry[]'
+        'transactions' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
+        'expiring_points' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]'
     ];
 
     /**
@@ -247,7 +247,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Gets transactions
      *
-     * @return \OpenAPI\Client\Model\LoyaltyLedgerEntry[]|null
+     * @return \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null
      */
     public function getTransactions()
     {
@@ -257,7 +257,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets transactions
      *
-     * @param \OpenAPI\Client\Model\LoyaltyLedgerEntry[]|null $transactions Transactions contains a list of all events that have happened such as additions, subtractions and expiries
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $transactions Transactions contains a list of all events that have happened such as additions, subtractions and expiries
      *
      * @return $this
      */
@@ -271,7 +271,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Gets expiring_points
      *
-     * @return \OpenAPI\Client\Model\LoyaltyLedgerEntry[]|null
+     * @return \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null
      */
     public function getExpiringPoints()
     {
@@ -281,7 +281,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets expiring_points
      *
-     * @param \OpenAPI\Client\Model\LoyaltyLedgerEntry[]|null $expiring_points ExpiringPoints contains a list of all points that will expiry and when
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $expiring_points ExpiringPoints contains a list of all points that will expiry and when
      *
      * @return $this
      */

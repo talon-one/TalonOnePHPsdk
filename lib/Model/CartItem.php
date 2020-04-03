@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * CartItem Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -68,7 +68,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'length' => 'float',
         'position' => 'float',
         'attributes' => 'object',
-        'adjustment' => '\OpenAPI\Client\Model\CartItemAdjustment'
+        'adjustment' => '\TalonOne\Client\Model\CartItemAdjustment'
     ];
 
     /**
@@ -576,7 +576,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets adjustment
      *
-     * @return \OpenAPI\Client\Model\CartItemAdjustment|null
+     * @return \TalonOne\Client\Model\CartItemAdjustment|null
      */
     public function getAdjustment()
     {
@@ -586,7 +586,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets adjustment
      *
-     * @param \OpenAPI\Client\Model\CartItemAdjustment|null $adjustment adjustment
+     * @param \TalonOne\Client\Model\CartItemAdjustment|null $adjustment adjustment
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * InlineResponse20015 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class InlineResponse20015 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'has_more' => 'bool',
-        'data' => '\OpenAPI\Client\Model\CustomerActivityReport[]'
+        'data' => '\TalonOne\Client\Model\CustomerActivityReport[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse20015 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\CustomerActivityReport[]
+     * @return \TalonOne\Client\Model\CustomerActivityReport[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20015 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\CustomerActivityReport[] $data data
+     * @param \TalonOne\Client\Model\CustomerActivityReport[] $data data
      *
      * @return $this
      */

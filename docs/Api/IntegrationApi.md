@@ -1,4 +1,4 @@
-# OpenAPI\Client\IntegrationApi
+# TalonOne\Client\IntegrationApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## createCouponReservation
 
-> \OpenAPI\Client\Model\Coupon createCouponReservation($coupon_value, $body)
+> \TalonOne\Client\Model\Coupon createCouponReservation($coupon_value, $body)
 
 Create a new coupon reservation
 
@@ -34,24 +34,24 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key_v1
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: integration_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\IntegrationApi(
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $coupon_value = 'coupon_value_example'; // string | The value of a coupon
-$body = new \OpenAPI\Client\Model\CouponReservations(); // \OpenAPI\Client\Model\CouponReservations | 
+$body = new \TalonOne\Client\Model\CouponReservations(); // \TalonOne\Client\Model\CouponReservations | 
 
 try {
     $result = $apiInstance->createCouponReservation($coupon_value, $body);
@@ -68,11 +68,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coupon_value** | **string**| The value of a coupon |
- **body** | [**\OpenAPI\Client\Model\CouponReservations**](../Model/CouponReservations.md)|  |
+ **body** | [**\TalonOne\Client\Model\CouponReservations**](../Model/CouponReservations.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Coupon**](../Model/Coupon.md)
+[**\TalonOne\Client\Model\Coupon**](../Model/Coupon.md)
 
 ### Authorization
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ## createReferral
 
-> \OpenAPI\Client\Model\Referral createReferral($body)
+> \TalonOne\Client\Model\Referral createReferral($body)
 
 Create a referral code for an advocate
 
@@ -104,23 +104,23 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key_v1
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: integration_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\IntegrationApi(
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\NewReferral(); // \OpenAPI\Client\Model\NewReferral | 
+$body = new \TalonOne\Client\Model\NewReferral(); // \TalonOne\Client\Model\NewReferral | 
 
 try {
     $result = $apiInstance->createReferral($body);
@@ -136,11 +136,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\OpenAPI\Client\Model\NewReferral**](../Model/NewReferral.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewReferral**](../Model/NewReferral.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Referral**](../Model/Referral.md)
+[**\TalonOne\Client\Model\Referral**](../Model/Referral.md)
 
 ### Authorization
 
@@ -172,24 +172,24 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key_v1
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: integration_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\IntegrationApi(
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $coupon_value = 'coupon_value_example'; // string | The value of a coupon
-$body = new \OpenAPI\Client\Model\CouponReservations(); // \OpenAPI\Client\Model\CouponReservations | 
+$body = new \TalonOne\Client\Model\CouponReservations(); // \TalonOne\Client\Model\CouponReservations | 
 
 try {
     $apiInstance->deleteCouponReservation($coupon_value, $body);
@@ -205,7 +205,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coupon_value** | **string**| The value of a coupon |
- **body** | [**\OpenAPI\Client\Model\CouponReservations**](../Model/CouponReservations.md)|  |
+ **body** | [**\TalonOne\Client\Model\CouponReservations**](../Model/CouponReservations.md)|  |
 
 ### Return type
 
@@ -241,17 +241,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key_v1
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: integration_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\IntegrationApi(
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -294,7 +294,7 @@ void (empty response body)
 
 ## getCustomerInventory
 
-> \OpenAPI\Client\Model\CustomerInventory getCustomerInventory($integration_id, $profile, $referrals)
+> \TalonOne\Client\Model\CustomerInventory getCustomerInventory($integration_id, $profile, $referrals)
 
 Get an inventory of all data associated with a specific customer profile.
 
@@ -308,17 +308,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key_v1
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: integration_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\IntegrationApi(
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomerInventory**](../Model/CustomerInventory.md)
+[**\TalonOne\Client\Model\CustomerInventory**](../Model/CustomerInventory.md)
 
 ### Authorization
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 ## getReservedCoupons
 
-> \OpenAPI\Client\Model\InlineResponse2001 getReservedCoupons($integration_id)
+> \TalonOne\Client\Model\InlineResponse2001 getReservedCoupons($integration_id)
 
 Get all valid reserved coupons
 
@@ -380,17 +380,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key_v1
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: integration_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\IntegrationApi(
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 
 ## getReservedCustomers
 
-> \OpenAPI\Client\Model\InlineResponse200 getReservedCustomers($coupon_value)
+> \TalonOne\Client\Model\InlineResponse200 getReservedCustomers($coupon_value)
 
 Get the users that have this coupon reserved
 
@@ -448,17 +448,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key_v1
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: integration_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\IntegrationApi(
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\TalonOne\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 ## trackEvent
 
-> \OpenAPI\Client\Model\IntegrationState trackEvent($body)
+> \TalonOne\Client\Model\IntegrationState trackEvent($body)
 
 Track an Event
 
@@ -516,23 +516,23 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key_v1
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: integration_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\IntegrationApi(
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\NewEvent(); // \OpenAPI\Client\Model\NewEvent | 
+$body = new \TalonOne\Client\Model\NewEvent(); // \TalonOne\Client\Model\NewEvent | 
 
 try {
     $result = $apiInstance->trackEvent($body);
@@ -548,11 +548,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\OpenAPI\Client\Model\NewEvent**](../Model/NewEvent.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewEvent**](../Model/NewEvent.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\IntegrationState**](../Model/IntegrationState.md)
+[**\TalonOne\Client\Model\IntegrationState**](../Model/IntegrationState.md)
 
 ### Authorization
 
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 
 ## updateCustomerProfile
 
-> \OpenAPI\Client\Model\IntegrationState updateCustomerProfile($integration_id, $body)
+> \TalonOne\Client\Model\IntegrationState updateCustomerProfile($integration_id, $body)
 
 Update a Customer Profile
 
@@ -584,24 +584,24 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key_v1
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: integration_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\IntegrationApi(
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $integration_id = 'integration_id_example'; // string | The custom identifier for this profile, must be unique within the account.
-$body = new \OpenAPI\Client\Model\NewCustomerProfile(); // \OpenAPI\Client\Model\NewCustomerProfile | 
+$body = new \TalonOne\Client\Model\NewCustomerProfile(); // \TalonOne\Client\Model\NewCustomerProfile | 
 
 try {
     $result = $apiInstance->updateCustomerProfile($integration_id, $body);
@@ -618,11 +618,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **integration_id** | **string**| The custom identifier for this profile, must be unique within the account. |
- **body** | [**\OpenAPI\Client\Model\NewCustomerProfile**](../Model/NewCustomerProfile.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewCustomerProfile**](../Model/NewCustomerProfile.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\IntegrationState**](../Model/IntegrationState.md)
+[**\TalonOne\Client\Model\IntegrationState**](../Model/IntegrationState.md)
 
 ### Authorization
 
@@ -640,7 +640,7 @@ Name | Type | Description  | Notes
 
 ## updateCustomerSession
 
-> \OpenAPI\Client\Model\IntegrationState updateCustomerSession($customer_session_id, $body)
+> \TalonOne\Client\Model\IntegrationState updateCustomerSession($customer_session_id, $body)
 
 Update a Customer Session
 
@@ -654,24 +654,24 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key_v1
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: integration_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\IntegrationApi(
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $customer_session_id = 'customer_session_id_example'; // string | The custom identifier for this session, must be unique within the account.
-$body = new \OpenAPI\Client\Model\NewCustomerSession(); // \OpenAPI\Client\Model\NewCustomerSession | 
+$body = new \TalonOne\Client\Model\NewCustomerSession(); // \TalonOne\Client\Model\NewCustomerSession | 
 
 try {
     $result = $apiInstance->updateCustomerSession($customer_session_id, $body);
@@ -688,11 +688,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer_session_id** | **string**| The custom identifier for this session, must be unique within the account. |
- **body** | [**\OpenAPI\Client\Model\NewCustomerSession**](../Model/NewCustomerSession.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewCustomerSession**](../Model/NewCustomerSession.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\IntegrationState**](../Model/IntegrationState.md)
+[**\TalonOne\Client\Model\IntegrationState**](../Model/IntegrationState.md)
 
 ### Authorization
 
@@ -710,7 +710,7 @@ Name | Type | Description  | Notes
 
 ## updateCustomerSessionV2
 
-> \OpenAPI\Client\Model\IntegrationStateV2 updateCustomerSessionV2($customer_session_id, $body)
+> \TalonOne\Client\Model\IntegrationStateV2 updateCustomerSessionV2($customer_session_id, $body)
 
 Update a Customer Session
 
@@ -724,19 +724,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key_v1
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\IntegrationApi(
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $customer_session_id = 'customer_session_id_example'; // string | The custom identifier for this session, must be unique within the account.
-$body = new \OpenAPI\Client\Model\IntegrationRequest(); // \OpenAPI\Client\Model\IntegrationRequest | 
+$body = new \TalonOne\Client\Model\IntegrationRequest(); // \TalonOne\Client\Model\IntegrationRequest | 
 
 try {
     $result = $apiInstance->updateCustomerSessionV2($customer_session_id, $body);
@@ -753,11 +753,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer_session_id** | **string**| The custom identifier for this session, must be unique within the account. |
- **body** | [**\OpenAPI\Client\Model\IntegrationRequest**](../Model/IntegrationRequest.md)|  |
+ **body** | [**\TalonOne\Client\Model\IntegrationRequest**](../Model/IntegrationRequest.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\IntegrationStateV2**](../Model/IntegrationStateV2.md)
+[**\TalonOne\Client\Model\IntegrationStateV2**](../Model/IntegrationStateV2.md)
 
 ### Authorization
 

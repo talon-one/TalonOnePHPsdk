@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * ApplicationCustomer Class Doc Comment
  *
  * @category Class
  * @description 
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -65,7 +65,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         'account_id' => 'int',
         'closed_sessions' => 'int',
         'total_sales' => 'float',
-        'loyalty_memberships' => '\OpenAPI\Client\Model\LoyaltyMembership[]',
+        'loyalty_memberships' => '\TalonOne\Client\Model\LoyaltyMembership[]',
         'last_activity' => '\DateTime'
     ];
 
@@ -448,7 +448,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Gets loyalty_memberships
      *
-     * @return \OpenAPI\Client\Model\LoyaltyMembership[]|null
+     * @return \TalonOne\Client\Model\LoyaltyMembership[]|null
      */
     public function getLoyaltyMemberships()
     {
@@ -458,7 +458,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets loyalty_memberships
      *
-     * @param \OpenAPI\Client\Model\LoyaltyMembership[]|null $loyalty_memberships A list of loyalty programs joined by the customer
+     * @param \TalonOne\Client\Model\LoyaltyMembership[]|null $loyalty_memberships A list of loyalty programs joined by the customer
      *
      * @return $this
      */

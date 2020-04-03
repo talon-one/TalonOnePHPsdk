@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * NewCustomerSessionV2 Class Doc Comment
  *
  * @category Class
  * @description 
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -62,8 +62,8 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
         'coupon_codes' => 'string[]',
         'referral_code' => 'string',
         'state' => 'string',
-        'cart_items' => '\OpenAPI\Client\Model\CartItem[]',
-        'additional_costs' => 'map[string,\OpenAPI\Client\Model\AdditionalCost]',
+        'cart_items' => '\TalonOne\Client\Model\CartItem[]',
+        'additional_costs' => 'map[string,\TalonOne\Client\Model\AdditionalCost]',
         'identifiers' => 'string[]',
         'attributes' => 'object'
     ];
@@ -380,7 +380,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Gets cart_items
      *
-     * @return \OpenAPI\Client\Model\CartItem[]|null
+     * @return \TalonOne\Client\Model\CartItem[]|null
      */
     public function getCartItems()
     {
@@ -390,7 +390,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets cart_items
      *
-     * @param \OpenAPI\Client\Model\CartItem[]|null $cart_items All items the customer will be purchasing in this session
+     * @param \TalonOne\Client\Model\CartItem[]|null $cart_items All items the customer will be purchasing in this session
      *
      * @return $this
      */
@@ -404,7 +404,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Gets additional_costs
      *
-     * @return map[string,\OpenAPI\Client\Model\AdditionalCost]|null
+     * @return map[string,\TalonOne\Client\Model\AdditionalCost]|null
      */
     public function getAdditionalCosts()
     {
@@ -414,7 +414,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets additional_costs
      *
-     * @param map[string,\OpenAPI\Client\Model\AdditionalCost]|null $additional_costs Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees.
+     * @param map[string,\TalonOne\Client\Model\AdditionalCost]|null $additional_costs Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees.
      *
      * @return $this
      */

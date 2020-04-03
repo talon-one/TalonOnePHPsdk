@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * Meta Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,8 +59,8 @@ class Meta implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'campaigns' => 'object',
         'coupons' => 'object',
-        'coupon_rejection_reason' => '\OpenAPI\Client\Model\CouponRejectionReason',
-        'referral_rejection_reason' => '\OpenAPI\Client\Model\ReferralRejectionReason',
+        'coupon_rejection_reason' => '\TalonOne\Client\Model\CouponRejectionReason',
+        'referral_rejection_reason' => '\TalonOne\Client\Model\ReferralRejectionReason',
         'warnings' => 'object'
     ];
 
@@ -279,7 +279,7 @@ class Meta implements ModelInterface, ArrayAccess
     /**
      * Gets coupon_rejection_reason
      *
-     * @return \OpenAPI\Client\Model\CouponRejectionReason|null
+     * @return \TalonOne\Client\Model\CouponRejectionReason|null
      */
     public function getCouponRejectionReason()
     {
@@ -289,7 +289,7 @@ class Meta implements ModelInterface, ArrayAccess
     /**
      * Sets coupon_rejection_reason
      *
-     * @param \OpenAPI\Client\Model\CouponRejectionReason|null $coupon_rejection_reason coupon_rejection_reason
+     * @param \TalonOne\Client\Model\CouponRejectionReason|null $coupon_rejection_reason coupon_rejection_reason
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class Meta implements ModelInterface, ArrayAccess
     /**
      * Gets referral_rejection_reason
      *
-     * @return \OpenAPI\Client\Model\ReferralRejectionReason|null
+     * @return \TalonOne\Client\Model\ReferralRejectionReason|null
      */
     public function getReferralRejectionReason()
     {
@@ -313,7 +313,7 @@ class Meta implements ModelInterface, ArrayAccess
     /**
      * Sets referral_rejection_reason
      *
-     * @param \OpenAPI\Client\Model\ReferralRejectionReason|null $referral_rejection_reason referral_rejection_reason
+     * @param \TalonOne\Client\Model\ReferralRejectionReason|null $referral_rejection_reason referral_rejection_reason
      *
      * @return $this
      */

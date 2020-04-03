@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * Application Class Doc Comment
  *
  * @category Class
  * @description 
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -68,9 +68,9 @@ class Application implements ModelInterface, ArrayAccess
         'currency' => 'string',
         'case_sensitivity' => 'string',
         'attributes' => 'object',
-        'limits' => '\OpenAPI\Client\Model\LimitConfig[]',
-        'attributes_settings' => '\OpenAPI\Client\Model\AttributesSettings',
-        'loyalty_programs' => '\OpenAPI\Client\Model\LoyaltyProgram[]'
+        'limits' => '\TalonOne\Client\Model\LimitConfig[]',
+        'attributes_settings' => '\TalonOne\Client\Model\AttributesSettings',
+        'loyalty_programs' => '\TalonOne\Client\Model\LoyaltyProgram[]'
     ];
 
     /**
@@ -605,7 +605,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Gets limits
      *
-     * @return \OpenAPI\Client\Model\LimitConfig[]|null
+     * @return \TalonOne\Client\Model\LimitConfig[]|null
      */
     public function getLimits()
     {
@@ -615,7 +615,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets limits
      *
-     * @param \OpenAPI\Client\Model\LimitConfig[]|null $limits Default limits for campaigns created in this application
+     * @param \TalonOne\Client\Model\LimitConfig[]|null $limits Default limits for campaigns created in this application
      *
      * @return $this
      */
@@ -629,7 +629,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Gets attributes_settings
      *
-     * @return \OpenAPI\Client\Model\AttributesSettings|null
+     * @return \TalonOne\Client\Model\AttributesSettings|null
      */
     public function getAttributesSettings()
     {
@@ -639,7 +639,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets attributes_settings
      *
-     * @param \OpenAPI\Client\Model\AttributesSettings|null $attributes_settings attributes_settings
+     * @param \TalonOne\Client\Model\AttributesSettings|null $attributes_settings attributes_settings
      *
      * @return $this
      */
@@ -653,7 +653,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Gets loyalty_programs
      *
-     * @return \OpenAPI\Client\Model\LoyaltyProgram[]
+     * @return \TalonOne\Client\Model\LoyaltyProgram[]
      */
     public function getLoyaltyPrograms()
     {
@@ -663,7 +663,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets loyalty_programs
      *
-     * @param \OpenAPI\Client\Model\LoyaltyProgram[] $loyalty_programs An array containing all the loyalty programs to which this application is subscribed
+     * @param \TalonOne\Client\Model\LoyaltyProgram[] $loyalty_programs An array containing all the loyalty programs to which this application is subscribed
      *
      * @return $this
      */

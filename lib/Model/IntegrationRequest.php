@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * IntegrationRequest Class Doc Comment
  *
  * @category Class
  * @description The body of a V2 integration API request (customer session update). Next to the customer session details, this contains an optional listing of extra properties that should be returned in the response.
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'customer_session' => '\OpenAPI\Client\Model\NewCustomerSessionV2',
+        'customer_session' => '\TalonOne\Client\Model\NewCustomerSessionV2',
         'response_content' => 'string[]'
     ];
 
@@ -242,7 +242,7 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
     /**
      * Gets customer_session
      *
-     * @return \OpenAPI\Client\Model\NewCustomerSessionV2
+     * @return \TalonOne\Client\Model\NewCustomerSessionV2
      */
     public function getCustomerSession()
     {
@@ -252,7 +252,7 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
     /**
      * Sets customer_session
      *
-     * @param \OpenAPI\Client\Model\NewCustomerSessionV2 $customer_session customer_session
+     * @param \TalonOne\Client\Model\NewCustomerSessionV2 $customer_session customer_session
      *
      * @return $this
      */

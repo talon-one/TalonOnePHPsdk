@@ -1,4 +1,4 @@
-# OpenAPI\Client\ManagementApi
+# TalonOne\Client\ManagementApi
 
 All URIs are relative to *http://localhost*
 
@@ -103,12 +103,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -116,7 +116,7 @@ $apiInstance = new OpenAPI\Client\Api\ManagementApi(
 );
 $program_id = 'program_id_example'; // string | 
 $integration_id = 'integration_id_example'; // string | 
-$body = new \OpenAPI\Client\Model\LoyaltyPoints(); // \OpenAPI\Client\Model\LoyaltyPoints | 
+$body = new \TalonOne\Client\Model\LoyaltyPoints(); // \TalonOne\Client\Model\LoyaltyPoints | 
 
 try {
     $apiInstance->addLoyaltyPoints($program_id, $integration_id, $body);
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **program_id** | **string**|  |
  **integration_id** | **string**|  |
- **body** | [**\OpenAPI\Client\Model\LoyaltyPoints**](../Model/LoyaltyPoints.md)|  |
+ **body** | [**\TalonOne\Client\Model\LoyaltyPoints**](../Model/LoyaltyPoints.md)|  |
 
 ### Return type
 
@@ -155,7 +155,7 @@ void (empty response body)
 
 ## copyCampaignToApplications
 
-> \OpenAPI\Client\Model\InlineResponse2003 copyCampaignToApplications($application_id, $campaign_id, $body)
+> \TalonOne\Client\Model\InlineResponse2003 copyCampaignToApplications($application_id, $campaign_id, $body)
 
 Copy the campaign into every specified application
 
@@ -169,12 +169,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -182,7 +182,7 @@ $apiInstance = new OpenAPI\Client\Api\ManagementApi(
 );
 $application_id = 56; // int | 
 $campaign_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\CampaignCopy(); // \OpenAPI\Client\Model\CampaignCopy | 
+$body = new \TalonOne\Client\Model\CampaignCopy(); // \TalonOne\Client\Model\CampaignCopy | 
 
 try {
     $result = $apiInstance->copyCampaignToApplications($application_id, $campaign_id, $body);
@@ -200,11 +200,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  |
  **campaign_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\CampaignCopy**](../Model/CampaignCopy.md)|  |
+ **body** | [**\TalonOne\Client\Model\CampaignCopy**](../Model/CampaignCopy.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ## createAdditionalCost
 
-> \OpenAPI\Client\Model\AccountAdditionalCost createAdditionalCost($body)
+> \TalonOne\Client\Model\AccountAdditionalCost createAdditionalCost($body)
 
 Define a new additional cost
 
@@ -236,18 +236,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\NewAdditionalCost(); // \OpenAPI\Client\Model\NewAdditionalCost | 
+$body = new \TalonOne\Client\Model\NewAdditionalCost(); // \TalonOne\Client\Model\NewAdditionalCost | 
 
 try {
     $result = $apiInstance->createAdditionalCost($body);
@@ -263,11 +263,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\OpenAPI\Client\Model\NewAdditionalCost**](../Model/NewAdditionalCost.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewAdditionalCost**](../Model/NewAdditionalCost.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AccountAdditionalCost**](../Model/AccountAdditionalCost.md)
+[**\TalonOne\Client\Model\AccountAdditionalCost**](../Model/AccountAdditionalCost.md)
 
 ### Authorization
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 ## createAttribute
 
-> \OpenAPI\Client\Model\Attribute createAttribute($body)
+> \TalonOne\Client\Model\Attribute createAttribute($body)
 
 Define a new custom attribute
 
@@ -299,18 +299,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\NewAttribute(); // \OpenAPI\Client\Model\NewAttribute | 
+$body = new \TalonOne\Client\Model\NewAttribute(); // \TalonOne\Client\Model\NewAttribute | 
 
 try {
     $result = $apiInstance->createAttribute($body);
@@ -326,11 +326,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\OpenAPI\Client\Model\NewAttribute**](../Model/NewAttribute.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewAttribute**](../Model/NewAttribute.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Attribute**](../Model/Attribute.md)
+[**\TalonOne\Client\Model\Attribute**](../Model/Attribute.md)
 
 ### Authorization
 
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 ## createCampaign
 
-> \OpenAPI\Client\Model\Campaign createCampaign($application_id, $body)
+> \TalonOne\Client\Model\Campaign createCampaign($application_id, $body)
 
 Create a Campaign
 
@@ -360,19 +360,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $application_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\NewCampaign(); // \OpenAPI\Client\Model\NewCampaign | 
+$body = new \TalonOne\Client\Model\NewCampaign(); // \TalonOne\Client\Model\NewCampaign | 
 
 try {
     $result = $apiInstance->createCampaign($application_id, $body);
@@ -389,11 +389,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\NewCampaign**](../Model/NewCampaign.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewCampaign**](../Model/NewCampaign.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Campaign**](../Model/Campaign.md)
+[**\TalonOne\Client\Model\Campaign**](../Model/Campaign.md)
 
 ### Authorization
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ## createCoupons
 
-> \OpenAPI\Client\Model\InlineResponse2001 createCoupons($application_id, $campaign_id, $body, $silent)
+> \TalonOne\Client\Model\InlineResponse2001 createCoupons($application_id, $campaign_id, $body, $silent)
 
 Create Coupons
 
@@ -425,12 +425,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -438,7 +438,7 @@ $apiInstance = new OpenAPI\Client\Api\ManagementApi(
 );
 $application_id = 56; // int | 
 $campaign_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\NewCoupons(); // \OpenAPI\Client\Model\NewCoupons | 
+$body = new \TalonOne\Client\Model\NewCoupons(); // \TalonOne\Client\Model\NewCoupons | 
 $silent = 'silent_example'; // string | If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000).
 
 try {
@@ -457,12 +457,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  |
  **campaign_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\NewCoupons**](../Model/NewCoupons.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewCoupons**](../Model/NewCoupons.md)|  |
  **silent** | **string**| If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 
 ## createPasswordRecoveryEmail
 
-> \OpenAPI\Client\Model\NewPasswordEmail createPasswordRecoveryEmail($body)
+> \TalonOne\Client\Model\NewPasswordEmail createPasswordRecoveryEmail($body)
 
 Request a password reset
 
@@ -494,18 +494,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\NewPasswordEmail(); // \OpenAPI\Client\Model\NewPasswordEmail | 
+$body = new \TalonOne\Client\Model\NewPasswordEmail(); // \TalonOne\Client\Model\NewPasswordEmail | 
 
 try {
     $result = $apiInstance->createPasswordRecoveryEmail($body);
@@ -521,11 +521,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\OpenAPI\Client\Model\NewPasswordEmail**](../Model/NewPasswordEmail.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewPasswordEmail**](../Model/NewPasswordEmail.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NewPasswordEmail**](../Model/NewPasswordEmail.md)
+[**\TalonOne\Client\Model\NewPasswordEmail**](../Model/NewPasswordEmail.md)
 
 ### Authorization
 
@@ -543,7 +543,7 @@ Name | Type | Description  | Notes
 
 ## createRuleset
 
-> \OpenAPI\Client\Model\Ruleset createRuleset($application_id, $campaign_id, $body)
+> \TalonOne\Client\Model\Ruleset createRuleset($application_id, $campaign_id, $body)
 
 Create a Ruleset
 
@@ -555,12 +555,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -568,7 +568,7 @@ $apiInstance = new OpenAPI\Client\Api\ManagementApi(
 );
 $application_id = 56; // int | 
 $campaign_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\NewRuleset(); // \OpenAPI\Client\Model\NewRuleset | 
+$body = new \TalonOne\Client\Model\NewRuleset(); // \TalonOne\Client\Model\NewRuleset | 
 
 try {
     $result = $apiInstance->createRuleset($application_id, $campaign_id, $body);
@@ -586,11 +586,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  |
  **campaign_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\NewRuleset**](../Model/NewRuleset.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewRuleset**](../Model/NewRuleset.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Ruleset**](../Model/Ruleset.md)
+[**\TalonOne\Client\Model\Ruleset**](../Model/Ruleset.md)
 
 ### Authorization
 
@@ -608,7 +608,7 @@ Name | Type | Description  | Notes
 
 ## createSession
 
-> \OpenAPI\Client\Model\Session createSession($body)
+> \TalonOne\Client\Model\Session createSession($body)
 
 Create a Session
 
@@ -620,18 +620,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\LoginParams(); // \OpenAPI\Client\Model\LoginParams | 
+$body = new \TalonOne\Client\Model\LoginParams(); // \TalonOne\Client\Model\LoginParams | 
 
 try {
     $result = $apiInstance->createSession($body);
@@ -647,11 +647,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\OpenAPI\Client\Model\LoginParams**](../Model/LoginParams.md)|  |
+ **body** | [**\TalonOne\Client\Model\LoginParams**](../Model/LoginParams.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Session**](../Model/Session.md)
+[**\TalonOne\Client\Model\Session**](../Model/Session.md)
 
 ### Authorization
 
@@ -681,12 +681,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -743,12 +743,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -807,12 +807,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -895,12 +895,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -959,12 +959,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1011,7 +1011,7 @@ void (empty response body)
 
 ## getAccessLogs
 
-> \OpenAPI\Client\Model\InlineResponse2009 getAccessLogs($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2009 getAccessLogs($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort)
 
 Get access logs for application
 
@@ -1023,12 +1023,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1070,7 +1070,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
+[**\TalonOne\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
 
 ### Authorization
 
@@ -1088,7 +1088,7 @@ Name | Type | Description  | Notes
 
 ## getAccessLogsWithoutTotalCount
 
-> \OpenAPI\Client\Model\InlineResponse20010 getAccessLogsWithoutTotalCount($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20010 getAccessLogsWithoutTotalCount($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort)
 
 Get access logs for application
 
@@ -1100,12 +1100,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1147,7 +1147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
+[**\TalonOne\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
 
 ### Authorization
 
@@ -1165,7 +1165,7 @@ Name | Type | Description  | Notes
 
 ## getAccount
 
-> \OpenAPI\Client\Model\Account getAccount($account_id)
+> \TalonOne\Client\Model\Account getAccount($account_id)
 
 Get Account Details
 
@@ -1179,12 +1179,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1210,7 +1210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Account**](../Model/Account.md)
+[**\TalonOne\Client\Model\Account**](../Model/Account.md)
 
 ### Authorization
 
@@ -1228,7 +1228,7 @@ Name | Type | Description  | Notes
 
 ## getAccountAnalytics
 
-> \OpenAPI\Client\Model\AccountAnalytics getAccountAnalytics($account_id)
+> \TalonOne\Client\Model\AccountAnalytics getAccountAnalytics($account_id)
 
 Get Account Analytics
 
@@ -1242,12 +1242,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1273,7 +1273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AccountAnalytics**](../Model/AccountAnalytics.md)
+[**\TalonOne\Client\Model\AccountAnalytics**](../Model/AccountAnalytics.md)
 
 ### Authorization
 
@@ -1291,7 +1291,7 @@ Name | Type | Description  | Notes
 
 ## getAdditionalCost
 
-> \OpenAPI\Client\Model\AccountAdditionalCost getAdditionalCost($additional_cost_id)
+> \TalonOne\Client\Model\AccountAdditionalCost getAdditionalCost($additional_cost_id)
 
 Get an additional cost
 
@@ -1305,12 +1305,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1336,7 +1336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AccountAdditionalCost**](../Model/AccountAdditionalCost.md)
+[**\TalonOne\Client\Model\AccountAdditionalCost**](../Model/AccountAdditionalCost.md)
 
 ### Authorization
 
@@ -1354,7 +1354,7 @@ Name | Type | Description  | Notes
 
 ## getAdditionalCosts
 
-> \OpenAPI\Client\Model\InlineResponse20021 getAdditionalCosts($page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20021 getAdditionalCosts($page_size, $skip, $sort)
 
 List additional costs
 
@@ -1368,12 +1368,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1403,7 +1403,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
+[**\TalonOne\Client\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
 
 ### Authorization
 
@@ -1421,7 +1421,7 @@ Name | Type | Description  | Notes
 
 ## getAllAccessLogs
 
-> \OpenAPI\Client\Model\InlineResponse2009 getAllAccessLogs($range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2009 getAllAccessLogs($range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort)
 
 Get all access logs
 
@@ -1435,12 +1435,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1480,7 +1480,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
+[**\TalonOne\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
 
 ### Authorization
 
@@ -1498,7 +1498,7 @@ Name | Type | Description  | Notes
 
 ## getAllRoles
 
-> \OpenAPI\Client\Model\InlineResponse20030 getAllRoles()
+> \TalonOne\Client\Model\InlineResponse20030 getAllRoles()
 
 Get all roles.
 
@@ -1510,12 +1510,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1537,7 +1537,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
+[**\TalonOne\Client\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
 
 ### Authorization
 
@@ -1555,7 +1555,7 @@ This endpoint does not need any parameter.
 
 ## getApplication
 
-> \OpenAPI\Client\Model\Application getApplication($application_id)
+> \TalonOne\Client\Model\Application getApplication($application_id)
 
 Get Application
 
@@ -1569,12 +1569,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1600,7 +1600,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Application**](../Model/Application.md)
+[**\TalonOne\Client\Model\Application**](../Model/Application.md)
 
 ### Authorization
 
@@ -1618,7 +1618,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationApiHealth
 
-> \OpenAPI\Client\Model\ApplicationApiHealth getApplicationApiHealth($application_id)
+> \TalonOne\Client\Model\ApplicationApiHealth getApplicationApiHealth($application_id)
 
 Get report of health of application API
 
@@ -1630,12 +1630,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1661,7 +1661,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ApplicationApiHealth**](../Model/ApplicationApiHealth.md)
+[**\TalonOne\Client\Model\ApplicationApiHealth**](../Model/ApplicationApiHealth.md)
 
 ### Authorization
 
@@ -1679,7 +1679,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomer
 
-> \OpenAPI\Client\Model\ApplicationCustomer getApplicationCustomer($application_id, $customer_id)
+> \TalonOne\Client\Model\ApplicationCustomer getApplicationCustomer($application_id, $customer_id)
 
 Get Application Customer
 
@@ -1691,12 +1691,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1724,7 +1724,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ApplicationCustomer**](../Model/ApplicationCustomer.md)
+[**\TalonOne\Client\Model\ApplicationCustomer**](../Model/ApplicationCustomer.md)
 
 ### Authorization
 
@@ -1742,7 +1742,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomers
 
-> \OpenAPI\Client\Model\InlineResponse20012 getApplicationCustomers($application_id)
+> \TalonOne\Client\Model\InlineResponse20012 getApplicationCustomers($application_id)
 
 List Application Customers
 
@@ -1754,12 +1754,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1785,7 +1785,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
+[**\TalonOne\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
@@ -1803,7 +1803,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomersByAttributes
 
-> \OpenAPI\Client\Model\InlineResponse20013 getApplicationCustomersByAttributes($body)
+> \TalonOne\Client\Model\InlineResponse20013 getApplicationCustomersByAttributes($body)
 
 Get a list of the customer profiles that match the given attributes
 
@@ -1817,18 +1817,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: integration_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\ApplicationCustomerSearch(); // \OpenAPI\Client\Model\ApplicationCustomerSearch | 
+$body = new \TalonOne\Client\Model\ApplicationCustomerSearch(); // \TalonOne\Client\Model\ApplicationCustomerSearch | 
 
 try {
     $result = $apiInstance->getApplicationCustomersByAttributes($body);
@@ -1844,11 +1844,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\OpenAPI\Client\Model\ApplicationCustomerSearch**](../Model/ApplicationCustomerSearch.md)|  |
+ **body** | [**\TalonOne\Client\Model\ApplicationCustomerSearch**](../Model/ApplicationCustomerSearch.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\TalonOne\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
 
 ### Authorization
 
@@ -1866,7 +1866,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventTypes
 
-> \OpenAPI\Client\Model\InlineResponse20019 getApplicationEventTypes($application_id, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20019 getApplicationEventTypes($application_id, $page_size, $skip, $sort)
 
 List Applications Event Types
 
@@ -1880,12 +1880,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1917,7 +1917,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20019**](../Model/InlineResponse20019.md)
+[**\TalonOne\Client\Model\InlineResponse20019**](../Model/InlineResponse20019.md)
 
 ### Authorization
 
@@ -1935,7 +1935,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEvents
 
-> \OpenAPI\Client\Model\InlineResponse20017 getApplicationEvents($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query)
+> \TalonOne\Client\Model\InlineResponse20017 getApplicationEvents($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query)
 
 List Applications Events
 
@@ -1949,12 +1949,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2008,7 +2008,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20017**](../Model/InlineResponse20017.md)
+[**\TalonOne\Client\Model\InlineResponse20017**](../Model/InlineResponse20017.md)
 
 ### Authorization
 
@@ -2026,7 +2026,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventsWithoutTotalCount
 
-> \OpenAPI\Client\Model\InlineResponse20018 getApplicationEventsWithoutTotalCount($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query)
+> \TalonOne\Client\Model\InlineResponse20018 getApplicationEventsWithoutTotalCount($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query)
 
 List Applications Events
 
@@ -2040,12 +2040,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2099,7 +2099,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
+[**\TalonOne\Client\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
 
 ### Authorization
 
@@ -2117,7 +2117,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationSession
 
-> \OpenAPI\Client\Model\ApplicationSession getApplicationSession($application_id, $session_id)
+> \TalonOne\Client\Model\ApplicationSession getApplicationSession($application_id, $session_id)
 
 Get Application Session
 
@@ -2129,12 +2129,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2162,7 +2162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ApplicationSession**](../Model/ApplicationSession.md)
+[**\TalonOne\Client\Model\ApplicationSession**](../Model/ApplicationSession.md)
 
 ### Authorization
 
@@ -2180,7 +2180,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationSessions
 
-> \OpenAPI\Client\Model\InlineResponse20016 getApplicationSessions($application_id, $page_size, $skip, $sort, $profile, $state, $coupon, $referral, $integration_id, $customer_id)
+> \TalonOne\Client\Model\InlineResponse20016 getApplicationSessions($application_id, $page_size, $skip, $sort, $profile, $state, $coupon, $referral, $integration_id, $customer_id)
 
 List Application Sessions
 
@@ -2192,12 +2192,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2241,7 +2241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
+[**\TalonOne\Client\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
 
 ### Authorization
 
@@ -2259,7 +2259,7 @@ Name | Type | Description  | Notes
 
 ## getApplications
 
-> \OpenAPI\Client\Model\InlineResponse2002 getApplications($page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2002 getApplications($page_size, $skip, $sort)
 
 List Applications
 
@@ -2273,12 +2273,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2308,7 +2308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\TalonOne\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
@@ -2326,7 +2326,7 @@ Name | Type | Description  | Notes
 
 ## getAttribute
 
-> \OpenAPI\Client\Model\Attribute getAttribute($attribute_id)
+> \TalonOne\Client\Model\Attribute getAttribute($attribute_id)
 
 Get a custom attribute
 
@@ -2340,12 +2340,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2371,7 +2371,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Attribute**](../Model/Attribute.md)
+[**\TalonOne\Client\Model\Attribute**](../Model/Attribute.md)
 
 ### Authorization
 
@@ -2389,7 +2389,7 @@ Name | Type | Description  | Notes
 
 ## getAttributes
 
-> \OpenAPI\Client\Model\InlineResponse20020 getAttributes($page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20020 getAttributes($page_size, $skip, $sort)
 
 List custom attributes
 
@@ -2403,12 +2403,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2438,7 +2438,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
+[**\TalonOne\Client\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
 
 ### Authorization
 
@@ -2456,7 +2456,7 @@ Name | Type | Description  | Notes
 
 ## getCampaign
 
-> \OpenAPI\Client\Model\Campaign getCampaign($application_id, $campaign_id)
+> \TalonOne\Client\Model\Campaign getCampaign($application_id, $campaign_id)
 
 Get a Campaign
 
@@ -2468,12 +2468,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2501,7 +2501,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Campaign**](../Model/Campaign.md)
+[**\TalonOne\Client\Model\Campaign**](../Model/Campaign.md)
 
 ### Authorization
 
@@ -2519,7 +2519,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignAnalytics
 
-> \OpenAPI\Client\Model\InlineResponse20011 getCampaignAnalytics($application_id, $campaign_id, $range_start, $range_end, $granularity)
+> \TalonOne\Client\Model\InlineResponse20011 getCampaignAnalytics($application_id, $campaign_id, $range_start, $range_end, $granularity)
 
 Get analytics of campaigns
 
@@ -2531,12 +2531,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2570,7 +2570,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\TalonOne\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -2588,7 +2588,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignByAttributes
 
-> \OpenAPI\Client\Model\InlineResponse2003 getCampaignByAttributes($application_id, $body, $page_size, $skip, $sort, $campaign_state)
+> \TalonOne\Client\Model\InlineResponse2003 getCampaignByAttributes($application_id, $body, $page_size, $skip, $sort, $campaign_state)
 
 Get a list of all campaigns that match the given attributes
 
@@ -2602,19 +2602,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $application_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\CampaignSearch(); // \OpenAPI\Client\Model\CampaignSearch | 
+$body = new \TalonOne\Client\Model\CampaignSearch(); // \TalonOne\Client\Model\CampaignSearch | 
 $page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
@@ -2635,7 +2635,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\CampaignSearch**](../Model/CampaignSearch.md)|  |
+ **body** | [**\TalonOne\Client\Model\CampaignSearch**](../Model/CampaignSearch.md)|  |
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
@@ -2643,7 +2643,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -2661,7 +2661,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignSet
 
-> \OpenAPI\Client\Model\CampaignSet getCampaignSet($application_id)
+> \TalonOne\Client\Model\CampaignSet getCampaignSet($application_id)
 
 List CampaignSet
 
@@ -2673,12 +2673,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2704,7 +2704,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CampaignSet**](../Model/CampaignSet.md)
+[**\TalonOne\Client\Model\CampaignSet**](../Model/CampaignSet.md)
 
 ### Authorization
 
@@ -2722,7 +2722,7 @@ Name | Type | Description  | Notes
 
 ## getCampaigns
 
-> \OpenAPI\Client\Model\InlineResponse2003 getCampaigns($application_id, $page_size, $skip, $sort, $campaign_state, $name, $tags, $created_before, $created_after)
+> \TalonOne\Client\Model\InlineResponse2003 getCampaigns($application_id, $page_size, $skip, $sort, $campaign_state, $name, $tags, $created_before, $created_after)
 
 List your Campaigns
 
@@ -2734,12 +2734,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2781,7 +2781,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -2799,7 +2799,7 @@ Name | Type | Description  | Notes
 
 ## getChanges
 
-> \OpenAPI\Client\Model\InlineResponse20027 getChanges($page_size, $skip, $sort, $application_id, $created_before, $created_after, $with_total_result_size, $include_old)
+> \TalonOne\Client\Model\InlineResponse20027 getChanges($page_size, $skip, $sort, $application_id, $created_before, $created_after, $with_total_result_size, $include_old)
 
 Get audit log for an account
 
@@ -2813,12 +2813,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2858,7 +2858,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
+[**\TalonOne\Client\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
 
 ### Authorization
 
@@ -2876,7 +2876,7 @@ Name | Type | Description  | Notes
 
 ## getCoupons
 
-> \OpenAPI\Client\Model\InlineResponse2001 getCoupons($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match)
+> \TalonOne\Client\Model\InlineResponse2001 getCoupons($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match)
 
 List Coupons
 
@@ -2888,12 +2888,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2953,7 +2953,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -2971,7 +2971,7 @@ Name | Type | Description  | Notes
 
 ## getCouponsByAttributes
 
-> \OpenAPI\Client\Model\InlineResponse2001 getCouponsByAttributes($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id)
+> \TalonOne\Client\Model\InlineResponse2001 getCouponsByAttributes($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id)
 
 Get a list of the coupons that match the given attributes
 
@@ -2985,12 +2985,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2998,7 +2998,7 @@ $apiInstance = new OpenAPI\Client\Api\ManagementApi(
 );
 $application_id = 56; // int | 
 $campaign_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\CouponSearch(); // \OpenAPI\Client\Model\CouponSearch | 
+$body = new \TalonOne\Client\Model\CouponSearch(); // \TalonOne\Client\Model\CouponSearch | 
 $page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
@@ -3028,7 +3028,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  |
  **campaign_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\CouponSearch**](../Model/CouponSearch.md)|  |
+ **body** | [**\TalonOne\Client\Model\CouponSearch**](../Model/CouponSearch.md)|  |
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
@@ -3044,7 +3044,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -3062,7 +3062,7 @@ Name | Type | Description  | Notes
 
 ## getCouponsByAttributesApplicationWide
 
-> \OpenAPI\Client\Model\InlineResponse2001 getCouponsByAttributesApplicationWide($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state)
+> \TalonOne\Client\Model\InlineResponse2001 getCouponsByAttributesApplicationWide($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state)
 
 Get a list of the coupons that match the given attributes in all active campaigns of an application
 
@@ -3076,19 +3076,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $application_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\CouponSearch(); // \OpenAPI\Client\Model\CouponSearch | 
+$body = new \TalonOne\Client\Model\CouponSearch(); // \TalonOne\Client\Model\CouponSearch | 
 $page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
@@ -3118,7 +3118,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\CouponSearch**](../Model/CouponSearch.md)|  |
+ **body** | [**\TalonOne\Client\Model\CouponSearch**](../Model/CouponSearch.md)|  |
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
@@ -3135,7 +3135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -3153,7 +3153,7 @@ Name | Type | Description  | Notes
 
 ## getCouponsWithoutTotalCount
 
-> \OpenAPI\Client\Model\InlineResponse2005 getCouponsWithoutTotalCount($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match)
+> \TalonOne\Client\Model\InlineResponse2005 getCouponsWithoutTotalCount($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match)
 
 List Coupons
 
@@ -3165,12 +3165,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3222,7 +3222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\TalonOne\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
 
 ### Authorization
 
@@ -3240,7 +3240,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerActivityReport
 
-> \OpenAPI\Client\Model\CustomerActivityReport getCustomerActivityReport($range_start, $range_end, $application_id, $customer_id, $page_size, $skip)
+> \TalonOne\Client\Model\CustomerActivityReport getCustomerActivityReport($range_start, $range_end, $application_id, $customer_id, $page_size, $skip)
 
 Get Activity Report for Single Customer
 
@@ -3254,12 +3254,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3295,7 +3295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomerActivityReport**](../Model/CustomerActivityReport.md)
+[**\TalonOne\Client\Model\CustomerActivityReport**](../Model/CustomerActivityReport.md)
 
 ### Authorization
 
@@ -3313,7 +3313,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerActivityReports
 
-> \OpenAPI\Client\Model\InlineResponse20014 getCustomerActivityReports($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name)
+> \TalonOne\Client\Model\InlineResponse20014 getCustomerActivityReports($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name)
 
 Get Activity Reports for Application Customers
 
@@ -3327,12 +3327,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3376,7 +3376,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
+[**\TalonOne\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
 
 ### Authorization
 
@@ -3394,7 +3394,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerActivityReportsWithoutTotalCount
 
-> \OpenAPI\Client\Model\InlineResponse20015 getCustomerActivityReportsWithoutTotalCount($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name)
+> \TalonOne\Client\Model\InlineResponse20015 getCustomerActivityReportsWithoutTotalCount($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name)
 
 Get Activity Reports for Application Customers
 
@@ -3408,12 +3408,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3457,7 +3457,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
+[**\TalonOne\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
 
 ### Authorization
 
@@ -3475,7 +3475,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerAnalytics
 
-> \OpenAPI\Client\Model\CustomerAnalytics getCustomerAnalytics($application_id, $customer_id, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\CustomerAnalytics getCustomerAnalytics($application_id, $customer_id, $page_size, $skip, $sort)
 
 Get Analytics Report for a Customer
 
@@ -3489,12 +3489,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3528,7 +3528,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomerAnalytics**](../Model/CustomerAnalytics.md)
+[**\TalonOne\Client\Model\CustomerAnalytics**](../Model/CustomerAnalytics.md)
 
 ### Authorization
 
@@ -3546,7 +3546,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerProfile
 
-> \OpenAPI\Client\Model\ApplicationCustomer getCustomerProfile($application_id, $customer_id)
+> \TalonOne\Client\Model\ApplicationCustomer getCustomerProfile($application_id, $customer_id)
 
 Get Customer Profile
 
@@ -3558,12 +3558,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3591,7 +3591,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ApplicationCustomer**](../Model/ApplicationCustomer.md)
+[**\TalonOne\Client\Model\ApplicationCustomer**](../Model/ApplicationCustomer.md)
 
 ### Authorization
 
@@ -3609,7 +3609,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerProfiles
 
-> \OpenAPI\Client\Model\InlineResponse20013 getCustomerProfiles($page_size, $skip)
+> \TalonOne\Client\Model\InlineResponse20013 getCustomerProfiles($page_size, $skip)
 
 List Customer Profiles
 
@@ -3621,12 +3621,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3654,7 +3654,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\TalonOne\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
 
 ### Authorization
 
@@ -3672,7 +3672,7 @@ Name | Type | Description  | Notes
 
 ## getCustomersByAttributes
 
-> \OpenAPI\Client\Model\InlineResponse20013 getCustomersByAttributes($body, $page_size, $skip)
+> \TalonOne\Client\Model\InlineResponse20013 getCustomersByAttributes($body, $page_size, $skip)
 
 Get a list of the customer profiles that match the given attributes
 
@@ -3686,18 +3686,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\ApplicationCustomerSearch(); // \OpenAPI\Client\Model\ApplicationCustomerSearch | 
+$body = new \TalonOne\Client\Model\ApplicationCustomerSearch(); // \TalonOne\Client\Model\ApplicationCustomerSearch | 
 $page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 
@@ -3715,13 +3715,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\OpenAPI\Client\Model\ApplicationCustomerSearch**](../Model/ApplicationCustomerSearch.md)|  |
+ **body** | [**\TalonOne\Client\Model\ApplicationCustomerSearch**](../Model/ApplicationCustomerSearch.md)|  |
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\TalonOne\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
 
 ### Authorization
 
@@ -3739,7 +3739,7 @@ Name | Type | Description  | Notes
 
 ## getEventTypes
 
-> \OpenAPI\Client\Model\InlineResponse20025 getEventTypes($application_ids, $name, $include_old_versions, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20025 getEventTypes($application_ids, $name, $include_old_versions, $page_size, $skip, $sort)
 
 List Event Types
 
@@ -3753,12 +3753,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3794,7 +3794,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
+[**\TalonOne\Client\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
 
 ### Authorization
 
@@ -3812,7 +3812,7 @@ Name | Type | Description  | Notes
 
 ## getExports
 
-> \OpenAPI\Client\Model\InlineResponse20028 getExports($page_size, $skip, $application_id, $campaign_id, $entity)
+> \TalonOne\Client\Model\InlineResponse20028 getExports($page_size, $skip, $application_id, $campaign_id, $entity)
 
 Get Exports
 
@@ -3826,12 +3826,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3865,7 +3865,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
+[**\TalonOne\Client\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
 
 ### Authorization
 
@@ -3883,7 +3883,7 @@ Name | Type | Description  | Notes
 
 ## getImports
 
-> \OpenAPI\Client\Model\InlineResponse20029 getImports($page_size, $skip)
+> \TalonOne\Client\Model\InlineResponse20029 getImports($page_size, $skip)
 
 Get Imports
 
@@ -3897,12 +3897,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3930,7 +3930,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
+[**\TalonOne\Client\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
 
 ### Authorization
 
@@ -3948,7 +3948,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyPoints
 
-> \OpenAPI\Client\Model\LoyaltyLedger getLoyaltyPoints($program_id, $integration_id)
+> \TalonOne\Client\Model\LoyaltyLedger getLoyaltyPoints($program_id, $integration_id)
 
 get the Loyalty Ledger for this integrationID
 
@@ -3962,12 +3962,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3995,7 +3995,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\LoyaltyLedger**](../Model/LoyaltyLedger.md)
+[**\TalonOne\Client\Model\LoyaltyLedger**](../Model/LoyaltyLedger.md)
 
 ### Authorization
 
@@ -4013,7 +4013,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyProgram
 
-> \OpenAPI\Client\Model\LoyaltyProgram getLoyaltyProgram($program_id)
+> \TalonOne\Client\Model\LoyaltyProgram getLoyaltyProgram($program_id)
 
 Get a loyalty program
 
@@ -4025,12 +4025,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4056,7 +4056,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\LoyaltyProgram**](../Model/LoyaltyProgram.md)
+[**\TalonOne\Client\Model\LoyaltyProgram**](../Model/LoyaltyProgram.md)
 
 ### Authorization
 
@@ -4074,7 +4074,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyPrograms
 
-> \OpenAPI\Client\Model\InlineResponse2008 getLoyaltyPrograms()
+> \TalonOne\Client\Model\InlineResponse2008 getLoyaltyPrograms()
 
 List all loyalty Programs
 
@@ -4086,12 +4086,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4113,7 +4113,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
 
 ### Authorization
 
@@ -4131,7 +4131,7 @@ This endpoint does not need any parameter.
 
 ## getReferrals
 
-> \OpenAPI\Client\Model\InlineResponse2006 getReferrals($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate)
+> \TalonOne\Client\Model\InlineResponse2006 getReferrals($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate)
 
 List Referrals
 
@@ -4143,12 +4143,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4194,7 +4194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\TalonOne\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
 
 ### Authorization
 
@@ -4212,7 +4212,7 @@ Name | Type | Description  | Notes
 
 ## getReferralsWithoutTotalCount
 
-> \OpenAPI\Client\Model\InlineResponse2007 getReferralsWithoutTotalCount($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate)
+> \TalonOne\Client\Model\InlineResponse2007 getReferralsWithoutTotalCount($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate)
 
 List Referrals
 
@@ -4224,12 +4224,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4275,7 +4275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\TalonOne\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
 
 ### Authorization
 
@@ -4293,7 +4293,7 @@ Name | Type | Description  | Notes
 
 ## getRole
 
-> \OpenAPI\Client\Model\Role getRole($role_id)
+> \TalonOne\Client\Model\Role getRole($role_id)
 
 Get information for the specified role.
 
@@ -4305,12 +4305,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4336,7 +4336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Role**](../Model/Role.md)
+[**\TalonOne\Client\Model\Role**](../Model/Role.md)
 
 ### Authorization
 
@@ -4354,7 +4354,7 @@ Name | Type | Description  | Notes
 
 ## getRuleset
 
-> \OpenAPI\Client\Model\Ruleset getRuleset($application_id, $campaign_id, $ruleset_id)
+> \TalonOne\Client\Model\Ruleset getRuleset($application_id, $campaign_id, $ruleset_id)
 
 Get a Ruleset
 
@@ -4366,12 +4366,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4401,7 +4401,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Ruleset**](../Model/Ruleset.md)
+[**\TalonOne\Client\Model\Ruleset**](../Model/Ruleset.md)
 
 ### Authorization
 
@@ -4419,7 +4419,7 @@ Name | Type | Description  | Notes
 
 ## getRulesets
 
-> \OpenAPI\Client\Model\InlineResponse2004 getRulesets($application_id, $campaign_id, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2004 getRulesets($application_id, $campaign_id, $page_size, $skip, $sort)
 
 List Campaign Rulesets
 
@@ -4431,12 +4431,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4470,7 +4470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
 
 ### Authorization
 
@@ -4488,7 +4488,7 @@ Name | Type | Description  | Notes
 
 ## getUser
 
-> \OpenAPI\Client\Model\User getUser($user_id)
+> \TalonOne\Client\Model\User getUser($user_id)
 
 Get a single User
 
@@ -4502,12 +4502,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4533,7 +4533,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\User**](../Model/User.md)
+[**\TalonOne\Client\Model\User**](../Model/User.md)
 
 ### Authorization
 
@@ -4551,7 +4551,7 @@ Name | Type | Description  | Notes
 
 ## getUsers
 
-> \OpenAPI\Client\Model\InlineResponse20026 getUsers($page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20026 getUsers($page_size, $skip, $sort)
 
 List Users in your account
 
@@ -4565,12 +4565,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4600,7 +4600,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\TalonOne\Client\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
 
 ### Authorization
 
@@ -4618,7 +4618,7 @@ Name | Type | Description  | Notes
 
 ## getWebhook
 
-> \OpenAPI\Client\Model\Webhook getWebhook($webhook_id)
+> \TalonOne\Client\Model\Webhook getWebhook($webhook_id)
 
 Get Webhook
 
@@ -4632,12 +4632,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4663,7 +4663,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Webhook**](../Model/Webhook.md)
+[**\TalonOne\Client\Model\Webhook**](../Model/Webhook.md)
 
 ### Authorization
 
@@ -4681,7 +4681,7 @@ Name | Type | Description  | Notes
 
 ## getWebhookActivationLogs
 
-> \OpenAPI\Client\Model\InlineResponse20023 getWebhookActivationLogs($page_size, $skip, $sort, $integration_request_uuid, $webhook_id, $application_id, $campaign_id, $created_before, $created_after)
+> \TalonOne\Client\Model\InlineResponse20023 getWebhookActivationLogs($page_size, $skip, $sort, $integration_request_uuid, $webhook_id, $application_id, $campaign_id, $created_before, $created_after)
 
 List Webhook activation Log Entries
 
@@ -4695,12 +4695,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4742,7 +4742,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
+[**\TalonOne\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
 
 ### Authorization
 
@@ -4760,7 +4760,7 @@ Name | Type | Description  | Notes
 
 ## getWebhookLogs
 
-> \OpenAPI\Client\Model\InlineResponse20024 getWebhookLogs($page_size, $skip, $sort, $status, $webhook_id, $application_id, $campaign_id, $request_uuid, $created_before, $created_after)
+> \TalonOne\Client\Model\InlineResponse20024 getWebhookLogs($page_size, $skip, $sort, $status, $webhook_id, $application_id, $campaign_id, $request_uuid, $created_before, $created_after)
 
 List Webhook Log Entries
 
@@ -4772,12 +4772,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4821,7 +4821,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
+[**\TalonOne\Client\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
 
 ### Authorization
 
@@ -4839,7 +4839,7 @@ Name | Type | Description  | Notes
 
 ## getWebhooks
 
-> \OpenAPI\Client\Model\InlineResponse20022 getWebhooks($application_ids, $sort, $page_size, $skip)
+> \TalonOne\Client\Model\InlineResponse20022 getWebhooks($application_ids, $sort, $page_size, $skip)
 
 List Webhooks
 
@@ -4851,12 +4851,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4888,7 +4888,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
+[**\TalonOne\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
 
 ### Authorization
 
@@ -4918,12 +4918,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4931,7 +4931,7 @@ $apiInstance = new OpenAPI\Client\Api\ManagementApi(
 );
 $program_id = 'program_id_example'; // string | 
 $integration_id = 'integration_id_example'; // string | 
-$body = new \OpenAPI\Client\Model\LoyaltyPoints(); // \OpenAPI\Client\Model\LoyaltyPoints | 
+$body = new \TalonOne\Client\Model\LoyaltyPoints(); // \TalonOne\Client\Model\LoyaltyPoints | 
 
 try {
     $apiInstance->removeLoyaltyPoints($program_id, $integration_id, $body);
@@ -4948,7 +4948,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **program_id** | **string**|  |
  **integration_id** | **string**|  |
- **body** | [**\OpenAPI\Client\Model\LoyaltyPoints**](../Model/LoyaltyPoints.md)|  |
+ **body** | [**\TalonOne\Client\Model\LoyaltyPoints**](../Model/LoyaltyPoints.md)|  |
 
 ### Return type
 
@@ -4970,7 +4970,7 @@ void (empty response body)
 
 ## resetPassword
 
-> \OpenAPI\Client\Model\NewPassword resetPassword($body)
+> \TalonOne\Client\Model\NewPassword resetPassword($body)
 
 Reset password
 
@@ -4984,18 +4984,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\NewPassword(); // \OpenAPI\Client\Model\NewPassword | 
+$body = new \TalonOne\Client\Model\NewPassword(); // \TalonOne\Client\Model\NewPassword | 
 
 try {
     $result = $apiInstance->resetPassword($body);
@@ -5011,11 +5011,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\OpenAPI\Client\Model\NewPassword**](../Model/NewPassword.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewPassword**](../Model/NewPassword.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NewPassword**](../Model/NewPassword.md)
+[**\TalonOne\Client\Model\NewPassword**](../Model/NewPassword.md)
 
 ### Authorization
 
@@ -5033,7 +5033,7 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvanced
 
-> \OpenAPI\Client\Model\InlineResponse2001 searchCouponsAdvanced($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id)
+> \TalonOne\Client\Model\InlineResponse2001 searchCouponsAdvanced($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id)
 
 Get a list of the coupons that match the given attributes
 
@@ -5047,12 +5047,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5106,7 +5106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -5124,7 +5124,7 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvancedApplicationWide
 
-> \OpenAPI\Client\Model\InlineResponse2001 searchCouponsAdvancedApplicationWide($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state)
+> \TalonOne\Client\Model\InlineResponse2001 searchCouponsAdvancedApplicationWide($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state)
 
 Get a list of the coupons that match the given attributes in all active campaigns of an application
 
@@ -5138,12 +5138,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5197,7 +5197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -5215,7 +5215,7 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvancedApplicationWideWithoutTotalCount
 
-> \OpenAPI\Client\Model\InlineResponse2005 searchCouponsAdvancedApplicationWideWithoutTotalCount($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state)
+> \TalonOne\Client\Model\InlineResponse2005 searchCouponsAdvancedApplicationWideWithoutTotalCount($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state)
 
 Get a list of the coupons that match the given attributes in all active campaigns of an application
 
@@ -5229,12 +5229,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5288,7 +5288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\TalonOne\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
 
 ### Authorization
 
@@ -5306,7 +5306,7 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvancedWithoutTotalCount
 
-> \OpenAPI\Client\Model\InlineResponse2005 searchCouponsAdvancedWithoutTotalCount($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id)
+> \TalonOne\Client\Model\InlineResponse2005 searchCouponsAdvancedWithoutTotalCount($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id)
 
 Get a list of the coupons that match the given attributes
 
@@ -5320,12 +5320,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5379,7 +5379,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\TalonOne\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
 
 ### Authorization
 
@@ -5397,7 +5397,7 @@ Name | Type | Description  | Notes
 
 ## updateAdditionalCost
 
-> \OpenAPI\Client\Model\AccountAdditionalCost updateAdditionalCost($additional_cost_id, $body)
+> \TalonOne\Client\Model\AccountAdditionalCost updateAdditionalCost($additional_cost_id, $body)
 
 Update an additional cost
 
@@ -5411,19 +5411,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $additional_cost_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\NewAdditionalCost(); // \OpenAPI\Client\Model\NewAdditionalCost | 
+$body = new \TalonOne\Client\Model\NewAdditionalCost(); // \TalonOne\Client\Model\NewAdditionalCost | 
 
 try {
     $result = $apiInstance->updateAdditionalCost($additional_cost_id, $body);
@@ -5440,11 +5440,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **additional_cost_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\NewAdditionalCost**](../Model/NewAdditionalCost.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewAdditionalCost**](../Model/NewAdditionalCost.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AccountAdditionalCost**](../Model/AccountAdditionalCost.md)
+[**\TalonOne\Client\Model\AccountAdditionalCost**](../Model/AccountAdditionalCost.md)
 
 ### Authorization
 
@@ -5462,7 +5462,7 @@ Name | Type | Description  | Notes
 
 ## updateAttribute
 
-> \OpenAPI\Client\Model\Attribute updateAttribute($attribute_id, $body)
+> \TalonOne\Client\Model\Attribute updateAttribute($attribute_id, $body)
 
 Update a custom attribute
 
@@ -5476,19 +5476,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $attribute_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\NewAttribute(); // \OpenAPI\Client\Model\NewAttribute | 
+$body = new \TalonOne\Client\Model\NewAttribute(); // \TalonOne\Client\Model\NewAttribute | 
 
 try {
     $result = $apiInstance->updateAttribute($attribute_id, $body);
@@ -5505,11 +5505,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attribute_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\NewAttribute**](../Model/NewAttribute.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewAttribute**](../Model/NewAttribute.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Attribute**](../Model/Attribute.md)
+[**\TalonOne\Client\Model\Attribute**](../Model/Attribute.md)
 
 ### Authorization
 
@@ -5527,7 +5527,7 @@ Name | Type | Description  | Notes
 
 ## updateCampaign
 
-> \OpenAPI\Client\Model\Campaign updateCampaign($application_id, $campaign_id, $body)
+> \TalonOne\Client\Model\Campaign updateCampaign($application_id, $campaign_id, $body)
 
 Update a Campaign
 
@@ -5539,12 +5539,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5552,7 +5552,7 @@ $apiInstance = new OpenAPI\Client\Api\ManagementApi(
 );
 $application_id = 56; // int | 
 $campaign_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\UpdateCampaign(); // \OpenAPI\Client\Model\UpdateCampaign | 
+$body = new \TalonOne\Client\Model\UpdateCampaign(); // \TalonOne\Client\Model\UpdateCampaign | 
 
 try {
     $result = $apiInstance->updateCampaign($application_id, $campaign_id, $body);
@@ -5570,11 +5570,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  |
  **campaign_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\UpdateCampaign**](../Model/UpdateCampaign.md)|  |
+ **body** | [**\TalonOne\Client\Model\UpdateCampaign**](../Model/UpdateCampaign.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Campaign**](../Model/Campaign.md)
+[**\TalonOne\Client\Model\Campaign**](../Model/Campaign.md)
 
 ### Authorization
 
@@ -5592,7 +5592,7 @@ Name | Type | Description  | Notes
 
 ## updateCampaignSet
 
-> \OpenAPI\Client\Model\CampaignSet updateCampaignSet($application_id, $body)
+> \TalonOne\Client\Model\CampaignSet updateCampaignSet($application_id, $body)
 
 Update a Campaign Set
 
@@ -5604,19 +5604,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $application_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\NewCampaignSet(); // \OpenAPI\Client\Model\NewCampaignSet | 
+$body = new \TalonOne\Client\Model\NewCampaignSet(); // \TalonOne\Client\Model\NewCampaignSet | 
 
 try {
     $result = $apiInstance->updateCampaignSet($application_id, $body);
@@ -5633,11 +5633,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\NewCampaignSet**](../Model/NewCampaignSet.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewCampaignSet**](../Model/NewCampaignSet.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CampaignSet**](../Model/CampaignSet.md)
+[**\TalonOne\Client\Model\CampaignSet**](../Model/CampaignSet.md)
 
 ### Authorization
 
@@ -5655,7 +5655,7 @@ Name | Type | Description  | Notes
 
 ## updateCoupon
 
-> \OpenAPI\Client\Model\Coupon updateCoupon($application_id, $campaign_id, $coupon_id, $body)
+> \TalonOne\Client\Model\Coupon updateCoupon($application_id, $campaign_id, $coupon_id, $body)
 
 Update a Coupon
 
@@ -5667,12 +5667,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5681,7 +5681,7 @@ $apiInstance = new OpenAPI\Client\Api\ManagementApi(
 $application_id = 56; // int | 
 $campaign_id = 56; // int | 
 $coupon_id = 'coupon_id_example'; // string | The ID of the coupon code to update
-$body = new \OpenAPI\Client\Model\UpdateCoupon(); // \OpenAPI\Client\Model\UpdateCoupon | 
+$body = new \TalonOne\Client\Model\UpdateCoupon(); // \TalonOne\Client\Model\UpdateCoupon | 
 
 try {
     $result = $apiInstance->updateCoupon($application_id, $campaign_id, $coupon_id, $body);
@@ -5700,11 +5700,11 @@ Name | Type | Description  | Notes
  **application_id** | **int**|  |
  **campaign_id** | **int**|  |
  **coupon_id** | **string**| The ID of the coupon code to update |
- **body** | [**\OpenAPI\Client\Model\UpdateCoupon**](../Model/UpdateCoupon.md)|  |
+ **body** | [**\TalonOne\Client\Model\UpdateCoupon**](../Model/UpdateCoupon.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Coupon**](../Model/Coupon.md)
+[**\TalonOne\Client\Model\Coupon**](../Model/Coupon.md)
 
 ### Authorization
 
@@ -5734,12 +5734,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5747,7 +5747,7 @@ $apiInstance = new OpenAPI\Client\Api\ManagementApi(
 );
 $application_id = 56; // int | 
 $campaign_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\UpdateCouponBatch(); // \OpenAPI\Client\Model\UpdateCouponBatch | 
+$body = new \TalonOne\Client\Model\UpdateCouponBatch(); // \TalonOne\Client\Model\UpdateCouponBatch | 
 
 try {
     $apiInstance->updateCouponBatch($application_id, $campaign_id, $body);
@@ -5764,7 +5764,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  |
  **campaign_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\UpdateCouponBatch**](../Model/UpdateCouponBatch.md)|  |
+ **body** | [**\TalonOne\Client\Model\UpdateCouponBatch**](../Model/UpdateCouponBatch.md)|  |
 
 ### Return type
 
@@ -5786,7 +5786,7 @@ void (empty response body)
 
 ## updateRuleset
 
-> \OpenAPI\Client\Model\Ruleset updateRuleset($application_id, $campaign_id, $ruleset_id, $body)
+> \TalonOne\Client\Model\Ruleset updateRuleset($application_id, $campaign_id, $ruleset_id, $body)
 
 Update a Ruleset
 
@@ -5798,12 +5798,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: manager_auth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ManagementApi(
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5812,7 +5812,7 @@ $apiInstance = new OpenAPI\Client\Api\ManagementApi(
 $application_id = 56; // int | 
 $campaign_id = 56; // int | 
 $ruleset_id = 56; // int | 
-$body = new \OpenAPI\Client\Model\NewRuleset(); // \OpenAPI\Client\Model\NewRuleset | 
+$body = new \TalonOne\Client\Model\NewRuleset(); // \TalonOne\Client\Model\NewRuleset | 
 
 try {
     $result = $apiInstance->updateRuleset($application_id, $campaign_id, $ruleset_id, $body);
@@ -5831,11 +5831,11 @@ Name | Type | Description  | Notes
  **application_id** | **int**|  |
  **campaign_id** | **int**|  |
  **ruleset_id** | **int**|  |
- **body** | [**\OpenAPI\Client\Model\NewRuleset**](../Model/NewRuleset.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewRuleset**](../Model/NewRuleset.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Ruleset**](../Model/Ruleset.md)
+[**\TalonOne\Client\Model\Ruleset**](../Model/Ruleset.md)
 
 ### Authorization
 

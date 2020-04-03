@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * FunctionDef Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -61,7 +61,7 @@ class FunctionDef implements ModelInterface, ArrayAccess
         'type' => 'string',
         'description' => 'string',
         'help' => 'string',
-        'args' => '\OpenAPI\Client\Model\FuncArgDef[]'
+        'args' => '\TalonOne\Client\Model\FuncArgDef[]'
     ];
 
     /**
@@ -345,7 +345,7 @@ class FunctionDef implements ModelInterface, ArrayAccess
     /**
      * Gets args
      *
-     * @return \OpenAPI\Client\Model\FuncArgDef[]
+     * @return \TalonOne\Client\Model\FuncArgDef[]
      */
     public function getArgs()
     {
@@ -355,7 +355,7 @@ class FunctionDef implements ModelInterface, ArrayAccess
     /**
      * Sets args
      *
-     * @param \OpenAPI\Client\Model\FuncArgDef[] $args An array of argument definitions.
+     * @param \TalonOne\Client\Model\FuncArgDef[] $args An array of argument definitions.
      *
      * @return $this
      */

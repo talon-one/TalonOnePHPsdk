@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **coupon** | **string** | Any coupon code entered. | 
 **referral** | **string** | Any referral code entered. | 
 **state** | **string** | Indicating if the customer session is in progress (\&quot;open\&quot;), \&quot;closed\&quot;, or \&quot;cancelled\&quot;. | 
-**cart_items** | [**\OpenAPI\Client\Model\CartItem[]**](CartItem.md) | Serialized JSON representation. | 
+**cart_items** | [**\TalonOne\Client\Model\CartItem[]**](CartItem.md) | Serialized JSON representation. | 
 **discounts** | **map[string,float]** | A map of labelled discount values, in the same currency as the session. | 
 **total** | **float** | The total sum of the session before any discounts applied. | [optional] 
 **attributes** | [**object**](.md) | Arbitrary properties associated with this item | [optional] 

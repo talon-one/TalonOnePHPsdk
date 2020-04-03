@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * IntegrationState Class Doc Comment
  *
  * @category Class
  * @description Contains all state that might interest application integration plugins. This is the response type returned by all of the Integration API operations.
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,11 +58,11 @@ class IntegrationState implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'session' => '\OpenAPI\Client\Model\CustomerSession',
-        'profile' => '\OpenAPI\Client\Model\CustomerProfile',
-        'event' => '\OpenAPI\Client\Model\Event',
-        'loyalty' => '\OpenAPI\Client\Model\Loyalty',
-        'coupon' => '\OpenAPI\Client\Model\Coupon'
+        'session' => '\TalonOne\Client\Model\CustomerSession',
+        'profile' => '\TalonOne\Client\Model\CustomerProfile',
+        'event' => '\TalonOne\Client\Model\Event',
+        'loyalty' => '\TalonOne\Client\Model\Loyalty',
+        'coupon' => '\TalonOne\Client\Model\Coupon'
     ];
 
     /**
@@ -241,7 +241,7 @@ class IntegrationState implements ModelInterface, ArrayAccess
     /**
      * Gets session
      *
-     * @return \OpenAPI\Client\Model\CustomerSession
+     * @return \TalonOne\Client\Model\CustomerSession
      */
     public function getSession()
     {
@@ -251,7 +251,7 @@ class IntegrationState implements ModelInterface, ArrayAccess
     /**
      * Sets session
      *
-     * @param \OpenAPI\Client\Model\CustomerSession $session session
+     * @param \TalonOne\Client\Model\CustomerSession $session session
      *
      * @return $this
      */
@@ -265,7 +265,7 @@ class IntegrationState implements ModelInterface, ArrayAccess
     /**
      * Gets profile
      *
-     * @return \OpenAPI\Client\Model\CustomerProfile
+     * @return \TalonOne\Client\Model\CustomerProfile
      */
     public function getProfile()
     {
@@ -275,7 +275,7 @@ class IntegrationState implements ModelInterface, ArrayAccess
     /**
      * Sets profile
      *
-     * @param \OpenAPI\Client\Model\CustomerProfile $profile profile
+     * @param \TalonOne\Client\Model\CustomerProfile $profile profile
      *
      * @return $this
      */
@@ -289,7 +289,7 @@ class IntegrationState implements ModelInterface, ArrayAccess
     /**
      * Gets event
      *
-     * @return \OpenAPI\Client\Model\Event
+     * @return \TalonOne\Client\Model\Event
      */
     public function getEvent()
     {
@@ -299,7 +299,7 @@ class IntegrationState implements ModelInterface, ArrayAccess
     /**
      * Sets event
      *
-     * @param \OpenAPI\Client\Model\Event $event event
+     * @param \TalonOne\Client\Model\Event $event event
      *
      * @return $this
      */
@@ -313,7 +313,7 @@ class IntegrationState implements ModelInterface, ArrayAccess
     /**
      * Gets loyalty
      *
-     * @return \OpenAPI\Client\Model\Loyalty|null
+     * @return \TalonOne\Client\Model\Loyalty|null
      */
     public function getLoyalty()
     {
@@ -323,7 +323,7 @@ class IntegrationState implements ModelInterface, ArrayAccess
     /**
      * Sets loyalty
      *
-     * @param \OpenAPI\Client\Model\Loyalty|null $loyalty loyalty
+     * @param \TalonOne\Client\Model\Loyalty|null $loyalty loyalty
      *
      * @return $this
      */
@@ -337,7 +337,7 @@ class IntegrationState implements ModelInterface, ArrayAccess
     /**
      * Gets coupon
      *
-     * @return \OpenAPI\Client\Model\Coupon|null
+     * @return \TalonOne\Client\Model\Coupon|null
      */
     public function getCoupon()
     {
@@ -347,7 +347,7 @@ class IntegrationState implements ModelInterface, ArrayAccess
     /**
      * Sets coupon
      *
-     * @param \OpenAPI\Client\Model\Coupon|null $coupon coupon
+     * @param \TalonOne\Client\Model\Coupon|null $coupon coupon
      *
      * @return $this
      */

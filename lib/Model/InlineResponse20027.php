@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * InlineResponse20027 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class InlineResponse20027 implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'total_result_size' => 'int',
         'has_more' => 'bool',
-        'data' => '\OpenAPI\Client\Model\Change[]'
+        'data' => '\TalonOne\Client\Model\Change[]'
     ];
 
     /**
@@ -270,7 +270,7 @@ class InlineResponse20027 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\Change[]
+     * @return \TalonOne\Client\Model\Change[]
      */
     public function getData()
     {
@@ -280,7 +280,7 @@ class InlineResponse20027 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\Change[] $data data
+     * @param \TalonOne\Client\Model\Change[] $data data
      *
      * @return $this
      */

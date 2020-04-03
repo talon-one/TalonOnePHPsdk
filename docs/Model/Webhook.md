@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **url** | **string** | API url (supports templating using parameters) for this webhook | 
 **headers** | **string[]** | List of API HTTP headers for this webhook | 
 **payload** | **string** | API payload (supports templating using parameters) for this webhook | [optional] 
-**params** | [**\OpenAPI\Client\Model\TemplateArgDef[]**](TemplateArgDef.md) | Array of template argument definitions | 
+**params** | [**\TalonOne\Client\Model\TemplateArgDef[]**](TemplateArgDef.md) | Array of template argument definitions | 
 **enabled** | **bool** | Enables or disables webhook from showing in rule builder | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

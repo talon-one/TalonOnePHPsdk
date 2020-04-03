@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * AttributesSettings Class Doc Comment
  *
  * @category Class
  * @description Arbitrary settings associated with attributes.
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class AttributesSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'mandatory' => '\OpenAPI\Client\Model\AttributesMandatory'
+        'mandatory' => '\TalonOne\Client\Model\AttributesMandatory'
     ];
 
     /**
@@ -208,7 +208,7 @@ class AttributesSettings implements ModelInterface, ArrayAccess
     /**
      * Gets mandatory
      *
-     * @return \OpenAPI\Client\Model\AttributesMandatory|null
+     * @return \TalonOne\Client\Model\AttributesMandatory|null
      */
     public function getMandatory()
     {
@@ -218,7 +218,7 @@ class AttributesSettings implements ModelInterface, ArrayAccess
     /**
      * Sets mandatory
      *
-     * @param \OpenAPI\Client\Model\AttributesMandatory|null $mandatory mandatory
+     * @param \TalonOne\Client\Model\AttributesMandatory|null $mandatory mandatory
      *
      * @return $this
      */

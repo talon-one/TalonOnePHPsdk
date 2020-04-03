@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * NewRuleset Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,8 +57,8 @@ class NewRuleset implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'rules' => '\OpenAPI\Client\Model\Rule[]',
-        'bindings' => '\OpenAPI\Client\Model\Binding[]',
+        'rules' => '\TalonOne\Client\Model\Rule[]',
+        'bindings' => '\TalonOne\Client\Model\Binding[]',
         'rb_version' => 'string',
         'activate' => 'bool'
     ];
@@ -231,7 +231,7 @@ class NewRuleset implements ModelInterface, ArrayAccess
     /**
      * Gets rules
      *
-     * @return \OpenAPI\Client\Model\Rule[]
+     * @return \TalonOne\Client\Model\Rule[]
      */
     public function getRules()
     {
@@ -241,7 +241,7 @@ class NewRuleset implements ModelInterface, ArrayAccess
     /**
      * Sets rules
      *
-     * @param \OpenAPI\Client\Model\Rule[] $rules Set of rules to apply.
+     * @param \TalonOne\Client\Model\Rule[] $rules Set of rules to apply.
      *
      * @return $this
      */
@@ -255,7 +255,7 @@ class NewRuleset implements ModelInterface, ArrayAccess
     /**
      * Gets bindings
      *
-     * @return \OpenAPI\Client\Model\Binding[]
+     * @return \TalonOne\Client\Model\Binding[]
      */
     public function getBindings()
     {
@@ -265,7 +265,7 @@ class NewRuleset implements ModelInterface, ArrayAccess
     /**
      * Sets bindings
      *
-     * @param \OpenAPI\Client\Model\Binding[] $bindings An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array.
+     * @param \TalonOne\Client\Model\Binding[] $bindings An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array.
      *
      * @return $this
      */

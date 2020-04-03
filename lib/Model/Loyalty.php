@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * Loyalty Class Doc Comment
  *
  * @category Class
  * @description Customer specific information about loyalty points.
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class Loyalty implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'programs' => 'map[string,\OpenAPI\Client\Model\LoyaltyProgramLedgers]'
+        'programs' => 'map[string,\TalonOne\Client\Model\LoyaltyProgramLedgers]'
     ];
 
     /**
@@ -211,7 +211,7 @@ class Loyalty implements ModelInterface, ArrayAccess
     /**
      * Gets programs
      *
-     * @return map[string,\OpenAPI\Client\Model\LoyaltyProgramLedgers]
+     * @return map[string,\TalonOne\Client\Model\LoyaltyProgramLedgers]
      */
     public function getPrograms()
     {
@@ -221,7 +221,7 @@ class Loyalty implements ModelInterface, ArrayAccess
     /**
      * Sets programs
      *
-     * @param map[string,\OpenAPI\Client\Model\LoyaltyProgramLedgers] $programs A map holding information about the loyalty programs balance
+     * @param map[string,\TalonOne\Client\Model\LoyaltyProgramLedgers] $programs A map holding information about the loyalty programs balance
      *
      * @return $this
      */

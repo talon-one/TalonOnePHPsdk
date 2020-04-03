@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * IntegrationStateV2 Class Doc Comment
  *
  * @category Class
  * @description Contains all entities that might interest Talon.One integrations. This is the response type returned by the V2 PUT customer_session endpoint
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,16 +58,16 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'customer_session' => '\OpenAPI\Client\Model\CustomerSessionV2',
-        'customer_profile' => '\OpenAPI\Client\Model\CustomerProfile',
-        'event' => '\OpenAPI\Client\Model\Event',
-        'loyalty' => '\OpenAPI\Client\Model\Loyalty',
-        'referral' => '\OpenAPI\Client\Model\Referral',
-        'coupons' => '\OpenAPI\Client\Model\Coupon[]',
-        'triggered_campaigns' => '\OpenAPI\Client\Model\Campaign[]',
-        'effects' => '\OpenAPI\Client\Model\Effect[]',
-        'created_coupons' => '\OpenAPI\Client\Model\Coupon[]',
-        'created_referrals' => '\OpenAPI\Client\Model\Referral[]'
+        'customer_session' => '\TalonOne\Client\Model\CustomerSessionV2',
+        'customer_profile' => '\TalonOne\Client\Model\CustomerProfile',
+        'event' => '\TalonOne\Client\Model\Event',
+        'loyalty' => '\TalonOne\Client\Model\Loyalty',
+        'referral' => '\TalonOne\Client\Model\Referral',
+        'coupons' => '\TalonOne\Client\Model\Coupon[]',
+        'triggered_campaigns' => '\TalonOne\Client\Model\Campaign[]',
+        'effects' => '\TalonOne\Client\Model\Effect[]',
+        'created_coupons' => '\TalonOne\Client\Model\Coupon[]',
+        'created_referrals' => '\TalonOne\Client\Model\Referral[]'
     ];
 
     /**
@@ -271,7 +271,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Gets customer_session
      *
-     * @return \OpenAPI\Client\Model\CustomerSessionV2|null
+     * @return \TalonOne\Client\Model\CustomerSessionV2|null
      */
     public function getCustomerSession()
     {
@@ -281,7 +281,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets customer_session
      *
-     * @param \OpenAPI\Client\Model\CustomerSessionV2|null $customer_session customer_session
+     * @param \TalonOne\Client\Model\CustomerSessionV2|null $customer_session customer_session
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Gets customer_profile
      *
-     * @return \OpenAPI\Client\Model\CustomerProfile|null
+     * @return \TalonOne\Client\Model\CustomerProfile|null
      */
     public function getCustomerProfile()
     {
@@ -305,7 +305,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets customer_profile
      *
-     * @param \OpenAPI\Client\Model\CustomerProfile|null $customer_profile customer_profile
+     * @param \TalonOne\Client\Model\CustomerProfile|null $customer_profile customer_profile
      *
      * @return $this
      */
@@ -319,7 +319,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Gets event
      *
-     * @return \OpenAPI\Client\Model\Event|null
+     * @return \TalonOne\Client\Model\Event|null
      */
     public function getEvent()
     {
@@ -329,7 +329,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets event
      *
-     * @param \OpenAPI\Client\Model\Event|null $event event
+     * @param \TalonOne\Client\Model\Event|null $event event
      *
      * @return $this
      */
@@ -343,7 +343,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Gets loyalty
      *
-     * @return \OpenAPI\Client\Model\Loyalty|null
+     * @return \TalonOne\Client\Model\Loyalty|null
      */
     public function getLoyalty()
     {
@@ -353,7 +353,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets loyalty
      *
-     * @param \OpenAPI\Client\Model\Loyalty|null $loyalty loyalty
+     * @param \TalonOne\Client\Model\Loyalty|null $loyalty loyalty
      *
      * @return $this
      */
@@ -367,7 +367,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Gets referral
      *
-     * @return \OpenAPI\Client\Model\Referral|null
+     * @return \TalonOne\Client\Model\Referral|null
      */
     public function getReferral()
     {
@@ -377,7 +377,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets referral
      *
-     * @param \OpenAPI\Client\Model\Referral|null $referral referral
+     * @param \TalonOne\Client\Model\Referral|null $referral referral
      *
      * @return $this
      */
@@ -391,7 +391,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Gets coupons
      *
-     * @return \OpenAPI\Client\Model\Coupon[]|null
+     * @return \TalonOne\Client\Model\Coupon[]|null
      */
     public function getCoupons()
     {
@@ -401,7 +401,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets coupons
      *
-     * @param \OpenAPI\Client\Model\Coupon[]|null $coupons coupons
+     * @param \TalonOne\Client\Model\Coupon[]|null $coupons coupons
      *
      * @return $this
      */
@@ -415,7 +415,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Gets triggered_campaigns
      *
-     * @return \OpenAPI\Client\Model\Campaign[]|null
+     * @return \TalonOne\Client\Model\Campaign[]|null
      */
     public function getTriggeredCampaigns()
     {
@@ -425,7 +425,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets triggered_campaigns
      *
-     * @param \OpenAPI\Client\Model\Campaign[]|null $triggered_campaigns triggered_campaigns
+     * @param \TalonOne\Client\Model\Campaign[]|null $triggered_campaigns triggered_campaigns
      *
      * @return $this
      */
@@ -439,7 +439,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Gets effects
      *
-     * @return \OpenAPI\Client\Model\Effect[]
+     * @return \TalonOne\Client\Model\Effect[]
      */
     public function getEffects()
     {
@@ -449,7 +449,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets effects
      *
-     * @param \OpenAPI\Client\Model\Effect[] $effects effects
+     * @param \TalonOne\Client\Model\Effect[] $effects effects
      *
      * @return $this
      */
@@ -463,7 +463,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Gets created_coupons
      *
-     * @return \OpenAPI\Client\Model\Coupon[]
+     * @return \TalonOne\Client\Model\Coupon[]
      */
     public function getCreatedCoupons()
     {
@@ -473,7 +473,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets created_coupons
      *
-     * @param \OpenAPI\Client\Model\Coupon[] $created_coupons created_coupons
+     * @param \TalonOne\Client\Model\Coupon[] $created_coupons created_coupons
      *
      * @return $this
      */
@@ -487,7 +487,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Gets created_referrals
      *
-     * @return \OpenAPI\Client\Model\Referral[]
+     * @return \TalonOne\Client\Model\Referral[]
      */
     public function getCreatedReferrals()
     {
@@ -497,7 +497,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets created_referrals
      *
-     * @param \OpenAPI\Client\Model\Referral[] $created_referrals created_referrals
+     * @param \TalonOne\Client\Model\Referral[] $created_referrals created_referrals
      *
      * @return $this
      */

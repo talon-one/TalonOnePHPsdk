@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * CampaignSetBranchNode Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -60,7 +60,7 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
         'type' => 'string',
         'name' => 'string',
         'operator' => 'string',
-        'elements' => '\OpenAPI\Client\Model\CampaignSetNode[]'
+        'elements' => '\TalonOne\Client\Model\CampaignSetNode[]'
     ];
 
     /**
@@ -371,7 +371,7 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
     /**
      * Gets elements
      *
-     * @return \OpenAPI\Client\Model\CampaignSetNode[]
+     * @return \TalonOne\Client\Model\CampaignSetNode[]
      */
     public function getElements()
     {
@@ -381,7 +381,7 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
     /**
      * Sets elements
      *
-     * @param \OpenAPI\Client\Model\CampaignSetNode[] $elements Child elements of this set
+     * @param \TalonOne\Client\Model\CampaignSetNode[] $elements Child elements of this set
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * NewCampaignSet Class Doc Comment
  *
  * @category Class
  * @description 
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'application_id' => 'int',
-        'set' => '\OpenAPI\Client\Model\CampaignSetBranchNode'
+        'set' => '\TalonOne\Client\Model\CampaignSetBranchNode'
     ];
 
     /**
@@ -244,7 +244,7 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
     /**
      * Gets set
      *
-     * @return \OpenAPI\Client\Model\CampaignSetBranchNode
+     * @return \TalonOne\Client\Model\CampaignSetBranchNode
      */
     public function getSet()
     {
@@ -254,7 +254,7 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
     /**
      * Sets set
      *
-     * @param \OpenAPI\Client\Model\CampaignSetBranchNode $set set
+     * @param \TalonOne\Client\Model\CampaignSetBranchNode $set set
      *
      * @return $this
      */

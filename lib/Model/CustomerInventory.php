@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * CustomerInventory Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,8 +57,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profile' => '\OpenAPI\Client\Model\CustomerProfile',
-        'referrals' => '\OpenAPI\Client\Model\Referral[]'
+        'profile' => '\TalonOne\Client\Model\CustomerProfile',
+        'referrals' => '\TalonOne\Client\Model\Referral[]'
     ];
 
     /**
@@ -213,7 +213,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     /**
      * Gets profile
      *
-     * @return \OpenAPI\Client\Model\CustomerProfile|null
+     * @return \TalonOne\Client\Model\CustomerProfile|null
      */
     public function getProfile()
     {
@@ -223,7 +223,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     /**
      * Sets profile
      *
-     * @param \OpenAPI\Client\Model\CustomerProfile|null $profile profile
+     * @param \TalonOne\Client\Model\CustomerProfile|null $profile profile
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     /**
      * Gets referrals
      *
-     * @return \OpenAPI\Client\Model\Referral[]|null
+     * @return \TalonOne\Client\Model\Referral[]|null
      */
     public function getReferrals()
     {
@@ -247,7 +247,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     /**
      * Sets referrals
      *
-     * @param \OpenAPI\Client\Model\Referral[]|null $referrals referrals
+     * @param \TalonOne\Client\Model\Referral[]|null $referrals referrals
      *
      * @return $this
      */

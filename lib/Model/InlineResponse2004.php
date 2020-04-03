@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * InlineResponse2004 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class InlineResponse2004 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'total_result_size' => 'int',
-        'data' => '\OpenAPI\Client\Model\Ruleset[]'
+        'data' => '\TalonOne\Client\Model\Ruleset[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse2004 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\Ruleset[]
+     * @return \TalonOne\Client\Model\Ruleset[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse2004 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\Ruleset[] $data data
+     * @param \TalonOne\Client\Model\Ruleset[] $data data
      *
      * @return $this
      */

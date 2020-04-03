@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **help** | **string** | Extended help text for the template. | 
 **category** | **string** | Used for grouping templates in the rule editor sidebar. | 
 **expr** | **object[]** | A Talang expression that contains variable bindings referring to args. | 
-**args** | [**\OpenAPI\Client\Model\TemplateArgDef[]**](TemplateArgDef.md) | An array of argument definitions. | 
+**args** | [**\TalonOne\Client\Model\TemplateArgDef[]**](TemplateArgDef.md) | An array of argument definitions. | 
 **expose** | **bool** | A flag to control exposure in Rule Builder. | [optional] [default to false]
 **name** | **string** | The template name used in Talang. | 
 

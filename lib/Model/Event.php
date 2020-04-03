@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * Event Class Doc Comment
  *
  * @category Class
  * @description 
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -66,8 +66,8 @@ class Event implements ModelInterface, ArrayAccess
         'attributes' => 'object',
         'session_id' => 'string',
         'effects' => 'object[]',
-        'ledger_entries' => '\OpenAPI\Client\Model\LedgerEntry[]',
-        'meta' => '\OpenAPI\Client\Model\Meta'
+        'ledger_entries' => '\TalonOne\Client\Model\LedgerEntry[]',
+        'meta' => '\TalonOne\Client\Model\Meta'
     ];
 
     /**
@@ -484,7 +484,7 @@ class Event implements ModelInterface, ArrayAccess
     /**
      * Gets ledger_entries
      *
-     * @return \OpenAPI\Client\Model\LedgerEntry[]
+     * @return \TalonOne\Client\Model\LedgerEntry[]
      */
     public function getLedgerEntries()
     {
@@ -494,7 +494,7 @@ class Event implements ModelInterface, ArrayAccess
     /**
      * Sets ledger_entries
      *
-     * @param \OpenAPI\Client\Model\LedgerEntry[] $ledger_entries Ledger entries for the event.
+     * @param \TalonOne\Client\Model\LedgerEntry[] $ledger_entries Ledger entries for the event.
      *
      * @return $this
      */
@@ -508,7 +508,7 @@ class Event implements ModelInterface, ArrayAccess
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta|null
+     * @return \TalonOne\Client\Model\Meta|null
      */
     public function getMeta()
     {
@@ -518,7 +518,7 @@ class Event implements ModelInterface, ArrayAccess
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta|null $meta meta
+     * @param \TalonOne\Client\Model\Meta|null $meta meta
      *
      * @return $this
      */

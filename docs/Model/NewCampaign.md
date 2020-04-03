@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **active_ruleset_id** | **int** | ID of Ruleset this campaign applies on customer session evaluation. | [optional] 
 **tags** | **string[]** | A list of tags for the campaign. | 
 **features** | **string[]** | A list of features for the campaign. | 
-**coupon_settings** | [**\OpenAPI\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
-**referral_settings** | [**\OpenAPI\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
-**limits** | [**\OpenAPI\Client\Model\LimitConfig[]**](LimitConfig.md) | The set of limits that will operate for this campaign | 
+**coupon_settings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
+**referral_settings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
+**limits** | [**\TalonOne\Client\Model\LimitConfig[]**](LimitConfig.md) | The set of limits that will operate for this campaign | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

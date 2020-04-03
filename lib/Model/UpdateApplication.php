@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * UpdateApplication Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -63,8 +63,8 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         'currency' => 'string',
         'case_sensitivity' => 'string',
         'attributes' => 'object',
-        'limits' => '\OpenAPI\Client\Model\LimitConfig[]',
-        'attributes_settings' => '\OpenAPI\Client\Model\AttributesSettings'
+        'limits' => '\TalonOne\Client\Model\LimitConfig[]',
+        'attributes_settings' => '\TalonOne\Client\Model\AttributesSettings'
     ];
 
     /**
@@ -463,7 +463,7 @@ class UpdateApplication implements ModelInterface, ArrayAccess
     /**
      * Gets limits
      *
-     * @return \OpenAPI\Client\Model\LimitConfig[]|null
+     * @return \TalonOne\Client\Model\LimitConfig[]|null
      */
     public function getLimits()
     {
@@ -473,7 +473,7 @@ class UpdateApplication implements ModelInterface, ArrayAccess
     /**
      * Sets limits
      *
-     * @param \OpenAPI\Client\Model\LimitConfig[]|null $limits Default limits for campaigns created in this application
+     * @param \TalonOne\Client\Model\LimitConfig[]|null $limits Default limits for campaigns created in this application
      *
      * @return $this
      */
@@ -487,7 +487,7 @@ class UpdateApplication implements ModelInterface, ArrayAccess
     /**
      * Gets attributes_settings
      *
-     * @return \OpenAPI\Client\Model\AttributesSettings|null
+     * @return \TalonOne\Client\Model\AttributesSettings|null
      */
     public function getAttributesSettings()
     {
@@ -497,7 +497,7 @@ class UpdateApplication implements ModelInterface, ArrayAccess
     /**
      * Sets attributes_settings
      *
-     * @param \OpenAPI\Client\Model\AttributesSettings|null $attributes_settings attributes_settings
+     * @param \TalonOne\Client\Model\AttributesSettings|null $attributes_settings attributes_settings
      *
      * @return $this
      */

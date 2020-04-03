@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * NewWebhook Class Doc Comment
  *
  * @category Class
  * @description 
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -64,7 +64,7 @@ class NewWebhook implements ModelInterface, ArrayAccess
         'url' => 'string',
         'headers' => 'string[]',
         'payload' => 'string',
-        'params' => '\OpenAPI\Client\Model\TemplateArgDef[]',
+        'params' => '\TalonOne\Client\Model\TemplateArgDef[]',
         'enabled' => 'bool'
     ];
 
@@ -453,7 +453,7 @@ class NewWebhook implements ModelInterface, ArrayAccess
     /**
      * Gets params
      *
-     * @return \OpenAPI\Client\Model\TemplateArgDef[]
+     * @return \TalonOne\Client\Model\TemplateArgDef[]
      */
     public function getParams()
     {
@@ -463,7 +463,7 @@ class NewWebhook implements ModelInterface, ArrayAccess
     /**
      * Sets params
      *
-     * @param \OpenAPI\Client\Model\TemplateArgDef[] $params Array of template argument definitions
+     * @param \TalonOne\Client\Model\TemplateArgDef[] $params Array of template argument definitions
      *
      * @return $this
      */

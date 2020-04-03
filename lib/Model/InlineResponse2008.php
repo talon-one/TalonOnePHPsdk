@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * InlineResponse2008 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'total_result_size' => 'int',
-        'data' => '\OpenAPI\Client\Model\LoyaltyProgram[]'
+        'data' => '\TalonOne\Client\Model\LoyaltyProgram[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\LoyaltyProgram[]
+     * @return \TalonOne\Client\Model\LoyaltyProgram[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\LoyaltyProgram[] $data data
+     * @param \TalonOne\Client\Model\LoyaltyProgram[] $data data
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * CustomerSession Class Doc Comment
  *
  * @category Class
  * @description 
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -65,7 +65,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
         'coupon' => 'string',
         'referral' => 'string',
         'state' => 'string',
-        'cart_items' => '\OpenAPI\Client\Model\CartItem[]',
+        'cart_items' => '\TalonOne\Client\Model\CartItem[]',
         'identifiers' => 'string[]',
         'total' => 'float',
         'attributes' => 'object',
@@ -518,7 +518,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
     /**
      * Gets cart_items
      *
-     * @return \OpenAPI\Client\Model\CartItem[]
+     * @return \TalonOne\Client\Model\CartItem[]
      */
     public function getCartItems()
     {
@@ -528,7 +528,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
     /**
      * Sets cart_items
      *
-     * @param \OpenAPI\Client\Model\CartItem[] $cart_items Serialized JSON representation.
+     * @param \TalonOne\Client\Model\CartItem[] $cart_items Serialized JSON representation.
      *
      * @return $this
      */

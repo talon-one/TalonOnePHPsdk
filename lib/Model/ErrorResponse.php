@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * ErrorResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'message' => 'string',
-        'errors' => '\OpenAPI\Client\Model\APIError[]'
+        'errors' => '\TalonOne\Client\Model\APIError[]'
     ];
 
     /**
@@ -240,7 +240,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess
     /**
      * Gets errors
      *
-     * @return \OpenAPI\Client\Model\APIError[]|null
+     * @return \TalonOne\Client\Model\APIError[]|null
      */
     public function getErrors()
     {
@@ -250,7 +250,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess
     /**
      * Sets errors
      *
-     * @param \OpenAPI\Client\Model\APIError[]|null $errors An array of individual problems encountered during the request.
+     * @param \TalonOne\Client\Model\APIError[]|null $errors An array of individual problems encountered during the request.
      *
      * @return $this
      */

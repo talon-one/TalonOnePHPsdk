@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * NewTemplateDef Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -62,7 +62,7 @@ class NewTemplateDef implements ModelInterface, ArrayAccess
         'help' => 'string',
         'category' => 'string',
         'expr' => 'object[]',
-        'args' => '\OpenAPI\Client\Model\TemplateArgDef[]',
+        'args' => '\TalonOne\Client\Model\TemplateArgDef[]',
         'expose' => 'bool'
     ];
 
@@ -393,7 +393,7 @@ class NewTemplateDef implements ModelInterface, ArrayAccess
     /**
      * Gets args
      *
-     * @return \OpenAPI\Client\Model\TemplateArgDef[]
+     * @return \TalonOne\Client\Model\TemplateArgDef[]
      */
     public function getArgs()
     {
@@ -403,7 +403,7 @@ class NewTemplateDef implements ModelInterface, ArrayAccess
     /**
      * Sets args
      *
-     * @param \OpenAPI\Client\Model\TemplateArgDef[] $args An array of argument definitions.
+     * @param \TalonOne\Client\Model\TemplateArgDef[] $args An array of argument definitions.
      *
      * @return $this
      */

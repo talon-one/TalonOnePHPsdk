@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
 **campaign_id** | **int** | The ID of the campaign that owns this entity. | 
 **user_id** | **int** | The ID of the account that owns this entity. | 
-**rules** | [**\OpenAPI\Client\Model\Rule[]**](Rule.md) | Set of rules to apply. | 
-**bindings** | [**\OpenAPI\Client\Model\Binding[]**](Binding.md) | An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array. | 
+**rules** | [**\TalonOne\Client\Model\Rule[]**](Rule.md) | Set of rules to apply. | 
+**bindings** | [**\TalonOne\Client\Model\Binding[]**](Binding.md) | An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array. | 
 **rb_version** | **string** | A string indicating which version of the rulebuilder was used to create this ruleset. | [optional] 
 **activate** | **bool** | A boolean indicating whether this newly created ruleset should also be activated for the campaign owns it | [optional] 
 **activated_at** | [**\DateTime**](\DateTime.md) | Timestamp indicating when this Ruleset was activated. | [optional] 

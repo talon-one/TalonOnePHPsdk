@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * UpdateCampaign Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -66,9 +66,9 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
         'active_ruleset_id' => 'int',
         'tags' => 'string[]',
         'features' => 'string[]',
-        'coupon_settings' => '\OpenAPI\Client\Model\CodeGeneratorSettings',
-        'referral_settings' => '\OpenAPI\Client\Model\CodeGeneratorSettings',
-        'limits' => '\OpenAPI\Client\Model\LimitConfig[]'
+        'coupon_settings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
+        'referral_settings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
+        'limits' => '\TalonOne\Client\Model\LimitConfig[]'
     ];
 
     /**
@@ -570,7 +570,7 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
     /**
      * Gets coupon_settings
      *
-     * @return \OpenAPI\Client\Model\CodeGeneratorSettings|null
+     * @return \TalonOne\Client\Model\CodeGeneratorSettings|null
      */
     public function getCouponSettings()
     {
@@ -580,7 +580,7 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
     /**
      * Sets coupon_settings
      *
-     * @param \OpenAPI\Client\Model\CodeGeneratorSettings|null $coupon_settings coupon_settings
+     * @param \TalonOne\Client\Model\CodeGeneratorSettings|null $coupon_settings coupon_settings
      *
      * @return $this
      */
@@ -594,7 +594,7 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
     /**
      * Gets referral_settings
      *
-     * @return \OpenAPI\Client\Model\CodeGeneratorSettings|null
+     * @return \TalonOne\Client\Model\CodeGeneratorSettings|null
      */
     public function getReferralSettings()
     {
@@ -604,7 +604,7 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
     /**
      * Sets referral_settings
      *
-     * @param \OpenAPI\Client\Model\CodeGeneratorSettings|null $referral_settings referral_settings
+     * @param \TalonOne\Client\Model\CodeGeneratorSettings|null $referral_settings referral_settings
      *
      * @return $this
      */
@@ -618,7 +618,7 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
     /**
      * Gets limits
      *
-     * @return \OpenAPI\Client\Model\LimitConfig[]
+     * @return \TalonOne\Client\Model\LimitConfig[]
      */
     public function getLimits()
     {
@@ -628,7 +628,7 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
     /**
      * Sets limits
      *
-     * @param \OpenAPI\Client\Model\LimitConfig[] $limits The set of limits that will operate for this campaign
+     * @param \TalonOne\Client\Model\LimitConfig[] $limits The set of limits that will operate for this campaign
      *
      * @return $this
      */

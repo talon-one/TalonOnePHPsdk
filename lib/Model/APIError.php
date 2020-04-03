@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * APIError Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class APIError implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'title' => 'string',
         'details' => 'string',
-        'source' => '\OpenAPI\Client\Model\ErrorSource'
+        'source' => '\TalonOne\Client\Model\ErrorSource'
     ];
 
     /**
@@ -273,7 +273,7 @@ class APIError implements ModelInterface, ArrayAccess
     /**
      * Gets source
      *
-     * @return \OpenAPI\Client\Model\ErrorSource
+     * @return \TalonOne\Client\Model\ErrorSource
      */
     public function getSource()
     {
@@ -283,7 +283,7 @@ class APIError implements ModelInterface, ArrayAccess
     /**
      * Sets source
      *
-     * @param \OpenAPI\Client\Model\ErrorSource $source source
+     * @param \TalonOne\Client\Model\ErrorSource $source source
      *
      * @return $this
      */

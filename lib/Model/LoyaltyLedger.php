@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * LoyaltyLedger Class Doc Comment
  *
  * @category Class
  * @description Ledger of Balance in Loyalty Program for a Customer
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,8 +58,8 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ledger' => '\OpenAPI\Client\Model\LoyaltySubLedger',
-        'sub_ledgers' => 'map[string,\OpenAPI\Client\Model\LoyaltySubLedger]'
+        'ledger' => '\TalonOne\Client\Model\LoyaltySubLedger',
+        'sub_ledgers' => 'map[string,\TalonOne\Client\Model\LoyaltySubLedger]'
     ];
 
     /**
@@ -217,7 +217,7 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
     /**
      * Gets ledger
      *
-     * @return \OpenAPI\Client\Model\LoyaltySubLedger
+     * @return \TalonOne\Client\Model\LoyaltySubLedger
      */
     public function getLedger()
     {
@@ -227,7 +227,7 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
     /**
      * Sets ledger
      *
-     * @param \OpenAPI\Client\Model\LoyaltySubLedger $ledger ledger
+     * @param \TalonOne\Client\Model\LoyaltySubLedger $ledger ledger
      *
      * @return $this
      */
@@ -241,7 +241,7 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
     /**
      * Gets sub_ledgers
      *
-     * @return map[string,\OpenAPI\Client\Model\LoyaltySubLedger]|null
+     * @return map[string,\TalonOne\Client\Model\LoyaltySubLedger]|null
      */
     public function getSubLedgers()
     {
@@ -251,7 +251,7 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
     /**
      * Sets sub_ledgers
      *
-     * @param map[string,\OpenAPI\Client\Model\LoyaltySubLedger]|null $sub_ledgers A map containing a list of all loyalty subledger balances
+     * @param map[string,\TalonOne\Client\Model\LoyaltySubLedger]|null $sub_ledgers A map containing a list of all loyalty subledger balances
      *
      * @return $this
      */

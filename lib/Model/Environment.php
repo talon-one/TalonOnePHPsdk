@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * Environment Class Doc Comment
  *
  * @category Class
  * @description 
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -61,9 +61,9 @@ class Environment implements ModelInterface, ArrayAccess
         'id' => 'int',
         'created' => '\DateTime',
         'application_id' => 'int',
-        'slots' => '\OpenAPI\Client\Model\SlotDef[]',
-        'functions' => '\OpenAPI\Client\Model\FunctionDef[]',
-        'templates' => '\OpenAPI\Client\Model\TemplateDef[]',
+        'slots' => '\TalonOne\Client\Model\SlotDef[]',
+        'functions' => '\TalonOne\Client\Model\FunctionDef[]',
+        'templates' => '\TalonOne\Client\Model\TemplateDef[]',
         'variables' => 'string'
     ];
 
@@ -337,7 +337,7 @@ class Environment implements ModelInterface, ArrayAccess
     /**
      * Gets slots
      *
-     * @return \OpenAPI\Client\Model\SlotDef[]
+     * @return \TalonOne\Client\Model\SlotDef[]
      */
     public function getSlots()
     {
@@ -347,7 +347,7 @@ class Environment implements ModelInterface, ArrayAccess
     /**
      * Sets slots
      *
-     * @param \OpenAPI\Client\Model\SlotDef[] $slots The slots defined for this application.
+     * @param \TalonOne\Client\Model\SlotDef[] $slots The slots defined for this application.
      *
      * @return $this
      */
@@ -361,7 +361,7 @@ class Environment implements ModelInterface, ArrayAccess
     /**
      * Gets functions
      *
-     * @return \OpenAPI\Client\Model\FunctionDef[]
+     * @return \TalonOne\Client\Model\FunctionDef[]
      */
     public function getFunctions()
     {
@@ -371,7 +371,7 @@ class Environment implements ModelInterface, ArrayAccess
     /**
      * Sets functions
      *
-     * @param \OpenAPI\Client\Model\FunctionDef[] $functions The functions defined for this application.
+     * @param \TalonOne\Client\Model\FunctionDef[] $functions The functions defined for this application.
      *
      * @return $this
      */
@@ -385,7 +385,7 @@ class Environment implements ModelInterface, ArrayAccess
     /**
      * Gets templates
      *
-     * @return \OpenAPI\Client\Model\TemplateDef[]
+     * @return \TalonOne\Client\Model\TemplateDef[]
      */
     public function getTemplates()
     {
@@ -395,7 +395,7 @@ class Environment implements ModelInterface, ArrayAccess
     /**
      * Sets templates
      *
-     * @param \OpenAPI\Client\Model\TemplateDef[] $templates The templates defined for this application.
+     * @param \TalonOne\Client\Model\TemplateDef[] $templates The templates defined for this application.
      *
      * @return $this
      */

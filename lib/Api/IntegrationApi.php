@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace TalonOne\Client\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use TalonOne\Client\ApiException;
+use TalonOne\Client\Configuration;
+use TalonOne\Client\HeaderSelector;
+use TalonOne\Client\ObjectSerializer;
 
 /**
  * IntegrationApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -121,11 +121,11 @@ class IntegrationApi
      * Create a new coupon reservation
      *
      * @param  string $coupon_value The value of a coupon (required)
-     * @param  \OpenAPI\Client\Model\CouponReservations $body body (required)
+     * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Coupon
+     * @return \TalonOne\Client\Model\Coupon
      */
     public function createCouponReservation($coupon_value, $body)
     {
@@ -139,11 +139,11 @@ class IntegrationApi
      * Create a new coupon reservation
      *
      * @param  string $coupon_value The value of a coupon (required)
-     * @param  \OpenAPI\Client\Model\CouponReservations $body (required)
+     * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Coupon, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\Coupon, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCouponReservationWithHttpInfo($coupon_value, $body)
     {
@@ -180,20 +180,20 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\Coupon' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\Coupon' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Coupon', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\Coupon', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Coupon';
+            $returnType = '\TalonOne\Client\Model\Coupon';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -212,7 +212,7 @@ class IntegrationApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Coupon',
+                        '\TalonOne\Client\Model\Coupon',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -228,7 +228,7 @@ class IntegrationApi
      * Create a new coupon reservation
      *
      * @param  string $coupon_value The value of a coupon (required)
-     * @param  \OpenAPI\Client\Model\CouponReservations $body (required)
+     * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -249,14 +249,14 @@ class IntegrationApi
      * Create a new coupon reservation
      *
      * @param  string $coupon_value The value of a coupon (required)
-     * @param  \OpenAPI\Client\Model\CouponReservations $body (required)
+     * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createCouponReservationAsyncWithHttpInfo($coupon_value, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Coupon';
+        $returnType = '\TalonOne\Client\Model\Coupon';
         $request = $this->createCouponReservationRequest($coupon_value, $body);
 
         return $this->client
@@ -297,7 +297,7 @@ class IntegrationApi
      * Create request for operation 'createCouponReservation'
      *
      * @param  string $coupon_value The value of a coupon (required)
-     * @param  \OpenAPI\Client\Model\CouponReservations $body (required)
+     * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -416,11 +416,11 @@ class IntegrationApi
      *
      * Create a referral code for an advocate
      *
-     * @param  \OpenAPI\Client\Model\NewReferral $body body (required)
+     * @param  \TalonOne\Client\Model\NewReferral $body body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Referral
+     * @return \TalonOne\Client\Model\Referral
      */
     public function createReferral($body)
     {
@@ -433,11 +433,11 @@ class IntegrationApi
      *
      * Create a referral code for an advocate
      *
-     * @param  \OpenAPI\Client\Model\NewReferral $body (required)
+     * @param  \TalonOne\Client\Model\NewReferral $body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Referral, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\Referral, HTTP status code, HTTP response headers (array of strings)
      */
     public function createReferralWithHttpInfo($body)
     {
@@ -474,20 +474,20 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\Referral' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\Referral' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Referral', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\Referral', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Referral';
+            $returnType = '\TalonOne\Client\Model\Referral';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -506,7 +506,7 @@ class IntegrationApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Referral',
+                        '\TalonOne\Client\Model\Referral',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -521,7 +521,7 @@ class IntegrationApi
      *
      * Create a referral code for an advocate
      *
-     * @param  \OpenAPI\Client\Model\NewReferral $body (required)
+     * @param  \TalonOne\Client\Model\NewReferral $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -541,14 +541,14 @@ class IntegrationApi
      *
      * Create a referral code for an advocate
      *
-     * @param  \OpenAPI\Client\Model\NewReferral $body (required)
+     * @param  \TalonOne\Client\Model\NewReferral $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createReferralAsyncWithHttpInfo($body)
     {
-        $returnType = '\OpenAPI\Client\Model\Referral';
+        $returnType = '\TalonOne\Client\Model\Referral';
         $request = $this->createReferralRequest($body);
 
         return $this->client
@@ -588,7 +588,7 @@ class IntegrationApi
     /**
      * Create request for operation 'createReferral'
      *
-     * @param  \OpenAPI\Client\Model\NewReferral $body (required)
+     * @param  \TalonOne\Client\Model\NewReferral $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -694,9 +694,9 @@ class IntegrationApi
      * Delete coupon reservations
      *
      * @param  string $coupon_value The value of a coupon (required)
-     * @param  \OpenAPI\Client\Model\CouponReservations $body body (required)
+     * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -711,9 +711,9 @@ class IntegrationApi
      * Delete coupon reservations
      *
      * @param  string $coupon_value The value of a coupon (required)
-     * @param  \OpenAPI\Client\Model\CouponReservations $body (required)
+     * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -764,7 +764,7 @@ class IntegrationApi
      * Delete coupon reservations
      *
      * @param  string $coupon_value The value of a coupon (required)
-     * @param  \OpenAPI\Client\Model\CouponReservations $body (required)
+     * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -785,7 +785,7 @@ class IntegrationApi
      * Delete coupon reservations
      *
      * @param  string $coupon_value The value of a coupon (required)
-     * @param  \OpenAPI\Client\Model\CouponReservations $body (required)
+     * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -822,7 +822,7 @@ class IntegrationApi
      * Create request for operation 'deleteCouponReservation'
      *
      * @param  string $coupon_value The value of a coupon (required)
-     * @param  \OpenAPI\Client\Model\CouponReservations $body (required)
+     * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -943,7 +943,7 @@ class IntegrationApi
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -959,7 +959,7 @@ class IntegrationApi
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1179,9 +1179,9 @@ class IntegrationApi
      * @param  object $profile optional flag to decide if you would like customer profile information in the response (optional)
      * @param  object $referrals optional flag to decide if you would like referral information in the response (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CustomerInventory
+     * @return \TalonOne\Client\Model\CustomerInventory
      */
     public function getCustomerInventory($integration_id, $profile = null, $referrals = null)
     {
@@ -1198,9 +1198,9 @@ class IntegrationApi
      * @param  object $profile optional flag to decide if you would like customer profile information in the response (optional)
      * @param  object $referrals optional flag to decide if you would like referral information in the response (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CustomerInventory, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\CustomerInventory, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomerInventoryWithHttpInfo($integration_id, $profile = null, $referrals = null)
     {
@@ -1237,20 +1237,20 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CustomerInventory' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\CustomerInventory' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CustomerInventory', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\CustomerInventory', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CustomerInventory';
+            $returnType = '\TalonOne\Client\Model\CustomerInventory';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1269,7 +1269,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CustomerInventory',
+                        '\TalonOne\Client\Model\CustomerInventory',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1315,7 +1315,7 @@ class IntegrationApi
      */
     public function getCustomerInventoryAsyncWithHttpInfo($integration_id, $profile = null, $referrals = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CustomerInventory';
+        $returnType = '\TalonOne\Client\Model\CustomerInventory';
         $request = $this->getCustomerInventoryRequest($integration_id, $profile, $referrals);
 
         return $this->client
@@ -1477,9 +1477,9 @@ class IntegrationApi
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2001
+     * @return \TalonOne\Client\Model\InlineResponse2001
      */
     public function getReservedCoupons($integration_id)
     {
@@ -1494,9 +1494,9 @@ class IntegrationApi
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReservedCouponsWithHttpInfo($integration_id)
     {
@@ -1533,20 +1533,20 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2001', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse2001';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1565,7 +1565,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse2001',
+                        '\TalonOne\Client\Model\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1607,7 +1607,7 @@ class IntegrationApi
      */
     public function getReservedCouponsAsyncWithHttpInfo($integration_id)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse2001';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
         $request = $this->getReservedCouponsRequest($integration_id);
 
         return $this->client
@@ -1759,9 +1759,9 @@ class IntegrationApi
      *
      * @param  string $coupon_value The value of a coupon (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse200
+     * @return \TalonOne\Client\Model\InlineResponse200
      */
     public function getReservedCustomers($coupon_value)
     {
@@ -1776,9 +1776,9 @@ class IntegrationApi
      *
      * @param  string $coupon_value The value of a coupon (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReservedCustomersWithHttpInfo($coupon_value)
     {
@@ -1815,20 +1815,20 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse200' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse200' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse200', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse200';
+            $returnType = '\TalonOne\Client\Model\InlineResponse200';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1847,7 +1847,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse200',
+                        '\TalonOne\Client\Model\InlineResponse200',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1889,7 +1889,7 @@ class IntegrationApi
      */
     public function getReservedCustomersAsyncWithHttpInfo($coupon_value)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse200';
+        $returnType = '\TalonOne\Client\Model\InlineResponse200';
         $request = $this->getReservedCustomersRequest($coupon_value);
 
         return $this->client
@@ -2039,11 +2039,11 @@ class IntegrationApi
      *
      * Track an Event
      *
-     * @param  \OpenAPI\Client\Model\NewEvent $body body (required)
+     * @param  \TalonOne\Client\Model\NewEvent $body body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\IntegrationState
+     * @return \TalonOne\Client\Model\IntegrationState
      */
     public function trackEvent($body)
     {
@@ -2056,11 +2056,11 @@ class IntegrationApi
      *
      * Track an Event
      *
-     * @param  \OpenAPI\Client\Model\NewEvent $body (required)
+     * @param  \TalonOne\Client\Model\NewEvent $body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\IntegrationState, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\IntegrationState, HTTP status code, HTTP response headers (array of strings)
      */
     public function trackEventWithHttpInfo($body)
     {
@@ -2097,20 +2097,20 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\IntegrationState' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\IntegrationState' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\IntegrationState', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\IntegrationState', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\IntegrationState';
+            $returnType = '\TalonOne\Client\Model\IntegrationState';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2129,7 +2129,7 @@ class IntegrationApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\IntegrationState',
+                        '\TalonOne\Client\Model\IntegrationState',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2144,7 +2144,7 @@ class IntegrationApi
      *
      * Track an Event
      *
-     * @param  \OpenAPI\Client\Model\NewEvent $body (required)
+     * @param  \TalonOne\Client\Model\NewEvent $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2164,14 +2164,14 @@ class IntegrationApi
      *
      * Track an Event
      *
-     * @param  \OpenAPI\Client\Model\NewEvent $body (required)
+     * @param  \TalonOne\Client\Model\NewEvent $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function trackEventAsyncWithHttpInfo($body)
     {
-        $returnType = '\OpenAPI\Client\Model\IntegrationState';
+        $returnType = '\TalonOne\Client\Model\IntegrationState';
         $request = $this->trackEventRequest($body);
 
         return $this->client
@@ -2211,7 +2211,7 @@ class IntegrationApi
     /**
      * Create request for operation 'trackEvent'
      *
-     * @param  \OpenAPI\Client\Model\NewEvent $body (required)
+     * @param  \TalonOne\Client\Model\NewEvent $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2317,11 +2317,11 @@ class IntegrationApi
      * Update a Customer Profile
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\NewCustomerProfile $body body (required)
+     * @param  \TalonOne\Client\Model\NewCustomerProfile $body body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\IntegrationState
+     * @return \TalonOne\Client\Model\IntegrationState
      */
     public function updateCustomerProfile($integration_id, $body)
     {
@@ -2335,11 +2335,11 @@ class IntegrationApi
      * Update a Customer Profile
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\NewCustomerProfile $body (required)
+     * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\IntegrationState, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\IntegrationState, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCustomerProfileWithHttpInfo($integration_id, $body)
     {
@@ -2376,20 +2376,20 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\IntegrationState' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\IntegrationState' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\IntegrationState', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\IntegrationState', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\IntegrationState';
+            $returnType = '\TalonOne\Client\Model\IntegrationState';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2408,7 +2408,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\IntegrationState',
+                        '\TalonOne\Client\Model\IntegrationState',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2424,7 +2424,7 @@ class IntegrationApi
      * Update a Customer Profile
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\NewCustomerProfile $body (required)
+     * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2445,14 +2445,14 @@ class IntegrationApi
      * Update a Customer Profile
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\NewCustomerProfile $body (required)
+     * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateCustomerProfileAsyncWithHttpInfo($integration_id, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\IntegrationState';
+        $returnType = '\TalonOne\Client\Model\IntegrationState';
         $request = $this->updateCustomerProfileRequest($integration_id, $body);
 
         return $this->client
@@ -2493,7 +2493,7 @@ class IntegrationApi
      * Create request for operation 'updateCustomerProfile'
      *
      * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\NewCustomerProfile $body (required)
+     * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2613,11 +2613,11 @@ class IntegrationApi
      * Update a Customer Session
      *
      * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\NewCustomerSession $body body (required)
+     * @param  \TalonOne\Client\Model\NewCustomerSession $body body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\IntegrationState
+     * @return \TalonOne\Client\Model\IntegrationState
      */
     public function updateCustomerSession($customer_session_id, $body)
     {
@@ -2631,11 +2631,11 @@ class IntegrationApi
      * Update a Customer Session
      *
      * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\NewCustomerSession $body (required)
+     * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\IntegrationState, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\IntegrationState, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCustomerSessionWithHttpInfo($customer_session_id, $body)
     {
@@ -2672,20 +2672,20 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\IntegrationState' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\IntegrationState' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\IntegrationState', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\IntegrationState', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\IntegrationState';
+            $returnType = '\TalonOne\Client\Model\IntegrationState';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2704,7 +2704,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\IntegrationState',
+                        '\TalonOne\Client\Model\IntegrationState',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2720,7 +2720,7 @@ class IntegrationApi
      * Update a Customer Session
      *
      * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\NewCustomerSession $body (required)
+     * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2741,14 +2741,14 @@ class IntegrationApi
      * Update a Customer Session
      *
      * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\NewCustomerSession $body (required)
+     * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateCustomerSessionAsyncWithHttpInfo($customer_session_id, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\IntegrationState';
+        $returnType = '\TalonOne\Client\Model\IntegrationState';
         $request = $this->updateCustomerSessionRequest($customer_session_id, $body);
 
         return $this->client
@@ -2789,7 +2789,7 @@ class IntegrationApi
      * Create request for operation 'updateCustomerSession'
      *
      * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\NewCustomerSession $body (required)
+     * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2909,11 +2909,11 @@ class IntegrationApi
      * Update a Customer Session
      *
      * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\IntegrationRequest $body body (required)
+     * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\IntegrationStateV2
+     * @return \TalonOne\Client\Model\IntegrationStateV2
      */
     public function updateCustomerSessionV2($customer_session_id, $body)
     {
@@ -2927,11 +2927,11 @@ class IntegrationApi
      * Update a Customer Session
      *
      * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\IntegrationRequest $body (required)
+     * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\IntegrationStateV2, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\IntegrationStateV2, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCustomerSessionV2WithHttpInfo($customer_session_id, $body)
     {
@@ -2968,20 +2968,20 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\IntegrationStateV2' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\IntegrationStateV2' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\IntegrationStateV2', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\IntegrationStateV2', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\IntegrationStateV2';
+            $returnType = '\TalonOne\Client\Model\IntegrationStateV2';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3000,7 +3000,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\IntegrationStateV2',
+                        '\TalonOne\Client\Model\IntegrationStateV2',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3016,7 +3016,7 @@ class IntegrationApi
      * Update a Customer Session
      *
      * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\IntegrationRequest $body (required)
+     * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3037,14 +3037,14 @@ class IntegrationApi
      * Update a Customer Session
      *
      * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\IntegrationRequest $body (required)
+     * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateCustomerSessionV2AsyncWithHttpInfo($customer_session_id, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\IntegrationStateV2';
+        $returnType = '\TalonOne\Client\Model\IntegrationStateV2';
         $request = $this->updateCustomerSessionV2Request($customer_session_id, $body);
 
         return $this->client
@@ -3085,7 +3085,7 @@ class IntegrationApi
      * Create request for operation 'updateCustomerSessionV2'
      *
      * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
-     * @param  \OpenAPI\Client\Model\IntegrationRequest $body (required)
+     * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

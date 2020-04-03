@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace TalonOne\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \TalonOne\Client\ObjectSerializer;
 
 /**
  * Rule Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class Rule implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'title' => 'string',
         'description' => 'string',
-        'bindings' => '\OpenAPI\Client\Model\Binding[]',
+        'bindings' => '\TalonOne\Client\Model\Binding[]',
         'condition' => 'object[]',
         'effects' => 'object[]'
     ];
@@ -288,7 +288,7 @@ class Rule implements ModelInterface, ArrayAccess
     /**
      * Gets bindings
      *
-     * @return \OpenAPI\Client\Model\Binding[]|null
+     * @return \TalonOne\Client\Model\Binding[]|null
      */
     public function getBindings()
     {
@@ -298,7 +298,7 @@ class Rule implements ModelInterface, ArrayAccess
     /**
      * Sets bindings
      *
-     * @param \OpenAPI\Client\Model\Binding[]|null $bindings An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array.
+     * @param \TalonOne\Client\Model\Binding[]|null $bindings An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array.
      *
      * @return $this
      */
