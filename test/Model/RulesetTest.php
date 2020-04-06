@@ -93,14 +93,14 @@ class RulesetTest extends TestCase
     }
 
     /**
-     * Test attribute "campaign_id"
+     * Test attribute "campaignId"
      */
     public function testPropertyCampaignId()
     {
     }
 
     /**
-     * Test attribute "user_id"
+     * Test attribute "userId"
      */
     public function testPropertyUserId()
     {
@@ -121,7 +121,7 @@ class RulesetTest extends TestCase
     }
 
     /**
-     * Test attribute "rb_version"
+     * Test attribute "rbVersion"
      */
     public function testPropertyRbVersion()
     {
@@ -135,7 +135,7 @@ class RulesetTest extends TestCase
     }
 
     /**
-     * Test attribute "activated_at"
+     * Test attribute "activatedAt"
      */
     public function testPropertyActivatedAt()
     {

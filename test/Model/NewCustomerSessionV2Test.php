@@ -79,21 +79,21 @@ class NewCustomerSessionV2Test extends TestCase
     }
 
     /**
-     * Test attribute "profile_id"
+     * Test attribute "profileId"
      */
     public function testPropertyProfileId()
     {
     }
 
     /**
-     * Test attribute "coupon_codes"
+     * Test attribute "couponCodes"
      */
     public function testPropertyCouponCodes()
     {
     }
 
     /**
-     * Test attribute "referral_code"
+     * Test attribute "referralCode"
      */
     public function testPropertyReferralCode()
     {
@@ -107,14 +107,14 @@ class NewCustomerSessionV2Test extends TestCase
     }
 
     /**
-     * Test attribute "cart_items"
+     * Test attribute "cartItems"
      */
     public function testPropertyCartItems()
     {
     }
 
     /**
-     * Test attribute "additional_costs"
+     * Test attribute "additionalCosts"
      */
     public function testPropertyAdditionalCosts()
     {

@@ -61,7 +61,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         'title' => 'string',
         'name' => 'string',
         'ledger' => '\TalonOne\Client\Model\LoyaltyProgramBalance',
-        'sub_ledgers' => 'map[string,\TalonOne\Client\Model\LoyaltyProgramBalance]'
+        'subLedgers' => 'map[string,\TalonOne\Client\Model\LoyaltyProgramBalance]'
     ];
 
     /**
@@ -73,7 +73,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         'title' => null,
         'name' => null,
         'ledger' => null,
-        'sub_ledgers' => null
+        'subLedgers' => null
     ];
 
     /**
@@ -106,7 +106,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         'title' => 'title',
         'name' => 'name',
         'ledger' => 'ledger',
-        'sub_ledgers' => 'subLedgers'
+        'subLedgers' => 'subLedgers'
     ];
 
     /**
@@ -118,7 +118,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         'title' => 'setTitle',
         'name' => 'setName',
         'ledger' => 'setLedger',
-        'sub_ledgers' => 'setSubLedgers'
+        'subLedgers' => 'setSubLedgers'
     ];
 
     /**
@@ -130,7 +130,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         'title' => 'getTitle',
         'name' => 'getName',
         'ledger' => 'getLedger',
-        'sub_ledgers' => 'getSubLedgers'
+        'subLedgers' => 'getSubLedgers'
     ];
 
     /**
@@ -196,7 +196,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ledger'] = isset($data['ledger']) ? $data['ledger'] : null;
-        $this->container['sub_ledgers'] = isset($data['sub_ledgers']) ? $data['sub_ledgers'] : null;
+        $this->container['subLedgers'] = isset($data['subLedgers']) ? $data['subLedgers'] : null;
     }
 
     /**
@@ -305,25 +305,25 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets sub_ledgers
+     * Gets subLedgers
      *
      * @return map[string,\TalonOne\Client\Model\LoyaltyProgramBalance]|null
      */
     public function getSubLedgers()
     {
-        return $this->container['sub_ledgers'];
+        return $this->container['subLedgers'];
     }
 
     /**
-     * Sets sub_ledgers
+     * Sets subLedgers
      *
-     * @param map[string,\TalonOne\Client\Model\LoyaltyProgramBalance]|null $sub_ledgers A map containing a list of all loyalty subledger balances
+     * @param map[string,\TalonOne\Client\Model\LoyaltyProgramBalance]|null $subLedgers A map containing a list of all loyalty subledger balances
      *
      * @return $this
      */
-    public function setSubLedgers($sub_ledgers)
+    public function setSubLedgers($subLedgers)
     {
-        $this->container['sub_ledgers'] = $sub_ledgers;
+        $this->container['subLedgers'] = $subLedgers;
 
         return $this;
     }

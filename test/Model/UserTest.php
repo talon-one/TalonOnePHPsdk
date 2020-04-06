@@ -107,14 +107,14 @@ class UserTest extends TestCase
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "accountId"
      */
     public function testPropertyAccountId()
     {
     }
 
     /**
-     * Test attribute "invite_token"
+     * Test attribute "inviteToken"
      */
     public function testPropertyInviteToken()
     {
@@ -142,14 +142,14 @@ class UserTest extends TestCase
     }
 
     /**
-     * Test attribute "release_update"
+     * Test attribute "releaseUpdate"
      */
     public function testPropertyReleaseUpdate()
     {
     }
 
     /**
-     * Test attribute "latest_feature"
+     * Test attribute "latestFeature"
      */
     public function testPropertyLatestFeature()
     {
@@ -163,14 +163,14 @@ class UserTest extends TestCase
     }
 
     /**
-     * Test attribute "application_notification_subscriptions"
+     * Test attribute "applicationNotificationSubscriptions"
      */
     public function testPropertyApplicationNotificationSubscriptions()
     {
     }
 
     /**
-     * Test attribute "auth_method"
+     * Test attribute "authMethod"
      */
     public function testPropertyAuthMethod()
     {

@@ -62,16 +62,16 @@ class User implements ModelInterface, ArrayAccess
         'created' => '\DateTime',
         'modified' => '\DateTime',
         'email' => 'string',
-        'account_id' => 'int',
-        'invite_token' => 'string',
+        'accountId' => 'int',
+        'inviteToken' => 'string',
         'state' => 'string',
         'name' => 'string',
         'policy' => 'string',
-        'release_update' => 'bool',
-        'latest_feature' => 'string',
+        'releaseUpdate' => 'bool',
+        'latestFeature' => 'string',
         'roles' => 'int[]',
-        'application_notification_subscriptions' => 'object',
-        'auth_method' => 'string'
+        'applicationNotificationSubscriptions' => 'object',
+        'authMethod' => 'string'
     ];
 
     /**
@@ -84,16 +84,16 @@ class User implements ModelInterface, ArrayAccess
         'created' => 'date-time',
         'modified' => 'date-time',
         'email' => 'email',
-        'account_id' => null,
-        'invite_token' => null,
+        'accountId' => null,
+        'inviteToken' => null,
         'state' => null,
         'name' => null,
         'policy' => 'acl',
-        'release_update' => null,
-        'latest_feature' => null,
+        'releaseUpdate' => null,
+        'latestFeature' => null,
         'roles' => null,
-        'application_notification_subscriptions' => null,
-        'auth_method' => null
+        'applicationNotificationSubscriptions' => null,
+        'authMethod' => null
     ];
 
     /**
@@ -127,16 +127,16 @@ class User implements ModelInterface, ArrayAccess
         'created' => 'created',
         'modified' => 'modified',
         'email' => 'email',
-        'account_id' => 'accountId',
-        'invite_token' => 'inviteToken',
+        'accountId' => 'accountId',
+        'inviteToken' => 'inviteToken',
         'state' => 'state',
         'name' => 'name',
         'policy' => 'policy',
-        'release_update' => 'releaseUpdate',
-        'latest_feature' => 'latestFeature',
+        'releaseUpdate' => 'releaseUpdate',
+        'latestFeature' => 'latestFeature',
         'roles' => 'roles',
-        'application_notification_subscriptions' => 'applicationNotificationSubscriptions',
-        'auth_method' => 'authMethod'
+        'applicationNotificationSubscriptions' => 'applicationNotificationSubscriptions',
+        'authMethod' => 'authMethod'
     ];
 
     /**
@@ -149,16 +149,16 @@ class User implements ModelInterface, ArrayAccess
         'created' => 'setCreated',
         'modified' => 'setModified',
         'email' => 'setEmail',
-        'account_id' => 'setAccountId',
-        'invite_token' => 'setInviteToken',
+        'accountId' => 'setAccountId',
+        'inviteToken' => 'setInviteToken',
         'state' => 'setState',
         'name' => 'setName',
         'policy' => 'setPolicy',
-        'release_update' => 'setReleaseUpdate',
-        'latest_feature' => 'setLatestFeature',
+        'releaseUpdate' => 'setReleaseUpdate',
+        'latestFeature' => 'setLatestFeature',
         'roles' => 'setRoles',
-        'application_notification_subscriptions' => 'setApplicationNotificationSubscriptions',
-        'auth_method' => 'setAuthMethod'
+        'applicationNotificationSubscriptions' => 'setApplicationNotificationSubscriptions',
+        'authMethod' => 'setAuthMethod'
     ];
 
     /**
@@ -171,16 +171,16 @@ class User implements ModelInterface, ArrayAccess
         'created' => 'getCreated',
         'modified' => 'getModified',
         'email' => 'getEmail',
-        'account_id' => 'getAccountId',
-        'invite_token' => 'getInviteToken',
+        'accountId' => 'getAccountId',
+        'inviteToken' => 'getInviteToken',
         'state' => 'getState',
         'name' => 'getName',
         'policy' => 'getPolicy',
-        'release_update' => 'getReleaseUpdate',
-        'latest_feature' => 'getLatestFeature',
+        'releaseUpdate' => 'getReleaseUpdate',
+        'latestFeature' => 'getLatestFeature',
         'roles' => 'getRoles',
-        'application_notification_subscriptions' => 'getApplicationNotificationSubscriptions',
-        'auth_method' => 'getAuthMethod'
+        'applicationNotificationSubscriptions' => 'getApplicationNotificationSubscriptions',
+        'authMethod' => 'getAuthMethod'
     ];
 
     /**
@@ -264,16 +264,16 @@ class User implements ModelInterface, ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['invite_token'] = isset($data['invite_token']) ? $data['invite_token'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
+        $this->container['inviteToken'] = isset($data['inviteToken']) ? $data['inviteToken'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
-        $this->container['release_update'] = isset($data['release_update']) ? $data['release_update'] : null;
-        $this->container['latest_feature'] = isset($data['latest_feature']) ? $data['latest_feature'] : null;
+        $this->container['releaseUpdate'] = isset($data['releaseUpdate']) ? $data['releaseUpdate'] : null;
+        $this->container['latestFeature'] = isset($data['latestFeature']) ? $data['latestFeature'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
-        $this->container['application_notification_subscriptions'] = isset($data['application_notification_subscriptions']) ? $data['application_notification_subscriptions'] : null;
-        $this->container['auth_method'] = isset($data['auth_method']) ? $data['auth_method'] : null;
+        $this->container['applicationNotificationSubscriptions'] = isset($data['applicationNotificationSubscriptions']) ? $data['applicationNotificationSubscriptions'] : null;
+        $this->container['authMethod'] = isset($data['authMethod']) ? $data['authMethod'] : null;
     }
 
     /**
@@ -297,11 +297,11 @@ class User implements ModelInterface, ArrayAccess
         if ($this->container['email'] === null) {
             $invalidProperties[] = "'email' can't be null";
         }
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
         }
-        if ($this->container['invite_token'] === null) {
-            $invalidProperties[] = "'invite_token' can't be null";
+        if ($this->container['inviteToken'] === null) {
+            $invalidProperties[] = "'inviteToken' can't be null";
         }
         if ($this->container['state'] === null) {
             $invalidProperties[] = "'state' can't be null";
@@ -320,8 +320,8 @@ class User implements ModelInterface, ArrayAccess
         if ($this->container['policy'] === null) {
             $invalidProperties[] = "'policy' can't be null";
         }
-        if ($this->container['release_update'] === null) {
-            $invalidProperties[] = "'release_update' can't be null";
+        if ($this->container['releaseUpdate'] === null) {
+            $invalidProperties[] = "'releaseUpdate' can't be null";
         }
         return $invalidProperties;
     }
@@ -435,49 +435,49 @@ class User implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets account_id
+     * Gets accountId
      *
      * @return int
      */
     public function getAccountId()
     {
-        return $this->container['account_id'];
+        return $this->container['accountId'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountId
      *
-     * @param int $account_id The ID of the account that owns this entity.
+     * @param int $accountId The ID of the account that owns this entity.
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountId($accountId)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }
 
     /**
-     * Gets invite_token
+     * Gets inviteToken
      *
      * @return string
      */
     public function getInviteToken()
     {
-        return $this->container['invite_token'];
+        return $this->container['inviteToken'];
     }
 
     /**
-     * Sets invite_token
+     * Sets inviteToken
      *
-     * @param string $invite_token Invite token, empty if the user as already accepted their invite.
+     * @param string $inviteToken Invite token, empty if the user as already accepted their invite.
      *
      * @return $this
      */
-    public function setInviteToken($invite_token)
+    public function setInviteToken($inviteToken)
     {
-        $this->container['invite_token'] = $invite_token;
+        $this->container['inviteToken'] = $inviteToken;
 
         return $this;
     }
@@ -564,49 +564,49 @@ class User implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets release_update
+     * Gets releaseUpdate
      *
      * @return bool
      */
     public function getReleaseUpdate()
     {
-        return $this->container['release_update'];
+        return $this->container['releaseUpdate'];
     }
 
     /**
-     * Sets release_update
+     * Sets releaseUpdate
      *
-     * @param bool $release_update Update the user via email
+     * @param bool $releaseUpdate Update the user via email
      *
      * @return $this
      */
-    public function setReleaseUpdate($release_update)
+    public function setReleaseUpdate($releaseUpdate)
     {
-        $this->container['release_update'] = $release_update;
+        $this->container['releaseUpdate'] = $releaseUpdate;
 
         return $this;
     }
 
     /**
-     * Gets latest_feature
+     * Gets latestFeature
      *
      * @return string|null
      */
     public function getLatestFeature()
     {
-        return $this->container['latest_feature'];
+        return $this->container['latestFeature'];
     }
 
     /**
-     * Sets latest_feature
+     * Sets latestFeature
      *
-     * @param string|null $latest_feature Latest feature the user has been notified.
+     * @param string|null $latestFeature Latest feature the user has been notified.
      *
      * @return $this
      */
-    public function setLatestFeature($latest_feature)
+    public function setLatestFeature($latestFeature)
     {
-        $this->container['latest_feature'] = $latest_feature;
+        $this->container['latestFeature'] = $latestFeature;
 
         return $this;
     }
@@ -636,49 +636,49 @@ class User implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets application_notification_subscriptions
+     * Gets applicationNotificationSubscriptions
      *
      * @return object|null
      */
     public function getApplicationNotificationSubscriptions()
     {
-        return $this->container['application_notification_subscriptions'];
+        return $this->container['applicationNotificationSubscriptions'];
     }
 
     /**
-     * Sets application_notification_subscriptions
+     * Sets applicationNotificationSubscriptions
      *
-     * @param object|null $application_notification_subscriptions application_notification_subscriptions
+     * @param object|null $applicationNotificationSubscriptions applicationNotificationSubscriptions
      *
      * @return $this
      */
-    public function setApplicationNotificationSubscriptions($application_notification_subscriptions)
+    public function setApplicationNotificationSubscriptions($applicationNotificationSubscriptions)
     {
-        $this->container['application_notification_subscriptions'] = $application_notification_subscriptions;
+        $this->container['applicationNotificationSubscriptions'] = $applicationNotificationSubscriptions;
 
         return $this;
     }
 
     /**
-     * Gets auth_method
+     * Gets authMethod
      *
      * @return string|null
      */
     public function getAuthMethod()
     {
-        return $this->container['auth_method'];
+        return $this->container['authMethod'];
     }
 
     /**
-     * Sets auth_method
+     * Sets authMethod
      *
-     * @param string|null $auth_method The Authentication method for this user
+     * @param string|null $authMethod The Authentication method for this user
      *
      * @return $this
      */
-    public function setAuthMethod($auth_method)
+    public function setAuthMethod($authMethod)
     {
-        $this->container['auth_method'] = $auth_method;
+        $this->container['authMethod'] = $authMethod;
 
         return $this;
     }

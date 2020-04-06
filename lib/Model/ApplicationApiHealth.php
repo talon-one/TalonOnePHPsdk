@@ -59,7 +59,7 @@ class ApplicationApiHealth implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'summary' => 'string',
-        'last_used' => '\DateTime'
+        'lastUsed' => '\DateTime'
     ];
 
     /**
@@ -69,7 +69,7 @@ class ApplicationApiHealth implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'summary' => null,
-        'last_used' => 'date-time'
+        'lastUsed' => 'date-time'
     ];
 
     /**
@@ -100,7 +100,7 @@ class ApplicationApiHealth implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'summary' => 'summary',
-        'last_used' => 'lastUsed'
+        'lastUsed' => 'lastUsed'
     ];
 
     /**
@@ -110,7 +110,7 @@ class ApplicationApiHealth implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'summary' => 'setSummary',
-        'last_used' => 'setLastUsed'
+        'lastUsed' => 'setLastUsed'
     ];
 
     /**
@@ -120,7 +120,7 @@ class ApplicationApiHealth implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'summary' => 'getSummary',
-        'last_used' => 'getLastUsed'
+        'lastUsed' => 'getLastUsed'
     ];
 
     /**
@@ -205,7 +205,7 @@ class ApplicationApiHealth implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
-        $this->container['last_used'] = isset($data['last_used']) ? $data['last_used'] : null;
+        $this->container['lastUsed'] = isset($data['lastUsed']) ? $data['lastUsed'] : null;
     }
 
     /**
@@ -228,8 +228,8 @@ class ApplicationApiHealth implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['last_used'] === null) {
-            $invalidProperties[] = "'last_used' can't be null";
+        if ($this->container['lastUsed'] === null) {
+            $invalidProperties[] = "'lastUsed' can't be null";
         }
         return $invalidProperties;
     }
@@ -280,25 +280,25 @@ class ApplicationApiHealth implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets last_used
+     * Gets lastUsed
      *
      * @return \DateTime
      */
     public function getLastUsed()
     {
-        return $this->container['last_used'];
+        return $this->container['lastUsed'];
     }
 
     /**
-     * Sets last_used
+     * Sets lastUsed
      *
-     * @param \DateTime $last_used time of last request relevant to the API health test
+     * @param \DateTime $lastUsed time of last request relevant to the API health test
      *
      * @return $this
      */
-    public function setLastUsed($last_used)
+    public function setLastUsed($lastUsed)
     {
-        $this->container['last_used'] = $last_used;
+        $this->container['lastUsed'] = $lastUsed;
 
         return $this;
     }

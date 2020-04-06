@@ -100,14 +100,14 @@ class AccountTest extends TestCase
     }
 
     /**
-     * Test attribute "company_name"
+     * Test attribute "companyName"
      */
     public function testPropertyCompanyName()
     {
     }
 
     /**
-     * Test attribute "domain_name"
+     * Test attribute "domainName"
      */
     public function testPropertyDomainName()
     {
@@ -121,77 +121,77 @@ class AccountTest extends TestCase
     }
 
     /**
-     * Test attribute "billing_email"
+     * Test attribute "billingEmail"
      */
     public function testPropertyBillingEmail()
     {
     }
 
     /**
-     * Test attribute "plan_name"
+     * Test attribute "planName"
      */
     public function testPropertyPlanName()
     {
     }
 
     /**
-     * Test attribute "plan_expires"
+     * Test attribute "planExpires"
      */
     public function testPropertyPlanExpires()
     {
     }
 
     /**
-     * Test attribute "application_limit"
+     * Test attribute "applicationLimit"
      */
     public function testPropertyApplicationLimit()
     {
     }
 
     /**
-     * Test attribute "user_limit"
+     * Test attribute "userLimit"
      */
     public function testPropertyUserLimit()
     {
     }
 
     /**
-     * Test attribute "campaign_limit"
+     * Test attribute "campaignLimit"
      */
     public function testPropertyCampaignLimit()
     {
     }
 
     /**
-     * Test attribute "api_limit"
+     * Test attribute "apiLimit"
      */
     public function testPropertyApiLimit()
     {
     }
 
     /**
-     * Test attribute "application_count"
+     * Test attribute "applicationCount"
      */
     public function testPropertyApplicationCount()
     {
     }
 
     /**
-     * Test attribute "user_count"
+     * Test attribute "userCount"
      */
     public function testPropertyUserCount()
     {
     }
 
     /**
-     * Test attribute "campaigns_active_count"
+     * Test attribute "campaignsActiveCount"
      */
     public function testPropertyCampaignsActiveCount()
     {
     }
 
     /**
-     * Test attribute "campaigns_inactive_count"
+     * Test attribute "campaignsInactiveCount"
      */
     public function testPropertyCampaignsInactiveCount()
     {

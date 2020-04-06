@@ -86,7 +86,7 @@ class NewApplicationAPIKeyTest extends TestCase
     }
 
     /**
-     * Test attribute "created_by"
+     * Test attribute "createdBy"
      */
     public function testPropertyCreatedBy()
     {
@@ -100,16 +100,16 @@ class NewApplicationAPIKeyTest extends TestCase
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "accountID"
      */
-    public function testPropertyAccountId()
+    public function testPropertyAccountID()
     {
     }
 
     /**
-     * Test attribute "application_id"
+     * Test attribute "applicationID"
      */
-    public function testPropertyApplicationId()
+    public function testPropertyApplicationID()
     {
     }
 

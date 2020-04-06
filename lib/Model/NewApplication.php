@@ -62,10 +62,10 @@ class NewApplication implements ModelInterface, ArrayAccess
         'description' => 'string',
         'timezone' => 'string',
         'currency' => 'string',
-        'case_sensitivity' => 'string',
+        'caseSensitivity' => 'string',
         'attributes' => 'object',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
-        'attributes_settings' => '\TalonOne\Client\Model\AttributesSettings',
+        'attributesSettings' => '\TalonOne\Client\Model\AttributesSettings',
         'key' => 'string'
     ];
 
@@ -79,10 +79,10 @@ class NewApplication implements ModelInterface, ArrayAccess
         'description' => null,
         'timezone' => null,
         'currency' => null,
-        'case_sensitivity' => null,
+        'caseSensitivity' => null,
         'attributes' => null,
         'limits' => null,
-        'attributes_settings' => null,
+        'attributesSettings' => null,
         'key' => null
     ];
 
@@ -117,10 +117,10 @@ class NewApplication implements ModelInterface, ArrayAccess
         'description' => 'description',
         'timezone' => 'timezone',
         'currency' => 'currency',
-        'case_sensitivity' => 'caseSensitivity',
+        'caseSensitivity' => 'caseSensitivity',
         'attributes' => 'attributes',
         'limits' => 'limits',
-        'attributes_settings' => 'attributesSettings',
+        'attributesSettings' => 'attributesSettings',
         'key' => 'key'
     ];
 
@@ -134,10 +134,10 @@ class NewApplication implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'timezone' => 'setTimezone',
         'currency' => 'setCurrency',
-        'case_sensitivity' => 'setCaseSensitivity',
+        'caseSensitivity' => 'setCaseSensitivity',
         'attributes' => 'setAttributes',
         'limits' => 'setLimits',
-        'attributes_settings' => 'setAttributesSettings',
+        'attributesSettings' => 'setAttributesSettings',
         'key' => 'setKey'
     ];
 
@@ -151,10 +151,10 @@ class NewApplication implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'timezone' => 'getTimezone',
         'currency' => 'getCurrency',
-        'case_sensitivity' => 'getCaseSensitivity',
+        'caseSensitivity' => 'getCaseSensitivity',
         'attributes' => 'getAttributes',
         'limits' => 'getLimits',
-        'attributes_settings' => 'getAttributesSettings',
+        'attributesSettings' => 'getAttributesSettings',
         'key' => 'getKey'
     ];
 
@@ -239,10 +239,10 @@ class NewApplication implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['case_sensitivity'] = isset($data['case_sensitivity']) ? $data['case_sensitivity'] : null;
+        $this->container['caseSensitivity'] = isset($data['caseSensitivity']) ? $data['caseSensitivity'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
-        $this->container['attributes_settings'] = isset($data['attributes_settings']) ? $data['attributes_settings'] : null;
+        $this->container['attributesSettings'] = isset($data['attributesSettings']) ? $data['attributesSettings'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
     }
 
@@ -277,9 +277,9 @@ class NewApplication implements ModelInterface, ArrayAccess
         }
 
         $allowedValues = $this->getCaseSensitivityAllowableValues();
-        if (!is_null($this->container['case_sensitivity']) && !in_array($this->container['case_sensitivity'], $allowedValues, true)) {
+        if (!is_null($this->container['caseSensitivity']) && !in_array($this->container['caseSensitivity'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'case_sensitivity', must be one of '%s'",
+                "invalid value for 'caseSensitivity', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -423,34 +423,34 @@ class NewApplication implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets case_sensitivity
+     * Gets caseSensitivity
      *
      * @return string|null
      */
     public function getCaseSensitivity()
     {
-        return $this->container['case_sensitivity'];
+        return $this->container['caseSensitivity'];
     }
 
     /**
-     * Sets case_sensitivity
+     * Sets caseSensitivity
      *
-     * @param string|null $case_sensitivity A string indicating how should campaigns in this application deal with case sensitivity on coupon codes.
+     * @param string|null $caseSensitivity A string indicating how should campaigns in this application deal with case sensitivity on coupon codes.
      *
      * @return $this
      */
-    public function setCaseSensitivity($case_sensitivity)
+    public function setCaseSensitivity($caseSensitivity)
     {
         $allowedValues = $this->getCaseSensitivityAllowableValues();
-        if (!is_null($case_sensitivity) && !in_array($case_sensitivity, $allowedValues, true)) {
+        if (!is_null($caseSensitivity) && !in_array($caseSensitivity, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'case_sensitivity', must be one of '%s'",
+                    "Invalid value for 'caseSensitivity', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['case_sensitivity'] = $case_sensitivity;
+        $this->container['caseSensitivity'] = $caseSensitivity;
 
         return $this;
     }
@@ -504,25 +504,25 @@ class NewApplication implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets attributes_settings
+     * Gets attributesSettings
      *
      * @return \TalonOne\Client\Model\AttributesSettings|null
      */
     public function getAttributesSettings()
     {
-        return $this->container['attributes_settings'];
+        return $this->container['attributesSettings'];
     }
 
     /**
-     * Sets attributes_settings
+     * Sets attributesSettings
      *
-     * @param \TalonOne\Client\Model\AttributesSettings|null $attributes_settings attributes_settings
+     * @param \TalonOne\Client\Model\AttributesSettings|null $attributesSettings attributesSettings
      *
      * @return $this
      */
-    public function setAttributesSettings($attributes_settings)
+    public function setAttributesSettings($attributesSettings)
     {
-        $this->container['attributes_settings'] = $attributes_settings;
+        $this->container['attributesSettings'] = $attributesSettings;
 
         return $this;
     }

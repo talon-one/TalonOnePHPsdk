@@ -61,9 +61,9 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         'name' => 'string',
         'title' => 'string',
         'description' => 'string',
-        'subscribed_applications' => 'int[]',
-        'default_validity' => 'string',
-        'allow_subledger' => 'bool'
+        'subscribedApplications' => 'int[]',
+        'defaultValidity' => 'string',
+        'allowSubledger' => 'bool'
     ];
 
     /**
@@ -75,9 +75,9 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         'name' => null,
         'title' => null,
         'description' => null,
-        'subscribed_applications' => null,
-        'default_validity' => null,
-        'allow_subledger' => null
+        'subscribedApplications' => null,
+        'defaultValidity' => null,
+        'allowSubledger' => null
     ];
 
     /**
@@ -110,9 +110,9 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         'name' => 'name',
         'title' => 'title',
         'description' => 'description',
-        'subscribed_applications' => 'subscribedApplications',
-        'default_validity' => 'defaultValidity',
-        'allow_subledger' => 'allowSubledger'
+        'subscribedApplications' => 'subscribedApplications',
+        'defaultValidity' => 'defaultValidity',
+        'allowSubledger' => 'allowSubledger'
     ];
 
     /**
@@ -124,9 +124,9 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'title' => 'setTitle',
         'description' => 'setDescription',
-        'subscribed_applications' => 'setSubscribedApplications',
-        'default_validity' => 'setDefaultValidity',
-        'allow_subledger' => 'setAllowSubledger'
+        'subscribedApplications' => 'setSubscribedApplications',
+        'defaultValidity' => 'setDefaultValidity',
+        'allowSubledger' => 'setAllowSubledger'
     ];
 
     /**
@@ -138,9 +138,9 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'title' => 'getTitle',
         'description' => 'getDescription',
-        'subscribed_applications' => 'getSubscribedApplications',
-        'default_validity' => 'getDefaultValidity',
-        'allow_subledger' => 'getAllowSubledger'
+        'subscribedApplications' => 'getSubscribedApplications',
+        'defaultValidity' => 'getDefaultValidity',
+        'allowSubledger' => 'getAllowSubledger'
     ];
 
     /**
@@ -206,9 +206,9 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['subscribed_applications'] = isset($data['subscribed_applications']) ? $data['subscribed_applications'] : null;
-        $this->container['default_validity'] = isset($data['default_validity']) ? $data['default_validity'] : null;
-        $this->container['allow_subledger'] = isset($data['allow_subledger']) ? $data['allow_subledger'] : null;
+        $this->container['subscribedApplications'] = isset($data['subscribedApplications']) ? $data['subscribedApplications'] : null;
+        $this->container['defaultValidity'] = isset($data['defaultValidity']) ? $data['defaultValidity'] : null;
+        $this->container['allowSubledger'] = isset($data['allowSubledger']) ? $data['allowSubledger'] : null;
     }
 
     /**
@@ -226,11 +226,11 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
         }
-        if ($this->container['default_validity'] === null) {
-            $invalidProperties[] = "'default_validity' can't be null";
+        if ($this->container['defaultValidity'] === null) {
+            $invalidProperties[] = "'defaultValidity' can't be null";
         }
-        if ($this->container['allow_subledger'] === null) {
-            $invalidProperties[] = "'allow_subledger' can't be null";
+        if ($this->container['allowSubledger'] === null) {
+            $invalidProperties[] = "'allowSubledger' can't be null";
         }
         return $invalidProperties;
     }
@@ -320,73 +320,73 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets subscribed_applications
+     * Gets subscribedApplications
      *
      * @return int[]|null
      */
     public function getSubscribedApplications()
     {
-        return $this->container['subscribed_applications'];
+        return $this->container['subscribedApplications'];
     }
 
     /**
-     * Sets subscribed_applications
+     * Sets subscribedApplications
      *
-     * @param int[]|null $subscribed_applications A list containing the IDs of all applications that are subscribed to this Loyalty Program.
+     * @param int[]|null $subscribedApplications A list containing the IDs of all applications that are subscribed to this Loyalty Program.
      *
      * @return $this
      */
-    public function setSubscribedApplications($subscribed_applications)
+    public function setSubscribedApplications($subscribedApplications)
     {
-        $this->container['subscribed_applications'] = $subscribed_applications;
+        $this->container['subscribedApplications'] = $subscribedApplications;
 
         return $this;
     }
 
     /**
-     * Gets default_validity
+     * Gets defaultValidity
      *
      * @return string
      */
     public function getDefaultValidity()
     {
-        return $this->container['default_validity'];
+        return $this->container['defaultValidity'];
     }
 
     /**
-     * Sets default_validity
+     * Sets defaultValidity
      *
-     * @param string $default_validity Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m' or '30d'.
+     * @param string $defaultValidity Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m' or '30d'.
      *
      * @return $this
      */
-    public function setDefaultValidity($default_validity)
+    public function setDefaultValidity($defaultValidity)
     {
-        $this->container['default_validity'] = $default_validity;
+        $this->container['defaultValidity'] = $defaultValidity;
 
         return $this;
     }
 
     /**
-     * Gets allow_subledger
+     * Gets allowSubledger
      *
      * @return bool
      */
     public function getAllowSubledger()
     {
-        return $this->container['allow_subledger'];
+        return $this->container['allowSubledger'];
     }
 
     /**
-     * Sets allow_subledger
+     * Sets allowSubledger
      *
-     * @param bool $allow_subledger Indicates if this program supports subledgers inside the program
+     * @param bool $allowSubledger Indicates if this program supports subledgers inside the program
      *
      * @return $this
      */
-    public function setAllowSubledger($allow_subledger)
+    public function setAllowSubledger($allowSubledger)
     {
-        $this->container['allow_subledger'] = $allow_subledger;
+        $this->container['allowSubledger'] = $allowSubledger;
 
         return $this;
     }

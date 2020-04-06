@@ -58,10 +58,10 @@ class UpdateAccount implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'attributes' => 'object',
-        'company_name' => 'string',
-        'billing_email' => 'string',
+        'companyName' => 'string',
+        'billingEmail' => 'string',
         'state' => 'string',
-        'plan_expires' => '\DateTime'
+        'planExpires' => '\DateTime'
     ];
 
     /**
@@ -71,10 +71,10 @@ class UpdateAccount implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'attributes' => null,
-        'company_name' => null,
-        'billing_email' => 'email',
+        'companyName' => null,
+        'billingEmail' => 'email',
         'state' => null,
-        'plan_expires' => 'date-time'
+        'planExpires' => 'date-time'
     ];
 
     /**
@@ -105,10 +105,10 @@ class UpdateAccount implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'attributes' => 'attributes',
-        'company_name' => 'companyName',
-        'billing_email' => 'billingEmail',
+        'companyName' => 'companyName',
+        'billingEmail' => 'billingEmail',
         'state' => 'state',
-        'plan_expires' => 'planExpires'
+        'planExpires' => 'planExpires'
     ];
 
     /**
@@ -118,10 +118,10 @@ class UpdateAccount implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'attributes' => 'setAttributes',
-        'company_name' => 'setCompanyName',
-        'billing_email' => 'setBillingEmail',
+        'companyName' => 'setCompanyName',
+        'billingEmail' => 'setBillingEmail',
         'state' => 'setState',
-        'plan_expires' => 'setPlanExpires'
+        'planExpires' => 'setPlanExpires'
     ];
 
     /**
@@ -131,10 +131,10 @@ class UpdateAccount implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'attributes' => 'getAttributes',
-        'company_name' => 'getCompanyName',
-        'billing_email' => 'getBillingEmail',
+        'companyName' => 'getCompanyName',
+        'billingEmail' => 'getBillingEmail',
         'state' => 'getState',
-        'plan_expires' => 'getPlanExpires'
+        'planExpires' => 'getPlanExpires'
     ];
 
     /**
@@ -213,10 +213,10 @@ class UpdateAccount implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
-        $this->container['billing_email'] = isset($data['billing_email']) ? $data['billing_email'] : null;
+        $this->container['companyName'] = isset($data['companyName']) ? $data['companyName'] : null;
+        $this->container['billingEmail'] = isset($data['billingEmail']) ? $data['billingEmail'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['plan_expires'] = isset($data['plan_expires']) ? $data['plan_expires'] : null;
+        $this->container['planExpires'] = isset($data['planExpires']) ? $data['planExpires'] : null;
     }
 
     /**
@@ -228,15 +228,15 @@ class UpdateAccount implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['company_name'] === null) {
-            $invalidProperties[] = "'company_name' can't be null";
+        if ($this->container['companyName'] === null) {
+            $invalidProperties[] = "'companyName' can't be null";
         }
-        if ((mb_strlen($this->container['company_name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'company_name', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['companyName']) < 1)) {
+            $invalidProperties[] = "invalid value for 'companyName', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['billing_email'] === null) {
-            $invalidProperties[] = "'billing_email' can't be null";
+        if ($this->container['billingEmail'] === null) {
+            $invalidProperties[] = "'billingEmail' can't be null";
         }
         $allowedValues = $this->getStateAllowableValues();
         if (!is_null($this->container['state']) && !in_array($this->container['state'], $allowedValues, true)) {
@@ -286,54 +286,54 @@ class UpdateAccount implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets company_name
+     * Gets companyName
      *
      * @return string
      */
     public function getCompanyName()
     {
-        return $this->container['company_name'];
+        return $this->container['companyName'];
     }
 
     /**
-     * Sets company_name
+     * Sets companyName
      *
-     * @param string $company_name Name of your company.
+     * @param string $companyName Name of your company.
      *
      * @return $this
      */
-    public function setCompanyName($company_name)
+    public function setCompanyName($companyName)
     {
 
-        if ((mb_strlen($company_name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $company_name when calling UpdateAccount., must be bigger than or equal to 1.');
+        if ((mb_strlen($companyName) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $companyName when calling UpdateAccount., must be bigger than or equal to 1.');
         }
 
-        $this->container['company_name'] = $company_name;
+        $this->container['companyName'] = $companyName;
 
         return $this;
     }
 
     /**
-     * Gets billing_email
+     * Gets billingEmail
      *
      * @return string
      */
     public function getBillingEmail()
     {
-        return $this->container['billing_email'];
+        return $this->container['billingEmail'];
     }
 
     /**
-     * Sets billing_email
+     * Sets billingEmail
      *
-     * @param string $billing_email The billing email address associated with your company account.
+     * @param string $billingEmail The billing email address associated with your company account.
      *
      * @return $this
      */
-    public function setBillingEmail($billing_email)
+    public function setBillingEmail($billingEmail)
     {
-        $this->container['billing_email'] = $billing_email;
+        $this->container['billingEmail'] = $billingEmail;
 
         return $this;
     }
@@ -372,25 +372,25 @@ class UpdateAccount implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets plan_expires
+     * Gets planExpires
      *
      * @return \DateTime|null
      */
     public function getPlanExpires()
     {
-        return $this->container['plan_expires'];
+        return $this->container['planExpires'];
     }
 
     /**
-     * Sets plan_expires
+     * Sets planExpires
      *
-     * @param \DateTime|null $plan_expires The point in time at which your current plan expires.
+     * @param \DateTime|null $planExpires The point in time at which your current plan expires.
      *
      * @return $this
      */
-    public function setPlanExpires($plan_expires)
+    public function setPlanExpires($planExpires)
     {
-        $this->container['plan_expires'] = $plan_expires;
+        $this->container['planExpires'] = $planExpires;
 
         return $this;
     }

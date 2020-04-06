@@ -1,4 +1,4 @@
-# talon-one-client
+# Talon.One PHP SDK
 
 The Talon.One API is used to manage applications and campaigns, as well as to
 integrate with your application. The operations in the _Integration API_ section
@@ -65,37 +65,109 @@ composer install
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
+### Integration API
+
+#### V2
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Host, API key, & API key prefix for integration authentication
+$config = \TalonOne\Client\Configuration::getDefaultConfiguration()
+    ->setHost('https://mycompany.talon.one')
+    ->setApiKeyPrefix('Authorization', 'ApiKey-v1')
+    ->setApiKey('Authorization', 'dbc644d33aa74d582bd9479c59e16f970fe13bf34a208c39d6c7fa7586968468');
 
-// Configure API key authorization: api_key_v1
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure API key authorization: integration_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
-
-
-$apiInstance = new TalonOne\Client\Api\IntegrationApi(
+// Initiating an integration api instance with the config
+$this->apiInstance = new \TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
+    // This is optional, `GuzzleHttp\Client` will be used as default when `null` is passed.
+    null, // new YouClientImplementation(),
     $config
 );
-$coupon_value = 'coupon_value_example'; // string | The value of a coupon
-$body = new \TalonOne\Client\Model\CouponReservations(); // \TalonOne\Client\Model\CouponReservations | 
+
+?>
+```
+
+#### V1
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Host, API key, & API key prefix for integration authentication
+$config = \TalonOne\Client\Configuration::getDefaultConfiguration()
+    ->setHost('https://mycompany.talon.one')
+    ->setApiKeyPrefix('Authorization', 'ApiKey-v1')
+    ->setApiKey('Authorization', 'dbc644d33aa74d582bd9479c59e16f970fe13bf34a208c39d6c7fa7586968468');
+
+// Initiating an integration api instance with the config
+$this->apiInstance = new \TalonOne\Client\Api\IntegrationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default when `null` is passed.
+    null, // new YouClientImplementation(),
+    $config
+);
+
+$customer_session_id = 'customer_session_id_example'; // string | The unique identifier for this session
+$body = new \TalonOne\Client\Model\NewCustomerSession([
+    'profileId' => 'example_prof_id',
+    'state' => \TalonOne\Client\Model\NewCustomerSession::STATE_OPEN,
+    'total' => 3.14
+]);
 
 try {
-    $result = $apiInstance->createCouponReservation($coupon_value, $body);
+    // Create/Update a customer session using `updateCustomerSession` function
+    $result = $this->apiInstance->updateCustomerSession($customer_session_id, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling IntegrationApi->createCouponReservation: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling IntegrationApi->updateCustomerSession: ', $e->getMessage(), PHP_EOL;
+}
+
+?>
+```
+
+### Management API
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Host & API key prefix for management authentication
+$config = \TalonOne\Client\Configuration::getDefaultConfiguration()
+    ->setHost('https://mycompany.talon.one')
+    ->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Initiating a management api instance with the config
+$apiInstance = new \TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default when `null` is passed.
+    null, // new YouClientImplementation(),
+    $config
+);
+
+try {
+    $loginParams = new \TalonOne\Client\Model\LoginParams([
+        'email' => 'admin@talon.one',
+        'password' => 'VerySecurePa$$word!'
+    ]);
+
+    // create a session (login) in order to get a token
+    $session = $apiInstance->createSession($loginParams);
+
+    // Save token in the configuration as API key
+    $config->setApiKey('Authorization', $session->getToken());
+
+    $application_id = 7; // int | desired application identifier
+    // Calling `getApplication` function
+    $application = $apiInstance->getApplication($application_id);
+    print_r($application);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getApplication: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>

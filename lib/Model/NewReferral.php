@@ -57,11 +57,11 @@ class NewReferral implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'campaign_id' => 'int',
-        'advocate_profile_integration_id' => 'string',
-        'friend_profile_integration_id' => 'string',
-        'start_date' => '\DateTime',
-        'expiry_date' => '\DateTime'
+        'campaignId' => 'int',
+        'advocateProfileIntegrationId' => 'string',
+        'friendProfileIntegrationId' => 'string',
+        'startDate' => '\DateTime',
+        'expiryDate' => '\DateTime'
     ];
 
     /**
@@ -70,11 +70,11 @@ class NewReferral implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaign_id' => null,
-        'advocate_profile_integration_id' => null,
-        'friend_profile_integration_id' => null,
-        'start_date' => 'date-time',
-        'expiry_date' => 'date-time'
+        'campaignId' => null,
+        'advocateProfileIntegrationId' => null,
+        'friendProfileIntegrationId' => null,
+        'startDate' => 'date-time',
+        'expiryDate' => 'date-time'
     ];
 
     /**
@@ -104,11 +104,11 @@ class NewReferral implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'campaign_id' => 'campaignId',
-        'advocate_profile_integration_id' => 'advocateProfileIntegrationId',
-        'friend_profile_integration_id' => 'friendProfileIntegrationId',
-        'start_date' => 'startDate',
-        'expiry_date' => 'expiryDate'
+        'campaignId' => 'campaignId',
+        'advocateProfileIntegrationId' => 'advocateProfileIntegrationId',
+        'friendProfileIntegrationId' => 'friendProfileIntegrationId',
+        'startDate' => 'startDate',
+        'expiryDate' => 'expiryDate'
     ];
 
     /**
@@ -117,11 +117,11 @@ class NewReferral implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'campaign_id' => 'setCampaignId',
-        'advocate_profile_integration_id' => 'setAdvocateProfileIntegrationId',
-        'friend_profile_integration_id' => 'setFriendProfileIntegrationId',
-        'start_date' => 'setStartDate',
-        'expiry_date' => 'setExpiryDate'
+        'campaignId' => 'setCampaignId',
+        'advocateProfileIntegrationId' => 'setAdvocateProfileIntegrationId',
+        'friendProfileIntegrationId' => 'setFriendProfileIntegrationId',
+        'startDate' => 'setStartDate',
+        'expiryDate' => 'setExpiryDate'
     ];
 
     /**
@@ -130,11 +130,11 @@ class NewReferral implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'campaign_id' => 'getCampaignId',
-        'advocate_profile_integration_id' => 'getAdvocateProfileIntegrationId',
-        'friend_profile_integration_id' => 'getFriendProfileIntegrationId',
-        'start_date' => 'getStartDate',
-        'expiry_date' => 'getExpiryDate'
+        'campaignId' => 'getCampaignId',
+        'advocateProfileIntegrationId' => 'getAdvocateProfileIntegrationId',
+        'friendProfileIntegrationId' => 'getFriendProfileIntegrationId',
+        'startDate' => 'getStartDate',
+        'expiryDate' => 'getExpiryDate'
     ];
 
     /**
@@ -197,11 +197,11 @@ class NewReferral implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['campaign_id'] = isset($data['campaign_id']) ? $data['campaign_id'] : null;
-        $this->container['advocate_profile_integration_id'] = isset($data['advocate_profile_integration_id']) ? $data['advocate_profile_integration_id'] : null;
-        $this->container['friend_profile_integration_id'] = isset($data['friend_profile_integration_id']) ? $data['friend_profile_integration_id'] : null;
-        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
-        $this->container['expiry_date'] = isset($data['expiry_date']) ? $data['expiry_date'] : null;
+        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
+        $this->container['advocateProfileIntegrationId'] = isset($data['advocateProfileIntegrationId']) ? $data['advocateProfileIntegrationId'] : null;
+        $this->container['friendProfileIntegrationId'] = isset($data['friendProfileIntegrationId']) ? $data['friendProfileIntegrationId'] : null;
+        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
+        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
     }
 
     /**
@@ -213,11 +213,11 @@ class NewReferral implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
+        if ($this->container['campaignId'] === null) {
+            $invalidProperties[] = "'campaignId' can't be null";
         }
-        if ($this->container['advocate_profile_integration_id'] === null) {
-            $invalidProperties[] = "'advocate_profile_integration_id' can't be null";
+        if ($this->container['advocateProfileIntegrationId'] === null) {
+            $invalidProperties[] = "'advocateProfileIntegrationId' can't be null";
         }
         return $invalidProperties;
     }
@@ -235,121 +235,121 @@ class NewReferral implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets campaign_id
+     * Gets campaignId
      *
      * @return int
      */
     public function getCampaignId()
     {
-        return $this->container['campaign_id'];
+        return $this->container['campaignId'];
     }
 
     /**
-     * Sets campaign_id
+     * Sets campaignId
      *
-     * @param int $campaign_id ID of the campaign from which the referral received the referral code.
+     * @param int $campaignId ID of the campaign from which the referral received the referral code.
      *
      * @return $this
      */
-    public function setCampaignId($campaign_id)
+    public function setCampaignId($campaignId)
     {
-        $this->container['campaign_id'] = $campaign_id;
+        $this->container['campaignId'] = $campaignId;
 
         return $this;
     }
 
     /**
-     * Gets advocate_profile_integration_id
+     * Gets advocateProfileIntegrationId
      *
      * @return string
      */
     public function getAdvocateProfileIntegrationId()
     {
-        return $this->container['advocate_profile_integration_id'];
+        return $this->container['advocateProfileIntegrationId'];
     }
 
     /**
-     * Sets advocate_profile_integration_id
+     * Sets advocateProfileIntegrationId
      *
-     * @param string $advocate_profile_integration_id The Integration Id of the Advocate's Profile
+     * @param string $advocateProfileIntegrationId The Integration Id of the Advocate's Profile
      *
      * @return $this
      */
-    public function setAdvocateProfileIntegrationId($advocate_profile_integration_id)
+    public function setAdvocateProfileIntegrationId($advocateProfileIntegrationId)
     {
-        $this->container['advocate_profile_integration_id'] = $advocate_profile_integration_id;
+        $this->container['advocateProfileIntegrationId'] = $advocateProfileIntegrationId;
 
         return $this;
     }
 
     /**
-     * Gets friend_profile_integration_id
+     * Gets friendProfileIntegrationId
      *
      * @return string|null
      */
     public function getFriendProfileIntegrationId()
     {
-        return $this->container['friend_profile_integration_id'];
+        return $this->container['friendProfileIntegrationId'];
     }
 
     /**
-     * Sets friend_profile_integration_id
+     * Sets friendProfileIntegrationId
      *
-     * @param string|null $friend_profile_integration_id An optional Integration ID of the Friend's Profile
+     * @param string|null $friendProfileIntegrationId An optional Integration ID of the Friend's Profile
      *
      * @return $this
      */
-    public function setFriendProfileIntegrationId($friend_profile_integration_id)
+    public function setFriendProfileIntegrationId($friendProfileIntegrationId)
     {
-        $this->container['friend_profile_integration_id'] = $friend_profile_integration_id;
+        $this->container['friendProfileIntegrationId'] = $friendProfileIntegrationId;
 
         return $this;
     }
 
     /**
-     * Gets start_date
+     * Gets startDate
      *
      * @return \DateTime|null
      */
     public function getStartDate()
     {
-        return $this->container['start_date'];
+        return $this->container['startDate'];
     }
 
     /**
-     * Sets start_date
+     * Sets startDate
      *
-     * @param \DateTime|null $start_date Timestamp at which point the referral code becomes valid.
+     * @param \DateTime|null $startDate Timestamp at which point the referral code becomes valid.
      *
      * @return $this
      */
-    public function setStartDate($start_date)
+    public function setStartDate($startDate)
     {
-        $this->container['start_date'] = $start_date;
+        $this->container['startDate'] = $startDate;
 
         return $this;
     }
 
     /**
-     * Gets expiry_date
+     * Gets expiryDate
      *
      * @return \DateTime|null
      */
     public function getExpiryDate()
     {
-        return $this->container['expiry_date'];
+        return $this->container['expiryDate'];
     }
 
     /**
-     * Sets expiry_date
+     * Sets expiryDate
      *
-     * @param \DateTime|null $expiry_date Expiry date of the referral code. Referral never expires if this is omitted, zero, or negative.
+     * @param \DateTime|null $expiryDate Expiry date of the referral code. Referral never expires if this is omitted, zero, or negative.
      *
      * @return $this
      */
-    public function setExpiryDate($expiry_date)
+    public function setExpiryDate($expiryDate)
     {
-        $this->container['expiry_date'] = $expiry_date;
+        $this->container['expiryDate'] = $expiryDate;
 
         return $this;
     }

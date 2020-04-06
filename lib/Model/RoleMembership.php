@@ -57,8 +57,8 @@ class RoleMembership implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'role_id' => 'int',
-        'user_id' => 'int'
+        'roleID' => 'int',
+        'userID' => 'int'
     ];
 
     /**
@@ -67,8 +67,8 @@ class RoleMembership implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'role_id' => null,
-        'user_id' => null
+        'roleID' => null,
+        'userID' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class RoleMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'role_id' => 'RoleID',
-        'user_id' => 'UserID'
+        'roleID' => 'RoleID',
+        'userID' => 'UserID'
     ];
 
     /**
@@ -108,8 +108,8 @@ class RoleMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'role_id' => 'setRoleId',
-        'user_id' => 'setUserId'
+        'roleID' => 'setRoleID',
+        'userID' => 'setUserID'
     ];
 
     /**
@@ -118,8 +118,8 @@ class RoleMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'role_id' => 'getRoleId',
-        'user_id' => 'getUserId'
+        'roleID' => 'getRoleID',
+        'userID' => 'getUserID'
     ];
 
     /**
@@ -182,8 +182,8 @@ class RoleMembership implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['role_id'] = isset($data['role_id']) ? $data['role_id'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['roleID'] = isset($data['roleID']) ? $data['roleID'] : null;
+        $this->container['userID'] = isset($data['userID']) ? $data['userID'] : null;
     }
 
     /**
@@ -195,11 +195,11 @@ class RoleMembership implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['role_id'] === null) {
-            $invalidProperties[] = "'role_id' can't be null";
+        if ($this->container['roleID'] === null) {
+            $invalidProperties[] = "'roleID' can't be null";
         }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
+        if ($this->container['userID'] === null) {
+            $invalidProperties[] = "'userID' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,49 +217,49 @@ class RoleMembership implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets role_id
+     * Gets roleID
      *
      * @return int
      */
-    public function getRoleId()
+    public function getRoleID()
     {
-        return $this->container['role_id'];
+        return $this->container['roleID'];
     }
 
     /**
-     * Sets role_id
+     * Sets roleID
      *
-     * @param int $role_id ID of role
+     * @param int $roleID ID of role
      *
      * @return $this
      */
-    public function setRoleId($role_id)
+    public function setRoleID($roleID)
     {
-        $this->container['role_id'] = $role_id;
+        $this->container['roleID'] = $roleID;
 
         return $this;
     }
 
     /**
-     * Gets user_id
+     * Gets userID
      *
      * @return int
      */
-    public function getUserId()
+    public function getUserID()
     {
-        return $this->container['user_id'];
+        return $this->container['userID'];
     }
 
     /**
-     * Sets user_id
+     * Sets userID
      *
-     * @param int $user_id ID of User
+     * @param int $userID ID of User
      *
      * @return $this
      */
-    public function setUserId($user_id)
+    public function setUserID($userID)
     {
-        $this->container['user_id'] = $user_id;
+        $this->container['userID'] = $userID;
 
         return $this;
     }

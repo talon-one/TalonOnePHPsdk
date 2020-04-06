@@ -79,16 +79,16 @@ class RoleMembershipTest extends TestCase
     }
 
     /**
-     * Test attribute "role_id"
+     * Test attribute "roleID"
      */
-    public function testPropertyRoleId()
+    public function testPropertyRoleID()
     {
     }
 
     /**
-     * Test attribute "user_id"
+     * Test attribute "userID"
      */
-    public function testPropertyUserId()
+    public function testPropertyUserID()
     {
     }
 }

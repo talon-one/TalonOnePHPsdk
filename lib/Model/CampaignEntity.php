@@ -57,7 +57,7 @@ class CampaignEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'campaign_id' => 'int'
+        'campaignId' => 'int'
     ];
 
     /**
@@ -66,7 +66,7 @@ class CampaignEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaign_id' => null
+        'campaignId' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class CampaignEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'campaign_id' => 'campaignId'
+        'campaignId' => 'campaignId'
     ];
 
     /**
@@ -105,7 +105,7 @@ class CampaignEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'campaign_id' => 'setCampaignId'
+        'campaignId' => 'setCampaignId'
     ];
 
     /**
@@ -114,7 +114,7 @@ class CampaignEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'campaign_id' => 'getCampaignId'
+        'campaignId' => 'getCampaignId'
     ];
 
     /**
@@ -177,7 +177,7 @@ class CampaignEntity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['campaign_id'] = isset($data['campaign_id']) ? $data['campaign_id'] : null;
+        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
     }
 
     /**
@@ -189,8 +189,8 @@ class CampaignEntity implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
+        if ($this->container['campaignId'] === null) {
+            $invalidProperties[] = "'campaignId' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,25 +208,25 @@ class CampaignEntity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets campaign_id
+     * Gets campaignId
      *
      * @return int
      */
     public function getCampaignId()
     {
-        return $this->container['campaign_id'];
+        return $this->container['campaignId'];
     }
 
     /**
-     * Sets campaign_id
+     * Sets campaignId
      *
-     * @param int $campaign_id The ID of the campaign that owns this entity.
+     * @param int $campaignId The ID of the campaign that owns this entity.
      *
      * @return $this
      */
-    public function setCampaignId($campaign_id)
+    public function setCampaignId($campaignId)
     {
-        $this->container['campaign_id'] = $campaign_id;
+        $this->container['campaignId'] = $campaignId;
 
         return $this;
     }

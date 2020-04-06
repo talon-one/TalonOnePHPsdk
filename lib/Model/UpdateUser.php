@@ -60,10 +60,10 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'name' => 'string',
         'policy' => 'string',
         'state' => 'string',
-        'release_update' => 'bool',
-        'latest_feature' => 'string',
+        'releaseUpdate' => 'bool',
+        'latestFeature' => 'string',
         'roles' => 'int[]',
-        'application_notification_subscriptions' => 'object'
+        'applicationNotificationSubscriptions' => 'object'
     ];
 
     /**
@@ -75,10 +75,10 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'name' => null,
         'policy' => null,
         'state' => null,
-        'release_update' => null,
-        'latest_feature' => null,
+        'releaseUpdate' => null,
+        'latestFeature' => null,
         'roles' => null,
-        'application_notification_subscriptions' => null
+        'applicationNotificationSubscriptions' => null
     ];
 
     /**
@@ -111,10 +111,10 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'name' => 'name',
         'policy' => 'policy',
         'state' => 'state',
-        'release_update' => 'releaseUpdate',
-        'latest_feature' => 'latestFeature',
+        'releaseUpdate' => 'releaseUpdate',
+        'latestFeature' => 'latestFeature',
         'roles' => 'roles',
-        'application_notification_subscriptions' => 'applicationNotificationSubscriptions'
+        'applicationNotificationSubscriptions' => 'applicationNotificationSubscriptions'
     ];
 
     /**
@@ -126,10 +126,10 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'policy' => 'setPolicy',
         'state' => 'setState',
-        'release_update' => 'setReleaseUpdate',
-        'latest_feature' => 'setLatestFeature',
+        'releaseUpdate' => 'setReleaseUpdate',
+        'latestFeature' => 'setLatestFeature',
         'roles' => 'setRoles',
-        'application_notification_subscriptions' => 'setApplicationNotificationSubscriptions'
+        'applicationNotificationSubscriptions' => 'setApplicationNotificationSubscriptions'
     ];
 
     /**
@@ -141,10 +141,10 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'policy' => 'getPolicy',
         'state' => 'getState',
-        'release_update' => 'getReleaseUpdate',
-        'latest_feature' => 'getLatestFeature',
+        'releaseUpdate' => 'getReleaseUpdate',
+        'latestFeature' => 'getLatestFeature',
         'roles' => 'getRoles',
-        'application_notification_subscriptions' => 'getApplicationNotificationSubscriptions'
+        'applicationNotificationSubscriptions' => 'getApplicationNotificationSubscriptions'
     ];
 
     /**
@@ -225,10 +225,10 @@ class UpdateUser implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['release_update'] = isset($data['release_update']) ? $data['release_update'] : null;
-        $this->container['latest_feature'] = isset($data['latest_feature']) ? $data['latest_feature'] : null;
+        $this->container['releaseUpdate'] = isset($data['releaseUpdate']) ? $data['releaseUpdate'] : null;
+        $this->container['latestFeature'] = isset($data['latestFeature']) ? $data['latestFeature'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
-        $this->container['application_notification_subscriptions'] = isset($data['application_notification_subscriptions']) ? $data['application_notification_subscriptions'] : null;
+        $this->container['applicationNotificationSubscriptions'] = isset($data['applicationNotificationSubscriptions']) ? $data['applicationNotificationSubscriptions'] : null;
     }
 
     /**
@@ -345,49 +345,49 @@ class UpdateUser implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets release_update
+     * Gets releaseUpdate
      *
      * @return bool|null
      */
     public function getReleaseUpdate()
     {
-        return $this->container['release_update'];
+        return $this->container['releaseUpdate'];
     }
 
     /**
-     * Sets release_update
+     * Sets releaseUpdate
      *
-     * @param bool|null $release_update Update the user via email
+     * @param bool|null $releaseUpdate Update the user via email
      *
      * @return $this
      */
-    public function setReleaseUpdate($release_update)
+    public function setReleaseUpdate($releaseUpdate)
     {
-        $this->container['release_update'] = $release_update;
+        $this->container['releaseUpdate'] = $releaseUpdate;
 
         return $this;
     }
 
     /**
-     * Gets latest_feature
+     * Gets latestFeature
      *
      * @return string|null
      */
     public function getLatestFeature()
     {
-        return $this->container['latest_feature'];
+        return $this->container['latestFeature'];
     }
 
     /**
-     * Sets latest_feature
+     * Sets latestFeature
      *
-     * @param string|null $latest_feature The latest feature you've been notified.
+     * @param string|null $latestFeature The latest feature you've been notified.
      *
      * @return $this
      */
-    public function setLatestFeature($latest_feature)
+    public function setLatestFeature($latestFeature)
     {
-        $this->container['latest_feature'] = $latest_feature;
+        $this->container['latestFeature'] = $latestFeature;
 
         return $this;
     }
@@ -417,25 +417,25 @@ class UpdateUser implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets application_notification_subscriptions
+     * Gets applicationNotificationSubscriptions
      *
      * @return object|null
      */
     public function getApplicationNotificationSubscriptions()
     {
-        return $this->container['application_notification_subscriptions'];
+        return $this->container['applicationNotificationSubscriptions'];
     }
 
     /**
-     * Sets application_notification_subscriptions
+     * Sets applicationNotificationSubscriptions
      *
-     * @param object|null $application_notification_subscriptions application_notification_subscriptions
+     * @param object|null $applicationNotificationSubscriptions applicationNotificationSubscriptions
      *
      * @return $this
      */
-    public function setApplicationNotificationSubscriptions($application_notification_subscriptions)
+    public function setApplicationNotificationSubscriptions($applicationNotificationSubscriptions)
     {
-        $this->container['application_notification_subscriptions'] = $application_notification_subscriptions;
+        $this->container['applicationNotificationSubscriptions'] = $applicationNotificationSubscriptions;
 
         return $this;
     }

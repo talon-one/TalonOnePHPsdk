@@ -79,14 +79,14 @@ class CodeGeneratorSettingsTest extends TestCase
     }
 
     /**
-     * Test attribute "valid_characters"
+     * Test attribute "validCharacters"
      */
     public function testPropertyValidCharacters()
     {
     }
 
     /**
-     * Test attribute "coupon_pattern"
+     * Test attribute "couponPattern"
      */
     public function testPropertyCouponPattern()
     {

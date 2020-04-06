@@ -79,7 +79,7 @@ class BaseSamlConnectionTest extends TestCase
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "accountId"
      */
     public function testPropertyAccountId()
     {
@@ -107,30 +107,30 @@ class BaseSamlConnectionTest extends TestCase
     }
 
     /**
-     * Test attribute "sign_on_url"
+     * Test attribute "signOnURL"
      */
-    public function testPropertySignOnUrl()
+    public function testPropertySignOnURL()
     {
     }
 
     /**
-     * Test attribute "sign_out_url"
+     * Test attribute "signOutURL"
      */
-    public function testPropertySignOutUrl()
+    public function testPropertySignOutURL()
     {
     }
 
     /**
-     * Test attribute "metadata_url"
+     * Test attribute "metadataURL"
      */
-    public function testPropertyMetadataUrl()
+    public function testPropertyMetadataURL()
     {
     }
 
     /**
-     * Test attribute "audience_uri"
+     * Test attribute "audienceURI"
      */
-    public function testPropertyAudienceUri()
+    public function testPropertyAudienceURI()
     {
     }
 }

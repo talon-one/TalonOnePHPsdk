@@ -58,21 +58,21 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'integration_id' => 'string',
+        'integrationId' => 'string',
         'created' => '\DateTime',
-        'application_id' => 'int',
-        'profile_id' => 'string',
-        'coupon_codes' => 'string[]',
-        'referral_code' => 'string',
+        'applicationId' => 'int',
+        'profileId' => 'string',
+        'couponCodes' => 'string[]',
+        'referralCode' => 'string',
         'state' => 'string',
-        'cart_items' => '\TalonOne\Client\Model\CartItem[]',
-        'additional_costs' => 'map[string,\TalonOne\Client\Model\AdditionalCost]',
+        'cartItems' => '\TalonOne\Client\Model\CartItem[]',
+        'additionalCosts' => 'map[string,\TalonOne\Client\Model\AdditionalCost]',
         'identifiers' => 'string[]',
         'attributes' => 'object',
-        'first_session' => 'bool',
+        'firstSession' => 'bool',
         'total' => 'float',
-        'cart_item_total' => 'float',
-        'additional_cost_total' => 'float'
+        'cartItemTotal' => 'float',
+        'additionalCostTotal' => 'float'
     ];
 
     /**
@@ -81,21 +81,21 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'integration_id' => 'string',
+        'integrationId' => 'string',
         'created' => 'date-time',
-        'application_id' => null,
-        'profile_id' => null,
-        'coupon_codes' => null,
-        'referral_code' => null,
+        'applicationId' => null,
+        'profileId' => null,
+        'couponCodes' => null,
+        'referralCode' => null,
         'state' => null,
-        'cart_items' => null,
-        'additional_costs' => null,
+        'cartItems' => null,
+        'additionalCosts' => null,
         'identifiers' => null,
         'attributes' => null,
-        'first_session' => null,
+        'firstSession' => null,
         'total' => null,
-        'cart_item_total' => null,
-        'additional_cost_total' => null
+        'cartItemTotal' => null,
+        'additionalCostTotal' => null
     ];
 
     /**
@@ -125,21 +125,21 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'integration_id' => 'integrationId',
+        'integrationId' => 'integrationId',
         'created' => 'created',
-        'application_id' => 'applicationId',
-        'profile_id' => 'profileId',
-        'coupon_codes' => 'couponCodes',
-        'referral_code' => 'referralCode',
+        'applicationId' => 'applicationId',
+        'profileId' => 'profileId',
+        'couponCodes' => 'couponCodes',
+        'referralCode' => 'referralCode',
         'state' => 'state',
-        'cart_items' => 'cartItems',
-        'additional_costs' => 'additionalCosts',
+        'cartItems' => 'cartItems',
+        'additionalCosts' => 'additionalCosts',
         'identifiers' => 'identifiers',
         'attributes' => 'attributes',
-        'first_session' => 'firstSession',
+        'firstSession' => 'firstSession',
         'total' => 'total',
-        'cart_item_total' => 'cartItemTotal',
-        'additional_cost_total' => 'additionalCostTotal'
+        'cartItemTotal' => 'cartItemTotal',
+        'additionalCostTotal' => 'additionalCostTotal'
     ];
 
     /**
@@ -148,21 +148,21 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'integration_id' => 'setIntegrationId',
+        'integrationId' => 'setIntegrationId',
         'created' => 'setCreated',
-        'application_id' => 'setApplicationId',
-        'profile_id' => 'setProfileId',
-        'coupon_codes' => 'setCouponCodes',
-        'referral_code' => 'setReferralCode',
+        'applicationId' => 'setApplicationId',
+        'profileId' => 'setProfileId',
+        'couponCodes' => 'setCouponCodes',
+        'referralCode' => 'setReferralCode',
         'state' => 'setState',
-        'cart_items' => 'setCartItems',
-        'additional_costs' => 'setAdditionalCosts',
+        'cartItems' => 'setCartItems',
+        'additionalCosts' => 'setAdditionalCosts',
         'identifiers' => 'setIdentifiers',
         'attributes' => 'setAttributes',
-        'first_session' => 'setFirstSession',
+        'firstSession' => 'setFirstSession',
         'total' => 'setTotal',
-        'cart_item_total' => 'setCartItemTotal',
-        'additional_cost_total' => 'setAdditionalCostTotal'
+        'cartItemTotal' => 'setCartItemTotal',
+        'additionalCostTotal' => 'setAdditionalCostTotal'
     ];
 
     /**
@@ -171,21 +171,21 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'integration_id' => 'getIntegrationId',
+        'integrationId' => 'getIntegrationId',
         'created' => 'getCreated',
-        'application_id' => 'getApplicationId',
-        'profile_id' => 'getProfileId',
-        'coupon_codes' => 'getCouponCodes',
-        'referral_code' => 'getReferralCode',
+        'applicationId' => 'getApplicationId',
+        'profileId' => 'getProfileId',
+        'couponCodes' => 'getCouponCodes',
+        'referralCode' => 'getReferralCode',
         'state' => 'getState',
-        'cart_items' => 'getCartItems',
-        'additional_costs' => 'getAdditionalCosts',
+        'cartItems' => 'getCartItems',
+        'additionalCosts' => 'getAdditionalCosts',
         'identifiers' => 'getIdentifiers',
         'attributes' => 'getAttributes',
-        'first_session' => 'getFirstSession',
+        'firstSession' => 'getFirstSession',
         'total' => 'getTotal',
-        'cart_item_total' => 'getCartItemTotal',
-        'additional_cost_total' => 'getAdditionalCostTotal'
+        'cartItemTotal' => 'getCartItemTotal',
+        'additionalCostTotal' => 'getAdditionalCostTotal'
     ];
 
     /**
@@ -265,21 +265,21 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['integration_id'] = isset($data['integration_id']) ? $data['integration_id'] : null;
+        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
-        $this->container['profile_id'] = isset($data['profile_id']) ? $data['profile_id'] : null;
-        $this->container['coupon_codes'] = isset($data['coupon_codes']) ? $data['coupon_codes'] : null;
-        $this->container['referral_code'] = isset($data['referral_code']) ? $data['referral_code'] : null;
+        $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
+        $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
+        $this->container['couponCodes'] = isset($data['couponCodes']) ? $data['couponCodes'] : null;
+        $this->container['referralCode'] = isset($data['referralCode']) ? $data['referralCode'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'open';
-        $this->container['cart_items'] = isset($data['cart_items']) ? $data['cart_items'] : null;
-        $this->container['additional_costs'] = isset($data['additional_costs']) ? $data['additional_costs'] : null;
+        $this->container['cartItems'] = isset($data['cartItems']) ? $data['cartItems'] : null;
+        $this->container['additionalCosts'] = isset($data['additionalCosts']) ? $data['additionalCosts'] : null;
         $this->container['identifiers'] = isset($data['identifiers']) ? $data['identifiers'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['first_session'] = isset($data['first_session']) ? $data['first_session'] : null;
+        $this->container['firstSession'] = isset($data['firstSession']) ? $data['firstSession'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
-        $this->container['cart_item_total'] = isset($data['cart_item_total']) ? $data['cart_item_total'] : null;
-        $this->container['additional_cost_total'] = isset($data['additional_cost_total']) ? $data['additional_cost_total'] : null;
+        $this->container['cartItemTotal'] = isset($data['cartItemTotal']) ? $data['cartItemTotal'] : null;
+        $this->container['additionalCostTotal'] = isset($data['additionalCostTotal']) ? $data['additionalCostTotal'] : null;
     }
 
     /**
@@ -291,17 +291,17 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['integration_id'] === null) {
-            $invalidProperties[] = "'integration_id' can't be null";
+        if ($this->container['integrationId'] === null) {
+            $invalidProperties[] = "'integrationId' can't be null";
         }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['application_id'] === null) {
-            $invalidProperties[] = "'application_id' can't be null";
+        if ($this->container['applicationId'] === null) {
+            $invalidProperties[] = "'applicationId' can't be null";
         }
-        if ($this->container['profile_id'] === null) {
-            $invalidProperties[] = "'profile_id' can't be null";
+        if ($this->container['profileId'] === null) {
+            $invalidProperties[] = "'profileId' can't be null";
         }
         if ($this->container['state'] === null) {
             $invalidProperties[] = "'state' can't be null";
@@ -314,23 +314,23 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['cart_items'] === null) {
-            $invalidProperties[] = "'cart_items' can't be null";
+        if ($this->container['cartItems'] === null) {
+            $invalidProperties[] = "'cartItems' can't be null";
         }
         if ($this->container['attributes'] === null) {
             $invalidProperties[] = "'attributes' can't be null";
         }
-        if ($this->container['first_session'] === null) {
-            $invalidProperties[] = "'first_session' can't be null";
+        if ($this->container['firstSession'] === null) {
+            $invalidProperties[] = "'firstSession' can't be null";
         }
         if ($this->container['total'] === null) {
             $invalidProperties[] = "'total' can't be null";
         }
-        if ($this->container['cart_item_total'] === null) {
-            $invalidProperties[] = "'cart_item_total' can't be null";
+        if ($this->container['cartItemTotal'] === null) {
+            $invalidProperties[] = "'cartItemTotal' can't be null";
         }
-        if ($this->container['additional_cost_total'] === null) {
-            $invalidProperties[] = "'additional_cost_total' can't be null";
+        if ($this->container['additionalCostTotal'] === null) {
+            $invalidProperties[] = "'additionalCostTotal' can't be null";
         }
         return $invalidProperties;
     }
@@ -348,25 +348,25 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets integration_id
+     * Gets integrationId
      *
      * @return string
      */
     public function getIntegrationId()
     {
-        return $this->container['integration_id'];
+        return $this->container['integrationId'];
     }
 
     /**
-     * Sets integration_id
+     * Sets integrationId
      *
-     * @param string $integration_id The ID used for this entity in the application system.
+     * @param string $integrationId The ID used for this entity in the application system.
      *
      * @return $this
      */
-    public function setIntegrationId($integration_id)
+    public function setIntegrationId($integrationId)
     {
-        $this->container['integration_id'] = $integration_id;
+        $this->container['integrationId'] = $integrationId;
 
         return $this;
     }
@@ -396,97 +396,97 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets application_id
+     * Gets applicationId
      *
      * @return int
      */
     public function getApplicationId()
     {
-        return $this->container['application_id'];
+        return $this->container['applicationId'];
     }
 
     /**
-     * Sets application_id
+     * Sets applicationId
      *
-     * @param int $application_id The ID of the application that owns this entity.
+     * @param int $applicationId The ID of the application that owns this entity.
      *
      * @return $this
      */
-    public function setApplicationId($application_id)
+    public function setApplicationId($applicationId)
     {
-        $this->container['application_id'] = $application_id;
+        $this->container['applicationId'] = $applicationId;
 
         return $this;
     }
 
     /**
-     * Gets profile_id
+     * Gets profileId
      *
      * @return string
      */
     public function getProfileId()
     {
-        return $this->container['profile_id'];
+        return $this->container['profileId'];
     }
 
     /**
-     * Sets profile_id
+     * Sets profileId
      *
-     * @param string $profile_id ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+     * @param string $profileId ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
      *
      * @return $this
      */
-    public function setProfileId($profile_id)
+    public function setProfileId($profileId)
     {
-        $this->container['profile_id'] = $profile_id;
+        $this->container['profileId'] = $profileId;
 
         return $this;
     }
 
     /**
-     * Gets coupon_codes
+     * Gets couponCodes
      *
      * @return string[]|null
      */
     public function getCouponCodes()
     {
-        return $this->container['coupon_codes'];
+        return $this->container['couponCodes'];
     }
 
     /**
-     * Sets coupon_codes
+     * Sets couponCodes
      *
-     * @param string[]|null $coupon_codes Any coupon codes entered.
+     * @param string[]|null $couponCodes Any coupon codes entered.
      *
      * @return $this
      */
-    public function setCouponCodes($coupon_codes)
+    public function setCouponCodes($couponCodes)
     {
-        $this->container['coupon_codes'] = $coupon_codes;
+        $this->container['couponCodes'] = $couponCodes;
 
         return $this;
     }
 
     /**
-     * Gets referral_code
+     * Gets referralCode
      *
      * @return string|null
      */
     public function getReferralCode()
     {
-        return $this->container['referral_code'];
+        return $this->container['referralCode'];
     }
 
     /**
-     * Sets referral_code
+     * Sets referralCode
      *
-     * @param string|null $referral_code Any referral code entered.
+     * @param string|null $referralCode Any referral code entered.
      *
      * @return $this
      */
-    public function setReferralCode($referral_code)
+    public function setReferralCode($referralCode)
     {
-        $this->container['referral_code'] = $referral_code;
+        $this->container['referralCode'] = $referralCode;
 
         return $this;
     }
@@ -525,49 +525,49 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cart_items
+     * Gets cartItems
      *
      * @return \TalonOne\Client\Model\CartItem[]
      */
     public function getCartItems()
     {
-        return $this->container['cart_items'];
+        return $this->container['cartItems'];
     }
 
     /**
-     * Sets cart_items
+     * Sets cartItems
      *
-     * @param \TalonOne\Client\Model\CartItem[] $cart_items All items the customer will be purchasing in this session
+     * @param \TalonOne\Client\Model\CartItem[] $cartItems All items the customer will be purchasing in this session
      *
      * @return $this
      */
-    public function setCartItems($cart_items)
+    public function setCartItems($cartItems)
     {
-        $this->container['cart_items'] = $cart_items;
+        $this->container['cartItems'] = $cartItems;
 
         return $this;
     }
 
     /**
-     * Gets additional_costs
+     * Gets additionalCosts
      *
      * @return map[string,\TalonOne\Client\Model\AdditionalCost]|null
      */
     public function getAdditionalCosts()
     {
-        return $this->container['additional_costs'];
+        return $this->container['additionalCosts'];
     }
 
     /**
-     * Sets additional_costs
+     * Sets additionalCosts
      *
-     * @param map[string,\TalonOne\Client\Model\AdditionalCost]|null $additional_costs Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees.
+     * @param map[string,\TalonOne\Client\Model\AdditionalCost]|null $additionalCosts Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees.
      *
      * @return $this
      */
-    public function setAdditionalCosts($additional_costs)
+    public function setAdditionalCosts($additionalCosts)
     {
-        $this->container['additional_costs'] = $additional_costs;
+        $this->container['additionalCosts'] = $additionalCosts;
 
         return $this;
     }
@@ -621,25 +621,25 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets first_session
+     * Gets firstSession
      *
      * @return bool
      */
     public function getFirstSession()
     {
-        return $this->container['first_session'];
+        return $this->container['firstSession'];
     }
 
     /**
-     * Sets first_session
+     * Sets firstSession
      *
-     * @param bool $first_session Indicates whether this is the first session for the customer's profile. Will always be true for anonymous sessions.
+     * @param bool $firstSession Indicates whether this is the first session for the customer's profile. Will always be true for anonymous sessions.
      *
      * @return $this
      */
-    public function setFirstSession($first_session)
+    public function setFirstSession($firstSession)
     {
-        $this->container['first_session'] = $first_session;
+        $this->container['firstSession'] = $firstSession;
 
         return $this;
     }
@@ -669,49 +669,49 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cart_item_total
+     * Gets cartItemTotal
      *
      * @return float
      */
     public function getCartItemTotal()
     {
-        return $this->container['cart_item_total'];
+        return $this->container['cartItemTotal'];
     }
 
     /**
-     * Sets cart_item_total
+     * Sets cartItemTotal
      *
-     * @param float $cart_item_total The total sum of cart-items before any discounts applied
+     * @param float $cartItemTotal The total sum of cart-items before any discounts applied
      *
      * @return $this
      */
-    public function setCartItemTotal($cart_item_total)
+    public function setCartItemTotal($cartItemTotal)
     {
-        $this->container['cart_item_total'] = $cart_item_total;
+        $this->container['cartItemTotal'] = $cartItemTotal;
 
         return $this;
     }
 
     /**
-     * Gets additional_cost_total
+     * Gets additionalCostTotal
      *
      * @return float
      */
     public function getAdditionalCostTotal()
     {
-        return $this->container['additional_cost_total'];
+        return $this->container['additionalCostTotal'];
     }
 
     /**
-     * Sets additional_cost_total
+     * Sets additionalCostTotal
      *
-     * @param float $additional_cost_total The total sum of additional costs before any discounts applied
+     * @param float $additionalCostTotal The total sum of additional costs before any discounts applied
      *
      * @return $this
      */
-    public function setAdditionalCostTotal($additional_cost_total)
+    public function setAdditionalCostTotal($additionalCostTotal)
     {
-        $this->container['additional_cost_total'] = $additional_cost_total;
+        $this->container['additionalCostTotal'] = $additionalCostTotal;
 
         return $this;
     }

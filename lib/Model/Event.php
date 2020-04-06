@@ -60,13 +60,13 @@ class Event implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'application_id' => 'int',
-        'profile_id' => 'string',
+        'applicationId' => 'int',
+        'profileId' => 'string',
         'type' => 'string',
         'attributes' => 'object',
-        'session_id' => 'string',
+        'sessionId' => 'string',
         'effects' => 'object[]',
-        'ledger_entries' => '\TalonOne\Client\Model\LedgerEntry[]',
+        'ledgerEntries' => '\TalonOne\Client\Model\LedgerEntry[]',
         'meta' => '\TalonOne\Client\Model\Meta'
     ];
 
@@ -78,13 +78,13 @@ class Event implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'application_id' => null,
-        'profile_id' => null,
+        'applicationId' => null,
+        'profileId' => null,
         'type' => null,
         'attributes' => null,
-        'session_id' => null,
+        'sessionId' => null,
         'effects' => null,
-        'ledger_entries' => null,
+        'ledgerEntries' => null,
         'meta' => null
     ];
 
@@ -117,13 +117,13 @@ class Event implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'application_id' => 'applicationId',
-        'profile_id' => 'profileId',
+        'applicationId' => 'applicationId',
+        'profileId' => 'profileId',
         'type' => 'type',
         'attributes' => 'attributes',
-        'session_id' => 'sessionId',
+        'sessionId' => 'sessionId',
         'effects' => 'effects',
-        'ledger_entries' => 'ledgerEntries',
+        'ledgerEntries' => 'ledgerEntries',
         'meta' => 'meta'
     ];
 
@@ -135,13 +135,13 @@ class Event implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'application_id' => 'setApplicationId',
-        'profile_id' => 'setProfileId',
+        'applicationId' => 'setApplicationId',
+        'profileId' => 'setProfileId',
         'type' => 'setType',
         'attributes' => 'setAttributes',
-        'session_id' => 'setSessionId',
+        'sessionId' => 'setSessionId',
         'effects' => 'setEffects',
-        'ledger_entries' => 'setLedgerEntries',
+        'ledgerEntries' => 'setLedgerEntries',
         'meta' => 'setMeta'
     ];
 
@@ -153,13 +153,13 @@ class Event implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'application_id' => 'getApplicationId',
-        'profile_id' => 'getProfileId',
+        'applicationId' => 'getApplicationId',
+        'profileId' => 'getProfileId',
         'type' => 'getType',
         'attributes' => 'getAttributes',
-        'session_id' => 'getSessionId',
+        'sessionId' => 'getSessionId',
         'effects' => 'getEffects',
-        'ledger_entries' => 'getLedgerEntries',
+        'ledgerEntries' => 'getLedgerEntries',
         'meta' => 'getMeta'
     ];
 
@@ -225,13 +225,13 @@ class Event implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
-        $this->container['profile_id'] = isset($data['profile_id']) ? $data['profile_id'] : null;
+        $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
+        $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
+        $this->container['sessionId'] = isset($data['sessionId']) ? $data['sessionId'] : null;
         $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
-        $this->container['ledger_entries'] = isset($data['ledger_entries']) ? $data['ledger_entries'] : null;
+        $this->container['ledgerEntries'] = isset($data['ledgerEntries']) ? $data['ledgerEntries'] : null;
         $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
     }
 
@@ -250,8 +250,8 @@ class Event implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['application_id'] === null) {
-            $invalidProperties[] = "'application_id' can't be null";
+        if ($this->container['applicationId'] === null) {
+            $invalidProperties[] = "'applicationId' can't be null";
         }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
@@ -266,8 +266,8 @@ class Event implements ModelInterface, ArrayAccess
         if ($this->container['effects'] === null) {
             $invalidProperties[] = "'effects' can't be null";
         }
-        if ($this->container['ledger_entries'] === null) {
-            $invalidProperties[] = "'ledger_entries' can't be null";
+        if ($this->container['ledgerEntries'] === null) {
+            $invalidProperties[] = "'ledgerEntries' can't be null";
         }
         return $invalidProperties;
     }
@@ -333,49 +333,49 @@ class Event implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets application_id
+     * Gets applicationId
      *
      * @return int
      */
     public function getApplicationId()
     {
-        return $this->container['application_id'];
+        return $this->container['applicationId'];
     }
 
     /**
-     * Sets application_id
+     * Sets applicationId
      *
-     * @param int $application_id The ID of the application that owns this entity.
+     * @param int $applicationId The ID of the application that owns this entity.
      *
      * @return $this
      */
-    public function setApplicationId($application_id)
+    public function setApplicationId($applicationId)
     {
-        $this->container['application_id'] = $application_id;
+        $this->container['applicationId'] = $applicationId;
 
         return $this;
     }
 
     /**
-     * Gets profile_id
+     * Gets profileId
      *
      * @return string|null
      */
     public function getProfileId()
     {
-        return $this->container['profile_id'];
+        return $this->container['profileId'];
     }
 
     /**
-     * Sets profile_id
+     * Sets profileId
      *
-     * @param string|null $profile_id ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+     * @param string|null $profileId ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
      *
      * @return $this
      */
-    public function setProfileId($profile_id)
+    public function setProfileId($profileId)
     {
-        $this->container['profile_id'] = $profile_id;
+        $this->container['profileId'] = $profileId;
 
         return $this;
     }
@@ -434,25 +434,25 @@ class Event implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets session_id
+     * Gets sessionId
      *
      * @return string|null
      */
     public function getSessionId()
     {
-        return $this->container['session_id'];
+        return $this->container['sessionId'];
     }
 
     /**
-     * Sets session_id
+     * Sets sessionId
      *
-     * @param string|null $session_id The ID of the session that this event occurred in.
+     * @param string|null $sessionId The ID of the session that this event occurred in.
      *
      * @return $this
      */
-    public function setSessionId($session_id)
+    public function setSessionId($sessionId)
     {
-        $this->container['session_id'] = $session_id;
+        $this->container['sessionId'] = $sessionId;
 
         return $this;
     }
@@ -482,25 +482,25 @@ class Event implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets ledger_entries
+     * Gets ledgerEntries
      *
      * @return \TalonOne\Client\Model\LedgerEntry[]
      */
     public function getLedgerEntries()
     {
-        return $this->container['ledger_entries'];
+        return $this->container['ledgerEntries'];
     }
 
     /**
-     * Sets ledger_entries
+     * Sets ledgerEntries
      *
-     * @param \TalonOne\Client\Model\LedgerEntry[] $ledger_entries Ledger entries for the event.
+     * @param \TalonOne\Client\Model\LedgerEntry[] $ledgerEntries Ledger entries for the event.
      *
      * @return $this
      */
-    public function setLedgerEntries($ledger_entries)
+    public function setLedgerEntries($ledgerEntries)
     {
-        $this->container['ledger_entries'] = $ledger_entries;
+        $this->container['ledgerEntries'] = $ledgerEntries;
 
         return $this;
     }

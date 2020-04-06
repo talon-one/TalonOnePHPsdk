@@ -93,14 +93,14 @@ class CampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "application_id"
+     * Test attribute "applicationId"
      */
     public function testPropertyApplicationId()
     {
     }
 
     /**
-     * Test attribute "user_id"
+     * Test attribute "userId"
      */
     public function testPropertyUserId()
     {
@@ -121,14 +121,14 @@ class CampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "start_time"
+     * Test attribute "startTime"
      */
     public function testPropertyStartTime()
     {
     }
 
     /**
-     * Test attribute "end_time"
+     * Test attribute "endTime"
      */
     public function testPropertyEndTime()
     {
@@ -149,7 +149,7 @@ class CampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "active_ruleset_id"
+     * Test attribute "activeRulesetId"
      */
     public function testPropertyActiveRulesetId()
     {
@@ -170,14 +170,14 @@ class CampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "coupon_settings"
+     * Test attribute "couponSettings"
      */
     public function testPropertyCouponSettings()
     {
     }
 
     /**
-     * Test attribute "referral_settings"
+     * Test attribute "referralSettings"
      */
     public function testPropertyReferralSettings()
     {
@@ -191,42 +191,42 @@ class CampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "coupon_redemption_count"
+     * Test attribute "couponRedemptionCount"
      */
     public function testPropertyCouponRedemptionCount()
     {
     }
 
     /**
-     * Test attribute "referral_redemption_count"
+     * Test attribute "referralRedemptionCount"
      */
     public function testPropertyReferralRedemptionCount()
     {
     }
 
     /**
-     * Test attribute "discount_count"
+     * Test attribute "discountCount"
      */
     public function testPropertyDiscountCount()
     {
     }
 
     /**
-     * Test attribute "discount_effect_count"
+     * Test attribute "discountEffectCount"
      */
     public function testPropertyDiscountEffectCount()
     {
     }
 
     /**
-     * Test attribute "coupon_creation_count"
+     * Test attribute "couponCreationCount"
      */
     public function testPropertyCouponCreationCount()
     {
     }
 
     /**
-     * Test attribute "last_activity"
+     * Test attribute "lastActivity"
      */
     public function testPropertyLastActivity()
     {
@@ -240,14 +240,14 @@ class CampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "created_by"
+     * Test attribute "createdBy"
      */
     public function testPropertyCreatedBy()
     {
     }
 
     /**
-     * Test attribute "updated_by"
+     * Test attribute "updatedBy"
      */
     public function testPropertyUpdatedBy()
     {

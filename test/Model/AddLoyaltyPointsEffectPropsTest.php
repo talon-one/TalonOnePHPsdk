@@ -86,14 +86,14 @@ class AddLoyaltyPointsEffectPropsTest extends TestCase
     }
 
     /**
-     * Test attribute "program_id"
+     * Test attribute "programId"
      */
     public function testPropertyProgramId()
     {
     }
 
     /**
-     * Test attribute "sub_ledger_id"
+     * Test attribute "subLedgerId"
      */
     public function testPropertySubLedgerId()
     {
@@ -107,14 +107,14 @@ class AddLoyaltyPointsEffectPropsTest extends TestCase
     }
 
     /**
-     * Test attribute "recipient_integration_id"
+     * Test attribute "recipientIntegrationId"
      */
     public function testPropertyRecipientIntegrationId()
     {
     }
 
     /**
-     * Test attribute "expiry_condition"
+     * Test attribute "expiryCondition"
      */
     public function testPropertyExpiryCondition()
     {

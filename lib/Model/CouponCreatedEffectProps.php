@@ -59,7 +59,7 @@ class CouponCreatedEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'value' => 'string',
-        'profile_id' => 'string'
+        'profileId' => 'string'
     ];
 
     /**
@@ -69,7 +69,7 @@ class CouponCreatedEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'value' => null,
-        'profile_id' => null
+        'profileId' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class CouponCreatedEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'value' => 'value',
-        'profile_id' => 'profileId'
+        'profileId' => 'profileId'
     ];
 
     /**
@@ -110,7 +110,7 @@ class CouponCreatedEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'value' => 'setValue',
-        'profile_id' => 'setProfileId'
+        'profileId' => 'setProfileId'
     ];
 
     /**
@@ -120,7 +120,7 @@ class CouponCreatedEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'value' => 'getValue',
-        'profile_id' => 'getProfileId'
+        'profileId' => 'getProfileId'
     ];
 
     /**
@@ -184,7 +184,7 @@ class CouponCreatedEffectProps implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['profile_id'] = isset($data['profile_id']) ? $data['profile_id'] : null;
+        $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
     }
 
     /**
@@ -199,8 +199,8 @@ class CouponCreatedEffectProps implements ModelInterface, ArrayAccess
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
-        if ($this->container['profile_id'] === null) {
-            $invalidProperties[] = "'profile_id' can't be null";
+        if ($this->container['profileId'] === null) {
+            $invalidProperties[] = "'profileId' can't be null";
         }
         return $invalidProperties;
     }
@@ -242,25 +242,25 @@ class CouponCreatedEffectProps implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets profile_id
+     * Gets profileId
      *
      * @return string
      */
     public function getProfileId()
     {
-        return $this->container['profile_id'];
+        return $this->container['profileId'];
     }
 
     /**
-     * Sets profile_id
+     * Sets profileId
      *
-     * @param string $profile_id The integration identifier of the customer for whom this coupon was created
+     * @param string $profileId The integration identifier of the customer for whom this coupon was created
      *
      * @return $this
      */
-    public function setProfileId($profile_id)
+    public function setProfileId($profileId)
     {
-        $this->container['profile_id'] = $profile_id;
+        $this->container['profileId'] = $profileId;
 
         return $this;
     }

@@ -58,8 +58,8 @@ class TriggerWebhookEffectProps implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'webhook_id' => 'float',
-        'webhook_name' => 'string'
+        'webhookId' => 'float',
+        'webhookName' => 'string'
     ];
 
     /**
@@ -68,8 +68,8 @@ class TriggerWebhookEffectProps implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'webhook_id' => null,
-        'webhook_name' => null
+        'webhookId' => null,
+        'webhookName' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class TriggerWebhookEffectProps implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'webhook_id' => 'webhookId',
-        'webhook_name' => 'webhookName'
+        'webhookId' => 'webhookId',
+        'webhookName' => 'webhookName'
     ];
 
     /**
@@ -109,8 +109,8 @@ class TriggerWebhookEffectProps implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'webhook_id' => 'setWebhookId',
-        'webhook_name' => 'setWebhookName'
+        'webhookId' => 'setWebhookId',
+        'webhookName' => 'setWebhookName'
     ];
 
     /**
@@ -119,8 +119,8 @@ class TriggerWebhookEffectProps implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'webhook_id' => 'getWebhookId',
-        'webhook_name' => 'getWebhookName'
+        'webhookId' => 'getWebhookId',
+        'webhookName' => 'getWebhookName'
     ];
 
     /**
@@ -183,8 +183,8 @@ class TriggerWebhookEffectProps implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['webhook_id'] = isset($data['webhook_id']) ? $data['webhook_id'] : null;
-        $this->container['webhook_name'] = isset($data['webhook_name']) ? $data['webhook_name'] : null;
+        $this->container['webhookId'] = isset($data['webhookId']) ? $data['webhookId'] : null;
+        $this->container['webhookName'] = isset($data['webhookName']) ? $data['webhookName'] : null;
     }
 
     /**
@@ -196,11 +196,11 @@ class TriggerWebhookEffectProps implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['webhook_id'] === null) {
-            $invalidProperties[] = "'webhook_id' can't be null";
+        if ($this->container['webhookId'] === null) {
+            $invalidProperties[] = "'webhookId' can't be null";
         }
-        if ($this->container['webhook_name'] === null) {
-            $invalidProperties[] = "'webhook_name' can't be null";
+        if ($this->container['webhookName'] === null) {
+            $invalidProperties[] = "'webhookName' can't be null";
         }
         return $invalidProperties;
     }
@@ -218,49 +218,49 @@ class TriggerWebhookEffectProps implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets webhook_id
+     * Gets webhookId
      *
      * @return float
      */
     public function getWebhookId()
     {
-        return $this->container['webhook_id'];
+        return $this->container['webhookId'];
     }
 
     /**
-     * Sets webhook_id
+     * Sets webhookId
      *
-     * @param float $webhook_id The ID of the webhook that was triggered
+     * @param float $webhookId The ID of the webhook that was triggered
      *
      * @return $this
      */
-    public function setWebhookId($webhook_id)
+    public function setWebhookId($webhookId)
     {
-        $this->container['webhook_id'] = $webhook_id;
+        $this->container['webhookId'] = $webhookId;
 
         return $this;
     }
 
     /**
-     * Gets webhook_name
+     * Gets webhookName
      *
      * @return string
      */
     public function getWebhookName()
     {
-        return $this->container['webhook_name'];
+        return $this->container['webhookName'];
     }
 
     /**
-     * Sets webhook_name
+     * Sets webhookName
      *
-     * @param string $webhook_name The name of the webhook that was triggered
+     * @param string $webhookName The name of the webhook that was triggered
      *
      * @return $this
      */
-    public function setWebhookName($webhook_name)
+    public function setWebhookName($webhookName)
     {
-        $this->container['webhook_name'] = $webhook_name;
+        $this->container['webhookName'] = $webhookName;
 
         return $this;
     }

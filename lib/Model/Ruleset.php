@@ -60,13 +60,13 @@ class Ruleset implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'campaign_id' => 'int',
-        'user_id' => 'int',
+        'campaignId' => 'int',
+        'userId' => 'int',
         'rules' => '\TalonOne\Client\Model\Rule[]',
         'bindings' => '\TalonOne\Client\Model\Binding[]',
-        'rb_version' => 'string',
+        'rbVersion' => 'string',
         'activate' => 'bool',
-        'activated_at' => '\DateTime'
+        'activatedAt' => '\DateTime'
     ];
 
     /**
@@ -77,13 +77,13 @@ class Ruleset implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'campaign_id' => null,
-        'user_id' => null,
+        'campaignId' => null,
+        'userId' => null,
         'rules' => null,
         'bindings' => null,
-        'rb_version' => null,
+        'rbVersion' => null,
         'activate' => null,
-        'activated_at' => 'date-time'
+        'activatedAt' => 'date-time'
     ];
 
     /**
@@ -115,13 +115,13 @@ class Ruleset implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'campaign_id' => 'campaignId',
-        'user_id' => 'userId',
+        'campaignId' => 'campaignId',
+        'userId' => 'userId',
         'rules' => 'rules',
         'bindings' => 'bindings',
-        'rb_version' => 'rbVersion',
+        'rbVersion' => 'rbVersion',
         'activate' => 'activate',
-        'activated_at' => 'activatedAt'
+        'activatedAt' => 'activatedAt'
     ];
 
     /**
@@ -132,13 +132,13 @@ class Ruleset implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'campaign_id' => 'setCampaignId',
-        'user_id' => 'setUserId',
+        'campaignId' => 'setCampaignId',
+        'userId' => 'setUserId',
         'rules' => 'setRules',
         'bindings' => 'setBindings',
-        'rb_version' => 'setRbVersion',
+        'rbVersion' => 'setRbVersion',
         'activate' => 'setActivate',
-        'activated_at' => 'setActivatedAt'
+        'activatedAt' => 'setActivatedAt'
     ];
 
     /**
@@ -149,13 +149,13 @@ class Ruleset implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'campaign_id' => 'getCampaignId',
-        'user_id' => 'getUserId',
+        'campaignId' => 'getCampaignId',
+        'userId' => 'getUserId',
         'rules' => 'getRules',
         'bindings' => 'getBindings',
-        'rb_version' => 'getRbVersion',
+        'rbVersion' => 'getRbVersion',
         'activate' => 'getActivate',
-        'activated_at' => 'getActivatedAt'
+        'activatedAt' => 'getActivatedAt'
     ];
 
     /**
@@ -220,13 +220,13 @@ class Ruleset implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['campaign_id'] = isset($data['campaign_id']) ? $data['campaign_id'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
+        $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
         $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
         $this->container['bindings'] = isset($data['bindings']) ? $data['bindings'] : null;
-        $this->container['rb_version'] = isset($data['rb_version']) ? $data['rb_version'] : null;
+        $this->container['rbVersion'] = isset($data['rbVersion']) ? $data['rbVersion'] : null;
         $this->container['activate'] = isset($data['activate']) ? $data['activate'] : null;
-        $this->container['activated_at'] = isset($data['activated_at']) ? $data['activated_at'] : null;
+        $this->container['activatedAt'] = isset($data['activatedAt']) ? $data['activatedAt'] : null;
     }
 
     /**
@@ -244,11 +244,11 @@ class Ruleset implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
+        if ($this->container['campaignId'] === null) {
+            $invalidProperties[] = "'campaignId' can't be null";
         }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
+        if ($this->container['userId'] === null) {
+            $invalidProperties[] = "'userId' can't be null";
         }
         if ($this->container['rules'] === null) {
             $invalidProperties[] = "'rules' can't be null";
@@ -320,49 +320,49 @@ class Ruleset implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets campaign_id
+     * Gets campaignId
      *
      * @return int
      */
     public function getCampaignId()
     {
-        return $this->container['campaign_id'];
+        return $this->container['campaignId'];
     }
 
     /**
-     * Sets campaign_id
+     * Sets campaignId
      *
-     * @param int $campaign_id The ID of the campaign that owns this entity.
+     * @param int $campaignId The ID of the campaign that owns this entity.
      *
      * @return $this
      */
-    public function setCampaignId($campaign_id)
+    public function setCampaignId($campaignId)
     {
-        $this->container['campaign_id'] = $campaign_id;
+        $this->container['campaignId'] = $campaignId;
 
         return $this;
     }
 
     /**
-     * Gets user_id
+     * Gets userId
      *
      * @return int
      */
     public function getUserId()
     {
-        return $this->container['user_id'];
+        return $this->container['userId'];
     }
 
     /**
-     * Sets user_id
+     * Sets userId
      *
-     * @param int $user_id The ID of the account that owns this entity.
+     * @param int $userId The ID of the account that owns this entity.
      *
      * @return $this
      */
-    public function setUserId($user_id)
+    public function setUserId($userId)
     {
-        $this->container['user_id'] = $user_id;
+        $this->container['userId'] = $userId;
 
         return $this;
     }
@@ -416,25 +416,25 @@ class Ruleset implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets rb_version
+     * Gets rbVersion
      *
      * @return string|null
      */
     public function getRbVersion()
     {
-        return $this->container['rb_version'];
+        return $this->container['rbVersion'];
     }
 
     /**
-     * Sets rb_version
+     * Sets rbVersion
      *
-     * @param string|null $rb_version A string indicating which version of the rulebuilder was used to create this ruleset.
+     * @param string|null $rbVersion A string indicating which version of the rulebuilder was used to create this ruleset.
      *
      * @return $this
      */
-    public function setRbVersion($rb_version)
+    public function setRbVersion($rbVersion)
     {
-        $this->container['rb_version'] = $rb_version;
+        $this->container['rbVersion'] = $rbVersion;
 
         return $this;
     }
@@ -464,25 +464,25 @@ class Ruleset implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets activated_at
+     * Gets activatedAt
      *
      * @return \DateTime|null
      */
     public function getActivatedAt()
     {
-        return $this->container['activated_at'];
+        return $this->container['activatedAt'];
     }
 
     /**
-     * Sets activated_at
+     * Sets activatedAt
      *
-     * @param \DateTime|null $activated_at Timestamp indicating when this Ruleset was activated.
+     * @param \DateTime|null $activatedAt Timestamp indicating when this Ruleset was activated.
      *
      * @return $this
      */
-    public function setActivatedAt($activated_at)
+    public function setActivatedAt($activatedAt)
     {
-        $this->container['activated_at'] = $activated_at;
+        $this->container['activatedAt'] = $activatedAt;
 
         return $this;
     }

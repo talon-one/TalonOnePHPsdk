@@ -79,14 +79,14 @@ class ReferralRejectionReasonTest extends TestCase
     }
 
     /**
-     * Test attribute "campaign_id"
+     * Test attribute "campaignId"
      */
     public function testPropertyCampaignId()
     {
     }
 
     /**
-     * Test attribute "referral_id"
+     * Test attribute "referralId"
      */
     public function testPropertyReferralId()
     {

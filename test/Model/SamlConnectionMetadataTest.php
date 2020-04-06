@@ -93,14 +93,14 @@ class SamlConnectionMetadataTest extends TestCase
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "accountId"
      */
     public function testPropertyAccountId()
     {
     }
 
     /**
-     * Test attribute "metadata_document"
+     * Test attribute "metadataDocument"
      */
     public function testPropertyMetadataDocument()
     {

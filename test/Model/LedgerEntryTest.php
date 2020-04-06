@@ -93,28 +93,28 @@ class LedgerEntryTest extends TestCase
     }
 
     /**
-     * Test attribute "profile_id"
+     * Test attribute "profileId"
      */
     public function testPropertyProfileId()
     {
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "accountId"
      */
     public function testPropertyAccountId()
     {
     }
 
     /**
-     * Test attribute "loyalty_program_id"
+     * Test attribute "loyaltyProgramId"
      */
     public function testPropertyLoyaltyProgramId()
     {
     }
 
     /**
-     * Test attribute "event_id"
+     * Test attribute "eventId"
      */
     public function testPropertyEventId()
     {
@@ -135,14 +135,14 @@ class LedgerEntryTest extends TestCase
     }
 
     /**
-     * Test attribute "expiry_date"
+     * Test attribute "expiryDate"
      */
     public function testPropertyExpiryDate()
     {
     }
 
     /**
-     * Test attribute "reference_id"
+     * Test attribute "referenceId"
      */
     public function testPropertyReferenceId()
     {

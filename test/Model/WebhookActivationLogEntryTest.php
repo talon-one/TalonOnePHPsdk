@@ -79,28 +79,28 @@ class WebhookActivationLogEntryTest extends TestCase
     }
 
     /**
-     * Test attribute "integration_request_uuid"
+     * Test attribute "integrationRequestUuid"
      */
     public function testPropertyIntegrationRequestUuid()
     {
     }
 
     /**
-     * Test attribute "webhook_id"
+     * Test attribute "webhookId"
      */
     public function testPropertyWebhookId()
     {
     }
 
     /**
-     * Test attribute "application_id"
+     * Test attribute "applicationId"
      */
     public function testPropertyApplicationId()
     {
     }
 
     /**
-     * Test attribute "campaign_id"
+     * Test attribute "campaignId"
      */
     public function testPropertyCampaignId()
     {

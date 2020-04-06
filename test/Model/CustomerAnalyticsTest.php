@@ -79,49 +79,49 @@ class CustomerAnalyticsTest extends TestCase
     }
 
     /**
-     * Test attribute "accepted_coupons"
+     * Test attribute "acceptedCoupons"
      */
     public function testPropertyAcceptedCoupons()
     {
     }
 
     /**
-     * Test attribute "created_coupons"
+     * Test attribute "createdCoupons"
      */
     public function testPropertyCreatedCoupons()
     {
     }
 
     /**
-     * Test attribute "free_items"
+     * Test attribute "freeItems"
      */
     public function testPropertyFreeItems()
     {
     }
 
     /**
-     * Test attribute "total_orders"
+     * Test attribute "totalOrders"
      */
     public function testPropertyTotalOrders()
     {
     }
 
     /**
-     * Test attribute "total_discounted_orders"
+     * Test attribute "totalDiscountedOrders"
      */
     public function testPropertyTotalDiscountedOrders()
     {
     }
 
     /**
-     * Test attribute "total_revenue"
+     * Test attribute "totalRevenue"
      */
     public function testPropertyTotalRevenue()
     {
     }
 
     /**
-     * Test attribute "total_discounts"
+     * Test attribute "totalDiscounts"
      */
     public function testPropertyTotalDiscounts()
     {

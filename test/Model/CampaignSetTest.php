@@ -93,7 +93,7 @@ class CampaignSetTest extends TestCase
     }
 
     /**
-     * Test attribute "application_id"
+     * Test attribute "applicationId"
      */
     public function testPropertyApplicationId()
     {

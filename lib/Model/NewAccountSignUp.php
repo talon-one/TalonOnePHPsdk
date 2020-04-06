@@ -60,7 +60,7 @@ class NewAccountSignUp implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'email' => 'string',
         'password' => 'string',
-        'company_name' => 'string'
+        'companyName' => 'string'
     ];
 
     /**
@@ -71,7 +71,7 @@ class NewAccountSignUp implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'email' => 'email',
         'password' => null,
-        'company_name' => null
+        'companyName' => null
     ];
 
     /**
@@ -103,7 +103,7 @@ class NewAccountSignUp implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'email' => 'email',
         'password' => 'password',
-        'company_name' => 'companyName'
+        'companyName' => 'companyName'
     ];
 
     /**
@@ -114,7 +114,7 @@ class NewAccountSignUp implements ModelInterface, ArrayAccess
     protected static $setters = [
         'email' => 'setEmail',
         'password' => 'setPassword',
-        'company_name' => 'setCompanyName'
+        'companyName' => 'setCompanyName'
     ];
 
     /**
@@ -125,7 +125,7 @@ class NewAccountSignUp implements ModelInterface, ArrayAccess
     protected static $getters = [
         'email' => 'getEmail',
         'password' => 'getPassword',
-        'company_name' => 'getCompanyName'
+        'companyName' => 'getCompanyName'
     ];
 
     /**
@@ -190,7 +190,7 @@ class NewAccountSignUp implements ModelInterface, ArrayAccess
     {
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
-        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
+        $this->container['companyName'] = isset($data['companyName']) ? $data['companyName'] : null;
     }
 
     /**
@@ -208,11 +208,11 @@ class NewAccountSignUp implements ModelInterface, ArrayAccess
         if ($this->container['password'] === null) {
             $invalidProperties[] = "'password' can't be null";
         }
-        if ($this->container['company_name'] === null) {
-            $invalidProperties[] = "'company_name' can't be null";
+        if ($this->container['companyName'] === null) {
+            $invalidProperties[] = "'companyName' can't be null";
         }
-        if ((mb_strlen($this->container['company_name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'company_name', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['companyName']) < 1)) {
+            $invalidProperties[] = "invalid value for 'companyName', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -279,30 +279,30 @@ class NewAccountSignUp implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets company_name
+     * Gets companyName
      *
      * @return string
      */
     public function getCompanyName()
     {
-        return $this->container['company_name'];
+        return $this->container['companyName'];
     }
 
     /**
-     * Sets company_name
+     * Sets companyName
      *
-     * @param string $company_name company_name
+     * @param string $companyName companyName
      *
      * @return $this
      */
-    public function setCompanyName($company_name)
+    public function setCompanyName($companyName)
     {
 
-        if ((mb_strlen($company_name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $company_name when calling NewAccountSignUp., must be bigger than or equal to 1.');
+        if ((mb_strlen($companyName) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $companyName when calling NewAccountSignUp., must be bigger than or equal to 1.');
         }
 
-        $this->container['company_name'] = $company_name;
+        $this->container['companyName'] = $companyName;
 
         return $this;
     }

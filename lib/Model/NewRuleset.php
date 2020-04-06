@@ -59,7 +59,7 @@ class NewRuleset implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'rules' => '\TalonOne\Client\Model\Rule[]',
         'bindings' => '\TalonOne\Client\Model\Binding[]',
-        'rb_version' => 'string',
+        'rbVersion' => 'string',
         'activate' => 'bool'
     ];
 
@@ -71,7 +71,7 @@ class NewRuleset implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'rules' => null,
         'bindings' => null,
-        'rb_version' => null,
+        'rbVersion' => null,
         'activate' => null
     ];
 
@@ -104,7 +104,7 @@ class NewRuleset implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'rules' => 'rules',
         'bindings' => 'bindings',
-        'rb_version' => 'rbVersion',
+        'rbVersion' => 'rbVersion',
         'activate' => 'activate'
     ];
 
@@ -116,7 +116,7 @@ class NewRuleset implements ModelInterface, ArrayAccess
     protected static $setters = [
         'rules' => 'setRules',
         'bindings' => 'setBindings',
-        'rb_version' => 'setRbVersion',
+        'rbVersion' => 'setRbVersion',
         'activate' => 'setActivate'
     ];
 
@@ -128,7 +128,7 @@ class NewRuleset implements ModelInterface, ArrayAccess
     protected static $getters = [
         'rules' => 'getRules',
         'bindings' => 'getBindings',
-        'rb_version' => 'getRbVersion',
+        'rbVersion' => 'getRbVersion',
         'activate' => 'getActivate'
     ];
 
@@ -194,7 +194,7 @@ class NewRuleset implements ModelInterface, ArrayAccess
     {
         $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
         $this->container['bindings'] = isset($data['bindings']) ? $data['bindings'] : null;
-        $this->container['rb_version'] = isset($data['rb_version']) ? $data['rb_version'] : null;
+        $this->container['rbVersion'] = isset($data['rbVersion']) ? $data['rbVersion'] : null;
         $this->container['activate'] = isset($data['activate']) ? $data['activate'] : null;
     }
 
@@ -277,25 +277,25 @@ class NewRuleset implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets rb_version
+     * Gets rbVersion
      *
      * @return string|null
      */
     public function getRbVersion()
     {
-        return $this->container['rb_version'];
+        return $this->container['rbVersion'];
     }
 
     /**
-     * Sets rb_version
+     * Sets rbVersion
      *
-     * @param string|null $rb_version A string indicating which version of the rulebuilder was used to create this ruleset.
+     * @param string|null $rbVersion A string indicating which version of the rulebuilder was used to create this ruleset.
      *
      * @return $this
      */
-    public function setRbVersion($rb_version)
+    public function setRbVersion($rbVersion)
     {
-        $this->container['rb_version'] = $rb_version;
+        $this->container['rbVersion'] = $rbVersion;
 
         return $this;
     }

@@ -59,8 +59,8 @@ class Meta implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'campaigns' => 'object',
         'coupons' => 'object',
-        'coupon_rejection_reason' => '\TalonOne\Client\Model\CouponRejectionReason',
-        'referral_rejection_reason' => '\TalonOne\Client\Model\ReferralRejectionReason',
+        'couponRejectionReason' => '\TalonOne\Client\Model\CouponRejectionReason',
+        'referralRejectionReason' => '\TalonOne\Client\Model\ReferralRejectionReason',
         'warnings' => 'object'
     ];
 
@@ -72,8 +72,8 @@ class Meta implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'campaigns' => null,
         'coupons' => null,
-        'coupon_rejection_reason' => null,
-        'referral_rejection_reason' => null,
+        'couponRejectionReason' => null,
+        'referralRejectionReason' => null,
         'warnings' => null
     ];
 
@@ -106,8 +106,8 @@ class Meta implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'campaigns' => 'campaigns',
         'coupons' => 'coupons',
-        'coupon_rejection_reason' => 'couponRejectionReason',
-        'referral_rejection_reason' => 'referralRejectionReason',
+        'couponRejectionReason' => 'couponRejectionReason',
+        'referralRejectionReason' => 'referralRejectionReason',
         'warnings' => 'warnings'
     ];
 
@@ -119,8 +119,8 @@ class Meta implements ModelInterface, ArrayAccess
     protected static $setters = [
         'campaigns' => 'setCampaigns',
         'coupons' => 'setCoupons',
-        'coupon_rejection_reason' => 'setCouponRejectionReason',
-        'referral_rejection_reason' => 'setReferralRejectionReason',
+        'couponRejectionReason' => 'setCouponRejectionReason',
+        'referralRejectionReason' => 'setReferralRejectionReason',
         'warnings' => 'setWarnings'
     ];
 
@@ -132,8 +132,8 @@ class Meta implements ModelInterface, ArrayAccess
     protected static $getters = [
         'campaigns' => 'getCampaigns',
         'coupons' => 'getCoupons',
-        'coupon_rejection_reason' => 'getCouponRejectionReason',
-        'referral_rejection_reason' => 'getReferralRejectionReason',
+        'couponRejectionReason' => 'getCouponRejectionReason',
+        'referralRejectionReason' => 'getReferralRejectionReason',
         'warnings' => 'getWarnings'
     ];
 
@@ -199,8 +199,8 @@ class Meta implements ModelInterface, ArrayAccess
     {
         $this->container['campaigns'] = isset($data['campaigns']) ? $data['campaigns'] : null;
         $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
-        $this->container['coupon_rejection_reason'] = isset($data['coupon_rejection_reason']) ? $data['coupon_rejection_reason'] : null;
-        $this->container['referral_rejection_reason'] = isset($data['referral_rejection_reason']) ? $data['referral_rejection_reason'] : null;
+        $this->container['couponRejectionReason'] = isset($data['couponRejectionReason']) ? $data['couponRejectionReason'] : null;
+        $this->container['referralRejectionReason'] = isset($data['referralRejectionReason']) ? $data['referralRejectionReason'] : null;
         $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
     }
 
@@ -277,49 +277,49 @@ class Meta implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets coupon_rejection_reason
+     * Gets couponRejectionReason
      *
      * @return \TalonOne\Client\Model\CouponRejectionReason|null
      */
     public function getCouponRejectionReason()
     {
-        return $this->container['coupon_rejection_reason'];
+        return $this->container['couponRejectionReason'];
     }
 
     /**
-     * Sets coupon_rejection_reason
+     * Sets couponRejectionReason
      *
-     * @param \TalonOne\Client\Model\CouponRejectionReason|null $coupon_rejection_reason coupon_rejection_reason
+     * @param \TalonOne\Client\Model\CouponRejectionReason|null $couponRejectionReason couponRejectionReason
      *
      * @return $this
      */
-    public function setCouponRejectionReason($coupon_rejection_reason)
+    public function setCouponRejectionReason($couponRejectionReason)
     {
-        $this->container['coupon_rejection_reason'] = $coupon_rejection_reason;
+        $this->container['couponRejectionReason'] = $couponRejectionReason;
 
         return $this;
     }
 
     /**
-     * Gets referral_rejection_reason
+     * Gets referralRejectionReason
      *
      * @return \TalonOne\Client\Model\ReferralRejectionReason|null
      */
     public function getReferralRejectionReason()
     {
-        return $this->container['referral_rejection_reason'];
+        return $this->container['referralRejectionReason'];
     }
 
     /**
-     * Sets referral_rejection_reason
+     * Sets referralRejectionReason
      *
-     * @param \TalonOne\Client\Model\ReferralRejectionReason|null $referral_rejection_reason referral_rejection_reason
+     * @param \TalonOne\Client\Model\ReferralRejectionReason|null $referralRejectionReason referralRejectionReason
      *
      * @return $this
      */
-    public function setReferralRejectionReason($referral_rejection_reason)
+    public function setReferralRejectionReason($referralRejectionReason)
     {
-        $this->container['referral_rejection_reason'] = $referral_rejection_reason;
+        $this->container['referralRejectionReason'] = $referralRejectionReason;
 
         return $this;
     }

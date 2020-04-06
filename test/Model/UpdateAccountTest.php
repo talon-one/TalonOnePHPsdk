@@ -86,14 +86,14 @@ class UpdateAccountTest extends TestCase
     }
 
     /**
-     * Test attribute "company_name"
+     * Test attribute "companyName"
      */
     public function testPropertyCompanyName()
     {
     }
 
     /**
-     * Test attribute "billing_email"
+     * Test attribute "billingEmail"
      */
     public function testPropertyBillingEmail()
     {
@@ -107,7 +107,7 @@ class UpdateAccountTest extends TestCase
     }
 
     /**
-     * Test attribute "plan_expires"
+     * Test attribute "planExpires"
      */
     public function testPropertyPlanExpires()
     {

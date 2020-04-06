@@ -57,7 +57,7 @@ class NewAccount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'company_name' => 'string'
+        'companyName' => 'string'
     ];
 
     /**
@@ -66,7 +66,7 @@ class NewAccount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'company_name' => null
+        'companyName' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class NewAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'company_name' => 'companyName'
+        'companyName' => 'companyName'
     ];
 
     /**
@@ -105,7 +105,7 @@ class NewAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'company_name' => 'setCompanyName'
+        'companyName' => 'setCompanyName'
     ];
 
     /**
@@ -114,7 +114,7 @@ class NewAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'company_name' => 'getCompanyName'
+        'companyName' => 'getCompanyName'
     ];
 
     /**
@@ -177,7 +177,7 @@ class NewAccount implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
+        $this->container['companyName'] = isset($data['companyName']) ? $data['companyName'] : null;
     }
 
     /**
@@ -189,11 +189,11 @@ class NewAccount implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['company_name'] === null) {
-            $invalidProperties[] = "'company_name' can't be null";
+        if ($this->container['companyName'] === null) {
+            $invalidProperties[] = "'companyName' can't be null";
         }
-        if ((mb_strlen($this->container['company_name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'company_name', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['companyName']) < 1)) {
+            $invalidProperties[] = "invalid value for 'companyName', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -212,30 +212,30 @@ class NewAccount implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets company_name
+     * Gets companyName
      *
      * @return string
      */
     public function getCompanyName()
     {
-        return $this->container['company_name'];
+        return $this->container['companyName'];
     }
 
     /**
-     * Sets company_name
+     * Sets companyName
      *
-     * @param string $company_name company_name
+     * @param string $companyName companyName
      *
      * @return $this
      */
-    public function setCompanyName($company_name)
+    public function setCompanyName($companyName)
     {
 
-        if ((mb_strlen($company_name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $company_name when calling NewAccount., must be bigger than or equal to 1.');
+        if ((mb_strlen($companyName) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $companyName when calling NewAccount., must be bigger than or equal to 1.');
         }
 
-        $this->container['company_name'] = $company_name;
+        $this->container['companyName'] = $companyName;
 
         return $this;
     }

@@ -57,7 +57,7 @@ class ApplicationEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'application_id' => 'int'
+        'applicationId' => 'int'
     ];
 
     /**
@@ -66,7 +66,7 @@ class ApplicationEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'application_id' => null
+        'applicationId' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class ApplicationEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'application_id' => 'applicationId'
+        'applicationId' => 'applicationId'
     ];
 
     /**
@@ -105,7 +105,7 @@ class ApplicationEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'application_id' => 'setApplicationId'
+        'applicationId' => 'setApplicationId'
     ];
 
     /**
@@ -114,7 +114,7 @@ class ApplicationEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'application_id' => 'getApplicationId'
+        'applicationId' => 'getApplicationId'
     ];
 
     /**
@@ -177,7 +177,7 @@ class ApplicationEntity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
+        $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
     }
 
     /**
@@ -189,8 +189,8 @@ class ApplicationEntity implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['application_id'] === null) {
-            $invalidProperties[] = "'application_id' can't be null";
+        if ($this->container['applicationId'] === null) {
+            $invalidProperties[] = "'applicationId' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,25 +208,25 @@ class ApplicationEntity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets application_id
+     * Gets applicationId
      *
      * @return int
      */
     public function getApplicationId()
     {
-        return $this->container['application_id'];
+        return $this->container['applicationId'];
     }
 
     /**
-     * Sets application_id
+     * Sets applicationId
      *
-     * @param int $application_id The ID of the application that owns this entity.
+     * @param int $applicationId The ID of the application that owns this entity.
      *
      * @return $this
      */
-    public function setApplicationId($application_id)
+    public function setApplicationId($applicationId)
     {
-        $this->container['application_id'] = $application_id;
+        $this->container['applicationId'] = $applicationId;
 
         return $this;
     }

@@ -58,13 +58,13 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accepted_coupons' => 'int',
-        'created_coupons' => 'int',
-        'free_items' => 'int',
-        'total_orders' => 'int',
-        'total_discounted_orders' => 'int',
-        'total_revenue' => 'float',
-        'total_discounts' => 'float'
+        'acceptedCoupons' => 'int',
+        'createdCoupons' => 'int',
+        'freeItems' => 'int',
+        'totalOrders' => 'int',
+        'totalDiscountedOrders' => 'int',
+        'totalRevenue' => 'float',
+        'totalDiscounts' => 'float'
     ];
 
     /**
@@ -73,13 +73,13 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'accepted_coupons' => null,
-        'created_coupons' => null,
-        'free_items' => null,
-        'total_orders' => null,
-        'total_discounted_orders' => null,
-        'total_revenue' => null,
-        'total_discounts' => null
+        'acceptedCoupons' => null,
+        'createdCoupons' => null,
+        'freeItems' => null,
+        'totalOrders' => null,
+        'totalDiscountedOrders' => null,
+        'totalRevenue' => null,
+        'totalDiscounts' => null
     ];
 
     /**
@@ -109,13 +109,13 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accepted_coupons' => 'acceptedCoupons',
-        'created_coupons' => 'createdCoupons',
-        'free_items' => 'freeItems',
-        'total_orders' => 'totalOrders',
-        'total_discounted_orders' => 'totalDiscountedOrders',
-        'total_revenue' => 'totalRevenue',
-        'total_discounts' => 'totalDiscounts'
+        'acceptedCoupons' => 'acceptedCoupons',
+        'createdCoupons' => 'createdCoupons',
+        'freeItems' => 'freeItems',
+        'totalOrders' => 'totalOrders',
+        'totalDiscountedOrders' => 'totalDiscountedOrders',
+        'totalRevenue' => 'totalRevenue',
+        'totalDiscounts' => 'totalDiscounts'
     ];
 
     /**
@@ -124,13 +124,13 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accepted_coupons' => 'setAcceptedCoupons',
-        'created_coupons' => 'setCreatedCoupons',
-        'free_items' => 'setFreeItems',
-        'total_orders' => 'setTotalOrders',
-        'total_discounted_orders' => 'setTotalDiscountedOrders',
-        'total_revenue' => 'setTotalRevenue',
-        'total_discounts' => 'setTotalDiscounts'
+        'acceptedCoupons' => 'setAcceptedCoupons',
+        'createdCoupons' => 'setCreatedCoupons',
+        'freeItems' => 'setFreeItems',
+        'totalOrders' => 'setTotalOrders',
+        'totalDiscountedOrders' => 'setTotalDiscountedOrders',
+        'totalRevenue' => 'setTotalRevenue',
+        'totalDiscounts' => 'setTotalDiscounts'
     ];
 
     /**
@@ -139,13 +139,13 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accepted_coupons' => 'getAcceptedCoupons',
-        'created_coupons' => 'getCreatedCoupons',
-        'free_items' => 'getFreeItems',
-        'total_orders' => 'getTotalOrders',
-        'total_discounted_orders' => 'getTotalDiscountedOrders',
-        'total_revenue' => 'getTotalRevenue',
-        'total_discounts' => 'getTotalDiscounts'
+        'acceptedCoupons' => 'getAcceptedCoupons',
+        'createdCoupons' => 'getCreatedCoupons',
+        'freeItems' => 'getFreeItems',
+        'totalOrders' => 'getTotalOrders',
+        'totalDiscountedOrders' => 'getTotalDiscountedOrders',
+        'totalRevenue' => 'getTotalRevenue',
+        'totalDiscounts' => 'getTotalDiscounts'
     ];
 
     /**
@@ -208,13 +208,13 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accepted_coupons'] = isset($data['accepted_coupons']) ? $data['accepted_coupons'] : null;
-        $this->container['created_coupons'] = isset($data['created_coupons']) ? $data['created_coupons'] : null;
-        $this->container['free_items'] = isset($data['free_items']) ? $data['free_items'] : null;
-        $this->container['total_orders'] = isset($data['total_orders']) ? $data['total_orders'] : null;
-        $this->container['total_discounted_orders'] = isset($data['total_discounted_orders']) ? $data['total_discounted_orders'] : null;
-        $this->container['total_revenue'] = isset($data['total_revenue']) ? $data['total_revenue'] : null;
-        $this->container['total_discounts'] = isset($data['total_discounts']) ? $data['total_discounts'] : null;
+        $this->container['acceptedCoupons'] = isset($data['acceptedCoupons']) ? $data['acceptedCoupons'] : null;
+        $this->container['createdCoupons'] = isset($data['createdCoupons']) ? $data['createdCoupons'] : null;
+        $this->container['freeItems'] = isset($data['freeItems']) ? $data['freeItems'] : null;
+        $this->container['totalOrders'] = isset($data['totalOrders']) ? $data['totalOrders'] : null;
+        $this->container['totalDiscountedOrders'] = isset($data['totalDiscountedOrders']) ? $data['totalDiscountedOrders'] : null;
+        $this->container['totalRevenue'] = isset($data['totalRevenue']) ? $data['totalRevenue'] : null;
+        $this->container['totalDiscounts'] = isset($data['totalDiscounts']) ? $data['totalDiscounts'] : null;
     }
 
     /**
@@ -226,26 +226,26 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['accepted_coupons'] === null) {
-            $invalidProperties[] = "'accepted_coupons' can't be null";
+        if ($this->container['acceptedCoupons'] === null) {
+            $invalidProperties[] = "'acceptedCoupons' can't be null";
         }
-        if ($this->container['created_coupons'] === null) {
-            $invalidProperties[] = "'created_coupons' can't be null";
+        if ($this->container['createdCoupons'] === null) {
+            $invalidProperties[] = "'createdCoupons' can't be null";
         }
-        if ($this->container['free_items'] === null) {
-            $invalidProperties[] = "'free_items' can't be null";
+        if ($this->container['freeItems'] === null) {
+            $invalidProperties[] = "'freeItems' can't be null";
         }
-        if ($this->container['total_orders'] === null) {
-            $invalidProperties[] = "'total_orders' can't be null";
+        if ($this->container['totalOrders'] === null) {
+            $invalidProperties[] = "'totalOrders' can't be null";
         }
-        if ($this->container['total_discounted_orders'] === null) {
-            $invalidProperties[] = "'total_discounted_orders' can't be null";
+        if ($this->container['totalDiscountedOrders'] === null) {
+            $invalidProperties[] = "'totalDiscountedOrders' can't be null";
         }
-        if ($this->container['total_revenue'] === null) {
-            $invalidProperties[] = "'total_revenue' can't be null";
+        if ($this->container['totalRevenue'] === null) {
+            $invalidProperties[] = "'totalRevenue' can't be null";
         }
-        if ($this->container['total_discounts'] === null) {
-            $invalidProperties[] = "'total_discounts' can't be null";
+        if ($this->container['totalDiscounts'] === null) {
+            $invalidProperties[] = "'totalDiscounts' can't be null";
         }
         return $invalidProperties;
     }
@@ -263,169 +263,169 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accepted_coupons
+     * Gets acceptedCoupons
      *
      * @return int
      */
     public function getAcceptedCoupons()
     {
-        return $this->container['accepted_coupons'];
+        return $this->container['acceptedCoupons'];
     }
 
     /**
-     * Sets accepted_coupons
+     * Sets acceptedCoupons
      *
-     * @param int $accepted_coupons Total accepted coupons for this customer
+     * @param int $acceptedCoupons Total accepted coupons for this customer
      *
      * @return $this
      */
-    public function setAcceptedCoupons($accepted_coupons)
+    public function setAcceptedCoupons($acceptedCoupons)
     {
-        $this->container['accepted_coupons'] = $accepted_coupons;
+        $this->container['acceptedCoupons'] = $acceptedCoupons;
 
         return $this;
     }
 
     /**
-     * Gets created_coupons
+     * Gets createdCoupons
      *
      * @return int
      */
     public function getCreatedCoupons()
     {
-        return $this->container['created_coupons'];
+        return $this->container['createdCoupons'];
     }
 
     /**
-     * Sets created_coupons
+     * Sets createdCoupons
      *
-     * @param int $created_coupons Total created coupons for this customer
+     * @param int $createdCoupons Total created coupons for this customer
      *
      * @return $this
      */
-    public function setCreatedCoupons($created_coupons)
+    public function setCreatedCoupons($createdCoupons)
     {
-        $this->container['created_coupons'] = $created_coupons;
+        $this->container['createdCoupons'] = $createdCoupons;
 
         return $this;
     }
 
     /**
-     * Gets free_items
+     * Gets freeItems
      *
      * @return int
      */
     public function getFreeItems()
     {
-        return $this->container['free_items'];
+        return $this->container['freeItems'];
     }
 
     /**
-     * Sets free_items
+     * Sets freeItems
      *
-     * @param int $free_items Total free items given to this customer
+     * @param int $freeItems Total free items given to this customer
      *
      * @return $this
      */
-    public function setFreeItems($free_items)
+    public function setFreeItems($freeItems)
     {
-        $this->container['free_items'] = $free_items;
+        $this->container['freeItems'] = $freeItems;
 
         return $this;
     }
 
     /**
-     * Gets total_orders
+     * Gets totalOrders
      *
      * @return int
      */
     public function getTotalOrders()
     {
-        return $this->container['total_orders'];
+        return $this->container['totalOrders'];
     }
 
     /**
-     * Sets total_orders
+     * Sets totalOrders
      *
-     * @param int $total_orders Total orders made by this customer
+     * @param int $totalOrders Total orders made by this customer
      *
      * @return $this
      */
-    public function setTotalOrders($total_orders)
+    public function setTotalOrders($totalOrders)
     {
-        $this->container['total_orders'] = $total_orders;
+        $this->container['totalOrders'] = $totalOrders;
 
         return $this;
     }
 
     /**
-     * Gets total_discounted_orders
+     * Gets totalDiscountedOrders
      *
      * @return int
      */
     public function getTotalDiscountedOrders()
     {
-        return $this->container['total_discounted_orders'];
+        return $this->container['totalDiscountedOrders'];
     }
 
     /**
-     * Sets total_discounted_orders
+     * Sets totalDiscountedOrders
      *
-     * @param int $total_discounted_orders Total orders made by this customer that had a discount
+     * @param int $totalDiscountedOrders Total orders made by this customer that had a discount
      *
      * @return $this
      */
-    public function setTotalDiscountedOrders($total_discounted_orders)
+    public function setTotalDiscountedOrders($totalDiscountedOrders)
     {
-        $this->container['total_discounted_orders'] = $total_discounted_orders;
+        $this->container['totalDiscountedOrders'] = $totalDiscountedOrders;
 
         return $this;
     }
 
     /**
-     * Gets total_revenue
+     * Gets totalRevenue
      *
      * @return float
      */
     public function getTotalRevenue()
     {
-        return $this->container['total_revenue'];
+        return $this->container['totalRevenue'];
     }
 
     /**
-     * Sets total_revenue
+     * Sets totalRevenue
      *
-     * @param float $total_revenue Total Revenue across all closed sessions
+     * @param float $totalRevenue Total Revenue across all closed sessions
      *
      * @return $this
      */
-    public function setTotalRevenue($total_revenue)
+    public function setTotalRevenue($totalRevenue)
     {
-        $this->container['total_revenue'] = $total_revenue;
+        $this->container['totalRevenue'] = $totalRevenue;
 
         return $this;
     }
 
     /**
-     * Gets total_discounts
+     * Gets totalDiscounts
      *
      * @return float
      */
     public function getTotalDiscounts()
     {
-        return $this->container['total_discounts'];
+        return $this->container['totalDiscounts'];
     }
 
     /**
-     * Sets total_discounts
+     * Sets totalDiscounts
      *
-     * @param float $total_discounts The sum of discounts that were given across all closed sessions
+     * @param float $totalDiscounts The sum of discounts that were given across all closed sessions
      *
      * @return $this
      */
-    public function setTotalDiscounts($total_discounts)
+    public function setTotalDiscounts($totalDiscounts)
     {
-        $this->container['total_discounts'] = $total_discounts;
+        $this->container['totalDiscounts'] = $totalDiscounts;
 
         return $this;
     }

@@ -61,10 +61,10 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
         'uuid' => 'string',
         'status' => 'int',
         'method' => 'string',
-        'request_uri' => 'string',
+        'requestUri' => 'string',
         'time' => '\DateTime',
-        'request_payload' => 'string',
-        'response_payload' => 'string'
+        'requestPayload' => 'string',
+        'responsePayload' => 'string'
     ];
 
     /**
@@ -76,10 +76,10 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
         'uuid' => null,
         'status' => null,
         'method' => null,
-        'request_uri' => null,
+        'requestUri' => null,
         'time' => 'date-time',
-        'request_payload' => null,
-        'response_payload' => null
+        'requestPayload' => null,
+        'responsePayload' => null
     ];
 
     /**
@@ -112,10 +112,10 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
         'uuid' => 'uuid',
         'status' => 'status',
         'method' => 'method',
-        'request_uri' => 'requestUri',
+        'requestUri' => 'requestUri',
         'time' => 'time',
-        'request_payload' => 'requestPayload',
-        'response_payload' => 'responsePayload'
+        'requestPayload' => 'requestPayload',
+        'responsePayload' => 'responsePayload'
     ];
 
     /**
@@ -127,10 +127,10 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
         'uuid' => 'setUuid',
         'status' => 'setStatus',
         'method' => 'setMethod',
-        'request_uri' => 'setRequestUri',
+        'requestUri' => 'setRequestUri',
         'time' => 'setTime',
-        'request_payload' => 'setRequestPayload',
-        'response_payload' => 'setResponsePayload'
+        'requestPayload' => 'setRequestPayload',
+        'responsePayload' => 'setResponsePayload'
     ];
 
     /**
@@ -142,10 +142,10 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
         'uuid' => 'getUuid',
         'status' => 'getStatus',
         'method' => 'getMethod',
-        'request_uri' => 'getRequestUri',
+        'requestUri' => 'getRequestUri',
         'time' => 'getTime',
-        'request_payload' => 'getRequestPayload',
-        'response_payload' => 'getResponsePayload'
+        'requestPayload' => 'getRequestPayload',
+        'responsePayload' => 'getResponsePayload'
     ];
 
     /**
@@ -211,10 +211,10 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['method'] = isset($data['method']) ? $data['method'] : null;
-        $this->container['request_uri'] = isset($data['request_uri']) ? $data['request_uri'] : null;
+        $this->container['requestUri'] = isset($data['requestUri']) ? $data['requestUri'] : null;
         $this->container['time'] = isset($data['time']) ? $data['time'] : null;
-        $this->container['request_payload'] = isset($data['request_payload']) ? $data['request_payload'] : null;
-        $this->container['response_payload'] = isset($data['response_payload']) ? $data['response_payload'] : null;
+        $this->container['requestPayload'] = isset($data['requestPayload']) ? $data['requestPayload'] : null;
+        $this->container['responsePayload'] = isset($data['responsePayload']) ? $data['responsePayload'] : null;
     }
 
     /**
@@ -235,17 +235,17 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
-        if ($this->container['request_uri'] === null) {
-            $invalidProperties[] = "'request_uri' can't be null";
+        if ($this->container['requestUri'] === null) {
+            $invalidProperties[] = "'requestUri' can't be null";
         }
         if ($this->container['time'] === null) {
             $invalidProperties[] = "'time' can't be null";
         }
-        if ($this->container['request_payload'] === null) {
-            $invalidProperties[] = "'request_payload' can't be null";
+        if ($this->container['requestPayload'] === null) {
+            $invalidProperties[] = "'requestPayload' can't be null";
         }
-        if ($this->container['response_payload'] === null) {
-            $invalidProperties[] = "'response_payload' can't be null";
+        if ($this->container['responsePayload'] === null) {
+            $invalidProperties[] = "'responsePayload' can't be null";
         }
         return $invalidProperties;
     }
@@ -335,25 +335,25 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets request_uri
+     * Gets requestUri
      *
      * @return string
      */
     public function getRequestUri()
     {
-        return $this->container['request_uri'];
+        return $this->container['requestUri'];
     }
 
     /**
-     * Sets request_uri
+     * Sets requestUri
      *
-     * @param string $request_uri target URI of request
+     * @param string $requestUri target URI of request
      *
      * @return $this
      */
-    public function setRequestUri($request_uri)
+    public function setRequestUri($requestUri)
     {
-        $this->container['request_uri'] = $request_uri;
+        $this->container['requestUri'] = $requestUri;
 
         return $this;
     }
@@ -383,49 +383,49 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets request_payload
+     * Gets requestPayload
      *
      * @return string
      */
     public function getRequestPayload()
     {
-        return $this->container['request_payload'];
+        return $this->container['requestPayload'];
     }
 
     /**
-     * Sets request_payload
+     * Sets requestPayload
      *
-     * @param string $request_payload payload of request
+     * @param string $requestPayload payload of request
      *
      * @return $this
      */
-    public function setRequestPayload($request_payload)
+    public function setRequestPayload($requestPayload)
     {
-        $this->container['request_payload'] = $request_payload;
+        $this->container['requestPayload'] = $requestPayload;
 
         return $this;
     }
 
     /**
-     * Gets response_payload
+     * Gets responsePayload
      *
      * @return string
      */
     public function getResponsePayload()
     {
-        return $this->container['response_payload'];
+        return $this->container['responsePayload'];
     }
 
     /**
-     * Sets response_payload
+     * Sets responsePayload
      *
-     * @param string $response_payload payload of response
+     * @param string $responsePayload payload of response
      *
      * @return $this
      */
-    public function setResponsePayload($response_payload)
+    public function setResponsePayload($responsePayload)
     {
-        $this->container['response_payload'] = $response_payload;
+        $this->container['responsePayload'] = $responsePayload;
 
         return $this;
     }

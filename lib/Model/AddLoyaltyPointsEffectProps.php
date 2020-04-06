@@ -59,11 +59,11 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'program_id' => 'int',
-        'sub_ledger_id' => 'string',
+        'programId' => 'int',
+        'subLedgerId' => 'string',
         'value' => 'float',
-        'recipient_integration_id' => 'string',
-        'expiry_condition' => 'string'
+        'recipientIntegrationId' => 'string',
+        'expiryCondition' => 'string'
     ];
 
     /**
@@ -73,11 +73,11 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'program_id' => null,
-        'sub_ledger_id' => null,
+        'programId' => null,
+        'subLedgerId' => null,
         'value' => null,
-        'recipient_integration_id' => null,
-        'expiry_condition' => null
+        'recipientIntegrationId' => null,
+        'expiryCondition' => null
     ];
 
     /**
@@ -108,11 +108,11 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'program_id' => 'programId',
-        'sub_ledger_id' => 'subLedgerId',
+        'programId' => 'programId',
+        'subLedgerId' => 'subLedgerId',
         'value' => 'value',
-        'recipient_integration_id' => 'recipientIntegrationId',
-        'expiry_condition' => 'expiryCondition'
+        'recipientIntegrationId' => 'recipientIntegrationId',
+        'expiryCondition' => 'expiryCondition'
     ];
 
     /**
@@ -122,11 +122,11 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'program_id' => 'setProgramId',
-        'sub_ledger_id' => 'setSubLedgerId',
+        'programId' => 'setProgramId',
+        'subLedgerId' => 'setSubLedgerId',
         'value' => 'setValue',
-        'recipient_integration_id' => 'setRecipientIntegrationId',
-        'expiry_condition' => 'setExpiryCondition'
+        'recipientIntegrationId' => 'setRecipientIntegrationId',
+        'expiryCondition' => 'setExpiryCondition'
     ];
 
     /**
@@ -136,11 +136,11 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'program_id' => 'getProgramId',
-        'sub_ledger_id' => 'getSubLedgerId',
+        'programId' => 'getProgramId',
+        'subLedgerId' => 'getSubLedgerId',
         'value' => 'getValue',
-        'recipient_integration_id' => 'getRecipientIntegrationId',
-        'expiry_condition' => 'getExpiryCondition'
+        'recipientIntegrationId' => 'getRecipientIntegrationId',
+        'expiryCondition' => 'getExpiryCondition'
     ];
 
     /**
@@ -204,11 +204,11 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['program_id'] = isset($data['program_id']) ? $data['program_id'] : null;
-        $this->container['sub_ledger_id'] = isset($data['sub_ledger_id']) ? $data['sub_ledger_id'] : null;
+        $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
+        $this->container['subLedgerId'] = isset($data['subLedgerId']) ? $data['subLedgerId'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['recipient_integration_id'] = isset($data['recipient_integration_id']) ? $data['recipient_integration_id'] : null;
-        $this->container['expiry_condition'] = isset($data['expiry_condition']) ? $data['expiry_condition'] : null;
+        $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
+        $this->container['expiryCondition'] = isset($data['expiryCondition']) ? $data['expiryCondition'] : null;
     }
 
     /**
@@ -223,20 +223,20 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['program_id'] === null) {
-            $invalidProperties[] = "'program_id' can't be null";
+        if ($this->container['programId'] === null) {
+            $invalidProperties[] = "'programId' can't be null";
         }
-        if ($this->container['sub_ledger_id'] === null) {
-            $invalidProperties[] = "'sub_ledger_id' can't be null";
+        if ($this->container['subLedgerId'] === null) {
+            $invalidProperties[] = "'subLedgerId' can't be null";
         }
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
-        if ($this->container['recipient_integration_id'] === null) {
-            $invalidProperties[] = "'recipient_integration_id' can't be null";
+        if ($this->container['recipientIntegrationId'] === null) {
+            $invalidProperties[] = "'recipientIntegrationId' can't be null";
         }
-        if ($this->container['expiry_condition'] === null) {
-            $invalidProperties[] = "'expiry_condition' can't be null";
+        if ($this->container['expiryCondition'] === null) {
+            $invalidProperties[] = "'expiryCondition' can't be null";
         }
         return $invalidProperties;
     }
@@ -278,49 +278,49 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets program_id
+     * Gets programId
      *
      * @return int
      */
     public function getProgramId()
     {
-        return $this->container['program_id'];
+        return $this->container['programId'];
     }
 
     /**
-     * Sets program_id
+     * Sets programId
      *
-     * @param int $program_id The ID of the loyalty program where these points were added
+     * @param int $programId The ID of the loyalty program where these points were added
      *
      * @return $this
      */
-    public function setProgramId($program_id)
+    public function setProgramId($programId)
     {
-        $this->container['program_id'] = $program_id;
+        $this->container['programId'] = $programId;
 
         return $this;
     }
 
     /**
-     * Gets sub_ledger_id
+     * Gets subLedgerId
      *
      * @return string
      */
     public function getSubLedgerId()
     {
-        return $this->container['sub_ledger_id'];
+        return $this->container['subLedgerId'];
     }
 
     /**
-     * Sets sub_ledger_id
+     * Sets subLedgerId
      *
-     * @param string $sub_ledger_id The ID of the subledger within the loyalty program where these points were added
+     * @param string $subLedgerId The ID of the subledger within the loyalty program where these points were added
      *
      * @return $this
      */
-    public function setSubLedgerId($sub_ledger_id)
+    public function setSubLedgerId($subLedgerId)
     {
-        $this->container['sub_ledger_id'] = $sub_ledger_id;
+        $this->container['subLedgerId'] = $subLedgerId;
 
         return $this;
     }
@@ -350,49 +350,49 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets recipient_integration_id
+     * Gets recipientIntegrationId
      *
      * @return string
      */
     public function getRecipientIntegrationId()
     {
-        return $this->container['recipient_integration_id'];
+        return $this->container['recipientIntegrationId'];
     }
 
     /**
-     * Sets recipient_integration_id
+     * Sets recipientIntegrationId
      *
-     * @param string $recipient_integration_id The user for whom these points were added
+     * @param string $recipientIntegrationId The user for whom these points were added
      *
      * @return $this
      */
-    public function setRecipientIntegrationId($recipient_integration_id)
+    public function setRecipientIntegrationId($recipientIntegrationId)
     {
-        $this->container['recipient_integration_id'] = $recipient_integration_id;
+        $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;
     }
 
     /**
-     * Gets expiry_condition
+     * Gets expiryCondition
      *
      * @return string
      */
     public function getExpiryCondition()
     {
-        return $this->container['expiry_condition'];
+        return $this->container['expiryCondition'];
     }
 
     /**
-     * Sets expiry_condition
+     * Sets expiryCondition
      *
-     * @param string $expiry_condition The amount of time (in days) these points are valid
+     * @param string $expiryCondition The amount of time (in days) these points are valid
      *
      * @return $this
      */
-    public function setExpiryCondition($expiry_condition)
+    public function setExpiryCondition($expiryCondition)
     {
-        $this->container['expiry_condition'] = $expiry_condition;
+        $this->container['expiryCondition'] = $expiryCondition;
 
         return $this;
     }

@@ -86,7 +86,7 @@ class RejectReferralEffectPropsTest extends TestCase
     }
 
     /**
-     * Test attribute "rejection_reason"
+     * Test attribute "rejectionReason"
      */
     public function testPropertyRejectionReason()
     {

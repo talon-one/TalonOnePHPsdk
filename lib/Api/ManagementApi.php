@@ -120,17 +120,17 @@ class ManagementApi
      *
      * Add points in a certain loyalty program for the specified customer
      *
-     * @param  string $program_id program_id (required)
-     * @param  string $integration_id integration_id (required)
+     * @param  string $programID programID (required)
+     * @param  string $integrationID integrationID (required)
      * @param  \TalonOne\Client\Model\LoyaltyPoints $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addLoyaltyPoints($program_id, $integration_id, $body)
+    public function addLoyaltyPoints($programID, $integrationID, $body)
     {
-        $this->addLoyaltyPointsWithHttpInfo($program_id, $integration_id, $body);
+        $this->addLoyaltyPointsWithHttpInfo($programID, $integrationID, $body);
     }
 
     /**
@@ -138,17 +138,17 @@ class ManagementApi
      *
      * Add points in a certain loyalty program for the specified customer
      *
-     * @param  string $program_id (required)
-     * @param  string $integration_id (required)
+     * @param  string $programID (required)
+     * @param  string $integrationID (required)
      * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addLoyaltyPointsWithHttpInfo($program_id, $integration_id, $body)
+    public function addLoyaltyPointsWithHttpInfo($programID, $integrationID, $body)
     {
-        $request = $this->addLoyaltyPointsRequest($program_id, $integration_id, $body);
+        $request = $this->addLoyaltyPointsRequest($programID, $integrationID, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -192,16 +192,16 @@ class ManagementApi
      *
      * Add points in a certain loyalty program for the specified customer
      *
-     * @param  string $program_id (required)
-     * @param  string $integration_id (required)
+     * @param  string $programID (required)
+     * @param  string $integrationID (required)
      * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addLoyaltyPointsAsync($program_id, $integration_id, $body)
+    public function addLoyaltyPointsAsync($programID, $integrationID, $body)
     {
-        return $this->addLoyaltyPointsAsyncWithHttpInfo($program_id, $integration_id, $body)
+        return $this->addLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -214,17 +214,17 @@ class ManagementApi
      *
      * Add points in a certain loyalty program for the specified customer
      *
-     * @param  string $program_id (required)
-     * @param  string $integration_id (required)
+     * @param  string $programID (required)
+     * @param  string $integrationID (required)
      * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addLoyaltyPointsAsyncWithHttpInfo($program_id, $integration_id, $body)
+    public function addLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID, $body)
     {
         $returnType = '';
-        $request = $this->addLoyaltyPointsRequest($program_id, $integration_id, $body);
+        $request = $this->addLoyaltyPointsRequest($programID, $integrationID, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -252,25 +252,25 @@ class ManagementApi
     /**
      * Create request for operation 'addLoyaltyPoints'
      *
-     * @param  string $program_id (required)
-     * @param  string $integration_id (required)
+     * @param  string $programID (required)
+     * @param  string $integrationID (required)
      * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addLoyaltyPointsRequest($program_id, $integration_id, $body)
+    protected function addLoyaltyPointsRequest($programID, $integrationID, $body)
     {
-        // verify the required parameter 'program_id' is set
-        if ($program_id === null || (is_array($program_id) && count($program_id) === 0)) {
+        // verify the required parameter 'programID' is set
+        if ($programID === null || (is_array($programID) && count($programID) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $program_id when calling addLoyaltyPoints'
+                'Missing the required parameter $programID when calling addLoyaltyPoints'
             );
         }
-        // verify the required parameter 'integration_id' is set
-        if ($integration_id === null || (is_array($integration_id) && count($integration_id) === 0)) {
+        // verify the required parameter 'integrationID' is set
+        if ($integrationID === null || (is_array($integrationID) && count($integrationID) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $integration_id when calling addLoyaltyPoints'
+                'Missing the required parameter $integrationID when calling addLoyaltyPoints'
             );
         }
         // verify the required parameter 'body' is set
@@ -289,18 +289,18 @@ class ManagementApi
 
 
         // path params
-        if ($program_id !== null) {
+        if ($programID !== null) {
             $resourcePath = str_replace(
                 '{' . 'programID' . '}',
-                ObjectSerializer::toPathValue($program_id),
+                ObjectSerializer::toPathValue($programID),
                 $resourcePath
             );
         }
         // path params
-        if ($integration_id !== null) {
+        if ($integrationID !== null) {
             $resourcePath = str_replace(
                 '{' . 'integrationID' . '}',
-                ObjectSerializer::toPathValue($integration_id),
+                ObjectSerializer::toPathValue($integrationID),
                 $resourcePath
             );
         }
@@ -382,17 +382,17 @@ class ManagementApi
      *
      * Copy the campaign into every specified application
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
      * @param  \TalonOne\Client\Model\CampaignCopy $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2003
      */
-    public function copyCampaignToApplications($application_id, $campaign_id, $body)
+    public function copyCampaignToApplications($applicationId, $campaignId, $body)
     {
-        list($response) = $this->copyCampaignToApplicationsWithHttpInfo($application_id, $campaign_id, $body);
+        list($response) = $this->copyCampaignToApplicationsWithHttpInfo($applicationId, $campaignId, $body);
         return $response;
     }
 
@@ -401,17 +401,17 @@ class ManagementApi
      *
      * Copy the campaign into every specified application
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\CampaignCopy $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
      */
-    public function copyCampaignToApplicationsWithHttpInfo($application_id, $campaign_id, $body)
+    public function copyCampaignToApplicationsWithHttpInfo($applicationId, $campaignId, $body)
     {
-        $request = $this->copyCampaignToApplicationsRequest($application_id, $campaign_id, $body);
+        $request = $this->copyCampaignToApplicationsRequest($applicationId, $campaignId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -491,16 +491,16 @@ class ManagementApi
      *
      * Copy the campaign into every specified application
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\CampaignCopy $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function copyCampaignToApplicationsAsync($application_id, $campaign_id, $body)
+    public function copyCampaignToApplicationsAsync($applicationId, $campaignId, $body)
     {
-        return $this->copyCampaignToApplicationsAsyncWithHttpInfo($application_id, $campaign_id, $body)
+        return $this->copyCampaignToApplicationsAsyncWithHttpInfo($applicationId, $campaignId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -513,17 +513,17 @@ class ManagementApi
      *
      * Copy the campaign into every specified application
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\CampaignCopy $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function copyCampaignToApplicationsAsyncWithHttpInfo($application_id, $campaign_id, $body)
+    public function copyCampaignToApplicationsAsyncWithHttpInfo($applicationId, $campaignId, $body)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2003';
-        $request = $this->copyCampaignToApplicationsRequest($application_id, $campaign_id, $body);
+        $request = $this->copyCampaignToApplicationsRequest($applicationId, $campaignId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -562,25 +562,25 @@ class ManagementApi
     /**
      * Create request for operation 'copyCampaignToApplications'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\CampaignCopy $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function copyCampaignToApplicationsRequest($application_id, $campaign_id, $body)
+    protected function copyCampaignToApplicationsRequest($applicationId, $campaignId, $body)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling copyCampaignToApplications'
+                'Missing the required parameter $applicationId when calling copyCampaignToApplications'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling copyCampaignToApplications'
+                'Missing the required parameter $campaignId when calling copyCampaignToApplications'
             );
         }
         // verify the required parameter 'body' is set
@@ -599,18 +599,18 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -1236,16 +1236,16 @@ class ManagementApi
      *
      * Create a Campaign
      *
-     * @param  int $application_id application_id (required)
+     * @param  int $applicationId applicationId (required)
      * @param  \TalonOne\Client\Model\NewCampaign $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Campaign
      */
-    public function createCampaign($application_id, $body)
+    public function createCampaign($applicationId, $body)
     {
-        list($response) = $this->createCampaignWithHttpInfo($application_id, $body);
+        list($response) = $this->createCampaignWithHttpInfo($applicationId, $body);
         return $response;
     }
 
@@ -1254,16 +1254,16 @@ class ManagementApi
      *
      * Create a Campaign
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\NewCampaign $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Campaign, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCampaignWithHttpInfo($application_id, $body)
+    public function createCampaignWithHttpInfo($applicationId, $body)
     {
-        $request = $this->createCampaignRequest($application_id, $body);
+        $request = $this->createCampaignRequest($applicationId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1343,15 +1343,15 @@ class ManagementApi
      *
      * Create a Campaign
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\NewCampaign $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCampaignAsync($application_id, $body)
+    public function createCampaignAsync($applicationId, $body)
     {
-        return $this->createCampaignAsyncWithHttpInfo($application_id, $body)
+        return $this->createCampaignAsyncWithHttpInfo($applicationId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1364,16 +1364,16 @@ class ManagementApi
      *
      * Create a Campaign
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\NewCampaign $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCampaignAsyncWithHttpInfo($application_id, $body)
+    public function createCampaignAsyncWithHttpInfo($applicationId, $body)
     {
         $returnType = '\TalonOne\Client\Model\Campaign';
-        $request = $this->createCampaignRequest($application_id, $body);
+        $request = $this->createCampaignRequest($applicationId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1412,18 +1412,18 @@ class ManagementApi
     /**
      * Create request for operation 'createCampaign'
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\NewCampaign $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCampaignRequest($application_id, $body)
+    protected function createCampaignRequest($applicationId, $body)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling createCampaign'
+                'Missing the required parameter $applicationId when calling createCampaign'
             );
         }
         // verify the required parameter 'body' is set
@@ -1442,10 +1442,10 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -1527,8 +1527,8 @@ class ManagementApi
      *
      * Create Coupons
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
      * @param  \TalonOne\Client\Model\NewCoupons $body body (required)
      * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
      *
@@ -1536,9 +1536,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2001
      */
-    public function createCoupons($application_id, $campaign_id, $body, $silent = null)
+    public function createCoupons($applicationId, $campaignId, $body, $silent = null)
     {
-        list($response) = $this->createCouponsWithHttpInfo($application_id, $campaign_id, $body, $silent);
+        list($response) = $this->createCouponsWithHttpInfo($applicationId, $campaignId, $body, $silent);
         return $response;
     }
 
@@ -1547,8 +1547,8 @@ class ManagementApi
      *
      * Create Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\NewCoupons $body (required)
      * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
      *
@@ -1556,9 +1556,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCouponsWithHttpInfo($application_id, $campaign_id, $body, $silent = null)
+    public function createCouponsWithHttpInfo($applicationId, $campaignId, $body, $silent = null)
     {
-        $request = $this->createCouponsRequest($application_id, $campaign_id, $body, $silent);
+        $request = $this->createCouponsRequest($applicationId, $campaignId, $body, $silent);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1638,17 +1638,17 @@ class ManagementApi
      *
      * Create Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\NewCoupons $body (required)
      * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponsAsync($application_id, $campaign_id, $body, $silent = null)
+    public function createCouponsAsync($applicationId, $campaignId, $body, $silent = null)
     {
-        return $this->createCouponsAsyncWithHttpInfo($application_id, $campaign_id, $body, $silent)
+        return $this->createCouponsAsyncWithHttpInfo($applicationId, $campaignId, $body, $silent)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1661,18 +1661,18 @@ class ManagementApi
      *
      * Create Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\NewCoupons $body (required)
      * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponsAsyncWithHttpInfo($application_id, $campaign_id, $body, $silent = null)
+    public function createCouponsAsyncWithHttpInfo($applicationId, $campaignId, $body, $silent = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2001';
-        $request = $this->createCouponsRequest($application_id, $campaign_id, $body, $silent);
+        $request = $this->createCouponsRequest($applicationId, $campaignId, $body, $silent);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1711,26 +1711,26 @@ class ManagementApi
     /**
      * Create request for operation 'createCoupons'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\NewCoupons $body (required)
      * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCouponsRequest($application_id, $campaign_id, $body, $silent = null)
+    protected function createCouponsRequest($applicationId, $campaignId, $body, $silent = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling createCoupons'
+                'Missing the required parameter $applicationId when calling createCoupons'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling createCoupons'
+                'Missing the required parameter $campaignId when calling createCoupons'
             );
         }
         // verify the required parameter 'body' is set
@@ -1753,18 +1753,18 @@ class ManagementApi
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -2118,17 +2118,17 @@ class ManagementApi
      *
      * Create a Ruleset
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
      * @param  \TalonOne\Client\Model\NewRuleset $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Ruleset
      */
-    public function createRuleset($application_id, $campaign_id, $body)
+    public function createRuleset($applicationId, $campaignId, $body)
     {
-        list($response) = $this->createRulesetWithHttpInfo($application_id, $campaign_id, $body);
+        list($response) = $this->createRulesetWithHttpInfo($applicationId, $campaignId, $body);
         return $response;
     }
 
@@ -2137,17 +2137,17 @@ class ManagementApi
      *
      * Create a Ruleset
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\NewRuleset $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Ruleset, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRulesetWithHttpInfo($application_id, $campaign_id, $body)
+    public function createRulesetWithHttpInfo($applicationId, $campaignId, $body)
     {
-        $request = $this->createRulesetRequest($application_id, $campaign_id, $body);
+        $request = $this->createRulesetRequest($applicationId, $campaignId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2227,16 +2227,16 @@ class ManagementApi
      *
      * Create a Ruleset
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\NewRuleset $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRulesetAsync($application_id, $campaign_id, $body)
+    public function createRulesetAsync($applicationId, $campaignId, $body)
     {
-        return $this->createRulesetAsyncWithHttpInfo($application_id, $campaign_id, $body)
+        return $this->createRulesetAsyncWithHttpInfo($applicationId, $campaignId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2249,17 +2249,17 @@ class ManagementApi
      *
      * Create a Ruleset
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\NewRuleset $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRulesetAsyncWithHttpInfo($application_id, $campaign_id, $body)
+    public function createRulesetAsyncWithHttpInfo($applicationId, $campaignId, $body)
     {
         $returnType = '\TalonOne\Client\Model\Ruleset';
-        $request = $this->createRulesetRequest($application_id, $campaign_id, $body);
+        $request = $this->createRulesetRequest($applicationId, $campaignId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2298,25 +2298,25 @@ class ManagementApi
     /**
      * Create request for operation 'createRuleset'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\NewRuleset $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createRulesetRequest($application_id, $campaign_id, $body)
+    protected function createRulesetRequest($applicationId, $campaignId, $body)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling createRuleset'
+                'Missing the required parameter $applicationId when calling createRuleset'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling createRuleset'
+                'Missing the required parameter $campaignId when calling createRuleset'
             );
         }
         // verify the required parameter 'body' is set
@@ -2335,18 +2335,18 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -2700,16 +2700,16 @@ class ManagementApi
      *
      * Delete a Campaign
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteCampaign($application_id, $campaign_id)
+    public function deleteCampaign($applicationId, $campaignId)
     {
-        $this->deleteCampaignWithHttpInfo($application_id, $campaign_id);
+        $this->deleteCampaignWithHttpInfo($applicationId, $campaignId);
     }
 
     /**
@@ -2717,16 +2717,16 @@ class ManagementApi
      *
      * Delete a Campaign
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCampaignWithHttpInfo($application_id, $campaign_id)
+    public function deleteCampaignWithHttpInfo($applicationId, $campaignId)
     {
-        $request = $this->deleteCampaignRequest($application_id, $campaign_id);
+        $request = $this->deleteCampaignRequest($applicationId, $campaignId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2770,15 +2770,15 @@ class ManagementApi
      *
      * Delete a Campaign
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCampaignAsync($application_id, $campaign_id)
+    public function deleteCampaignAsync($applicationId, $campaignId)
     {
-        return $this->deleteCampaignAsyncWithHttpInfo($application_id, $campaign_id)
+        return $this->deleteCampaignAsyncWithHttpInfo($applicationId, $campaignId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2791,16 +2791,16 @@ class ManagementApi
      *
      * Delete a Campaign
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCampaignAsyncWithHttpInfo($application_id, $campaign_id)
+    public function deleteCampaignAsyncWithHttpInfo($applicationId, $campaignId)
     {
         $returnType = '';
-        $request = $this->deleteCampaignRequest($application_id, $campaign_id);
+        $request = $this->deleteCampaignRequest($applicationId, $campaignId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2828,24 +2828,24 @@ class ManagementApi
     /**
      * Create request for operation 'deleteCampaign'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteCampaignRequest($application_id, $campaign_id)
+    protected function deleteCampaignRequest($applicationId, $campaignId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling deleteCampaign'
+                'Missing the required parameter $applicationId when calling deleteCampaign'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling deleteCampaign'
+                'Missing the required parameter $campaignId when calling deleteCampaign'
             );
         }
 
@@ -2858,18 +2858,18 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -2948,17 +2948,17 @@ class ManagementApi
      *
      * Delete one Coupon
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
-     * @param  string $coupon_id The ID of the coupon code to delete (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  string $couponId The ID of the coupon code to delete (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteCoupon($application_id, $campaign_id, $coupon_id)
+    public function deleteCoupon($applicationId, $campaignId, $couponId)
     {
-        $this->deleteCouponWithHttpInfo($application_id, $campaign_id, $coupon_id);
+        $this->deleteCouponWithHttpInfo($applicationId, $campaignId, $couponId);
     }
 
     /**
@@ -2966,17 +2966,17 @@ class ManagementApi
      *
      * Delete one Coupon
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  string $coupon_id The ID of the coupon code to delete (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $couponId The ID of the coupon code to delete (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCouponWithHttpInfo($application_id, $campaign_id, $coupon_id)
+    public function deleteCouponWithHttpInfo($applicationId, $campaignId, $couponId)
     {
-        $request = $this->deleteCouponRequest($application_id, $campaign_id, $coupon_id);
+        $request = $this->deleteCouponRequest($applicationId, $campaignId, $couponId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3020,16 +3020,16 @@ class ManagementApi
      *
      * Delete one Coupon
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  string $coupon_id The ID of the coupon code to delete (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $couponId The ID of the coupon code to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCouponAsync($application_id, $campaign_id, $coupon_id)
+    public function deleteCouponAsync($applicationId, $campaignId, $couponId)
     {
-        return $this->deleteCouponAsyncWithHttpInfo($application_id, $campaign_id, $coupon_id)
+        return $this->deleteCouponAsyncWithHttpInfo($applicationId, $campaignId, $couponId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3042,17 +3042,17 @@ class ManagementApi
      *
      * Delete one Coupon
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  string $coupon_id The ID of the coupon code to delete (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $couponId The ID of the coupon code to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCouponAsyncWithHttpInfo($application_id, $campaign_id, $coupon_id)
+    public function deleteCouponAsyncWithHttpInfo($applicationId, $campaignId, $couponId)
     {
         $returnType = '';
-        $request = $this->deleteCouponRequest($application_id, $campaign_id, $coupon_id);
+        $request = $this->deleteCouponRequest($applicationId, $campaignId, $couponId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3080,31 +3080,31 @@ class ManagementApi
     /**
      * Create request for operation 'deleteCoupon'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  string $coupon_id The ID of the coupon code to delete (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $couponId The ID of the coupon code to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteCouponRequest($application_id, $campaign_id, $coupon_id)
+    protected function deleteCouponRequest($applicationId, $campaignId, $couponId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling deleteCoupon'
+                'Missing the required parameter $applicationId when calling deleteCoupon'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling deleteCoupon'
+                'Missing the required parameter $campaignId when calling deleteCoupon'
             );
         }
-        // verify the required parameter 'coupon_id' is set
-        if ($coupon_id === null || (is_array($coupon_id) && count($coupon_id) === 0)) {
+        // verify the required parameter 'couponId' is set
+        if ($couponId === null || (is_array($couponId) && count($couponId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $coupon_id when calling deleteCoupon'
+                'Missing the required parameter $couponId when calling deleteCoupon'
             );
         }
 
@@ -3117,26 +3117,26 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
         // path params
-        if ($coupon_id !== null) {
+        if ($couponId !== null) {
             $resourcePath = str_replace(
                 '{' . 'couponId' . '}',
-                ObjectSerializer::toPathValue($coupon_id),
+                ObjectSerializer::toPathValue($couponId),
                 $resourcePath
             );
         }
@@ -3215,29 +3215,29 @@ class ManagementApi
      *
      * Delete Coupons
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteCoupons($application_id, $campaign_id, $value = null, $created_before = null, $created_after = null, $starts_after = null, $starts_before = null, $expires_after = null, $expires_before = null, $valid = null, $batch_id = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false)
+    public function deleteCoupons($applicationId, $campaignId, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
-        $this->deleteCouponsWithHttpInfo($application_id, $campaign_id, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match);
+        $this->deleteCouponsWithHttpInfo($applicationId, $campaignId, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch);
     }
 
     /**
@@ -3245,29 +3245,29 @@ class ManagementApi
      *
      * Delete Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCouponsWithHttpInfo($application_id, $campaign_id, $value = null, $created_before = null, $created_after = null, $starts_after = null, $starts_before = null, $expires_after = null, $expires_before = null, $valid = null, $batch_id = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false)
+    public function deleteCouponsWithHttpInfo($applicationId, $campaignId, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
-        $request = $this->deleteCouponsRequest($application_id, $campaign_id, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match);
+        $request = $this->deleteCouponsRequest($applicationId, $campaignId, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3311,28 +3311,28 @@ class ManagementApi
      *
      * Delete Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCouponsAsync($application_id, $campaign_id, $value = null, $created_before = null, $created_after = null, $starts_after = null, $starts_before = null, $expires_after = null, $expires_before = null, $valid = null, $batch_id = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false)
+    public function deleteCouponsAsync($applicationId, $campaignId, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
-        return $this->deleteCouponsAsyncWithHttpInfo($application_id, $campaign_id, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match)
+        return $this->deleteCouponsAsyncWithHttpInfo($applicationId, $campaignId, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3345,29 +3345,29 @@ class ManagementApi
      *
      * Delete Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCouponsAsyncWithHttpInfo($application_id, $campaign_id, $value = null, $created_before = null, $created_after = null, $starts_after = null, $starts_before = null, $expires_after = null, $expires_before = null, $valid = null, $batch_id = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false)
+    public function deleteCouponsAsyncWithHttpInfo($applicationId, $campaignId, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
         $returnType = '';
-        $request = $this->deleteCouponsRequest($application_id, $campaign_id, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match);
+        $request = $this->deleteCouponsRequest($applicationId, $campaignId, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3395,37 +3395,37 @@ class ManagementApi
     /**
      * Create request for operation 'deleteCoupons'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteCouponsRequest($application_id, $campaign_id, $value = null, $created_before = null, $created_after = null, $starts_after = null, $starts_before = null, $expires_after = null, $expires_before = null, $valid = null, $batch_id = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false)
+    protected function deleteCouponsRequest($applicationId, $campaignId, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling deleteCoupons'
+                'Missing the required parameter $applicationId when calling deleteCoupons'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling deleteCoupons'
+                'Missing the required parameter $campaignId when calling deleteCoupons'
             );
         }
 
@@ -3441,67 +3441,67 @@ class ManagementApi
             $queryParams['value'] = ObjectSerializer::toQueryValue($value);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
-        if ($starts_after !== null) {
-            $queryParams['startsAfter'] = ObjectSerializer::toQueryValue($starts_after);
+        if ($startsAfter !== null) {
+            $queryParams['startsAfter'] = ObjectSerializer::toQueryValue($startsAfter);
         }
         // query params
-        if ($starts_before !== null) {
-            $queryParams['startsBefore'] = ObjectSerializer::toQueryValue($starts_before);
+        if ($startsBefore !== null) {
+            $queryParams['startsBefore'] = ObjectSerializer::toQueryValue($startsBefore);
         }
         // query params
-        if ($expires_after !== null) {
-            $queryParams['expiresAfter'] = ObjectSerializer::toQueryValue($expires_after);
+        if ($expiresAfter !== null) {
+            $queryParams['expiresAfter'] = ObjectSerializer::toQueryValue($expiresAfter);
         }
         // query params
-        if ($expires_before !== null) {
-            $queryParams['expiresBefore'] = ObjectSerializer::toQueryValue($expires_before);
+        if ($expiresBefore !== null) {
+            $queryParams['expiresBefore'] = ObjectSerializer::toQueryValue($expiresBefore);
         }
         // query params
         if ($valid !== null) {
             $queryParams['valid'] = ObjectSerializer::toQueryValue($valid);
         }
         // query params
-        if ($batch_id !== null) {
-            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batch_id);
+        if ($batchId !== null) {
+            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batchId);
         }
         // query params
         if ($usable !== null) {
             $queryParams['usable'] = ObjectSerializer::toQueryValue($usable);
         }
         // query params
-        if ($referral_id !== null) {
-            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referral_id);
+        if ($referralId !== null) {
+            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referralId);
         }
         // query params
-        if ($recipient_integration_id !== null) {
-            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipient_integration_id);
+        if ($recipientIntegrationId !== null) {
+            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipientIntegrationId);
         }
         // query params
-        if ($exact_match !== null) {
-            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exact_match);
+        if ($exactMatch !== null) {
+            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exactMatch);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -3580,17 +3580,17 @@ class ManagementApi
      *
      * Delete one Referral
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
-     * @param  string $referral_id The ID of the referral code to delete (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  string $referralId The ID of the referral code to delete (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteReferral($application_id, $campaign_id, $referral_id)
+    public function deleteReferral($applicationId, $campaignId, $referralId)
     {
-        $this->deleteReferralWithHttpInfo($application_id, $campaign_id, $referral_id);
+        $this->deleteReferralWithHttpInfo($applicationId, $campaignId, $referralId);
     }
 
     /**
@@ -3598,17 +3598,17 @@ class ManagementApi
      *
      * Delete one Referral
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  string $referral_id The ID of the referral code to delete (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $referralId The ID of the referral code to delete (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteReferralWithHttpInfo($application_id, $campaign_id, $referral_id)
+    public function deleteReferralWithHttpInfo($applicationId, $campaignId, $referralId)
     {
-        $request = $this->deleteReferralRequest($application_id, $campaign_id, $referral_id);
+        $request = $this->deleteReferralRequest($applicationId, $campaignId, $referralId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3652,16 +3652,16 @@ class ManagementApi
      *
      * Delete one Referral
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  string $referral_id The ID of the referral code to delete (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $referralId The ID of the referral code to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteReferralAsync($application_id, $campaign_id, $referral_id)
+    public function deleteReferralAsync($applicationId, $campaignId, $referralId)
     {
-        return $this->deleteReferralAsyncWithHttpInfo($application_id, $campaign_id, $referral_id)
+        return $this->deleteReferralAsyncWithHttpInfo($applicationId, $campaignId, $referralId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3674,17 +3674,17 @@ class ManagementApi
      *
      * Delete one Referral
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  string $referral_id The ID of the referral code to delete (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $referralId The ID of the referral code to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteReferralAsyncWithHttpInfo($application_id, $campaign_id, $referral_id)
+    public function deleteReferralAsyncWithHttpInfo($applicationId, $campaignId, $referralId)
     {
         $returnType = '';
-        $request = $this->deleteReferralRequest($application_id, $campaign_id, $referral_id);
+        $request = $this->deleteReferralRequest($applicationId, $campaignId, $referralId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3712,31 +3712,31 @@ class ManagementApi
     /**
      * Create request for operation 'deleteReferral'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  string $referral_id The ID of the referral code to delete (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $referralId The ID of the referral code to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteReferralRequest($application_id, $campaign_id, $referral_id)
+    protected function deleteReferralRequest($applicationId, $campaignId, $referralId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling deleteReferral'
+                'Missing the required parameter $applicationId when calling deleteReferral'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling deleteReferral'
+                'Missing the required parameter $campaignId when calling deleteReferral'
             );
         }
-        // verify the required parameter 'referral_id' is set
-        if ($referral_id === null || (is_array($referral_id) && count($referral_id) === 0)) {
+        // verify the required parameter 'referralId' is set
+        if ($referralId === null || (is_array($referralId) && count($referralId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $referral_id when calling deleteReferral'
+                'Missing the required parameter $referralId when calling deleteReferral'
             );
         }
 
@@ -3749,26 +3749,26 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
         // path params
-        if ($referral_id !== null) {
+        if ($referralId !== null) {
             $resourcePath = str_replace(
                 '{' . 'referralId' . '}',
-                ObjectSerializer::toPathValue($referral_id),
+                ObjectSerializer::toPathValue($referralId),
                 $resourcePath
             );
         }
@@ -3847,17 +3847,17 @@ class ManagementApi
      *
      * Delete a Ruleset
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
-     * @param  int $ruleset_id ruleset_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  int $rulesetId rulesetId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteRuleset($application_id, $campaign_id, $ruleset_id)
+    public function deleteRuleset($applicationId, $campaignId, $rulesetId)
     {
-        $this->deleteRulesetWithHttpInfo($application_id, $campaign_id, $ruleset_id);
+        $this->deleteRulesetWithHttpInfo($applicationId, $campaignId, $rulesetId);
     }
 
     /**
@@ -3865,17 +3865,17 @@ class ManagementApi
      *
      * Delete a Ruleset
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $ruleset_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $rulesetId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteRulesetWithHttpInfo($application_id, $campaign_id, $ruleset_id)
+    public function deleteRulesetWithHttpInfo($applicationId, $campaignId, $rulesetId)
     {
-        $request = $this->deleteRulesetRequest($application_id, $campaign_id, $ruleset_id);
+        $request = $this->deleteRulesetRequest($applicationId, $campaignId, $rulesetId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3919,16 +3919,16 @@ class ManagementApi
      *
      * Delete a Ruleset
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $ruleset_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $rulesetId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRulesetAsync($application_id, $campaign_id, $ruleset_id)
+    public function deleteRulesetAsync($applicationId, $campaignId, $rulesetId)
     {
-        return $this->deleteRulesetAsyncWithHttpInfo($application_id, $campaign_id, $ruleset_id)
+        return $this->deleteRulesetAsyncWithHttpInfo($applicationId, $campaignId, $rulesetId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3941,17 +3941,17 @@ class ManagementApi
      *
      * Delete a Ruleset
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $ruleset_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $rulesetId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRulesetAsyncWithHttpInfo($application_id, $campaign_id, $ruleset_id)
+    public function deleteRulesetAsyncWithHttpInfo($applicationId, $campaignId, $rulesetId)
     {
         $returnType = '';
-        $request = $this->deleteRulesetRequest($application_id, $campaign_id, $ruleset_id);
+        $request = $this->deleteRulesetRequest($applicationId, $campaignId, $rulesetId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3979,31 +3979,31 @@ class ManagementApi
     /**
      * Create request for operation 'deleteRuleset'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $ruleset_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $rulesetId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteRulesetRequest($application_id, $campaign_id, $ruleset_id)
+    protected function deleteRulesetRequest($applicationId, $campaignId, $rulesetId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling deleteRuleset'
+                'Missing the required parameter $applicationId when calling deleteRuleset'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling deleteRuleset'
+                'Missing the required parameter $campaignId when calling deleteRuleset'
             );
         }
-        // verify the required parameter 'ruleset_id' is set
-        if ($ruleset_id === null || (is_array($ruleset_id) && count($ruleset_id) === 0)) {
+        // verify the required parameter 'rulesetId' is set
+        if ($rulesetId === null || (is_array($rulesetId) && count($rulesetId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ruleset_id when calling deleteRuleset'
+                'Missing the required parameter $rulesetId when calling deleteRuleset'
             );
         }
 
@@ -4016,26 +4016,26 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
         // path params
-        if ($ruleset_id !== null) {
+        if ($rulesetId !== null) {
             $resourcePath = str_replace(
                 '{' . 'rulesetId' . '}',
-                ObjectSerializer::toPathValue($ruleset_id),
+                ObjectSerializer::toPathValue($rulesetId),
                 $resourcePath
             );
         }
@@ -4114,13 +4114,13 @@ class ManagementApi
      *
      * Get access logs for application
      *
-     * @param  int $application_id application_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -4128,9 +4128,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2009
      */
-    public function getAccessLogs($application_id, $range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    public function getAccessLogs($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        list($response) = $this->getAccessLogsWithHttpInfo($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort);
+        list($response) = $this->getAccessLogsWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
         return $response;
     }
 
@@ -4139,13 +4139,13 @@ class ManagementApi
      *
      * Get access logs for application
      *
-     * @param  int $application_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -4153,9 +4153,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccessLogsWithHttpInfo($application_id, $range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    public function getAccessLogsWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getAccessLogsRequest($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort);
+        $request = $this->getAccessLogsRequest($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4235,22 +4235,22 @@ class ManagementApi
      *
      * Get access logs for application
      *
-     * @param  int $application_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccessLogsAsync($application_id, $range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    public function getAccessLogsAsync($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        return $this->getAccessLogsAsyncWithHttpInfo($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort)
+        return $this->getAccessLogsAsyncWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4263,23 +4263,23 @@ class ManagementApi
      *
      * Get access logs for application
      *
-     * @param  int $application_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccessLogsAsyncWithHttpInfo($application_id, $range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    public function getAccessLogsAsyncWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2009';
-        $request = $this->getAccessLogsRequest($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort);
+        $request = $this->getAccessLogsRequest($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4318,37 +4318,37 @@ class ManagementApi
     /**
      * Create request for operation 'getAccessLogs'
      *
-     * @param  int $application_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAccessLogsRequest($application_id, $range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    protected function getAccessLogsRequest($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getAccessLogs'
+                'Missing the required parameter $applicationId when calling getAccessLogs'
             );
         }
-        // verify the required parameter 'range_start' is set
-        if ($range_start === null || (is_array($range_start) && count($range_start) === 0)) {
+        // verify the required parameter 'rangeStart' is set
+        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_start when calling getAccessLogs'
+                'Missing the required parameter $rangeStart when calling getAccessLogs'
             );
         }
-        // verify the required parameter 'range_end' is set
-        if ($range_end === null || (is_array($range_end) && count($range_end) === 0)) {
+        // verify the required parameter 'rangeEnd' is set
+        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_end when calling getAccessLogs'
+                'Missing the required parameter $rangeEnd when calling getAccessLogs'
             );
         }
 
@@ -4372,16 +4372,16 @@ class ManagementApi
             $queryParams['status'] = ObjectSerializer::toQueryValue($status);
         }
         // query params
-        if ($range_start !== null) {
-            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($range_start);
+        if ($rangeStart !== null) {
+            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($rangeStart);
         }
         // query params
-        if ($range_end !== null) {
-            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($range_end);
+        if ($rangeEnd !== null) {
+            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($rangeEnd);
         }
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -4393,10 +4393,10 @@ class ManagementApi
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -4475,13 +4475,13 @@ class ManagementApi
      *
      * Get access logs for application
      *
-     * @param  int $application_id application_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -4489,9 +4489,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20010
      */
-    public function getAccessLogsWithoutTotalCount($application_id, $range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    public function getAccessLogsWithoutTotalCount($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        list($response) = $this->getAccessLogsWithoutTotalCountWithHttpInfo($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort);
+        list($response) = $this->getAccessLogsWithoutTotalCountWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
         return $response;
     }
 
@@ -4500,13 +4500,13 @@ class ManagementApi
      *
      * Get access logs for application
      *
-     * @param  int $application_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -4514,9 +4514,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20010, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccessLogsWithoutTotalCountWithHttpInfo($application_id, $range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    public function getAccessLogsWithoutTotalCountWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getAccessLogsWithoutTotalCountRequest($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort);
+        $request = $this->getAccessLogsWithoutTotalCountRequest($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4596,22 +4596,22 @@ class ManagementApi
      *
      * Get access logs for application
      *
-     * @param  int $application_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccessLogsWithoutTotalCountAsync($application_id, $range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    public function getAccessLogsWithoutTotalCountAsync($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        return $this->getAccessLogsWithoutTotalCountAsyncWithHttpInfo($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort)
+        return $this->getAccessLogsWithoutTotalCountAsyncWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4624,23 +4624,23 @@ class ManagementApi
      *
      * Get access logs for application
      *
-     * @param  int $application_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccessLogsWithoutTotalCountAsyncWithHttpInfo($application_id, $range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    public function getAccessLogsWithoutTotalCountAsyncWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20010';
-        $request = $this->getAccessLogsWithoutTotalCountRequest($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort);
+        $request = $this->getAccessLogsWithoutTotalCountRequest($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4679,37 +4679,37 @@ class ManagementApi
     /**
      * Create request for operation 'getAccessLogsWithoutTotalCount'
      *
-     * @param  int $application_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAccessLogsWithoutTotalCountRequest($application_id, $range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    protected function getAccessLogsWithoutTotalCountRequest($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getAccessLogsWithoutTotalCount'
+                'Missing the required parameter $applicationId when calling getAccessLogsWithoutTotalCount'
             );
         }
-        // verify the required parameter 'range_start' is set
-        if ($range_start === null || (is_array($range_start) && count($range_start) === 0)) {
+        // verify the required parameter 'rangeStart' is set
+        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_start when calling getAccessLogsWithoutTotalCount'
+                'Missing the required parameter $rangeStart when calling getAccessLogsWithoutTotalCount'
             );
         }
-        // verify the required parameter 'range_end' is set
-        if ($range_end === null || (is_array($range_end) && count($range_end) === 0)) {
+        // verify the required parameter 'rangeEnd' is set
+        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_end when calling getAccessLogsWithoutTotalCount'
+                'Missing the required parameter $rangeEnd when calling getAccessLogsWithoutTotalCount'
             );
         }
 
@@ -4733,16 +4733,16 @@ class ManagementApi
             $queryParams['status'] = ObjectSerializer::toQueryValue($status);
         }
         // query params
-        if ($range_start !== null) {
-            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($range_start);
+        if ($rangeStart !== null) {
+            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($rangeStart);
         }
         // query params
-        if ($range_end !== null) {
-            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($range_end);
+        if ($rangeEnd !== null) {
+            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($rangeEnd);
         }
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -4754,10 +4754,10 @@ class ManagementApi
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -4836,15 +4836,15 @@ class ManagementApi
      *
      * Get Account Details
      *
-     * @param  int $account_id account_id (required)
+     * @param  int $accountId accountId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Account
      */
-    public function getAccount($account_id)
+    public function getAccount($accountId)
     {
-        list($response) = $this->getAccountWithHttpInfo($account_id);
+        list($response) = $this->getAccountWithHttpInfo($accountId);
         return $response;
     }
 
@@ -4853,15 +4853,15 @@ class ManagementApi
      *
      * Get Account Details
      *
-     * @param  int $account_id (required)
+     * @param  int $accountId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Account, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountWithHttpInfo($account_id)
+    public function getAccountWithHttpInfo($accountId)
     {
-        $request = $this->getAccountRequest($account_id);
+        $request = $this->getAccountRequest($accountId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4941,14 +4941,14 @@ class ManagementApi
      *
      * Get Account Details
      *
-     * @param  int $account_id (required)
+     * @param  int $accountId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountAsync($account_id)
+    public function getAccountAsync($accountId)
     {
-        return $this->getAccountAsyncWithHttpInfo($account_id)
+        return $this->getAccountAsyncWithHttpInfo($accountId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4961,15 +4961,15 @@ class ManagementApi
      *
      * Get Account Details
      *
-     * @param  int $account_id (required)
+     * @param  int $accountId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountAsyncWithHttpInfo($account_id)
+    public function getAccountAsyncWithHttpInfo($accountId)
     {
         $returnType = '\TalonOne\Client\Model\Account';
-        $request = $this->getAccountRequest($account_id);
+        $request = $this->getAccountRequest($accountId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5008,17 +5008,17 @@ class ManagementApi
     /**
      * Create request for operation 'getAccount'
      *
-     * @param  int $account_id (required)
+     * @param  int $accountId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAccountRequest($account_id)
+    protected function getAccountRequest($accountId)
     {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+        // verify the required parameter 'accountId' is set
+        if ($accountId === null || (is_array($accountId) && count($accountId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling getAccount'
+                'Missing the required parameter $accountId when calling getAccount'
             );
         }
 
@@ -5031,10 +5031,10 @@ class ManagementApi
 
 
         // path params
-        if ($account_id !== null) {
+        if ($accountId !== null) {
             $resourcePath = str_replace(
                 '{' . 'accountId' . '}',
-                ObjectSerializer::toPathValue($account_id),
+                ObjectSerializer::toPathValue($accountId),
                 $resourcePath
             );
         }
@@ -5113,15 +5113,15 @@ class ManagementApi
      *
      * Get Account Analytics
      *
-     * @param  int $account_id account_id (required)
+     * @param  int $accountId accountId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\AccountAnalytics
      */
-    public function getAccountAnalytics($account_id)
+    public function getAccountAnalytics($accountId)
     {
-        list($response) = $this->getAccountAnalyticsWithHttpInfo($account_id);
+        list($response) = $this->getAccountAnalyticsWithHttpInfo($accountId);
         return $response;
     }
 
@@ -5130,15 +5130,15 @@ class ManagementApi
      *
      * Get Account Analytics
      *
-     * @param  int $account_id (required)
+     * @param  int $accountId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\AccountAnalytics, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountAnalyticsWithHttpInfo($account_id)
+    public function getAccountAnalyticsWithHttpInfo($accountId)
     {
-        $request = $this->getAccountAnalyticsRequest($account_id);
+        $request = $this->getAccountAnalyticsRequest($accountId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5218,14 +5218,14 @@ class ManagementApi
      *
      * Get Account Analytics
      *
-     * @param  int $account_id (required)
+     * @param  int $accountId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountAnalyticsAsync($account_id)
+    public function getAccountAnalyticsAsync($accountId)
     {
-        return $this->getAccountAnalyticsAsyncWithHttpInfo($account_id)
+        return $this->getAccountAnalyticsAsyncWithHttpInfo($accountId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5238,15 +5238,15 @@ class ManagementApi
      *
      * Get Account Analytics
      *
-     * @param  int $account_id (required)
+     * @param  int $accountId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountAnalyticsAsyncWithHttpInfo($account_id)
+    public function getAccountAnalyticsAsyncWithHttpInfo($accountId)
     {
         $returnType = '\TalonOne\Client\Model\AccountAnalytics';
-        $request = $this->getAccountAnalyticsRequest($account_id);
+        $request = $this->getAccountAnalyticsRequest($accountId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5285,17 +5285,17 @@ class ManagementApi
     /**
      * Create request for operation 'getAccountAnalytics'
      *
-     * @param  int $account_id (required)
+     * @param  int $accountId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAccountAnalyticsRequest($account_id)
+    protected function getAccountAnalyticsRequest($accountId)
     {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+        // verify the required parameter 'accountId' is set
+        if ($accountId === null || (is_array($accountId) && count($accountId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling getAccountAnalytics'
+                'Missing the required parameter $accountId when calling getAccountAnalytics'
             );
         }
 
@@ -5308,10 +5308,10 @@ class ManagementApi
 
 
         // path params
-        if ($account_id !== null) {
+        if ($accountId !== null) {
             $resourcePath = str_replace(
                 '{' . 'accountId' . '}',
-                ObjectSerializer::toPathValue($account_id),
+                ObjectSerializer::toPathValue($accountId),
                 $resourcePath
             );
         }
@@ -5390,15 +5390,15 @@ class ManagementApi
      *
      * Get an additional cost
      *
-     * @param  int $additional_cost_id additional_cost_id (required)
+     * @param  int $additionalCostId additionalCostId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\AccountAdditionalCost
      */
-    public function getAdditionalCost($additional_cost_id)
+    public function getAdditionalCost($additionalCostId)
     {
-        list($response) = $this->getAdditionalCostWithHttpInfo($additional_cost_id);
+        list($response) = $this->getAdditionalCostWithHttpInfo($additionalCostId);
         return $response;
     }
 
@@ -5407,15 +5407,15 @@ class ManagementApi
      *
      * Get an additional cost
      *
-     * @param  int $additional_cost_id (required)
+     * @param  int $additionalCostId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\AccountAdditionalCost, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAdditionalCostWithHttpInfo($additional_cost_id)
+    public function getAdditionalCostWithHttpInfo($additionalCostId)
     {
-        $request = $this->getAdditionalCostRequest($additional_cost_id);
+        $request = $this->getAdditionalCostRequest($additionalCostId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5495,14 +5495,14 @@ class ManagementApi
      *
      * Get an additional cost
      *
-     * @param  int $additional_cost_id (required)
+     * @param  int $additionalCostId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAdditionalCostAsync($additional_cost_id)
+    public function getAdditionalCostAsync($additionalCostId)
     {
-        return $this->getAdditionalCostAsyncWithHttpInfo($additional_cost_id)
+        return $this->getAdditionalCostAsyncWithHttpInfo($additionalCostId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5515,15 +5515,15 @@ class ManagementApi
      *
      * Get an additional cost
      *
-     * @param  int $additional_cost_id (required)
+     * @param  int $additionalCostId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAdditionalCostAsyncWithHttpInfo($additional_cost_id)
+    public function getAdditionalCostAsyncWithHttpInfo($additionalCostId)
     {
         $returnType = '\TalonOne\Client\Model\AccountAdditionalCost';
-        $request = $this->getAdditionalCostRequest($additional_cost_id);
+        $request = $this->getAdditionalCostRequest($additionalCostId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5562,17 +5562,17 @@ class ManagementApi
     /**
      * Create request for operation 'getAdditionalCost'
      *
-     * @param  int $additional_cost_id (required)
+     * @param  int $additionalCostId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAdditionalCostRequest($additional_cost_id)
+    protected function getAdditionalCostRequest($additionalCostId)
     {
-        // verify the required parameter 'additional_cost_id' is set
-        if ($additional_cost_id === null || (is_array($additional_cost_id) && count($additional_cost_id) === 0)) {
+        // verify the required parameter 'additionalCostId' is set
+        if ($additionalCostId === null || (is_array($additionalCostId) && count($additionalCostId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $additional_cost_id when calling getAdditionalCost'
+                'Missing the required parameter $additionalCostId when calling getAdditionalCost'
             );
         }
 
@@ -5585,10 +5585,10 @@ class ManagementApi
 
 
         // path params
-        if ($additional_cost_id !== null) {
+        if ($additionalCostId !== null) {
             $resourcePath = str_replace(
                 '{' . 'additionalCostId' . '}',
-                ObjectSerializer::toPathValue($additional_cost_id),
+                ObjectSerializer::toPathValue($additionalCostId),
                 $resourcePath
             );
         }
@@ -5667,7 +5667,7 @@ class ManagementApi
      *
      * List additional costs
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -5675,9 +5675,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20021
      */
-    public function getAdditionalCosts($page_size = null, $skip = null, $sort = null)
+    public function getAdditionalCosts($pageSize = null, $skip = null, $sort = null)
     {
-        list($response) = $this->getAdditionalCostsWithHttpInfo($page_size, $skip, $sort);
+        list($response) = $this->getAdditionalCostsWithHttpInfo($pageSize, $skip, $sort);
         return $response;
     }
 
@@ -5686,7 +5686,7 @@ class ManagementApi
      *
      * List additional costs
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -5694,9 +5694,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20021, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAdditionalCostsWithHttpInfo($page_size = null, $skip = null, $sort = null)
+    public function getAdditionalCostsWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getAdditionalCostsRequest($page_size, $skip, $sort);
+        $request = $this->getAdditionalCostsRequest($pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5776,16 +5776,16 @@ class ManagementApi
      *
      * List additional costs
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAdditionalCostsAsync($page_size = null, $skip = null, $sort = null)
+    public function getAdditionalCostsAsync($pageSize = null, $skip = null, $sort = null)
     {
-        return $this->getAdditionalCostsAsyncWithHttpInfo($page_size, $skip, $sort)
+        return $this->getAdditionalCostsAsyncWithHttpInfo($pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5798,17 +5798,17 @@ class ManagementApi
      *
      * List additional costs
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAdditionalCostsAsyncWithHttpInfo($page_size = null, $skip = null, $sort = null)
+    public function getAdditionalCostsAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20021';
-        $request = $this->getAdditionalCostsRequest($page_size, $skip, $sort);
+        $request = $this->getAdditionalCostsRequest($pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5847,14 +5847,14 @@ class ManagementApi
     /**
      * Create request for operation 'getAdditionalCosts'
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAdditionalCostsRequest($page_size = null, $skip = null, $sort = null)
+    protected function getAdditionalCostsRequest($pageSize = null, $skip = null, $sort = null)
     {
 
         $resourcePath = '/v1/additional_costs';
@@ -5865,8 +5865,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -5952,12 +5952,12 @@ class ManagementApi
      *
      * Get all access logs
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -5965,9 +5965,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2009
      */
-    public function getAllAccessLogs($range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    public function getAllAccessLogs($rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        list($response) = $this->getAllAccessLogsWithHttpInfo($range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort);
+        list($response) = $this->getAllAccessLogsWithHttpInfo($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
         return $response;
     }
 
@@ -5976,12 +5976,12 @@ class ManagementApi
      *
      * Get all access logs
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -5989,9 +5989,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllAccessLogsWithHttpInfo($range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    public function getAllAccessLogsWithHttpInfo($rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getAllAccessLogsRequest($range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort);
+        $request = $this->getAllAccessLogsRequest($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6071,21 +6071,21 @@ class ManagementApi
      *
      * Get all access logs
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllAccessLogsAsync($range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    public function getAllAccessLogsAsync($rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        return $this->getAllAccessLogsAsyncWithHttpInfo($range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort)
+        return $this->getAllAccessLogsAsyncWithHttpInfo($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6098,22 +6098,22 @@ class ManagementApi
      *
      * Get all access logs
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllAccessLogsAsyncWithHttpInfo($range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    public function getAllAccessLogsAsyncWithHttpInfo($rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2009';
-        $request = $this->getAllAccessLogsRequest($range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort);
+        $request = $this->getAllAccessLogsRequest($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6152,30 +6152,30 @@ class ManagementApi
     /**
      * Create request for operation 'getAllAccessLogs'
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $path Only return results where the request path matches the given regular expression. (optional)
      * @param  string $method Only return results where the request method matches the given regular expression. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAllAccessLogsRequest($range_start, $range_end, $path = null, $method = null, $status = null, $page_size = null, $skip = null, $sort = null)
+    protected function getAllAccessLogsRequest($rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        // verify the required parameter 'range_start' is set
-        if ($range_start === null || (is_array($range_start) && count($range_start) === 0)) {
+        // verify the required parameter 'rangeStart' is set
+        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_start when calling getAllAccessLogs'
+                'Missing the required parameter $rangeStart when calling getAllAccessLogs'
             );
         }
-        // verify the required parameter 'range_end' is set
-        if ($range_end === null || (is_array($range_end) && count($range_end) === 0)) {
+        // verify the required parameter 'rangeEnd' is set
+        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_end when calling getAllAccessLogs'
+                'Missing the required parameter $rangeEnd when calling getAllAccessLogs'
             );
         }
 
@@ -6187,12 +6187,12 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($range_start !== null) {
-            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($range_start);
+        if ($rangeStart !== null) {
+            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($rangeStart);
         }
         // query params
-        if ($range_end !== null) {
-            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($range_end);
+        if ($rangeEnd !== null) {
+            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($rangeEnd);
         }
         // query params
         if ($path !== null) {
@@ -6207,8 +6207,8 @@ class ManagementApi
             $queryParams['status'] = ObjectSerializer::toQueryValue($status);
         }
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -6552,15 +6552,15 @@ class ManagementApi
      *
      * Get Application
      *
-     * @param  int $application_id application_id (required)
+     * @param  int $applicationId applicationId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Application
      */
-    public function getApplication($application_id)
+    public function getApplication($applicationId)
     {
-        list($response) = $this->getApplicationWithHttpInfo($application_id);
+        list($response) = $this->getApplicationWithHttpInfo($applicationId);
         return $response;
     }
 
@@ -6569,15 +6569,15 @@ class ManagementApi
      *
      * Get Application
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Application, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationWithHttpInfo($application_id)
+    public function getApplicationWithHttpInfo($applicationId)
     {
-        $request = $this->getApplicationRequest($application_id);
+        $request = $this->getApplicationRequest($applicationId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6657,14 +6657,14 @@ class ManagementApi
      *
      * Get Application
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationAsync($application_id)
+    public function getApplicationAsync($applicationId)
     {
-        return $this->getApplicationAsyncWithHttpInfo($application_id)
+        return $this->getApplicationAsyncWithHttpInfo($applicationId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6677,15 +6677,15 @@ class ManagementApi
      *
      * Get Application
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationAsyncWithHttpInfo($application_id)
+    public function getApplicationAsyncWithHttpInfo($applicationId)
     {
         $returnType = '\TalonOne\Client\Model\Application';
-        $request = $this->getApplicationRequest($application_id);
+        $request = $this->getApplicationRequest($applicationId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6724,17 +6724,17 @@ class ManagementApi
     /**
      * Create request for operation 'getApplication'
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationRequest($application_id)
+    protected function getApplicationRequest($applicationId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getApplication'
+                'Missing the required parameter $applicationId when calling getApplication'
             );
         }
 
@@ -6747,10 +6747,10 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -6829,15 +6829,15 @@ class ManagementApi
      *
      * Get report of health of application API
      *
-     * @param  int $application_id application_id (required)
+     * @param  int $applicationId applicationId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\ApplicationApiHealth
      */
-    public function getApplicationApiHealth($application_id)
+    public function getApplicationApiHealth($applicationId)
     {
-        list($response) = $this->getApplicationApiHealthWithHttpInfo($application_id);
+        list($response) = $this->getApplicationApiHealthWithHttpInfo($applicationId);
         return $response;
     }
 
@@ -6846,15 +6846,15 @@ class ManagementApi
      *
      * Get report of health of application API
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\ApplicationApiHealth, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationApiHealthWithHttpInfo($application_id)
+    public function getApplicationApiHealthWithHttpInfo($applicationId)
     {
-        $request = $this->getApplicationApiHealthRequest($application_id);
+        $request = $this->getApplicationApiHealthRequest($applicationId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6934,14 +6934,14 @@ class ManagementApi
      *
      * Get report of health of application API
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationApiHealthAsync($application_id)
+    public function getApplicationApiHealthAsync($applicationId)
     {
-        return $this->getApplicationApiHealthAsyncWithHttpInfo($application_id)
+        return $this->getApplicationApiHealthAsyncWithHttpInfo($applicationId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6954,15 +6954,15 @@ class ManagementApi
      *
      * Get report of health of application API
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationApiHealthAsyncWithHttpInfo($application_id)
+    public function getApplicationApiHealthAsyncWithHttpInfo($applicationId)
     {
         $returnType = '\TalonOne\Client\Model\ApplicationApiHealth';
-        $request = $this->getApplicationApiHealthRequest($application_id);
+        $request = $this->getApplicationApiHealthRequest($applicationId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7001,17 +7001,17 @@ class ManagementApi
     /**
      * Create request for operation 'getApplicationApiHealth'
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationApiHealthRequest($application_id)
+    protected function getApplicationApiHealthRequest($applicationId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getApplicationApiHealth'
+                'Missing the required parameter $applicationId when calling getApplicationApiHealth'
             );
         }
 
@@ -7024,10 +7024,10 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -7106,16 +7106,16 @@ class ManagementApi
      *
      * Get Application Customer
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $customer_id customer_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $customerId customerId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\ApplicationCustomer
      */
-    public function getApplicationCustomer($application_id, $customer_id)
+    public function getApplicationCustomer($applicationId, $customerId)
     {
-        list($response) = $this->getApplicationCustomerWithHttpInfo($application_id, $customer_id);
+        list($response) = $this->getApplicationCustomerWithHttpInfo($applicationId, $customerId);
         return $response;
     }
 
@@ -7124,16 +7124,16 @@ class ManagementApi
      *
      * Get Application Customer
      *
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\ApplicationCustomer, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationCustomerWithHttpInfo($application_id, $customer_id)
+    public function getApplicationCustomerWithHttpInfo($applicationId, $customerId)
     {
-        $request = $this->getApplicationCustomerRequest($application_id, $customer_id);
+        $request = $this->getApplicationCustomerRequest($applicationId, $customerId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7213,15 +7213,15 @@ class ManagementApi
      *
      * Get Application Customer
      *
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationCustomerAsync($application_id, $customer_id)
+    public function getApplicationCustomerAsync($applicationId, $customerId)
     {
-        return $this->getApplicationCustomerAsyncWithHttpInfo($application_id, $customer_id)
+        return $this->getApplicationCustomerAsyncWithHttpInfo($applicationId, $customerId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7234,16 +7234,16 @@ class ManagementApi
      *
      * Get Application Customer
      *
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationCustomerAsyncWithHttpInfo($application_id, $customer_id)
+    public function getApplicationCustomerAsyncWithHttpInfo($applicationId, $customerId)
     {
         $returnType = '\TalonOne\Client\Model\ApplicationCustomer';
-        $request = $this->getApplicationCustomerRequest($application_id, $customer_id);
+        $request = $this->getApplicationCustomerRequest($applicationId, $customerId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7282,24 +7282,24 @@ class ManagementApi
     /**
      * Create request for operation 'getApplicationCustomer'
      *
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationCustomerRequest($application_id, $customer_id)
+    protected function getApplicationCustomerRequest($applicationId, $customerId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getApplicationCustomer'
+                'Missing the required parameter $applicationId when calling getApplicationCustomer'
             );
         }
-        // verify the required parameter 'customer_id' is set
-        if ($customer_id === null || (is_array($customer_id) && count($customer_id) === 0)) {
+        // verify the required parameter 'customerId' is set
+        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customer_id when calling getApplicationCustomer'
+                'Missing the required parameter $customerId when calling getApplicationCustomer'
             );
         }
 
@@ -7312,18 +7312,18 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($customer_id !== null) {
+        if ($customerId !== null) {
             $resourcePath = str_replace(
                 '{' . 'customerId' . '}',
-                ObjectSerializer::toPathValue($customer_id),
+                ObjectSerializer::toPathValue($customerId),
                 $resourcePath
             );
         }
@@ -7402,15 +7402,15 @@ class ManagementApi
      *
      * List Application Customers
      *
-     * @param  int $application_id application_id (required)
+     * @param  int $applicationId applicationId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20012
      */
-    public function getApplicationCustomers($application_id)
+    public function getApplicationCustomers($applicationId)
     {
-        list($response) = $this->getApplicationCustomersWithHttpInfo($application_id);
+        list($response) = $this->getApplicationCustomersWithHttpInfo($applicationId);
         return $response;
     }
 
@@ -7419,15 +7419,15 @@ class ManagementApi
      *
      * List Application Customers
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationCustomersWithHttpInfo($application_id)
+    public function getApplicationCustomersWithHttpInfo($applicationId)
     {
-        $request = $this->getApplicationCustomersRequest($application_id);
+        $request = $this->getApplicationCustomersRequest($applicationId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7507,14 +7507,14 @@ class ManagementApi
      *
      * List Application Customers
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationCustomersAsync($application_id)
+    public function getApplicationCustomersAsync($applicationId)
     {
-        return $this->getApplicationCustomersAsyncWithHttpInfo($application_id)
+        return $this->getApplicationCustomersAsyncWithHttpInfo($applicationId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7527,15 +7527,15 @@ class ManagementApi
      *
      * List Application Customers
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationCustomersAsyncWithHttpInfo($application_id)
+    public function getApplicationCustomersAsyncWithHttpInfo($applicationId)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20012';
-        $request = $this->getApplicationCustomersRequest($application_id);
+        $request = $this->getApplicationCustomersRequest($applicationId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7574,17 +7574,17 @@ class ManagementApi
     /**
      * Create request for operation 'getApplicationCustomers'
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationCustomersRequest($application_id)
+    protected function getApplicationCustomersRequest($applicationId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getApplicationCustomers'
+                'Missing the required parameter $applicationId when calling getApplicationCustomers'
             );
         }
 
@@ -7597,10 +7597,10 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -7951,8 +7951,8 @@ class ManagementApi
      *
      * List Applications Event Types
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -7960,9 +7960,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20019
      */
-    public function getApplicationEventTypes($application_id, $page_size = null, $skip = null, $sort = null)
+    public function getApplicationEventTypes($applicationId, $pageSize = null, $skip = null, $sort = null)
     {
-        list($response) = $this->getApplicationEventTypesWithHttpInfo($application_id, $page_size, $skip, $sort);
+        list($response) = $this->getApplicationEventTypesWithHttpInfo($applicationId, $pageSize, $skip, $sort);
         return $response;
     }
 
@@ -7971,8 +7971,8 @@ class ManagementApi
      *
      * List Applications Event Types
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -7980,9 +7980,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20019, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationEventTypesWithHttpInfo($application_id, $page_size = null, $skip = null, $sort = null)
+    public function getApplicationEventTypesWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getApplicationEventTypesRequest($application_id, $page_size, $skip, $sort);
+        $request = $this->getApplicationEventTypesRequest($applicationId, $pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8062,17 +8062,17 @@ class ManagementApi
      *
      * List Applications Event Types
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationEventTypesAsync($application_id, $page_size = null, $skip = null, $sort = null)
+    public function getApplicationEventTypesAsync($applicationId, $pageSize = null, $skip = null, $sort = null)
     {
-        return $this->getApplicationEventTypesAsyncWithHttpInfo($application_id, $page_size, $skip, $sort)
+        return $this->getApplicationEventTypesAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8085,18 +8085,18 @@ class ManagementApi
      *
      * List Applications Event Types
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationEventTypesAsyncWithHttpInfo($application_id, $page_size = null, $skip = null, $sort = null)
+    public function getApplicationEventTypesAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20019';
-        $request = $this->getApplicationEventTypesRequest($application_id, $page_size, $skip, $sort);
+        $request = $this->getApplicationEventTypesRequest($applicationId, $pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8135,20 +8135,20 @@ class ManagementApi
     /**
      * Create request for operation 'getApplicationEventTypes'
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationEventTypesRequest($application_id, $page_size = null, $skip = null, $sort = null)
+    protected function getApplicationEventTypesRequest($applicationId, $pageSize = null, $skip = null, $sort = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getApplicationEventTypes'
+                'Missing the required parameter $applicationId when calling getApplicationEventTypes'
             );
         }
 
@@ -8160,8 +8160,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -8173,10 +8173,10 @@ class ManagementApi
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -8255,29 +8255,29 @@ class ManagementApi
      *
      * List Applications Events
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $created_before Only return events created before this date (optional)
-     * @param  \DateTime $created_after Only return events created after this date (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
      * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customer_name Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customer_email Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $coupon_code Coupon code (optional)
-     * @param  string $referral_code Referral code (optional)
-     * @param  string $rule_query Rule name filter for events (optional)
-     * @param  string $campaign_query Campaign name filter for events (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20017
      */
-    public function getApplicationEvents($application_id, $page_size = null, $skip = null, $sort = null, $type = null, $created_before = null, $created_after = null, $session = null, $profile = null, $customer_name = null, $customer_email = null, $coupon_code = null, $referral_code = null, $rule_query = null, $campaign_query = null)
+    public function getApplicationEvents($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
-        list($response) = $this->getApplicationEventsWithHttpInfo($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query);
+        list($response) = $this->getApplicationEventsWithHttpInfo($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
         return $response;
     }
 
@@ -8286,29 +8286,29 @@ class ManagementApi
      *
      * List Applications Events
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $created_before Only return events created before this date (optional)
-     * @param  \DateTime $created_after Only return events created after this date (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
      * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customer_name Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customer_email Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $coupon_code Coupon code (optional)
-     * @param  string $referral_code Referral code (optional)
-     * @param  string $rule_query Rule name filter for events (optional)
-     * @param  string $campaign_query Campaign name filter for events (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20017, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationEventsWithHttpInfo($application_id, $page_size = null, $skip = null, $sort = null, $type = null, $created_before = null, $created_after = null, $session = null, $profile = null, $customer_name = null, $customer_email = null, $coupon_code = null, $referral_code = null, $rule_query = null, $campaign_query = null)
+    public function getApplicationEventsWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
-        $request = $this->getApplicationEventsRequest($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query);
+        $request = $this->getApplicationEventsRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8388,28 +8388,28 @@ class ManagementApi
      *
      * List Applications Events
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $created_before Only return events created before this date (optional)
-     * @param  \DateTime $created_after Only return events created after this date (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
      * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customer_name Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customer_email Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $coupon_code Coupon code (optional)
-     * @param  string $referral_code Referral code (optional)
-     * @param  string $rule_query Rule name filter for events (optional)
-     * @param  string $campaign_query Campaign name filter for events (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationEventsAsync($application_id, $page_size = null, $skip = null, $sort = null, $type = null, $created_before = null, $created_after = null, $session = null, $profile = null, $customer_name = null, $customer_email = null, $coupon_code = null, $referral_code = null, $rule_query = null, $campaign_query = null)
+    public function getApplicationEventsAsync($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
-        return $this->getApplicationEventsAsyncWithHttpInfo($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query)
+        return $this->getApplicationEventsAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8422,29 +8422,29 @@ class ManagementApi
      *
      * List Applications Events
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $created_before Only return events created before this date (optional)
-     * @param  \DateTime $created_after Only return events created after this date (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
      * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customer_name Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customer_email Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $coupon_code Coupon code (optional)
-     * @param  string $referral_code Referral code (optional)
-     * @param  string $rule_query Rule name filter for events (optional)
-     * @param  string $campaign_query Campaign name filter for events (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationEventsAsyncWithHttpInfo($application_id, $page_size = null, $skip = null, $sort = null, $type = null, $created_before = null, $created_after = null, $session = null, $profile = null, $customer_name = null, $customer_email = null, $coupon_code = null, $referral_code = null, $rule_query = null, $campaign_query = null)
+    public function getApplicationEventsAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20017';
-        $request = $this->getApplicationEventsRequest($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query);
+        $request = $this->getApplicationEventsRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8483,39 +8483,39 @@ class ManagementApi
     /**
      * Create request for operation 'getApplicationEvents'
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $created_before Only return events created before this date (optional)
-     * @param  \DateTime $created_after Only return events created after this date (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
      * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customer_name Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customer_email Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $coupon_code Coupon code (optional)
-     * @param  string $referral_code Referral code (optional)
-     * @param  string $rule_query Rule name filter for events (optional)
-     * @param  string $campaign_query Campaign name filter for events (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationEventsRequest($application_id, $page_size = null, $skip = null, $sort = null, $type = null, $created_before = null, $created_after = null, $session = null, $profile = null, $customer_name = null, $customer_email = null, $coupon_code = null, $referral_code = null, $rule_query = null, $campaign_query = null)
+    protected function getApplicationEventsRequest($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getApplicationEvents'
+                'Missing the required parameter $applicationId when calling getApplicationEvents'
             );
         }
-        if ($customer_name !== null && strlen($customer_name) < 2) {
-            throw new \InvalidArgumentException('invalid length for "$customer_name" when calling ManagementApi.getApplicationEvents, must be bigger than or equal to 2.');
+        if ($customerName !== null && strlen($customerName) < 2) {
+            throw new \InvalidArgumentException('invalid length for "$customerName" when calling ManagementApi.getApplicationEvents, must be bigger than or equal to 2.');
         }
 
-        if ($customer_email !== null && strlen($customer_email) < 2) {
-            throw new \InvalidArgumentException('invalid length for "$customer_email" when calling ManagementApi.getApplicationEvents, must be bigger than or equal to 2.');
+        if ($customerEmail !== null && strlen($customerEmail) < 2) {
+            throw new \InvalidArgumentException('invalid length for "$customerEmail" when calling ManagementApi.getApplicationEvents, must be bigger than or equal to 2.');
         }
 
 
@@ -8527,8 +8527,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -8543,12 +8543,12 @@ class ManagementApi
             $queryParams['type'] = ObjectSerializer::toQueryValue($type);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
         if ($session !== null) {
@@ -8559,35 +8559,35 @@ class ManagementApi
             $queryParams['profile'] = ObjectSerializer::toQueryValue($profile);
         }
         // query params
-        if ($customer_name !== null) {
-            $queryParams['customerName'] = ObjectSerializer::toQueryValue($customer_name);
+        if ($customerName !== null) {
+            $queryParams['customerName'] = ObjectSerializer::toQueryValue($customerName);
         }
         // query params
-        if ($customer_email !== null) {
-            $queryParams['customerEmail'] = ObjectSerializer::toQueryValue($customer_email);
+        if ($customerEmail !== null) {
+            $queryParams['customerEmail'] = ObjectSerializer::toQueryValue($customerEmail);
         }
         // query params
-        if ($coupon_code !== null) {
-            $queryParams['couponCode'] = ObjectSerializer::toQueryValue($coupon_code);
+        if ($couponCode !== null) {
+            $queryParams['couponCode'] = ObjectSerializer::toQueryValue($couponCode);
         }
         // query params
-        if ($referral_code !== null) {
-            $queryParams['referralCode'] = ObjectSerializer::toQueryValue($referral_code);
+        if ($referralCode !== null) {
+            $queryParams['referralCode'] = ObjectSerializer::toQueryValue($referralCode);
         }
         // query params
-        if ($rule_query !== null) {
-            $queryParams['ruleQuery'] = ObjectSerializer::toQueryValue($rule_query);
+        if ($ruleQuery !== null) {
+            $queryParams['ruleQuery'] = ObjectSerializer::toQueryValue($ruleQuery);
         }
         // query params
-        if ($campaign_query !== null) {
-            $queryParams['campaignQuery'] = ObjectSerializer::toQueryValue($campaign_query);
+        if ($campaignQuery !== null) {
+            $queryParams['campaignQuery'] = ObjectSerializer::toQueryValue($campaignQuery);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -8666,29 +8666,29 @@ class ManagementApi
      *
      * List Applications Events
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $created_before Only return events created before this date (optional)
-     * @param  \DateTime $created_after Only return events created after this date (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
      * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customer_name Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customer_email Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $coupon_code Coupon code (optional)
-     * @param  string $referral_code Referral code (optional)
-     * @param  string $rule_query Rule name filter for events (optional)
-     * @param  string $campaign_query Campaign name filter for events (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20018
      */
-    public function getApplicationEventsWithoutTotalCount($application_id, $page_size = null, $skip = null, $sort = null, $type = null, $created_before = null, $created_after = null, $session = null, $profile = null, $customer_name = null, $customer_email = null, $coupon_code = null, $referral_code = null, $rule_query = null, $campaign_query = null)
+    public function getApplicationEventsWithoutTotalCount($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
-        list($response) = $this->getApplicationEventsWithoutTotalCountWithHttpInfo($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query);
+        list($response) = $this->getApplicationEventsWithoutTotalCountWithHttpInfo($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
         return $response;
     }
 
@@ -8697,29 +8697,29 @@ class ManagementApi
      *
      * List Applications Events
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $created_before Only return events created before this date (optional)
-     * @param  \DateTime $created_after Only return events created after this date (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
      * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customer_name Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customer_email Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $coupon_code Coupon code (optional)
-     * @param  string $referral_code Referral code (optional)
-     * @param  string $rule_query Rule name filter for events (optional)
-     * @param  string $campaign_query Campaign name filter for events (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20018, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationEventsWithoutTotalCountWithHttpInfo($application_id, $page_size = null, $skip = null, $sort = null, $type = null, $created_before = null, $created_after = null, $session = null, $profile = null, $customer_name = null, $customer_email = null, $coupon_code = null, $referral_code = null, $rule_query = null, $campaign_query = null)
+    public function getApplicationEventsWithoutTotalCountWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
-        $request = $this->getApplicationEventsWithoutTotalCountRequest($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query);
+        $request = $this->getApplicationEventsWithoutTotalCountRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8799,28 +8799,28 @@ class ManagementApi
      *
      * List Applications Events
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $created_before Only return events created before this date (optional)
-     * @param  \DateTime $created_after Only return events created after this date (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
      * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customer_name Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customer_email Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $coupon_code Coupon code (optional)
-     * @param  string $referral_code Referral code (optional)
-     * @param  string $rule_query Rule name filter for events (optional)
-     * @param  string $campaign_query Campaign name filter for events (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationEventsWithoutTotalCountAsync($application_id, $page_size = null, $skip = null, $sort = null, $type = null, $created_before = null, $created_after = null, $session = null, $profile = null, $customer_name = null, $customer_email = null, $coupon_code = null, $referral_code = null, $rule_query = null, $campaign_query = null)
+    public function getApplicationEventsWithoutTotalCountAsync($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
-        return $this->getApplicationEventsWithoutTotalCountAsyncWithHttpInfo($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query)
+        return $this->getApplicationEventsWithoutTotalCountAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8833,29 +8833,29 @@ class ManagementApi
      *
      * List Applications Events
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $created_before Only return events created before this date (optional)
-     * @param  \DateTime $created_after Only return events created after this date (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
      * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customer_name Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customer_email Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $coupon_code Coupon code (optional)
-     * @param  string $referral_code Referral code (optional)
-     * @param  string $rule_query Rule name filter for events (optional)
-     * @param  string $campaign_query Campaign name filter for events (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationEventsWithoutTotalCountAsyncWithHttpInfo($application_id, $page_size = null, $skip = null, $sort = null, $type = null, $created_before = null, $created_after = null, $session = null, $profile = null, $customer_name = null, $customer_email = null, $coupon_code = null, $referral_code = null, $rule_query = null, $campaign_query = null)
+    public function getApplicationEventsWithoutTotalCountAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20018';
-        $request = $this->getApplicationEventsWithoutTotalCountRequest($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query);
+        $request = $this->getApplicationEventsWithoutTotalCountRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8894,39 +8894,39 @@ class ManagementApi
     /**
      * Create request for operation 'getApplicationEventsWithoutTotalCount'
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $created_before Only return events created before this date (optional)
-     * @param  \DateTime $created_after Only return events created after this date (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
      * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customer_name Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customer_email Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $coupon_code Coupon code (optional)
-     * @param  string $referral_code Referral code (optional)
-     * @param  string $rule_query Rule name filter for events (optional)
-     * @param  string $campaign_query Campaign name filter for events (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationEventsWithoutTotalCountRequest($application_id, $page_size = null, $skip = null, $sort = null, $type = null, $created_before = null, $created_after = null, $session = null, $profile = null, $customer_name = null, $customer_email = null, $coupon_code = null, $referral_code = null, $rule_query = null, $campaign_query = null)
+    protected function getApplicationEventsWithoutTotalCountRequest($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getApplicationEventsWithoutTotalCount'
+                'Missing the required parameter $applicationId when calling getApplicationEventsWithoutTotalCount'
             );
         }
-        if ($customer_name !== null && strlen($customer_name) < 2) {
-            throw new \InvalidArgumentException('invalid length for "$customer_name" when calling ManagementApi.getApplicationEventsWithoutTotalCount, must be bigger than or equal to 2.');
+        if ($customerName !== null && strlen($customerName) < 2) {
+            throw new \InvalidArgumentException('invalid length for "$customerName" when calling ManagementApi.getApplicationEventsWithoutTotalCount, must be bigger than or equal to 2.');
         }
 
-        if ($customer_email !== null && strlen($customer_email) < 2) {
-            throw new \InvalidArgumentException('invalid length for "$customer_email" when calling ManagementApi.getApplicationEventsWithoutTotalCount, must be bigger than or equal to 2.');
+        if ($customerEmail !== null && strlen($customerEmail) < 2) {
+            throw new \InvalidArgumentException('invalid length for "$customerEmail" when calling ManagementApi.getApplicationEventsWithoutTotalCount, must be bigger than or equal to 2.');
         }
 
 
@@ -8938,8 +8938,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -8954,12 +8954,12 @@ class ManagementApi
             $queryParams['type'] = ObjectSerializer::toQueryValue($type);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
         if ($session !== null) {
@@ -8970,35 +8970,35 @@ class ManagementApi
             $queryParams['profile'] = ObjectSerializer::toQueryValue($profile);
         }
         // query params
-        if ($customer_name !== null) {
-            $queryParams['customerName'] = ObjectSerializer::toQueryValue($customer_name);
+        if ($customerName !== null) {
+            $queryParams['customerName'] = ObjectSerializer::toQueryValue($customerName);
         }
         // query params
-        if ($customer_email !== null) {
-            $queryParams['customerEmail'] = ObjectSerializer::toQueryValue($customer_email);
+        if ($customerEmail !== null) {
+            $queryParams['customerEmail'] = ObjectSerializer::toQueryValue($customerEmail);
         }
         // query params
-        if ($coupon_code !== null) {
-            $queryParams['couponCode'] = ObjectSerializer::toQueryValue($coupon_code);
+        if ($couponCode !== null) {
+            $queryParams['couponCode'] = ObjectSerializer::toQueryValue($couponCode);
         }
         // query params
-        if ($referral_code !== null) {
-            $queryParams['referralCode'] = ObjectSerializer::toQueryValue($referral_code);
+        if ($referralCode !== null) {
+            $queryParams['referralCode'] = ObjectSerializer::toQueryValue($referralCode);
         }
         // query params
-        if ($rule_query !== null) {
-            $queryParams['ruleQuery'] = ObjectSerializer::toQueryValue($rule_query);
+        if ($ruleQuery !== null) {
+            $queryParams['ruleQuery'] = ObjectSerializer::toQueryValue($ruleQuery);
         }
         // query params
-        if ($campaign_query !== null) {
-            $queryParams['campaignQuery'] = ObjectSerializer::toQueryValue($campaign_query);
+        if ($campaignQuery !== null) {
+            $queryParams['campaignQuery'] = ObjectSerializer::toQueryValue($campaignQuery);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -9077,16 +9077,16 @@ class ManagementApi
      *
      * Get Application Session
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $session_id session_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $sessionId sessionId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\ApplicationSession
      */
-    public function getApplicationSession($application_id, $session_id)
+    public function getApplicationSession($applicationId, $sessionId)
     {
-        list($response) = $this->getApplicationSessionWithHttpInfo($application_id, $session_id);
+        list($response) = $this->getApplicationSessionWithHttpInfo($applicationId, $sessionId);
         return $response;
     }
 
@@ -9095,16 +9095,16 @@ class ManagementApi
      *
      * Get Application Session
      *
-     * @param  int $application_id (required)
-     * @param  int $session_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $sessionId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\ApplicationSession, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationSessionWithHttpInfo($application_id, $session_id)
+    public function getApplicationSessionWithHttpInfo($applicationId, $sessionId)
     {
-        $request = $this->getApplicationSessionRequest($application_id, $session_id);
+        $request = $this->getApplicationSessionRequest($applicationId, $sessionId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9184,15 +9184,15 @@ class ManagementApi
      *
      * Get Application Session
      *
-     * @param  int $application_id (required)
-     * @param  int $session_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $sessionId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationSessionAsync($application_id, $session_id)
+    public function getApplicationSessionAsync($applicationId, $sessionId)
     {
-        return $this->getApplicationSessionAsyncWithHttpInfo($application_id, $session_id)
+        return $this->getApplicationSessionAsyncWithHttpInfo($applicationId, $sessionId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9205,16 +9205,16 @@ class ManagementApi
      *
      * Get Application Session
      *
-     * @param  int $application_id (required)
-     * @param  int $session_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $sessionId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationSessionAsyncWithHttpInfo($application_id, $session_id)
+    public function getApplicationSessionAsyncWithHttpInfo($applicationId, $sessionId)
     {
         $returnType = '\TalonOne\Client\Model\ApplicationSession';
-        $request = $this->getApplicationSessionRequest($application_id, $session_id);
+        $request = $this->getApplicationSessionRequest($applicationId, $sessionId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9253,24 +9253,24 @@ class ManagementApi
     /**
      * Create request for operation 'getApplicationSession'
      *
-     * @param  int $application_id (required)
-     * @param  int $session_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $sessionId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationSessionRequest($application_id, $session_id)
+    protected function getApplicationSessionRequest($applicationId, $sessionId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getApplicationSession'
+                'Missing the required parameter $applicationId when calling getApplicationSession'
             );
         }
-        // verify the required parameter 'session_id' is set
-        if ($session_id === null || (is_array($session_id) && count($session_id) === 0)) {
+        // verify the required parameter 'sessionId' is set
+        if ($sessionId === null || (is_array($sessionId) && count($sessionId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $session_id when calling getApplicationSession'
+                'Missing the required parameter $sessionId when calling getApplicationSession'
             );
         }
 
@@ -9283,18 +9283,18 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($session_id !== null) {
+        if ($sessionId !== null) {
             $resourcePath = str_replace(
                 '{' . 'sessionId' . '}',
-                ObjectSerializer::toPathValue($session_id),
+                ObjectSerializer::toPathValue($sessionId),
                 $resourcePath
             );
         }
@@ -9373,24 +9373,24 @@ class ManagementApi
      *
      * List Application Sessions
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
-     * @param  string $integration_id Filter by sessions with this integrationId. Must be exact match. (optional)
-     * @param  string $customer_id Filter by integration ID of the customer for the session (optional)
+     * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
+     * @param  string $customerId Filter by integration ID of the customer for the session (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20016
      */
-    public function getApplicationSessions($application_id, $page_size = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integration_id = null, $customer_id = null)
+    public function getApplicationSessions($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integrationId = null, $customerId = null)
     {
-        list($response) = $this->getApplicationSessionsWithHttpInfo($application_id, $page_size, $skip, $sort, $profile, $state, $coupon, $referral, $integration_id, $customer_id);
+        list($response) = $this->getApplicationSessionsWithHttpInfo($applicationId, $pageSize, $skip, $sort, $profile, $state, $coupon, $referral, $integrationId, $customerId);
         return $response;
     }
 
@@ -9399,24 +9399,24 @@ class ManagementApi
      *
      * List Application Sessions
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
-     * @param  string $integration_id Filter by sessions with this integrationId. Must be exact match. (optional)
-     * @param  string $customer_id Filter by integration ID of the customer for the session (optional)
+     * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
+     * @param  string $customerId Filter by integration ID of the customer for the session (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20016, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationSessionsWithHttpInfo($application_id, $page_size = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integration_id = null, $customer_id = null)
+    public function getApplicationSessionsWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integrationId = null, $customerId = null)
     {
-        $request = $this->getApplicationSessionsRequest($application_id, $page_size, $skip, $sort, $profile, $state, $coupon, $referral, $integration_id, $customer_id);
+        $request = $this->getApplicationSessionsRequest($applicationId, $pageSize, $skip, $sort, $profile, $state, $coupon, $referral, $integrationId, $customerId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9496,23 +9496,23 @@ class ManagementApi
      *
      * List Application Sessions
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
-     * @param  string $integration_id Filter by sessions with this integrationId. Must be exact match. (optional)
-     * @param  string $customer_id Filter by integration ID of the customer for the session (optional)
+     * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
+     * @param  string $customerId Filter by integration ID of the customer for the session (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationSessionsAsync($application_id, $page_size = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integration_id = null, $customer_id = null)
+    public function getApplicationSessionsAsync($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integrationId = null, $customerId = null)
     {
-        return $this->getApplicationSessionsAsyncWithHttpInfo($application_id, $page_size, $skip, $sort, $profile, $state, $coupon, $referral, $integration_id, $customer_id)
+        return $this->getApplicationSessionsAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort, $profile, $state, $coupon, $referral, $integrationId, $customerId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9525,24 +9525,24 @@ class ManagementApi
      *
      * List Application Sessions
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
-     * @param  string $integration_id Filter by sessions with this integrationId. Must be exact match. (optional)
-     * @param  string $customer_id Filter by integration ID of the customer for the session (optional)
+     * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
+     * @param  string $customerId Filter by integration ID of the customer for the session (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationSessionsAsyncWithHttpInfo($application_id, $page_size = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integration_id = null, $customer_id = null)
+    public function getApplicationSessionsAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integrationId = null, $customerId = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20016';
-        $request = $this->getApplicationSessionsRequest($application_id, $page_size, $skip, $sort, $profile, $state, $coupon, $referral, $integration_id, $customer_id);
+        $request = $this->getApplicationSessionsRequest($applicationId, $pageSize, $skip, $sort, $profile, $state, $coupon, $referral, $integrationId, $customerId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9581,26 +9581,26 @@ class ManagementApi
     /**
      * Create request for operation 'getApplicationSessions'
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
-     * @param  string $integration_id Filter by sessions with this integrationId. Must be exact match. (optional)
-     * @param  string $customer_id Filter by integration ID of the customer for the session (optional)
+     * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
+     * @param  string $customerId Filter by integration ID of the customer for the session (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationSessionsRequest($application_id, $page_size = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integration_id = null, $customer_id = null)
+    protected function getApplicationSessionsRequest($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integrationId = null, $customerId = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getApplicationSessions'
+                'Missing the required parameter $applicationId when calling getApplicationSessions'
             );
         }
 
@@ -9612,8 +9612,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -9640,19 +9640,19 @@ class ManagementApi
             $queryParams['referral'] = ObjectSerializer::toQueryValue($referral);
         }
         // query params
-        if ($integration_id !== null) {
-            $queryParams['integrationId'] = ObjectSerializer::toQueryValue($integration_id);
+        if ($integrationId !== null) {
+            $queryParams['integrationId'] = ObjectSerializer::toQueryValue($integrationId);
         }
         // query params
-        if ($customer_id !== null) {
-            $queryParams['customerId'] = ObjectSerializer::toQueryValue($customer_id);
+        if ($customerId !== null) {
+            $queryParams['customerId'] = ObjectSerializer::toQueryValue($customerId);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -9731,7 +9731,7 @@ class ManagementApi
      *
      * List Applications
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -9739,9 +9739,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2002
      */
-    public function getApplications($page_size = null, $skip = null, $sort = null)
+    public function getApplications($pageSize = null, $skip = null, $sort = null)
     {
-        list($response) = $this->getApplicationsWithHttpInfo($page_size, $skip, $sort);
+        list($response) = $this->getApplicationsWithHttpInfo($pageSize, $skip, $sort);
         return $response;
     }
 
@@ -9750,7 +9750,7 @@ class ManagementApi
      *
      * List Applications
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -9758,9 +9758,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationsWithHttpInfo($page_size = null, $skip = null, $sort = null)
+    public function getApplicationsWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getApplicationsRequest($page_size, $skip, $sort);
+        $request = $this->getApplicationsRequest($pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9840,16 +9840,16 @@ class ManagementApi
      *
      * List Applications
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationsAsync($page_size = null, $skip = null, $sort = null)
+    public function getApplicationsAsync($pageSize = null, $skip = null, $sort = null)
     {
-        return $this->getApplicationsAsyncWithHttpInfo($page_size, $skip, $sort)
+        return $this->getApplicationsAsyncWithHttpInfo($pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9862,17 +9862,17 @@ class ManagementApi
      *
      * List Applications
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationsAsyncWithHttpInfo($page_size = null, $skip = null, $sort = null)
+    public function getApplicationsAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2002';
-        $request = $this->getApplicationsRequest($page_size, $skip, $sort);
+        $request = $this->getApplicationsRequest($pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9911,14 +9911,14 @@ class ManagementApi
     /**
      * Create request for operation 'getApplications'
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationsRequest($page_size = null, $skip = null, $sort = null)
+    protected function getApplicationsRequest($pageSize = null, $skip = null, $sort = null)
     {
 
         $resourcePath = '/v1/applications';
@@ -9929,8 +9929,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -10016,15 +10016,15 @@ class ManagementApi
      *
      * Get a custom attribute
      *
-     * @param  int $attribute_id attribute_id (required)
+     * @param  int $attributeId attributeId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Attribute
      */
-    public function getAttribute($attribute_id)
+    public function getAttribute($attributeId)
     {
-        list($response) = $this->getAttributeWithHttpInfo($attribute_id);
+        list($response) = $this->getAttributeWithHttpInfo($attributeId);
         return $response;
     }
 
@@ -10033,15 +10033,15 @@ class ManagementApi
      *
      * Get a custom attribute
      *
-     * @param  int $attribute_id (required)
+     * @param  int $attributeId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Attribute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAttributeWithHttpInfo($attribute_id)
+    public function getAttributeWithHttpInfo($attributeId)
     {
-        $request = $this->getAttributeRequest($attribute_id);
+        $request = $this->getAttributeRequest($attributeId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10121,14 +10121,14 @@ class ManagementApi
      *
      * Get a custom attribute
      *
-     * @param  int $attribute_id (required)
+     * @param  int $attributeId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAttributeAsync($attribute_id)
+    public function getAttributeAsync($attributeId)
     {
-        return $this->getAttributeAsyncWithHttpInfo($attribute_id)
+        return $this->getAttributeAsyncWithHttpInfo($attributeId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10141,15 +10141,15 @@ class ManagementApi
      *
      * Get a custom attribute
      *
-     * @param  int $attribute_id (required)
+     * @param  int $attributeId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAttributeAsyncWithHttpInfo($attribute_id)
+    public function getAttributeAsyncWithHttpInfo($attributeId)
     {
         $returnType = '\TalonOne\Client\Model\Attribute';
-        $request = $this->getAttributeRequest($attribute_id);
+        $request = $this->getAttributeRequest($attributeId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10188,17 +10188,17 @@ class ManagementApi
     /**
      * Create request for operation 'getAttribute'
      *
-     * @param  int $attribute_id (required)
+     * @param  int $attributeId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAttributeRequest($attribute_id)
+    protected function getAttributeRequest($attributeId)
     {
-        // verify the required parameter 'attribute_id' is set
-        if ($attribute_id === null || (is_array($attribute_id) && count($attribute_id) === 0)) {
+        // verify the required parameter 'attributeId' is set
+        if ($attributeId === null || (is_array($attributeId) && count($attributeId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $attribute_id when calling getAttribute'
+                'Missing the required parameter $attributeId when calling getAttribute'
             );
         }
 
@@ -10211,10 +10211,10 @@ class ManagementApi
 
 
         // path params
-        if ($attribute_id !== null) {
+        if ($attributeId !== null) {
             $resourcePath = str_replace(
                 '{' . 'attributeId' . '}',
-                ObjectSerializer::toPathValue($attribute_id),
+                ObjectSerializer::toPathValue($attributeId),
                 $resourcePath
             );
         }
@@ -10293,7 +10293,7 @@ class ManagementApi
      *
      * List custom attributes
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -10301,9 +10301,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20020
      */
-    public function getAttributes($page_size = null, $skip = null, $sort = null)
+    public function getAttributes($pageSize = null, $skip = null, $sort = null)
     {
-        list($response) = $this->getAttributesWithHttpInfo($page_size, $skip, $sort);
+        list($response) = $this->getAttributesWithHttpInfo($pageSize, $skip, $sort);
         return $response;
     }
 
@@ -10312,7 +10312,7 @@ class ManagementApi
      *
      * List custom attributes
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -10320,9 +10320,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20020, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAttributesWithHttpInfo($page_size = null, $skip = null, $sort = null)
+    public function getAttributesWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getAttributesRequest($page_size, $skip, $sort);
+        $request = $this->getAttributesRequest($pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10402,16 +10402,16 @@ class ManagementApi
      *
      * List custom attributes
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAttributesAsync($page_size = null, $skip = null, $sort = null)
+    public function getAttributesAsync($pageSize = null, $skip = null, $sort = null)
     {
-        return $this->getAttributesAsyncWithHttpInfo($page_size, $skip, $sort)
+        return $this->getAttributesAsyncWithHttpInfo($pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10424,17 +10424,17 @@ class ManagementApi
      *
      * List custom attributes
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAttributesAsyncWithHttpInfo($page_size = null, $skip = null, $sort = null)
+    public function getAttributesAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20020';
-        $request = $this->getAttributesRequest($page_size, $skip, $sort);
+        $request = $this->getAttributesRequest($pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10473,14 +10473,14 @@ class ManagementApi
     /**
      * Create request for operation 'getAttributes'
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAttributesRequest($page_size = null, $skip = null, $sort = null)
+    protected function getAttributesRequest($pageSize = null, $skip = null, $sort = null)
     {
 
         $resourcePath = '/v1/attributes';
@@ -10491,8 +10491,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -10578,16 +10578,16 @@ class ManagementApi
      *
      * Get a Campaign
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Campaign
      */
-    public function getCampaign($application_id, $campaign_id)
+    public function getCampaign($applicationId, $campaignId)
     {
-        list($response) = $this->getCampaignWithHttpInfo($application_id, $campaign_id);
+        list($response) = $this->getCampaignWithHttpInfo($applicationId, $campaignId);
         return $response;
     }
 
@@ -10596,16 +10596,16 @@ class ManagementApi
      *
      * Get a Campaign
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Campaign, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignWithHttpInfo($application_id, $campaign_id)
+    public function getCampaignWithHttpInfo($applicationId, $campaignId)
     {
-        $request = $this->getCampaignRequest($application_id, $campaign_id);
+        $request = $this->getCampaignRequest($applicationId, $campaignId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10685,15 +10685,15 @@ class ManagementApi
      *
      * Get a Campaign
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignAsync($application_id, $campaign_id)
+    public function getCampaignAsync($applicationId, $campaignId)
     {
-        return $this->getCampaignAsyncWithHttpInfo($application_id, $campaign_id)
+        return $this->getCampaignAsyncWithHttpInfo($applicationId, $campaignId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10706,16 +10706,16 @@ class ManagementApi
      *
      * Get a Campaign
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignAsyncWithHttpInfo($application_id, $campaign_id)
+    public function getCampaignAsyncWithHttpInfo($applicationId, $campaignId)
     {
         $returnType = '\TalonOne\Client\Model\Campaign';
-        $request = $this->getCampaignRequest($application_id, $campaign_id);
+        $request = $this->getCampaignRequest($applicationId, $campaignId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10754,24 +10754,24 @@ class ManagementApi
     /**
      * Create request for operation 'getCampaign'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCampaignRequest($application_id, $campaign_id)
+    protected function getCampaignRequest($applicationId, $campaignId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCampaign'
+                'Missing the required parameter $applicationId when calling getCampaign'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling getCampaign'
+                'Missing the required parameter $campaignId when calling getCampaign'
             );
         }
 
@@ -10784,18 +10784,18 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -10874,19 +10874,19 @@ class ManagementApi
      *
      * Get analytics of campaigns
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $granularity The time interval between the results in the returned time-series. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20011
      */
-    public function getCampaignAnalytics($application_id, $campaign_id, $range_start, $range_end, $granularity = null)
+    public function getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity = null)
     {
-        list($response) = $this->getCampaignAnalyticsWithHttpInfo($application_id, $campaign_id, $range_start, $range_end, $granularity);
+        list($response) = $this->getCampaignAnalyticsWithHttpInfo($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity);
         return $response;
     }
 
@@ -10895,19 +10895,19 @@ class ManagementApi
      *
      * Get analytics of campaigns
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $granularity The time interval between the results in the returned time-series. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20011, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignAnalyticsWithHttpInfo($application_id, $campaign_id, $range_start, $range_end, $granularity = null)
+    public function getCampaignAnalyticsWithHttpInfo($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity = null)
     {
-        $request = $this->getCampaignAnalyticsRequest($application_id, $campaign_id, $range_start, $range_end, $granularity);
+        $request = $this->getCampaignAnalyticsRequest($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10987,18 +10987,18 @@ class ManagementApi
      *
      * Get analytics of campaigns
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $granularity The time interval between the results in the returned time-series. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignAnalyticsAsync($application_id, $campaign_id, $range_start, $range_end, $granularity = null)
+    public function getCampaignAnalyticsAsync($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity = null)
     {
-        return $this->getCampaignAnalyticsAsyncWithHttpInfo($application_id, $campaign_id, $range_start, $range_end, $granularity)
+        return $this->getCampaignAnalyticsAsyncWithHttpInfo($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11011,19 +11011,19 @@ class ManagementApi
      *
      * Get analytics of campaigns
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $granularity The time interval between the results in the returned time-series. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignAnalyticsAsyncWithHttpInfo($application_id, $campaign_id, $range_start, $range_end, $granularity = null)
+    public function getCampaignAnalyticsAsyncWithHttpInfo($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20011';
-        $request = $this->getCampaignAnalyticsRequest($application_id, $campaign_id, $range_start, $range_end, $granularity);
+        $request = $this->getCampaignAnalyticsRequest($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11062,39 +11062,39 @@ class ManagementApi
     /**
      * Create request for operation 'getCampaignAnalytics'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
      * @param  string $granularity The time interval between the results in the returned time-series. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCampaignAnalyticsRequest($application_id, $campaign_id, $range_start, $range_end, $granularity = null)
+    protected function getCampaignAnalyticsRequest($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCampaignAnalytics'
+                'Missing the required parameter $applicationId when calling getCampaignAnalytics'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling getCampaignAnalytics'
+                'Missing the required parameter $campaignId when calling getCampaignAnalytics'
             );
         }
-        // verify the required parameter 'range_start' is set
-        if ($range_start === null || (is_array($range_start) && count($range_start) === 0)) {
+        // verify the required parameter 'rangeStart' is set
+        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_start when calling getCampaignAnalytics'
+                'Missing the required parameter $rangeStart when calling getCampaignAnalytics'
             );
         }
-        // verify the required parameter 'range_end' is set
-        if ($range_end === null || (is_array($range_end) && count($range_end) === 0)) {
+        // verify the required parameter 'rangeEnd' is set
+        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_end when calling getCampaignAnalytics'
+                'Missing the required parameter $rangeEnd when calling getCampaignAnalytics'
             );
         }
 
@@ -11106,12 +11106,12 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($range_start !== null) {
-            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($range_start);
+        if ($rangeStart !== null) {
+            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($rangeStart);
         }
         // query params
-        if ($range_end !== null) {
-            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($range_end);
+        if ($rangeEnd !== null) {
+            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($rangeEnd);
         }
         // query params
         if ($granularity !== null) {
@@ -11119,18 +11119,18 @@ class ManagementApi
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -11209,20 +11209,20 @@ class ManagementApi
      *
      * Get a list of all campaigns that match the given attributes
      *
-     * @param  int $application_id application_id (required)
+     * @param  int $applicationId applicationId (required)
      * @param  \TalonOne\Client\Model\CampaignSearch $body body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2003
      */
-    public function getCampaignByAttributes($application_id, $body, $page_size = null, $skip = null, $sort = null, $campaign_state = null)
+    public function getCampaignByAttributes($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
-        list($response) = $this->getCampaignByAttributesWithHttpInfo($application_id, $body, $page_size, $skip, $sort, $campaign_state);
+        list($response) = $this->getCampaignByAttributesWithHttpInfo($applicationId, $body, $pageSize, $skip, $sort, $campaignState);
         return $response;
     }
 
@@ -11231,20 +11231,20 @@ class ManagementApi
      *
      * Get a list of all campaigns that match the given attributes
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\CampaignSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignByAttributesWithHttpInfo($application_id, $body, $page_size = null, $skip = null, $sort = null, $campaign_state = null)
+    public function getCampaignByAttributesWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
-        $request = $this->getCampaignByAttributesRequest($application_id, $body, $page_size, $skip, $sort, $campaign_state);
+        $request = $this->getCampaignByAttributesRequest($applicationId, $body, $pageSize, $skip, $sort, $campaignState);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11324,19 +11324,19 @@ class ManagementApi
      *
      * Get a list of all campaigns that match the given attributes
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\CampaignSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignByAttributesAsync($application_id, $body, $page_size = null, $skip = null, $sort = null, $campaign_state = null)
+    public function getCampaignByAttributesAsync($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
-        return $this->getCampaignByAttributesAsyncWithHttpInfo($application_id, $body, $page_size, $skip, $sort, $campaign_state)
+        return $this->getCampaignByAttributesAsyncWithHttpInfo($applicationId, $body, $pageSize, $skip, $sort, $campaignState)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11349,20 +11349,20 @@ class ManagementApi
      *
      * Get a list of all campaigns that match the given attributes
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\CampaignSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignByAttributesAsyncWithHttpInfo($application_id, $body, $page_size = null, $skip = null, $sort = null, $campaign_state = null)
+    public function getCampaignByAttributesAsyncWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2003';
-        $request = $this->getCampaignByAttributesRequest($application_id, $body, $page_size, $skip, $sort, $campaign_state);
+        $request = $this->getCampaignByAttributesRequest($applicationId, $body, $pageSize, $skip, $sort, $campaignState);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11401,22 +11401,22 @@ class ManagementApi
     /**
      * Create request for operation 'getCampaignByAttributes'
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\CampaignSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCampaignByAttributesRequest($application_id, $body, $page_size = null, $skip = null, $sort = null, $campaign_state = null)
+    protected function getCampaignByAttributesRequest($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCampaignByAttributes'
+                'Missing the required parameter $applicationId when calling getCampaignByAttributes'
             );
         }
         // verify the required parameter 'body' is set
@@ -11434,8 +11434,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -11446,15 +11446,15 @@ class ManagementApi
             $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
         }
         // query params
-        if ($campaign_state !== null) {
-            $queryParams['campaignState'] = ObjectSerializer::toQueryValue($campaign_state);
+        if ($campaignState !== null) {
+            $queryParams['campaignState'] = ObjectSerializer::toQueryValue($campaignState);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -11536,15 +11536,15 @@ class ManagementApi
      *
      * List CampaignSet
      *
-     * @param  int $application_id application_id (required)
+     * @param  int $applicationId applicationId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\CampaignSet
      */
-    public function getCampaignSet($application_id)
+    public function getCampaignSet($applicationId)
     {
-        list($response) = $this->getCampaignSetWithHttpInfo($application_id);
+        list($response) = $this->getCampaignSetWithHttpInfo($applicationId);
         return $response;
     }
 
@@ -11553,15 +11553,15 @@ class ManagementApi
      *
      * List CampaignSet
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\CampaignSet, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignSetWithHttpInfo($application_id)
+    public function getCampaignSetWithHttpInfo($applicationId)
     {
-        $request = $this->getCampaignSetRequest($application_id);
+        $request = $this->getCampaignSetRequest($applicationId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11641,14 +11641,14 @@ class ManagementApi
      *
      * List CampaignSet
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignSetAsync($application_id)
+    public function getCampaignSetAsync($applicationId)
     {
-        return $this->getCampaignSetAsyncWithHttpInfo($application_id)
+        return $this->getCampaignSetAsyncWithHttpInfo($applicationId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11661,15 +11661,15 @@ class ManagementApi
      *
      * List CampaignSet
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignSetAsyncWithHttpInfo($application_id)
+    public function getCampaignSetAsyncWithHttpInfo($applicationId)
     {
         $returnType = '\TalonOne\Client\Model\CampaignSet';
-        $request = $this->getCampaignSetRequest($application_id);
+        $request = $this->getCampaignSetRequest($applicationId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11708,17 +11708,17 @@ class ManagementApi
     /**
      * Create request for operation 'getCampaignSet'
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCampaignSetRequest($application_id)
+    protected function getCampaignSetRequest($applicationId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCampaignSet'
+                'Missing the required parameter $applicationId when calling getCampaignSet'
             );
         }
 
@@ -11731,10 +11731,10 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -11813,23 +11813,23 @@ class ManagementApi
      *
      * List your Campaigns
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      * @param  string $name Filter results performing case-insensitive matching against the name of the campaign. (optional)
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2003
      */
-    public function getCampaigns($application_id, $page_size = null, $skip = null, $sort = null, $campaign_state = null, $name = null, $tags = null, $created_before = null, $created_after = null)
+    public function getCampaigns($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
     {
-        list($response) = $this->getCampaignsWithHttpInfo($application_id, $page_size, $skip, $sort, $campaign_state, $name, $tags, $created_before, $created_after);
+        list($response) = $this->getCampaignsWithHttpInfo($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter);
         return $response;
     }
 
@@ -11838,23 +11838,23 @@ class ManagementApi
      *
      * List your Campaigns
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      * @param  string $name Filter results performing case-insensitive matching against the name of the campaign. (optional)
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignsWithHttpInfo($application_id, $page_size = null, $skip = null, $sort = null, $campaign_state = null, $name = null, $tags = null, $created_before = null, $created_after = null)
+    public function getCampaignsWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
     {
-        $request = $this->getCampaignsRequest($application_id, $page_size, $skip, $sort, $campaign_state, $name, $tags, $created_before, $created_after);
+        $request = $this->getCampaignsRequest($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11934,22 +11934,22 @@ class ManagementApi
      *
      * List your Campaigns
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      * @param  string $name Filter results performing case-insensitive matching against the name of the campaign. (optional)
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignsAsync($application_id, $page_size = null, $skip = null, $sort = null, $campaign_state = null, $name = null, $tags = null, $created_before = null, $created_after = null)
+    public function getCampaignsAsync($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
     {
-        return $this->getCampaignsAsyncWithHttpInfo($application_id, $page_size, $skip, $sort, $campaign_state, $name, $tags, $created_before, $created_after)
+        return $this->getCampaignsAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11962,23 +11962,23 @@ class ManagementApi
      *
      * List your Campaigns
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      * @param  string $name Filter results performing case-insensitive matching against the name of the campaign. (optional)
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignsAsyncWithHttpInfo($application_id, $page_size = null, $skip = null, $sort = null, $campaign_state = null, $name = null, $tags = null, $created_before = null, $created_after = null)
+    public function getCampaignsAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2003';
-        $request = $this->getCampaignsRequest($application_id, $page_size, $skip, $sort, $campaign_state, $name, $tags, $created_before, $created_after);
+        $request = $this->getCampaignsRequest($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12017,25 +12017,25 @@ class ManagementApi
     /**
      * Create request for operation 'getCampaigns'
      *
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      * @param  string $name Filter results performing case-insensitive matching against the name of the campaign. (optional)
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCampaignsRequest($application_id, $page_size = null, $skip = null, $sort = null, $campaign_state = null, $name = null, $tags = null, $created_before = null, $created_after = null)
+    protected function getCampaignsRequest($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCampaigns'
+                'Missing the required parameter $applicationId when calling getCampaigns'
             );
         }
 
@@ -12047,8 +12047,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -12059,8 +12059,8 @@ class ManagementApi
             $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
         }
         // query params
-        if ($campaign_state !== null) {
-            $queryParams['campaignState'] = ObjectSerializer::toQueryValue($campaign_state);
+        if ($campaignState !== null) {
+            $queryParams['campaignState'] = ObjectSerializer::toQueryValue($campaignState);
         }
         // query params
         if ($name !== null) {
@@ -12071,19 +12071,19 @@ class ManagementApi
             $queryParams['tags'] = ObjectSerializer::toQueryValue($tags);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -12162,22 +12162,22 @@ class ManagementApi
      *
      * Get audit log for an account
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  int $application_id application_id (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
-     * @param  bool $with_total_result_size When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
-     * @param  bool $include_old When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
+     * @param  int $applicationId applicationId (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     * @param  bool $includeOld When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20027
      */
-    public function getChanges($page_size = null, $skip = null, $sort = null, $application_id = null, $created_before = null, $created_after = null, $with_total_result_size = null, $include_old = null)
+    public function getChanges($pageSize = null, $skip = null, $sort = null, $applicationId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $includeOld = null)
     {
-        list($response) = $this->getChangesWithHttpInfo($page_size, $skip, $sort, $application_id, $created_before, $created_after, $with_total_result_size, $include_old);
+        list($response) = $this->getChangesWithHttpInfo($pageSize, $skip, $sort, $applicationId, $createdBefore, $createdAfter, $withTotalResultSize, $includeOld);
         return $response;
     }
 
@@ -12186,22 +12186,22 @@ class ManagementApi
      *
      * Get audit log for an account
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  int $application_id (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
-     * @param  bool $with_total_result_size When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
-     * @param  bool $include_old When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
+     * @param  int $applicationId (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     * @param  bool $includeOld When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20027, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getChangesWithHttpInfo($page_size = null, $skip = null, $sort = null, $application_id = null, $created_before = null, $created_after = null, $with_total_result_size = null, $include_old = null)
+    public function getChangesWithHttpInfo($pageSize = null, $skip = null, $sort = null, $applicationId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $includeOld = null)
     {
-        $request = $this->getChangesRequest($page_size, $skip, $sort, $application_id, $created_before, $created_after, $with_total_result_size, $include_old);
+        $request = $this->getChangesRequest($pageSize, $skip, $sort, $applicationId, $createdBefore, $createdAfter, $withTotalResultSize, $includeOld);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12281,21 +12281,21 @@ class ManagementApi
      *
      * Get audit log for an account
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  int $application_id (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
-     * @param  bool $with_total_result_size When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
-     * @param  bool $include_old When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
+     * @param  int $applicationId (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     * @param  bool $includeOld When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getChangesAsync($page_size = null, $skip = null, $sort = null, $application_id = null, $created_before = null, $created_after = null, $with_total_result_size = null, $include_old = null)
+    public function getChangesAsync($pageSize = null, $skip = null, $sort = null, $applicationId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $includeOld = null)
     {
-        return $this->getChangesAsyncWithHttpInfo($page_size, $skip, $sort, $application_id, $created_before, $created_after, $with_total_result_size, $include_old)
+        return $this->getChangesAsyncWithHttpInfo($pageSize, $skip, $sort, $applicationId, $createdBefore, $createdAfter, $withTotalResultSize, $includeOld)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12308,22 +12308,22 @@ class ManagementApi
      *
      * Get audit log for an account
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  int $application_id (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
-     * @param  bool $with_total_result_size When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
-     * @param  bool $include_old When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
+     * @param  int $applicationId (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     * @param  bool $includeOld When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getChangesAsyncWithHttpInfo($page_size = null, $skip = null, $sort = null, $application_id = null, $created_before = null, $created_after = null, $with_total_result_size = null, $include_old = null)
+    public function getChangesAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null, $applicationId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $includeOld = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20027';
-        $request = $this->getChangesRequest($page_size, $skip, $sort, $application_id, $created_before, $created_after, $with_total_result_size, $include_old);
+        $request = $this->getChangesRequest($pageSize, $skip, $sort, $applicationId, $createdBefore, $createdAfter, $withTotalResultSize, $includeOld);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12362,19 +12362,19 @@ class ManagementApi
     /**
      * Create request for operation 'getChanges'
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  int $application_id (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
-     * @param  bool $with_total_result_size When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
-     * @param  bool $include_old When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
+     * @param  int $applicationId (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     * @param  bool $includeOld When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getChangesRequest($page_size = null, $skip = null, $sort = null, $application_id = null, $created_before = null, $created_after = null, $with_total_result_size = null, $include_old = null)
+    protected function getChangesRequest($pageSize = null, $skip = null, $sort = null, $applicationId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $includeOld = null)
     {
 
         $resourcePath = '/v1/changes';
@@ -12385,8 +12385,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -12397,24 +12397,24 @@ class ManagementApi
             $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
         }
         // query params
-        if ($application_id !== null) {
-            $queryParams['applicationId'] = ObjectSerializer::toQueryValue($application_id);
+        if ($applicationId !== null) {
+            $queryParams['applicationId'] = ObjectSerializer::toQueryValue($applicationId);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
-        if ($with_total_result_size !== null) {
-            $queryParams['withTotalResultSize'] = ObjectSerializer::toQueryValue($with_total_result_size);
+        if ($withTotalResultSize !== null) {
+            $queryParams['withTotalResultSize'] = ObjectSerializer::toQueryValue($withTotalResultSize);
         }
         // query params
-        if ($include_old !== null) {
-            $queryParams['includeOld'] = ObjectSerializer::toQueryValue($include_old);
+        if ($includeOld !== null) {
+            $queryParams['includeOld'] = ObjectSerializer::toQueryValue($includeOld);
         }
 
 
@@ -12492,32 +12492,32 @@ class ManagementApi
      *
      * List Coupons
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2001
      */
-    public function getCoupons($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $starts_after = null, $starts_before = null, $expires_after = null, $expires_before = null, $valid = null, $batch_id = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false)
+    public function getCoupons($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
-        list($response) = $this->getCouponsWithHttpInfo($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match);
+        list($response) = $this->getCouponsWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch);
         return $response;
     }
 
@@ -12526,32 +12526,32 @@ class ManagementApi
      *
      * List Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCouponsWithHttpInfo($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $starts_after = null, $starts_before = null, $expires_after = null, $expires_before = null, $valid = null, $batch_id = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false)
+    public function getCouponsWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
-        $request = $this->getCouponsRequest($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match);
+        $request = $this->getCouponsRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12631,31 +12631,31 @@ class ManagementApi
      *
      * List Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsAsync($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $starts_after = null, $starts_before = null, $expires_after = null, $expires_before = null, $valid = null, $batch_id = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false)
+    public function getCouponsAsync($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
-        return $this->getCouponsAsyncWithHttpInfo($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match)
+        return $this->getCouponsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12668,32 +12668,32 @@ class ManagementApi
      *
      * List Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsAsyncWithHttpInfo($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $starts_after = null, $starts_before = null, $expires_after = null, $expires_before = null, $valid = null, $batch_id = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false)
+    public function getCouponsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2001';
-        $request = $this->getCouponsRequest($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match);
+        $request = $this->getCouponsRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12732,40 +12732,40 @@ class ManagementApi
     /**
      * Create request for operation 'getCoupons'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $starts_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $expires_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCouponsRequest($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $starts_after = null, $starts_before = null, $expires_after = null, $expires_before = null, $valid = null, $batch_id = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false)
+    protected function getCouponsRequest($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCoupons'
+                'Missing the required parameter $applicationId when calling getCoupons'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling getCoupons'
+                'Missing the required parameter $campaignId when calling getCoupons'
             );
         }
 
@@ -12777,8 +12777,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -12793,67 +12793,67 @@ class ManagementApi
             $queryParams['value'] = ObjectSerializer::toQueryValue($value);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
-        if ($starts_after !== null) {
-            $queryParams['startsAfter'] = ObjectSerializer::toQueryValue($starts_after);
+        if ($startsAfter !== null) {
+            $queryParams['startsAfter'] = ObjectSerializer::toQueryValue($startsAfter);
         }
         // query params
-        if ($starts_before !== null) {
-            $queryParams['startsBefore'] = ObjectSerializer::toQueryValue($starts_before);
+        if ($startsBefore !== null) {
+            $queryParams['startsBefore'] = ObjectSerializer::toQueryValue($startsBefore);
         }
         // query params
-        if ($expires_after !== null) {
-            $queryParams['expiresAfter'] = ObjectSerializer::toQueryValue($expires_after);
+        if ($expiresAfter !== null) {
+            $queryParams['expiresAfter'] = ObjectSerializer::toQueryValue($expiresAfter);
         }
         // query params
-        if ($expires_before !== null) {
-            $queryParams['expiresBefore'] = ObjectSerializer::toQueryValue($expires_before);
+        if ($expiresBefore !== null) {
+            $queryParams['expiresBefore'] = ObjectSerializer::toQueryValue($expiresBefore);
         }
         // query params
         if ($valid !== null) {
             $queryParams['valid'] = ObjectSerializer::toQueryValue($valid);
         }
         // query params
-        if ($batch_id !== null) {
-            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batch_id);
+        if ($batchId !== null) {
+            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batchId);
         }
         // query params
         if ($usable !== null) {
             $queryParams['usable'] = ObjectSerializer::toQueryValue($usable);
         }
         // query params
-        if ($referral_id !== null) {
-            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referral_id);
+        if ($referralId !== null) {
+            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referralId);
         }
         // query params
-        if ($recipient_integration_id !== null) {
-            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipient_integration_id);
+        if ($recipientIntegrationId !== null) {
+            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipientIntegrationId);
         }
         // query params
-        if ($exact_match !== null) {
-            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exact_match);
+        if ($exactMatch !== null) {
+            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exactMatch);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -12932,29 +12932,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2001
      */
-    public function getCouponsByAttributes($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    public function getCouponsByAttributes($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        list($response) = $this->getCouponsByAttributesWithHttpInfo($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id);
+        list($response) = $this->getCouponsByAttributesWithHttpInfo($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
         return $response;
     }
 
@@ -12963,29 +12963,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCouponsByAttributesWithHttpInfo($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    public function getCouponsByAttributesWithHttpInfo($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        $request = $this->getCouponsByAttributesRequest($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id);
+        $request = $this->getCouponsByAttributesRequest($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13065,28 +13065,28 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsByAttributesAsync($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    public function getCouponsByAttributesAsync($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        return $this->getCouponsByAttributesAsyncWithHttpInfo($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id)
+        return $this->getCouponsByAttributesAsyncWithHttpInfo($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13099,29 +13099,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsByAttributesAsyncWithHttpInfo($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    public function getCouponsByAttributesAsyncWithHttpInfo($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2001';
-        $request = $this->getCouponsByAttributesRequest($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id);
+        $request = $this->getCouponsByAttributesRequest($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13160,37 +13160,37 @@ class ManagementApi
     /**
      * Create request for operation 'getCouponsByAttributes'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCouponsByAttributesRequest($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    protected function getCouponsByAttributesRequest($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCouponsByAttributes'
+                'Missing the required parameter $applicationId when calling getCouponsByAttributes'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling getCouponsByAttributes'
+                'Missing the required parameter $campaignId when calling getCouponsByAttributes'
             );
         }
         // verify the required parameter 'body' is set
@@ -13208,8 +13208,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -13224,12 +13224,12 @@ class ManagementApi
             $queryParams['value'] = ObjectSerializer::toQueryValue($value);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
         if ($valid !== null) {
@@ -13240,35 +13240,35 @@ class ManagementApi
             $queryParams['usable'] = ObjectSerializer::toQueryValue($usable);
         }
         // query params
-        if ($referral_id !== null) {
-            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referral_id);
+        if ($referralId !== null) {
+            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referralId);
         }
         // query params
-        if ($recipient_integration_id !== null) {
-            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipient_integration_id);
+        if ($recipientIntegrationId !== null) {
+            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipientIntegrationId);
         }
         // query params
-        if ($exact_match !== null) {
-            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exact_match);
+        if ($exactMatch !== null) {
+            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exactMatch);
         }
         // query params
-        if ($batch_id !== null) {
-            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batch_id);
+        if ($batchId !== null) {
+            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batchId);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -13350,29 +13350,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes in all active campaigns of an application
      *
-     * @param  int $application_id application_id (required)
+     * @param  int $applicationId applicationId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2001
      */
-    public function getCouponsByAttributesApplicationWide($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    public function getCouponsByAttributesApplicationWide($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        list($response) = $this->getCouponsByAttributesApplicationWideWithHttpInfo($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state);
+        list($response) = $this->getCouponsByAttributesApplicationWideWithHttpInfo($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
         return $response;
     }
 
@@ -13381,29 +13381,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes in all active campaigns of an application
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCouponsByAttributesApplicationWideWithHttpInfo($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    public function getCouponsByAttributesApplicationWideWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        $request = $this->getCouponsByAttributesApplicationWideRequest($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state);
+        $request = $this->getCouponsByAttributesApplicationWideRequest($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13483,28 +13483,28 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes in all active campaigns of an application
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsByAttributesApplicationWideAsync($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    public function getCouponsByAttributesApplicationWideAsync($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        return $this->getCouponsByAttributesApplicationWideAsyncWithHttpInfo($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state)
+        return $this->getCouponsByAttributesApplicationWideAsyncWithHttpInfo($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13517,29 +13517,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes in all active campaigns of an application
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsByAttributesApplicationWideAsyncWithHttpInfo($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    public function getCouponsByAttributesApplicationWideAsyncWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2001';
-        $request = $this->getCouponsByAttributesApplicationWideRequest($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state);
+        $request = $this->getCouponsByAttributesApplicationWideRequest($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13578,31 +13578,31 @@ class ManagementApi
     /**
      * Create request for operation 'getCouponsByAttributesApplicationWide'
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCouponsByAttributesApplicationWideRequest($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    protected function getCouponsByAttributesApplicationWideRequest($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCouponsByAttributesApplicationWide'
+                'Missing the required parameter $applicationId when calling getCouponsByAttributesApplicationWide'
             );
         }
         // verify the required parameter 'body' is set
@@ -13620,8 +13620,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -13636,12 +13636,12 @@ class ManagementApi
             $queryParams['value'] = ObjectSerializer::toQueryValue($value);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
         if ($valid !== null) {
@@ -13652,31 +13652,31 @@ class ManagementApi
             $queryParams['usable'] = ObjectSerializer::toQueryValue($usable);
         }
         // query params
-        if ($referral_id !== null) {
-            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referral_id);
+        if ($referralId !== null) {
+            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referralId);
         }
         // query params
-        if ($recipient_integration_id !== null) {
-            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipient_integration_id);
+        if ($recipientIntegrationId !== null) {
+            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipientIntegrationId);
         }
         // query params
-        if ($batch_id !== null) {
-            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batch_id);
+        if ($batchId !== null) {
+            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batchId);
         }
         // query params
-        if ($exact_match !== null) {
-            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exact_match);
+        if ($exactMatch !== null) {
+            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exactMatch);
         }
         // query params
-        if ($campaign_state !== null) {
-            $queryParams['campaignState'] = ObjectSerializer::toQueryValue($campaign_state);
+        if ($campaignState !== null) {
+            $queryParams['campaignState'] = ObjectSerializer::toQueryValue($campaignState);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -13758,28 +13758,28 @@ class ManagementApi
      *
      * List Coupons
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2005
      */
-    public function getCouponsWithoutTotalCount($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false)
+    public function getCouponsWithoutTotalCount($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false)
     {
-        list($response) = $this->getCouponsWithoutTotalCountWithHttpInfo($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match);
+        list($response) = $this->getCouponsWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch);
         return $response;
     }
 
@@ -13788,28 +13788,28 @@ class ManagementApi
      *
      * List Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCouponsWithoutTotalCountWithHttpInfo($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false)
+    public function getCouponsWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false)
     {
-        $request = $this->getCouponsWithoutTotalCountRequest($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match);
+        $request = $this->getCouponsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13889,27 +13889,27 @@ class ManagementApi
      *
      * List Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsWithoutTotalCountAsync($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false)
+    public function getCouponsWithoutTotalCountAsync($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false)
     {
-        return $this->getCouponsWithoutTotalCountAsyncWithHttpInfo($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match)
+        return $this->getCouponsWithoutTotalCountAsyncWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13922,28 +13922,28 @@ class ManagementApi
      *
      * List Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsWithoutTotalCountAsyncWithHttpInfo($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false)
+    public function getCouponsWithoutTotalCountAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2005';
-        $request = $this->getCouponsWithoutTotalCountRequest($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match);
+        $request = $this->getCouponsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13982,36 +13982,36 @@ class ManagementApi
     /**
      * Create request for operation 'getCouponsWithoutTotalCount'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCouponsWithoutTotalCountRequest($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false)
+    protected function getCouponsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCouponsWithoutTotalCount'
+                'Missing the required parameter $applicationId when calling getCouponsWithoutTotalCount'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling getCouponsWithoutTotalCount'
+                'Missing the required parameter $campaignId when calling getCouponsWithoutTotalCount'
             );
         }
 
@@ -14023,8 +14023,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -14039,12 +14039,12 @@ class ManagementApi
             $queryParams['value'] = ObjectSerializer::toQueryValue($value);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
         if ($valid !== null) {
@@ -14055,35 +14055,35 @@ class ManagementApi
             $queryParams['usable'] = ObjectSerializer::toQueryValue($usable);
         }
         // query params
-        if ($referral_id !== null) {
-            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referral_id);
+        if ($referralId !== null) {
+            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referralId);
         }
         // query params
-        if ($recipient_integration_id !== null) {
-            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipient_integration_id);
+        if ($recipientIntegrationId !== null) {
+            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipientIntegrationId);
         }
         // query params
-        if ($batch_id !== null) {
-            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batch_id);
+        if ($batchId !== null) {
+            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batchId);
         }
         // query params
-        if ($exact_match !== null) {
-            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exact_match);
+        if ($exactMatch !== null) {
+            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exactMatch);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -14162,20 +14162,20 @@ class ManagementApi
      *
      * Get Activity Report for Single Customer
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id application_id (required)
-     * @param  int $customer_id customer_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $customerId customerId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\CustomerActivityReport
      */
-    public function getCustomerActivityReport($range_start, $range_end, $application_id, $customer_id, $page_size = null, $skip = null)
+    public function getCustomerActivityReport($rangeStart, $rangeEnd, $applicationId, $customerId, $pageSize = null, $skip = null)
     {
-        list($response) = $this->getCustomerActivityReportWithHttpInfo($range_start, $range_end, $application_id, $customer_id, $page_size, $skip);
+        list($response) = $this->getCustomerActivityReportWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $customerId, $pageSize, $skip);
         return $response;
     }
 
@@ -14184,20 +14184,20 @@ class ManagementApi
      *
      * Get Activity Report for Single Customer
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\CustomerActivityReport, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomerActivityReportWithHttpInfo($range_start, $range_end, $application_id, $customer_id, $page_size = null, $skip = null)
+    public function getCustomerActivityReportWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $customerId, $pageSize = null, $skip = null)
     {
-        $request = $this->getCustomerActivityReportRequest($range_start, $range_end, $application_id, $customer_id, $page_size, $skip);
+        $request = $this->getCustomerActivityReportRequest($rangeStart, $rangeEnd, $applicationId, $customerId, $pageSize, $skip);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14277,19 +14277,19 @@ class ManagementApi
      *
      * Get Activity Report for Single Customer
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerActivityReportAsync($range_start, $range_end, $application_id, $customer_id, $page_size = null, $skip = null)
+    public function getCustomerActivityReportAsync($rangeStart, $rangeEnd, $applicationId, $customerId, $pageSize = null, $skip = null)
     {
-        return $this->getCustomerActivityReportAsyncWithHttpInfo($range_start, $range_end, $application_id, $customer_id, $page_size, $skip)
+        return $this->getCustomerActivityReportAsyncWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $customerId, $pageSize, $skip)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14302,20 +14302,20 @@ class ManagementApi
      *
      * Get Activity Report for Single Customer
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerActivityReportAsyncWithHttpInfo($range_start, $range_end, $application_id, $customer_id, $page_size = null, $skip = null)
+    public function getCustomerActivityReportAsyncWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $customerId, $pageSize = null, $skip = null)
     {
         $returnType = '\TalonOne\Client\Model\CustomerActivityReport';
-        $request = $this->getCustomerActivityReportRequest($range_start, $range_end, $application_id, $customer_id, $page_size, $skip);
+        $request = $this->getCustomerActivityReportRequest($rangeStart, $rangeEnd, $applicationId, $customerId, $pageSize, $skip);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14354,40 +14354,40 @@ class ManagementApi
     /**
      * Create request for operation 'getCustomerActivityReport'
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomerActivityReportRequest($range_start, $range_end, $application_id, $customer_id, $page_size = null, $skip = null)
+    protected function getCustomerActivityReportRequest($rangeStart, $rangeEnd, $applicationId, $customerId, $pageSize = null, $skip = null)
     {
-        // verify the required parameter 'range_start' is set
-        if ($range_start === null || (is_array($range_start) && count($range_start) === 0)) {
+        // verify the required parameter 'rangeStart' is set
+        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_start when calling getCustomerActivityReport'
+                'Missing the required parameter $rangeStart when calling getCustomerActivityReport'
             );
         }
-        // verify the required parameter 'range_end' is set
-        if ($range_end === null || (is_array($range_end) && count($range_end) === 0)) {
+        // verify the required parameter 'rangeEnd' is set
+        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_end when calling getCustomerActivityReport'
+                'Missing the required parameter $rangeEnd when calling getCustomerActivityReport'
             );
         }
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCustomerActivityReport'
+                'Missing the required parameter $applicationId when calling getCustomerActivityReport'
             );
         }
-        // verify the required parameter 'customer_id' is set
-        if ($customer_id === null || (is_array($customer_id) && count($customer_id) === 0)) {
+        // verify the required parameter 'customerId' is set
+        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customer_id when calling getCustomerActivityReport'
+                'Missing the required parameter $customerId when calling getCustomerActivityReport'
             );
         }
 
@@ -14399,35 +14399,35 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
             $queryParams['skip'] = ObjectSerializer::toQueryValue($skip);
         }
         // query params
-        if ($range_start !== null) {
-            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($range_start);
+        if ($rangeStart !== null) {
+            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($rangeStart);
         }
         // query params
-        if ($range_end !== null) {
-            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($range_end);
+        if ($rangeEnd !== null) {
+            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($rangeEnd);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($customer_id !== null) {
+        if ($customerId !== null) {
             $resourcePath = str_replace(
                 '{' . 'customerId' . '}',
-                ObjectSerializer::toPathValue($customer_id),
+                ObjectSerializer::toPathValue($customerId),
                 $resourcePath
             );
         }
@@ -14506,24 +14506,24 @@ class ManagementApi
      *
      * Get Activity Reports for Application Customers
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integration_id Only return reports matching the integrationId (optional)
-     * @param  string $campaign_name Only return reports matching the campaignName (optional)
-     * @param  string $advocate_name Only return reports matching the current customer referrer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20014
      */
-    public function getCustomerActivityReports($range_start, $range_end, $application_id, $page_size = null, $skip = null, $sort = null, $name = null, $integration_id = null, $campaign_name = null, $advocate_name = null)
+    public function getCustomerActivityReports($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
-        list($response) = $this->getCustomerActivityReportsWithHttpInfo($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name);
+        list($response) = $this->getCustomerActivityReportsWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
         return $response;
     }
 
@@ -14532,24 +14532,24 @@ class ManagementApi
      *
      * Get Activity Reports for Application Customers
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integration_id Only return reports matching the integrationId (optional)
-     * @param  string $campaign_name Only return reports matching the campaignName (optional)
-     * @param  string $advocate_name Only return reports matching the current customer referrer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20014, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomerActivityReportsWithHttpInfo($range_start, $range_end, $application_id, $page_size = null, $skip = null, $sort = null, $name = null, $integration_id = null, $campaign_name = null, $advocate_name = null)
+    public function getCustomerActivityReportsWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
-        $request = $this->getCustomerActivityReportsRequest($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name);
+        $request = $this->getCustomerActivityReportsRequest($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14629,23 +14629,23 @@ class ManagementApi
      *
      * Get Activity Reports for Application Customers
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integration_id Only return reports matching the integrationId (optional)
-     * @param  string $campaign_name Only return reports matching the campaignName (optional)
-     * @param  string $advocate_name Only return reports matching the current customer referrer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerActivityReportsAsync($range_start, $range_end, $application_id, $page_size = null, $skip = null, $sort = null, $name = null, $integration_id = null, $campaign_name = null, $advocate_name = null)
+    public function getCustomerActivityReportsAsync($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
-        return $this->getCustomerActivityReportsAsyncWithHttpInfo($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name)
+        return $this->getCustomerActivityReportsAsyncWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14658,24 +14658,24 @@ class ManagementApi
      *
      * Get Activity Reports for Application Customers
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integration_id Only return reports matching the integrationId (optional)
-     * @param  string $campaign_name Only return reports matching the campaignName (optional)
-     * @param  string $advocate_name Only return reports matching the current customer referrer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerActivityReportsAsyncWithHttpInfo($range_start, $range_end, $application_id, $page_size = null, $skip = null, $sort = null, $name = null, $integration_id = null, $campaign_name = null, $advocate_name = null)
+    public function getCustomerActivityReportsAsyncWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20014';
-        $request = $this->getCustomerActivityReportsRequest($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name);
+        $request = $this->getCustomerActivityReportsRequest($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14714,38 +14714,38 @@ class ManagementApi
     /**
      * Create request for operation 'getCustomerActivityReports'
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integration_id Only return reports matching the integrationId (optional)
-     * @param  string $campaign_name Only return reports matching the campaignName (optional)
-     * @param  string $advocate_name Only return reports matching the current customer referrer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomerActivityReportsRequest($range_start, $range_end, $application_id, $page_size = null, $skip = null, $sort = null, $name = null, $integration_id = null, $campaign_name = null, $advocate_name = null)
+    protected function getCustomerActivityReportsRequest($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
-        // verify the required parameter 'range_start' is set
-        if ($range_start === null || (is_array($range_start) && count($range_start) === 0)) {
+        // verify the required parameter 'rangeStart' is set
+        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_start when calling getCustomerActivityReports'
+                'Missing the required parameter $rangeStart when calling getCustomerActivityReports'
             );
         }
-        // verify the required parameter 'range_end' is set
-        if ($range_end === null || (is_array($range_end) && count($range_end) === 0)) {
+        // verify the required parameter 'rangeEnd' is set
+        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_end when calling getCustomerActivityReports'
+                'Missing the required parameter $rangeEnd when calling getCustomerActivityReports'
             );
         }
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCustomerActivityReports'
+                'Missing the required parameter $applicationId when calling getCustomerActivityReports'
             );
         }
 
@@ -14757,8 +14757,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -14769,35 +14769,35 @@ class ManagementApi
             $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
         }
         // query params
-        if ($range_start !== null) {
-            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($range_start);
+        if ($rangeStart !== null) {
+            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($rangeStart);
         }
         // query params
-        if ($range_end !== null) {
-            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($range_end);
+        if ($rangeEnd !== null) {
+            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($rangeEnd);
         }
         // query params
         if ($name !== null) {
             $queryParams['name'] = ObjectSerializer::toQueryValue($name);
         }
         // query params
-        if ($integration_id !== null) {
-            $queryParams['integrationId'] = ObjectSerializer::toQueryValue($integration_id);
+        if ($integrationId !== null) {
+            $queryParams['integrationId'] = ObjectSerializer::toQueryValue($integrationId);
         }
         // query params
-        if ($campaign_name !== null) {
-            $queryParams['campaignName'] = ObjectSerializer::toQueryValue($campaign_name);
+        if ($campaignName !== null) {
+            $queryParams['campaignName'] = ObjectSerializer::toQueryValue($campaignName);
         }
         // query params
-        if ($advocate_name !== null) {
-            $queryParams['advocateName'] = ObjectSerializer::toQueryValue($advocate_name);
+        if ($advocateName !== null) {
+            $queryParams['advocateName'] = ObjectSerializer::toQueryValue($advocateName);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -14876,24 +14876,24 @@ class ManagementApi
      *
      * Get Activity Reports for Application Customers
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integration_id Only return reports matching the integrationId (optional)
-     * @param  string $campaign_name Only return reports matching the campaignName (optional)
-     * @param  string $advocate_name Only return reports matching the current customer referrer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20015
      */
-    public function getCustomerActivityReportsWithoutTotalCount($range_start, $range_end, $application_id, $page_size = null, $skip = null, $sort = null, $name = null, $integration_id = null, $campaign_name = null, $advocate_name = null)
+    public function getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
-        list($response) = $this->getCustomerActivityReportsWithoutTotalCountWithHttpInfo($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name);
+        list($response) = $this->getCustomerActivityReportsWithoutTotalCountWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
         return $response;
     }
 
@@ -14902,24 +14902,24 @@ class ManagementApi
      *
      * Get Activity Reports for Application Customers
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integration_id Only return reports matching the integrationId (optional)
-     * @param  string $campaign_name Only return reports matching the campaignName (optional)
-     * @param  string $advocate_name Only return reports matching the current customer referrer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20015, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomerActivityReportsWithoutTotalCountWithHttpInfo($range_start, $range_end, $application_id, $page_size = null, $skip = null, $sort = null, $name = null, $integration_id = null, $campaign_name = null, $advocate_name = null)
+    public function getCustomerActivityReportsWithoutTotalCountWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
-        $request = $this->getCustomerActivityReportsWithoutTotalCountRequest($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name);
+        $request = $this->getCustomerActivityReportsWithoutTotalCountRequest($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14999,23 +14999,23 @@ class ManagementApi
      *
      * Get Activity Reports for Application Customers
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integration_id Only return reports matching the integrationId (optional)
-     * @param  string $campaign_name Only return reports matching the campaignName (optional)
-     * @param  string $advocate_name Only return reports matching the current customer referrer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerActivityReportsWithoutTotalCountAsync($range_start, $range_end, $application_id, $page_size = null, $skip = null, $sort = null, $name = null, $integration_id = null, $campaign_name = null, $advocate_name = null)
+    public function getCustomerActivityReportsWithoutTotalCountAsync($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
-        return $this->getCustomerActivityReportsWithoutTotalCountAsyncWithHttpInfo($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name)
+        return $this->getCustomerActivityReportsWithoutTotalCountAsyncWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15028,24 +15028,24 @@ class ManagementApi
      *
      * Get Activity Reports for Application Customers
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integration_id Only return reports matching the integrationId (optional)
-     * @param  string $campaign_name Only return reports matching the campaignName (optional)
-     * @param  string $advocate_name Only return reports matching the current customer referrer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerActivityReportsWithoutTotalCountAsyncWithHttpInfo($range_start, $range_end, $application_id, $page_size = null, $skip = null, $sort = null, $name = null, $integration_id = null, $campaign_name = null, $advocate_name = null)
+    public function getCustomerActivityReportsWithoutTotalCountAsyncWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20015';
-        $request = $this->getCustomerActivityReportsWithoutTotalCountRequest($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name);
+        $request = $this->getCustomerActivityReportsWithoutTotalCountRequest($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15084,38 +15084,38 @@ class ManagementApi
     /**
      * Create request for operation 'getCustomerActivityReportsWithoutTotalCount'
      *
-     * @param  \DateTime $range_start Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $range_end Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $application_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integration_id Only return reports matching the integrationId (optional)
-     * @param  string $campaign_name Only return reports matching the campaignName (optional)
-     * @param  string $advocate_name Only return reports matching the current customer referrer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomerActivityReportsWithoutTotalCountRequest($range_start, $range_end, $application_id, $page_size = null, $skip = null, $sort = null, $name = null, $integration_id = null, $campaign_name = null, $advocate_name = null)
+    protected function getCustomerActivityReportsWithoutTotalCountRequest($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
-        // verify the required parameter 'range_start' is set
-        if ($range_start === null || (is_array($range_start) && count($range_start) === 0)) {
+        // verify the required parameter 'rangeStart' is set
+        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_start when calling getCustomerActivityReportsWithoutTotalCount'
+                'Missing the required parameter $rangeStart when calling getCustomerActivityReportsWithoutTotalCount'
             );
         }
-        // verify the required parameter 'range_end' is set
-        if ($range_end === null || (is_array($range_end) && count($range_end) === 0)) {
+        // verify the required parameter 'rangeEnd' is set
+        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $range_end when calling getCustomerActivityReportsWithoutTotalCount'
+                'Missing the required parameter $rangeEnd when calling getCustomerActivityReportsWithoutTotalCount'
             );
         }
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCustomerActivityReportsWithoutTotalCount'
+                'Missing the required parameter $applicationId when calling getCustomerActivityReportsWithoutTotalCount'
             );
         }
 
@@ -15127,8 +15127,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -15139,35 +15139,35 @@ class ManagementApi
             $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
         }
         // query params
-        if ($range_start !== null) {
-            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($range_start);
+        if ($rangeStart !== null) {
+            $queryParams['rangeStart'] = ObjectSerializer::toQueryValue($rangeStart);
         }
         // query params
-        if ($range_end !== null) {
-            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($range_end);
+        if ($rangeEnd !== null) {
+            $queryParams['rangeEnd'] = ObjectSerializer::toQueryValue($rangeEnd);
         }
         // query params
         if ($name !== null) {
             $queryParams['name'] = ObjectSerializer::toQueryValue($name);
         }
         // query params
-        if ($integration_id !== null) {
-            $queryParams['integrationId'] = ObjectSerializer::toQueryValue($integration_id);
+        if ($integrationId !== null) {
+            $queryParams['integrationId'] = ObjectSerializer::toQueryValue($integrationId);
         }
         // query params
-        if ($campaign_name !== null) {
-            $queryParams['campaignName'] = ObjectSerializer::toQueryValue($campaign_name);
+        if ($campaignName !== null) {
+            $queryParams['campaignName'] = ObjectSerializer::toQueryValue($campaignName);
         }
         // query params
-        if ($advocate_name !== null) {
-            $queryParams['advocateName'] = ObjectSerializer::toQueryValue($advocate_name);
+        if ($advocateName !== null) {
+            $queryParams['advocateName'] = ObjectSerializer::toQueryValue($advocateName);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -15246,9 +15246,9 @@ class ManagementApi
      *
      * Get Analytics Report for a Customer
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $customer_id customer_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $customerId customerId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -15256,9 +15256,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\CustomerAnalytics
      */
-    public function getCustomerAnalytics($application_id, $customer_id, $page_size = null, $skip = null, $sort = null)
+    public function getCustomerAnalytics($applicationId, $customerId, $pageSize = null, $skip = null, $sort = null)
     {
-        list($response) = $this->getCustomerAnalyticsWithHttpInfo($application_id, $customer_id, $page_size, $skip, $sort);
+        list($response) = $this->getCustomerAnalyticsWithHttpInfo($applicationId, $customerId, $pageSize, $skip, $sort);
         return $response;
     }
 
@@ -15267,9 +15267,9 @@ class ManagementApi
      *
      * Get Analytics Report for a Customer
      *
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -15277,9 +15277,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\CustomerAnalytics, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomerAnalyticsWithHttpInfo($application_id, $customer_id, $page_size = null, $skip = null, $sort = null)
+    public function getCustomerAnalyticsWithHttpInfo($applicationId, $customerId, $pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getCustomerAnalyticsRequest($application_id, $customer_id, $page_size, $skip, $sort);
+        $request = $this->getCustomerAnalyticsRequest($applicationId, $customerId, $pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15359,18 +15359,18 @@ class ManagementApi
      *
      * Get Analytics Report for a Customer
      *
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerAnalyticsAsync($application_id, $customer_id, $page_size = null, $skip = null, $sort = null)
+    public function getCustomerAnalyticsAsync($applicationId, $customerId, $pageSize = null, $skip = null, $sort = null)
     {
-        return $this->getCustomerAnalyticsAsyncWithHttpInfo($application_id, $customer_id, $page_size, $skip, $sort)
+        return $this->getCustomerAnalyticsAsyncWithHttpInfo($applicationId, $customerId, $pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15383,19 +15383,19 @@ class ManagementApi
      *
      * Get Analytics Report for a Customer
      *
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerAnalyticsAsyncWithHttpInfo($application_id, $customer_id, $page_size = null, $skip = null, $sort = null)
+    public function getCustomerAnalyticsAsyncWithHttpInfo($applicationId, $customerId, $pageSize = null, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\CustomerAnalytics';
-        $request = $this->getCustomerAnalyticsRequest($application_id, $customer_id, $page_size, $skip, $sort);
+        $request = $this->getCustomerAnalyticsRequest($applicationId, $customerId, $pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15434,27 +15434,27 @@ class ManagementApi
     /**
      * Create request for operation 'getCustomerAnalytics'
      *
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomerAnalyticsRequest($application_id, $customer_id, $page_size = null, $skip = null, $sort = null)
+    protected function getCustomerAnalyticsRequest($applicationId, $customerId, $pageSize = null, $skip = null, $sort = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCustomerAnalytics'
+                'Missing the required parameter $applicationId when calling getCustomerAnalytics'
             );
         }
-        // verify the required parameter 'customer_id' is set
-        if ($customer_id === null || (is_array($customer_id) && count($customer_id) === 0)) {
+        // verify the required parameter 'customerId' is set
+        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customer_id when calling getCustomerAnalytics'
+                'Missing the required parameter $customerId when calling getCustomerAnalytics'
             );
         }
 
@@ -15466,8 +15466,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -15479,18 +15479,18 @@ class ManagementApi
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($customer_id !== null) {
+        if ($customerId !== null) {
             $resourcePath = str_replace(
                 '{' . 'customerId' . '}',
-                ObjectSerializer::toPathValue($customer_id),
+                ObjectSerializer::toPathValue($customerId),
                 $resourcePath
             );
         }
@@ -15569,16 +15569,16 @@ class ManagementApi
      *
      * Get Customer Profile
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $customer_id customer_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $customerId customerId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\ApplicationCustomer
      */
-    public function getCustomerProfile($application_id, $customer_id)
+    public function getCustomerProfile($applicationId, $customerId)
     {
-        list($response) = $this->getCustomerProfileWithHttpInfo($application_id, $customer_id);
+        list($response) = $this->getCustomerProfileWithHttpInfo($applicationId, $customerId);
         return $response;
     }
 
@@ -15587,16 +15587,16 @@ class ManagementApi
      *
      * Get Customer Profile
      *
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\ApplicationCustomer, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomerProfileWithHttpInfo($application_id, $customer_id)
+    public function getCustomerProfileWithHttpInfo($applicationId, $customerId)
     {
-        $request = $this->getCustomerProfileRequest($application_id, $customer_id);
+        $request = $this->getCustomerProfileRequest($applicationId, $customerId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15676,15 +15676,15 @@ class ManagementApi
      *
      * Get Customer Profile
      *
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerProfileAsync($application_id, $customer_id)
+    public function getCustomerProfileAsync($applicationId, $customerId)
     {
-        return $this->getCustomerProfileAsyncWithHttpInfo($application_id, $customer_id)
+        return $this->getCustomerProfileAsyncWithHttpInfo($applicationId, $customerId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15697,16 +15697,16 @@ class ManagementApi
      *
      * Get Customer Profile
      *
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerProfileAsyncWithHttpInfo($application_id, $customer_id)
+    public function getCustomerProfileAsyncWithHttpInfo($applicationId, $customerId)
     {
         $returnType = '\TalonOne\Client\Model\ApplicationCustomer';
-        $request = $this->getCustomerProfileRequest($application_id, $customer_id);
+        $request = $this->getCustomerProfileRequest($applicationId, $customerId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15745,24 +15745,24 @@ class ManagementApi
     /**
      * Create request for operation 'getCustomerProfile'
      *
-     * @param  int $application_id (required)
-     * @param  int $customer_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $customerId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomerProfileRequest($application_id, $customer_id)
+    protected function getCustomerProfileRequest($applicationId, $customerId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getCustomerProfile'
+                'Missing the required parameter $applicationId when calling getCustomerProfile'
             );
         }
-        // verify the required parameter 'customer_id' is set
-        if ($customer_id === null || (is_array($customer_id) && count($customer_id) === 0)) {
+        // verify the required parameter 'customerId' is set
+        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customer_id when calling getCustomerProfile'
+                'Missing the required parameter $customerId when calling getCustomerProfile'
             );
         }
 
@@ -15775,18 +15775,18 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($customer_id !== null) {
+        if ($customerId !== null) {
             $resourcePath = str_replace(
                 '{' . 'customerId' . '}',
-                ObjectSerializer::toPathValue($customer_id),
+                ObjectSerializer::toPathValue($customerId),
                 $resourcePath
             );
         }
@@ -15865,16 +15865,16 @@ class ManagementApi
      *
      * List Customer Profiles
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20013
      */
-    public function getCustomerProfiles($page_size = null, $skip = null)
+    public function getCustomerProfiles($pageSize = null, $skip = null)
     {
-        list($response) = $this->getCustomerProfilesWithHttpInfo($page_size, $skip);
+        list($response) = $this->getCustomerProfilesWithHttpInfo($pageSize, $skip);
         return $response;
     }
 
@@ -15883,16 +15883,16 @@ class ManagementApi
      *
      * List Customer Profiles
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomerProfilesWithHttpInfo($page_size = null, $skip = null)
+    public function getCustomerProfilesWithHttpInfo($pageSize = null, $skip = null)
     {
-        $request = $this->getCustomerProfilesRequest($page_size, $skip);
+        $request = $this->getCustomerProfilesRequest($pageSize, $skip);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15972,15 +15972,15 @@ class ManagementApi
      *
      * List Customer Profiles
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerProfilesAsync($page_size = null, $skip = null)
+    public function getCustomerProfilesAsync($pageSize = null, $skip = null)
     {
-        return $this->getCustomerProfilesAsyncWithHttpInfo($page_size, $skip)
+        return $this->getCustomerProfilesAsyncWithHttpInfo($pageSize, $skip)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15993,16 +15993,16 @@ class ManagementApi
      *
      * List Customer Profiles
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerProfilesAsyncWithHttpInfo($page_size = null, $skip = null)
+    public function getCustomerProfilesAsyncWithHttpInfo($pageSize = null, $skip = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20013';
-        $request = $this->getCustomerProfilesRequest($page_size, $skip);
+        $request = $this->getCustomerProfilesRequest($pageSize, $skip);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16041,13 +16041,13 @@ class ManagementApi
     /**
      * Create request for operation 'getCustomerProfiles'
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomerProfilesRequest($page_size = null, $skip = null)
+    protected function getCustomerProfilesRequest($pageSize = null, $skip = null)
     {
 
         $resourcePath = '/v1/customers/no_total';
@@ -16058,8 +16058,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -16142,16 +16142,16 @@ class ManagementApi
      * Get a list of the customer profiles that match the given attributes
      *
      * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20013
      */
-    public function getCustomersByAttributes($body, $page_size = null, $skip = null)
+    public function getCustomersByAttributes($body, $pageSize = null, $skip = null)
     {
-        list($response) = $this->getCustomersByAttributesWithHttpInfo($body, $page_size, $skip);
+        list($response) = $this->getCustomersByAttributesWithHttpInfo($body, $pageSize, $skip);
         return $response;
     }
 
@@ -16161,16 +16161,16 @@ class ManagementApi
      * Get a list of the customer profiles that match the given attributes
      *
      * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomersByAttributesWithHttpInfo($body, $page_size = null, $skip = null)
+    public function getCustomersByAttributesWithHttpInfo($body, $pageSize = null, $skip = null)
     {
-        $request = $this->getCustomersByAttributesRequest($body, $page_size, $skip);
+        $request = $this->getCustomersByAttributesRequest($body, $pageSize, $skip);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16251,15 +16251,15 @@ class ManagementApi
      * Get a list of the customer profiles that match the given attributes
      *
      * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomersByAttributesAsync($body, $page_size = null, $skip = null)
+    public function getCustomersByAttributesAsync($body, $pageSize = null, $skip = null)
     {
-        return $this->getCustomersByAttributesAsyncWithHttpInfo($body, $page_size, $skip)
+        return $this->getCustomersByAttributesAsyncWithHttpInfo($body, $pageSize, $skip)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16273,16 +16273,16 @@ class ManagementApi
      * Get a list of the customer profiles that match the given attributes
      *
      * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomersByAttributesAsyncWithHttpInfo($body, $page_size = null, $skip = null)
+    public function getCustomersByAttributesAsyncWithHttpInfo($body, $pageSize = null, $skip = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20013';
-        $request = $this->getCustomersByAttributesRequest($body, $page_size, $skip);
+        $request = $this->getCustomersByAttributesRequest($body, $pageSize, $skip);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16322,13 +16322,13 @@ class ManagementApi
      * Create request for operation 'getCustomersByAttributes'
      *
      * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomersByAttributesRequest($body, $page_size = null, $skip = null)
+    protected function getCustomersByAttributesRequest($body, $pageSize = null, $skip = null)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
@@ -16345,8 +16345,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -16431,10 +16431,10 @@ class ManagementApi
      *
      * List Event Types
      *
-     * @param  string $application_ids Filter by one or more application ids separated by comma (optional)
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $name Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)
-     * @param  bool $include_old_versions Include all versions of every event type. (optional, default to false)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  bool $includeOldVersions Include all versions of every event type. (optional, default to false)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -16442,9 +16442,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20025
      */
-    public function getEventTypes($application_ids = null, $name = null, $include_old_versions = false, $page_size = null, $skip = null, $sort = null)
+    public function getEventTypes($applicationIds = null, $name = null, $includeOldVersions = false, $pageSize = null, $skip = null, $sort = null)
     {
-        list($response) = $this->getEventTypesWithHttpInfo($application_ids, $name, $include_old_versions, $page_size, $skip, $sort);
+        list($response) = $this->getEventTypesWithHttpInfo($applicationIds, $name, $includeOldVersions, $pageSize, $skip, $sort);
         return $response;
     }
 
@@ -16453,10 +16453,10 @@ class ManagementApi
      *
      * List Event Types
      *
-     * @param  string $application_ids Filter by one or more application ids separated by comma (optional)
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $name Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)
-     * @param  bool $include_old_versions Include all versions of every event type. (optional, default to false)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  bool $includeOldVersions Include all versions of every event type. (optional, default to false)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -16464,9 +16464,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20025, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEventTypesWithHttpInfo($application_ids = null, $name = null, $include_old_versions = false, $page_size = null, $skip = null, $sort = null)
+    public function getEventTypesWithHttpInfo($applicationIds = null, $name = null, $includeOldVersions = false, $pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getEventTypesRequest($application_ids, $name, $include_old_versions, $page_size, $skip, $sort);
+        $request = $this->getEventTypesRequest($applicationIds, $name, $includeOldVersions, $pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16546,19 +16546,19 @@ class ManagementApi
      *
      * List Event Types
      *
-     * @param  string $application_ids Filter by one or more application ids separated by comma (optional)
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $name Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)
-     * @param  bool $include_old_versions Include all versions of every event type. (optional, default to false)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  bool $includeOldVersions Include all versions of every event type. (optional, default to false)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEventTypesAsync($application_ids = null, $name = null, $include_old_versions = false, $page_size = null, $skip = null, $sort = null)
+    public function getEventTypesAsync($applicationIds = null, $name = null, $includeOldVersions = false, $pageSize = null, $skip = null, $sort = null)
     {
-        return $this->getEventTypesAsyncWithHttpInfo($application_ids, $name, $include_old_versions, $page_size, $skip, $sort)
+        return $this->getEventTypesAsyncWithHttpInfo($applicationIds, $name, $includeOldVersions, $pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16571,20 +16571,20 @@ class ManagementApi
      *
      * List Event Types
      *
-     * @param  string $application_ids Filter by one or more application ids separated by comma (optional)
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $name Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)
-     * @param  bool $include_old_versions Include all versions of every event type. (optional, default to false)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  bool $includeOldVersions Include all versions of every event type. (optional, default to false)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEventTypesAsyncWithHttpInfo($application_ids = null, $name = null, $include_old_versions = false, $page_size = null, $skip = null, $sort = null)
+    public function getEventTypesAsyncWithHttpInfo($applicationIds = null, $name = null, $includeOldVersions = false, $pageSize = null, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20025';
-        $request = $this->getEventTypesRequest($application_ids, $name, $include_old_versions, $page_size, $skip, $sort);
+        $request = $this->getEventTypesRequest($applicationIds, $name, $includeOldVersions, $pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16623,17 +16623,17 @@ class ManagementApi
     /**
      * Create request for operation 'getEventTypes'
      *
-     * @param  string $application_ids Filter by one or more application ids separated by comma (optional)
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $name Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)
-     * @param  bool $include_old_versions Include all versions of every event type. (optional, default to false)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  bool $includeOldVersions Include all versions of every event type. (optional, default to false)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getEventTypesRequest($application_ids = null, $name = null, $include_old_versions = false, $page_size = null, $skip = null, $sort = null)
+    protected function getEventTypesRequest($applicationIds = null, $name = null, $includeOldVersions = false, $pageSize = null, $skip = null, $sort = null)
     {
 
         $resourcePath = '/v1/event_types';
@@ -16644,20 +16644,20 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($application_ids !== null) {
-            $queryParams['applicationIds'] = ObjectSerializer::toQueryValue($application_ids);
+        if ($applicationIds !== null) {
+            $queryParams['applicationIds'] = ObjectSerializer::toQueryValue($applicationIds);
         }
         // query params
         if ($name !== null) {
             $queryParams['name'] = ObjectSerializer::toQueryValue($name);
         }
         // query params
-        if ($include_old_versions !== null) {
-            $queryParams['includeOldVersions'] = ObjectSerializer::toQueryValue($include_old_versions);
+        if ($includeOldVersions !== null) {
+            $queryParams['includeOldVersions'] = ObjectSerializer::toQueryValue($includeOldVersions);
         }
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -16743,19 +16743,19 @@ class ManagementApi
      *
      * Get Exports
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  int $application_id application_id (optional)
-     * @param  int $campaign_id campaign_id (optional)
+     * @param  int $applicationId applicationId (optional)
+     * @param  int $campaignId campaignId (optional)
      * @param  string $entity The name of the entity type that was exported. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20028
      */
-    public function getExports($page_size = null, $skip = null, $application_id = null, $campaign_id = null, $entity = null)
+    public function getExports($pageSize = null, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
-        list($response) = $this->getExportsWithHttpInfo($page_size, $skip, $application_id, $campaign_id, $entity);
+        list($response) = $this->getExportsWithHttpInfo($pageSize, $skip, $applicationId, $campaignId, $entity);
         return $response;
     }
 
@@ -16764,19 +16764,19 @@ class ManagementApi
      *
      * Get Exports
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  int $application_id (optional)
-     * @param  int $campaign_id (optional)
+     * @param  int $applicationId (optional)
+     * @param  int $campaignId (optional)
      * @param  string $entity The name of the entity type that was exported. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20028, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExportsWithHttpInfo($page_size = null, $skip = null, $application_id = null, $campaign_id = null, $entity = null)
+    public function getExportsWithHttpInfo($pageSize = null, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
-        $request = $this->getExportsRequest($page_size, $skip, $application_id, $campaign_id, $entity);
+        $request = $this->getExportsRequest($pageSize, $skip, $applicationId, $campaignId, $entity);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16856,18 +16856,18 @@ class ManagementApi
      *
      * Get Exports
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  int $application_id (optional)
-     * @param  int $campaign_id (optional)
+     * @param  int $applicationId (optional)
+     * @param  int $campaignId (optional)
      * @param  string $entity The name of the entity type that was exported. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExportsAsync($page_size = null, $skip = null, $application_id = null, $campaign_id = null, $entity = null)
+    public function getExportsAsync($pageSize = null, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
-        return $this->getExportsAsyncWithHttpInfo($page_size, $skip, $application_id, $campaign_id, $entity)
+        return $this->getExportsAsyncWithHttpInfo($pageSize, $skip, $applicationId, $campaignId, $entity)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16880,19 +16880,19 @@ class ManagementApi
      *
      * Get Exports
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  int $application_id (optional)
-     * @param  int $campaign_id (optional)
+     * @param  int $applicationId (optional)
+     * @param  int $campaignId (optional)
      * @param  string $entity The name of the entity type that was exported. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExportsAsyncWithHttpInfo($page_size = null, $skip = null, $application_id = null, $campaign_id = null, $entity = null)
+    public function getExportsAsyncWithHttpInfo($pageSize = null, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20028';
-        $request = $this->getExportsRequest($page_size, $skip, $application_id, $campaign_id, $entity);
+        $request = $this->getExportsRequest($pageSize, $skip, $applicationId, $campaignId, $entity);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16931,16 +16931,16 @@ class ManagementApi
     /**
      * Create request for operation 'getExports'
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  int $application_id (optional)
-     * @param  int $campaign_id (optional)
+     * @param  int $applicationId (optional)
+     * @param  int $campaignId (optional)
      * @param  string $entity The name of the entity type that was exported. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getExportsRequest($page_size = null, $skip = null, $application_id = null, $campaign_id = null, $entity = null)
+    protected function getExportsRequest($pageSize = null, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
 
         $resourcePath = '/v1/exports';
@@ -16951,20 +16951,20 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
             $queryParams['skip'] = ObjectSerializer::toQueryValue($skip);
         }
         // query params
-        if ($application_id !== null) {
-            $queryParams['applicationId'] = ObjectSerializer::toQueryValue($application_id);
+        if ($applicationId !== null) {
+            $queryParams['applicationId'] = ObjectSerializer::toQueryValue($applicationId);
         }
         // query params
-        if ($campaign_id !== null) {
-            $queryParams['campaignId'] = ObjectSerializer::toQueryValue($campaign_id);
+        if ($campaignId !== null) {
+            $queryParams['campaignId'] = ObjectSerializer::toQueryValue($campaignId);
         }
         // query params
         if ($entity !== null) {
@@ -17046,16 +17046,16 @@ class ManagementApi
      *
      * Get Imports
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20029
      */
-    public function getImports($page_size = null, $skip = null)
+    public function getImports($pageSize = null, $skip = null)
     {
-        list($response) = $this->getImportsWithHttpInfo($page_size, $skip);
+        list($response) = $this->getImportsWithHttpInfo($pageSize, $skip);
         return $response;
     }
 
@@ -17064,16 +17064,16 @@ class ManagementApi
      *
      * Get Imports
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20029, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getImportsWithHttpInfo($page_size = null, $skip = null)
+    public function getImportsWithHttpInfo($pageSize = null, $skip = null)
     {
-        $request = $this->getImportsRequest($page_size, $skip);
+        $request = $this->getImportsRequest($pageSize, $skip);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17153,15 +17153,15 @@ class ManagementApi
      *
      * Get Imports
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getImportsAsync($page_size = null, $skip = null)
+    public function getImportsAsync($pageSize = null, $skip = null)
     {
-        return $this->getImportsAsyncWithHttpInfo($page_size, $skip)
+        return $this->getImportsAsyncWithHttpInfo($pageSize, $skip)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17174,16 +17174,16 @@ class ManagementApi
      *
      * Get Imports
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getImportsAsyncWithHttpInfo($page_size = null, $skip = null)
+    public function getImportsAsyncWithHttpInfo($pageSize = null, $skip = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20029';
-        $request = $this->getImportsRequest($page_size, $skip);
+        $request = $this->getImportsRequest($pageSize, $skip);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17222,13 +17222,13 @@ class ManagementApi
     /**
      * Create request for operation 'getImports'
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getImportsRequest($page_size = null, $skip = null)
+    protected function getImportsRequest($pageSize = null, $skip = null)
     {
 
         $resourcePath = '/v1/imports';
@@ -17239,8 +17239,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -17322,16 +17322,16 @@ class ManagementApi
      *
      * get the Loyalty Ledger for this integrationID
      *
-     * @param  string $program_id The identifier for the application, must be unique within the account. (required)
-     * @param  string $integration_id The identifier for the application, must be unique within the account. (required)
+     * @param  string $programID The identifier for the application, must be unique within the account. (required)
+     * @param  string $integrationID The identifier for the application, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\LoyaltyLedger
      */
-    public function getLoyaltyPoints($program_id, $integration_id)
+    public function getLoyaltyPoints($programID, $integrationID)
     {
-        list($response) = $this->getLoyaltyPointsWithHttpInfo($program_id, $integration_id);
+        list($response) = $this->getLoyaltyPointsWithHttpInfo($programID, $integrationID);
         return $response;
     }
 
@@ -17340,16 +17340,16 @@ class ManagementApi
      *
      * get the Loyalty Ledger for this integrationID
      *
-     * @param  string $program_id The identifier for the application, must be unique within the account. (required)
-     * @param  string $integration_id The identifier for the application, must be unique within the account. (required)
+     * @param  string $programID The identifier for the application, must be unique within the account. (required)
+     * @param  string $integrationID The identifier for the application, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\LoyaltyLedger, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyPointsWithHttpInfo($program_id, $integration_id)
+    public function getLoyaltyPointsWithHttpInfo($programID, $integrationID)
     {
-        $request = $this->getLoyaltyPointsRequest($program_id, $integration_id);
+        $request = $this->getLoyaltyPointsRequest($programID, $integrationID);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17429,15 +17429,15 @@ class ManagementApi
      *
      * get the Loyalty Ledger for this integrationID
      *
-     * @param  string $program_id The identifier for the application, must be unique within the account. (required)
-     * @param  string $integration_id The identifier for the application, must be unique within the account. (required)
+     * @param  string $programID The identifier for the application, must be unique within the account. (required)
+     * @param  string $integrationID The identifier for the application, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyPointsAsync($program_id, $integration_id)
+    public function getLoyaltyPointsAsync($programID, $integrationID)
     {
-        return $this->getLoyaltyPointsAsyncWithHttpInfo($program_id, $integration_id)
+        return $this->getLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17450,16 +17450,16 @@ class ManagementApi
      *
      * get the Loyalty Ledger for this integrationID
      *
-     * @param  string $program_id The identifier for the application, must be unique within the account. (required)
-     * @param  string $integration_id The identifier for the application, must be unique within the account. (required)
+     * @param  string $programID The identifier for the application, must be unique within the account. (required)
+     * @param  string $integrationID The identifier for the application, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyPointsAsyncWithHttpInfo($program_id, $integration_id)
+    public function getLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID)
     {
         $returnType = '\TalonOne\Client\Model\LoyaltyLedger';
-        $request = $this->getLoyaltyPointsRequest($program_id, $integration_id);
+        $request = $this->getLoyaltyPointsRequest($programID, $integrationID);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17498,24 +17498,24 @@ class ManagementApi
     /**
      * Create request for operation 'getLoyaltyPoints'
      *
-     * @param  string $program_id The identifier for the application, must be unique within the account. (required)
-     * @param  string $integration_id The identifier for the application, must be unique within the account. (required)
+     * @param  string $programID The identifier for the application, must be unique within the account. (required)
+     * @param  string $integrationID The identifier for the application, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyPointsRequest($program_id, $integration_id)
+    protected function getLoyaltyPointsRequest($programID, $integrationID)
     {
-        // verify the required parameter 'program_id' is set
-        if ($program_id === null || (is_array($program_id) && count($program_id) === 0)) {
+        // verify the required parameter 'programID' is set
+        if ($programID === null || (is_array($programID) && count($programID) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $program_id when calling getLoyaltyPoints'
+                'Missing the required parameter $programID when calling getLoyaltyPoints'
             );
         }
-        // verify the required parameter 'integration_id' is set
-        if ($integration_id === null || (is_array($integration_id) && count($integration_id) === 0)) {
+        // verify the required parameter 'integrationID' is set
+        if ($integrationID === null || (is_array($integrationID) && count($integrationID) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $integration_id when calling getLoyaltyPoints'
+                'Missing the required parameter $integrationID when calling getLoyaltyPoints'
             );
         }
 
@@ -17528,18 +17528,18 @@ class ManagementApi
 
 
         // path params
-        if ($program_id !== null) {
+        if ($programID !== null) {
             $resourcePath = str_replace(
                 '{' . 'programID' . '}',
-                ObjectSerializer::toPathValue($program_id),
+                ObjectSerializer::toPathValue($programID),
                 $resourcePath
             );
         }
         // path params
-        if ($integration_id !== null) {
+        if ($integrationID !== null) {
             $resourcePath = str_replace(
                 '{' . 'integrationID' . '}',
-                ObjectSerializer::toPathValue($integration_id),
+                ObjectSerializer::toPathValue($integrationID),
                 $resourcePath
             );
         }
@@ -17618,15 +17618,15 @@ class ManagementApi
      *
      * Get a loyalty program
      *
-     * @param  string $program_id program_id (required)
+     * @param  string $programID programID (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\LoyaltyProgram
      */
-    public function getLoyaltyProgram($program_id)
+    public function getLoyaltyProgram($programID)
     {
-        list($response) = $this->getLoyaltyProgramWithHttpInfo($program_id);
+        list($response) = $this->getLoyaltyProgramWithHttpInfo($programID);
         return $response;
     }
 
@@ -17635,15 +17635,15 @@ class ManagementApi
      *
      * Get a loyalty program
      *
-     * @param  string $program_id (required)
+     * @param  string $programID (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\LoyaltyProgram, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyProgramWithHttpInfo($program_id)
+    public function getLoyaltyProgramWithHttpInfo($programID)
     {
-        $request = $this->getLoyaltyProgramRequest($program_id);
+        $request = $this->getLoyaltyProgramRequest($programID);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17723,14 +17723,14 @@ class ManagementApi
      *
      * Get a loyalty program
      *
-     * @param  string $program_id (required)
+     * @param  string $programID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyProgramAsync($program_id)
+    public function getLoyaltyProgramAsync($programID)
     {
-        return $this->getLoyaltyProgramAsyncWithHttpInfo($program_id)
+        return $this->getLoyaltyProgramAsyncWithHttpInfo($programID)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17743,15 +17743,15 @@ class ManagementApi
      *
      * Get a loyalty program
      *
-     * @param  string $program_id (required)
+     * @param  string $programID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyProgramAsyncWithHttpInfo($program_id)
+    public function getLoyaltyProgramAsyncWithHttpInfo($programID)
     {
         $returnType = '\TalonOne\Client\Model\LoyaltyProgram';
-        $request = $this->getLoyaltyProgramRequest($program_id);
+        $request = $this->getLoyaltyProgramRequest($programID);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17790,17 +17790,17 @@ class ManagementApi
     /**
      * Create request for operation 'getLoyaltyProgram'
      *
-     * @param  string $program_id (required)
+     * @param  string $programID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyProgramRequest($program_id)
+    protected function getLoyaltyProgramRequest($programID)
     {
-        // verify the required parameter 'program_id' is set
-        if ($program_id === null || (is_array($program_id) && count($program_id) === 0)) {
+        // verify the required parameter 'programID' is set
+        if ($programID === null || (is_array($programID) && count($programID) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $program_id when calling getLoyaltyProgram'
+                'Missing the required parameter $programID when calling getLoyaltyProgram'
             );
         }
 
@@ -17813,10 +17813,10 @@ class ManagementApi
 
 
         // path params
-        if ($program_id !== null) {
+        if ($programID !== null) {
             $resourcePath = str_replace(
                 '{' . 'programID' . '}',
-                ObjectSerializer::toPathValue($program_id),
+                ObjectSerializer::toPathValue($programID),
                 $resourcePath
             );
         }
@@ -18153,14 +18153,14 @@ class ManagementApi
      *
      * List Referrals
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
@@ -18169,9 +18169,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2006
      */
-    public function getReferrals($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $code = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $advocate = null)
+    public function getReferrals($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
-        list($response) = $this->getReferralsWithHttpInfo($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate);
+        list($response) = $this->getReferralsWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
         return $response;
     }
 
@@ -18180,14 +18180,14 @@ class ManagementApi
      *
      * List Referrals
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
@@ -18196,9 +18196,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReferralsWithHttpInfo($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $code = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $advocate = null)
+    public function getReferralsWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
-        $request = $this->getReferralsRequest($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate);
+        $request = $this->getReferralsRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
 
         try {
             $options = $this->createHttpClientOption();
@@ -18278,14 +18278,14 @@ class ManagementApi
      *
      * List Referrals
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
@@ -18293,9 +18293,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReferralsAsync($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $code = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $advocate = null)
+    public function getReferralsAsync($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
-        return $this->getReferralsAsyncWithHttpInfo($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate)
+        return $this->getReferralsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -18308,14 +18308,14 @@ class ManagementApi
      *
      * List Referrals
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
@@ -18323,10 +18323,10 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReferralsAsyncWithHttpInfo($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $code = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $advocate = null)
+    public function getReferralsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2006';
-        $request = $this->getReferralsRequest($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate);
+        $request = $this->getReferralsRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -18365,14 +18365,14 @@ class ManagementApi
     /**
      * Create request for operation 'getReferrals'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
@@ -18380,18 +18380,18 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReferralsRequest($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $code = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $advocate = null)
+    protected function getReferralsRequest($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getReferrals'
+                'Missing the required parameter $applicationId when calling getReferrals'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling getReferrals'
+                'Missing the required parameter $campaignId when calling getReferrals'
             );
         }
 
@@ -18403,8 +18403,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -18419,12 +18419,12 @@ class ManagementApi
             $queryParams['code'] = ObjectSerializer::toQueryValue($code);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
         if ($valid !== null) {
@@ -18440,18 +18440,18 @@ class ManagementApi
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -18530,14 +18530,14 @@ class ManagementApi
      *
      * List Referrals
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
@@ -18546,9 +18546,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2007
      */
-    public function getReferralsWithoutTotalCount($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $code = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $advocate = null)
+    public function getReferralsWithoutTotalCount($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
-        list($response) = $this->getReferralsWithoutTotalCountWithHttpInfo($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate);
+        list($response) = $this->getReferralsWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
         return $response;
     }
 
@@ -18557,14 +18557,14 @@ class ManagementApi
      *
      * List Referrals
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
@@ -18573,9 +18573,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReferralsWithoutTotalCountWithHttpInfo($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $code = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $advocate = null)
+    public function getReferralsWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
-        $request = $this->getReferralsWithoutTotalCountRequest($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate);
+        $request = $this->getReferralsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
 
         try {
             $options = $this->createHttpClientOption();
@@ -18655,14 +18655,14 @@ class ManagementApi
      *
      * List Referrals
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
@@ -18670,9 +18670,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReferralsWithoutTotalCountAsync($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $code = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $advocate = null)
+    public function getReferralsWithoutTotalCountAsync($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
-        return $this->getReferralsWithoutTotalCountAsyncWithHttpInfo($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate)
+        return $this->getReferralsWithoutTotalCountAsyncWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -18685,14 +18685,14 @@ class ManagementApi
      *
      * List Referrals
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
@@ -18700,10 +18700,10 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReferralsWithoutTotalCountAsyncWithHttpInfo($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $code = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $advocate = null)
+    public function getReferralsWithoutTotalCountAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2007';
-        $request = $this->getReferralsWithoutTotalCountRequest($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate);
+        $request = $this->getReferralsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -18742,14 +18742,14 @@ class ManagementApi
     /**
      * Create request for operation 'getReferralsWithoutTotalCount'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
@@ -18757,18 +18757,18 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReferralsWithoutTotalCountRequest($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null, $code = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $advocate = null)
+    protected function getReferralsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getReferralsWithoutTotalCount'
+                'Missing the required parameter $applicationId when calling getReferralsWithoutTotalCount'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling getReferralsWithoutTotalCount'
+                'Missing the required parameter $campaignId when calling getReferralsWithoutTotalCount'
             );
         }
 
@@ -18780,8 +18780,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -18796,12 +18796,12 @@ class ManagementApi
             $queryParams['code'] = ObjectSerializer::toQueryValue($code);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
         if ($valid !== null) {
@@ -18817,18 +18817,18 @@ class ManagementApi
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -18907,15 +18907,15 @@ class ManagementApi
      *
      * Get information for the specified role.
      *
-     * @param  int $role_id role_id (required)
+     * @param  int $roleId roleId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Role
      */
-    public function getRole($role_id)
+    public function getRole($roleId)
     {
-        list($response) = $this->getRoleWithHttpInfo($role_id);
+        list($response) = $this->getRoleWithHttpInfo($roleId);
         return $response;
     }
 
@@ -18924,15 +18924,15 @@ class ManagementApi
      *
      * Get information for the specified role.
      *
-     * @param  int $role_id (required)
+     * @param  int $roleId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Role, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoleWithHttpInfo($role_id)
+    public function getRoleWithHttpInfo($roleId)
     {
-        $request = $this->getRoleRequest($role_id);
+        $request = $this->getRoleRequest($roleId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -19012,14 +19012,14 @@ class ManagementApi
      *
      * Get information for the specified role.
      *
-     * @param  int $role_id (required)
+     * @param  int $roleId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoleAsync($role_id)
+    public function getRoleAsync($roleId)
     {
-        return $this->getRoleAsyncWithHttpInfo($role_id)
+        return $this->getRoleAsyncWithHttpInfo($roleId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -19032,15 +19032,15 @@ class ManagementApi
      *
      * Get information for the specified role.
      *
-     * @param  int $role_id (required)
+     * @param  int $roleId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoleAsyncWithHttpInfo($role_id)
+    public function getRoleAsyncWithHttpInfo($roleId)
     {
         $returnType = '\TalonOne\Client\Model\Role';
-        $request = $this->getRoleRequest($role_id);
+        $request = $this->getRoleRequest($roleId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -19079,17 +19079,17 @@ class ManagementApi
     /**
      * Create request for operation 'getRole'
      *
-     * @param  int $role_id (required)
+     * @param  int $roleId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getRoleRequest($role_id)
+    protected function getRoleRequest($roleId)
     {
-        // verify the required parameter 'role_id' is set
-        if ($role_id === null || (is_array($role_id) && count($role_id) === 0)) {
+        // verify the required parameter 'roleId' is set
+        if ($roleId === null || (is_array($roleId) && count($roleId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $role_id when calling getRole'
+                'Missing the required parameter $roleId when calling getRole'
             );
         }
 
@@ -19102,10 +19102,10 @@ class ManagementApi
 
 
         // path params
-        if ($role_id !== null) {
+        if ($roleId !== null) {
             $resourcePath = str_replace(
                 '{' . 'roleId' . '}',
-                ObjectSerializer::toPathValue($role_id),
+                ObjectSerializer::toPathValue($roleId),
                 $resourcePath
             );
         }
@@ -19184,17 +19184,17 @@ class ManagementApi
      *
      * Get a Ruleset
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
-     * @param  int $ruleset_id ruleset_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  int $rulesetId rulesetId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Ruleset
      */
-    public function getRuleset($application_id, $campaign_id, $ruleset_id)
+    public function getRuleset($applicationId, $campaignId, $rulesetId)
     {
-        list($response) = $this->getRulesetWithHttpInfo($application_id, $campaign_id, $ruleset_id);
+        list($response) = $this->getRulesetWithHttpInfo($applicationId, $campaignId, $rulesetId);
         return $response;
     }
 
@@ -19203,17 +19203,17 @@ class ManagementApi
      *
      * Get a Ruleset
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $ruleset_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $rulesetId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Ruleset, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRulesetWithHttpInfo($application_id, $campaign_id, $ruleset_id)
+    public function getRulesetWithHttpInfo($applicationId, $campaignId, $rulesetId)
     {
-        $request = $this->getRulesetRequest($application_id, $campaign_id, $ruleset_id);
+        $request = $this->getRulesetRequest($applicationId, $campaignId, $rulesetId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -19293,16 +19293,16 @@ class ManagementApi
      *
      * Get a Ruleset
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $ruleset_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $rulesetId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRulesetAsync($application_id, $campaign_id, $ruleset_id)
+    public function getRulesetAsync($applicationId, $campaignId, $rulesetId)
     {
-        return $this->getRulesetAsyncWithHttpInfo($application_id, $campaign_id, $ruleset_id)
+        return $this->getRulesetAsyncWithHttpInfo($applicationId, $campaignId, $rulesetId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -19315,17 +19315,17 @@ class ManagementApi
      *
      * Get a Ruleset
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $ruleset_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $rulesetId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRulesetAsyncWithHttpInfo($application_id, $campaign_id, $ruleset_id)
+    public function getRulesetAsyncWithHttpInfo($applicationId, $campaignId, $rulesetId)
     {
         $returnType = '\TalonOne\Client\Model\Ruleset';
-        $request = $this->getRulesetRequest($application_id, $campaign_id, $ruleset_id);
+        $request = $this->getRulesetRequest($applicationId, $campaignId, $rulesetId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -19364,31 +19364,31 @@ class ManagementApi
     /**
      * Create request for operation 'getRuleset'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $ruleset_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $rulesetId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getRulesetRequest($application_id, $campaign_id, $ruleset_id)
+    protected function getRulesetRequest($applicationId, $campaignId, $rulesetId)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getRuleset'
+                'Missing the required parameter $applicationId when calling getRuleset'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling getRuleset'
+                'Missing the required parameter $campaignId when calling getRuleset'
             );
         }
-        // verify the required parameter 'ruleset_id' is set
-        if ($ruleset_id === null || (is_array($ruleset_id) && count($ruleset_id) === 0)) {
+        // verify the required parameter 'rulesetId' is set
+        if ($rulesetId === null || (is_array($rulesetId) && count($rulesetId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ruleset_id when calling getRuleset'
+                'Missing the required parameter $rulesetId when calling getRuleset'
             );
         }
 
@@ -19401,26 +19401,26 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
         // path params
-        if ($ruleset_id !== null) {
+        if ($rulesetId !== null) {
             $resourcePath = str_replace(
                 '{' . 'rulesetId' . '}',
-                ObjectSerializer::toPathValue($ruleset_id),
+                ObjectSerializer::toPathValue($rulesetId),
                 $resourcePath
             );
         }
@@ -19499,9 +19499,9 @@ class ManagementApi
      *
      * List Campaign Rulesets
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -19509,9 +19509,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2004
      */
-    public function getRulesets($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null)
+    public function getRulesets($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null)
     {
-        list($response) = $this->getRulesetsWithHttpInfo($application_id, $campaign_id, $page_size, $skip, $sort);
+        list($response) = $this->getRulesetsWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort);
         return $response;
     }
 
@@ -19520,9 +19520,9 @@ class ManagementApi
      *
      * List Campaign Rulesets
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -19530,9 +19530,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRulesetsWithHttpInfo($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null)
+    public function getRulesetsWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getRulesetsRequest($application_id, $campaign_id, $page_size, $skip, $sort);
+        $request = $this->getRulesetsRequest($applicationId, $campaignId, $pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -19612,18 +19612,18 @@ class ManagementApi
      *
      * List Campaign Rulesets
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRulesetsAsync($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null)
+    public function getRulesetsAsync($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null)
     {
-        return $this->getRulesetsAsyncWithHttpInfo($application_id, $campaign_id, $page_size, $skip, $sort)
+        return $this->getRulesetsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -19636,19 +19636,19 @@ class ManagementApi
      *
      * List Campaign Rulesets
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRulesetsAsyncWithHttpInfo($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null)
+    public function getRulesetsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2004';
-        $request = $this->getRulesetsRequest($application_id, $campaign_id, $page_size, $skip, $sort);
+        $request = $this->getRulesetsRequest($applicationId, $campaignId, $pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -19687,27 +19687,27 @@ class ManagementApi
     /**
      * Create request for operation 'getRulesets'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getRulesetsRequest($application_id, $campaign_id, $page_size = null, $skip = null, $sort = null)
+    protected function getRulesetsRequest($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling getRulesets'
+                'Missing the required parameter $applicationId when calling getRulesets'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling getRulesets'
+                'Missing the required parameter $campaignId when calling getRulesets'
             );
         }
 
@@ -19719,8 +19719,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -19732,18 +19732,18 @@ class ManagementApi
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -19822,15 +19822,15 @@ class ManagementApi
      *
      * Get a single User
      *
-     * @param  int $user_id user_id (required)
+     * @param  int $userId userId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\User
      */
-    public function getUser($user_id)
+    public function getUser($userId)
     {
-        list($response) = $this->getUserWithHttpInfo($user_id);
+        list($response) = $this->getUserWithHttpInfo($userId);
         return $response;
     }
 
@@ -19839,15 +19839,15 @@ class ManagementApi
      *
      * Get a single User
      *
-     * @param  int $user_id (required)
+     * @param  int $userId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\User, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserWithHttpInfo($user_id)
+    public function getUserWithHttpInfo($userId)
     {
-        $request = $this->getUserRequest($user_id);
+        $request = $this->getUserRequest($userId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -19927,14 +19927,14 @@ class ManagementApi
      *
      * Get a single User
      *
-     * @param  int $user_id (required)
+     * @param  int $userId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserAsync($user_id)
+    public function getUserAsync($userId)
     {
-        return $this->getUserAsyncWithHttpInfo($user_id)
+        return $this->getUserAsyncWithHttpInfo($userId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -19947,15 +19947,15 @@ class ManagementApi
      *
      * Get a single User
      *
-     * @param  int $user_id (required)
+     * @param  int $userId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserAsyncWithHttpInfo($user_id)
+    public function getUserAsyncWithHttpInfo($userId)
     {
         $returnType = '\TalonOne\Client\Model\User';
-        $request = $this->getUserRequest($user_id);
+        $request = $this->getUserRequest($userId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -19994,17 +19994,17 @@ class ManagementApi
     /**
      * Create request for operation 'getUser'
      *
-     * @param  int $user_id (required)
+     * @param  int $userId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getUserRequest($user_id)
+    protected function getUserRequest($userId)
     {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+        // verify the required parameter 'userId' is set
+        if ($userId === null || (is_array($userId) && count($userId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling getUser'
+                'Missing the required parameter $userId when calling getUser'
             );
         }
 
@@ -20017,10 +20017,10 @@ class ManagementApi
 
 
         // path params
-        if ($user_id !== null) {
+        if ($userId !== null) {
             $resourcePath = str_replace(
                 '{' . 'userId' . '}',
-                ObjectSerializer::toPathValue($user_id),
+                ObjectSerializer::toPathValue($userId),
                 $resourcePath
             );
         }
@@ -20099,7 +20099,7 @@ class ManagementApi
      *
      * List Users in your account
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -20107,9 +20107,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20026
      */
-    public function getUsers($page_size = null, $skip = null, $sort = null)
+    public function getUsers($pageSize = null, $skip = null, $sort = null)
     {
-        list($response) = $this->getUsersWithHttpInfo($page_size, $skip, $sort);
+        list($response) = $this->getUsersWithHttpInfo($pageSize, $skip, $sort);
         return $response;
     }
 
@@ -20118,7 +20118,7 @@ class ManagementApi
      *
      * List Users in your account
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
@@ -20126,9 +20126,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20026, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUsersWithHttpInfo($page_size = null, $skip = null, $sort = null)
+    public function getUsersWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getUsersRequest($page_size, $skip, $sort);
+        $request = $this->getUsersRequest($pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -20208,16 +20208,16 @@ class ManagementApi
      *
      * List Users in your account
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUsersAsync($page_size = null, $skip = null, $sort = null)
+    public function getUsersAsync($pageSize = null, $skip = null, $sort = null)
     {
-        return $this->getUsersAsyncWithHttpInfo($page_size, $skip, $sort)
+        return $this->getUsersAsyncWithHttpInfo($pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -20230,17 +20230,17 @@ class ManagementApi
      *
      * List Users in your account
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUsersAsyncWithHttpInfo($page_size = null, $skip = null, $sort = null)
+    public function getUsersAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20026';
-        $request = $this->getUsersRequest($page_size, $skip, $sort);
+        $request = $this->getUsersRequest($pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -20279,14 +20279,14 @@ class ManagementApi
     /**
      * Create request for operation 'getUsers'
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getUsersRequest($page_size = null, $skip = null, $sort = null)
+    protected function getUsersRequest($pageSize = null, $skip = null, $sort = null)
     {
 
         $resourcePath = '/v1/users';
@@ -20297,8 +20297,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -20384,15 +20384,15 @@ class ManagementApi
      *
      * Get Webhook
      *
-     * @param  int $webhook_id webhook_id (required)
+     * @param  int $webhookId webhookId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Webhook
      */
-    public function getWebhook($webhook_id)
+    public function getWebhook($webhookId)
     {
-        list($response) = $this->getWebhookWithHttpInfo($webhook_id);
+        list($response) = $this->getWebhookWithHttpInfo($webhookId);
         return $response;
     }
 
@@ -20401,15 +20401,15 @@ class ManagementApi
      *
      * Get Webhook
      *
-     * @param  int $webhook_id (required)
+     * @param  int $webhookId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Webhook, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookWithHttpInfo($webhook_id)
+    public function getWebhookWithHttpInfo($webhookId)
     {
-        $request = $this->getWebhookRequest($webhook_id);
+        $request = $this->getWebhookRequest($webhookId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -20489,14 +20489,14 @@ class ManagementApi
      *
      * Get Webhook
      *
-     * @param  int $webhook_id (required)
+     * @param  int $webhookId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookAsync($webhook_id)
+    public function getWebhookAsync($webhookId)
     {
-        return $this->getWebhookAsyncWithHttpInfo($webhook_id)
+        return $this->getWebhookAsyncWithHttpInfo($webhookId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -20509,15 +20509,15 @@ class ManagementApi
      *
      * Get Webhook
      *
-     * @param  int $webhook_id (required)
+     * @param  int $webhookId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookAsyncWithHttpInfo($webhook_id)
+    public function getWebhookAsyncWithHttpInfo($webhookId)
     {
         $returnType = '\TalonOne\Client\Model\Webhook';
-        $request = $this->getWebhookRequest($webhook_id);
+        $request = $this->getWebhookRequest($webhookId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -20556,17 +20556,17 @@ class ManagementApi
     /**
      * Create request for operation 'getWebhook'
      *
-     * @param  int $webhook_id (required)
+     * @param  int $webhookId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWebhookRequest($webhook_id)
+    protected function getWebhookRequest($webhookId)
     {
-        // verify the required parameter 'webhook_id' is set
-        if ($webhook_id === null || (is_array($webhook_id) && count($webhook_id) === 0)) {
+        // verify the required parameter 'webhookId' is set
+        if ($webhookId === null || (is_array($webhookId) && count($webhookId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $webhook_id when calling getWebhook'
+                'Missing the required parameter $webhookId when calling getWebhook'
             );
         }
 
@@ -20579,10 +20579,10 @@ class ManagementApi
 
 
         // path params
-        if ($webhook_id !== null) {
+        if ($webhookId !== null) {
             $resourcePath = str_replace(
                 '{' . 'webhookId' . '}',
-                ObjectSerializer::toPathValue($webhook_id),
+                ObjectSerializer::toPathValue($webhookId),
                 $resourcePath
             );
         }
@@ -20661,23 +20661,23 @@ class ManagementApi
      *
      * List Webhook activation Log Entries
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $integration_request_uuid Filter results by integration request UUID. (optional)
-     * @param  float $webhook_id Filter results by Webhook. (optional)
-     * @param  float $application_id application_id (optional)
-     * @param  float $campaign_id Filter results by campaign. (optional)
-     * @param  \DateTime $created_before Only return events created before this date. (optional)
-     * @param  \DateTime $created_after Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20023
      */
-    public function getWebhookActivationLogs($page_size = null, $skip = null, $sort = null, $integration_request_uuid = null, $webhook_id = null, $application_id = null, $campaign_id = null, $created_before = null, $created_after = null)
+    public function getWebhookActivationLogs($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
-        list($response) = $this->getWebhookActivationLogsWithHttpInfo($page_size, $skip, $sort, $integration_request_uuid, $webhook_id, $application_id, $campaign_id, $created_before, $created_after);
+        list($response) = $this->getWebhookActivationLogsWithHttpInfo($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter);
         return $response;
     }
 
@@ -20686,23 +20686,23 @@ class ManagementApi
      *
      * List Webhook activation Log Entries
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $integration_request_uuid Filter results by integration request UUID. (optional)
-     * @param  float $webhook_id Filter results by Webhook. (optional)
-     * @param  float $application_id (optional)
-     * @param  float $campaign_id Filter results by campaign. (optional)
-     * @param  \DateTime $created_before Only return events created before this date. (optional)
-     * @param  \DateTime $created_after Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20023, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookActivationLogsWithHttpInfo($page_size = null, $skip = null, $sort = null, $integration_request_uuid = null, $webhook_id = null, $application_id = null, $campaign_id = null, $created_before = null, $created_after = null)
+    public function getWebhookActivationLogsWithHttpInfo($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
-        $request = $this->getWebhookActivationLogsRequest($page_size, $skip, $sort, $integration_request_uuid, $webhook_id, $application_id, $campaign_id, $created_before, $created_after);
+        $request = $this->getWebhookActivationLogsRequest($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter);
 
         try {
             $options = $this->createHttpClientOption();
@@ -20782,22 +20782,22 @@ class ManagementApi
      *
      * List Webhook activation Log Entries
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $integration_request_uuid Filter results by integration request UUID. (optional)
-     * @param  float $webhook_id Filter results by Webhook. (optional)
-     * @param  float $application_id (optional)
-     * @param  float $campaign_id Filter results by campaign. (optional)
-     * @param  \DateTime $created_before Only return events created before this date. (optional)
-     * @param  \DateTime $created_after Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookActivationLogsAsync($page_size = null, $skip = null, $sort = null, $integration_request_uuid = null, $webhook_id = null, $application_id = null, $campaign_id = null, $created_before = null, $created_after = null)
+    public function getWebhookActivationLogsAsync($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
-        return $this->getWebhookActivationLogsAsyncWithHttpInfo($page_size, $skip, $sort, $integration_request_uuid, $webhook_id, $application_id, $campaign_id, $created_before, $created_after)
+        return $this->getWebhookActivationLogsAsyncWithHttpInfo($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -20810,23 +20810,23 @@ class ManagementApi
      *
      * List Webhook activation Log Entries
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $integration_request_uuid Filter results by integration request UUID. (optional)
-     * @param  float $webhook_id Filter results by Webhook. (optional)
-     * @param  float $application_id (optional)
-     * @param  float $campaign_id Filter results by campaign. (optional)
-     * @param  \DateTime $created_before Only return events created before this date. (optional)
-     * @param  \DateTime $created_after Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookActivationLogsAsyncWithHttpInfo($page_size = null, $skip = null, $sort = null, $integration_request_uuid = null, $webhook_id = null, $application_id = null, $campaign_id = null, $created_before = null, $created_after = null)
+    public function getWebhookActivationLogsAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20023';
-        $request = $this->getWebhookActivationLogsRequest($page_size, $skip, $sort, $integration_request_uuid, $webhook_id, $application_id, $campaign_id, $created_before, $created_after);
+        $request = $this->getWebhookActivationLogsRequest($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -20865,20 +20865,20 @@ class ManagementApi
     /**
      * Create request for operation 'getWebhookActivationLogs'
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $integration_request_uuid Filter results by integration request UUID. (optional)
-     * @param  float $webhook_id Filter results by Webhook. (optional)
-     * @param  float $application_id (optional)
-     * @param  float $campaign_id Filter results by campaign. (optional)
-     * @param  \DateTime $created_before Only return events created before this date. (optional)
-     * @param  \DateTime $created_after Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWebhookActivationLogsRequest($page_size = null, $skip = null, $sort = null, $integration_request_uuid = null, $webhook_id = null, $application_id = null, $campaign_id = null, $created_before = null, $created_after = null)
+    protected function getWebhookActivationLogsRequest($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
 
         $resourcePath = '/v1/webhook_activation_logs';
@@ -20889,8 +20889,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -20901,28 +20901,28 @@ class ManagementApi
             $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
         }
         // query params
-        if ($integration_request_uuid !== null) {
-            $queryParams['integrationRequestUuid'] = ObjectSerializer::toQueryValue($integration_request_uuid);
+        if ($integrationRequestUuid !== null) {
+            $queryParams['integrationRequestUuid'] = ObjectSerializer::toQueryValue($integrationRequestUuid);
         }
         // query params
-        if ($webhook_id !== null) {
-            $queryParams['webhookId'] = ObjectSerializer::toQueryValue($webhook_id);
+        if ($webhookId !== null) {
+            $queryParams['webhookId'] = ObjectSerializer::toQueryValue($webhookId);
         }
         // query params
-        if ($application_id !== null) {
-            $queryParams['applicationId'] = ObjectSerializer::toQueryValue($application_id);
+        if ($applicationId !== null) {
+            $queryParams['applicationId'] = ObjectSerializer::toQueryValue($applicationId);
         }
         // query params
-        if ($campaign_id !== null) {
-            $queryParams['campaignId'] = ObjectSerializer::toQueryValue($campaign_id);
+        if ($campaignId !== null) {
+            $queryParams['campaignId'] = ObjectSerializer::toQueryValue($campaignId);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
 
 
@@ -21000,24 +21000,24 @@ class ManagementApi
      *
      * List Webhook Log Entries
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhook_id Filter results by Webhook. (optional)
-     * @param  float $application_id application_id (optional)
-     * @param  float $campaign_id Filter results by campaign. (optional)
-     * @param  string $request_uuid Filter results by request UUID. (optional)
-     * @param  \DateTime $created_before Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $created_after Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  string $requestUuid Filter results by request UUID. (optional)
+     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20024
      */
-    public function getWebhookLogs($page_size = null, $skip = null, $sort = null, $status = null, $webhook_id = null, $application_id = null, $campaign_id = null, $request_uuid = null, $created_before = null, $created_after = null)
+    public function getWebhookLogs($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
     {
-        list($response) = $this->getWebhookLogsWithHttpInfo($page_size, $skip, $sort, $status, $webhook_id, $application_id, $campaign_id, $request_uuid, $created_before, $created_after);
+        list($response) = $this->getWebhookLogsWithHttpInfo($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
         return $response;
     }
 
@@ -21026,24 +21026,24 @@ class ManagementApi
      *
      * List Webhook Log Entries
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhook_id Filter results by Webhook. (optional)
-     * @param  float $application_id (optional)
-     * @param  float $campaign_id Filter results by campaign. (optional)
-     * @param  string $request_uuid Filter results by request UUID. (optional)
-     * @param  \DateTime $created_before Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $created_after Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  string $requestUuid Filter results by request UUID. (optional)
+     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20024, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookLogsWithHttpInfo($page_size = null, $skip = null, $sort = null, $status = null, $webhook_id = null, $application_id = null, $campaign_id = null, $request_uuid = null, $created_before = null, $created_after = null)
+    public function getWebhookLogsWithHttpInfo($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
     {
-        $request = $this->getWebhookLogsRequest($page_size, $skip, $sort, $status, $webhook_id, $application_id, $campaign_id, $request_uuid, $created_before, $created_after);
+        $request = $this->getWebhookLogsRequest($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
 
         try {
             $options = $this->createHttpClientOption();
@@ -21123,23 +21123,23 @@ class ManagementApi
      *
      * List Webhook Log Entries
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhook_id Filter results by Webhook. (optional)
-     * @param  float $application_id (optional)
-     * @param  float $campaign_id Filter results by campaign. (optional)
-     * @param  string $request_uuid Filter results by request UUID. (optional)
-     * @param  \DateTime $created_before Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $created_after Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  string $requestUuid Filter results by request UUID. (optional)
+     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookLogsAsync($page_size = null, $skip = null, $sort = null, $status = null, $webhook_id = null, $application_id = null, $campaign_id = null, $request_uuid = null, $created_before = null, $created_after = null)
+    public function getWebhookLogsAsync($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
     {
-        return $this->getWebhookLogsAsyncWithHttpInfo($page_size, $skip, $sort, $status, $webhook_id, $application_id, $campaign_id, $request_uuid, $created_before, $created_after)
+        return $this->getWebhookLogsAsyncWithHttpInfo($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -21152,24 +21152,24 @@ class ManagementApi
      *
      * List Webhook Log Entries
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhook_id Filter results by Webhook. (optional)
-     * @param  float $application_id (optional)
-     * @param  float $campaign_id Filter results by campaign. (optional)
-     * @param  string $request_uuid Filter results by request UUID. (optional)
-     * @param  \DateTime $created_before Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $created_after Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  string $requestUuid Filter results by request UUID. (optional)
+     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookLogsAsyncWithHttpInfo($page_size = null, $skip = null, $sort = null, $status = null, $webhook_id = null, $application_id = null, $campaign_id = null, $request_uuid = null, $created_before = null, $created_after = null)
+    public function getWebhookLogsAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20024';
-        $request = $this->getWebhookLogsRequest($page_size, $skip, $sort, $status, $webhook_id, $application_id, $campaign_id, $request_uuid, $created_before, $created_after);
+        $request = $this->getWebhookLogsRequest($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -21208,21 +21208,21 @@ class ManagementApi
     /**
      * Create request for operation 'getWebhookLogs'
      *
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhook_id Filter results by Webhook. (optional)
-     * @param  float $application_id (optional)
-     * @param  float $campaign_id Filter results by campaign. (optional)
-     * @param  string $request_uuid Filter results by request UUID. (optional)
-     * @param  \DateTime $created_before Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $created_after Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  string $requestUuid Filter results by request UUID. (optional)
+     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWebhookLogsRequest($page_size = null, $skip = null, $sort = null, $status = null, $webhook_id = null, $application_id = null, $campaign_id = null, $request_uuid = null, $created_before = null, $created_after = null)
+    protected function getWebhookLogsRequest($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
     {
 
         $resourcePath = '/v1/webhook_logs';
@@ -21233,8 +21233,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -21249,28 +21249,28 @@ class ManagementApi
             $queryParams['status'] = ObjectSerializer::toQueryValue($status);
         }
         // query params
-        if ($webhook_id !== null) {
-            $queryParams['webhookId'] = ObjectSerializer::toQueryValue($webhook_id);
+        if ($webhookId !== null) {
+            $queryParams['webhookId'] = ObjectSerializer::toQueryValue($webhookId);
         }
         // query params
-        if ($application_id !== null) {
-            $queryParams['applicationId'] = ObjectSerializer::toQueryValue($application_id);
+        if ($applicationId !== null) {
+            $queryParams['applicationId'] = ObjectSerializer::toQueryValue($applicationId);
         }
         // query params
-        if ($campaign_id !== null) {
-            $queryParams['campaignId'] = ObjectSerializer::toQueryValue($campaign_id);
+        if ($campaignId !== null) {
+            $queryParams['campaignId'] = ObjectSerializer::toQueryValue($campaignId);
         }
         // query params
-        if ($request_uuid !== null) {
-            $queryParams['requestUuid'] = ObjectSerializer::toQueryValue($request_uuid);
+        if ($requestUuid !== null) {
+            $queryParams['requestUuid'] = ObjectSerializer::toQueryValue($requestUuid);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
 
 
@@ -21348,18 +21348,18 @@ class ManagementApi
      *
      * List Webhooks
      *
-     * @param  string $application_ids Filter by one or more application ids separated by comma (optional)
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20022
      */
-    public function getWebhooks($application_ids = null, $sort = null, $page_size = null, $skip = null)
+    public function getWebhooks($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
     {
-        list($response) = $this->getWebhooksWithHttpInfo($application_ids, $sort, $page_size, $skip);
+        list($response) = $this->getWebhooksWithHttpInfo($applicationIds, $sort, $pageSize, $skip);
         return $response;
     }
 
@@ -21368,18 +21368,18 @@ class ManagementApi
      *
      * List Webhooks
      *
-     * @param  string $application_ids Filter by one or more application ids separated by comma (optional)
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20022, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhooksWithHttpInfo($application_ids = null, $sort = null, $page_size = null, $skip = null)
+    public function getWebhooksWithHttpInfo($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
     {
-        $request = $this->getWebhooksRequest($application_ids, $sort, $page_size, $skip);
+        $request = $this->getWebhooksRequest($applicationIds, $sort, $pageSize, $skip);
 
         try {
             $options = $this->createHttpClientOption();
@@ -21459,17 +21459,17 @@ class ManagementApi
      *
      * List Webhooks
      *
-     * @param  string $application_ids Filter by one or more application ids separated by comma (optional)
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhooksAsync($application_ids = null, $sort = null, $page_size = null, $skip = null)
+    public function getWebhooksAsync($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
     {
-        return $this->getWebhooksAsyncWithHttpInfo($application_ids, $sort, $page_size, $skip)
+        return $this->getWebhooksAsyncWithHttpInfo($applicationIds, $sort, $pageSize, $skip)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -21482,18 +21482,18 @@ class ManagementApi
      *
      * List Webhooks
      *
-     * @param  string $application_ids Filter by one or more application ids separated by comma (optional)
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhooksAsyncWithHttpInfo($application_ids = null, $sort = null, $page_size = null, $skip = null)
+    public function getWebhooksAsyncWithHttpInfo($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20022';
-        $request = $this->getWebhooksRequest($application_ids, $sort, $page_size, $skip);
+        $request = $this->getWebhooksRequest($applicationIds, $sort, $pageSize, $skip);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -21532,15 +21532,15 @@ class ManagementApi
     /**
      * Create request for operation 'getWebhooks'
      *
-     * @param  string $application_ids Filter by one or more application ids separated by comma (optional)
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWebhooksRequest($application_ids = null, $sort = null, $page_size = null, $skip = null)
+    protected function getWebhooksRequest($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
     {
 
         $resourcePath = '/v1/webhooks';
@@ -21551,16 +21551,16 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($application_ids !== null) {
-            $queryParams['applicationIds'] = ObjectSerializer::toQueryValue($application_ids);
+        if ($applicationIds !== null) {
+            $queryParams['applicationIds'] = ObjectSerializer::toQueryValue($applicationIds);
         }
         // query params
         if ($sort !== null) {
             $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
         }
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -21642,17 +21642,17 @@ class ManagementApi
      *
      * Deduct points in a certain loyalty program for the specified customer
      *
-     * @param  string $program_id program_id (required)
-     * @param  string $integration_id integration_id (required)
+     * @param  string $programID programID (required)
+     * @param  string $integrationID integrationID (required)
      * @param  \TalonOne\Client\Model\LoyaltyPoints $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function removeLoyaltyPoints($program_id, $integration_id, $body)
+    public function removeLoyaltyPoints($programID, $integrationID, $body)
     {
-        $this->removeLoyaltyPointsWithHttpInfo($program_id, $integration_id, $body);
+        $this->removeLoyaltyPointsWithHttpInfo($programID, $integrationID, $body);
     }
 
     /**
@@ -21660,17 +21660,17 @@ class ManagementApi
      *
      * Deduct points in a certain loyalty program for the specified customer
      *
-     * @param  string $program_id (required)
-     * @param  string $integration_id (required)
+     * @param  string $programID (required)
+     * @param  string $integrationID (required)
      * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeLoyaltyPointsWithHttpInfo($program_id, $integration_id, $body)
+    public function removeLoyaltyPointsWithHttpInfo($programID, $integrationID, $body)
     {
-        $request = $this->removeLoyaltyPointsRequest($program_id, $integration_id, $body);
+        $request = $this->removeLoyaltyPointsRequest($programID, $integrationID, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -21714,16 +21714,16 @@ class ManagementApi
      *
      * Deduct points in a certain loyalty program for the specified customer
      *
-     * @param  string $program_id (required)
-     * @param  string $integration_id (required)
+     * @param  string $programID (required)
+     * @param  string $integrationID (required)
      * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeLoyaltyPointsAsync($program_id, $integration_id, $body)
+    public function removeLoyaltyPointsAsync($programID, $integrationID, $body)
     {
-        return $this->removeLoyaltyPointsAsyncWithHttpInfo($program_id, $integration_id, $body)
+        return $this->removeLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -21736,17 +21736,17 @@ class ManagementApi
      *
      * Deduct points in a certain loyalty program for the specified customer
      *
-     * @param  string $program_id (required)
-     * @param  string $integration_id (required)
+     * @param  string $programID (required)
+     * @param  string $integrationID (required)
      * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeLoyaltyPointsAsyncWithHttpInfo($program_id, $integration_id, $body)
+    public function removeLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID, $body)
     {
         $returnType = '';
-        $request = $this->removeLoyaltyPointsRequest($program_id, $integration_id, $body);
+        $request = $this->removeLoyaltyPointsRequest($programID, $integrationID, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -21774,25 +21774,25 @@ class ManagementApi
     /**
      * Create request for operation 'removeLoyaltyPoints'
      *
-     * @param  string $program_id (required)
-     * @param  string $integration_id (required)
+     * @param  string $programID (required)
+     * @param  string $integrationID (required)
      * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function removeLoyaltyPointsRequest($program_id, $integration_id, $body)
+    protected function removeLoyaltyPointsRequest($programID, $integrationID, $body)
     {
-        // verify the required parameter 'program_id' is set
-        if ($program_id === null || (is_array($program_id) && count($program_id) === 0)) {
+        // verify the required parameter 'programID' is set
+        if ($programID === null || (is_array($programID) && count($programID) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $program_id when calling removeLoyaltyPoints'
+                'Missing the required parameter $programID when calling removeLoyaltyPoints'
             );
         }
-        // verify the required parameter 'integration_id' is set
-        if ($integration_id === null || (is_array($integration_id) && count($integration_id) === 0)) {
+        // verify the required parameter 'integrationID' is set
+        if ($integrationID === null || (is_array($integrationID) && count($integrationID) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $integration_id when calling removeLoyaltyPoints'
+                'Missing the required parameter $integrationID when calling removeLoyaltyPoints'
             );
         }
         // verify the required parameter 'body' is set
@@ -21811,18 +21811,18 @@ class ManagementApi
 
 
         // path params
-        if ($program_id !== null) {
+        if ($programID !== null) {
             $resourcePath = str_replace(
                 '{' . 'programID' . '}',
-                ObjectSerializer::toPathValue($program_id),
+                ObjectSerializer::toPathValue($programID),
                 $resourcePath
             );
         }
         // path params
-        if ($integration_id !== null) {
+        if ($integrationID !== null) {
             $resourcePath = str_replace(
                 '{' . 'integrationID' . '}',
-                ObjectSerializer::toPathValue($integration_id),
+                ObjectSerializer::toPathValue($integrationID),
                 $resourcePath
             );
         }
@@ -22176,29 +22176,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
      * @param  object $body body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2001
      */
-    public function searchCouponsAdvanced($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    public function searchCouponsAdvanced($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        list($response) = $this->searchCouponsAdvancedWithHttpInfo($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id);
+        list($response) = $this->searchCouponsAdvancedWithHttpInfo($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
         return $response;
     }
 
@@ -22207,29 +22207,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchCouponsAdvancedWithHttpInfo($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    public function searchCouponsAdvancedWithHttpInfo($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        $request = $this->searchCouponsAdvancedRequest($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id);
+        $request = $this->searchCouponsAdvancedRequest($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -22309,28 +22309,28 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCouponsAdvancedAsync($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    public function searchCouponsAdvancedAsync($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        return $this->searchCouponsAdvancedAsyncWithHttpInfo($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id)
+        return $this->searchCouponsAdvancedAsyncWithHttpInfo($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -22343,29 +22343,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCouponsAdvancedAsyncWithHttpInfo($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    public function searchCouponsAdvancedAsyncWithHttpInfo($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2001';
-        $request = $this->searchCouponsAdvancedRequest($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id);
+        $request = $this->searchCouponsAdvancedRequest($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -22404,37 +22404,37 @@ class ManagementApi
     /**
      * Create request for operation 'searchCouponsAdvanced'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchCouponsAdvancedRequest($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    protected function searchCouponsAdvancedRequest($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling searchCouponsAdvanced'
+                'Missing the required parameter $applicationId when calling searchCouponsAdvanced'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling searchCouponsAdvanced'
+                'Missing the required parameter $campaignId when calling searchCouponsAdvanced'
             );
         }
         // verify the required parameter 'body' is set
@@ -22452,8 +22452,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -22468,12 +22468,12 @@ class ManagementApi
             $queryParams['value'] = ObjectSerializer::toQueryValue($value);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
         if ($valid !== null) {
@@ -22484,35 +22484,35 @@ class ManagementApi
             $queryParams['usable'] = ObjectSerializer::toQueryValue($usable);
         }
         // query params
-        if ($referral_id !== null) {
-            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referral_id);
+        if ($referralId !== null) {
+            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referralId);
         }
         // query params
-        if ($recipient_integration_id !== null) {
-            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipient_integration_id);
+        if ($recipientIntegrationId !== null) {
+            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipientIntegrationId);
         }
         // query params
-        if ($exact_match !== null) {
-            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exact_match);
+        if ($exactMatch !== null) {
+            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exactMatch);
         }
         // query params
-        if ($batch_id !== null) {
-            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batch_id);
+        if ($batchId !== null) {
+            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batchId);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -22594,29 +22594,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes in all active campaigns of an application
      *
-     * @param  int $application_id application_id (required)
+     * @param  int $applicationId applicationId (required)
      * @param  object $body body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2001
      */
-    public function searchCouponsAdvancedApplicationWide($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    public function searchCouponsAdvancedApplicationWide($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        list($response) = $this->searchCouponsAdvancedApplicationWideWithHttpInfo($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state);
+        list($response) = $this->searchCouponsAdvancedApplicationWideWithHttpInfo($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
         return $response;
     }
 
@@ -22625,29 +22625,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes in all active campaigns of an application
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchCouponsAdvancedApplicationWideWithHttpInfo($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    public function searchCouponsAdvancedApplicationWideWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        $request = $this->searchCouponsAdvancedApplicationWideRequest($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state);
+        $request = $this->searchCouponsAdvancedApplicationWideRequest($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
 
         try {
             $options = $this->createHttpClientOption();
@@ -22727,28 +22727,28 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes in all active campaigns of an application
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCouponsAdvancedApplicationWideAsync($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    public function searchCouponsAdvancedApplicationWideAsync($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        return $this->searchCouponsAdvancedApplicationWideAsyncWithHttpInfo($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state)
+        return $this->searchCouponsAdvancedApplicationWideAsyncWithHttpInfo($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -22761,29 +22761,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes in all active campaigns of an application
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCouponsAdvancedApplicationWideAsyncWithHttpInfo($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    public function searchCouponsAdvancedApplicationWideAsyncWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2001';
-        $request = $this->searchCouponsAdvancedApplicationWideRequest($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state);
+        $request = $this->searchCouponsAdvancedApplicationWideRequest($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -22822,31 +22822,31 @@ class ManagementApi
     /**
      * Create request for operation 'searchCouponsAdvancedApplicationWide'
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchCouponsAdvancedApplicationWideRequest($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    protected function searchCouponsAdvancedApplicationWideRequest($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling searchCouponsAdvancedApplicationWide'
+                'Missing the required parameter $applicationId when calling searchCouponsAdvancedApplicationWide'
             );
         }
         // verify the required parameter 'body' is set
@@ -22864,8 +22864,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -22880,12 +22880,12 @@ class ManagementApi
             $queryParams['value'] = ObjectSerializer::toQueryValue($value);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
         if ($valid !== null) {
@@ -22896,31 +22896,31 @@ class ManagementApi
             $queryParams['usable'] = ObjectSerializer::toQueryValue($usable);
         }
         // query params
-        if ($referral_id !== null) {
-            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referral_id);
+        if ($referralId !== null) {
+            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referralId);
         }
         // query params
-        if ($recipient_integration_id !== null) {
-            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipient_integration_id);
+        if ($recipientIntegrationId !== null) {
+            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipientIntegrationId);
         }
         // query params
-        if ($batch_id !== null) {
-            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batch_id);
+        if ($batchId !== null) {
+            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batchId);
         }
         // query params
-        if ($exact_match !== null) {
-            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exact_match);
+        if ($exactMatch !== null) {
+            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exactMatch);
         }
         // query params
-        if ($campaign_state !== null) {
-            $queryParams['campaignState'] = ObjectSerializer::toQueryValue($campaign_state);
+        if ($campaignState !== null) {
+            $queryParams['campaignState'] = ObjectSerializer::toQueryValue($campaignState);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -23002,29 +23002,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes in all active campaigns of an application
      *
-     * @param  int $application_id application_id (required)
+     * @param  int $applicationId applicationId (required)
      * @param  object $body body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2005
      */
-    public function searchCouponsAdvancedApplicationWideWithoutTotalCount($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    public function searchCouponsAdvancedApplicationWideWithoutTotalCount($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        list($response) = $this->searchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state);
+        list($response) = $this->searchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
         return $response;
     }
 
@@ -23033,29 +23033,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes in all active campaigns of an application
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    public function searchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        $request = $this->searchCouponsAdvancedApplicationWideWithoutTotalCountRequest($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state);
+        $request = $this->searchCouponsAdvancedApplicationWideWithoutTotalCountRequest($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
 
         try {
             $options = $this->createHttpClientOption();
@@ -23135,28 +23135,28 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes in all active campaigns of an application
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCouponsAdvancedApplicationWideWithoutTotalCountAsync($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    public function searchCouponsAdvancedApplicationWideWithoutTotalCountAsync($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        return $this->searchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state)
+        return $this->searchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -23169,29 +23169,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes in all active campaigns of an application
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    public function searchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2005';
-        $request = $this->searchCouponsAdvancedApplicationWideWithoutTotalCountRequest($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state);
+        $request = $this->searchCouponsAdvancedApplicationWideWithoutTotalCountRequest($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -23230,31 +23230,31 @@ class ManagementApi
     /**
      * Create request for operation 'searchCouponsAdvancedApplicationWideWithoutTotalCount'
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $campaign_state Filter results by the state of the campaign. (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $batchId Filter results by batches of coupons (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchCouponsAdvancedApplicationWideWithoutTotalCountRequest($application_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $batch_id = null, $exact_match = false, $campaign_state = null)
+    protected function searchCouponsAdvancedApplicationWideWithoutTotalCountRequest($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling searchCouponsAdvancedApplicationWideWithoutTotalCount'
+                'Missing the required parameter $applicationId when calling searchCouponsAdvancedApplicationWideWithoutTotalCount'
             );
         }
         // verify the required parameter 'body' is set
@@ -23272,8 +23272,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -23288,12 +23288,12 @@ class ManagementApi
             $queryParams['value'] = ObjectSerializer::toQueryValue($value);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
         if ($valid !== null) {
@@ -23304,31 +23304,31 @@ class ManagementApi
             $queryParams['usable'] = ObjectSerializer::toQueryValue($usable);
         }
         // query params
-        if ($referral_id !== null) {
-            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referral_id);
+        if ($referralId !== null) {
+            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referralId);
         }
         // query params
-        if ($recipient_integration_id !== null) {
-            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipient_integration_id);
+        if ($recipientIntegrationId !== null) {
+            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipientIntegrationId);
         }
         // query params
-        if ($batch_id !== null) {
-            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batch_id);
+        if ($batchId !== null) {
+            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batchId);
         }
         // query params
-        if ($exact_match !== null) {
-            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exact_match);
+        if ($exactMatch !== null) {
+            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exactMatch);
         }
         // query params
-        if ($campaign_state !== null) {
-            $queryParams['campaignState'] = ObjectSerializer::toQueryValue($campaign_state);
+        if ($campaignState !== null) {
+            $queryParams['campaignState'] = ObjectSerializer::toQueryValue($campaignState);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -23410,29 +23410,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
      * @param  object $body body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2005
      */
-    public function searchCouponsAdvancedWithoutTotalCount($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    public function searchCouponsAdvancedWithoutTotalCount($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        list($response) = $this->searchCouponsAdvancedWithoutTotalCountWithHttpInfo($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id);
+        list($response) = $this->searchCouponsAdvancedWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
         return $response;
     }
 
@@ -23441,29 +23441,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchCouponsAdvancedWithoutTotalCountWithHttpInfo($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    public function searchCouponsAdvancedWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        $request = $this->searchCouponsAdvancedWithoutTotalCountRequest($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id);
+        $request = $this->searchCouponsAdvancedWithoutTotalCountRequest($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -23543,28 +23543,28 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCouponsAdvancedWithoutTotalCountAsync($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    public function searchCouponsAdvancedWithoutTotalCountAsync($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        return $this->searchCouponsAdvancedWithoutTotalCountAsyncWithHttpInfo($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id)
+        return $this->searchCouponsAdvancedWithoutTotalCountAsyncWithHttpInfo($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -23577,29 +23577,29 @@ class ManagementApi
      *
      * Get a list of the coupons that match the given attributes
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCouponsAdvancedWithoutTotalCountAsyncWithHttpInfo($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    public function searchCouponsAdvancedWithoutTotalCountAsyncWithHttpInfo($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2005';
-        $request = $this->searchCouponsAdvancedWithoutTotalCountRequest($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id);
+        $request = $this->searchCouponsAdvancedWithoutTotalCountRequest($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -23638,37 +23638,37 @@ class ManagementApi
     /**
      * Create request for operation 'searchCouponsAdvancedWithoutTotalCount'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  object $body (required)
-     * @param  int $page_size The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $created_before Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
-     * @param  \DateTime $created_after Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  int $referral_id Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
-     * @param  string $recipient_integration_id Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exact_match Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
-     * @param  string $batch_id Filter results by batches of coupons (optional)
+     * @param  int $referralId Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchCouponsAdvancedWithoutTotalCountRequest($application_id, $campaign_id, $body, $page_size = null, $skip = null, $sort = null, $value = null, $created_before = null, $created_after = null, $valid = null, $usable = null, $referral_id = null, $recipient_integration_id = null, $exact_match = false, $batch_id = null)
+    protected function searchCouponsAdvancedWithoutTotalCountRequest($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling searchCouponsAdvancedWithoutTotalCount'
+                'Missing the required parameter $applicationId when calling searchCouponsAdvancedWithoutTotalCount'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling searchCouponsAdvancedWithoutTotalCount'
+                'Missing the required parameter $campaignId when calling searchCouponsAdvancedWithoutTotalCount'
             );
         }
         // verify the required parameter 'body' is set
@@ -23686,8 +23686,8 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
         if ($skip !== null) {
@@ -23702,12 +23702,12 @@ class ManagementApi
             $queryParams['value'] = ObjectSerializer::toQueryValue($value);
         }
         // query params
-        if ($created_before !== null) {
-            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($created_before);
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
         }
         // query params
-        if ($created_after !== null) {
-            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($created_after);
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
         }
         // query params
         if ($valid !== null) {
@@ -23718,35 +23718,35 @@ class ManagementApi
             $queryParams['usable'] = ObjectSerializer::toQueryValue($usable);
         }
         // query params
-        if ($referral_id !== null) {
-            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referral_id);
+        if ($referralId !== null) {
+            $queryParams['referralId'] = ObjectSerializer::toQueryValue($referralId);
         }
         // query params
-        if ($recipient_integration_id !== null) {
-            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipient_integration_id);
+        if ($recipientIntegrationId !== null) {
+            $queryParams['recipientIntegrationId'] = ObjectSerializer::toQueryValue($recipientIntegrationId);
         }
         // query params
-        if ($exact_match !== null) {
-            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exact_match);
+        if ($exactMatch !== null) {
+            $queryParams['exactMatch'] = ObjectSerializer::toQueryValue($exactMatch);
         }
         // query params
-        if ($batch_id !== null) {
-            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batch_id);
+        if ($batchId !== null) {
+            $queryParams['batchId'] = ObjectSerializer::toQueryValue($batchId);
         }
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -23828,16 +23828,16 @@ class ManagementApi
      *
      * Update an additional cost
      *
-     * @param  int $additional_cost_id additional_cost_id (required)
+     * @param  int $additionalCostId additionalCostId (required)
      * @param  \TalonOne\Client\Model\NewAdditionalCost $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\AccountAdditionalCost
      */
-    public function updateAdditionalCost($additional_cost_id, $body)
+    public function updateAdditionalCost($additionalCostId, $body)
     {
-        list($response) = $this->updateAdditionalCostWithHttpInfo($additional_cost_id, $body);
+        list($response) = $this->updateAdditionalCostWithHttpInfo($additionalCostId, $body);
         return $response;
     }
 
@@ -23846,16 +23846,16 @@ class ManagementApi
      *
      * Update an additional cost
      *
-     * @param  int $additional_cost_id (required)
+     * @param  int $additionalCostId (required)
      * @param  \TalonOne\Client\Model\NewAdditionalCost $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\AccountAdditionalCost, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAdditionalCostWithHttpInfo($additional_cost_id, $body)
+    public function updateAdditionalCostWithHttpInfo($additionalCostId, $body)
     {
-        $request = $this->updateAdditionalCostRequest($additional_cost_id, $body);
+        $request = $this->updateAdditionalCostRequest($additionalCostId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -23935,15 +23935,15 @@ class ManagementApi
      *
      * Update an additional cost
      *
-     * @param  int $additional_cost_id (required)
+     * @param  int $additionalCostId (required)
      * @param  \TalonOne\Client\Model\NewAdditionalCost $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAdditionalCostAsync($additional_cost_id, $body)
+    public function updateAdditionalCostAsync($additionalCostId, $body)
     {
-        return $this->updateAdditionalCostAsyncWithHttpInfo($additional_cost_id, $body)
+        return $this->updateAdditionalCostAsyncWithHttpInfo($additionalCostId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -23956,16 +23956,16 @@ class ManagementApi
      *
      * Update an additional cost
      *
-     * @param  int $additional_cost_id (required)
+     * @param  int $additionalCostId (required)
      * @param  \TalonOne\Client\Model\NewAdditionalCost $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAdditionalCostAsyncWithHttpInfo($additional_cost_id, $body)
+    public function updateAdditionalCostAsyncWithHttpInfo($additionalCostId, $body)
     {
         $returnType = '\TalonOne\Client\Model\AccountAdditionalCost';
-        $request = $this->updateAdditionalCostRequest($additional_cost_id, $body);
+        $request = $this->updateAdditionalCostRequest($additionalCostId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -24004,18 +24004,18 @@ class ManagementApi
     /**
      * Create request for operation 'updateAdditionalCost'
      *
-     * @param  int $additional_cost_id (required)
+     * @param  int $additionalCostId (required)
      * @param  \TalonOne\Client\Model\NewAdditionalCost $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateAdditionalCostRequest($additional_cost_id, $body)
+    protected function updateAdditionalCostRequest($additionalCostId, $body)
     {
-        // verify the required parameter 'additional_cost_id' is set
-        if ($additional_cost_id === null || (is_array($additional_cost_id) && count($additional_cost_id) === 0)) {
+        // verify the required parameter 'additionalCostId' is set
+        if ($additionalCostId === null || (is_array($additionalCostId) && count($additionalCostId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $additional_cost_id when calling updateAdditionalCost'
+                'Missing the required parameter $additionalCostId when calling updateAdditionalCost'
             );
         }
         // verify the required parameter 'body' is set
@@ -24034,10 +24034,10 @@ class ManagementApi
 
 
         // path params
-        if ($additional_cost_id !== null) {
+        if ($additionalCostId !== null) {
             $resourcePath = str_replace(
                 '{' . 'additionalCostId' . '}',
-                ObjectSerializer::toPathValue($additional_cost_id),
+                ObjectSerializer::toPathValue($additionalCostId),
                 $resourcePath
             );
         }
@@ -24119,16 +24119,16 @@ class ManagementApi
      *
      * Update a custom attribute
      *
-     * @param  int $attribute_id attribute_id (required)
+     * @param  int $attributeId attributeId (required)
      * @param  \TalonOne\Client\Model\NewAttribute $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Attribute
      */
-    public function updateAttribute($attribute_id, $body)
+    public function updateAttribute($attributeId, $body)
     {
-        list($response) = $this->updateAttributeWithHttpInfo($attribute_id, $body);
+        list($response) = $this->updateAttributeWithHttpInfo($attributeId, $body);
         return $response;
     }
 
@@ -24137,16 +24137,16 @@ class ManagementApi
      *
      * Update a custom attribute
      *
-     * @param  int $attribute_id (required)
+     * @param  int $attributeId (required)
      * @param  \TalonOne\Client\Model\NewAttribute $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Attribute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAttributeWithHttpInfo($attribute_id, $body)
+    public function updateAttributeWithHttpInfo($attributeId, $body)
     {
-        $request = $this->updateAttributeRequest($attribute_id, $body);
+        $request = $this->updateAttributeRequest($attributeId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -24226,15 +24226,15 @@ class ManagementApi
      *
      * Update a custom attribute
      *
-     * @param  int $attribute_id (required)
+     * @param  int $attributeId (required)
      * @param  \TalonOne\Client\Model\NewAttribute $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAttributeAsync($attribute_id, $body)
+    public function updateAttributeAsync($attributeId, $body)
     {
-        return $this->updateAttributeAsyncWithHttpInfo($attribute_id, $body)
+        return $this->updateAttributeAsyncWithHttpInfo($attributeId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -24247,16 +24247,16 @@ class ManagementApi
      *
      * Update a custom attribute
      *
-     * @param  int $attribute_id (required)
+     * @param  int $attributeId (required)
      * @param  \TalonOne\Client\Model\NewAttribute $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAttributeAsyncWithHttpInfo($attribute_id, $body)
+    public function updateAttributeAsyncWithHttpInfo($attributeId, $body)
     {
         $returnType = '\TalonOne\Client\Model\Attribute';
-        $request = $this->updateAttributeRequest($attribute_id, $body);
+        $request = $this->updateAttributeRequest($attributeId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -24295,18 +24295,18 @@ class ManagementApi
     /**
      * Create request for operation 'updateAttribute'
      *
-     * @param  int $attribute_id (required)
+     * @param  int $attributeId (required)
      * @param  \TalonOne\Client\Model\NewAttribute $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateAttributeRequest($attribute_id, $body)
+    protected function updateAttributeRequest($attributeId, $body)
     {
-        // verify the required parameter 'attribute_id' is set
-        if ($attribute_id === null || (is_array($attribute_id) && count($attribute_id) === 0)) {
+        // verify the required parameter 'attributeId' is set
+        if ($attributeId === null || (is_array($attributeId) && count($attributeId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $attribute_id when calling updateAttribute'
+                'Missing the required parameter $attributeId when calling updateAttribute'
             );
         }
         // verify the required parameter 'body' is set
@@ -24325,10 +24325,10 @@ class ManagementApi
 
 
         // path params
-        if ($attribute_id !== null) {
+        if ($attributeId !== null) {
             $resourcePath = str_replace(
                 '{' . 'attributeId' . '}',
-                ObjectSerializer::toPathValue($attribute_id),
+                ObjectSerializer::toPathValue($attributeId),
                 $resourcePath
             );
         }
@@ -24410,17 +24410,17 @@ class ManagementApi
      *
      * Update a Campaign
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
      * @param  \TalonOne\Client\Model\UpdateCampaign $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Campaign
      */
-    public function updateCampaign($application_id, $campaign_id, $body)
+    public function updateCampaign($applicationId, $campaignId, $body)
     {
-        list($response) = $this->updateCampaignWithHttpInfo($application_id, $campaign_id, $body);
+        list($response) = $this->updateCampaignWithHttpInfo($applicationId, $campaignId, $body);
         return $response;
     }
 
@@ -24429,17 +24429,17 @@ class ManagementApi
      *
      * Update a Campaign
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\UpdateCampaign $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Campaign, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCampaignWithHttpInfo($application_id, $campaign_id, $body)
+    public function updateCampaignWithHttpInfo($applicationId, $campaignId, $body)
     {
-        $request = $this->updateCampaignRequest($application_id, $campaign_id, $body);
+        $request = $this->updateCampaignRequest($applicationId, $campaignId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -24519,16 +24519,16 @@ class ManagementApi
      *
      * Update a Campaign
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\UpdateCampaign $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCampaignAsync($application_id, $campaign_id, $body)
+    public function updateCampaignAsync($applicationId, $campaignId, $body)
     {
-        return $this->updateCampaignAsyncWithHttpInfo($application_id, $campaign_id, $body)
+        return $this->updateCampaignAsyncWithHttpInfo($applicationId, $campaignId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -24541,17 +24541,17 @@ class ManagementApi
      *
      * Update a Campaign
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\UpdateCampaign $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCampaignAsyncWithHttpInfo($application_id, $campaign_id, $body)
+    public function updateCampaignAsyncWithHttpInfo($applicationId, $campaignId, $body)
     {
         $returnType = '\TalonOne\Client\Model\Campaign';
-        $request = $this->updateCampaignRequest($application_id, $campaign_id, $body);
+        $request = $this->updateCampaignRequest($applicationId, $campaignId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -24590,25 +24590,25 @@ class ManagementApi
     /**
      * Create request for operation 'updateCampaign'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\UpdateCampaign $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCampaignRequest($application_id, $campaign_id, $body)
+    protected function updateCampaignRequest($applicationId, $campaignId, $body)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling updateCampaign'
+                'Missing the required parameter $applicationId when calling updateCampaign'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling updateCampaign'
+                'Missing the required parameter $campaignId when calling updateCampaign'
             );
         }
         // verify the required parameter 'body' is set
@@ -24627,18 +24627,18 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -24720,16 +24720,16 @@ class ManagementApi
      *
      * Update a Campaign Set
      *
-     * @param  int $application_id application_id (required)
+     * @param  int $applicationId applicationId (required)
      * @param  \TalonOne\Client\Model\NewCampaignSet $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\CampaignSet
      */
-    public function updateCampaignSet($application_id, $body)
+    public function updateCampaignSet($applicationId, $body)
     {
-        list($response) = $this->updateCampaignSetWithHttpInfo($application_id, $body);
+        list($response) = $this->updateCampaignSetWithHttpInfo($applicationId, $body);
         return $response;
     }
 
@@ -24738,16 +24738,16 @@ class ManagementApi
      *
      * Update a Campaign Set
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\NewCampaignSet $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\CampaignSet, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCampaignSetWithHttpInfo($application_id, $body)
+    public function updateCampaignSetWithHttpInfo($applicationId, $body)
     {
-        $request = $this->updateCampaignSetRequest($application_id, $body);
+        $request = $this->updateCampaignSetRequest($applicationId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -24827,15 +24827,15 @@ class ManagementApi
      *
      * Update a Campaign Set
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\NewCampaignSet $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCampaignSetAsync($application_id, $body)
+    public function updateCampaignSetAsync($applicationId, $body)
     {
-        return $this->updateCampaignSetAsyncWithHttpInfo($application_id, $body)
+        return $this->updateCampaignSetAsyncWithHttpInfo($applicationId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -24848,16 +24848,16 @@ class ManagementApi
      *
      * Update a Campaign Set
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\NewCampaignSet $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCampaignSetAsyncWithHttpInfo($application_id, $body)
+    public function updateCampaignSetAsyncWithHttpInfo($applicationId, $body)
     {
         $returnType = '\TalonOne\Client\Model\CampaignSet';
-        $request = $this->updateCampaignSetRequest($application_id, $body);
+        $request = $this->updateCampaignSetRequest($applicationId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -24896,18 +24896,18 @@ class ManagementApi
     /**
      * Create request for operation 'updateCampaignSet'
      *
-     * @param  int $application_id (required)
+     * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\NewCampaignSet $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCampaignSetRequest($application_id, $body)
+    protected function updateCampaignSetRequest($applicationId, $body)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling updateCampaignSet'
+                'Missing the required parameter $applicationId when calling updateCampaignSet'
             );
         }
         // verify the required parameter 'body' is set
@@ -24926,10 +24926,10 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
@@ -25011,18 +25011,18 @@ class ManagementApi
      *
      * Update a Coupon
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
-     * @param  string $coupon_id The ID of the coupon code to update (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  string $couponId The ID of the coupon code to update (required)
      * @param  \TalonOne\Client\Model\UpdateCoupon $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Coupon
      */
-    public function updateCoupon($application_id, $campaign_id, $coupon_id, $body)
+    public function updateCoupon($applicationId, $campaignId, $couponId, $body)
     {
-        list($response) = $this->updateCouponWithHttpInfo($application_id, $campaign_id, $coupon_id, $body);
+        list($response) = $this->updateCouponWithHttpInfo($applicationId, $campaignId, $couponId, $body);
         return $response;
     }
 
@@ -25031,18 +25031,18 @@ class ManagementApi
      *
      * Update a Coupon
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  string $coupon_id The ID of the coupon code to update (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $couponId The ID of the coupon code to update (required)
      * @param  \TalonOne\Client\Model\UpdateCoupon $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Coupon, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCouponWithHttpInfo($application_id, $campaign_id, $coupon_id, $body)
+    public function updateCouponWithHttpInfo($applicationId, $campaignId, $couponId, $body)
     {
-        $request = $this->updateCouponRequest($application_id, $campaign_id, $coupon_id, $body);
+        $request = $this->updateCouponRequest($applicationId, $campaignId, $couponId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -25122,17 +25122,17 @@ class ManagementApi
      *
      * Update a Coupon
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  string $coupon_id The ID of the coupon code to update (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $couponId The ID of the coupon code to update (required)
      * @param  \TalonOne\Client\Model\UpdateCoupon $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCouponAsync($application_id, $campaign_id, $coupon_id, $body)
+    public function updateCouponAsync($applicationId, $campaignId, $couponId, $body)
     {
-        return $this->updateCouponAsyncWithHttpInfo($application_id, $campaign_id, $coupon_id, $body)
+        return $this->updateCouponAsyncWithHttpInfo($applicationId, $campaignId, $couponId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -25145,18 +25145,18 @@ class ManagementApi
      *
      * Update a Coupon
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  string $coupon_id The ID of the coupon code to update (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $couponId The ID of the coupon code to update (required)
      * @param  \TalonOne\Client\Model\UpdateCoupon $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCouponAsyncWithHttpInfo($application_id, $campaign_id, $coupon_id, $body)
+    public function updateCouponAsyncWithHttpInfo($applicationId, $campaignId, $couponId, $body)
     {
         $returnType = '\TalonOne\Client\Model\Coupon';
-        $request = $this->updateCouponRequest($application_id, $campaign_id, $coupon_id, $body);
+        $request = $this->updateCouponRequest($applicationId, $campaignId, $couponId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -25195,32 +25195,32 @@ class ManagementApi
     /**
      * Create request for operation 'updateCoupon'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  string $coupon_id The ID of the coupon code to update (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $couponId The ID of the coupon code to update (required)
      * @param  \TalonOne\Client\Model\UpdateCoupon $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCouponRequest($application_id, $campaign_id, $coupon_id, $body)
+    protected function updateCouponRequest($applicationId, $campaignId, $couponId, $body)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling updateCoupon'
+                'Missing the required parameter $applicationId when calling updateCoupon'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling updateCoupon'
+                'Missing the required parameter $campaignId when calling updateCoupon'
             );
         }
-        // verify the required parameter 'coupon_id' is set
-        if ($coupon_id === null || (is_array($coupon_id) && count($coupon_id) === 0)) {
+        // verify the required parameter 'couponId' is set
+        if ($couponId === null || (is_array($couponId) && count($couponId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $coupon_id when calling updateCoupon'
+                'Missing the required parameter $couponId when calling updateCoupon'
             );
         }
         // verify the required parameter 'body' is set
@@ -25239,26 +25239,26 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
         // path params
-        if ($coupon_id !== null) {
+        if ($couponId !== null) {
             $resourcePath = str_replace(
                 '{' . 'couponId' . '}',
-                ObjectSerializer::toPathValue($coupon_id),
+                ObjectSerializer::toPathValue($couponId),
                 $resourcePath
             );
         }
@@ -25340,17 +25340,17 @@ class ManagementApi
      *
      * Update a Batch of Coupons
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
      * @param  \TalonOne\Client\Model\UpdateCouponBatch $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateCouponBatch($application_id, $campaign_id, $body)
+    public function updateCouponBatch($applicationId, $campaignId, $body)
     {
-        $this->updateCouponBatchWithHttpInfo($application_id, $campaign_id, $body);
+        $this->updateCouponBatchWithHttpInfo($applicationId, $campaignId, $body);
     }
 
     /**
@@ -25358,17 +25358,17 @@ class ManagementApi
      *
      * Update a Batch of Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\UpdateCouponBatch $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCouponBatchWithHttpInfo($application_id, $campaign_id, $body)
+    public function updateCouponBatchWithHttpInfo($applicationId, $campaignId, $body)
     {
-        $request = $this->updateCouponBatchRequest($application_id, $campaign_id, $body);
+        $request = $this->updateCouponBatchRequest($applicationId, $campaignId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -25412,16 +25412,16 @@ class ManagementApi
      *
      * Update a Batch of Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\UpdateCouponBatch $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCouponBatchAsync($application_id, $campaign_id, $body)
+    public function updateCouponBatchAsync($applicationId, $campaignId, $body)
     {
-        return $this->updateCouponBatchAsyncWithHttpInfo($application_id, $campaign_id, $body)
+        return $this->updateCouponBatchAsyncWithHttpInfo($applicationId, $campaignId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -25434,17 +25434,17 @@ class ManagementApi
      *
      * Update a Batch of Coupons
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\UpdateCouponBatch $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCouponBatchAsyncWithHttpInfo($application_id, $campaign_id, $body)
+    public function updateCouponBatchAsyncWithHttpInfo($applicationId, $campaignId, $body)
     {
         $returnType = '';
-        $request = $this->updateCouponBatchRequest($application_id, $campaign_id, $body);
+        $request = $this->updateCouponBatchRequest($applicationId, $campaignId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -25472,25 +25472,25 @@ class ManagementApi
     /**
      * Create request for operation 'updateCouponBatch'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
      * @param  \TalonOne\Client\Model\UpdateCouponBatch $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCouponBatchRequest($application_id, $campaign_id, $body)
+    protected function updateCouponBatchRequest($applicationId, $campaignId, $body)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling updateCouponBatch'
+                'Missing the required parameter $applicationId when calling updateCouponBatch'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling updateCouponBatch'
+                'Missing the required parameter $campaignId when calling updateCouponBatch'
             );
         }
         // verify the required parameter 'body' is set
@@ -25509,18 +25509,18 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -25602,18 +25602,18 @@ class ManagementApi
      *
      * Update a Ruleset
      *
-     * @param  int $application_id application_id (required)
-     * @param  int $campaign_id campaign_id (required)
-     * @param  int $ruleset_id ruleset_id (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  int $rulesetId rulesetId (required)
      * @param  \TalonOne\Client\Model\NewRuleset $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Ruleset
      */
-    public function updateRuleset($application_id, $campaign_id, $ruleset_id, $body)
+    public function updateRuleset($applicationId, $campaignId, $rulesetId, $body)
     {
-        list($response) = $this->updateRulesetWithHttpInfo($application_id, $campaign_id, $ruleset_id, $body);
+        list($response) = $this->updateRulesetWithHttpInfo($applicationId, $campaignId, $rulesetId, $body);
         return $response;
     }
 
@@ -25622,18 +25622,18 @@ class ManagementApi
      *
      * Update a Ruleset
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $ruleset_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $rulesetId (required)
      * @param  \TalonOne\Client\Model\NewRuleset $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Ruleset, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRulesetWithHttpInfo($application_id, $campaign_id, $ruleset_id, $body)
+    public function updateRulesetWithHttpInfo($applicationId, $campaignId, $rulesetId, $body)
     {
-        $request = $this->updateRulesetRequest($application_id, $campaign_id, $ruleset_id, $body);
+        $request = $this->updateRulesetRequest($applicationId, $campaignId, $rulesetId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -25713,17 +25713,17 @@ class ManagementApi
      *
      * Update a Ruleset
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $ruleset_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $rulesetId (required)
      * @param  \TalonOne\Client\Model\NewRuleset $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRulesetAsync($application_id, $campaign_id, $ruleset_id, $body)
+    public function updateRulesetAsync($applicationId, $campaignId, $rulesetId, $body)
     {
-        return $this->updateRulesetAsyncWithHttpInfo($application_id, $campaign_id, $ruleset_id, $body)
+        return $this->updateRulesetAsyncWithHttpInfo($applicationId, $campaignId, $rulesetId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -25736,18 +25736,18 @@ class ManagementApi
      *
      * Update a Ruleset
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $ruleset_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $rulesetId (required)
      * @param  \TalonOne\Client\Model\NewRuleset $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRulesetAsyncWithHttpInfo($application_id, $campaign_id, $ruleset_id, $body)
+    public function updateRulesetAsyncWithHttpInfo($applicationId, $campaignId, $rulesetId, $body)
     {
         $returnType = '\TalonOne\Client\Model\Ruleset';
-        $request = $this->updateRulesetRequest($application_id, $campaign_id, $ruleset_id, $body);
+        $request = $this->updateRulesetRequest($applicationId, $campaignId, $rulesetId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -25786,32 +25786,32 @@ class ManagementApi
     /**
      * Create request for operation 'updateRuleset'
      *
-     * @param  int $application_id (required)
-     * @param  int $campaign_id (required)
-     * @param  int $ruleset_id (required)
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $rulesetId (required)
      * @param  \TalonOne\Client\Model\NewRuleset $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateRulesetRequest($application_id, $campaign_id, $ruleset_id, $body)
+    protected function updateRulesetRequest($applicationId, $campaignId, $rulesetId, $body)
     {
-        // verify the required parameter 'application_id' is set
-        if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $application_id when calling updateRuleset'
+                'Missing the required parameter $applicationId when calling updateRuleset'
             );
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling updateRuleset'
+                'Missing the required parameter $campaignId when calling updateRuleset'
             );
         }
-        // verify the required parameter 'ruleset_id' is set
-        if ($ruleset_id === null || (is_array($ruleset_id) && count($ruleset_id) === 0)) {
+        // verify the required parameter 'rulesetId' is set
+        if ($rulesetId === null || (is_array($rulesetId) && count($rulesetId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ruleset_id when calling updateRuleset'
+                'Missing the required parameter $rulesetId when calling updateRuleset'
             );
         }
         // verify the required parameter 'body' is set
@@ -25830,26 +25830,26 @@ class ManagementApi
 
 
         // path params
-        if ($application_id !== null) {
+        if ($applicationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($application_id),
+                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }
         // path params
-        if ($campaign_id !== null) {
+        if ($campaignId !== null) {
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
         // path params
-        if ($ruleset_id !== null) {
+        if ($rulesetId !== null) {
             $resourcePath = str_replace(
                 '{' . 'rulesetId' . '}',
-                ObjectSerializer::toPathValue($ruleset_id),
+                ObjectSerializer::toPathValue($rulesetId),
                 $resourcePath
             );
         }

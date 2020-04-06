@@ -100,7 +100,7 @@ class AccessLogEntryTest extends TestCase
     }
 
     /**
-     * Test attribute "request_uri"
+     * Test attribute "requestUri"
      */
     public function testPropertyRequestUri()
     {
@@ -114,14 +114,14 @@ class AccessLogEntryTest extends TestCase
     }
 
     /**
-     * Test attribute "request_payload"
+     * Test attribute "requestPayload"
      */
     public function testPropertyRequestPayload()
     {
     }
 
     /**
-     * Test attribute "response_payload"
+     * Test attribute "responsePayload"
      */
     public function testPropertyResponsePayload()
     {

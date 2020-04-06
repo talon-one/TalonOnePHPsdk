@@ -57,7 +57,7 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total_result_size' => 'int',
+        'totalResultSize' => 'int',
         'data' => '\TalonOne\Client\Model\CustomerActivityReport[]'
     ];
 
@@ -67,7 +67,7 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'total_result_size' => null,
+        'totalResultSize' => null,
         'data' => null
     ];
 
@@ -98,7 +98,7 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'total_result_size' => 'totalResultSize',
+        'totalResultSize' => 'totalResultSize',
         'data' => 'data'
     ];
 
@@ -108,7 +108,7 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'total_result_size' => 'setTotalResultSize',
+        'totalResultSize' => 'setTotalResultSize',
         'data' => 'setData'
     ];
 
@@ -118,7 +118,7 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'total_result_size' => 'getTotalResultSize',
+        'totalResultSize' => 'getTotalResultSize',
         'data' => 'getData'
     ];
 
@@ -182,7 +182,7 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['total_result_size'] = isset($data['total_result_size']) ? $data['total_result_size'] : null;
+        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -195,8 +195,8 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['total_result_size'] === null) {
-            $invalidProperties[] = "'total_result_size' can't be null";
+        if ($this->container['totalResultSize'] === null) {
+            $invalidProperties[] = "'totalResultSize' can't be null";
         }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
@@ -217,25 +217,25 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets total_result_size
+     * Gets totalResultSize
      *
      * @return int
      */
     public function getTotalResultSize()
     {
-        return $this->container['total_result_size'];
+        return $this->container['totalResultSize'];
     }
 
     /**
-     * Sets total_result_size
+     * Sets totalResultSize
      *
-     * @param int $total_result_size total_result_size
+     * @param int $totalResultSize totalResultSize
      *
      * @return $this
      */
-    public function setTotalResultSize($total_result_size)
+    public function setTotalResultSize($totalResultSize)
     {
-        $this->container['total_result_size'] = $total_result_size;
+        $this->container['totalResultSize'] = $totalResultSize;
 
         return $this;
     }

@@ -58,10 +58,10 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'usage_limit' => 'int',
-        'start_date' => '\DateTime',
-        'expiry_date' => '\DateTime',
-        'recipient_integration_id' => 'string',
+        'usageLimit' => 'int',
+        'startDate' => '\DateTime',
+        'expiryDate' => '\DateTime',
+        'recipientIntegrationId' => 'string',
         'attributes' => 'object'
     ];
 
@@ -71,10 +71,10 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'usage_limit' => null,
-        'start_date' => 'date-time',
-        'expiry_date' => 'date-time',
-        'recipient_integration_id' => null,
+        'usageLimit' => null,
+        'startDate' => 'date-time',
+        'expiryDate' => 'date-time',
+        'recipientIntegrationId' => null,
         'attributes' => null
     ];
 
@@ -105,10 +105,10 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'usage_limit' => 'usageLimit',
-        'start_date' => 'startDate',
-        'expiry_date' => 'expiryDate',
-        'recipient_integration_id' => 'recipientIntegrationId',
+        'usageLimit' => 'usageLimit',
+        'startDate' => 'startDate',
+        'expiryDate' => 'expiryDate',
+        'recipientIntegrationId' => 'recipientIntegrationId',
         'attributes' => 'attributes'
     ];
 
@@ -118,10 +118,10 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'usage_limit' => 'setUsageLimit',
-        'start_date' => 'setStartDate',
-        'expiry_date' => 'setExpiryDate',
-        'recipient_integration_id' => 'setRecipientIntegrationId',
+        'usageLimit' => 'setUsageLimit',
+        'startDate' => 'setStartDate',
+        'expiryDate' => 'setExpiryDate',
+        'recipientIntegrationId' => 'setRecipientIntegrationId',
         'attributes' => 'setAttributes'
     ];
 
@@ -131,10 +131,10 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'usage_limit' => 'getUsageLimit',
-        'start_date' => 'getStartDate',
-        'expiry_date' => 'getExpiryDate',
-        'recipient_integration_id' => 'getRecipientIntegrationId',
+        'usageLimit' => 'getUsageLimit',
+        'startDate' => 'getStartDate',
+        'expiryDate' => 'getExpiryDate',
+        'recipientIntegrationId' => 'getRecipientIntegrationId',
         'attributes' => 'getAttributes'
     ];
 
@@ -198,10 +198,10 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['usage_limit'] = isset($data['usage_limit']) ? $data['usage_limit'] : null;
-        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
-        $this->container['expiry_date'] = isset($data['expiry_date']) ? $data['expiry_date'] : null;
-        $this->container['recipient_integration_id'] = isset($data['recipient_integration_id']) ? $data['recipient_integration_id'] : null;
+        $this->container['usageLimit'] = isset($data['usageLimit']) ? $data['usageLimit'] : null;
+        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
+        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
     }
 
@@ -214,12 +214,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['usage_limit']) && ($this->container['usage_limit'] > 999999)) {
-            $invalidProperties[] = "invalid value for 'usage_limit', must be smaller than or equal to 999999.";
+        if (!is_null($this->container['usageLimit']) && ($this->container['usageLimit'] > 999999)) {
+            $invalidProperties[] = "invalid value for 'usageLimit', must be smaller than or equal to 999999.";
         }
 
-        if (!is_null($this->container['usage_limit']) && ($this->container['usage_limit'] < 0)) {
-            $invalidProperties[] = "invalid value for 'usage_limit', must be bigger than or equal to 0.";
+        if (!is_null($this->container['usageLimit']) && ($this->container['usageLimit'] < 0)) {
+            $invalidProperties[] = "invalid value for 'usageLimit', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -238,105 +238,105 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets usage_limit
+     * Gets usageLimit
      *
      * @return int|null
      */
     public function getUsageLimit()
     {
-        return $this->container['usage_limit'];
+        return $this->container['usageLimit'];
     }
 
     /**
-     * Sets usage_limit
+     * Sets usageLimit
      *
-     * @param int|null $usage_limit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     * @param int|null $usageLimit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
      *
      * @return $this
      */
-    public function setUsageLimit($usage_limit)
+    public function setUsageLimit($usageLimit)
     {
 
-        if (!is_null($usage_limit) && ($usage_limit > 999999)) {
-            throw new \InvalidArgumentException('invalid value for $usage_limit when calling UpdateCoupon., must be smaller than or equal to 999999.');
+        if (!is_null($usageLimit) && ($usageLimit > 999999)) {
+            throw new \InvalidArgumentException('invalid value for $usageLimit when calling UpdateCoupon., must be smaller than or equal to 999999.');
         }
-        if (!is_null($usage_limit) && ($usage_limit < 0)) {
-            throw new \InvalidArgumentException('invalid value for $usage_limit when calling UpdateCoupon., must be bigger than or equal to 0.');
+        if (!is_null($usageLimit) && ($usageLimit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $usageLimit when calling UpdateCoupon., must be bigger than or equal to 0.');
         }
 
-        $this->container['usage_limit'] = $usage_limit;
+        $this->container['usageLimit'] = $usageLimit;
 
         return $this;
     }
 
     /**
-     * Gets start_date
+     * Gets startDate
      *
      * @return \DateTime|null
      */
     public function getStartDate()
     {
-        return $this->container['start_date'];
+        return $this->container['startDate'];
     }
 
     /**
-     * Sets start_date
+     * Sets startDate
      *
-     * @param \DateTime|null $start_date Timestamp at which point the coupon becomes valid.
+     * @param \DateTime|null $startDate Timestamp at which point the coupon becomes valid.
      *
      * @return $this
      */
-    public function setStartDate($start_date)
+    public function setStartDate($startDate)
     {
-        $this->container['start_date'] = $start_date;
+        $this->container['startDate'] = $startDate;
 
         return $this;
     }
 
     /**
-     * Gets expiry_date
+     * Gets expiryDate
      *
      * @return \DateTime|null
      */
     public function getExpiryDate()
     {
-        return $this->container['expiry_date'];
+        return $this->container['expiryDate'];
     }
 
     /**
-     * Sets expiry_date
+     * Sets expiryDate
      *
-     * @param \DateTime|null $expiry_date Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative.
+     * @param \DateTime|null $expiryDate Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative.
      *
      * @return $this
      */
-    public function setExpiryDate($expiry_date)
+    public function setExpiryDate($expiryDate)
     {
-        $this->container['expiry_date'] = $expiry_date;
+        $this->container['expiryDate'] = $expiryDate;
 
         return $this;
     }
 
     /**
-     * Gets recipient_integration_id
+     * Gets recipientIntegrationId
      *
      * @return string|null
      */
     public function getRecipientIntegrationId()
     {
-        return $this->container['recipient_integration_id'];
+        return $this->container['recipientIntegrationId'];
     }
 
     /**
-     * Sets recipient_integration_id
+     * Sets recipientIntegrationId
      *
-     * @param string|null $recipient_integration_id The integration ID for this coupon's beneficiary's profile
+     * @param string|null $recipientIntegrationId The integration ID for this coupon's beneficiary's profile
      *
      * @return $this
      */
-    public function setRecipientIntegrationId($recipient_integration_id)
+    public function setRecipientIntegrationId($recipientIntegrationId)
     {
-        $this->container['recipient_integration_id'] = $recipient_integration_id;
+        $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;
     }

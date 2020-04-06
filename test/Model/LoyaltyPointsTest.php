@@ -93,16 +93,16 @@ class LoyaltyPointsTest extends TestCase
     }
 
     /**
-     * Test attribute "expiry_duration"
+     * Test attribute "expiryDuration"
      */
     public function testPropertyExpiryDuration()
     {
     }
 
     /**
-     * Test attribute "sub_ledger_id"
+     * Test attribute "subLedgerID"
      */
-    public function testPropertySubLedgerId()
+    public function testPropertySubLedgerID()
     {
     }
 }

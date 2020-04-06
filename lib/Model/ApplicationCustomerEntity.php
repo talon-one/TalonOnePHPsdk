@@ -57,7 +57,7 @@ class ApplicationCustomerEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profile_id' => 'int'
+        'profileId' => 'int'
     ];
 
     /**
@@ -66,7 +66,7 @@ class ApplicationCustomerEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'profile_id' => null
+        'profileId' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class ApplicationCustomerEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'profile_id' => 'profileId'
+        'profileId' => 'profileId'
     ];
 
     /**
@@ -105,7 +105,7 @@ class ApplicationCustomerEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'profile_id' => 'setProfileId'
+        'profileId' => 'setProfileId'
     ];
 
     /**
@@ -114,7 +114,7 @@ class ApplicationCustomerEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'profile_id' => 'getProfileId'
+        'profileId' => 'getProfileId'
     ];
 
     /**
@@ -177,7 +177,7 @@ class ApplicationCustomerEntity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['profile_id'] = isset($data['profile_id']) ? $data['profile_id'] : null;
+        $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
     }
 
     /**
@@ -205,25 +205,25 @@ class ApplicationCustomerEntity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets profile_id
+     * Gets profileId
      *
      * @return int|null
      */
     public function getProfileId()
     {
-        return $this->container['profile_id'];
+        return $this->container['profileId'];
     }
 
     /**
-     * Sets profile_id
+     * Sets profileId
      *
-     * @param int|null $profile_id The globally unique Talon.One ID of the customer that created this entity.
+     * @param int|null $profileId The globally unique Talon.One ID of the customer that created this entity.
      *
      * @return $this
      */
-    public function setProfileId($profile_id)
+    public function setProfileId($profileId)
     {
-        $this->container['profile_id'] = $profile_id;
+        $this->container['profileId'] = $profileId;
 
         return $this;
     }

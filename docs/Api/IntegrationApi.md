@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## createCouponReservation
 
-> \TalonOne\Client\Model\Coupon createCouponReservation($coupon_value, $body)
+> \TalonOne\Client\Model\Coupon createCouponReservation($couponValue, $body)
 
 Create a new coupon reservation
 
@@ -50,11 +50,11 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$coupon_value = 'coupon_value_example'; // string | The value of a coupon
+$couponValue = 'couponValue_example'; // string | The value of a coupon
 $body = new \TalonOne\Client\Model\CouponReservations(); // \TalonOne\Client\Model\CouponReservations | 
 
 try {
-    $result = $apiInstance->createCouponReservation($coupon_value, $body);
+    $result = $apiInstance->createCouponReservation($couponValue, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationApi->createCouponReservation: ', $e->getMessage(), PHP_EOL;
@@ -67,7 +67,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coupon_value** | **string**| The value of a coupon |
+ **couponValue** | **string**| The value of a coupon |
  **body** | [**\TalonOne\Client\Model\CouponReservations**](../Model/CouponReservations.md)|  |
 
 ### Return type
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ## deleteCouponReservation
 
-> deleteCouponReservation($coupon_value, $body)
+> deleteCouponReservation($couponValue, $body)
 
 Delete coupon reservations
 
@@ -188,11 +188,11 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$coupon_value = 'coupon_value_example'; // string | The value of a coupon
+$couponValue = 'couponValue_example'; // string | The value of a coupon
 $body = new \TalonOne\Client\Model\CouponReservations(); // \TalonOne\Client\Model\CouponReservations | 
 
 try {
-    $apiInstance->deleteCouponReservation($coupon_value, $body);
+    $apiInstance->deleteCouponReservation($couponValue, $body);
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationApi->deleteCouponReservation: ', $e->getMessage(), PHP_EOL;
 }
@@ -204,7 +204,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coupon_value** | **string**| The value of a coupon |
+ **couponValue** | **string**| The value of a coupon |
  **body** | [**\TalonOne\Client\Model\CouponReservations**](../Model/CouponReservations.md)|  |
 
 ### Return type
@@ -227,7 +227,7 @@ void (empty response body)
 
 ## deleteCustomerData
 
-> deleteCustomerData($integration_id)
+> deleteCustomerData($integrationId)
 
 Delete the personal data of a customer.
 
@@ -257,10 +257,10 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$integration_id = 'integration_id_example'; // string | The custom identifier for this profile, must be unique within the account.
+$integrationId = 'integrationId_example'; // string | The custom identifier for this profile, must be unique within the account.
 
 try {
-    $apiInstance->deleteCustomerData($integration_id);
+    $apiInstance->deleteCustomerData($integrationId);
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationApi->deleteCustomerData: ', $e->getMessage(), PHP_EOL;
 }
@@ -272,7 +272,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **integration_id** | **string**| The custom identifier for this profile, must be unique within the account. |
+ **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. |
 
 ### Return type
 
@@ -294,7 +294,7 @@ void (empty response body)
 
 ## getCustomerInventory
 
-> \TalonOne\Client\Model\CustomerInventory getCustomerInventory($integration_id, $profile, $referrals)
+> \TalonOne\Client\Model\CustomerInventory getCustomerInventory($integrationId, $profile, $referrals)
 
 Get an inventory of all data associated with a specific customer profile.
 
@@ -324,12 +324,12 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$integration_id = 'integration_id_example'; // string | The custom identifier for this profile, must be unique within the account.
+$integrationId = 'integrationId_example'; // string | The custom identifier for this profile, must be unique within the account.
 $profile = True; // bool | optional flag to decide if you would like customer profile information in the response
 $referrals = True; // bool | optional flag to decide if you would like referral information in the response
 
 try {
-    $result = $apiInstance->getCustomerInventory($integration_id, $profile, $referrals);
+    $result = $apiInstance->getCustomerInventory($integrationId, $profile, $referrals);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationApi->getCustomerInventory: ', $e->getMessage(), PHP_EOL;
@@ -342,7 +342,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **integration_id** | **string**| The custom identifier for this profile, must be unique within the account. |
+ **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. |
  **profile** | **bool**| optional flag to decide if you would like customer profile information in the response | [optional]
  **referrals** | **bool**| optional flag to decide if you would like referral information in the response | [optional]
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 ## getReservedCoupons
 
-> \TalonOne\Client\Model\InlineResponse2001 getReservedCoupons($integration_id)
+> \TalonOne\Client\Model\InlineResponse2001 getReservedCoupons($integrationId)
 
 Get all valid reserved coupons
 
@@ -396,10 +396,10 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$integration_id = 'integration_id_example'; // string | The custom identifier for this profile, must be unique within the account.
+$integrationId = 'integrationId_example'; // string | The custom identifier for this profile, must be unique within the account.
 
 try {
-    $result = $apiInstance->getReservedCoupons($integration_id);
+    $result = $apiInstance->getReservedCoupons($integrationId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationApi->getReservedCoupons: ', $e->getMessage(), PHP_EOL;
@@ -412,7 +412,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **integration_id** | **string**| The custom identifier for this profile, must be unique within the account. |
+ **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. |
 
 ### Return type
 
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 
 ## getReservedCustomers
 
-> \TalonOne\Client\Model\InlineResponse200 getReservedCustomers($coupon_value)
+> \TalonOne\Client\Model\InlineResponse200 getReservedCustomers($couponValue)
 
 Get the users that have this coupon reserved
 
@@ -464,10 +464,10 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$coupon_value = 'coupon_value_example'; // string | The value of a coupon
+$couponValue = 'couponValue_example'; // string | The value of a coupon
 
 try {
-    $result = $apiInstance->getReservedCustomers($coupon_value);
+    $result = $apiInstance->getReservedCustomers($couponValue);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationApi->getReservedCustomers: ', $e->getMessage(), PHP_EOL;
@@ -480,7 +480,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coupon_value** | **string**| The value of a coupon |
+ **couponValue** | **string**| The value of a coupon |
 
 ### Return type
 
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 
 ## updateCustomerProfile
 
-> \TalonOne\Client\Model\IntegrationState updateCustomerProfile($integration_id, $body)
+> \TalonOne\Client\Model\IntegrationState updateCustomerProfile($integrationId, $body)
 
 Update a Customer Profile
 
@@ -600,11 +600,11 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$integration_id = 'integration_id_example'; // string | The custom identifier for this profile, must be unique within the account.
+$integrationId = 'integrationId_example'; // string | The custom identifier for this profile, must be unique within the account.
 $body = new \TalonOne\Client\Model\NewCustomerProfile(); // \TalonOne\Client\Model\NewCustomerProfile | 
 
 try {
-    $result = $apiInstance->updateCustomerProfile($integration_id, $body);
+    $result = $apiInstance->updateCustomerProfile($integrationId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationApi->updateCustomerProfile: ', $e->getMessage(), PHP_EOL;
@@ -617,7 +617,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **integration_id** | **string**| The custom identifier for this profile, must be unique within the account. |
+ **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. |
  **body** | [**\TalonOne\Client\Model\NewCustomerProfile**](../Model/NewCustomerProfile.md)|  |
 
 ### Return type
@@ -640,7 +640,7 @@ Name | Type | Description  | Notes
 
 ## updateCustomerSession
 
-> \TalonOne\Client\Model\IntegrationState updateCustomerSession($customer_session_id, $body)
+> \TalonOne\Client\Model\IntegrationState updateCustomerSession($customerSessionId, $body)
 
 Update a Customer Session
 
@@ -670,11 +670,11 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customer_session_id = 'customer_session_id_example'; // string | The custom identifier for this session, must be unique within the account.
+$customerSessionId = 'customerSessionId_example'; // string | The custom identifier for this session, must be unique within the account.
 $body = new \TalonOne\Client\Model\NewCustomerSession(); // \TalonOne\Client\Model\NewCustomerSession | 
 
 try {
-    $result = $apiInstance->updateCustomerSession($customer_session_id, $body);
+    $result = $apiInstance->updateCustomerSession($customerSessionId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationApi->updateCustomerSession: ', $e->getMessage(), PHP_EOL;
@@ -687,7 +687,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_session_id** | **string**| The custom identifier for this session, must be unique within the account. |
+ **customerSessionId** | **string**| The custom identifier for this session, must be unique within the account. |
  **body** | [**\TalonOne\Client\Model\NewCustomerSession**](../Model/NewCustomerSession.md)|  |
 
 ### Return type
@@ -710,7 +710,7 @@ Name | Type | Description  | Notes
 
 ## updateCustomerSessionV2
 
-> \TalonOne\Client\Model\IntegrationStateV2 updateCustomerSessionV2($customer_session_id, $body)
+> \TalonOne\Client\Model\IntegrationStateV2 updateCustomerSessionV2($customerSessionId, $body)
 
 Update a Customer Session
 
@@ -735,11 +735,11 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customer_session_id = 'customer_session_id_example'; // string | The custom identifier for this session, must be unique within the account.
+$customerSessionId = 'customerSessionId_example'; // string | The custom identifier for this session, must be unique within the account.
 $body = new \TalonOne\Client\Model\IntegrationRequest(); // \TalonOne\Client\Model\IntegrationRequest | 
 
 try {
-    $result = $apiInstance->updateCustomerSessionV2($customer_session_id, $body);
+    $result = $apiInstance->updateCustomerSessionV2($customerSessionId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationApi->updateCustomerSessionV2: ', $e->getMessage(), PHP_EOL;
@@ -752,7 +752,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_session_id** | **string**| The custom identifier for this session, must be unique within the account. |
+ **customerSessionId** | **string**| The custom identifier for this session, must be unique within the account. |
  **body** | [**\TalonOne\Client\Model\IntegrationRequest**](../Model/IntegrationRequest.md)|  |
 
 ### Return type

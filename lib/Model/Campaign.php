@@ -60,29 +60,29 @@ class Campaign implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'application_id' => 'int',
-        'user_id' => 'int',
+        'applicationId' => 'int',
+        'userId' => 'int',
         'name' => 'string',
         'description' => 'string',
-        'start_time' => '\DateTime',
-        'end_time' => '\DateTime',
+        'startTime' => '\DateTime',
+        'endTime' => '\DateTime',
         'attributes' => 'object',
         'state' => 'string',
-        'active_ruleset_id' => 'int',
+        'activeRulesetId' => 'int',
         'tags' => 'string[]',
         'features' => 'string[]',
-        'coupon_settings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
-        'referral_settings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
+        'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
+        'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
-        'coupon_redemption_count' => 'int',
-        'referral_redemption_count' => 'int',
-        'discount_count' => 'int',
-        'discount_effect_count' => 'int',
-        'coupon_creation_count' => 'int',
-        'last_activity' => '\DateTime',
+        'couponRedemptionCount' => 'int',
+        'referralRedemptionCount' => 'int',
+        'discountCount' => 'int',
+        'discountEffectCount' => 'int',
+        'couponCreationCount' => 'int',
+        'lastActivity' => '\DateTime',
         'updated' => '\DateTime',
-        'created_by' => 'string',
-        'updated_by' => 'string'
+        'createdBy' => 'string',
+        'updatedBy' => 'string'
     ];
 
     /**
@@ -93,29 +93,29 @@ class Campaign implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'application_id' => null,
-        'user_id' => null,
+        'applicationId' => null,
+        'userId' => null,
         'name' => null,
         'description' => null,
-        'start_time' => 'date-time',
-        'end_time' => 'date-time',
+        'startTime' => 'date-time',
+        'endTime' => 'date-time',
         'attributes' => null,
         'state' => null,
-        'active_ruleset_id' => null,
+        'activeRulesetId' => null,
         'tags' => null,
         'features' => null,
-        'coupon_settings' => null,
-        'referral_settings' => null,
+        'couponSettings' => null,
+        'referralSettings' => null,
         'limits' => null,
-        'coupon_redemption_count' => null,
-        'referral_redemption_count' => null,
-        'discount_count' => null,
-        'discount_effect_count' => null,
-        'coupon_creation_count' => null,
-        'last_activity' => 'date-time',
+        'couponRedemptionCount' => null,
+        'referralRedemptionCount' => null,
+        'discountCount' => null,
+        'discountEffectCount' => null,
+        'couponCreationCount' => null,
+        'lastActivity' => 'date-time',
         'updated' => 'date-time',
-        'created_by' => null,
-        'updated_by' => null
+        'createdBy' => null,
+        'updatedBy' => null
     ];
 
     /**
@@ -147,29 +147,29 @@ class Campaign implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'application_id' => 'applicationId',
-        'user_id' => 'userId',
+        'applicationId' => 'applicationId',
+        'userId' => 'userId',
         'name' => 'name',
         'description' => 'description',
-        'start_time' => 'startTime',
-        'end_time' => 'endTime',
+        'startTime' => 'startTime',
+        'endTime' => 'endTime',
         'attributes' => 'attributes',
         'state' => 'state',
-        'active_ruleset_id' => 'activeRulesetId',
+        'activeRulesetId' => 'activeRulesetId',
         'tags' => 'tags',
         'features' => 'features',
-        'coupon_settings' => 'couponSettings',
-        'referral_settings' => 'referralSettings',
+        'couponSettings' => 'couponSettings',
+        'referralSettings' => 'referralSettings',
         'limits' => 'limits',
-        'coupon_redemption_count' => 'couponRedemptionCount',
-        'referral_redemption_count' => 'referralRedemptionCount',
-        'discount_count' => 'discountCount',
-        'discount_effect_count' => 'discountEffectCount',
-        'coupon_creation_count' => 'couponCreationCount',
-        'last_activity' => 'lastActivity',
+        'couponRedemptionCount' => 'couponRedemptionCount',
+        'referralRedemptionCount' => 'referralRedemptionCount',
+        'discountCount' => 'discountCount',
+        'discountEffectCount' => 'discountEffectCount',
+        'couponCreationCount' => 'couponCreationCount',
+        'lastActivity' => 'lastActivity',
         'updated' => 'updated',
-        'created_by' => 'createdBy',
-        'updated_by' => 'updatedBy'
+        'createdBy' => 'createdBy',
+        'updatedBy' => 'updatedBy'
     ];
 
     /**
@@ -180,29 +180,29 @@ class Campaign implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'application_id' => 'setApplicationId',
-        'user_id' => 'setUserId',
+        'applicationId' => 'setApplicationId',
+        'userId' => 'setUserId',
         'name' => 'setName',
         'description' => 'setDescription',
-        'start_time' => 'setStartTime',
-        'end_time' => 'setEndTime',
+        'startTime' => 'setStartTime',
+        'endTime' => 'setEndTime',
         'attributes' => 'setAttributes',
         'state' => 'setState',
-        'active_ruleset_id' => 'setActiveRulesetId',
+        'activeRulesetId' => 'setActiveRulesetId',
         'tags' => 'setTags',
         'features' => 'setFeatures',
-        'coupon_settings' => 'setCouponSettings',
-        'referral_settings' => 'setReferralSettings',
+        'couponSettings' => 'setCouponSettings',
+        'referralSettings' => 'setReferralSettings',
         'limits' => 'setLimits',
-        'coupon_redemption_count' => 'setCouponRedemptionCount',
-        'referral_redemption_count' => 'setReferralRedemptionCount',
-        'discount_count' => 'setDiscountCount',
-        'discount_effect_count' => 'setDiscountEffectCount',
-        'coupon_creation_count' => 'setCouponCreationCount',
-        'last_activity' => 'setLastActivity',
+        'couponRedemptionCount' => 'setCouponRedemptionCount',
+        'referralRedemptionCount' => 'setReferralRedemptionCount',
+        'discountCount' => 'setDiscountCount',
+        'discountEffectCount' => 'setDiscountEffectCount',
+        'couponCreationCount' => 'setCouponCreationCount',
+        'lastActivity' => 'setLastActivity',
         'updated' => 'setUpdated',
-        'created_by' => 'setCreatedBy',
-        'updated_by' => 'setUpdatedBy'
+        'createdBy' => 'setCreatedBy',
+        'updatedBy' => 'setUpdatedBy'
     ];
 
     /**
@@ -213,29 +213,29 @@ class Campaign implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'application_id' => 'getApplicationId',
-        'user_id' => 'getUserId',
+        'applicationId' => 'getApplicationId',
+        'userId' => 'getUserId',
         'name' => 'getName',
         'description' => 'getDescription',
-        'start_time' => 'getStartTime',
-        'end_time' => 'getEndTime',
+        'startTime' => 'getStartTime',
+        'endTime' => 'getEndTime',
         'attributes' => 'getAttributes',
         'state' => 'getState',
-        'active_ruleset_id' => 'getActiveRulesetId',
+        'activeRulesetId' => 'getActiveRulesetId',
         'tags' => 'getTags',
         'features' => 'getFeatures',
-        'coupon_settings' => 'getCouponSettings',
-        'referral_settings' => 'getReferralSettings',
+        'couponSettings' => 'getCouponSettings',
+        'referralSettings' => 'getReferralSettings',
         'limits' => 'getLimits',
-        'coupon_redemption_count' => 'getCouponRedemptionCount',
-        'referral_redemption_count' => 'getReferralRedemptionCount',
-        'discount_count' => 'getDiscountCount',
-        'discount_effect_count' => 'getDiscountEffectCount',
-        'coupon_creation_count' => 'getCouponCreationCount',
-        'last_activity' => 'getLastActivity',
+        'couponRedemptionCount' => 'getCouponRedemptionCount',
+        'referralRedemptionCount' => 'getReferralRedemptionCount',
+        'discountCount' => 'getDiscountCount',
+        'discountEffectCount' => 'getDiscountEffectCount',
+        'couponCreationCount' => 'getCouponCreationCount',
+        'lastActivity' => 'getLastActivity',
         'updated' => 'getUpdated',
-        'created_by' => 'getCreatedBy',
-        'updated_by' => 'getUpdatedBy'
+        'createdBy' => 'getCreatedBy',
+        'updatedBy' => 'getUpdatedBy'
     ];
 
     /**
@@ -334,29 +334,29 @@ class Campaign implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
+        $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
-        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
+        $this->container['endTime'] = isset($data['endTime']) ? $data['endTime'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'enabled';
-        $this->container['active_ruleset_id'] = isset($data['active_ruleset_id']) ? $data['active_ruleset_id'] : null;
+        $this->container['activeRulesetId'] = isset($data['activeRulesetId']) ? $data['activeRulesetId'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['features'] = isset($data['features']) ? $data['features'] : null;
-        $this->container['coupon_settings'] = isset($data['coupon_settings']) ? $data['coupon_settings'] : null;
-        $this->container['referral_settings'] = isset($data['referral_settings']) ? $data['referral_settings'] : null;
+        $this->container['couponSettings'] = isset($data['couponSettings']) ? $data['couponSettings'] : null;
+        $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
-        $this->container['coupon_redemption_count'] = isset($data['coupon_redemption_count']) ? $data['coupon_redemption_count'] : null;
-        $this->container['referral_redemption_count'] = isset($data['referral_redemption_count']) ? $data['referral_redemption_count'] : null;
-        $this->container['discount_count'] = isset($data['discount_count']) ? $data['discount_count'] : null;
-        $this->container['discount_effect_count'] = isset($data['discount_effect_count']) ? $data['discount_effect_count'] : null;
-        $this->container['coupon_creation_count'] = isset($data['coupon_creation_count']) ? $data['coupon_creation_count'] : null;
-        $this->container['last_activity'] = isset($data['last_activity']) ? $data['last_activity'] : null;
+        $this->container['couponRedemptionCount'] = isset($data['couponRedemptionCount']) ? $data['couponRedemptionCount'] : null;
+        $this->container['referralRedemptionCount'] = isset($data['referralRedemptionCount']) ? $data['referralRedemptionCount'] : null;
+        $this->container['discountCount'] = isset($data['discountCount']) ? $data['discountCount'] : null;
+        $this->container['discountEffectCount'] = isset($data['discountEffectCount']) ? $data['discountEffectCount'] : null;
+        $this->container['couponCreationCount'] = isset($data['couponCreationCount']) ? $data['couponCreationCount'] : null;
+        $this->container['lastActivity'] = isset($data['lastActivity']) ? $data['lastActivity'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
-        $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
-        $this->container['updated_by'] = isset($data['updated_by']) ? $data['updated_by'] : null;
+        $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
+        $this->container['updatedBy'] = isset($data['updatedBy']) ? $data['updatedBy'] : null;
     }
 
     /**
@@ -374,11 +374,11 @@ class Campaign implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['application_id'] === null) {
-            $invalidProperties[] = "'application_id' can't be null";
+        if ($this->container['applicationId'] === null) {
+            $invalidProperties[] = "'applicationId' can't be null";
         }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
+        if ($this->container['userId'] === null) {
+            $invalidProperties[] = "'userId' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
@@ -474,49 +474,49 @@ class Campaign implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets application_id
+     * Gets applicationId
      *
      * @return int
      */
     public function getApplicationId()
     {
-        return $this->container['application_id'];
+        return $this->container['applicationId'];
     }
 
     /**
-     * Sets application_id
+     * Sets applicationId
      *
-     * @param int $application_id The ID of the application that owns this entity.
+     * @param int $applicationId The ID of the application that owns this entity.
      *
      * @return $this
      */
-    public function setApplicationId($application_id)
+    public function setApplicationId($applicationId)
     {
-        $this->container['application_id'] = $application_id;
+        $this->container['applicationId'] = $applicationId;
 
         return $this;
     }
 
     /**
-     * Gets user_id
+     * Gets userId
      *
      * @return int
      */
     public function getUserId()
     {
-        return $this->container['user_id'];
+        return $this->container['userId'];
     }
 
     /**
-     * Sets user_id
+     * Sets userId
      *
-     * @param int $user_id The ID of the account that owns this entity.
+     * @param int $userId The ID of the account that owns this entity.
      *
      * @return $this
      */
-    public function setUserId($user_id)
+    public function setUserId($userId)
     {
-        $this->container['user_id'] = $user_id;
+        $this->container['userId'] = $userId;
 
         return $this;
     }
@@ -575,49 +575,49 @@ class Campaign implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets start_time
+     * Gets startTime
      *
      * @return \DateTime|null
      */
     public function getStartTime()
     {
-        return $this->container['start_time'];
+        return $this->container['startTime'];
     }
 
     /**
-     * Sets start_time
+     * Sets startTime
      *
-     * @param \DateTime|null $start_time Datetime when the campaign will become active.
+     * @param \DateTime|null $startTime Datetime when the campaign will become active.
      *
      * @return $this
      */
-    public function setStartTime($start_time)
+    public function setStartTime($startTime)
     {
-        $this->container['start_time'] = $start_time;
+        $this->container['startTime'] = $startTime;
 
         return $this;
     }
 
     /**
-     * Gets end_time
+     * Gets endTime
      *
      * @return \DateTime|null
      */
     public function getEndTime()
     {
-        return $this->container['end_time'];
+        return $this->container['endTime'];
     }
 
     /**
-     * Sets end_time
+     * Sets endTime
      *
-     * @param \DateTime|null $end_time Datetime when the campaign will become in-active.
+     * @param \DateTime|null $endTime Datetime when the campaign will become in-active.
      *
      * @return $this
      */
-    public function setEndTime($end_time)
+    public function setEndTime($endTime)
     {
-        $this->container['end_time'] = $end_time;
+        $this->container['endTime'] = $endTime;
 
         return $this;
     }
@@ -680,25 +680,25 @@ class Campaign implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets active_ruleset_id
+     * Gets activeRulesetId
      *
      * @return int|null
      */
     public function getActiveRulesetId()
     {
-        return $this->container['active_ruleset_id'];
+        return $this->container['activeRulesetId'];
     }
 
     /**
-     * Sets active_ruleset_id
+     * Sets activeRulesetId
      *
-     * @param int|null $active_ruleset_id ID of Ruleset this campaign applies on customer session evaluation.
+     * @param int|null $activeRulesetId ID of Ruleset this campaign applies on customer session evaluation.
      *
      * @return $this
      */
-    public function setActiveRulesetId($active_ruleset_id)
+    public function setActiveRulesetId($activeRulesetId)
     {
-        $this->container['active_ruleset_id'] = $active_ruleset_id;
+        $this->container['activeRulesetId'] = $activeRulesetId;
 
         return $this;
     }
@@ -761,49 +761,49 @@ class Campaign implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets coupon_settings
+     * Gets couponSettings
      *
      * @return \TalonOne\Client\Model\CodeGeneratorSettings|null
      */
     public function getCouponSettings()
     {
-        return $this->container['coupon_settings'];
+        return $this->container['couponSettings'];
     }
 
     /**
-     * Sets coupon_settings
+     * Sets couponSettings
      *
-     * @param \TalonOne\Client\Model\CodeGeneratorSettings|null $coupon_settings coupon_settings
+     * @param \TalonOne\Client\Model\CodeGeneratorSettings|null $couponSettings couponSettings
      *
      * @return $this
      */
-    public function setCouponSettings($coupon_settings)
+    public function setCouponSettings($couponSettings)
     {
-        $this->container['coupon_settings'] = $coupon_settings;
+        $this->container['couponSettings'] = $couponSettings;
 
         return $this;
     }
 
     /**
-     * Gets referral_settings
+     * Gets referralSettings
      *
      * @return \TalonOne\Client\Model\CodeGeneratorSettings|null
      */
     public function getReferralSettings()
     {
-        return $this->container['referral_settings'];
+        return $this->container['referralSettings'];
     }
 
     /**
-     * Sets referral_settings
+     * Sets referralSettings
      *
-     * @param \TalonOne\Client\Model\CodeGeneratorSettings|null $referral_settings referral_settings
+     * @param \TalonOne\Client\Model\CodeGeneratorSettings|null $referralSettings referralSettings
      *
      * @return $this
      */
-    public function setReferralSettings($referral_settings)
+    public function setReferralSettings($referralSettings)
     {
-        $this->container['referral_settings'] = $referral_settings;
+        $this->container['referralSettings'] = $referralSettings;
 
         return $this;
     }
@@ -833,145 +833,145 @@ class Campaign implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets coupon_redemption_count
+     * Gets couponRedemptionCount
      *
      * @return int|null
      */
     public function getCouponRedemptionCount()
     {
-        return $this->container['coupon_redemption_count'];
+        return $this->container['couponRedemptionCount'];
     }
 
     /**
-     * Sets coupon_redemption_count
+     * Sets couponRedemptionCount
      *
-     * @param int|null $coupon_redemption_count Number of coupons redeemed in the campaign.
+     * @param int|null $couponRedemptionCount Number of coupons redeemed in the campaign.
      *
      * @return $this
      */
-    public function setCouponRedemptionCount($coupon_redemption_count)
+    public function setCouponRedemptionCount($couponRedemptionCount)
     {
-        $this->container['coupon_redemption_count'] = $coupon_redemption_count;
+        $this->container['couponRedemptionCount'] = $couponRedemptionCount;
 
         return $this;
     }
 
     /**
-     * Gets referral_redemption_count
+     * Gets referralRedemptionCount
      *
      * @return int|null
      */
     public function getReferralRedemptionCount()
     {
-        return $this->container['referral_redemption_count'];
+        return $this->container['referralRedemptionCount'];
     }
 
     /**
-     * Sets referral_redemption_count
+     * Sets referralRedemptionCount
      *
-     * @param int|null $referral_redemption_count Number of referral codes redeemed in the campaign.
+     * @param int|null $referralRedemptionCount Number of referral codes redeemed in the campaign.
      *
      * @return $this
      */
-    public function setReferralRedemptionCount($referral_redemption_count)
+    public function setReferralRedemptionCount($referralRedemptionCount)
     {
-        $this->container['referral_redemption_count'] = $referral_redemption_count;
+        $this->container['referralRedemptionCount'] = $referralRedemptionCount;
 
         return $this;
     }
 
     /**
-     * Gets discount_count
+     * Gets discountCount
      *
      * @return int|null
      */
     public function getDiscountCount()
     {
-        return $this->container['discount_count'];
+        return $this->container['discountCount'];
     }
 
     /**
-     * Sets discount_count
+     * Sets discountCount
      *
-     * @param int|null $discount_count Total amount of discounts redeemed in the campaign.
+     * @param int|null $discountCount Total amount of discounts redeemed in the campaign.
      *
      * @return $this
      */
-    public function setDiscountCount($discount_count)
+    public function setDiscountCount($discountCount)
     {
-        $this->container['discount_count'] = $discount_count;
+        $this->container['discountCount'] = $discountCount;
 
         return $this;
     }
 
     /**
-     * Gets discount_effect_count
+     * Gets discountEffectCount
      *
      * @return int|null
      */
     public function getDiscountEffectCount()
     {
-        return $this->container['discount_effect_count'];
+        return $this->container['discountEffectCount'];
     }
 
     /**
-     * Sets discount_effect_count
+     * Sets discountEffectCount
      *
-     * @param int|null $discount_effect_count Total number of times discounts were redeemed in this campaign.
+     * @param int|null $discountEffectCount Total number of times discounts were redeemed in this campaign.
      *
      * @return $this
      */
-    public function setDiscountEffectCount($discount_effect_count)
+    public function setDiscountEffectCount($discountEffectCount)
     {
-        $this->container['discount_effect_count'] = $discount_effect_count;
+        $this->container['discountEffectCount'] = $discountEffectCount;
 
         return $this;
     }
 
     /**
-     * Gets coupon_creation_count
+     * Gets couponCreationCount
      *
      * @return int|null
      */
     public function getCouponCreationCount()
     {
-        return $this->container['coupon_creation_count'];
+        return $this->container['couponCreationCount'];
     }
 
     /**
-     * Sets coupon_creation_count
+     * Sets couponCreationCount
      *
-     * @param int|null $coupon_creation_count Total number of coupons created by rules in this campaign.
+     * @param int|null $couponCreationCount Total number of coupons created by rules in this campaign.
      *
      * @return $this
      */
-    public function setCouponCreationCount($coupon_creation_count)
+    public function setCouponCreationCount($couponCreationCount)
     {
-        $this->container['coupon_creation_count'] = $coupon_creation_count;
+        $this->container['couponCreationCount'] = $couponCreationCount;
 
         return $this;
     }
 
     /**
-     * Gets last_activity
+     * Gets lastActivity
      *
      * @return \DateTime|null
      */
     public function getLastActivity()
     {
-        return $this->container['last_activity'];
+        return $this->container['lastActivity'];
     }
 
     /**
-     * Sets last_activity
+     * Sets lastActivity
      *
-     * @param \DateTime|null $last_activity Timestamp of the most recent event received by this campaign.
+     * @param \DateTime|null $lastActivity Timestamp of the most recent event received by this campaign.
      *
      * @return $this
      */
-    public function setLastActivity($last_activity)
+    public function setLastActivity($lastActivity)
     {
-        $this->container['last_activity'] = $last_activity;
+        $this->container['lastActivity'] = $lastActivity;
 
         return $this;
     }
@@ -1001,49 +1001,49 @@ class Campaign implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets created_by
+     * Gets createdBy
      *
      * @return string|null
      */
     public function getCreatedBy()
     {
-        return $this->container['created_by'];
+        return $this->container['createdBy'];
     }
 
     /**
-     * Sets created_by
+     * Sets createdBy
      *
-     * @param string|null $created_by Name of the user who created this campaign if available.
+     * @param string|null $createdBy Name of the user who created this campaign if available.
      *
      * @return $this
      */
-    public function setCreatedBy($created_by)
+    public function setCreatedBy($createdBy)
     {
-        $this->container['created_by'] = $created_by;
+        $this->container['createdBy'] = $createdBy;
 
         return $this;
     }
 
     /**
-     * Gets updated_by
+     * Gets updatedBy
      *
      * @return string|null
      */
     public function getUpdatedBy()
     {
-        return $this->container['updated_by'];
+        return $this->container['updatedBy'];
     }
 
     /**
-     * Sets updated_by
+     * Sets updatedBy
      *
-     * @param string|null $updated_by Name of the user who last updated this campaign if available.
+     * @param string|null $updatedBy Name of the user who last updated this campaign if available.
      *
      * @return $this
      */
-    public function setUpdatedBy($updated_by)
+    public function setUpdatedBy($updatedBy)
     {
-        $this->container['updated_by'] = $updated_by;
+        $this->container['updatedBy'] = $updatedBy;
 
         return $this;
     }

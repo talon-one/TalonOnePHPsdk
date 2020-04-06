@@ -86,7 +86,7 @@ class ChangeProfilePasswordTest extends TestCase
     }
 
     /**
-     * Test attribute "new_password"
+     * Test attribute "newPassword"
      */
     public function testPropertyNewPassword()
     {

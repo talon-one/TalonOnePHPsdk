@@ -93,14 +93,14 @@ class MetaTest extends TestCase
     }
 
     /**
-     * Test attribute "coupon_rejection_reason"
+     * Test attribute "couponRejectionReason"
      */
     public function testPropertyCouponRejectionReason()
     {
     }
 
     /**
-     * Test attribute "referral_rejection_reason"
+     * Test attribute "referralRejectionReason"
      */
     public function testPropertyReferralRejectionReason()
     {

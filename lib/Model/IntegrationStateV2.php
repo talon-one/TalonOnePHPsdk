@@ -58,16 +58,16 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'customer_session' => '\TalonOne\Client\Model\CustomerSessionV2',
-        'customer_profile' => '\TalonOne\Client\Model\CustomerProfile',
+        'customerSession' => '\TalonOne\Client\Model\CustomerSessionV2',
+        'customerProfile' => '\TalonOne\Client\Model\CustomerProfile',
         'event' => '\TalonOne\Client\Model\Event',
         'loyalty' => '\TalonOne\Client\Model\Loyalty',
         'referral' => '\TalonOne\Client\Model\Referral',
         'coupons' => '\TalonOne\Client\Model\Coupon[]',
-        'triggered_campaigns' => '\TalonOne\Client\Model\Campaign[]',
+        'triggeredCampaigns' => '\TalonOne\Client\Model\Campaign[]',
         'effects' => '\TalonOne\Client\Model\Effect[]',
-        'created_coupons' => '\TalonOne\Client\Model\Coupon[]',
-        'created_referrals' => '\TalonOne\Client\Model\Referral[]'
+        'createdCoupons' => '\TalonOne\Client\Model\Coupon[]',
+        'createdReferrals' => '\TalonOne\Client\Model\Referral[]'
     ];
 
     /**
@@ -76,16 +76,16 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'customer_session' => null,
-        'customer_profile' => null,
+        'customerSession' => null,
+        'customerProfile' => null,
         'event' => null,
         'loyalty' => null,
         'referral' => null,
         'coupons' => null,
-        'triggered_campaigns' => null,
+        'triggeredCampaigns' => null,
         'effects' => null,
-        'created_coupons' => null,
-        'created_referrals' => null
+        'createdCoupons' => null,
+        'createdReferrals' => null
     ];
 
     /**
@@ -115,16 +115,16 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'customer_session' => 'customerSession',
-        'customer_profile' => 'customerProfile',
+        'customerSession' => 'customerSession',
+        'customerProfile' => 'customerProfile',
         'event' => 'event',
         'loyalty' => 'loyalty',
         'referral' => 'referral',
         'coupons' => 'coupons',
-        'triggered_campaigns' => 'triggeredCampaigns',
+        'triggeredCampaigns' => 'triggeredCampaigns',
         'effects' => 'effects',
-        'created_coupons' => 'createdCoupons',
-        'created_referrals' => 'createdReferrals'
+        'createdCoupons' => 'createdCoupons',
+        'createdReferrals' => 'createdReferrals'
     ];
 
     /**
@@ -133,16 +133,16 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'customer_session' => 'setCustomerSession',
-        'customer_profile' => 'setCustomerProfile',
+        'customerSession' => 'setCustomerSession',
+        'customerProfile' => 'setCustomerProfile',
         'event' => 'setEvent',
         'loyalty' => 'setLoyalty',
         'referral' => 'setReferral',
         'coupons' => 'setCoupons',
-        'triggered_campaigns' => 'setTriggeredCampaigns',
+        'triggeredCampaigns' => 'setTriggeredCampaigns',
         'effects' => 'setEffects',
-        'created_coupons' => 'setCreatedCoupons',
-        'created_referrals' => 'setCreatedReferrals'
+        'createdCoupons' => 'setCreatedCoupons',
+        'createdReferrals' => 'setCreatedReferrals'
     ];
 
     /**
@@ -151,16 +151,16 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'customer_session' => 'getCustomerSession',
-        'customer_profile' => 'getCustomerProfile',
+        'customerSession' => 'getCustomerSession',
+        'customerProfile' => 'getCustomerProfile',
         'event' => 'getEvent',
         'loyalty' => 'getLoyalty',
         'referral' => 'getReferral',
         'coupons' => 'getCoupons',
-        'triggered_campaigns' => 'getTriggeredCampaigns',
+        'triggeredCampaigns' => 'getTriggeredCampaigns',
         'effects' => 'getEffects',
-        'created_coupons' => 'getCreatedCoupons',
-        'created_referrals' => 'getCreatedReferrals'
+        'createdCoupons' => 'getCreatedCoupons',
+        'createdReferrals' => 'getCreatedReferrals'
     ];
 
     /**
@@ -223,16 +223,16 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['customer_session'] = isset($data['customer_session']) ? $data['customer_session'] : null;
-        $this->container['customer_profile'] = isset($data['customer_profile']) ? $data['customer_profile'] : null;
+        $this->container['customerSession'] = isset($data['customerSession']) ? $data['customerSession'] : null;
+        $this->container['customerProfile'] = isset($data['customerProfile']) ? $data['customerProfile'] : null;
         $this->container['event'] = isset($data['event']) ? $data['event'] : null;
         $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
         $this->container['referral'] = isset($data['referral']) ? $data['referral'] : null;
         $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
-        $this->container['triggered_campaigns'] = isset($data['triggered_campaigns']) ? $data['triggered_campaigns'] : null;
+        $this->container['triggeredCampaigns'] = isset($data['triggeredCampaigns']) ? $data['triggeredCampaigns'] : null;
         $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
-        $this->container['created_coupons'] = isset($data['created_coupons']) ? $data['created_coupons'] : null;
-        $this->container['created_referrals'] = isset($data['created_referrals']) ? $data['created_referrals'] : null;
+        $this->container['createdCoupons'] = isset($data['createdCoupons']) ? $data['createdCoupons'] : null;
+        $this->container['createdReferrals'] = isset($data['createdReferrals']) ? $data['createdReferrals'] : null;
     }
 
     /**
@@ -247,11 +247,11 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         if ($this->container['effects'] === null) {
             $invalidProperties[] = "'effects' can't be null";
         }
-        if ($this->container['created_coupons'] === null) {
-            $invalidProperties[] = "'created_coupons' can't be null";
+        if ($this->container['createdCoupons'] === null) {
+            $invalidProperties[] = "'createdCoupons' can't be null";
         }
-        if ($this->container['created_referrals'] === null) {
-            $invalidProperties[] = "'created_referrals' can't be null";
+        if ($this->container['createdReferrals'] === null) {
+            $invalidProperties[] = "'createdReferrals' can't be null";
         }
         return $invalidProperties;
     }
@@ -269,49 +269,49 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets customer_session
+     * Gets customerSession
      *
      * @return \TalonOne\Client\Model\CustomerSessionV2|null
      */
     public function getCustomerSession()
     {
-        return $this->container['customer_session'];
+        return $this->container['customerSession'];
     }
 
     /**
-     * Sets customer_session
+     * Sets customerSession
      *
-     * @param \TalonOne\Client\Model\CustomerSessionV2|null $customer_session customer_session
+     * @param \TalonOne\Client\Model\CustomerSessionV2|null $customerSession customerSession
      *
      * @return $this
      */
-    public function setCustomerSession($customer_session)
+    public function setCustomerSession($customerSession)
     {
-        $this->container['customer_session'] = $customer_session;
+        $this->container['customerSession'] = $customerSession;
 
         return $this;
     }
 
     /**
-     * Gets customer_profile
+     * Gets customerProfile
      *
      * @return \TalonOne\Client\Model\CustomerProfile|null
      */
     public function getCustomerProfile()
     {
-        return $this->container['customer_profile'];
+        return $this->container['customerProfile'];
     }
 
     /**
-     * Sets customer_profile
+     * Sets customerProfile
      *
-     * @param \TalonOne\Client\Model\CustomerProfile|null $customer_profile customer_profile
+     * @param \TalonOne\Client\Model\CustomerProfile|null $customerProfile customerProfile
      *
      * @return $this
      */
-    public function setCustomerProfile($customer_profile)
+    public function setCustomerProfile($customerProfile)
     {
-        $this->container['customer_profile'] = $customer_profile;
+        $this->container['customerProfile'] = $customerProfile;
 
         return $this;
     }
@@ -413,25 +413,25 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets triggered_campaigns
+     * Gets triggeredCampaigns
      *
      * @return \TalonOne\Client\Model\Campaign[]|null
      */
     public function getTriggeredCampaigns()
     {
-        return $this->container['triggered_campaigns'];
+        return $this->container['triggeredCampaigns'];
     }
 
     /**
-     * Sets triggered_campaigns
+     * Sets triggeredCampaigns
      *
-     * @param \TalonOne\Client\Model\Campaign[]|null $triggered_campaigns triggered_campaigns
+     * @param \TalonOne\Client\Model\Campaign[]|null $triggeredCampaigns triggeredCampaigns
      *
      * @return $this
      */
-    public function setTriggeredCampaigns($triggered_campaigns)
+    public function setTriggeredCampaigns($triggeredCampaigns)
     {
-        $this->container['triggered_campaigns'] = $triggered_campaigns;
+        $this->container['triggeredCampaigns'] = $triggeredCampaigns;
 
         return $this;
     }
@@ -461,49 +461,49 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets created_coupons
+     * Gets createdCoupons
      *
      * @return \TalonOne\Client\Model\Coupon[]
      */
     public function getCreatedCoupons()
     {
-        return $this->container['created_coupons'];
+        return $this->container['createdCoupons'];
     }
 
     /**
-     * Sets created_coupons
+     * Sets createdCoupons
      *
-     * @param \TalonOne\Client\Model\Coupon[] $created_coupons created_coupons
+     * @param \TalonOne\Client\Model\Coupon[] $createdCoupons createdCoupons
      *
      * @return $this
      */
-    public function setCreatedCoupons($created_coupons)
+    public function setCreatedCoupons($createdCoupons)
     {
-        $this->container['created_coupons'] = $created_coupons;
+        $this->container['createdCoupons'] = $createdCoupons;
 
         return $this;
     }
 
     /**
-     * Gets created_referrals
+     * Gets createdReferrals
      *
      * @return \TalonOne\Client\Model\Referral[]
      */
     public function getCreatedReferrals()
     {
-        return $this->container['created_referrals'];
+        return $this->container['createdReferrals'];
     }
 
     /**
-     * Sets created_referrals
+     * Sets createdReferrals
      *
-     * @param \TalonOne\Client\Model\Referral[] $created_referrals created_referrals
+     * @param \TalonOne\Client\Model\Referral[] $createdReferrals createdReferrals
      *
      * @return $this
      */
-    public function setCreatedReferrals($created_referrals)
+    public function setCreatedReferrals($createdReferrals)
     {
-        $this->container['created_referrals'] = $created_referrals;
+        $this->container['createdReferrals'] = $createdReferrals;
 
         return $this;
     }

@@ -58,12 +58,12 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profile_id' => 'string',
-        'coupon_codes' => 'string[]',
-        'referral_code' => 'string',
+        'profileId' => 'string',
+        'couponCodes' => 'string[]',
+        'referralCode' => 'string',
         'state' => 'string',
-        'cart_items' => '\TalonOne\Client\Model\CartItem[]',
-        'additional_costs' => 'map[string,\TalonOne\Client\Model\AdditionalCost]',
+        'cartItems' => '\TalonOne\Client\Model\CartItem[]',
+        'additionalCosts' => 'map[string,\TalonOne\Client\Model\AdditionalCost]',
         'identifiers' => 'string[]',
         'attributes' => 'object'
     ];
@@ -74,12 +74,12 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'profile_id' => null,
-        'coupon_codes' => null,
-        'referral_code' => null,
+        'profileId' => null,
+        'couponCodes' => null,
+        'referralCode' => null,
         'state' => null,
-        'cart_items' => null,
-        'additional_costs' => null,
+        'cartItems' => null,
+        'additionalCosts' => null,
         'identifiers' => null,
         'attributes' => null
     ];
@@ -111,12 +111,12 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'profile_id' => 'profileId',
-        'coupon_codes' => 'couponCodes',
-        'referral_code' => 'referralCode',
+        'profileId' => 'profileId',
+        'couponCodes' => 'couponCodes',
+        'referralCode' => 'referralCode',
         'state' => 'state',
-        'cart_items' => 'cartItems',
-        'additional_costs' => 'additionalCosts',
+        'cartItems' => 'cartItems',
+        'additionalCosts' => 'additionalCosts',
         'identifiers' => 'identifiers',
         'attributes' => 'attributes'
     ];
@@ -127,12 +127,12 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'profile_id' => 'setProfileId',
-        'coupon_codes' => 'setCouponCodes',
-        'referral_code' => 'setReferralCode',
+        'profileId' => 'setProfileId',
+        'couponCodes' => 'setCouponCodes',
+        'referralCode' => 'setReferralCode',
         'state' => 'setState',
-        'cart_items' => 'setCartItems',
-        'additional_costs' => 'setAdditionalCosts',
+        'cartItems' => 'setCartItems',
+        'additionalCosts' => 'setAdditionalCosts',
         'identifiers' => 'setIdentifiers',
         'attributes' => 'setAttributes'
     ];
@@ -143,12 +143,12 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'profile_id' => 'getProfileId',
-        'coupon_codes' => 'getCouponCodes',
-        'referral_code' => 'getReferralCode',
+        'profileId' => 'getProfileId',
+        'couponCodes' => 'getCouponCodes',
+        'referralCode' => 'getReferralCode',
         'state' => 'getState',
-        'cart_items' => 'getCartItems',
-        'additional_costs' => 'getAdditionalCosts',
+        'cartItems' => 'getCartItems',
+        'additionalCosts' => 'getAdditionalCosts',
         'identifiers' => 'getIdentifiers',
         'attributes' => 'getAttributes'
     ];
@@ -230,12 +230,12 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['profile_id'] = isset($data['profile_id']) ? $data['profile_id'] : null;
-        $this->container['coupon_codes'] = isset($data['coupon_codes']) ? $data['coupon_codes'] : null;
-        $this->container['referral_code'] = isset($data['referral_code']) ? $data['referral_code'] : null;
+        $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
+        $this->container['couponCodes'] = isset($data['couponCodes']) ? $data['couponCodes'] : null;
+        $this->container['referralCode'] = isset($data['referralCode']) ? $data['referralCode'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'open';
-        $this->container['cart_items'] = isset($data['cart_items']) ? $data['cart_items'] : null;
-        $this->container['additional_costs'] = isset($data['additional_costs']) ? $data['additional_costs'] : null;
+        $this->container['cartItems'] = isset($data['cartItems']) ? $data['cartItems'] : null;
+        $this->container['additionalCosts'] = isset($data['additionalCosts']) ? $data['additionalCosts'] : null;
         $this->container['identifiers'] = isset($data['identifiers']) ? $data['identifiers'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
     }
@@ -273,73 +273,73 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets profile_id
+     * Gets profileId
      *
      * @return string|null
      */
     public function getProfileId()
     {
-        return $this->container['profile_id'];
+        return $this->container['profileId'];
     }
 
     /**
-     * Sets profile_id
+     * Sets profileId
      *
-     * @param string|null $profile_id ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+     * @param string|null $profileId ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
      *
      * @return $this
      */
-    public function setProfileId($profile_id)
+    public function setProfileId($profileId)
     {
-        $this->container['profile_id'] = $profile_id;
+        $this->container['profileId'] = $profileId;
 
         return $this;
     }
 
     /**
-     * Gets coupon_codes
+     * Gets couponCodes
      *
      * @return string[]|null
      */
     public function getCouponCodes()
     {
-        return $this->container['coupon_codes'];
+        return $this->container['couponCodes'];
     }
 
     /**
-     * Sets coupon_codes
+     * Sets couponCodes
      *
-     * @param string[]|null $coupon_codes Any coupon codes entered.
+     * @param string[]|null $couponCodes Any coupon codes entered.
      *
      * @return $this
      */
-    public function setCouponCodes($coupon_codes)
+    public function setCouponCodes($couponCodes)
     {
-        $this->container['coupon_codes'] = $coupon_codes;
+        $this->container['couponCodes'] = $couponCodes;
 
         return $this;
     }
 
     /**
-     * Gets referral_code
+     * Gets referralCode
      *
      * @return string|null
      */
     public function getReferralCode()
     {
-        return $this->container['referral_code'];
+        return $this->container['referralCode'];
     }
 
     /**
-     * Sets referral_code
+     * Sets referralCode
      *
-     * @param string|null $referral_code Any referral code entered.
+     * @param string|null $referralCode Any referral code entered.
      *
      * @return $this
      */
-    public function setReferralCode($referral_code)
+    public function setReferralCode($referralCode)
     {
-        $this->container['referral_code'] = $referral_code;
+        $this->container['referralCode'] = $referralCode;
 
         return $this;
     }
@@ -378,49 +378,49 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cart_items
+     * Gets cartItems
      *
      * @return \TalonOne\Client\Model\CartItem[]|null
      */
     public function getCartItems()
     {
-        return $this->container['cart_items'];
+        return $this->container['cartItems'];
     }
 
     /**
-     * Sets cart_items
+     * Sets cartItems
      *
-     * @param \TalonOne\Client\Model\CartItem[]|null $cart_items All items the customer will be purchasing in this session
+     * @param \TalonOne\Client\Model\CartItem[]|null $cartItems All items the customer will be purchasing in this session
      *
      * @return $this
      */
-    public function setCartItems($cart_items)
+    public function setCartItems($cartItems)
     {
-        $this->container['cart_items'] = $cart_items;
+        $this->container['cartItems'] = $cartItems;
 
         return $this;
     }
 
     /**
-     * Gets additional_costs
+     * Gets additionalCosts
      *
      * @return map[string,\TalonOne\Client\Model\AdditionalCost]|null
      */
     public function getAdditionalCosts()
     {
-        return $this->container['additional_costs'];
+        return $this->container['additionalCosts'];
     }
 
     /**
-     * Sets additional_costs
+     * Sets additionalCosts
      *
-     * @param map[string,\TalonOne\Client\Model\AdditionalCost]|null $additional_costs Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees.
+     * @param map[string,\TalonOne\Client\Model\AdditionalCost]|null $additionalCosts Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees.
      *
      * @return $this
      */
-    public function setAdditionalCosts($additional_costs)
+    public function setAdditionalCosts($additionalCosts)
     {
-        $this->container['additional_costs'] = $additional_costs;
+        $this->container['additionalCosts'] = $additionalCosts;
 
         return $this;
     }

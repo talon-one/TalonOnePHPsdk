@@ -79,7 +79,7 @@ class CouponReservationsTest extends TestCase
     }
 
     /**
-     * Test attribute "integration_i_ds"
+     * Test attribute "integrationIDs"
      */
     public function testPropertyIntegrationIDs()
     {

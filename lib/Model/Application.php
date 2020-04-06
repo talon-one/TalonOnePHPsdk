@@ -61,16 +61,16 @@ class Application implements ModelInterface, ArrayAccess
         'id' => 'int',
         'created' => '\DateTime',
         'modified' => '\DateTime',
-        'account_id' => 'int',
+        'accountId' => 'int',
         'name' => 'string',
         'description' => 'string',
         'timezone' => 'string',
         'currency' => 'string',
-        'case_sensitivity' => 'string',
+        'caseSensitivity' => 'string',
         'attributes' => 'object',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
-        'attributes_settings' => '\TalonOne\Client\Model\AttributesSettings',
-        'loyalty_programs' => '\TalonOne\Client\Model\LoyaltyProgram[]'
+        'attributesSettings' => '\TalonOne\Client\Model\AttributesSettings',
+        'loyaltyPrograms' => '\TalonOne\Client\Model\LoyaltyProgram[]'
     ];
 
     /**
@@ -82,16 +82,16 @@ class Application implements ModelInterface, ArrayAccess
         'id' => null,
         'created' => 'date-time',
         'modified' => 'date-time',
-        'account_id' => null,
+        'accountId' => null,
         'name' => null,
         'description' => null,
         'timezone' => null,
         'currency' => null,
-        'case_sensitivity' => null,
+        'caseSensitivity' => null,
         'attributes' => null,
         'limits' => null,
-        'attributes_settings' => null,
-        'loyalty_programs' => null
+        'attributesSettings' => null,
+        'loyaltyPrograms' => null
     ];
 
     /**
@@ -124,16 +124,16 @@ class Application implements ModelInterface, ArrayAccess
         'id' => 'id',
         'created' => 'created',
         'modified' => 'modified',
-        'account_id' => 'accountId',
+        'accountId' => 'accountId',
         'name' => 'name',
         'description' => 'description',
         'timezone' => 'timezone',
         'currency' => 'currency',
-        'case_sensitivity' => 'caseSensitivity',
+        'caseSensitivity' => 'caseSensitivity',
         'attributes' => 'attributes',
         'limits' => 'limits',
-        'attributes_settings' => 'attributesSettings',
-        'loyalty_programs' => 'loyaltyPrograms'
+        'attributesSettings' => 'attributesSettings',
+        'loyaltyPrograms' => 'loyaltyPrograms'
     ];
 
     /**
@@ -145,16 +145,16 @@ class Application implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'created' => 'setCreated',
         'modified' => 'setModified',
-        'account_id' => 'setAccountId',
+        'accountId' => 'setAccountId',
         'name' => 'setName',
         'description' => 'setDescription',
         'timezone' => 'setTimezone',
         'currency' => 'setCurrency',
-        'case_sensitivity' => 'setCaseSensitivity',
+        'caseSensitivity' => 'setCaseSensitivity',
         'attributes' => 'setAttributes',
         'limits' => 'setLimits',
-        'attributes_settings' => 'setAttributesSettings',
-        'loyalty_programs' => 'setLoyaltyPrograms'
+        'attributesSettings' => 'setAttributesSettings',
+        'loyaltyPrograms' => 'setLoyaltyPrograms'
     ];
 
     /**
@@ -166,16 +166,16 @@ class Application implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'created' => 'getCreated',
         'modified' => 'getModified',
-        'account_id' => 'getAccountId',
+        'accountId' => 'getAccountId',
         'name' => 'getName',
         'description' => 'getDescription',
         'timezone' => 'getTimezone',
         'currency' => 'getCurrency',
-        'case_sensitivity' => 'getCaseSensitivity',
+        'caseSensitivity' => 'getCaseSensitivity',
         'attributes' => 'getAttributes',
         'limits' => 'getLimits',
-        'attributes_settings' => 'getAttributesSettings',
-        'loyalty_programs' => 'getLoyaltyPrograms'
+        'attributesSettings' => 'getAttributesSettings',
+        'loyaltyPrograms' => 'getLoyaltyPrograms'
     ];
 
     /**
@@ -258,16 +258,16 @@ class Application implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['case_sensitivity'] = isset($data['case_sensitivity']) ? $data['case_sensitivity'] : null;
+        $this->container['caseSensitivity'] = isset($data['caseSensitivity']) ? $data['caseSensitivity'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
-        $this->container['attributes_settings'] = isset($data['attributes_settings']) ? $data['attributes_settings'] : null;
-        $this->container['loyalty_programs'] = isset($data['loyalty_programs']) ? $data['loyalty_programs'] : null;
+        $this->container['attributesSettings'] = isset($data['attributesSettings']) ? $data['attributesSettings'] : null;
+        $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
     }
 
     /**
@@ -288,8 +288,8 @@ class Application implements ModelInterface, ArrayAccess
         if ($this->container['modified'] === null) {
             $invalidProperties[] = "'modified' can't be null";
         }
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
@@ -313,15 +313,15 @@ class Application implements ModelInterface, ArrayAccess
         }
 
         $allowedValues = $this->getCaseSensitivityAllowableValues();
-        if (!is_null($this->container['case_sensitivity']) && !in_array($this->container['case_sensitivity'], $allowedValues, true)) {
+        if (!is_null($this->container['caseSensitivity']) && !in_array($this->container['caseSensitivity'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'case_sensitivity', must be one of '%s'",
+                "invalid value for 'caseSensitivity', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['loyalty_programs'] === null) {
-            $invalidProperties[] = "'loyalty_programs' can't be null";
+        if ($this->container['loyaltyPrograms'] === null) {
+            $invalidProperties[] = "'loyaltyPrograms' can't be null";
         }
         return $invalidProperties;
     }
@@ -411,25 +411,25 @@ class Application implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets account_id
+     * Gets accountId
      *
      * @return int
      */
     public function getAccountId()
     {
-        return $this->container['account_id'];
+        return $this->container['accountId'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountId
      *
-     * @param int $account_id The ID of the account that owns this entity.
+     * @param int $accountId The ID of the account that owns this entity.
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountId($accountId)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }
@@ -546,34 +546,34 @@ class Application implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets case_sensitivity
+     * Gets caseSensitivity
      *
      * @return string|null
      */
     public function getCaseSensitivity()
     {
-        return $this->container['case_sensitivity'];
+        return $this->container['caseSensitivity'];
     }
 
     /**
-     * Sets case_sensitivity
+     * Sets caseSensitivity
      *
-     * @param string|null $case_sensitivity A string indicating how should campaigns in this application deal with case sensitivity on coupon codes.
+     * @param string|null $caseSensitivity A string indicating how should campaigns in this application deal with case sensitivity on coupon codes.
      *
      * @return $this
      */
-    public function setCaseSensitivity($case_sensitivity)
+    public function setCaseSensitivity($caseSensitivity)
     {
         $allowedValues = $this->getCaseSensitivityAllowableValues();
-        if (!is_null($case_sensitivity) && !in_array($case_sensitivity, $allowedValues, true)) {
+        if (!is_null($caseSensitivity) && !in_array($caseSensitivity, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'case_sensitivity', must be one of '%s'",
+                    "Invalid value for 'caseSensitivity', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['case_sensitivity'] = $case_sensitivity;
+        $this->container['caseSensitivity'] = $caseSensitivity;
 
         return $this;
     }
@@ -627,49 +627,49 @@ class Application implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets attributes_settings
+     * Gets attributesSettings
      *
      * @return \TalonOne\Client\Model\AttributesSettings|null
      */
     public function getAttributesSettings()
     {
-        return $this->container['attributes_settings'];
+        return $this->container['attributesSettings'];
     }
 
     /**
-     * Sets attributes_settings
+     * Sets attributesSettings
      *
-     * @param \TalonOne\Client\Model\AttributesSettings|null $attributes_settings attributes_settings
+     * @param \TalonOne\Client\Model\AttributesSettings|null $attributesSettings attributesSettings
      *
      * @return $this
      */
-    public function setAttributesSettings($attributes_settings)
+    public function setAttributesSettings($attributesSettings)
     {
-        $this->container['attributes_settings'] = $attributes_settings;
+        $this->container['attributesSettings'] = $attributesSettings;
 
         return $this;
     }
 
     /**
-     * Gets loyalty_programs
+     * Gets loyaltyPrograms
      *
      * @return \TalonOne\Client\Model\LoyaltyProgram[]
      */
     public function getLoyaltyPrograms()
     {
-        return $this->container['loyalty_programs'];
+        return $this->container['loyaltyPrograms'];
     }
 
     /**
-     * Sets loyalty_programs
+     * Sets loyaltyPrograms
      *
-     * @param \TalonOne\Client\Model\LoyaltyProgram[] $loyalty_programs An array containing all the loyalty programs to which this application is subscribed
+     * @param \TalonOne\Client\Model\LoyaltyProgram[] $loyaltyPrograms An array containing all the loyalty programs to which this application is subscribed
      *
      * @return $this
      */
-    public function setLoyaltyPrograms($loyalty_programs)
+    public function setLoyaltyPrograms($loyaltyPrograms)
     {
-        $this->container['loyalty_programs'] = $loyalty_programs;
+        $this->container['loyaltyPrograms'] = $loyaltyPrograms;
 
         return $this;
     }

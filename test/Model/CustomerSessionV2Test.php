@@ -79,7 +79,7 @@ class CustomerSessionV2Test extends TestCase
     }
 
     /**
-     * Test attribute "integration_id"
+     * Test attribute "integrationId"
      */
     public function testPropertyIntegrationId()
     {
@@ -93,28 +93,28 @@ class CustomerSessionV2Test extends TestCase
     }
 
     /**
-     * Test attribute "application_id"
+     * Test attribute "applicationId"
      */
     public function testPropertyApplicationId()
     {
     }
 
     /**
-     * Test attribute "profile_id"
+     * Test attribute "profileId"
      */
     public function testPropertyProfileId()
     {
     }
 
     /**
-     * Test attribute "coupon_codes"
+     * Test attribute "couponCodes"
      */
     public function testPropertyCouponCodes()
     {
     }
 
     /**
-     * Test attribute "referral_code"
+     * Test attribute "referralCode"
      */
     public function testPropertyReferralCode()
     {
@@ -128,14 +128,14 @@ class CustomerSessionV2Test extends TestCase
     }
 
     /**
-     * Test attribute "cart_items"
+     * Test attribute "cartItems"
      */
     public function testPropertyCartItems()
     {
     }
 
     /**
-     * Test attribute "additional_costs"
+     * Test attribute "additionalCosts"
      */
     public function testPropertyAdditionalCosts()
     {
@@ -156,7 +156,7 @@ class CustomerSessionV2Test extends TestCase
     }
 
     /**
-     * Test attribute "first_session"
+     * Test attribute "firstSession"
      */
     public function testPropertyFirstSession()
     {
@@ -170,14 +170,14 @@ class CustomerSessionV2Test extends TestCase
     }
 
     /**
-     * Test attribute "cart_item_total"
+     * Test attribute "cartItemTotal"
      */
     public function testPropertyCartItemTotal()
     {
     }
 
     /**
-     * Test attribute "additional_cost_total"
+     * Test attribute "additionalCostTotal"
      */
     public function testPropertyAdditionalCostTotal()
     {

@@ -57,7 +57,7 @@ class IntegrationEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'integration_id' => 'string',
+        'integrationId' => 'string',
         'created' => '\DateTime'
     ];
 
@@ -67,7 +67,7 @@ class IntegrationEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'integration_id' => 'string',
+        'integrationId' => 'string',
         'created' => 'date-time'
     ];
 
@@ -98,7 +98,7 @@ class IntegrationEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'integration_id' => 'integrationId',
+        'integrationId' => 'integrationId',
         'created' => 'created'
     ];
 
@@ -108,7 +108,7 @@ class IntegrationEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'integration_id' => 'setIntegrationId',
+        'integrationId' => 'setIntegrationId',
         'created' => 'setCreated'
     ];
 
@@ -118,7 +118,7 @@ class IntegrationEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'integration_id' => 'getIntegrationId',
+        'integrationId' => 'getIntegrationId',
         'created' => 'getCreated'
     ];
 
@@ -182,7 +182,7 @@ class IntegrationEntity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['integration_id'] = isset($data['integration_id']) ? $data['integration_id'] : null;
+        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
     }
 
@@ -195,8 +195,8 @@ class IntegrationEntity implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['integration_id'] === null) {
-            $invalidProperties[] = "'integration_id' can't be null";
+        if ($this->container['integrationId'] === null) {
+            $invalidProperties[] = "'integrationId' can't be null";
         }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
@@ -217,25 +217,25 @@ class IntegrationEntity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets integration_id
+     * Gets integrationId
      *
      * @return string
      */
     public function getIntegrationId()
     {
-        return $this->container['integration_id'];
+        return $this->container['integrationId'];
     }
 
     /**
-     * Sets integration_id
+     * Sets integrationId
      *
-     * @param string $integration_id The ID used for this entity in the application system.
+     * @param string $integrationId The ID used for this entity in the application system.
      *
      * @return $this
      */
-    public function setIntegrationId($integration_id)
+    public function setIntegrationId($integrationId)
     {
-        $this->container['integration_id'] = $integration_id;
+        $this->container['integrationId'] = $integrationId;
 
         return $this;
     }

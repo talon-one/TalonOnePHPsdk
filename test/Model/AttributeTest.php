@@ -93,7 +93,7 @@ class AttributeTest extends TestCase
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "accountId"
      */
     public function testPropertyAccountId()
     {
@@ -107,7 +107,7 @@ class AttributeTest extends TestCase
     }
 
     /**
-     * Test attribute "event_type"
+     * Test attribute "eventType"
      */
     public function testPropertyEventType()
     {
@@ -156,7 +156,7 @@ class AttributeTest extends TestCase
     }
 
     /**
-     * Test attribute "subscribed_applications_ids"
+     * Test attribute "subscribedApplicationsIds"
      */
     public function testPropertySubscribedApplicationsIds()
     {

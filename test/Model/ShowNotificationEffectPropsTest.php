@@ -79,7 +79,7 @@ class ShowNotificationEffectPropsTest extends TestCase
     }
 
     /**
-     * Test attribute "notification_type"
+     * Test attribute "notificationType"
      */
     public function testPropertyNotificationType()
     {

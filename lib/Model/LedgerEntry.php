@@ -60,14 +60,14 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'profile_id' => 'string',
-        'account_id' => 'int',
-        'loyalty_program_id' => 'int',
-        'event_id' => 'int',
+        'profileId' => 'string',
+        'accountId' => 'int',
+        'loyaltyProgramId' => 'int',
+        'eventId' => 'int',
         'amount' => 'int',
         'reason' => 'string',
-        'expiry_date' => '\DateTime',
-        'reference_id' => 'int'
+        'expiryDate' => '\DateTime',
+        'referenceId' => 'int'
     ];
 
     /**
@@ -78,14 +78,14 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'profile_id' => null,
-        'account_id' => null,
-        'loyalty_program_id' => null,
-        'event_id' => null,
+        'profileId' => null,
+        'accountId' => null,
+        'loyaltyProgramId' => null,
+        'eventId' => null,
         'amount' => null,
         'reason' => null,
-        'expiry_date' => 'date-time',
-        'reference_id' => null
+        'expiryDate' => 'date-time',
+        'referenceId' => null
     ];
 
     /**
@@ -117,14 +117,14 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'profile_id' => 'profileId',
-        'account_id' => 'accountId',
-        'loyalty_program_id' => 'loyaltyProgramId',
-        'event_id' => 'eventId',
+        'profileId' => 'profileId',
+        'accountId' => 'accountId',
+        'loyaltyProgramId' => 'loyaltyProgramId',
+        'eventId' => 'eventId',
         'amount' => 'amount',
         'reason' => 'reason',
-        'expiry_date' => 'expiryDate',
-        'reference_id' => 'referenceId'
+        'expiryDate' => 'expiryDate',
+        'referenceId' => 'referenceId'
     ];
 
     /**
@@ -135,14 +135,14 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'profile_id' => 'setProfileId',
-        'account_id' => 'setAccountId',
-        'loyalty_program_id' => 'setLoyaltyProgramId',
-        'event_id' => 'setEventId',
+        'profileId' => 'setProfileId',
+        'accountId' => 'setAccountId',
+        'loyaltyProgramId' => 'setLoyaltyProgramId',
+        'eventId' => 'setEventId',
         'amount' => 'setAmount',
         'reason' => 'setReason',
-        'expiry_date' => 'setExpiryDate',
-        'reference_id' => 'setReferenceId'
+        'expiryDate' => 'setExpiryDate',
+        'referenceId' => 'setReferenceId'
     ];
 
     /**
@@ -153,14 +153,14 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'profile_id' => 'getProfileId',
-        'account_id' => 'getAccountId',
-        'loyalty_program_id' => 'getLoyaltyProgramId',
-        'event_id' => 'getEventId',
+        'profileId' => 'getProfileId',
+        'accountId' => 'getAccountId',
+        'loyaltyProgramId' => 'getLoyaltyProgramId',
+        'eventId' => 'getEventId',
         'amount' => 'getAmount',
         'reason' => 'getReason',
-        'expiry_date' => 'getExpiryDate',
-        'reference_id' => 'getReferenceId'
+        'expiryDate' => 'getExpiryDate',
+        'referenceId' => 'getReferenceId'
     ];
 
     /**
@@ -225,14 +225,14 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['profile_id'] = isset($data['profile_id']) ? $data['profile_id'] : null;
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['loyalty_program_id'] = isset($data['loyalty_program_id']) ? $data['loyalty_program_id'] : null;
-        $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
+        $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
+        $this->container['loyaltyProgramId'] = isset($data['loyaltyProgramId']) ? $data['loyaltyProgramId'] : null;
+        $this->container['eventId'] = isset($data['eventId']) ? $data['eventId'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
-        $this->container['expiry_date'] = isset($data['expiry_date']) ? $data['expiry_date'] : null;
-        $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
+        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['referenceId'] = isset($data['referenceId']) ? $data['referenceId'] : null;
     }
 
     /**
@@ -250,17 +250,17 @@ class LedgerEntry implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['profile_id'] === null) {
-            $invalidProperties[] = "'profile_id' can't be null";
+        if ($this->container['profileId'] === null) {
+            $invalidProperties[] = "'profileId' can't be null";
         }
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
         }
-        if ($this->container['loyalty_program_id'] === null) {
-            $invalidProperties[] = "'loyalty_program_id' can't be null";
+        if ($this->container['loyaltyProgramId'] === null) {
+            $invalidProperties[] = "'loyaltyProgramId' can't be null";
         }
-        if ($this->container['event_id'] === null) {
-            $invalidProperties[] = "'event_id' can't be null";
+        if ($this->container['eventId'] === null) {
+            $invalidProperties[] = "'eventId' can't be null";
         }
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
@@ -268,8 +268,8 @@ class LedgerEntry implements ModelInterface, ArrayAccess
         if ($this->container['reason'] === null) {
             $invalidProperties[] = "'reason' can't be null";
         }
-        if ($this->container['expiry_date'] === null) {
-            $invalidProperties[] = "'expiry_date' can't be null";
+        if ($this->container['expiryDate'] === null) {
+            $invalidProperties[] = "'expiryDate' can't be null";
         }
         return $invalidProperties;
     }
@@ -335,97 +335,97 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets profile_id
+     * Gets profileId
      *
      * @return string
      */
     public function getProfileId()
     {
-        return $this->container['profile_id'];
+        return $this->container['profileId'];
     }
 
     /**
-     * Sets profile_id
+     * Sets profileId
      *
-     * @param string $profile_id ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+     * @param string $profileId ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
      *
      * @return $this
      */
-    public function setProfileId($profile_id)
+    public function setProfileId($profileId)
     {
-        $this->container['profile_id'] = $profile_id;
+        $this->container['profileId'] = $profileId;
 
         return $this;
     }
 
     /**
-     * Gets account_id
+     * Gets accountId
      *
      * @return int
      */
     public function getAccountId()
     {
-        return $this->container['account_id'];
+        return $this->container['accountId'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountId
      *
-     * @param int $account_id The ID of the Talon.One account that owns this profile.
+     * @param int $accountId The ID of the Talon.One account that owns this profile.
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountId($accountId)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }
 
     /**
-     * Gets loyalty_program_id
+     * Gets loyaltyProgramId
      *
      * @return int
      */
     public function getLoyaltyProgramId()
     {
-        return $this->container['loyalty_program_id'];
+        return $this->container['loyaltyProgramId'];
     }
 
     /**
-     * Sets loyalty_program_id
+     * Sets loyaltyProgramId
      *
-     * @param int $loyalty_program_id ID of the ledger
+     * @param int $loyaltyProgramId ID of the ledger
      *
      * @return $this
      */
-    public function setLoyaltyProgramId($loyalty_program_id)
+    public function setLoyaltyProgramId($loyaltyProgramId)
     {
-        $this->container['loyalty_program_id'] = $loyalty_program_id;
+        $this->container['loyaltyProgramId'] = $loyaltyProgramId;
 
         return $this;
     }
 
     /**
-     * Gets event_id
+     * Gets eventId
      *
      * @return int
      */
     public function getEventId()
     {
-        return $this->container['event_id'];
+        return $this->container['eventId'];
     }
 
     /**
-     * Sets event_id
+     * Sets eventId
      *
-     * @param int $event_id ID of the related event
+     * @param int $eventId ID of the related event
      *
      * @return $this
      */
-    public function setEventId($event_id)
+    public function setEventId($eventId)
     {
-        $this->container['event_id'] = $event_id;
+        $this->container['eventId'] = $eventId;
 
         return $this;
     }
@@ -479,49 +479,49 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets expiry_date
+     * Gets expiryDate
      *
      * @return \DateTime
      */
     public function getExpiryDate()
     {
-        return $this->container['expiry_date'];
+        return $this->container['expiryDate'];
     }
 
     /**
-     * Sets expiry_date
+     * Sets expiryDate
      *
-     * @param \DateTime $expiry_date Expiry date of the points
+     * @param \DateTime $expiryDate Expiry date of the points
      *
      * @return $this
      */
-    public function setExpiryDate($expiry_date)
+    public function setExpiryDate($expiryDate)
     {
-        $this->container['expiry_date'] = $expiry_date;
+        $this->container['expiryDate'] = $expiryDate;
 
         return $this;
     }
 
     /**
-     * Gets reference_id
+     * Gets referenceId
      *
      * @return int|null
      */
     public function getReferenceId()
     {
-        return $this->container['reference_id'];
+        return $this->container['referenceId'];
     }
 
     /**
-     * Sets reference_id
+     * Sets referenceId
      *
-     * @param int|null $reference_id The ID of the balancing ledgerEntry
+     * @param int|null $referenceId The ID of the balancing ledgerEntry
      *
      * @return $this
      */
-    public function setReferenceId($reference_id)
+    public function setReferenceId($referenceId)
     {
-        $this->container['reference_id'] = $reference_id;
+        $this->container['referenceId'] = $referenceId;
 
         return $this;
     }

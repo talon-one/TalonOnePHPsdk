@@ -107,7 +107,7 @@ class NewApplicationTest extends TestCase
     }
 
     /**
-     * Test attribute "case_sensitivity"
+     * Test attribute "caseSensitivity"
      */
     public function testPropertyCaseSensitivity()
     {
@@ -128,7 +128,7 @@ class NewApplicationTest extends TestCase
     }
 
     /**
-     * Test attribute "attributes_settings"
+     * Test attribute "attributesSettings"
      */
     public function testPropertyAttributesSettings()
     {

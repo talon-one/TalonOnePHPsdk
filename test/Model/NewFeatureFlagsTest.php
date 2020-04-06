@@ -86,14 +86,14 @@ class NewFeatureFlagsTest extends TestCase
     }
 
     /**
-     * Test attribute "coupons_without_count"
+     * Test attribute "couponsWithoutCount"
      */
     public function testPropertyCouponsWithoutCount()
     {
     }
 
     /**
-     * Test attribute "beta_effects"
+     * Test attribute "betaEffects"
      */
     public function testPropertyBetaEffects()
     {

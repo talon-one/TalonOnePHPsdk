@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user_id** | **int** | The ID of the user of this session | 
+**userId** | **int** | The ID of the user of this session | 
 **token** | **string** | An opaque session identifier | 
 **created** | [**\DateTime**](\DateTime.md) | Unix timestamp indicating when the session was first created. | 
 

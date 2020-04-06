@@ -58,7 +58,7 @@ class CampaignSetLeafNode implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'campaign_id' => 'int'
+        'campaignId' => 'int'
     ];
 
     /**
@@ -68,7 +68,7 @@ class CampaignSetLeafNode implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'type' => null,
-        'campaign_id' => null
+        'campaignId' => null
     ];
 
     /**
@@ -99,7 +99,7 @@ class CampaignSetLeafNode implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'type' => 'type',
-        'campaign_id' => 'campaignId'
+        'campaignId' => 'campaignId'
     ];
 
     /**
@@ -109,7 +109,7 @@ class CampaignSetLeafNode implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'type' => 'setType',
-        'campaign_id' => 'setCampaignId'
+        'campaignId' => 'setCampaignId'
     ];
 
     /**
@@ -119,7 +119,7 @@ class CampaignSetLeafNode implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'type' => 'getType',
-        'campaign_id' => 'getCampaignId'
+        'campaignId' => 'getCampaignId'
     ];
 
     /**
@@ -196,7 +196,7 @@ class CampaignSetLeafNode implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['campaign_id'] = isset($data['campaign_id']) ? $data['campaign_id'] : null;
+        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
     }
 
     /**
@@ -219,8 +219,8 @@ class CampaignSetLeafNode implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
+        if ($this->container['campaignId'] === null) {
+            $invalidProperties[] = "'campaignId' can't be null";
         }
         return $invalidProperties;
     }
@@ -271,25 +271,25 @@ class CampaignSetLeafNode implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets campaign_id
+     * Gets campaignId
      *
      * @return int
      */
     public function getCampaignId()
     {
-        return $this->container['campaign_id'];
+        return $this->container['campaignId'];
     }
 
     /**
-     * Sets campaign_id
+     * Sets campaignId
      *
-     * @param int $campaign_id ID of the campaign
+     * @param int $campaignId ID of the campaign
      *
      * @return $this
      */
-    public function setCampaignId($campaign_id)
+    public function setCampaignId($campaignId)
     {
-        $this->container['campaign_id'] = $campaign_id;
+        $this->container['campaignId'] = $campaignId;
 
         return $this;
     }

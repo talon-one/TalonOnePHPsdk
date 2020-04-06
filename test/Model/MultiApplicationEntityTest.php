@@ -79,7 +79,7 @@ class MultiApplicationEntityTest extends TestCase
     }
 
     /**
-     * Test attribute "application_ids"
+     * Test attribute "applicationIds"
      */
     public function testPropertyApplicationIds()
     {

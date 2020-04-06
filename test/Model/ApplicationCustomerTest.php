@@ -93,7 +93,7 @@ class ApplicationCustomerTest extends TestCase
     }
 
     /**
-     * Test attribute "integration_id"
+     * Test attribute "integrationId"
      */
     public function testPropertyIntegrationId()
     {
@@ -107,35 +107,35 @@ class ApplicationCustomerTest extends TestCase
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "accountId"
      */
     public function testPropertyAccountId()
     {
     }
 
     /**
-     * Test attribute "closed_sessions"
+     * Test attribute "closedSessions"
      */
     public function testPropertyClosedSessions()
     {
     }
 
     /**
-     * Test attribute "total_sales"
+     * Test attribute "totalSales"
      */
     public function testPropertyTotalSales()
     {
     }
 
     /**
-     * Test attribute "loyalty_memberships"
+     * Test attribute "loyaltyMemberships"
      */
     public function testPropertyLoyaltyMemberships()
     {
     }
 
     /**
-     * Test attribute "last_activity"
+     * Test attribute "lastActivity"
      */
     public function testPropertyLastActivity()
     {

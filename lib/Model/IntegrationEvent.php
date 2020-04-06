@@ -58,7 +58,7 @@ class IntegrationEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profile_id' => 'string',
+        'profileId' => 'string',
         'type' => 'string',
         'attributes' => 'object'
     ];
@@ -69,7 +69,7 @@ class IntegrationEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'profile_id' => null,
+        'profileId' => null,
         'type' => null,
         'attributes' => null
     ];
@@ -101,7 +101,7 @@ class IntegrationEvent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'profile_id' => 'profileId',
+        'profileId' => 'profileId',
         'type' => 'type',
         'attributes' => 'attributes'
     ];
@@ -112,7 +112,7 @@ class IntegrationEvent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'profile_id' => 'setProfileId',
+        'profileId' => 'setProfileId',
         'type' => 'setType',
         'attributes' => 'setAttributes'
     ];
@@ -123,7 +123,7 @@ class IntegrationEvent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'profile_id' => 'getProfileId',
+        'profileId' => 'getProfileId',
         'type' => 'getType',
         'attributes' => 'getAttributes'
     ];
@@ -188,7 +188,7 @@ class IntegrationEvent implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['profile_id'] = isset($data['profile_id']) ? $data['profile_id'] : null;
+        $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
     }
@@ -228,25 +228,25 @@ class IntegrationEvent implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets profile_id
+     * Gets profileId
      *
      * @return string|null
      */
     public function getProfileId()
     {
-        return $this->container['profile_id'];
+        return $this->container['profileId'];
     }
 
     /**
-     * Sets profile_id
+     * Sets profileId
      *
-     * @param string|null $profile_id ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+     * @param string|null $profileId ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
      *
      * @return $this
      */
-    public function setProfileId($profile_id)
+    public function setProfileId($profileId)
     {
-        $this->container['profile_id'] = $profile_id;
+        $this->container['profileId'] = $profileId;
 
         return $this;
     }

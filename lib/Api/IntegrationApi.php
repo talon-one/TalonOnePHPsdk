@@ -120,16 +120,16 @@ class IntegrationApi
      *
      * Create a new coupon reservation
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Coupon
      */
-    public function createCouponReservation($coupon_value, $body)
+    public function createCouponReservation($couponValue, $body)
     {
-        list($response) = $this->createCouponReservationWithHttpInfo($coupon_value, $body);
+        list($response) = $this->createCouponReservationWithHttpInfo($couponValue, $body);
         return $response;
     }
 
@@ -138,16 +138,16 @@ class IntegrationApi
      *
      * Create a new coupon reservation
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Coupon, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCouponReservationWithHttpInfo($coupon_value, $body)
+    public function createCouponReservationWithHttpInfo($couponValue, $body)
     {
-        $request = $this->createCouponReservationRequest($coupon_value, $body);
+        $request = $this->createCouponReservationRequest($couponValue, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -227,15 +227,15 @@ class IntegrationApi
      *
      * Create a new coupon reservation
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponReservationAsync($coupon_value, $body)
+    public function createCouponReservationAsync($couponValue, $body)
     {
-        return $this->createCouponReservationAsyncWithHttpInfo($coupon_value, $body)
+        return $this->createCouponReservationAsyncWithHttpInfo($couponValue, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -248,16 +248,16 @@ class IntegrationApi
      *
      * Create a new coupon reservation
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponReservationAsyncWithHttpInfo($coupon_value, $body)
+    public function createCouponReservationAsyncWithHttpInfo($couponValue, $body)
     {
         $returnType = '\TalonOne\Client\Model\Coupon';
-        $request = $this->createCouponReservationRequest($coupon_value, $body);
+        $request = $this->createCouponReservationRequest($couponValue, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -296,18 +296,18 @@ class IntegrationApi
     /**
      * Create request for operation 'createCouponReservation'
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCouponReservationRequest($coupon_value, $body)
+    protected function createCouponReservationRequest($couponValue, $body)
     {
-        // verify the required parameter 'coupon_value' is set
-        if ($coupon_value === null || (is_array($coupon_value) && count($coupon_value) === 0)) {
+        // verify the required parameter 'couponValue' is set
+        if ($couponValue === null || (is_array($couponValue) && count($couponValue) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $coupon_value when calling createCouponReservation'
+                'Missing the required parameter $couponValue when calling createCouponReservation'
             );
         }
         // verify the required parameter 'body' is set
@@ -326,10 +326,10 @@ class IntegrationApi
 
 
         // path params
-        if ($coupon_value !== null) {
+        if ($couponValue !== null) {
             $resourcePath = str_replace(
                 '{' . 'couponValue' . '}',
-                ObjectSerializer::toPathValue($coupon_value),
+                ObjectSerializer::toPathValue($couponValue),
                 $resourcePath
             );
         }
@@ -693,16 +693,16 @@ class IntegrationApi
      *
      * Delete coupon reservations
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteCouponReservation($coupon_value, $body)
+    public function deleteCouponReservation($couponValue, $body)
     {
-        $this->deleteCouponReservationWithHttpInfo($coupon_value, $body);
+        $this->deleteCouponReservationWithHttpInfo($couponValue, $body);
     }
 
     /**
@@ -710,16 +710,16 @@ class IntegrationApi
      *
      * Delete coupon reservations
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCouponReservationWithHttpInfo($coupon_value, $body)
+    public function deleteCouponReservationWithHttpInfo($couponValue, $body)
     {
-        $request = $this->deleteCouponReservationRequest($coupon_value, $body);
+        $request = $this->deleteCouponReservationRequest($couponValue, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -763,15 +763,15 @@ class IntegrationApi
      *
      * Delete coupon reservations
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCouponReservationAsync($coupon_value, $body)
+    public function deleteCouponReservationAsync($couponValue, $body)
     {
-        return $this->deleteCouponReservationAsyncWithHttpInfo($coupon_value, $body)
+        return $this->deleteCouponReservationAsyncWithHttpInfo($couponValue, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -784,16 +784,16 @@ class IntegrationApi
      *
      * Delete coupon reservations
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCouponReservationAsyncWithHttpInfo($coupon_value, $body)
+    public function deleteCouponReservationAsyncWithHttpInfo($couponValue, $body)
     {
         $returnType = '';
-        $request = $this->deleteCouponReservationRequest($coupon_value, $body);
+        $request = $this->deleteCouponReservationRequest($couponValue, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -821,18 +821,18 @@ class IntegrationApi
     /**
      * Create request for operation 'deleteCouponReservation'
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteCouponReservationRequest($coupon_value, $body)
+    protected function deleteCouponReservationRequest($couponValue, $body)
     {
-        // verify the required parameter 'coupon_value' is set
-        if ($coupon_value === null || (is_array($coupon_value) && count($coupon_value) === 0)) {
+        // verify the required parameter 'couponValue' is set
+        if ($couponValue === null || (is_array($couponValue) && count($couponValue) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $coupon_value when calling deleteCouponReservation'
+                'Missing the required parameter $couponValue when calling deleteCouponReservation'
             );
         }
         // verify the required parameter 'body' is set
@@ -851,10 +851,10 @@ class IntegrationApi
 
 
         // path params
-        if ($coupon_value !== null) {
+        if ($couponValue !== null) {
             $resourcePath = str_replace(
                 '{' . 'couponValue' . '}',
-                ObjectSerializer::toPathValue($coupon_value),
+                ObjectSerializer::toPathValue($couponValue),
                 $resourcePath
             );
         }
@@ -941,15 +941,15 @@ class IntegrationApi
      *
      * Delete the personal data of a customer.
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteCustomerData($integration_id)
+    public function deleteCustomerData($integrationId)
     {
-        $this->deleteCustomerDataWithHttpInfo($integration_id);
+        $this->deleteCustomerDataWithHttpInfo($integrationId);
     }
 
     /**
@@ -957,15 +957,15 @@ class IntegrationApi
      *
      * Delete the personal data of a customer.
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCustomerDataWithHttpInfo($integration_id)
+    public function deleteCustomerDataWithHttpInfo($integrationId)
     {
-        $request = $this->deleteCustomerDataRequest($integration_id);
+        $request = $this->deleteCustomerDataRequest($integrationId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1009,14 +1009,14 @@ class IntegrationApi
      *
      * Delete the personal data of a customer.
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCustomerDataAsync($integration_id)
+    public function deleteCustomerDataAsync($integrationId)
     {
-        return $this->deleteCustomerDataAsyncWithHttpInfo($integration_id)
+        return $this->deleteCustomerDataAsyncWithHttpInfo($integrationId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1029,15 +1029,15 @@ class IntegrationApi
      *
      * Delete the personal data of a customer.
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCustomerDataAsyncWithHttpInfo($integration_id)
+    public function deleteCustomerDataAsyncWithHttpInfo($integrationId)
     {
         $returnType = '';
-        $request = $this->deleteCustomerDataRequest($integration_id);
+        $request = $this->deleteCustomerDataRequest($integrationId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1065,17 +1065,17 @@ class IntegrationApi
     /**
      * Create request for operation 'deleteCustomerData'
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteCustomerDataRequest($integration_id)
+    protected function deleteCustomerDataRequest($integrationId)
     {
-        // verify the required parameter 'integration_id' is set
-        if ($integration_id === null || (is_array($integration_id) && count($integration_id) === 0)) {
+        // verify the required parameter 'integrationId' is set
+        if ($integrationId === null || (is_array($integrationId) && count($integrationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $integration_id when calling deleteCustomerData'
+                'Missing the required parameter $integrationId when calling deleteCustomerData'
             );
         }
 
@@ -1088,10 +1088,10 @@ class IntegrationApi
 
 
         // path params
-        if ($integration_id !== null) {
+        if ($integrationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'integrationId' . '}',
-                ObjectSerializer::toPathValue($integration_id),
+                ObjectSerializer::toPathValue($integrationId),
                 $resourcePath
             );
         }
@@ -1175,7 +1175,7 @@ class IntegrationApi
      *
      * Get an inventory of all data associated with a specific customer profile.
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
      * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      *
@@ -1183,9 +1183,9 @@ class IntegrationApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\CustomerInventory
      */
-    public function getCustomerInventory($integration_id, $profile = null, $referrals = null)
+    public function getCustomerInventory($integrationId, $profile = null, $referrals = null)
     {
-        list($response) = $this->getCustomerInventoryWithHttpInfo($integration_id, $profile, $referrals);
+        list($response) = $this->getCustomerInventoryWithHttpInfo($integrationId, $profile, $referrals);
         return $response;
     }
 
@@ -1194,7 +1194,7 @@ class IntegrationApi
      *
      * Get an inventory of all data associated with a specific customer profile.
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
      * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      *
@@ -1202,9 +1202,9 @@ class IntegrationApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\CustomerInventory, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomerInventoryWithHttpInfo($integration_id, $profile = null, $referrals = null)
+    public function getCustomerInventoryWithHttpInfo($integrationId, $profile = null, $referrals = null)
     {
-        $request = $this->getCustomerInventoryRequest($integration_id, $profile, $referrals);
+        $request = $this->getCustomerInventoryRequest($integrationId, $profile, $referrals);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1284,16 +1284,16 @@ class IntegrationApi
      *
      * Get an inventory of all data associated with a specific customer profile.
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
      * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerInventoryAsync($integration_id, $profile = null, $referrals = null)
+    public function getCustomerInventoryAsync($integrationId, $profile = null, $referrals = null)
     {
-        return $this->getCustomerInventoryAsyncWithHttpInfo($integration_id, $profile, $referrals)
+        return $this->getCustomerInventoryAsyncWithHttpInfo($integrationId, $profile, $referrals)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1306,17 +1306,17 @@ class IntegrationApi
      *
      * Get an inventory of all data associated with a specific customer profile.
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
      * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerInventoryAsyncWithHttpInfo($integration_id, $profile = null, $referrals = null)
+    public function getCustomerInventoryAsyncWithHttpInfo($integrationId, $profile = null, $referrals = null)
     {
         $returnType = '\TalonOne\Client\Model\CustomerInventory';
-        $request = $this->getCustomerInventoryRequest($integration_id, $profile, $referrals);
+        $request = $this->getCustomerInventoryRequest($integrationId, $profile, $referrals);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1355,19 +1355,19 @@ class IntegrationApi
     /**
      * Create request for operation 'getCustomerInventory'
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
      * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomerInventoryRequest($integration_id, $profile = null, $referrals = null)
+    protected function getCustomerInventoryRequest($integrationId, $profile = null, $referrals = null)
     {
-        // verify the required parameter 'integration_id' is set
-        if ($integration_id === null || (is_array($integration_id) && count($integration_id) === 0)) {
+        // verify the required parameter 'integrationId' is set
+        if ($integrationId === null || (is_array($integrationId) && count($integrationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $integration_id when calling getCustomerInventory'
+                'Missing the required parameter $integrationId when calling getCustomerInventory'
             );
         }
 
@@ -1388,10 +1388,10 @@ class IntegrationApi
         }
 
         // path params
-        if ($integration_id !== null) {
+        if ($integrationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'integrationId' . '}',
-                ObjectSerializer::toPathValue($integration_id),
+                ObjectSerializer::toPathValue($integrationId),
                 $resourcePath
             );
         }
@@ -1475,15 +1475,15 @@ class IntegrationApi
      *
      * Get all valid reserved coupons
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2001
      */
-    public function getReservedCoupons($integration_id)
+    public function getReservedCoupons($integrationId)
     {
-        list($response) = $this->getReservedCouponsWithHttpInfo($integration_id);
+        list($response) = $this->getReservedCouponsWithHttpInfo($integrationId);
         return $response;
     }
 
@@ -1492,15 +1492,15 @@ class IntegrationApi
      *
      * Get all valid reserved coupons
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReservedCouponsWithHttpInfo($integration_id)
+    public function getReservedCouponsWithHttpInfo($integrationId)
     {
-        $request = $this->getReservedCouponsRequest($integration_id);
+        $request = $this->getReservedCouponsRequest($integrationId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1580,14 +1580,14 @@ class IntegrationApi
      *
      * Get all valid reserved coupons
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReservedCouponsAsync($integration_id)
+    public function getReservedCouponsAsync($integrationId)
     {
-        return $this->getReservedCouponsAsyncWithHttpInfo($integration_id)
+        return $this->getReservedCouponsAsyncWithHttpInfo($integrationId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1600,15 +1600,15 @@ class IntegrationApi
      *
      * Get all valid reserved coupons
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReservedCouponsAsyncWithHttpInfo($integration_id)
+    public function getReservedCouponsAsyncWithHttpInfo($integrationId)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2001';
-        $request = $this->getReservedCouponsRequest($integration_id);
+        $request = $this->getReservedCouponsRequest($integrationId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1647,17 +1647,17 @@ class IntegrationApi
     /**
      * Create request for operation 'getReservedCoupons'
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReservedCouponsRequest($integration_id)
+    protected function getReservedCouponsRequest($integrationId)
     {
-        // verify the required parameter 'integration_id' is set
-        if ($integration_id === null || (is_array($integration_id) && count($integration_id) === 0)) {
+        // verify the required parameter 'integrationId' is set
+        if ($integrationId === null || (is_array($integrationId) && count($integrationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $integration_id when calling getReservedCoupons'
+                'Missing the required parameter $integrationId when calling getReservedCoupons'
             );
         }
 
@@ -1670,10 +1670,10 @@ class IntegrationApi
 
 
         // path params
-        if ($integration_id !== null) {
+        if ($integrationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'integrationId' . '}',
-                ObjectSerializer::toPathValue($integration_id),
+                ObjectSerializer::toPathValue($integrationId),
                 $resourcePath
             );
         }
@@ -1757,15 +1757,15 @@ class IntegrationApi
      *
      * Get the users that have this coupon reserved
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse200
      */
-    public function getReservedCustomers($coupon_value)
+    public function getReservedCustomers($couponValue)
     {
-        list($response) = $this->getReservedCustomersWithHttpInfo($coupon_value);
+        list($response) = $this->getReservedCustomersWithHttpInfo($couponValue);
         return $response;
     }
 
@@ -1774,15 +1774,15 @@ class IntegrationApi
      *
      * Get the users that have this coupon reserved
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReservedCustomersWithHttpInfo($coupon_value)
+    public function getReservedCustomersWithHttpInfo($couponValue)
     {
-        $request = $this->getReservedCustomersRequest($coupon_value);
+        $request = $this->getReservedCustomersRequest($couponValue);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1862,14 +1862,14 @@ class IntegrationApi
      *
      * Get the users that have this coupon reserved
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReservedCustomersAsync($coupon_value)
+    public function getReservedCustomersAsync($couponValue)
     {
-        return $this->getReservedCustomersAsyncWithHttpInfo($coupon_value)
+        return $this->getReservedCustomersAsyncWithHttpInfo($couponValue)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1882,15 +1882,15 @@ class IntegrationApi
      *
      * Get the users that have this coupon reserved
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReservedCustomersAsyncWithHttpInfo($coupon_value)
+    public function getReservedCustomersAsyncWithHttpInfo($couponValue)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse200';
-        $request = $this->getReservedCustomersRequest($coupon_value);
+        $request = $this->getReservedCustomersRequest($couponValue);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1929,17 +1929,17 @@ class IntegrationApi
     /**
      * Create request for operation 'getReservedCustomers'
      *
-     * @param  string $coupon_value The value of a coupon (required)
+     * @param  string $couponValue The value of a coupon (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReservedCustomersRequest($coupon_value)
+    protected function getReservedCustomersRequest($couponValue)
     {
-        // verify the required parameter 'coupon_value' is set
-        if ($coupon_value === null || (is_array($coupon_value) && count($coupon_value) === 0)) {
+        // verify the required parameter 'couponValue' is set
+        if ($couponValue === null || (is_array($couponValue) && count($couponValue) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $coupon_value when calling getReservedCustomers'
+                'Missing the required parameter $couponValue when calling getReservedCustomers'
             );
         }
 
@@ -1952,10 +1952,10 @@ class IntegrationApi
 
 
         // path params
-        if ($coupon_value !== null) {
+        if ($couponValue !== null) {
             $resourcePath = str_replace(
                 '{' . 'couponValue' . '}',
-                ObjectSerializer::toPathValue($coupon_value),
+                ObjectSerializer::toPathValue($couponValue),
                 $resourcePath
             );
         }
@@ -2316,16 +2316,16 @@ class IntegrationApi
      *
      * Update a Customer Profile
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\IntegrationState
      */
-    public function updateCustomerProfile($integration_id, $body)
+    public function updateCustomerProfile($integrationId, $body)
     {
-        list($response) = $this->updateCustomerProfileWithHttpInfo($integration_id, $body);
+        list($response) = $this->updateCustomerProfileWithHttpInfo($integrationId, $body);
         return $response;
     }
 
@@ -2334,16 +2334,16 @@ class IntegrationApi
      *
      * Update a Customer Profile
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\IntegrationState, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCustomerProfileWithHttpInfo($integration_id, $body)
+    public function updateCustomerProfileWithHttpInfo($integrationId, $body)
     {
-        $request = $this->updateCustomerProfileRequest($integration_id, $body);
+        $request = $this->updateCustomerProfileRequest($integrationId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2423,15 +2423,15 @@ class IntegrationApi
      *
      * Update a Customer Profile
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomerProfileAsync($integration_id, $body)
+    public function updateCustomerProfileAsync($integrationId, $body)
     {
-        return $this->updateCustomerProfileAsyncWithHttpInfo($integration_id, $body)
+        return $this->updateCustomerProfileAsyncWithHttpInfo($integrationId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2444,16 +2444,16 @@ class IntegrationApi
      *
      * Update a Customer Profile
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomerProfileAsyncWithHttpInfo($integration_id, $body)
+    public function updateCustomerProfileAsyncWithHttpInfo($integrationId, $body)
     {
         $returnType = '\TalonOne\Client\Model\IntegrationState';
-        $request = $this->updateCustomerProfileRequest($integration_id, $body);
+        $request = $this->updateCustomerProfileRequest($integrationId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2492,18 +2492,18 @@ class IntegrationApi
     /**
      * Create request for operation 'updateCustomerProfile'
      *
-     * @param  string $integration_id The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCustomerProfileRequest($integration_id, $body)
+    protected function updateCustomerProfileRequest($integrationId, $body)
     {
-        // verify the required parameter 'integration_id' is set
-        if ($integration_id === null || (is_array($integration_id) && count($integration_id) === 0)) {
+        // verify the required parameter 'integrationId' is set
+        if ($integrationId === null || (is_array($integrationId) && count($integrationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $integration_id when calling updateCustomerProfile'
+                'Missing the required parameter $integrationId when calling updateCustomerProfile'
             );
         }
         // verify the required parameter 'body' is set
@@ -2522,10 +2522,10 @@ class IntegrationApi
 
 
         // path params
-        if ($integration_id !== null) {
+        if ($integrationId !== null) {
             $resourcePath = str_replace(
                 '{' . 'integrationId' . '}',
-                ObjectSerializer::toPathValue($integration_id),
+                ObjectSerializer::toPathValue($integrationId),
                 $resourcePath
             );
         }
@@ -2612,16 +2612,16 @@ class IntegrationApi
      *
      * Update a Customer Session
      *
-     * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\IntegrationState
      */
-    public function updateCustomerSession($customer_session_id, $body)
+    public function updateCustomerSession($customerSessionId, $body)
     {
-        list($response) = $this->updateCustomerSessionWithHttpInfo($customer_session_id, $body);
+        list($response) = $this->updateCustomerSessionWithHttpInfo($customerSessionId, $body);
         return $response;
     }
 
@@ -2630,16 +2630,16 @@ class IntegrationApi
      *
      * Update a Customer Session
      *
-     * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\IntegrationState, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCustomerSessionWithHttpInfo($customer_session_id, $body)
+    public function updateCustomerSessionWithHttpInfo($customerSessionId, $body)
     {
-        $request = $this->updateCustomerSessionRequest($customer_session_id, $body);
+        $request = $this->updateCustomerSessionRequest($customerSessionId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2719,15 +2719,15 @@ class IntegrationApi
      *
      * Update a Customer Session
      *
-     * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomerSessionAsync($customer_session_id, $body)
+    public function updateCustomerSessionAsync($customerSessionId, $body)
     {
-        return $this->updateCustomerSessionAsyncWithHttpInfo($customer_session_id, $body)
+        return $this->updateCustomerSessionAsyncWithHttpInfo($customerSessionId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2740,16 +2740,16 @@ class IntegrationApi
      *
      * Update a Customer Session
      *
-     * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomerSessionAsyncWithHttpInfo($customer_session_id, $body)
+    public function updateCustomerSessionAsyncWithHttpInfo($customerSessionId, $body)
     {
         $returnType = '\TalonOne\Client\Model\IntegrationState';
-        $request = $this->updateCustomerSessionRequest($customer_session_id, $body);
+        $request = $this->updateCustomerSessionRequest($customerSessionId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2788,18 +2788,18 @@ class IntegrationApi
     /**
      * Create request for operation 'updateCustomerSession'
      *
-     * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCustomerSessionRequest($customer_session_id, $body)
+    protected function updateCustomerSessionRequest($customerSessionId, $body)
     {
-        // verify the required parameter 'customer_session_id' is set
-        if ($customer_session_id === null || (is_array($customer_session_id) && count($customer_session_id) === 0)) {
+        // verify the required parameter 'customerSessionId' is set
+        if ($customerSessionId === null || (is_array($customerSessionId) && count($customerSessionId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customer_session_id when calling updateCustomerSession'
+                'Missing the required parameter $customerSessionId when calling updateCustomerSession'
             );
         }
         // verify the required parameter 'body' is set
@@ -2818,10 +2818,10 @@ class IntegrationApi
 
 
         // path params
-        if ($customer_session_id !== null) {
+        if ($customerSessionId !== null) {
             $resourcePath = str_replace(
                 '{' . 'customerSessionId' . '}',
-                ObjectSerializer::toPathValue($customer_session_id),
+                ObjectSerializer::toPathValue($customerSessionId),
                 $resourcePath
             );
         }
@@ -2908,16 +2908,16 @@ class IntegrationApi
      *
      * Update a Customer Session
      *
-     * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\IntegrationStateV2
      */
-    public function updateCustomerSessionV2($customer_session_id, $body)
+    public function updateCustomerSessionV2($customerSessionId, $body)
     {
-        list($response) = $this->updateCustomerSessionV2WithHttpInfo($customer_session_id, $body);
+        list($response) = $this->updateCustomerSessionV2WithHttpInfo($customerSessionId, $body);
         return $response;
     }
 
@@ -2926,16 +2926,16 @@ class IntegrationApi
      *
      * Update a Customer Session
      *
-     * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\IntegrationStateV2, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCustomerSessionV2WithHttpInfo($customer_session_id, $body)
+    public function updateCustomerSessionV2WithHttpInfo($customerSessionId, $body)
     {
-        $request = $this->updateCustomerSessionV2Request($customer_session_id, $body);
+        $request = $this->updateCustomerSessionV2Request($customerSessionId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3015,15 +3015,15 @@ class IntegrationApi
      *
      * Update a Customer Session
      *
-     * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomerSessionV2Async($customer_session_id, $body)
+    public function updateCustomerSessionV2Async($customerSessionId, $body)
     {
-        return $this->updateCustomerSessionV2AsyncWithHttpInfo($customer_session_id, $body)
+        return $this->updateCustomerSessionV2AsyncWithHttpInfo($customerSessionId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3036,16 +3036,16 @@ class IntegrationApi
      *
      * Update a Customer Session
      *
-     * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomerSessionV2AsyncWithHttpInfo($customer_session_id, $body)
+    public function updateCustomerSessionV2AsyncWithHttpInfo($customerSessionId, $body)
     {
         $returnType = '\TalonOne\Client\Model\IntegrationStateV2';
-        $request = $this->updateCustomerSessionV2Request($customer_session_id, $body);
+        $request = $this->updateCustomerSessionV2Request($customerSessionId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3084,18 +3084,18 @@ class IntegrationApi
     /**
      * Create request for operation 'updateCustomerSessionV2'
      *
-     * @param  string $customer_session_id The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCustomerSessionV2Request($customer_session_id, $body)
+    protected function updateCustomerSessionV2Request($customerSessionId, $body)
     {
-        // verify the required parameter 'customer_session_id' is set
-        if ($customer_session_id === null || (is_array($customer_session_id) && count($customer_session_id) === 0)) {
+        // verify the required parameter 'customerSessionId' is set
+        if ($customerSessionId === null || (is_array($customerSessionId) && count($customerSessionId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customer_session_id when calling updateCustomerSessionV2'
+                'Missing the required parameter $customerSessionId when calling updateCustomerSessionV2'
             );
         }
         // verify the required parameter 'body' is set
@@ -3114,10 +3114,10 @@ class IntegrationApi
 
 
         // path params
-        if ($customer_session_id !== null) {
+        if ($customerSessionId !== null) {
             $resourcePath = str_replace(
                 '{' . 'customerSessionId' . '}',
-                ObjectSerializer::toPathValue($customer_session_id),
+                ObjectSerializer::toPathValue($customerSessionId),
                 $resourcePath
             );
         }

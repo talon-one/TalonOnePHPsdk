@@ -59,15 +59,15 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'integration_request_uuid' => 'string',
-        'webhook_id' => 'int',
-        'application_id' => 'int',
+        'integrationRequestUuid' => 'string',
+        'webhookId' => 'int',
+        'applicationId' => 'int',
         'url' => 'string',
         'request' => 'string',
         'response' => 'string',
         'status' => 'int',
-        'request_time' => '\DateTime',
-        'response_time' => '\DateTime'
+        'requestTime' => '\DateTime',
+        'responseTime' => '\DateTime'
     ];
 
     /**
@@ -77,15 +77,15 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'integration_request_uuid' => null,
-        'webhook_id' => null,
-        'application_id' => null,
+        'integrationRequestUuid' => null,
+        'webhookId' => null,
+        'applicationId' => null,
         'url' => null,
         'request' => null,
         'response' => null,
         'status' => null,
-        'request_time' => 'date-time',
-        'response_time' => 'date-time'
+        'requestTime' => 'date-time',
+        'responseTime' => 'date-time'
     ];
 
     /**
@@ -116,15 +116,15 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'integration_request_uuid' => 'integrationRequestUuid',
-        'webhook_id' => 'webhookId',
-        'application_id' => 'applicationId',
+        'integrationRequestUuid' => 'integrationRequestUuid',
+        'webhookId' => 'webhookId',
+        'applicationId' => 'applicationId',
         'url' => 'url',
         'request' => 'request',
         'response' => 'response',
         'status' => 'status',
-        'request_time' => 'requestTime',
-        'response_time' => 'responseTime'
+        'requestTime' => 'requestTime',
+        'responseTime' => 'responseTime'
     ];
 
     /**
@@ -134,15 +134,15 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'integration_request_uuid' => 'setIntegrationRequestUuid',
-        'webhook_id' => 'setWebhookId',
-        'application_id' => 'setApplicationId',
+        'integrationRequestUuid' => 'setIntegrationRequestUuid',
+        'webhookId' => 'setWebhookId',
+        'applicationId' => 'setApplicationId',
         'url' => 'setUrl',
         'request' => 'setRequest',
         'response' => 'setResponse',
         'status' => 'setStatus',
-        'request_time' => 'setRequestTime',
-        'response_time' => 'setResponseTime'
+        'requestTime' => 'setRequestTime',
+        'responseTime' => 'setResponseTime'
     ];
 
     /**
@@ -152,15 +152,15 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'integration_request_uuid' => 'getIntegrationRequestUuid',
-        'webhook_id' => 'getWebhookId',
-        'application_id' => 'getApplicationId',
+        'integrationRequestUuid' => 'getIntegrationRequestUuid',
+        'webhookId' => 'getWebhookId',
+        'applicationId' => 'getApplicationId',
         'url' => 'getUrl',
         'request' => 'getRequest',
         'response' => 'getResponse',
         'status' => 'getStatus',
-        'request_time' => 'getRequestTime',
-        'response_time' => 'getResponseTime'
+        'requestTime' => 'getRequestTime',
+        'responseTime' => 'getResponseTime'
     ];
 
     /**
@@ -224,15 +224,15 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['integration_request_uuid'] = isset($data['integration_request_uuid']) ? $data['integration_request_uuid'] : null;
-        $this->container['webhook_id'] = isset($data['webhook_id']) ? $data['webhook_id'] : null;
-        $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
+        $this->container['integrationRequestUuid'] = isset($data['integrationRequestUuid']) ? $data['integrationRequestUuid'] : null;
+        $this->container['webhookId'] = isset($data['webhookId']) ? $data['webhookId'] : null;
+        $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['request'] = isset($data['request']) ? $data['request'] : null;
         $this->container['response'] = isset($data['response']) ? $data['response'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['request_time'] = isset($data['request_time']) ? $data['request_time'] : null;
-        $this->container['response_time'] = isset($data['response_time']) ? $data['response_time'] : null;
+        $this->container['requestTime'] = isset($data['requestTime']) ? $data['requestTime'] : null;
+        $this->container['responseTime'] = isset($data['responseTime']) ? $data['responseTime'] : null;
     }
 
     /**
@@ -247,11 +247,11 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['integration_request_uuid'] === null) {
-            $invalidProperties[] = "'integration_request_uuid' can't be null";
+        if ($this->container['integrationRequestUuid'] === null) {
+            $invalidProperties[] = "'integrationRequestUuid' can't be null";
         }
-        if ($this->container['webhook_id'] === null) {
-            $invalidProperties[] = "'webhook_id' can't be null";
+        if ($this->container['webhookId'] === null) {
+            $invalidProperties[] = "'webhookId' can't be null";
         }
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
@@ -259,8 +259,8 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
         if ($this->container['request'] === null) {
             $invalidProperties[] = "'request' can't be null";
         }
-        if ($this->container['request_time'] === null) {
-            $invalidProperties[] = "'request_time' can't be null";
+        if ($this->container['requestTime'] === null) {
+            $invalidProperties[] = "'requestTime' can't be null";
         }
         return $invalidProperties;
     }
@@ -302,73 +302,73 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets integration_request_uuid
+     * Gets integrationRequestUuid
      *
      * @return string
      */
     public function getIntegrationRequestUuid()
     {
-        return $this->container['integration_request_uuid'];
+        return $this->container['integrationRequestUuid'];
     }
 
     /**
-     * Sets integration_request_uuid
+     * Sets integrationRequestUuid
      *
-     * @param string $integration_request_uuid UUID reference of the integration request linked to this webhook request
+     * @param string $integrationRequestUuid UUID reference of the integration request linked to this webhook request
      *
      * @return $this
      */
-    public function setIntegrationRequestUuid($integration_request_uuid)
+    public function setIntegrationRequestUuid($integrationRequestUuid)
     {
-        $this->container['integration_request_uuid'] = $integration_request_uuid;
+        $this->container['integrationRequestUuid'] = $integrationRequestUuid;
 
         return $this;
     }
 
     /**
-     * Gets webhook_id
+     * Gets webhookId
      *
      * @return int
      */
     public function getWebhookId()
     {
-        return $this->container['webhook_id'];
+        return $this->container['webhookId'];
     }
 
     /**
-     * Sets webhook_id
+     * Sets webhookId
      *
-     * @param int $webhook_id ID of the webhook that triggered the request
+     * @param int $webhookId ID of the webhook that triggered the request
      *
      * @return $this
      */
-    public function setWebhookId($webhook_id)
+    public function setWebhookId($webhookId)
     {
-        $this->container['webhook_id'] = $webhook_id;
+        $this->container['webhookId'] = $webhookId;
 
         return $this;
     }
 
     /**
-     * Gets application_id
+     * Gets applicationId
      *
      * @return int|null
      */
     public function getApplicationId()
     {
-        return $this->container['application_id'];
+        return $this->container['applicationId'];
     }
 
     /**
-     * Sets application_id
+     * Sets applicationId
      *
-     * @param int|null $application_id ID of the application that triggered the webhook
+     * @param int|null $applicationId ID of the application that triggered the webhook
      *
      * @return $this
      */
-    public function setApplicationId($application_id)
+    public function setApplicationId($applicationId)
     {
-        $this->container['application_id'] = $application_id;
+        $this->container['applicationId'] = $applicationId;
 
         return $this;
     }
@@ -470,49 +470,49 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets request_time
+     * Gets requestTime
      *
      * @return \DateTime
      */
     public function getRequestTime()
     {
-        return $this->container['request_time'];
+        return $this->container['requestTime'];
     }
 
     /**
-     * Sets request_time
+     * Sets requestTime
      *
-     * @param \DateTime $request_time Timestamp of request
+     * @param \DateTime $requestTime Timestamp of request
      *
      * @return $this
      */
-    public function setRequestTime($request_time)
+    public function setRequestTime($requestTime)
     {
-        $this->container['request_time'] = $request_time;
+        $this->container['requestTime'] = $requestTime;
 
         return $this;
     }
 
     /**
-     * Gets response_time
+     * Gets responseTime
      *
      * @return \DateTime|null
      */
     public function getResponseTime()
     {
-        return $this->container['response_time'];
+        return $this->container['responseTime'];
     }
 
     /**
-     * Sets response_time
+     * Sets responseTime
      *
-     * @param \DateTime|null $response_time Timestamp of response
+     * @param \DateTime|null $responseTime Timestamp of response
      *
      * @return $this
      */
-    public function setResponseTime($response_time)
+    public function setResponseTime($responseTime)
     {
-        $this->container['response_time'] = $response_time;
+        $this->container['responseTime'] = $responseTime;
 
         return $this;
     }

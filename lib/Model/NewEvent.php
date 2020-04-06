@@ -58,10 +58,10 @@ class NewEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profile_id' => 'string',
+        'profileId' => 'string',
         'type' => 'string',
         'attributes' => 'object',
-        'session_id' => 'string'
+        'sessionId' => 'string'
     ];
 
     /**
@@ -70,10 +70,10 @@ class NewEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'profile_id' => null,
+        'profileId' => null,
         'type' => null,
         'attributes' => null,
-        'session_id' => null
+        'sessionId' => null
     ];
 
     /**
@@ -103,10 +103,10 @@ class NewEvent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'profile_id' => 'profileId',
+        'profileId' => 'profileId',
         'type' => 'type',
         'attributes' => 'attributes',
-        'session_id' => 'sessionId'
+        'sessionId' => 'sessionId'
     ];
 
     /**
@@ -115,10 +115,10 @@ class NewEvent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'profile_id' => 'setProfileId',
+        'profileId' => 'setProfileId',
         'type' => 'setType',
         'attributes' => 'setAttributes',
-        'session_id' => 'setSessionId'
+        'sessionId' => 'setSessionId'
     ];
 
     /**
@@ -127,10 +127,10 @@ class NewEvent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'profile_id' => 'getProfileId',
+        'profileId' => 'getProfileId',
         'type' => 'getType',
         'attributes' => 'getAttributes',
-        'session_id' => 'getSessionId'
+        'sessionId' => 'getSessionId'
     ];
 
     /**
@@ -193,10 +193,10 @@ class NewEvent implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['profile_id'] = isset($data['profile_id']) ? $data['profile_id'] : null;
+        $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
+        $this->container['sessionId'] = isset($data['sessionId']) ? $data['sessionId'] : null;
     }
 
     /**
@@ -218,11 +218,11 @@ class NewEvent implements ModelInterface, ArrayAccess
         if ($this->container['attributes'] === null) {
             $invalidProperties[] = "'attributes' can't be null";
         }
-        if ($this->container['session_id'] === null) {
-            $invalidProperties[] = "'session_id' can't be null";
+        if ($this->container['sessionId'] === null) {
+            $invalidProperties[] = "'sessionId' can't be null";
         }
-        if ((mb_strlen($this->container['session_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'session_id', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['sessionId']) < 1)) {
+            $invalidProperties[] = "invalid value for 'sessionId', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -241,25 +241,25 @@ class NewEvent implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets profile_id
+     * Gets profileId
      *
      * @return string|null
      */
     public function getProfileId()
     {
-        return $this->container['profile_id'];
+        return $this->container['profileId'];
     }
 
     /**
-     * Sets profile_id
+     * Sets profileId
      *
-     * @param string|null $profile_id ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+     * @param string|null $profileId ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
      *
      * @return $this
      */
-    public function setProfileId($profile_id)
+    public function setProfileId($profileId)
     {
-        $this->container['profile_id'] = $profile_id;
+        $this->container['profileId'] = $profileId;
 
         return $this;
     }
@@ -318,30 +318,30 @@ class NewEvent implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets session_id
+     * Gets sessionId
      *
      * @return string
      */
     public function getSessionId()
     {
-        return $this->container['session_id'];
+        return $this->container['sessionId'];
     }
 
     /**
-     * Sets session_id
+     * Sets sessionId
      *
-     * @param string $session_id The ID of the session that this event occurred in.
+     * @param string $sessionId The ID of the session that this event occurred in.
      *
      * @return $this
      */
-    public function setSessionId($session_id)
+    public function setSessionId($sessionId)
     {
 
-        if ((mb_strlen($session_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $session_id when calling NewEvent., must be bigger than or equal to 1.');
+        if ((mb_strlen($sessionId) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $sessionId when calling NewEvent., must be bigger than or equal to 1.');
         }
 
-        $this->container['session_id'] = $session_id;
+        $this->container['sessionId'] = $sessionId;
 
         return $this;
     }

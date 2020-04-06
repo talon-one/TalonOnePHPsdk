@@ -79,21 +79,21 @@ class UpdateCouponBatchTest extends TestCase
     }
 
     /**
-     * Test attribute "usage_limit"
+     * Test attribute "usageLimit"
      */
     public function testPropertyUsageLimit()
     {
     }
 
     /**
-     * Test attribute "start_date"
+     * Test attribute "startDate"
      */
     public function testPropertyStartDate()
     {
     }
 
     /**
-     * Test attribute "expiry_date"
+     * Test attribute "expiryDate"
      */
     public function testPropertyExpiryDate()
     {
@@ -107,9 +107,9 @@ class UpdateCouponBatchTest extends TestCase
     }
 
     /**
-     * Test attribute "batch_id"
+     * Test attribute "batchID"
      */
-    public function testPropertyBatchId()
+    public function testPropertyBatchID()
     {
     }
 }

@@ -57,7 +57,7 @@ class ApplicationSessionEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'session_id' => 'int'
+        'sessionId' => 'int'
     ];
 
     /**
@@ -66,7 +66,7 @@ class ApplicationSessionEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'session_id' => null
+        'sessionId' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class ApplicationSessionEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'session_id' => 'sessionId'
+        'sessionId' => 'sessionId'
     ];
 
     /**
@@ -105,7 +105,7 @@ class ApplicationSessionEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'session_id' => 'setSessionId'
+        'sessionId' => 'setSessionId'
     ];
 
     /**
@@ -114,7 +114,7 @@ class ApplicationSessionEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'session_id' => 'getSessionId'
+        'sessionId' => 'getSessionId'
     ];
 
     /**
@@ -177,7 +177,7 @@ class ApplicationSessionEntity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
+        $this->container['sessionId'] = isset($data['sessionId']) ? $data['sessionId'] : null;
     }
 
     /**
@@ -189,8 +189,8 @@ class ApplicationSessionEntity implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['session_id'] === null) {
-            $invalidProperties[] = "'session_id' can't be null";
+        if ($this->container['sessionId'] === null) {
+            $invalidProperties[] = "'sessionId' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,25 +208,25 @@ class ApplicationSessionEntity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets session_id
+     * Gets sessionId
      *
      * @return int
      */
     public function getSessionId()
     {
-        return $this->container['session_id'];
+        return $this->container['sessionId'];
     }
 
     /**
-     * Sets session_id
+     * Sets sessionId
      *
-     * @param int $session_id The globally unique Talon.One ID of the session where this entity was created.
+     * @param int $sessionId The globally unique Talon.One ID of the session where this entity was created.
      *
      * @return $this
      */
-    public function setSessionId($session_id)
+    public function setSessionId($sessionId)
     {
-        $this->container['session_id'] = $session_id;
+        $this->container['sessionId'] = $sessionId;
 
         return $this;
     }

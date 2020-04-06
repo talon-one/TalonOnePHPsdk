@@ -79,21 +79,21 @@ class CartItemAdjustmentTest extends TestCase
     }
 
     /**
-     * Test attribute "pay_from_loyalty_program"
+     * Test attribute "payFromLoyaltyProgram"
      */
     public function testPropertyPayFromLoyaltyProgram()
     {
     }
 
     /**
-     * Test attribute "point_payment"
+     * Test attribute "pointPayment"
      */
     public function testPropertyPointPayment()
     {
     }
 
     /**
-     * Test attribute "remaining_price"
+     * Test attribute "remainingPrice"
      */
     public function testPropertyRemainingPrice()
     {

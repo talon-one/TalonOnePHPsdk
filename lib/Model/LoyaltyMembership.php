@@ -58,7 +58,7 @@ class LoyaltyMembership implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'joined' => '\DateTime',
-        'loyalty_program_id' => 'int'
+        'loyaltyProgramId' => 'int'
     ];
 
     /**
@@ -68,7 +68,7 @@ class LoyaltyMembership implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'joined' => 'date-time',
-        'loyalty_program_id' => null
+        'loyaltyProgramId' => null
     ];
 
     /**
@@ -99,7 +99,7 @@ class LoyaltyMembership implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'joined' => 'joined',
-        'loyalty_program_id' => 'loyaltyProgramId'
+        'loyaltyProgramId' => 'loyaltyProgramId'
     ];
 
     /**
@@ -109,7 +109,7 @@ class LoyaltyMembership implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'joined' => 'setJoined',
-        'loyalty_program_id' => 'setLoyaltyProgramId'
+        'loyaltyProgramId' => 'setLoyaltyProgramId'
     ];
 
     /**
@@ -119,7 +119,7 @@ class LoyaltyMembership implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'joined' => 'getJoined',
-        'loyalty_program_id' => 'getLoyaltyProgramId'
+        'loyaltyProgramId' => 'getLoyaltyProgramId'
     ];
 
     /**
@@ -183,7 +183,7 @@ class LoyaltyMembership implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['joined'] = isset($data['joined']) ? $data['joined'] : null;
-        $this->container['loyalty_program_id'] = isset($data['loyalty_program_id']) ? $data['loyalty_program_id'] : null;
+        $this->container['loyaltyProgramId'] = isset($data['loyaltyProgramId']) ? $data['loyaltyProgramId'] : null;
     }
 
     /**
@@ -195,8 +195,8 @@ class LoyaltyMembership implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['loyalty_program_id'] === null) {
-            $invalidProperties[] = "'loyalty_program_id' can't be null";
+        if ($this->container['loyaltyProgramId'] === null) {
+            $invalidProperties[] = "'loyaltyProgramId' can't be null";
         }
         return $invalidProperties;
     }
@@ -238,25 +238,25 @@ class LoyaltyMembership implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets loyalty_program_id
+     * Gets loyaltyProgramId
      *
      * @return int
      */
     public function getLoyaltyProgramId()
     {
-        return $this->container['loyalty_program_id'];
+        return $this->container['loyaltyProgramId'];
     }
 
     /**
-     * Sets loyalty_program_id
+     * Sets loyaltyProgramId
      *
-     * @param int $loyalty_program_id The ID of the loyalty program belonging to this entity.
+     * @param int $loyaltyProgramId The ID of the loyalty program belonging to this entity.
      *
      * @return $this
      */
-    public function setLoyaltyProgramId($loyalty_program_id)
+    public function setLoyaltyProgramId($loyaltyProgramId)
     {
-        $this->container['loyalty_program_id'] = $loyalty_program_id;
+        $this->container['loyaltyProgramId'] = $loyaltyProgramId;
 
         return $this;
     }

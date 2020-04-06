@@ -100,7 +100,7 @@ class ApplicationTest extends TestCase
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "accountId"
      */
     public function testPropertyAccountId()
     {
@@ -135,7 +135,7 @@ class ApplicationTest extends TestCase
     }
 
     /**
-     * Test attribute "case_sensitivity"
+     * Test attribute "caseSensitivity"
      */
     public function testPropertyCaseSensitivity()
     {
@@ -156,14 +156,14 @@ class ApplicationTest extends TestCase
     }
 
     /**
-     * Test attribute "attributes_settings"
+     * Test attribute "attributesSettings"
      */
     public function testPropertyAttributesSettings()
     {
     }
 
     /**
-     * Test attribute "loyalty_programs"
+     * Test attribute "loyaltyPrograms"
      */
     public function testPropertyLoyaltyPrograms()
     {

@@ -86,9 +86,9 @@ class RoleTest extends TestCase
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "accountID"
      */
-    public function testPropertyAccountId()
+    public function testPropertyAccountID()
     {
     }
 

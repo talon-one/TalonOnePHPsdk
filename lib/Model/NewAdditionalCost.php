@@ -61,7 +61,7 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         'name' => 'string',
         'title' => 'string',
         'description' => 'string',
-        'subscribed_applications_ids' => 'int[]'
+        'subscribedApplicationsIds' => 'int[]'
     ];
 
     /**
@@ -73,7 +73,7 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         'name' => null,
         'title' => null,
         'description' => null,
-        'subscribed_applications_ids' => null
+        'subscribedApplicationsIds' => null
     ];
 
     /**
@@ -106,7 +106,7 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         'name' => 'name',
         'title' => 'title',
         'description' => 'description',
-        'subscribed_applications_ids' => 'subscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'subscribedApplicationsIds'
     ];
 
     /**
@@ -118,7 +118,7 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'title' => 'setTitle',
         'description' => 'setDescription',
-        'subscribed_applications_ids' => 'setSubscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds'
     ];
 
     /**
@@ -130,7 +130,7 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'title' => 'getTitle',
         'description' => 'getDescription',
-        'subscribed_applications_ids' => 'getSubscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds'
     ];
 
     /**
@@ -196,7 +196,7 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['subscribed_applications_ids'] = isset($data['subscribed_applications_ids']) ? $data['subscribed_applications_ids'] : null;
+        $this->container['subscribedApplicationsIds'] = isset($data['subscribedApplicationsIds']) ? $data['subscribedApplicationsIds'] : null;
     }
 
     /**
@@ -305,25 +305,25 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets subscribed_applications_ids
+     * Gets subscribedApplicationsIds
      *
      * @return int[]|null
      */
     public function getSubscribedApplicationsIds()
     {
-        return $this->container['subscribed_applications_ids'];
+        return $this->container['subscribedApplicationsIds'];
     }
 
     /**
-     * Sets subscribed_applications_ids
+     * Sets subscribedApplicationsIds
      *
-     * @param int[]|null $subscribed_applications_ids A list of the IDs of the applications that are subscribed to this additional cost
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that are subscribed to this additional cost
      *
      * @return $this
      */
-    public function setSubscribedApplicationsIds($subscribed_applications_ids)
+    public function setSubscribedApplicationsIds($subscribedApplicationsIds)
     {
-        $this->container['subscribed_applications_ids'] = $subscribed_applications_ids;
+        $this->container['subscribedApplicationsIds'] = $subscribedApplicationsIds;
 
         return $this;
     }

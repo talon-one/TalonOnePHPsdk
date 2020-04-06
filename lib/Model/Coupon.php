@@ -60,18 +60,18 @@ class Coupon implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'campaign_id' => 'int',
+        'campaignId' => 'int',
         'value' => 'string',
-        'usage_limit' => 'int',
-        'start_date' => '\DateTime',
-        'expiry_date' => '\DateTime',
-        'usage_counter' => 'int',
+        'usageLimit' => 'int',
+        'startDate' => '\DateTime',
+        'expiryDate' => '\DateTime',
+        'usageCounter' => 'int',
         'attributes' => 'object',
-        'referral_id' => 'int',
-        'recipient_integration_id' => 'string',
-        'import_id' => 'int',
+        'referralId' => 'int',
+        'recipientIntegrationId' => 'string',
+        'importId' => 'int',
         'reservation' => 'bool',
-        'batch_id' => 'string'
+        'batchId' => 'string'
     ];
 
     /**
@@ -82,18 +82,18 @@ class Coupon implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'campaign_id' => null,
+        'campaignId' => null,
         'value' => null,
-        'usage_limit' => null,
-        'start_date' => 'date-time',
-        'expiry_date' => 'date-time',
-        'usage_counter' => null,
+        'usageLimit' => null,
+        'startDate' => 'date-time',
+        'expiryDate' => 'date-time',
+        'usageCounter' => null,
         'attributes' => null,
-        'referral_id' => null,
-        'recipient_integration_id' => null,
-        'import_id' => null,
+        'referralId' => null,
+        'recipientIntegrationId' => null,
+        'importId' => null,
         'reservation' => null,
-        'batch_id' => null
+        'batchId' => null
     ];
 
     /**
@@ -125,18 +125,18 @@ class Coupon implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'campaign_id' => 'campaignId',
+        'campaignId' => 'campaignId',
         'value' => 'value',
-        'usage_limit' => 'usageLimit',
-        'start_date' => 'startDate',
-        'expiry_date' => 'expiryDate',
-        'usage_counter' => 'usageCounter',
+        'usageLimit' => 'usageLimit',
+        'startDate' => 'startDate',
+        'expiryDate' => 'expiryDate',
+        'usageCounter' => 'usageCounter',
         'attributes' => 'attributes',
-        'referral_id' => 'referralId',
-        'recipient_integration_id' => 'recipientIntegrationId',
-        'import_id' => 'importId',
+        'referralId' => 'referralId',
+        'recipientIntegrationId' => 'recipientIntegrationId',
+        'importId' => 'importId',
         'reservation' => 'reservation',
-        'batch_id' => 'batchId'
+        'batchId' => 'batchId'
     ];
 
     /**
@@ -147,18 +147,18 @@ class Coupon implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'campaign_id' => 'setCampaignId',
+        'campaignId' => 'setCampaignId',
         'value' => 'setValue',
-        'usage_limit' => 'setUsageLimit',
-        'start_date' => 'setStartDate',
-        'expiry_date' => 'setExpiryDate',
-        'usage_counter' => 'setUsageCounter',
+        'usageLimit' => 'setUsageLimit',
+        'startDate' => 'setStartDate',
+        'expiryDate' => 'setExpiryDate',
+        'usageCounter' => 'setUsageCounter',
         'attributes' => 'setAttributes',
-        'referral_id' => 'setReferralId',
-        'recipient_integration_id' => 'setRecipientIntegrationId',
-        'import_id' => 'setImportId',
+        'referralId' => 'setReferralId',
+        'recipientIntegrationId' => 'setRecipientIntegrationId',
+        'importId' => 'setImportId',
         'reservation' => 'setReservation',
-        'batch_id' => 'setBatchId'
+        'batchId' => 'setBatchId'
     ];
 
     /**
@@ -169,18 +169,18 @@ class Coupon implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'campaign_id' => 'getCampaignId',
+        'campaignId' => 'getCampaignId',
         'value' => 'getValue',
-        'usage_limit' => 'getUsageLimit',
-        'start_date' => 'getStartDate',
-        'expiry_date' => 'getExpiryDate',
-        'usage_counter' => 'getUsageCounter',
+        'usageLimit' => 'getUsageLimit',
+        'startDate' => 'getStartDate',
+        'expiryDate' => 'getExpiryDate',
+        'usageCounter' => 'getUsageCounter',
         'attributes' => 'getAttributes',
-        'referral_id' => 'getReferralId',
-        'recipient_integration_id' => 'getRecipientIntegrationId',
-        'import_id' => 'getImportId',
+        'referralId' => 'getReferralId',
+        'recipientIntegrationId' => 'getRecipientIntegrationId',
+        'importId' => 'getImportId',
         'reservation' => 'getReservation',
-        'batch_id' => 'getBatchId'
+        'batchId' => 'getBatchId'
     ];
 
     /**
@@ -245,18 +245,18 @@ class Coupon implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['campaign_id'] = isset($data['campaign_id']) ? $data['campaign_id'] : null;
+        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['usage_limit'] = isset($data['usage_limit']) ? $data['usage_limit'] : null;
-        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
-        $this->container['expiry_date'] = isset($data['expiry_date']) ? $data['expiry_date'] : null;
-        $this->container['usage_counter'] = isset($data['usage_counter']) ? $data['usage_counter'] : null;
+        $this->container['usageLimit'] = isset($data['usageLimit']) ? $data['usageLimit'] : null;
+        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
+        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['usageCounter'] = isset($data['usageCounter']) ? $data['usageCounter'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['referral_id'] = isset($data['referral_id']) ? $data['referral_id'] : null;
-        $this->container['recipient_integration_id'] = isset($data['recipient_integration_id']) ? $data['recipient_integration_id'] : null;
-        $this->container['import_id'] = isset($data['import_id']) ? $data['import_id'] : null;
+        $this->container['referralId'] = isset($data['referralId']) ? $data['referralId'] : null;
+        $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
+        $this->container['importId'] = isset($data['importId']) ? $data['importId'] : null;
         $this->container['reservation'] = isset($data['reservation']) ? $data['reservation'] : null;
-        $this->container['batch_id'] = isset($data['batch_id']) ? $data['batch_id'] : null;
+        $this->container['batchId'] = isset($data['batchId']) ? $data['batchId'] : null;
     }
 
     /**
@@ -274,8 +274,8 @@ class Coupon implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
+        if ($this->container['campaignId'] === null) {
+            $invalidProperties[] = "'campaignId' can't be null";
         }
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
@@ -284,19 +284,19 @@ class Coupon implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'value', the character length must be bigger than or equal to 4.";
         }
 
-        if ($this->container['usage_limit'] === null) {
-            $invalidProperties[] = "'usage_limit' can't be null";
+        if ($this->container['usageLimit'] === null) {
+            $invalidProperties[] = "'usageLimit' can't be null";
         }
-        if (($this->container['usage_limit'] > 999999)) {
-            $invalidProperties[] = "invalid value for 'usage_limit', must be smaller than or equal to 999999.";
-        }
-
-        if (($this->container['usage_limit'] < 0)) {
-            $invalidProperties[] = "invalid value for 'usage_limit', must be bigger than or equal to 0.";
+        if (($this->container['usageLimit'] > 999999)) {
+            $invalidProperties[] = "invalid value for 'usageLimit', must be smaller than or equal to 999999.";
         }
 
-        if ($this->container['usage_counter'] === null) {
-            $invalidProperties[] = "'usage_counter' can't be null";
+        if (($this->container['usageLimit'] < 0)) {
+            $invalidProperties[] = "invalid value for 'usageLimit', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['usageCounter'] === null) {
+            $invalidProperties[] = "'usageCounter' can't be null";
         }
         return $invalidProperties;
     }
@@ -362,25 +362,25 @@ class Coupon implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets campaign_id
+     * Gets campaignId
      *
      * @return int
      */
     public function getCampaignId()
     {
-        return $this->container['campaign_id'];
+        return $this->container['campaignId'];
     }
 
     /**
-     * Sets campaign_id
+     * Sets campaignId
      *
-     * @param int $campaign_id The ID of the campaign that owns this entity.
+     * @param int $campaignId The ID of the campaign that owns this entity.
      *
      * @return $this
      */
-    public function setCampaignId($campaign_id)
+    public function setCampaignId($campaignId)
     {
-        $this->container['campaign_id'] = $campaign_id;
+        $this->container['campaignId'] = $campaignId;
 
         return $this;
     }
@@ -415,105 +415,105 @@ class Coupon implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets usage_limit
+     * Gets usageLimit
      *
      * @return int
      */
     public function getUsageLimit()
     {
-        return $this->container['usage_limit'];
+        return $this->container['usageLimit'];
     }
 
     /**
-     * Sets usage_limit
+     * Sets usageLimit
      *
-     * @param int $usage_limit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     * @param int $usageLimit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
      *
      * @return $this
      */
-    public function setUsageLimit($usage_limit)
+    public function setUsageLimit($usageLimit)
     {
 
-        if (($usage_limit > 999999)) {
-            throw new \InvalidArgumentException('invalid value for $usage_limit when calling Coupon., must be smaller than or equal to 999999.');
+        if (($usageLimit > 999999)) {
+            throw new \InvalidArgumentException('invalid value for $usageLimit when calling Coupon., must be smaller than or equal to 999999.');
         }
-        if (($usage_limit < 0)) {
-            throw new \InvalidArgumentException('invalid value for $usage_limit when calling Coupon., must be bigger than or equal to 0.');
+        if (($usageLimit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $usageLimit when calling Coupon., must be bigger than or equal to 0.');
         }
 
-        $this->container['usage_limit'] = $usage_limit;
+        $this->container['usageLimit'] = $usageLimit;
 
         return $this;
     }
 
     /**
-     * Gets start_date
+     * Gets startDate
      *
      * @return \DateTime|null
      */
     public function getStartDate()
     {
-        return $this->container['start_date'];
+        return $this->container['startDate'];
     }
 
     /**
-     * Sets start_date
+     * Sets startDate
      *
-     * @param \DateTime|null $start_date Timestamp at which point the coupon becomes valid.
+     * @param \DateTime|null $startDate Timestamp at which point the coupon becomes valid.
      *
      * @return $this
      */
-    public function setStartDate($start_date)
+    public function setStartDate($startDate)
     {
-        $this->container['start_date'] = $start_date;
+        $this->container['startDate'] = $startDate;
 
         return $this;
     }
 
     /**
-     * Gets expiry_date
+     * Gets expiryDate
      *
      * @return \DateTime|null
      */
     public function getExpiryDate()
     {
-        return $this->container['expiry_date'];
+        return $this->container['expiryDate'];
     }
 
     /**
-     * Sets expiry_date
+     * Sets expiryDate
      *
-     * @param \DateTime|null $expiry_date Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative.
+     * @param \DateTime|null $expiryDate Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative.
      *
      * @return $this
      */
-    public function setExpiryDate($expiry_date)
+    public function setExpiryDate($expiryDate)
     {
-        $this->container['expiry_date'] = $expiry_date;
+        $this->container['expiryDate'] = $expiryDate;
 
         return $this;
     }
 
     /**
-     * Gets usage_counter
+     * Gets usageCounter
      *
      * @return int
      */
     public function getUsageCounter()
     {
-        return $this->container['usage_counter'];
+        return $this->container['usageCounter'];
     }
 
     /**
-     * Sets usage_counter
+     * Sets usageCounter
      *
-     * @param int $usage_counter The number of times this coupon has been successfully used.
+     * @param int $usageCounter The number of times this coupon has been successfully used.
      *
      * @return $this
      */
-    public function setUsageCounter($usage_counter)
+    public function setUsageCounter($usageCounter)
     {
-        $this->container['usage_counter'] = $usage_counter;
+        $this->container['usageCounter'] = $usageCounter;
 
         return $this;
     }
@@ -543,73 +543,73 @@ class Coupon implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets referral_id
+     * Gets referralId
      *
      * @return int|null
      */
     public function getReferralId()
     {
-        return $this->container['referral_id'];
+        return $this->container['referralId'];
     }
 
     /**
-     * Sets referral_id
+     * Sets referralId
      *
-     * @param int|null $referral_id The integration ID of the referring customer (if any) for whom this coupon was created as an effect.
+     * @param int|null $referralId The integration ID of the referring customer (if any) for whom this coupon was created as an effect.
      *
      * @return $this
      */
-    public function setReferralId($referral_id)
+    public function setReferralId($referralId)
     {
-        $this->container['referral_id'] = $referral_id;
+        $this->container['referralId'] = $referralId;
 
         return $this;
     }
 
     /**
-     * Gets recipient_integration_id
+     * Gets recipientIntegrationId
      *
      * @return string|null
      */
     public function getRecipientIntegrationId()
     {
-        return $this->container['recipient_integration_id'];
+        return $this->container['recipientIntegrationId'];
     }
 
     /**
-     * Sets recipient_integration_id
+     * Sets recipientIntegrationId
      *
-     * @param string|null $recipient_integration_id The integration ID of a referred customer profile.
+     * @param string|null $recipientIntegrationId The integration ID of a referred customer profile.
      *
      * @return $this
      */
-    public function setRecipientIntegrationId($recipient_integration_id)
+    public function setRecipientIntegrationId($recipientIntegrationId)
     {
-        $this->container['recipient_integration_id'] = $recipient_integration_id;
+        $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;
     }
 
     /**
-     * Gets import_id
+     * Gets importId
      *
      * @return int|null
      */
     public function getImportId()
     {
-        return $this->container['import_id'];
+        return $this->container['importId'];
     }
 
     /**
-     * Sets import_id
+     * Sets importId
      *
-     * @param int|null $import_id The ID of the Import which created this coupon.
+     * @param int|null $importId The ID of the Import which created this coupon.
      *
      * @return $this
      */
-    public function setImportId($import_id)
+    public function setImportId($importId)
     {
-        $this->container['import_id'] = $import_id;
+        $this->container['importId'] = $importId;
 
         return $this;
     }
@@ -639,25 +639,25 @@ class Coupon implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets batch_id
+     * Gets batchId
      *
      * @return string|null
      */
     public function getBatchId()
     {
-        return $this->container['batch_id'];
+        return $this->container['batchId'];
     }
 
     /**
-     * Sets batch_id
+     * Sets batchId
      *
-     * @param string|null $batch_id The id of the batch the coupon belongs to.
+     * @param string|null $batchId The id of the batch the coupon belongs to.
      *
      * @return $this
      */
-    public function setBatchId($batch_id)
+    public function setBatchId($batchId)
     {
-        $this->container['batch_id'] = $batch_id;
+        $this->container['batchId'] = $batchId;
 
         return $this;
     }

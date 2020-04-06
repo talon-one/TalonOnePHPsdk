@@ -58,8 +58,8 @@ class ReferralRejectionReason implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'campaign_id' => 'int',
-        'referral_id' => 'int',
+        'campaignId' => 'int',
+        'referralId' => 'int',
         'reason' => 'string'
     ];
 
@@ -69,8 +69,8 @@ class ReferralRejectionReason implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaign_id' => null,
-        'referral_id' => null,
+        'campaignId' => null,
+        'referralId' => null,
         'reason' => null
     ];
 
@@ -101,8 +101,8 @@ class ReferralRejectionReason implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'campaign_id' => 'campaignId',
-        'referral_id' => 'referralId',
+        'campaignId' => 'campaignId',
+        'referralId' => 'referralId',
         'reason' => 'reason'
     ];
 
@@ -112,8 +112,8 @@ class ReferralRejectionReason implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'campaign_id' => 'setCampaignId',
-        'referral_id' => 'setReferralId',
+        'campaignId' => 'setCampaignId',
+        'referralId' => 'setReferralId',
         'reason' => 'setReason'
     ];
 
@@ -123,8 +123,8 @@ class ReferralRejectionReason implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'campaign_id' => 'getCampaignId',
-        'referral_id' => 'getReferralId',
+        'campaignId' => 'getCampaignId',
+        'referralId' => 'getReferralId',
         'reason' => 'getReason'
     ];
 
@@ -223,8 +223,8 @@ class ReferralRejectionReason implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['campaign_id'] = isset($data['campaign_id']) ? $data['campaign_id'] : null;
-        $this->container['referral_id'] = isset($data['referral_id']) ? $data['referral_id'] : null;
+        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
+        $this->container['referralId'] = isset($data['referralId']) ? $data['referralId'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
     }
 
@@ -237,11 +237,11 @@ class ReferralRejectionReason implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
+        if ($this->container['campaignId'] === null) {
+            $invalidProperties[] = "'campaignId' can't be null";
         }
-        if ($this->container['referral_id'] === null) {
-            $invalidProperties[] = "'referral_id' can't be null";
+        if ($this->container['referralId'] === null) {
+            $invalidProperties[] = "'referralId' can't be null";
         }
         if ($this->container['reason'] === null) {
             $invalidProperties[] = "'reason' can't be null";
@@ -270,49 +270,49 @@ class ReferralRejectionReason implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets campaign_id
+     * Gets campaignId
      *
      * @return int
      */
     public function getCampaignId()
     {
-        return $this->container['campaign_id'];
+        return $this->container['campaignId'];
     }
 
     /**
-     * Sets campaign_id
+     * Sets campaignId
      *
-     * @param int $campaign_id campaign_id
+     * @param int $campaignId campaignId
      *
      * @return $this
      */
-    public function setCampaignId($campaign_id)
+    public function setCampaignId($campaignId)
     {
-        $this->container['campaign_id'] = $campaign_id;
+        $this->container['campaignId'] = $campaignId;
 
         return $this;
     }
 
     /**
-     * Gets referral_id
+     * Gets referralId
      *
      * @return int
      */
     public function getReferralId()
     {
-        return $this->container['referral_id'];
+        return $this->container['referralId'];
     }
 
     /**
-     * Sets referral_id
+     * Sets referralId
      *
-     * @param int $referral_id referral_id
+     * @param int $referralId referralId
      *
      * @return $this
      */
-    public function setReferralId($referral_id)
+    public function setReferralId($referralId)
     {
-        $this->container['referral_id'] = $referral_id;
+        $this->container['referralId'] = $referralId;
 
         return $this;
     }

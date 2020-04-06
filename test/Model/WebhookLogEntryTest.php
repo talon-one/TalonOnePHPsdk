@@ -86,21 +86,21 @@ class WebhookLogEntryTest extends TestCase
     }
 
     /**
-     * Test attribute "integration_request_uuid"
+     * Test attribute "integrationRequestUuid"
      */
     public function testPropertyIntegrationRequestUuid()
     {
     }
 
     /**
-     * Test attribute "webhook_id"
+     * Test attribute "webhookId"
      */
     public function testPropertyWebhookId()
     {
     }
 
     /**
-     * Test attribute "application_id"
+     * Test attribute "applicationId"
      */
     public function testPropertyApplicationId()
     {
@@ -135,14 +135,14 @@ class WebhookLogEntryTest extends TestCase
     }
 
     /**
-     * Test attribute "request_time"
+     * Test attribute "requestTime"
      */
     public function testPropertyRequestTime()
     {
     }
 
     /**
-     * Test attribute "response_time"
+     * Test attribute "responseTime"
      */
     public function testPropertyResponseTime()
     {

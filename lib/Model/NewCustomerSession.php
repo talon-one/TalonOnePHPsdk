@@ -58,11 +58,11 @@ class NewCustomerSession implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profile_id' => 'string',
+        'profileId' => 'string',
         'coupon' => 'string',
         'referral' => 'string',
         'state' => 'string',
-        'cart_items' => '\TalonOne\Client\Model\CartItem[]',
+        'cartItems' => '\TalonOne\Client\Model\CartItem[]',
         'identifiers' => 'string[]',
         'total' => 'float',
         'attributes' => 'object'
@@ -74,11 +74,11 @@ class NewCustomerSession implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'profile_id' => null,
+        'profileId' => null,
         'coupon' => null,
         'referral' => null,
         'state' => null,
-        'cart_items' => null,
+        'cartItems' => null,
         'identifiers' => null,
         'total' => null,
         'attributes' => null
@@ -111,11 +111,11 @@ class NewCustomerSession implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'profile_id' => 'profileId',
+        'profileId' => 'profileId',
         'coupon' => 'coupon',
         'referral' => 'referral',
         'state' => 'state',
-        'cart_items' => 'cartItems',
+        'cartItems' => 'cartItems',
         'identifiers' => 'identifiers',
         'total' => 'total',
         'attributes' => 'attributes'
@@ -127,11 +127,11 @@ class NewCustomerSession implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'profile_id' => 'setProfileId',
+        'profileId' => 'setProfileId',
         'coupon' => 'setCoupon',
         'referral' => 'setReferral',
         'state' => 'setState',
-        'cart_items' => 'setCartItems',
+        'cartItems' => 'setCartItems',
         'identifiers' => 'setIdentifiers',
         'total' => 'setTotal',
         'attributes' => 'setAttributes'
@@ -143,11 +143,11 @@ class NewCustomerSession implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'profile_id' => 'getProfileId',
+        'profileId' => 'getProfileId',
         'coupon' => 'getCoupon',
         'referral' => 'getReferral',
         'state' => 'getState',
-        'cart_items' => 'getCartItems',
+        'cartItems' => 'getCartItems',
         'identifiers' => 'getIdentifiers',
         'total' => 'getTotal',
         'attributes' => 'getAttributes'
@@ -230,11 +230,11 @@ class NewCustomerSession implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['profile_id'] = isset($data['profile_id']) ? $data['profile_id'] : null;
+        $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
         $this->container['coupon'] = isset($data['coupon']) ? $data['coupon'] : null;
         $this->container['referral'] = isset($data['referral']) ? $data['referral'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'open';
-        $this->container['cart_items'] = isset($data['cart_items']) ? $data['cart_items'] : null;
+        $this->container['cartItems'] = isset($data['cartItems']) ? $data['cartItems'] : null;
         $this->container['identifiers'] = isset($data['identifiers']) ? $data['identifiers'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
@@ -273,25 +273,25 @@ class NewCustomerSession implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets profile_id
+     * Gets profileId
      *
      * @return string|null
      */
     public function getProfileId()
     {
-        return $this->container['profile_id'];
+        return $this->container['profileId'];
     }
 
     /**
-     * Sets profile_id
+     * Sets profileId
      *
-     * @param string|null $profile_id ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+     * @param string|null $profileId ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
      *
      * @return $this
      */
-    public function setProfileId($profile_id)
+    public function setProfileId($profileId)
     {
-        $this->container['profile_id'] = $profile_id;
+        $this->container['profileId'] = $profileId;
 
         return $this;
     }
@@ -378,25 +378,25 @@ class NewCustomerSession implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cart_items
+     * Gets cartItems
      *
      * @return \TalonOne\Client\Model\CartItem[]|null
      */
     public function getCartItems()
     {
-        return $this->container['cart_items'];
+        return $this->container['cartItems'];
     }
 
     /**
-     * Sets cart_items
+     * Sets cartItems
      *
-     * @param \TalonOne\Client\Model\CartItem[]|null $cart_items Serialized JSON representation.
+     * @param \TalonOne\Client\Model\CartItem[]|null $cartItems Serialized JSON representation.
      *
      * @return $this
      */
-    public function setCartItems($cart_items)
+    public function setCartItems($cartItems)
     {
-        $this->container['cart_items'] = $cart_items;
+        $this->container['cartItems'] = $cartItems;
 
         return $this;
     }

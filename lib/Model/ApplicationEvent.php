@@ -60,9 +60,9 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'application_id' => 'int',
-        'profile_id' => 'int',
-        'session_id' => 'int',
+        'applicationId' => 'int',
+        'profileId' => 'int',
+        'sessionId' => 'int',
         'type' => 'string',
         'attributes' => 'object',
         'effects' => 'object[]'
@@ -76,9 +76,9 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'application_id' => null,
-        'profile_id' => null,
-        'session_id' => null,
+        'applicationId' => null,
+        'profileId' => null,
+        'sessionId' => null,
         'type' => null,
         'attributes' => null,
         'effects' => null
@@ -113,9 +113,9 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'application_id' => 'applicationId',
-        'profile_id' => 'profileId',
-        'session_id' => 'sessionId',
+        'applicationId' => 'applicationId',
+        'profileId' => 'profileId',
+        'sessionId' => 'sessionId',
         'type' => 'type',
         'attributes' => 'attributes',
         'effects' => 'effects'
@@ -129,9 +129,9 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'application_id' => 'setApplicationId',
-        'profile_id' => 'setProfileId',
-        'session_id' => 'setSessionId',
+        'applicationId' => 'setApplicationId',
+        'profileId' => 'setProfileId',
+        'sessionId' => 'setSessionId',
         'type' => 'setType',
         'attributes' => 'setAttributes',
         'effects' => 'setEffects'
@@ -145,9 +145,9 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'application_id' => 'getApplicationId',
-        'profile_id' => 'getProfileId',
-        'session_id' => 'getSessionId',
+        'applicationId' => 'getApplicationId',
+        'profileId' => 'getProfileId',
+        'sessionId' => 'getSessionId',
         'type' => 'getType',
         'attributes' => 'getAttributes',
         'effects' => 'getEffects'
@@ -215,9 +215,9 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
-        $this->container['profile_id'] = isset($data['profile_id']) ? $data['profile_id'] : null;
-        $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
+        $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
+        $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
+        $this->container['sessionId'] = isset($data['sessionId']) ? $data['sessionId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
@@ -238,8 +238,8 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['application_id'] === null) {
-            $invalidProperties[] = "'application_id' can't be null";
+        if ($this->container['applicationId'] === null) {
+            $invalidProperties[] = "'applicationId' can't be null";
         }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
@@ -314,73 +314,73 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets application_id
+     * Gets applicationId
      *
      * @return int
      */
     public function getApplicationId()
     {
-        return $this->container['application_id'];
+        return $this->container['applicationId'];
     }
 
     /**
-     * Sets application_id
+     * Sets applicationId
      *
-     * @param int $application_id The ID of the application that owns this entity.
+     * @param int $applicationId The ID of the application that owns this entity.
      *
      * @return $this
      */
-    public function setApplicationId($application_id)
+    public function setApplicationId($applicationId)
     {
-        $this->container['application_id'] = $application_id;
+        $this->container['applicationId'] = $applicationId;
 
         return $this;
     }
 
     /**
-     * Gets profile_id
+     * Gets profileId
      *
      * @return int|null
      */
     public function getProfileId()
     {
-        return $this->container['profile_id'];
+        return $this->container['profileId'];
     }
 
     /**
-     * Sets profile_id
+     * Sets profileId
      *
-     * @param int|null $profile_id The globally unique Talon.One ID of the customer that created this entity.
+     * @param int|null $profileId The globally unique Talon.One ID of the customer that created this entity.
      *
      * @return $this
      */
-    public function setProfileId($profile_id)
+    public function setProfileId($profileId)
     {
-        $this->container['profile_id'] = $profile_id;
+        $this->container['profileId'] = $profileId;
 
         return $this;
     }
 
     /**
-     * Gets session_id
+     * Gets sessionId
      *
      * @return int|null
      */
     public function getSessionId()
     {
-        return $this->container['session_id'];
+        return $this->container['sessionId'];
     }
 
     /**
-     * Sets session_id
+     * Sets sessionId
      *
-     * @param int|null $session_id The globally unique Talon.One ID of the session that contains this event.
+     * @param int|null $sessionId The globally unique Talon.One ID of the session that contains this event.
      *
      * @return $this
      */
-    public function setSessionId($session_id)
+    public function setSessionId($sessionId)
     {
-        $this->container['session_id'] = $session_id;
+        $this->container['sessionId'] = $sessionId;
 
         return $this;
     }

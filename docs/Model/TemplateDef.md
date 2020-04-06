@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Unique ID for this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
-**application_id** | **int** | The ID of the application that owns this entity. | 
+**applicationId** | **int** | The ID of the application that owns this entity. | 
 **title** | **string** | Campaigner-friendly name for the template that will be shown in the rule editor. | 
 **description** | **string** | A short description of the template that will be shown in the rule editor. | 
 **help** | **string** | Extended help text for the template. | 

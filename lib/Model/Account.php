@@ -61,20 +61,20 @@ class Account implements ModelInterface, ArrayAccess
         'id' => 'int',
         'created' => '\DateTime',
         'modified' => '\DateTime',
-        'company_name' => 'string',
-        'domain_name' => 'string',
+        'companyName' => 'string',
+        'domainName' => 'string',
         'state' => 'string',
-        'billing_email' => 'string',
-        'plan_name' => 'string',
-        'plan_expires' => '\DateTime',
-        'application_limit' => 'int',
-        'user_limit' => 'int',
-        'campaign_limit' => 'int',
-        'api_limit' => 'int',
-        'application_count' => 'int',
-        'user_count' => 'int',
-        'campaigns_active_count' => 'int',
-        'campaigns_inactive_count' => 'int',
+        'billingEmail' => 'string',
+        'planName' => 'string',
+        'planExpires' => '\DateTime',
+        'applicationLimit' => 'int',
+        'userLimit' => 'int',
+        'campaignLimit' => 'int',
+        'apiLimit' => 'int',
+        'applicationCount' => 'int',
+        'userCount' => 'int',
+        'campaignsActiveCount' => 'int',
+        'campaignsInactiveCount' => 'int',
         'attributes' => 'object'
     ];
 
@@ -87,20 +87,20 @@ class Account implements ModelInterface, ArrayAccess
         'id' => null,
         'created' => 'date-time',
         'modified' => 'date-time',
-        'company_name' => null,
-        'domain_name' => null,
+        'companyName' => null,
+        'domainName' => null,
         'state' => null,
-        'billing_email' => 'email',
-        'plan_name' => null,
-        'plan_expires' => 'date-time',
-        'application_limit' => null,
-        'user_limit' => null,
-        'campaign_limit' => null,
-        'api_limit' => null,
-        'application_count' => null,
-        'user_count' => null,
-        'campaigns_active_count' => null,
-        'campaigns_inactive_count' => null,
+        'billingEmail' => 'email',
+        'planName' => null,
+        'planExpires' => 'date-time',
+        'applicationLimit' => null,
+        'userLimit' => null,
+        'campaignLimit' => null,
+        'apiLimit' => null,
+        'applicationCount' => null,
+        'userCount' => null,
+        'campaignsActiveCount' => null,
+        'campaignsInactiveCount' => null,
         'attributes' => null
     ];
 
@@ -134,20 +134,20 @@ class Account implements ModelInterface, ArrayAccess
         'id' => 'id',
         'created' => 'created',
         'modified' => 'modified',
-        'company_name' => 'companyName',
-        'domain_name' => 'domainName',
+        'companyName' => 'companyName',
+        'domainName' => 'domainName',
         'state' => 'state',
-        'billing_email' => 'billingEmail',
-        'plan_name' => 'planName',
-        'plan_expires' => 'planExpires',
-        'application_limit' => 'applicationLimit',
-        'user_limit' => 'userLimit',
-        'campaign_limit' => 'campaignLimit',
-        'api_limit' => 'apiLimit',
-        'application_count' => 'applicationCount',
-        'user_count' => 'userCount',
-        'campaigns_active_count' => 'campaignsActiveCount',
-        'campaigns_inactive_count' => 'campaignsInactiveCount',
+        'billingEmail' => 'billingEmail',
+        'planName' => 'planName',
+        'planExpires' => 'planExpires',
+        'applicationLimit' => 'applicationLimit',
+        'userLimit' => 'userLimit',
+        'campaignLimit' => 'campaignLimit',
+        'apiLimit' => 'apiLimit',
+        'applicationCount' => 'applicationCount',
+        'userCount' => 'userCount',
+        'campaignsActiveCount' => 'campaignsActiveCount',
+        'campaignsInactiveCount' => 'campaignsInactiveCount',
         'attributes' => 'attributes'
     ];
 
@@ -160,20 +160,20 @@ class Account implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'created' => 'setCreated',
         'modified' => 'setModified',
-        'company_name' => 'setCompanyName',
-        'domain_name' => 'setDomainName',
+        'companyName' => 'setCompanyName',
+        'domainName' => 'setDomainName',
         'state' => 'setState',
-        'billing_email' => 'setBillingEmail',
-        'plan_name' => 'setPlanName',
-        'plan_expires' => 'setPlanExpires',
-        'application_limit' => 'setApplicationLimit',
-        'user_limit' => 'setUserLimit',
-        'campaign_limit' => 'setCampaignLimit',
-        'api_limit' => 'setApiLimit',
-        'application_count' => 'setApplicationCount',
-        'user_count' => 'setUserCount',
-        'campaigns_active_count' => 'setCampaignsActiveCount',
-        'campaigns_inactive_count' => 'setCampaignsInactiveCount',
+        'billingEmail' => 'setBillingEmail',
+        'planName' => 'setPlanName',
+        'planExpires' => 'setPlanExpires',
+        'applicationLimit' => 'setApplicationLimit',
+        'userLimit' => 'setUserLimit',
+        'campaignLimit' => 'setCampaignLimit',
+        'apiLimit' => 'setApiLimit',
+        'applicationCount' => 'setApplicationCount',
+        'userCount' => 'setUserCount',
+        'campaignsActiveCount' => 'setCampaignsActiveCount',
+        'campaignsInactiveCount' => 'setCampaignsInactiveCount',
         'attributes' => 'setAttributes'
     ];
 
@@ -186,20 +186,20 @@ class Account implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'created' => 'getCreated',
         'modified' => 'getModified',
-        'company_name' => 'getCompanyName',
-        'domain_name' => 'getDomainName',
+        'companyName' => 'getCompanyName',
+        'domainName' => 'getDomainName',
         'state' => 'getState',
-        'billing_email' => 'getBillingEmail',
-        'plan_name' => 'getPlanName',
-        'plan_expires' => 'getPlanExpires',
-        'application_limit' => 'getApplicationLimit',
-        'user_limit' => 'getUserLimit',
-        'campaign_limit' => 'getCampaignLimit',
-        'api_limit' => 'getApiLimit',
-        'application_count' => 'getApplicationCount',
-        'user_count' => 'getUserCount',
-        'campaigns_active_count' => 'getCampaignsActiveCount',
-        'campaigns_inactive_count' => 'getCampaignsInactiveCount',
+        'billingEmail' => 'getBillingEmail',
+        'planName' => 'getPlanName',
+        'planExpires' => 'getPlanExpires',
+        'applicationLimit' => 'getApplicationLimit',
+        'userLimit' => 'getUserLimit',
+        'campaignLimit' => 'getCampaignLimit',
+        'apiLimit' => 'getApiLimit',
+        'applicationCount' => 'getApplicationCount',
+        'userCount' => 'getUserCount',
+        'campaignsActiveCount' => 'getCampaignsActiveCount',
+        'campaignsInactiveCount' => 'getCampaignsInactiveCount',
         'attributes' => 'getAttributes'
     ];
 
@@ -281,20 +281,20 @@ class Account implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
-        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
-        $this->container['domain_name'] = isset($data['domain_name']) ? $data['domain_name'] : null;
+        $this->container['companyName'] = isset($data['companyName']) ? $data['companyName'] : null;
+        $this->container['domainName'] = isset($data['domainName']) ? $data['domainName'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['billing_email'] = isset($data['billing_email']) ? $data['billing_email'] : null;
-        $this->container['plan_name'] = isset($data['plan_name']) ? $data['plan_name'] : null;
-        $this->container['plan_expires'] = isset($data['plan_expires']) ? $data['plan_expires'] : null;
-        $this->container['application_limit'] = isset($data['application_limit']) ? $data['application_limit'] : null;
-        $this->container['user_limit'] = isset($data['user_limit']) ? $data['user_limit'] : null;
-        $this->container['campaign_limit'] = isset($data['campaign_limit']) ? $data['campaign_limit'] : null;
-        $this->container['api_limit'] = isset($data['api_limit']) ? $data['api_limit'] : null;
-        $this->container['application_count'] = isset($data['application_count']) ? $data['application_count'] : null;
-        $this->container['user_count'] = isset($data['user_count']) ? $data['user_count'] : null;
-        $this->container['campaigns_active_count'] = isset($data['campaigns_active_count']) ? $data['campaigns_active_count'] : null;
-        $this->container['campaigns_inactive_count'] = isset($data['campaigns_inactive_count']) ? $data['campaigns_inactive_count'] : null;
+        $this->container['billingEmail'] = isset($data['billingEmail']) ? $data['billingEmail'] : null;
+        $this->container['planName'] = isset($data['planName']) ? $data['planName'] : null;
+        $this->container['planExpires'] = isset($data['planExpires']) ? $data['planExpires'] : null;
+        $this->container['applicationLimit'] = isset($data['applicationLimit']) ? $data['applicationLimit'] : null;
+        $this->container['userLimit'] = isset($data['userLimit']) ? $data['userLimit'] : null;
+        $this->container['campaignLimit'] = isset($data['campaignLimit']) ? $data['campaignLimit'] : null;
+        $this->container['apiLimit'] = isset($data['apiLimit']) ? $data['apiLimit'] : null;
+        $this->container['applicationCount'] = isset($data['applicationCount']) ? $data['applicationCount'] : null;
+        $this->container['userCount'] = isset($data['userCount']) ? $data['userCount'] : null;
+        $this->container['campaignsActiveCount'] = isset($data['campaignsActiveCount']) ? $data['campaignsActiveCount'] : null;
+        $this->container['campaignsInactiveCount'] = isset($data['campaignsInactiveCount']) ? $data['campaignsInactiveCount'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
     }
 
@@ -316,15 +316,15 @@ class Account implements ModelInterface, ArrayAccess
         if ($this->container['modified'] === null) {
             $invalidProperties[] = "'modified' can't be null";
         }
-        if ($this->container['company_name'] === null) {
-            $invalidProperties[] = "'company_name' can't be null";
+        if ($this->container['companyName'] === null) {
+            $invalidProperties[] = "'companyName' can't be null";
         }
-        if ((mb_strlen($this->container['company_name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'company_name', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['companyName']) < 1)) {
+            $invalidProperties[] = "invalid value for 'companyName', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['domain_name'] === null) {
-            $invalidProperties[] = "'domain_name' can't be null";
+        if ($this->container['domainName'] === null) {
+            $invalidProperties[] = "'domainName' can't be null";
         }
         if ($this->container['state'] === null) {
             $invalidProperties[] = "'state' can't be null";
@@ -337,20 +337,20 @@ class Account implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['billing_email'] === null) {
-            $invalidProperties[] = "'billing_email' can't be null";
+        if ($this->container['billingEmail'] === null) {
+            $invalidProperties[] = "'billingEmail' can't be null";
         }
-        if ($this->container['application_count'] === null) {
-            $invalidProperties[] = "'application_count' can't be null";
+        if ($this->container['applicationCount'] === null) {
+            $invalidProperties[] = "'applicationCount' can't be null";
         }
-        if ($this->container['user_count'] === null) {
-            $invalidProperties[] = "'user_count' can't be null";
+        if ($this->container['userCount'] === null) {
+            $invalidProperties[] = "'userCount' can't be null";
         }
-        if ($this->container['campaigns_active_count'] === null) {
-            $invalidProperties[] = "'campaigns_active_count' can't be null";
+        if ($this->container['campaignsActiveCount'] === null) {
+            $invalidProperties[] = "'campaignsActiveCount' can't be null";
         }
-        if ($this->container['campaigns_inactive_count'] === null) {
-            $invalidProperties[] = "'campaigns_inactive_count' can't be null";
+        if ($this->container['campaignsInactiveCount'] === null) {
+            $invalidProperties[] = "'campaignsInactiveCount' can't be null";
         }
         return $invalidProperties;
     }
@@ -440,54 +440,54 @@ class Account implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets company_name
+     * Gets companyName
      *
      * @return string
      */
     public function getCompanyName()
     {
-        return $this->container['company_name'];
+        return $this->container['companyName'];
     }
 
     /**
-     * Sets company_name
+     * Sets companyName
      *
-     * @param string $company_name company_name
+     * @param string $companyName companyName
      *
      * @return $this
      */
-    public function setCompanyName($company_name)
+    public function setCompanyName($companyName)
     {
 
-        if ((mb_strlen($company_name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $company_name when calling Account., must be bigger than or equal to 1.');
+        if ((mb_strlen($companyName) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $companyName when calling Account., must be bigger than or equal to 1.');
         }
 
-        $this->container['company_name'] = $company_name;
+        $this->container['companyName'] = $companyName;
 
         return $this;
     }
 
     /**
-     * Gets domain_name
+     * Gets domainName
      *
      * @return string
      */
     public function getDomainName()
     {
-        return $this->container['domain_name'];
+        return $this->container['domainName'];
     }
 
     /**
-     * Sets domain_name
+     * Sets domainName
      *
-     * @param string $domain_name Subdomain Name for yourcompany.talon.one
+     * @param string $domainName Subdomain Name for yourcompany.talon.one
      *
      * @return $this
      */
-    public function setDomainName($domain_name)
+    public function setDomainName($domainName)
     {
-        $this->container['domain_name'] = $domain_name;
+        $this->container['domainName'] = $domainName;
 
         return $this;
     }
@@ -526,265 +526,265 @@ class Account implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets billing_email
+     * Gets billingEmail
      *
      * @return string
      */
     public function getBillingEmail()
     {
-        return $this->container['billing_email'];
+        return $this->container['billingEmail'];
     }
 
     /**
-     * Sets billing_email
+     * Sets billingEmail
      *
-     * @param string $billing_email The billing email address associated with your company account.
+     * @param string $billingEmail The billing email address associated with your company account.
      *
      * @return $this
      */
-    public function setBillingEmail($billing_email)
+    public function setBillingEmail($billingEmail)
     {
-        $this->container['billing_email'] = $billing_email;
+        $this->container['billingEmail'] = $billingEmail;
 
         return $this;
     }
 
     /**
-     * Gets plan_name
+     * Gets planName
      *
      * @return string|null
      */
     public function getPlanName()
     {
-        return $this->container['plan_name'];
+        return $this->container['planName'];
     }
 
     /**
-     * Sets plan_name
+     * Sets planName
      *
-     * @param string|null $plan_name The name of your booked plan.
+     * @param string|null $planName The name of your booked plan.
      *
      * @return $this
      */
-    public function setPlanName($plan_name)
+    public function setPlanName($planName)
     {
-        $this->container['plan_name'] = $plan_name;
+        $this->container['planName'] = $planName;
 
         return $this;
     }
 
     /**
-     * Gets plan_expires
+     * Gets planExpires
      *
      * @return \DateTime|null
      */
     public function getPlanExpires()
     {
-        return $this->container['plan_expires'];
+        return $this->container['planExpires'];
     }
 
     /**
-     * Sets plan_expires
+     * Sets planExpires
      *
-     * @param \DateTime|null $plan_expires The point in time at which your current plan expires.
+     * @param \DateTime|null $planExpires The point in time at which your current plan expires.
      *
      * @return $this
      */
-    public function setPlanExpires($plan_expires)
+    public function setPlanExpires($planExpires)
     {
-        $this->container['plan_expires'] = $plan_expires;
+        $this->container['planExpires'] = $planExpires;
 
         return $this;
     }
 
     /**
-     * Gets application_limit
+     * Gets applicationLimit
      *
      * @return int|null
      */
     public function getApplicationLimit()
     {
-        return $this->container['application_limit'];
+        return $this->container['applicationLimit'];
     }
 
     /**
-     * Sets application_limit
+     * Sets applicationLimit
      *
-     * @param int|null $application_limit The maximum number of Applications covered by your plan.
+     * @param int|null $applicationLimit The maximum number of Applications covered by your plan.
      *
      * @return $this
      */
-    public function setApplicationLimit($application_limit)
+    public function setApplicationLimit($applicationLimit)
     {
-        $this->container['application_limit'] = $application_limit;
+        $this->container['applicationLimit'] = $applicationLimit;
 
         return $this;
     }
 
     /**
-     * Gets user_limit
+     * Gets userLimit
      *
      * @return int|null
      */
     public function getUserLimit()
     {
-        return $this->container['user_limit'];
+        return $this->container['userLimit'];
     }
 
     /**
-     * Sets user_limit
+     * Sets userLimit
      *
-     * @param int|null $user_limit The maximum number of Campaign Manager Users covered by your plan.
+     * @param int|null $userLimit The maximum number of Campaign Manager Users covered by your plan.
      *
      * @return $this
      */
-    public function setUserLimit($user_limit)
+    public function setUserLimit($userLimit)
     {
-        $this->container['user_limit'] = $user_limit;
+        $this->container['userLimit'] = $userLimit;
 
         return $this;
     }
 
     /**
-     * Gets campaign_limit
+     * Gets campaignLimit
      *
      * @return int|null
      */
     public function getCampaignLimit()
     {
-        return $this->container['campaign_limit'];
+        return $this->container['campaignLimit'];
     }
 
     /**
-     * Sets campaign_limit
+     * Sets campaignLimit
      *
-     * @param int|null $campaign_limit The maximum number of Campaigns covered by your plan.
+     * @param int|null $campaignLimit The maximum number of Campaigns covered by your plan.
      *
      * @return $this
      */
-    public function setCampaignLimit($campaign_limit)
+    public function setCampaignLimit($campaignLimit)
     {
-        $this->container['campaign_limit'] = $campaign_limit;
+        $this->container['campaignLimit'] = $campaignLimit;
 
         return $this;
     }
 
     /**
-     * Gets api_limit
+     * Gets apiLimit
      *
      * @return int|null
      */
     public function getApiLimit()
     {
-        return $this->container['api_limit'];
+        return $this->container['apiLimit'];
     }
 
     /**
-     * Sets api_limit
+     * Sets apiLimit
      *
-     * @param int|null $api_limit The maximum number of Integration API calls covered by your plan per billing period.
+     * @param int|null $apiLimit The maximum number of Integration API calls covered by your plan per billing period.
      *
      * @return $this
      */
-    public function setApiLimit($api_limit)
+    public function setApiLimit($apiLimit)
     {
-        $this->container['api_limit'] = $api_limit;
+        $this->container['apiLimit'] = $apiLimit;
 
         return $this;
     }
 
     /**
-     * Gets application_count
+     * Gets applicationCount
      *
      * @return int
      */
     public function getApplicationCount()
     {
-        return $this->container['application_count'];
+        return $this->container['applicationCount'];
     }
 
     /**
-     * Sets application_count
+     * Sets applicationCount
      *
-     * @param int $application_count The current number of Applications in your account.
+     * @param int $applicationCount The current number of Applications in your account.
      *
      * @return $this
      */
-    public function setApplicationCount($application_count)
+    public function setApplicationCount($applicationCount)
     {
-        $this->container['application_count'] = $application_count;
+        $this->container['applicationCount'] = $applicationCount;
 
         return $this;
     }
 
     /**
-     * Gets user_count
+     * Gets userCount
      *
      * @return int
      */
     public function getUserCount()
     {
-        return $this->container['user_count'];
+        return $this->container['userCount'];
     }
 
     /**
-     * Sets user_count
+     * Sets userCount
      *
-     * @param int $user_count The current number of Campaign Manager Users in your account.
+     * @param int $userCount The current number of Campaign Manager Users in your account.
      *
      * @return $this
      */
-    public function setUserCount($user_count)
+    public function setUserCount($userCount)
     {
-        $this->container['user_count'] = $user_count;
+        $this->container['userCount'] = $userCount;
 
         return $this;
     }
 
     /**
-     * Gets campaigns_active_count
+     * Gets campaignsActiveCount
      *
      * @return int
      */
     public function getCampaignsActiveCount()
     {
-        return $this->container['campaigns_active_count'];
+        return $this->container['campaignsActiveCount'];
     }
 
     /**
-     * Sets campaigns_active_count
+     * Sets campaignsActiveCount
      *
-     * @param int $campaigns_active_count The current number of active Campaigns in your account.
+     * @param int $campaignsActiveCount The current number of active Campaigns in your account.
      *
      * @return $this
      */
-    public function setCampaignsActiveCount($campaigns_active_count)
+    public function setCampaignsActiveCount($campaignsActiveCount)
     {
-        $this->container['campaigns_active_count'] = $campaigns_active_count;
+        $this->container['campaignsActiveCount'] = $campaignsActiveCount;
 
         return $this;
     }
 
     /**
-     * Gets campaigns_inactive_count
+     * Gets campaignsInactiveCount
      *
      * @return int
      */
     public function getCampaignsInactiveCount()
     {
-        return $this->container['campaigns_inactive_count'];
+        return $this->container['campaignsInactiveCount'];
     }
 
     /**
-     * Sets campaigns_inactive_count
+     * Sets campaignsInactiveCount
      *
-     * @param int $campaigns_inactive_count The current number of inactive Campaigns in your account.
+     * @param int $campaignsInactiveCount The current number of inactive Campaigns in your account.
      *
      * @return $this
      */
-    public function setCampaignsInactiveCount($campaigns_inactive_count)
+    public function setCampaignsInactiveCount($campaignsInactiveCount)
     {
-        $this->container['campaigns_inactive_count'] = $campaigns_inactive_count;
+        $this->container['campaignsInactiveCount'] = $campaignsInactiveCount;
 
         return $this;
     }

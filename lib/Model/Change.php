@@ -60,7 +60,7 @@ class Change implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'user_id' => 'int',
+        'userId' => 'int',
         'entity' => 'string',
         'old' => 'object',
         'new' => 'object'
@@ -74,7 +74,7 @@ class Change implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'user_id' => null,
+        'userId' => null,
         'entity' => null,
         'old' => null,
         'new' => null
@@ -109,7 +109,7 @@ class Change implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'user_id' => 'userId',
+        'userId' => 'userId',
         'entity' => 'entity',
         'old' => 'old',
         'new' => 'new'
@@ -123,7 +123,7 @@ class Change implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'user_id' => 'setUserId',
+        'userId' => 'setUserId',
         'entity' => 'setEntity',
         'old' => 'setOld',
         'new' => 'setNew'
@@ -137,7 +137,7 @@ class Change implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'user_id' => 'getUserId',
+        'userId' => 'getUserId',
         'entity' => 'getEntity',
         'old' => 'getOld',
         'new' => 'getNew'
@@ -205,7 +205,7 @@ class Change implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
         $this->container['entity'] = isset($data['entity']) ? $data['entity'] : null;
         $this->container['old'] = isset($data['old']) ? $data['old'] : null;
         $this->container['new'] = isset($data['new']) ? $data['new'] : null;
@@ -226,8 +226,8 @@ class Change implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
+        if ($this->container['userId'] === null) {
+            $invalidProperties[] = "'userId' can't be null";
         }
         if ($this->container['entity'] === null) {
             $invalidProperties[] = "'entity' can't be null";
@@ -296,25 +296,25 @@ class Change implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets user_id
+     * Gets userId
      *
      * @return int
      */
     public function getUserId()
     {
-        return $this->container['user_id'];
+        return $this->container['userId'];
     }
 
     /**
-     * Sets user_id
+     * Sets userId
      *
-     * @param int $user_id The ID of the account that owns this entity.
+     * @param int $userId The ID of the account that owns this entity.
      *
      * @return $this
      */
-    public function setUserId($user_id)
+    public function setUserId($userId)
     {
-        $this->container['user_id'] = $user_id;
+        $this->container['userId'] = $userId;
 
         return $this;
     }

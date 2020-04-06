@@ -79,14 +79,14 @@ class TriggerWebhookEffectPropsTest extends TestCase
     }
 
     /**
-     * Test attribute "webhook_id"
+     * Test attribute "webhookId"
      */
     public function testPropertyWebhookId()
     {
     }
 
     /**
-     * Test attribute "webhook_name"
+     * Test attribute "webhookName"
      */
     public function testPropertyWebhookName()
     {

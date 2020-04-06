@@ -57,18 +57,18 @@ class AccountLimits implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'live_applications' => 'int',
-        'sandbox_applications' => 'int',
-        'active_campaigns' => 'int',
+        'liveApplications' => 'int',
+        'sandboxApplications' => 'int',
+        'activeCampaigns' => 'int',
         'coupons' => 'int',
-        'referral_codes' => 'int',
-        'live_loyalty_programs' => 'int',
-        'sandbox_loyalty_programs' => 'int',
+        'referralCodes' => 'int',
+        'liveLoyaltyPrograms' => 'int',
+        'sandboxLoyaltyPrograms' => 'int',
         'webhooks' => 'int',
         'users' => 'int',
-        'api_volume' => 'int',
-        'active_rules' => 'int',
-        'promotion_types' => 'string[]'
+        'apiVolume' => 'int',
+        'activeRules' => 'int',
+        'promotionTypes' => 'string[]'
     ];
 
     /**
@@ -77,18 +77,18 @@ class AccountLimits implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'live_applications' => null,
-        'sandbox_applications' => null,
-        'active_campaigns' => null,
+        'liveApplications' => null,
+        'sandboxApplications' => null,
+        'activeCampaigns' => null,
         'coupons' => null,
-        'referral_codes' => null,
-        'live_loyalty_programs' => null,
-        'sandbox_loyalty_programs' => null,
+        'referralCodes' => null,
+        'liveLoyaltyPrograms' => null,
+        'sandboxLoyaltyPrograms' => null,
         'webhooks' => null,
         'users' => null,
-        'api_volume' => null,
-        'active_rules' => null,
-        'promotion_types' => null
+        'apiVolume' => null,
+        'activeRules' => null,
+        'promotionTypes' => null
     ];
 
     /**
@@ -118,18 +118,18 @@ class AccountLimits implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'live_applications' => 'liveApplications',
-        'sandbox_applications' => 'sandboxApplications',
-        'active_campaigns' => 'activeCampaigns',
+        'liveApplications' => 'liveApplications',
+        'sandboxApplications' => 'sandboxApplications',
+        'activeCampaigns' => 'activeCampaigns',
         'coupons' => 'coupons',
-        'referral_codes' => 'referralCodes',
-        'live_loyalty_programs' => 'liveLoyaltyPrograms',
-        'sandbox_loyalty_programs' => 'sandboxLoyaltyPrograms',
+        'referralCodes' => 'referralCodes',
+        'liveLoyaltyPrograms' => 'liveLoyaltyPrograms',
+        'sandboxLoyaltyPrograms' => 'sandboxLoyaltyPrograms',
         'webhooks' => 'webhooks',
         'users' => 'users',
-        'api_volume' => 'apiVolume',
-        'active_rules' => 'activeRules',
-        'promotion_types' => 'promotionTypes'
+        'apiVolume' => 'apiVolume',
+        'activeRules' => 'activeRules',
+        'promotionTypes' => 'promotionTypes'
     ];
 
     /**
@@ -138,18 +138,18 @@ class AccountLimits implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'live_applications' => 'setLiveApplications',
-        'sandbox_applications' => 'setSandboxApplications',
-        'active_campaigns' => 'setActiveCampaigns',
+        'liveApplications' => 'setLiveApplications',
+        'sandboxApplications' => 'setSandboxApplications',
+        'activeCampaigns' => 'setActiveCampaigns',
         'coupons' => 'setCoupons',
-        'referral_codes' => 'setReferralCodes',
-        'live_loyalty_programs' => 'setLiveLoyaltyPrograms',
-        'sandbox_loyalty_programs' => 'setSandboxLoyaltyPrograms',
+        'referralCodes' => 'setReferralCodes',
+        'liveLoyaltyPrograms' => 'setLiveLoyaltyPrograms',
+        'sandboxLoyaltyPrograms' => 'setSandboxLoyaltyPrograms',
         'webhooks' => 'setWebhooks',
         'users' => 'setUsers',
-        'api_volume' => 'setApiVolume',
-        'active_rules' => 'setActiveRules',
-        'promotion_types' => 'setPromotionTypes'
+        'apiVolume' => 'setApiVolume',
+        'activeRules' => 'setActiveRules',
+        'promotionTypes' => 'setPromotionTypes'
     ];
 
     /**
@@ -158,18 +158,18 @@ class AccountLimits implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'live_applications' => 'getLiveApplications',
-        'sandbox_applications' => 'getSandboxApplications',
-        'active_campaigns' => 'getActiveCampaigns',
+        'liveApplications' => 'getLiveApplications',
+        'sandboxApplications' => 'getSandboxApplications',
+        'activeCampaigns' => 'getActiveCampaigns',
         'coupons' => 'getCoupons',
-        'referral_codes' => 'getReferralCodes',
-        'live_loyalty_programs' => 'getLiveLoyaltyPrograms',
-        'sandbox_loyalty_programs' => 'getSandboxLoyaltyPrograms',
+        'referralCodes' => 'getReferralCodes',
+        'liveLoyaltyPrograms' => 'getLiveLoyaltyPrograms',
+        'sandboxLoyaltyPrograms' => 'getSandboxLoyaltyPrograms',
         'webhooks' => 'getWebhooks',
         'users' => 'getUsers',
-        'api_volume' => 'getApiVolume',
-        'active_rules' => 'getActiveRules',
-        'promotion_types' => 'getPromotionTypes'
+        'apiVolume' => 'getApiVolume',
+        'activeRules' => 'getActiveRules',
+        'promotionTypes' => 'getPromotionTypes'
     ];
 
     /**
@@ -232,18 +232,18 @@ class AccountLimits implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['live_applications'] = isset($data['live_applications']) ? $data['live_applications'] : null;
-        $this->container['sandbox_applications'] = isset($data['sandbox_applications']) ? $data['sandbox_applications'] : null;
-        $this->container['active_campaigns'] = isset($data['active_campaigns']) ? $data['active_campaigns'] : null;
+        $this->container['liveApplications'] = isset($data['liveApplications']) ? $data['liveApplications'] : null;
+        $this->container['sandboxApplications'] = isset($data['sandboxApplications']) ? $data['sandboxApplications'] : null;
+        $this->container['activeCampaigns'] = isset($data['activeCampaigns']) ? $data['activeCampaigns'] : null;
         $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
-        $this->container['referral_codes'] = isset($data['referral_codes']) ? $data['referral_codes'] : null;
-        $this->container['live_loyalty_programs'] = isset($data['live_loyalty_programs']) ? $data['live_loyalty_programs'] : null;
-        $this->container['sandbox_loyalty_programs'] = isset($data['sandbox_loyalty_programs']) ? $data['sandbox_loyalty_programs'] : null;
+        $this->container['referralCodes'] = isset($data['referralCodes']) ? $data['referralCodes'] : null;
+        $this->container['liveLoyaltyPrograms'] = isset($data['liveLoyaltyPrograms']) ? $data['liveLoyaltyPrograms'] : null;
+        $this->container['sandboxLoyaltyPrograms'] = isset($data['sandboxLoyaltyPrograms']) ? $data['sandboxLoyaltyPrograms'] : null;
         $this->container['webhooks'] = isset($data['webhooks']) ? $data['webhooks'] : null;
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
-        $this->container['api_volume'] = isset($data['api_volume']) ? $data['api_volume'] : null;
-        $this->container['active_rules'] = isset($data['active_rules']) ? $data['active_rules'] : null;
-        $this->container['promotion_types'] = isset($data['promotion_types']) ? $data['promotion_types'] : null;
+        $this->container['apiVolume'] = isset($data['apiVolume']) ? $data['apiVolume'] : null;
+        $this->container['activeRules'] = isset($data['activeRules']) ? $data['activeRules'] : null;
+        $this->container['promotionTypes'] = isset($data['promotionTypes']) ? $data['promotionTypes'] : null;
     }
 
     /**
@@ -255,26 +255,26 @@ class AccountLimits implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['live_applications'] === null) {
-            $invalidProperties[] = "'live_applications' can't be null";
+        if ($this->container['liveApplications'] === null) {
+            $invalidProperties[] = "'liveApplications' can't be null";
         }
-        if ($this->container['sandbox_applications'] === null) {
-            $invalidProperties[] = "'sandbox_applications' can't be null";
+        if ($this->container['sandboxApplications'] === null) {
+            $invalidProperties[] = "'sandboxApplications' can't be null";
         }
-        if ($this->container['active_campaigns'] === null) {
-            $invalidProperties[] = "'active_campaigns' can't be null";
+        if ($this->container['activeCampaigns'] === null) {
+            $invalidProperties[] = "'activeCampaigns' can't be null";
         }
         if ($this->container['coupons'] === null) {
             $invalidProperties[] = "'coupons' can't be null";
         }
-        if ($this->container['referral_codes'] === null) {
-            $invalidProperties[] = "'referral_codes' can't be null";
+        if ($this->container['referralCodes'] === null) {
+            $invalidProperties[] = "'referralCodes' can't be null";
         }
-        if ($this->container['live_loyalty_programs'] === null) {
-            $invalidProperties[] = "'live_loyalty_programs' can't be null";
+        if ($this->container['liveLoyaltyPrograms'] === null) {
+            $invalidProperties[] = "'liveLoyaltyPrograms' can't be null";
         }
-        if ($this->container['sandbox_loyalty_programs'] === null) {
-            $invalidProperties[] = "'sandbox_loyalty_programs' can't be null";
+        if ($this->container['sandboxLoyaltyPrograms'] === null) {
+            $invalidProperties[] = "'sandboxLoyaltyPrograms' can't be null";
         }
         if ($this->container['webhooks'] === null) {
             $invalidProperties[] = "'webhooks' can't be null";
@@ -282,11 +282,11 @@ class AccountLimits implements ModelInterface, ArrayAccess
         if ($this->container['users'] === null) {
             $invalidProperties[] = "'users' can't be null";
         }
-        if ($this->container['api_volume'] === null) {
-            $invalidProperties[] = "'api_volume' can't be null";
+        if ($this->container['apiVolume'] === null) {
+            $invalidProperties[] = "'apiVolume' can't be null";
         }
-        if ($this->container['promotion_types'] === null) {
-            $invalidProperties[] = "'promotion_types' can't be null";
+        if ($this->container['promotionTypes'] === null) {
+            $invalidProperties[] = "'promotionTypes' can't be null";
         }
         return $invalidProperties;
     }
@@ -304,73 +304,73 @@ class AccountLimits implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets live_applications
+     * Gets liveApplications
      *
      * @return int
      */
     public function getLiveApplications()
     {
-        return $this->container['live_applications'];
+        return $this->container['liveApplications'];
     }
 
     /**
-     * Sets live_applications
+     * Sets liveApplications
      *
-     * @param int $live_applications Total Number of allowed live applications in the account
+     * @param int $liveApplications Total Number of allowed live applications in the account
      *
      * @return $this
      */
-    public function setLiveApplications($live_applications)
+    public function setLiveApplications($liveApplications)
     {
-        $this->container['live_applications'] = $live_applications;
+        $this->container['liveApplications'] = $liveApplications;
 
         return $this;
     }
 
     /**
-     * Gets sandbox_applications
+     * Gets sandboxApplications
      *
      * @return int
      */
     public function getSandboxApplications()
     {
-        return $this->container['sandbox_applications'];
+        return $this->container['sandboxApplications'];
     }
 
     /**
-     * Sets sandbox_applications
+     * Sets sandboxApplications
      *
-     * @param int $sandbox_applications Total Number of allowed sandbox applications in the account
+     * @param int $sandboxApplications Total Number of allowed sandbox applications in the account
      *
      * @return $this
      */
-    public function setSandboxApplications($sandbox_applications)
+    public function setSandboxApplications($sandboxApplications)
     {
-        $this->container['sandbox_applications'] = $sandbox_applications;
+        $this->container['sandboxApplications'] = $sandboxApplications;
 
         return $this;
     }
 
     /**
-     * Gets active_campaigns
+     * Gets activeCampaigns
      *
      * @return int
      */
     public function getActiveCampaigns()
     {
-        return $this->container['active_campaigns'];
+        return $this->container['activeCampaigns'];
     }
 
     /**
-     * Sets active_campaigns
+     * Sets activeCampaigns
      *
-     * @param int $active_campaigns Total Number of allowed active campaigns in the account
+     * @param int $activeCampaigns Total Number of allowed active campaigns in the account
      *
      * @return $this
      */
-    public function setActiveCampaigns($active_campaigns)
+    public function setActiveCampaigns($activeCampaigns)
     {
-        $this->container['active_campaigns'] = $active_campaigns;
+        $this->container['activeCampaigns'] = $activeCampaigns;
 
         return $this;
     }
@@ -400,73 +400,73 @@ class AccountLimits implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets referral_codes
+     * Gets referralCodes
      *
      * @return int
      */
     public function getReferralCodes()
     {
-        return $this->container['referral_codes'];
+        return $this->container['referralCodes'];
     }
 
     /**
-     * Sets referral_codes
+     * Sets referralCodes
      *
-     * @param int $referral_codes Total Number of allowed referral codes in the account
+     * @param int $referralCodes Total Number of allowed referral codes in the account
      *
      * @return $this
      */
-    public function setReferralCodes($referral_codes)
+    public function setReferralCodes($referralCodes)
     {
-        $this->container['referral_codes'] = $referral_codes;
+        $this->container['referralCodes'] = $referralCodes;
 
         return $this;
     }
 
     /**
-     * Gets live_loyalty_programs
+     * Gets liveLoyaltyPrograms
      *
      * @return int
      */
     public function getLiveLoyaltyPrograms()
     {
-        return $this->container['live_loyalty_programs'];
+        return $this->container['liveLoyaltyPrograms'];
     }
 
     /**
-     * Sets live_loyalty_programs
+     * Sets liveLoyaltyPrograms
      *
-     * @param int $live_loyalty_programs Total Number of allowed live loyalty programs in the account
+     * @param int $liveLoyaltyPrograms Total Number of allowed live loyalty programs in the account
      *
      * @return $this
      */
-    public function setLiveLoyaltyPrograms($live_loyalty_programs)
+    public function setLiveLoyaltyPrograms($liveLoyaltyPrograms)
     {
-        $this->container['live_loyalty_programs'] = $live_loyalty_programs;
+        $this->container['liveLoyaltyPrograms'] = $liveLoyaltyPrograms;
 
         return $this;
     }
 
     /**
-     * Gets sandbox_loyalty_programs
+     * Gets sandboxLoyaltyPrograms
      *
      * @return int
      */
     public function getSandboxLoyaltyPrograms()
     {
-        return $this->container['sandbox_loyalty_programs'];
+        return $this->container['sandboxLoyaltyPrograms'];
     }
 
     /**
-     * Sets sandbox_loyalty_programs
+     * Sets sandboxLoyaltyPrograms
      *
-     * @param int $sandbox_loyalty_programs Total Number of allowed sandbox loyalty programs in the account
+     * @param int $sandboxLoyaltyPrograms Total Number of allowed sandbox loyalty programs in the account
      *
      * @return $this
      */
-    public function setSandboxLoyaltyPrograms($sandbox_loyalty_programs)
+    public function setSandboxLoyaltyPrograms($sandboxLoyaltyPrograms)
     {
-        $this->container['sandbox_loyalty_programs'] = $sandbox_loyalty_programs;
+        $this->container['sandboxLoyaltyPrograms'] = $sandboxLoyaltyPrograms;
 
         return $this;
     }
@@ -520,73 +520,73 @@ class AccountLimits implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets api_volume
+     * Gets apiVolume
      *
      * @return int
      */
     public function getApiVolume()
     {
-        return $this->container['api_volume'];
+        return $this->container['apiVolume'];
     }
 
     /**
-     * Sets api_volume
+     * Sets apiVolume
      *
-     * @param int $api_volume Total allowed api volume
+     * @param int $apiVolume Total allowed api volume
      *
      * @return $this
      */
-    public function setApiVolume($api_volume)
+    public function setApiVolume($apiVolume)
     {
-        $this->container['api_volume'] = $api_volume;
+        $this->container['apiVolume'] = $apiVolume;
 
         return $this;
     }
 
     /**
-     * Gets active_rules
+     * Gets activeRules
      *
      * @return int|null
      */
     public function getActiveRules()
     {
-        return $this->container['active_rules'];
+        return $this->container['activeRules'];
     }
 
     /**
-     * Sets active_rules
+     * Sets activeRules
      *
-     * @param int|null $active_rules Total allowed active rulesets
+     * @param int|null $activeRules Total allowed active rulesets
      *
      * @return $this
      */
-    public function setActiveRules($active_rules)
+    public function setActiveRules($activeRules)
     {
-        $this->container['active_rules'] = $active_rules;
+        $this->container['activeRules'] = $activeRules;
 
         return $this;
     }
 
     /**
-     * Gets promotion_types
+     * Gets promotionTypes
      *
      * @return string[]
      */
     public function getPromotionTypes()
     {
-        return $this->container['promotion_types'];
+        return $this->container['promotionTypes'];
     }
 
     /**
-     * Sets promotion_types
+     * Sets promotionTypes
      *
-     * @param string[] $promotion_types array of rulesets where webhook is used
+     * @param string[] $promotionTypes array of rulesets where webhook is used
      *
      * @return $this
      */
-    public function setPromotionTypes($promotion_types)
+    public function setPromotionTypes($promotionTypes)
     {
-        $this->container['promotion_types'] = $promotion_types;
+        $this->container['promotionTypes'] = $promotionTypes;
 
         return $this;
     }

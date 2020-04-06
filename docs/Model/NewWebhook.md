@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**application_ids** | **int[]** | The IDs of the applications that are related to this entity. | 
+**applicationIds** | **int[]** | The IDs of the applications that are related to this entity. | 
 **title** | **string** | Friendly title for this webhook | 
 **verb** | **string** | API method for this webhook | 
 **url** | **string** | API url (supports templating using parameters) for this webhook | 

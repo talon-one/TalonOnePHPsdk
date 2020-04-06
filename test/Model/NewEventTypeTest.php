@@ -79,7 +79,7 @@ class NewEventTypeTest extends TestCase
     }
 
     /**
-     * Test attribute "application_ids"
+     * Test attribute "applicationIds"
      */
     public function testPropertyApplicationIds()
     {
@@ -107,14 +107,14 @@ class NewEventTypeTest extends TestCase
     }
 
     /**
-     * Test attribute "mime_type"
+     * Test attribute "mimeType"
      */
     public function testPropertyMimeType()
     {
     }
 
     /**
-     * Test attribute "example_payload"
+     * Test attribute "examplePayload"
      */
     public function testPropertyExamplePayload()
     {
@@ -128,7 +128,7 @@ class NewEventTypeTest extends TestCase
     }
 
     /**
-     * Test attribute "handler_language"
+     * Test attribute "handlerLanguage"
      */
     public function testPropertyHandlerLanguage()
     {

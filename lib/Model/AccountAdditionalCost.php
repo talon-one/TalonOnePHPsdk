@@ -60,11 +60,11 @@ class AccountAdditionalCost implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'account_id' => 'int',
+        'accountId' => 'int',
         'name' => 'string',
         'title' => 'string',
         'description' => 'string',
-        'subscribed_applications_ids' => 'int[]'
+        'subscribedApplicationsIds' => 'int[]'
     ];
 
     /**
@@ -75,11 +75,11 @@ class AccountAdditionalCost implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'account_id' => null,
+        'accountId' => null,
         'name' => null,
         'title' => null,
         'description' => null,
-        'subscribed_applications_ids' => null
+        'subscribedApplicationsIds' => null
     ];
 
     /**
@@ -111,11 +111,11 @@ class AccountAdditionalCost implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'account_id' => 'accountId',
+        'accountId' => 'accountId',
         'name' => 'name',
         'title' => 'title',
         'description' => 'description',
-        'subscribed_applications_ids' => 'subscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'subscribedApplicationsIds'
     ];
 
     /**
@@ -126,11 +126,11 @@ class AccountAdditionalCost implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'account_id' => 'setAccountId',
+        'accountId' => 'setAccountId',
         'name' => 'setName',
         'title' => 'setTitle',
         'description' => 'setDescription',
-        'subscribed_applications_ids' => 'setSubscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds'
     ];
 
     /**
@@ -141,11 +141,11 @@ class AccountAdditionalCost implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'account_id' => 'getAccountId',
+        'accountId' => 'getAccountId',
         'name' => 'getName',
         'title' => 'getTitle',
         'description' => 'getDescription',
-        'subscribed_applications_ids' => 'getSubscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds'
     ];
 
     /**
@@ -210,11 +210,11 @@ class AccountAdditionalCost implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['subscribed_applications_ids'] = isset($data['subscribed_applications_ids']) ? $data['subscribed_applications_ids'] : null;
+        $this->container['subscribedApplicationsIds'] = isset($data['subscribedApplicationsIds']) ? $data['subscribedApplicationsIds'] : null;
     }
 
     /**
@@ -232,8 +232,8 @@ class AccountAdditionalCost implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
@@ -308,25 +308,25 @@ class AccountAdditionalCost implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets account_id
+     * Gets accountId
      *
      * @return int
      */
     public function getAccountId()
     {
-        return $this->container['account_id'];
+        return $this->container['accountId'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountId
      *
-     * @param int $account_id The ID of the account that owns this entity.
+     * @param int $accountId The ID of the account that owns this entity.
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountId($accountId)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }
@@ -404,25 +404,25 @@ class AccountAdditionalCost implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets subscribed_applications_ids
+     * Gets subscribedApplicationsIds
      *
      * @return int[]|null
      */
     public function getSubscribedApplicationsIds()
     {
-        return $this->container['subscribed_applications_ids'];
+        return $this->container['subscribedApplicationsIds'];
     }
 
     /**
-     * Sets subscribed_applications_ids
+     * Sets subscribedApplicationsIds
      *
-     * @param int[]|null $subscribed_applications_ids A list of the IDs of the applications that are subscribed to this additional cost
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that are subscribed to this additional cost
      *
      * @return $this
      */
-    public function setSubscribedApplicationsIds($subscribed_applications_ids)
+    public function setSubscribedApplicationsIds($subscribedApplicationsIds)
     {
-        $this->container['subscribed_applications_ids'] = $subscribed_applications_ids;
+        $this->container['subscribedApplicationsIds'] = $subscribedApplicationsIds;
 
         return $this;
     }

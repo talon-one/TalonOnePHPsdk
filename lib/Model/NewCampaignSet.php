@@ -58,7 +58,7 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'application_id' => 'int',
+        'applicationId' => 'int',
         'set' => '\TalonOne\Client\Model\CampaignSetBranchNode'
     ];
 
@@ -68,7 +68,7 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'application_id' => null,
+        'applicationId' => null,
         'set' => null
     ];
 
@@ -99,7 +99,7 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'application_id' => 'applicationId',
+        'applicationId' => 'applicationId',
         'set' => 'set'
     ];
 
@@ -109,7 +109,7 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'application_id' => 'setApplicationId',
+        'applicationId' => 'setApplicationId',
         'set' => 'setSet'
     ];
 
@@ -119,7 +119,7 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'application_id' => 'getApplicationId',
+        'applicationId' => 'getApplicationId',
         'set' => 'getSet'
     ];
 
@@ -183,7 +183,7 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
+        $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['set'] = isset($data['set']) ? $data['set'] : null;
     }
 
@@ -196,8 +196,8 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['application_id'] === null) {
-            $invalidProperties[] = "'application_id' can't be null";
+        if ($this->container['applicationId'] === null) {
+            $invalidProperties[] = "'applicationId' can't be null";
         }
         if ($this->container['set'] === null) {
             $invalidProperties[] = "'set' can't be null";
@@ -218,25 +218,25 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets application_id
+     * Gets applicationId
      *
      * @return int
      */
     public function getApplicationId()
     {
-        return $this->container['application_id'];
+        return $this->container['applicationId'];
     }
 
     /**
-     * Sets application_id
+     * Sets applicationId
      *
-     * @param int $application_id The ID of the application that owns this entity.
+     * @param int $applicationId The ID of the application that owns this entity.
      *
      * @return $this
      */
-    public function setApplicationId($application_id)
+    public function setApplicationId($applicationId)
     {
-        $this->container['application_id'] = $application_id;
+        $this->container['applicationId'] = $applicationId;
 
         return $this;
     }

@@ -79,14 +79,14 @@ class IntegrationRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "customer_session"
+     * Test attribute "customerSession"
      */
     public function testPropertyCustomerSession()
     {
     }
 
     /**
-     * Test attribute "response_content"
+     * Test attribute "responseContent"
      */
     public function testPropertyResponseContent()
     {

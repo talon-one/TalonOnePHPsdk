@@ -59,8 +59,8 @@ class ShowBundleMetadataEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'description' => 'string',
-        'bundle_attributes' => 'string[]',
-        'items_indices' => 'float[]'
+        'bundleAttributes' => 'string[]',
+        'itemsIndices' => 'float[]'
     ];
 
     /**
@@ -70,8 +70,8 @@ class ShowBundleMetadataEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'description' => null,
-        'bundle_attributes' => null,
-        'items_indices' => null
+        'bundleAttributes' => null,
+        'itemsIndices' => null
     ];
 
     /**
@@ -102,8 +102,8 @@ class ShowBundleMetadataEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'description' => 'description',
-        'bundle_attributes' => 'bundleAttributes',
-        'items_indices' => 'itemsIndices'
+        'bundleAttributes' => 'bundleAttributes',
+        'itemsIndices' => 'itemsIndices'
     ];
 
     /**
@@ -113,8 +113,8 @@ class ShowBundleMetadataEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'description' => 'setDescription',
-        'bundle_attributes' => 'setBundleAttributes',
-        'items_indices' => 'setItemsIndices'
+        'bundleAttributes' => 'setBundleAttributes',
+        'itemsIndices' => 'setItemsIndices'
     ];
 
     /**
@@ -124,8 +124,8 @@ class ShowBundleMetadataEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'description' => 'getDescription',
-        'bundle_attributes' => 'getBundleAttributes',
-        'items_indices' => 'getItemsIndices'
+        'bundleAttributes' => 'getBundleAttributes',
+        'itemsIndices' => 'getItemsIndices'
     ];
 
     /**
@@ -189,8 +189,8 @@ class ShowBundleMetadataEffectProps implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['bundle_attributes'] = isset($data['bundle_attributes']) ? $data['bundle_attributes'] : null;
-        $this->container['items_indices'] = isset($data['items_indices']) ? $data['items_indices'] : null;
+        $this->container['bundleAttributes'] = isset($data['bundleAttributes']) ? $data['bundleAttributes'] : null;
+        $this->container['itemsIndices'] = isset($data['itemsIndices']) ? $data['itemsIndices'] : null;
     }
 
     /**
@@ -205,11 +205,11 @@ class ShowBundleMetadataEffectProps implements ModelInterface, ArrayAccess
         if ($this->container['description'] === null) {
             $invalidProperties[] = "'description' can't be null";
         }
-        if ($this->container['bundle_attributes'] === null) {
-            $invalidProperties[] = "'bundle_attributes' can't be null";
+        if ($this->container['bundleAttributes'] === null) {
+            $invalidProperties[] = "'bundleAttributes' can't be null";
         }
-        if ($this->container['items_indices'] === null) {
-            $invalidProperties[] = "'items_indices' can't be null";
+        if ($this->container['itemsIndices'] === null) {
+            $invalidProperties[] = "'itemsIndices' can't be null";
         }
         return $invalidProperties;
     }
@@ -251,49 +251,49 @@ class ShowBundleMetadataEffectProps implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets bundle_attributes
+     * Gets bundleAttributes
      *
      * @return string[]
      */
     public function getBundleAttributes()
     {
-        return $this->container['bundle_attributes'];
+        return $this->container['bundleAttributes'];
     }
 
     /**
-     * Sets bundle_attributes
+     * Sets bundleAttributes
      *
-     * @param string[] $bundle_attributes The cart item attributes that determined which items are being bundled together
+     * @param string[] $bundleAttributes The cart item attributes that determined which items are being bundled together
      *
      * @return $this
      */
-    public function setBundleAttributes($bundle_attributes)
+    public function setBundleAttributes($bundleAttributes)
     {
-        $this->container['bundle_attributes'] = $bundle_attributes;
+        $this->container['bundleAttributes'] = $bundleAttributes;
 
         return $this;
     }
 
     /**
-     * Gets items_indices
+     * Gets itemsIndices
      *
      * @return float[]
      */
     public function getItemsIndices()
     {
-        return $this->container['items_indices'];
+        return $this->container['itemsIndices'];
     }
 
     /**
-     * Sets items_indices
+     * Sets itemsIndices
      *
-     * @param float[] $items_indices The indices in the cart items array of the bundled items
+     * @param float[] $itemsIndices The indices in the cart items array of the bundled items
      *
      * @return $this
      */
-    public function setItemsIndices($items_indices)
+    public function setItemsIndices($itemsIndices)
     {
-        $this->container['items_indices'] = $items_indices;
+        $this->container['itemsIndices'] = $itemsIndices;
 
         return $this;
     }

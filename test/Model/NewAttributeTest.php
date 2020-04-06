@@ -86,7 +86,7 @@ class NewAttributeTest extends TestCase
     }
 
     /**
-     * Test attribute "event_type"
+     * Test attribute "eventType"
      */
     public function testPropertyEventType()
     {
@@ -135,7 +135,7 @@ class NewAttributeTest extends TestCase
     }
 
     /**
-     * Test attribute "subscribed_applications_ids"
+     * Test attribute "subscribedApplicationsIds"
      */
     public function testPropertySubscribedApplicationsIds()
     {

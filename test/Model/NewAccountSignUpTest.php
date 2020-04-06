@@ -93,7 +93,7 @@ class NewAccountSignUpTest extends TestCase
     }
 
     /**
-     * Test attribute "company_name"
+     * Test attribute "companyName"
      */
     public function testPropertyCompanyName()
     {

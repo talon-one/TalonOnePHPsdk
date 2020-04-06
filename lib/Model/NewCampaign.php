@@ -59,15 +59,15 @@ class NewCampaign implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'description' => 'string',
-        'start_time' => '\DateTime',
-        'end_time' => '\DateTime',
+        'startTime' => '\DateTime',
+        'endTime' => '\DateTime',
         'attributes' => 'object',
         'state' => 'string',
-        'active_ruleset_id' => 'int',
+        'activeRulesetId' => 'int',
         'tags' => 'string[]',
         'features' => 'string[]',
-        'coupon_settings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
-        'referral_settings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
+        'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
+        'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]'
     ];
 
@@ -79,15 +79,15 @@ class NewCampaign implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'description' => null,
-        'start_time' => 'date-time',
-        'end_time' => 'date-time',
+        'startTime' => 'date-time',
+        'endTime' => 'date-time',
         'attributes' => null,
         'state' => null,
-        'active_ruleset_id' => null,
+        'activeRulesetId' => null,
         'tags' => null,
         'features' => null,
-        'coupon_settings' => null,
-        'referral_settings' => null,
+        'couponSettings' => null,
+        'referralSettings' => null,
         'limits' => null
     ];
 
@@ -120,15 +120,15 @@ class NewCampaign implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'description' => 'description',
-        'start_time' => 'startTime',
-        'end_time' => 'endTime',
+        'startTime' => 'startTime',
+        'endTime' => 'endTime',
         'attributes' => 'attributes',
         'state' => 'state',
-        'active_ruleset_id' => 'activeRulesetId',
+        'activeRulesetId' => 'activeRulesetId',
         'tags' => 'tags',
         'features' => 'features',
-        'coupon_settings' => 'couponSettings',
-        'referral_settings' => 'referralSettings',
+        'couponSettings' => 'couponSettings',
+        'referralSettings' => 'referralSettings',
         'limits' => 'limits'
     ];
 
@@ -140,15 +140,15 @@ class NewCampaign implements ModelInterface, ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'description' => 'setDescription',
-        'start_time' => 'setStartTime',
-        'end_time' => 'setEndTime',
+        'startTime' => 'setStartTime',
+        'endTime' => 'setEndTime',
         'attributes' => 'setAttributes',
         'state' => 'setState',
-        'active_ruleset_id' => 'setActiveRulesetId',
+        'activeRulesetId' => 'setActiveRulesetId',
         'tags' => 'setTags',
         'features' => 'setFeatures',
-        'coupon_settings' => 'setCouponSettings',
-        'referral_settings' => 'setReferralSettings',
+        'couponSettings' => 'setCouponSettings',
+        'referralSettings' => 'setReferralSettings',
         'limits' => 'setLimits'
     ];
 
@@ -160,15 +160,15 @@ class NewCampaign implements ModelInterface, ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'description' => 'getDescription',
-        'start_time' => 'getStartTime',
-        'end_time' => 'getEndTime',
+        'startTime' => 'getStartTime',
+        'endTime' => 'getEndTime',
         'attributes' => 'getAttributes',
         'state' => 'getState',
-        'active_ruleset_id' => 'getActiveRulesetId',
+        'activeRulesetId' => 'getActiveRulesetId',
         'tags' => 'getTags',
         'features' => 'getFeatures',
-        'coupon_settings' => 'getCouponSettings',
-        'referral_settings' => 'getReferralSettings',
+        'couponSettings' => 'getCouponSettings',
+        'referralSettings' => 'getReferralSettings',
         'limits' => 'getLimits'
     ];
 
@@ -268,15 +268,15 @@ class NewCampaign implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
-        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
+        $this->container['endTime'] = isset($data['endTime']) ? $data['endTime'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'enabled';
-        $this->container['active_ruleset_id'] = isset($data['active_ruleset_id']) ? $data['active_ruleset_id'] : null;
+        $this->container['activeRulesetId'] = isset($data['activeRulesetId']) ? $data['activeRulesetId'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['features'] = isset($data['features']) ? $data['features'] : null;
-        $this->container['coupon_settings'] = isset($data['coupon_settings']) ? $data['coupon_settings'] : null;
-        $this->container['referral_settings'] = isset($data['referral_settings']) ? $data['referral_settings'] : null;
+        $this->container['couponSettings'] = isset($data['couponSettings']) ? $data['couponSettings'] : null;
+        $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
     }
 
@@ -385,49 +385,49 @@ class NewCampaign implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets start_time
+     * Gets startTime
      *
      * @return \DateTime|null
      */
     public function getStartTime()
     {
-        return $this->container['start_time'];
+        return $this->container['startTime'];
     }
 
     /**
-     * Sets start_time
+     * Sets startTime
      *
-     * @param \DateTime|null $start_time Datetime when the campaign will become active.
+     * @param \DateTime|null $startTime Datetime when the campaign will become active.
      *
      * @return $this
      */
-    public function setStartTime($start_time)
+    public function setStartTime($startTime)
     {
-        $this->container['start_time'] = $start_time;
+        $this->container['startTime'] = $startTime;
 
         return $this;
     }
 
     /**
-     * Gets end_time
+     * Gets endTime
      *
      * @return \DateTime|null
      */
     public function getEndTime()
     {
-        return $this->container['end_time'];
+        return $this->container['endTime'];
     }
 
     /**
-     * Sets end_time
+     * Sets endTime
      *
-     * @param \DateTime|null $end_time Datetime when the campaign will become in-active.
+     * @param \DateTime|null $endTime Datetime when the campaign will become in-active.
      *
      * @return $this
      */
-    public function setEndTime($end_time)
+    public function setEndTime($endTime)
     {
-        $this->container['end_time'] = $end_time;
+        $this->container['endTime'] = $endTime;
 
         return $this;
     }
@@ -490,25 +490,25 @@ class NewCampaign implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets active_ruleset_id
+     * Gets activeRulesetId
      *
      * @return int|null
      */
     public function getActiveRulesetId()
     {
-        return $this->container['active_ruleset_id'];
+        return $this->container['activeRulesetId'];
     }
 
     /**
-     * Sets active_ruleset_id
+     * Sets activeRulesetId
      *
-     * @param int|null $active_ruleset_id ID of Ruleset this campaign applies on customer session evaluation.
+     * @param int|null $activeRulesetId ID of Ruleset this campaign applies on customer session evaluation.
      *
      * @return $this
      */
-    public function setActiveRulesetId($active_ruleset_id)
+    public function setActiveRulesetId($activeRulesetId)
     {
-        $this->container['active_ruleset_id'] = $active_ruleset_id;
+        $this->container['activeRulesetId'] = $activeRulesetId;
 
         return $this;
     }
@@ -571,49 +571,49 @@ class NewCampaign implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets coupon_settings
+     * Gets couponSettings
      *
      * @return \TalonOne\Client\Model\CodeGeneratorSettings|null
      */
     public function getCouponSettings()
     {
-        return $this->container['coupon_settings'];
+        return $this->container['couponSettings'];
     }
 
     /**
-     * Sets coupon_settings
+     * Sets couponSettings
      *
-     * @param \TalonOne\Client\Model\CodeGeneratorSettings|null $coupon_settings coupon_settings
+     * @param \TalonOne\Client\Model\CodeGeneratorSettings|null $couponSettings couponSettings
      *
      * @return $this
      */
-    public function setCouponSettings($coupon_settings)
+    public function setCouponSettings($couponSettings)
     {
-        $this->container['coupon_settings'] = $coupon_settings;
+        $this->container['couponSettings'] = $couponSettings;
 
         return $this;
     }
 
     /**
-     * Gets referral_settings
+     * Gets referralSettings
      *
      * @return \TalonOne\Client\Model\CodeGeneratorSettings|null
      */
     public function getReferralSettings()
     {
-        return $this->container['referral_settings'];
+        return $this->container['referralSettings'];
     }
 
     /**
-     * Sets referral_settings
+     * Sets referralSettings
      *
-     * @param \TalonOne\Client\Model\CodeGeneratorSettings|null $referral_settings referral_settings
+     * @param \TalonOne\Client\Model\CodeGeneratorSettings|null $referralSettings referralSettings
      *
      * @return $this
      */
-    public function setReferralSettings($referral_settings)
+    public function setReferralSettings($referralSettings)
     {
-        $this->container['referral_settings'] = $referral_settings;
+        $this->container['referralSettings'] = $referralSettings;
 
         return $this;
     }

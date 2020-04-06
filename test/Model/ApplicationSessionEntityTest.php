@@ -79,7 +79,7 @@ class ApplicationSessionEntityTest extends TestCase
     }
 
     /**
-     * Test attribute "session_id"
+     * Test attribute "sessionId"
      */
     public function testPropertySessionId()
     {

@@ -86,14 +86,14 @@ class ApplicationCustomerSearchTest extends TestCase
     }
 
     /**
-     * Test attribute "integration_i_ds"
+     * Test attribute "integrationIDs"
      */
     public function testPropertyIntegrationIDs()
     {
     }
 
     /**
-     * Test attribute "profile_i_ds"
+     * Test attribute "profileIDs"
      */
     public function testPropertyProfileIDs()
     {

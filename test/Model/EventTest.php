@@ -93,14 +93,14 @@ class EventTest extends TestCase
     }
 
     /**
-     * Test attribute "application_id"
+     * Test attribute "applicationId"
      */
     public function testPropertyApplicationId()
     {
     }
 
     /**
-     * Test attribute "profile_id"
+     * Test attribute "profileId"
      */
     public function testPropertyProfileId()
     {
@@ -121,7 +121,7 @@ class EventTest extends TestCase
     }
 
     /**
-     * Test attribute "session_id"
+     * Test attribute "sessionId"
      */
     public function testPropertySessionId()
     {
@@ -135,7 +135,7 @@ class EventTest extends TestCase
     }
 
     /**
-     * Test attribute "ledger_entries"
+     * Test attribute "ledgerEntries"
      */
     public function testPropertyLedgerEntries()
     {

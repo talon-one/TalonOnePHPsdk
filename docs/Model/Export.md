@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Unique ID for this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
-**account_id** | **int** | The ID of the account that owns this entity. | 
-**user_id** | **int** | The ID of the account that owns this entity. | 
+**accountId** | **int** | The ID of the account that owns this entity. | 
+**userId** | **int** | The ID of the account that owns this entity. | 
 **entity** | **string** | The name of the entity that was exported. | 
 **filter** | [**object**](.md) | Map of keys and values that were used to filter the exported rows | 
 

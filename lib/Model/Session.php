@@ -57,7 +57,7 @@ class Session implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'user_id' => 'int',
+        'userId' => 'int',
         'token' => 'string',
         'created' => '\DateTime'
     ];
@@ -68,7 +68,7 @@ class Session implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'user_id' => null,
+        'userId' => null,
         'token' => null,
         'created' => 'date-time'
     ];
@@ -100,7 +100,7 @@ class Session implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_id' => 'userId',
+        'userId' => 'userId',
         'token' => 'token',
         'created' => 'created'
     ];
@@ -111,7 +111,7 @@ class Session implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'user_id' => 'setUserId',
+        'userId' => 'setUserId',
         'token' => 'setToken',
         'created' => 'setCreated'
     ];
@@ -122,7 +122,7 @@ class Session implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'user_id' => 'getUserId',
+        'userId' => 'getUserId',
         'token' => 'getToken',
         'created' => 'getCreated'
     ];
@@ -187,7 +187,7 @@ class Session implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
         $this->container['token'] = isset($data['token']) ? $data['token'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
     }
@@ -201,8 +201,8 @@ class Session implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
+        if ($this->container['userId'] === null) {
+            $invalidProperties[] = "'userId' can't be null";
         }
         if ($this->container['token'] === null) {
             $invalidProperties[] = "'token' can't be null";
@@ -226,25 +226,25 @@ class Session implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets user_id
+     * Gets userId
      *
      * @return int
      */
     public function getUserId()
     {
-        return $this->container['user_id'];
+        return $this->container['userId'];
     }
 
     /**
-     * Sets user_id
+     * Sets userId
      *
-     * @param int $user_id The ID of the user of this session
+     * @param int $userId The ID of the user of this session
      *
      * @return $this
      */
-    public function setUserId($user_id)
+    public function setUserId($userId)
     {
-        $this->container['user_id'] = $user_id;
+        $this->container['userId'] = $userId;
 
         return $this;
     }

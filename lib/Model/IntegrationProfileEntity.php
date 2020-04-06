@@ -57,7 +57,7 @@ class IntegrationProfileEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profile_id' => 'string'
+        'profileId' => 'string'
     ];
 
     /**
@@ -66,7 +66,7 @@ class IntegrationProfileEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'profile_id' => null
+        'profileId' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class IntegrationProfileEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'profile_id' => 'profileId'
+        'profileId' => 'profileId'
     ];
 
     /**
@@ -105,7 +105,7 @@ class IntegrationProfileEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'profile_id' => 'setProfileId'
+        'profileId' => 'setProfileId'
     ];
 
     /**
@@ -114,7 +114,7 @@ class IntegrationProfileEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'profile_id' => 'getProfileId'
+        'profileId' => 'getProfileId'
     ];
 
     /**
@@ -177,7 +177,7 @@ class IntegrationProfileEntity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['profile_id'] = isset($data['profile_id']) ? $data['profile_id'] : null;
+        $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
     }
 
     /**
@@ -205,25 +205,25 @@ class IntegrationProfileEntity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets profile_id
+     * Gets profileId
      *
      * @return string|null
      */
     public function getProfileId()
     {
-        return $this->container['profile_id'];
+        return $this->container['profileId'];
     }
 
     /**
-     * Sets profile_id
+     * Sets profileId
      *
-     * @param string|null $profile_id ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+     * @param string|null $profileId ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
      *
      * @return $this
      */
-    public function setProfileId($profile_id)
+    public function setProfileId($profileId)
     {
-        $this->container['profile_id'] = $profile_id;
+        $this->container['profileId'] = $profileId;
 
         return $this;
     }

@@ -59,15 +59,15 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'created' => '\DateTime',
-        'program_id' => 'int',
-        'customer_profile_id' => 'string',
-        'customer_session_id' => 'string',
-        'event_id' => 'int',
+        'programID' => 'int',
+        'customerProfileID' => 'string',
+        'customerSessionID' => 'string',
+        'eventID' => 'int',
         'type' => 'string',
         'amount' => 'float',
-        'expiry_date' => '\DateTime',
+        'expiryDate' => '\DateTime',
         'name' => 'string',
-        'sub_ledger_id' => 'string'
+        'subLedgerID' => 'string'
     ];
 
     /**
@@ -77,15 +77,15 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'created' => 'date-time',
-        'program_id' => null,
-        'customer_profile_id' => null,
-        'customer_session_id' => null,
-        'event_id' => null,
+        'programID' => null,
+        'customerProfileID' => null,
+        'customerSessionID' => null,
+        'eventID' => null,
         'type' => null,
         'amount' => null,
-        'expiry_date' => 'date-time',
+        'expiryDate' => 'date-time',
         'name' => null,
-        'sub_ledger_id' => null
+        'subLedgerID' => null
     ];
 
     /**
@@ -116,15 +116,15 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'created' => 'created',
-        'program_id' => 'programID',
-        'customer_profile_id' => 'customerProfileID',
-        'customer_session_id' => 'customerSessionID',
-        'event_id' => 'eventID',
+        'programID' => 'programID',
+        'customerProfileID' => 'customerProfileID',
+        'customerSessionID' => 'customerSessionID',
+        'eventID' => 'eventID',
         'type' => 'type',
         'amount' => 'amount',
-        'expiry_date' => 'expiryDate',
+        'expiryDate' => 'expiryDate',
         'name' => 'name',
-        'sub_ledger_id' => 'subLedgerID'
+        'subLedgerID' => 'subLedgerID'
     ];
 
     /**
@@ -134,15 +134,15 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'created' => 'setCreated',
-        'program_id' => 'setProgramId',
-        'customer_profile_id' => 'setCustomerProfileId',
-        'customer_session_id' => 'setCustomerSessionId',
-        'event_id' => 'setEventId',
+        'programID' => 'setProgramID',
+        'customerProfileID' => 'setCustomerProfileID',
+        'customerSessionID' => 'setCustomerSessionID',
+        'eventID' => 'setEventID',
         'type' => 'setType',
         'amount' => 'setAmount',
-        'expiry_date' => 'setExpiryDate',
+        'expiryDate' => 'setExpiryDate',
         'name' => 'setName',
-        'sub_ledger_id' => 'setSubLedgerId'
+        'subLedgerID' => 'setSubLedgerID'
     ];
 
     /**
@@ -152,15 +152,15 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'created' => 'getCreated',
-        'program_id' => 'getProgramId',
-        'customer_profile_id' => 'getCustomerProfileId',
-        'customer_session_id' => 'getCustomerSessionId',
-        'event_id' => 'getEventId',
+        'programID' => 'getProgramID',
+        'customerProfileID' => 'getCustomerProfileID',
+        'customerSessionID' => 'getCustomerSessionID',
+        'eventID' => 'getEventID',
         'type' => 'getType',
         'amount' => 'getAmount',
-        'expiry_date' => 'getExpiryDate',
+        'expiryDate' => 'getExpiryDate',
         'name' => 'getName',
-        'sub_ledger_id' => 'getSubLedgerId'
+        'subLedgerID' => 'getSubLedgerID'
     ];
 
     /**
@@ -239,15 +239,15 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['program_id'] = isset($data['program_id']) ? $data['program_id'] : null;
-        $this->container['customer_profile_id'] = isset($data['customer_profile_id']) ? $data['customer_profile_id'] : null;
-        $this->container['customer_session_id'] = isset($data['customer_session_id']) ? $data['customer_session_id'] : null;
-        $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
+        $this->container['programID'] = isset($data['programID']) ? $data['programID'] : null;
+        $this->container['customerProfileID'] = isset($data['customerProfileID']) ? $data['customerProfileID'] : null;
+        $this->container['customerSessionID'] = isset($data['customerSessionID']) ? $data['customerSessionID'] : null;
+        $this->container['eventID'] = isset($data['eventID']) ? $data['eventID'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['expiry_date'] = isset($data['expiry_date']) ? $data['expiry_date'] : null;
+        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['sub_ledger_id'] = isset($data['sub_ledger_id']) ? $data['sub_ledger_id'] : null;
+        $this->container['subLedgerID'] = isset($data['subLedgerID']) ? $data['subLedgerID'] : null;
     }
 
     /**
@@ -262,11 +262,11 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['program_id'] === null) {
-            $invalidProperties[] = "'program_id' can't be null";
+        if ($this->container['programID'] === null) {
+            $invalidProperties[] = "'programID' can't be null";
         }
-        if ($this->container['customer_profile_id'] === null) {
-            $invalidProperties[] = "'customer_profile_id' can't be null";
+        if ($this->container['customerProfileID'] === null) {
+            $invalidProperties[] = "'customerProfileID' can't be null";
         }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
@@ -285,8 +285,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['sub_ledger_id'] === null) {
-            $invalidProperties[] = "'sub_ledger_id' can't be null";
+        if ($this->container['subLedgerID'] === null) {
+            $invalidProperties[] = "'subLedgerID' can't be null";
         }
         return $invalidProperties;
     }
@@ -328,97 +328,97 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets program_id
+     * Gets programID
      *
      * @return int
      */
-    public function getProgramId()
+    public function getProgramID()
     {
-        return $this->container['program_id'];
+        return $this->container['programID'];
     }
 
     /**
-     * Sets program_id
+     * Sets programID
      *
-     * @param int $program_id program_id
+     * @param int $programID programID
      *
      * @return $this
      */
-    public function setProgramId($program_id)
+    public function setProgramID($programID)
     {
-        $this->container['program_id'] = $program_id;
+        $this->container['programID'] = $programID;
 
         return $this;
     }
 
     /**
-     * Gets customer_profile_id
+     * Gets customerProfileID
      *
      * @return string
      */
-    public function getCustomerProfileId()
+    public function getCustomerProfileID()
     {
-        return $this->container['customer_profile_id'];
+        return $this->container['customerProfileID'];
     }
 
     /**
-     * Sets customer_profile_id
+     * Sets customerProfileID
      *
-     * @param string $customer_profile_id customer_profile_id
+     * @param string $customerProfileID customerProfileID
      *
      * @return $this
      */
-    public function setCustomerProfileId($customer_profile_id)
+    public function setCustomerProfileID($customerProfileID)
     {
-        $this->container['customer_profile_id'] = $customer_profile_id;
+        $this->container['customerProfileID'] = $customerProfileID;
 
         return $this;
     }
 
     /**
-     * Gets customer_session_id
+     * Gets customerSessionID
      *
      * @return string|null
      */
-    public function getCustomerSessionId()
+    public function getCustomerSessionID()
     {
-        return $this->container['customer_session_id'];
+        return $this->container['customerSessionID'];
     }
 
     /**
-     * Sets customer_session_id
+     * Sets customerSessionID
      *
-     * @param string|null $customer_session_id customer_session_id
+     * @param string|null $customerSessionID customerSessionID
      *
      * @return $this
      */
-    public function setCustomerSessionId($customer_session_id)
+    public function setCustomerSessionID($customerSessionID)
     {
-        $this->container['customer_session_id'] = $customer_session_id;
+        $this->container['customerSessionID'] = $customerSessionID;
 
         return $this;
     }
 
     /**
-     * Gets event_id
+     * Gets eventID
      *
      * @return int|null
      */
-    public function getEventId()
+    public function getEventID()
     {
-        return $this->container['event_id'];
+        return $this->container['eventID'];
     }
 
     /**
-     * Sets event_id
+     * Sets eventID
      *
-     * @param int|null $event_id event_id
+     * @param int|null $eventID eventID
      *
      * @return $this
      */
-    public function setEventId($event_id)
+    public function setEventID($eventID)
     {
-        $this->container['event_id'] = $event_id;
+        $this->container['eventID'] = $eventID;
 
         return $this;
     }
@@ -481,25 +481,25 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets expiry_date
+     * Gets expiryDate
      *
      * @return \DateTime|null
      */
     public function getExpiryDate()
     {
-        return $this->container['expiry_date'];
+        return $this->container['expiryDate'];
     }
 
     /**
-     * Sets expiry_date
+     * Sets expiryDate
      *
-     * @param \DateTime|null $expiry_date expiry_date
+     * @param \DateTime|null $expiryDate expiryDate
      *
      * @return $this
      */
-    public function setExpiryDate($expiry_date)
+    public function setExpiryDate($expiryDate)
     {
-        $this->container['expiry_date'] = $expiry_date;
+        $this->container['expiryDate'] = $expiryDate;
 
         return $this;
     }
@@ -529,25 +529,25 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets sub_ledger_id
+     * Gets subLedgerID
      *
      * @return string
      */
-    public function getSubLedgerId()
+    public function getSubLedgerID()
     {
-        return $this->container['sub_ledger_id'];
+        return $this->container['subLedgerID'];
     }
 
     /**
-     * Sets sub_ledger_id
+     * Sets subLedgerID
      *
-     * @param string $sub_ledger_id This specifies if we are adding loyalty points to the main ledger or a subledger
+     * @param string $subLedgerID This specifies if we are adding loyalty points to the main ledger or a subledger
      *
      * @return $this
      */
-    public function setSubLedgerId($sub_ledger_id)
+    public function setSubLedgerID($subLedgerID)
     {
-        $this->container['sub_ledger_id'] = $sub_ledger_id;
+        $this->container['subLedgerID'] = $subLedgerID;
 
         return $this;
     }

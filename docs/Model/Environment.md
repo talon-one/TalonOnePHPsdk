@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Unique ID for this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
-**application_id** | **int** | The ID of the application that owns this entity. | 
+**applicationId** | **int** | The ID of the application that owns this entity. | 
 **slots** | [**\TalonOne\Client\Model\SlotDef[]**](SlotDef.md) | The slots defined for this application. | 
 **functions** | [**\TalonOne\Client\Model\FunctionDef[]**](FunctionDef.md) | The functions defined for this application. | 
 **templates** | [**\TalonOne\Client\Model\TemplateDef[]**](TemplateDef.md) | The templates defined for this application. | 

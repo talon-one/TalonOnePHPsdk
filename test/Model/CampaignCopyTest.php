@@ -86,7 +86,7 @@ class CampaignCopyTest extends TestCase
     }
 
     /**
-     * Test attribute "application_ids"
+     * Test attribute "applicationIds"
      */
     public function testPropertyApplicationIds()
     {
@@ -100,14 +100,14 @@ class CampaignCopyTest extends TestCase
     }
 
     /**
-     * Test attribute "start_time"
+     * Test attribute "startTime"
      */
     public function testPropertyStartTime()
     {
     }
 
     /**
-     * Test attribute "end_time"
+     * Test attribute "endTime"
      */
     public function testPropertyEndTime()
     {

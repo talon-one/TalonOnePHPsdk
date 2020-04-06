@@ -79,7 +79,7 @@ class InlineResponse2007Test extends TestCase
     }
 
     /**
-     * Test attribute "has_more"
+     * Test attribute "hasMore"
      */
     public function testPropertyHasMore()
     {

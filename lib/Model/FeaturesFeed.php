@@ -59,7 +59,7 @@ class FeaturesFeed implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'title' => 'string',
-        'pub_date' => 'string'
+        'pubDate' => 'string'
     ];
 
     /**
@@ -69,7 +69,7 @@ class FeaturesFeed implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'title' => null,
-        'pub_date' => null
+        'pubDate' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class FeaturesFeed implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'title' => 'title',
-        'pub_date' => 'pubDate'
+        'pubDate' => 'pubDate'
     ];
 
     /**
@@ -110,7 +110,7 @@ class FeaturesFeed implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'title' => 'setTitle',
-        'pub_date' => 'setPubDate'
+        'pubDate' => 'setPubDate'
     ];
 
     /**
@@ -120,7 +120,7 @@ class FeaturesFeed implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'title' => 'getTitle',
-        'pub_date' => 'getPubDate'
+        'pubDate' => 'getPubDate'
     ];
 
     /**
@@ -184,7 +184,7 @@ class FeaturesFeed implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['pub_date'] = isset($data['pub_date']) ? $data['pub_date'] : null;
+        $this->container['pubDate'] = isset($data['pubDate']) ? $data['pubDate'] : null;
     }
 
     /**
@@ -236,25 +236,25 @@ class FeaturesFeed implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets pub_date
+     * Gets pubDate
      *
      * @return string|null
      */
     public function getPubDate()
     {
-        return $this->container['pub_date'];
+        return $this->container['pubDate'];
     }
 
     /**
-     * Sets pub_date
+     * Sets pubDate
      *
-     * @param string|null $pub_date pub_date
+     * @param string|null $pubDate pubDate
      *
      * @return $this
      */
-    public function setPubDate($pub_date)
+    public function setPubDate($pubDate)
     {
-        $this->container['pub_date'] = $pub_date;
+        $this->container['pubDate'] = $pubDate;
 
         return $this;
     }

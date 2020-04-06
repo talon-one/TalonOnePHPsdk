@@ -93,7 +93,7 @@ class LoyaltySubLedgerTest extends TestCase
     }
 
     /**
-     * Test attribute "expiring_points"
+     * Test attribute "expiringPoints"
      */
     public function testPropertyExpiringPoints()
     {

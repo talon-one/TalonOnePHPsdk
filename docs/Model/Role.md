@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The ID of the role corresponding to the DB row | 
-**account_id** | **int** | The ID of the Talon.One account that owns this role. | 
+**accountID** | **int** | The ID of the Talon.One account that owns this role. | 
 **name** | **string** | Name of the role | [optional] 
 **description** | **string** | Description of the role | [optional] 
 **members** | **int[]** | A list of user identifiers assigned to this role | [optional] 

@@ -86,140 +86,140 @@ class CampaignAnalyticsTest extends TestCase
     }
 
     /**
-     * Test attribute "campaign_revenue"
+     * Test attribute "campaignRevenue"
      */
     public function testPropertyCampaignRevenue()
     {
     }
 
     /**
-     * Test attribute "total_campaign_revenue"
+     * Test attribute "totalCampaignRevenue"
      */
     public function testPropertyTotalCampaignRevenue()
     {
     }
 
     /**
-     * Test attribute "campaign_refund"
+     * Test attribute "campaignRefund"
      */
     public function testPropertyCampaignRefund()
     {
     }
 
     /**
-     * Test attribute "total_campaign_refund"
+     * Test attribute "totalCampaignRefund"
      */
     public function testPropertyTotalCampaignRefund()
     {
     }
 
     /**
-     * Test attribute "campaign_discount_costs"
+     * Test attribute "campaignDiscountCosts"
      */
     public function testPropertyCampaignDiscountCosts()
     {
     }
 
     /**
-     * Test attribute "total_campaign_discount_costs"
+     * Test attribute "totalCampaignDiscountCosts"
      */
     public function testPropertyTotalCampaignDiscountCosts()
     {
     }
 
     /**
-     * Test attribute "campaign_refunded_discounts"
+     * Test attribute "campaignRefundedDiscounts"
      */
     public function testPropertyCampaignRefundedDiscounts()
     {
     }
 
     /**
-     * Test attribute "total_campaign_refunded_discounts"
+     * Test attribute "totalCampaignRefundedDiscounts"
      */
     public function testPropertyTotalCampaignRefundedDiscounts()
     {
     }
 
     /**
-     * Test attribute "campaign_free_items"
+     * Test attribute "campaignFreeItems"
      */
     public function testPropertyCampaignFreeItems()
     {
     }
 
     /**
-     * Test attribute "total_campaign_free_items"
+     * Test attribute "totalCampaignFreeItems"
      */
     public function testPropertyTotalCampaignFreeItems()
     {
     }
 
     /**
-     * Test attribute "coupon_redemptions"
+     * Test attribute "couponRedemptions"
      */
     public function testPropertyCouponRedemptions()
     {
     }
 
     /**
-     * Test attribute "total_coupon_redemptions"
+     * Test attribute "totalCouponRedemptions"
      */
     public function testPropertyTotalCouponRedemptions()
     {
     }
 
     /**
-     * Test attribute "coupon_rolledback_redemptions"
+     * Test attribute "couponRolledbackRedemptions"
      */
     public function testPropertyCouponRolledbackRedemptions()
     {
     }
 
     /**
-     * Test attribute "total_coupon_rolledback_redemptions"
+     * Test attribute "totalCouponRolledbackRedemptions"
      */
     public function testPropertyTotalCouponRolledbackRedemptions()
     {
     }
 
     /**
-     * Test attribute "referral_redemptions"
+     * Test attribute "referralRedemptions"
      */
     public function testPropertyReferralRedemptions()
     {
     }
 
     /**
-     * Test attribute "total_referral_redemptions"
+     * Test attribute "totalReferralRedemptions"
      */
     public function testPropertyTotalReferralRedemptions()
     {
     }
 
     /**
-     * Test attribute "coupons_created"
+     * Test attribute "couponsCreated"
      */
     public function testPropertyCouponsCreated()
     {
     }
 
     /**
-     * Test attribute "total_coupons_created"
+     * Test attribute "totalCouponsCreated"
      */
     public function testPropertyTotalCouponsCreated()
     {
     }
 
     /**
-     * Test attribute "referrals_created"
+     * Test attribute "referralsCreated"
      */
     public function testPropertyReferralsCreated()
     {
     }
 
     /**
-     * Test attribute "total_referrals_created"
+     * Test attribute "totalReferralsCreated"
      */
     public function testPropertyTotalReferralsCreated()
     {

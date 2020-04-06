@@ -57,7 +57,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'latest_feature' => 'string'
+        'latestFeature' => 'string'
     ];
 
     /**
@@ -66,7 +66,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'latest_feature' => null
+        'latestFeature' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'latest_feature' => 'latestFeature'
+        'latestFeature' => 'latestFeature'
     ];
 
     /**
@@ -105,7 +105,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'latest_feature' => 'setLatestFeature'
+        'latestFeature' => 'setLatestFeature'
     ];
 
     /**
@@ -114,7 +114,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'latest_feature' => 'getLatestFeature'
+        'latestFeature' => 'getLatestFeature'
     ];
 
     /**
@@ -177,7 +177,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['latest_feature'] = isset($data['latest_feature']) ? $data['latest_feature'] : null;
+        $this->container['latestFeature'] = isset($data['latestFeature']) ? $data['latestFeature'] : null;
     }
 
     /**
@@ -205,25 +205,25 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets latest_feature
+     * Gets latestFeature
      *
      * @return string|null
      */
     public function getLatestFeature()
     {
-        return $this->container['latest_feature'];
+        return $this->container['latestFeature'];
     }
 
     /**
-     * Sets latest_feature
+     * Sets latestFeature
      *
-     * @param string|null $latest_feature latest_feature
+     * @param string|null $latestFeature latestFeature
      *
      * @return $this
      */
-    public function setLatestFeature($latest_feature)
+    public function setLatestFeature($latestFeature)
     {
-        $this->container['latest_feature'] = $latest_feature;
+        $this->container['latestFeature'] = $latestFeature;
 
         return $this;
     }

@@ -59,7 +59,7 @@ class Role implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'account_id' => 'int',
+        'accountID' => 'int',
         'name' => 'string',
         'description' => 'string',
         'members' => 'int[]',
@@ -73,7 +73,7 @@ class Role implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'account_id' => null,
+        'accountID' => null,
         'name' => null,
         'description' => null,
         'members' => null,
@@ -108,7 +108,7 @@ class Role implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'account_id' => 'accountID',
+        'accountID' => 'accountID',
         'name' => 'name',
         'description' => 'description',
         'members' => 'members',
@@ -122,7 +122,7 @@ class Role implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'account_id' => 'setAccountId',
+        'accountID' => 'setAccountID',
         'name' => 'setName',
         'description' => 'setDescription',
         'members' => 'setMembers',
@@ -136,7 +136,7 @@ class Role implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'account_id' => 'getAccountId',
+        'accountID' => 'getAccountID',
         'name' => 'getName',
         'description' => 'getDescription',
         'members' => 'getMembers',
@@ -204,7 +204,7 @@ class Role implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['members'] = isset($data['members']) ? $data['members'] : null;
@@ -223,8 +223,8 @@ class Role implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountID'] === null) {
+            $invalidProperties[] = "'accountID' can't be null";
         }
         return $invalidProperties;
     }
@@ -266,25 +266,25 @@ class Role implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets account_id
+     * Gets accountID
      *
      * @return int
      */
-    public function getAccountId()
+    public function getAccountID()
     {
-        return $this->container['account_id'];
+        return $this->container['accountID'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountID
      *
-     * @param int $account_id The ID of the Talon.One account that owns this role.
+     * @param int $accountID The ID of the Talon.One account that owns this role.
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountID($accountID)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountID'] = $accountID;
 
         return $this;
     }

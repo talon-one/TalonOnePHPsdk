@@ -58,15 +58,15 @@ class NewCoupons implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'usage_limit' => 'int',
-        'start_date' => '\DateTime',
-        'expiry_date' => '\DateTime',
-        'valid_characters' => 'string[]',
-        'coupon_pattern' => 'string',
-        'number_of_coupons' => 'int',
-        'unique_prefix' => 'string',
+        'usageLimit' => 'int',
+        'startDate' => '\DateTime',
+        'expiryDate' => '\DateTime',
+        'validCharacters' => 'string[]',
+        'couponPattern' => 'string',
+        'numberOfCoupons' => 'int',
+        'uniquePrefix' => 'string',
         'attributes' => 'object',
-        'recipient_integration_id' => 'string'
+        'recipientIntegrationId' => 'string'
     ];
 
     /**
@@ -75,15 +75,15 @@ class NewCoupons implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'usage_limit' => null,
-        'start_date' => 'date-time',
-        'expiry_date' => 'date-time',
-        'valid_characters' => null,
-        'coupon_pattern' => null,
-        'number_of_coupons' => null,
-        'unique_prefix' => null,
+        'usageLimit' => null,
+        'startDate' => 'date-time',
+        'expiryDate' => 'date-time',
+        'validCharacters' => null,
+        'couponPattern' => null,
+        'numberOfCoupons' => null,
+        'uniquePrefix' => null,
         'attributes' => null,
-        'recipient_integration_id' => null
+        'recipientIntegrationId' => null
     ];
 
     /**
@@ -113,15 +113,15 @@ class NewCoupons implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'usage_limit' => 'usageLimit',
-        'start_date' => 'startDate',
-        'expiry_date' => 'expiryDate',
-        'valid_characters' => 'validCharacters',
-        'coupon_pattern' => 'couponPattern',
-        'number_of_coupons' => 'numberOfCoupons',
-        'unique_prefix' => 'uniquePrefix',
+        'usageLimit' => 'usageLimit',
+        'startDate' => 'startDate',
+        'expiryDate' => 'expiryDate',
+        'validCharacters' => 'validCharacters',
+        'couponPattern' => 'couponPattern',
+        'numberOfCoupons' => 'numberOfCoupons',
+        'uniquePrefix' => 'uniquePrefix',
         'attributes' => 'attributes',
-        'recipient_integration_id' => 'recipientIntegrationId'
+        'recipientIntegrationId' => 'recipientIntegrationId'
     ];
 
     /**
@@ -130,15 +130,15 @@ class NewCoupons implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'usage_limit' => 'setUsageLimit',
-        'start_date' => 'setStartDate',
-        'expiry_date' => 'setExpiryDate',
-        'valid_characters' => 'setValidCharacters',
-        'coupon_pattern' => 'setCouponPattern',
-        'number_of_coupons' => 'setNumberOfCoupons',
-        'unique_prefix' => 'setUniquePrefix',
+        'usageLimit' => 'setUsageLimit',
+        'startDate' => 'setStartDate',
+        'expiryDate' => 'setExpiryDate',
+        'validCharacters' => 'setValidCharacters',
+        'couponPattern' => 'setCouponPattern',
+        'numberOfCoupons' => 'setNumberOfCoupons',
+        'uniquePrefix' => 'setUniquePrefix',
         'attributes' => 'setAttributes',
-        'recipient_integration_id' => 'setRecipientIntegrationId'
+        'recipientIntegrationId' => 'setRecipientIntegrationId'
     ];
 
     /**
@@ -147,15 +147,15 @@ class NewCoupons implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'usage_limit' => 'getUsageLimit',
-        'start_date' => 'getStartDate',
-        'expiry_date' => 'getExpiryDate',
-        'valid_characters' => 'getValidCharacters',
-        'coupon_pattern' => 'getCouponPattern',
-        'number_of_coupons' => 'getNumberOfCoupons',
-        'unique_prefix' => 'getUniquePrefix',
+        'usageLimit' => 'getUsageLimit',
+        'startDate' => 'getStartDate',
+        'expiryDate' => 'getExpiryDate',
+        'validCharacters' => 'getValidCharacters',
+        'couponPattern' => 'getCouponPattern',
+        'numberOfCoupons' => 'getNumberOfCoupons',
+        'uniquePrefix' => 'getUniquePrefix',
         'attributes' => 'getAttributes',
-        'recipient_integration_id' => 'getRecipientIntegrationId'
+        'recipientIntegrationId' => 'getRecipientIntegrationId'
     ];
 
     /**
@@ -218,15 +218,15 @@ class NewCoupons implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['usage_limit'] = isset($data['usage_limit']) ? $data['usage_limit'] : null;
-        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
-        $this->container['expiry_date'] = isset($data['expiry_date']) ? $data['expiry_date'] : null;
-        $this->container['valid_characters'] = isset($data['valid_characters']) ? $data['valid_characters'] : null;
-        $this->container['coupon_pattern'] = isset($data['coupon_pattern']) ? $data['coupon_pattern'] : null;
-        $this->container['number_of_coupons'] = isset($data['number_of_coupons']) ? $data['number_of_coupons'] : null;
-        $this->container['unique_prefix'] = isset($data['unique_prefix']) ? $data['unique_prefix'] : null;
+        $this->container['usageLimit'] = isset($data['usageLimit']) ? $data['usageLimit'] : null;
+        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
+        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['validCharacters'] = isset($data['validCharacters']) ? $data['validCharacters'] : null;
+        $this->container['couponPattern'] = isset($data['couponPattern']) ? $data['couponPattern'] : null;
+        $this->container['numberOfCoupons'] = isset($data['numberOfCoupons']) ? $data['numberOfCoupons'] : null;
+        $this->container['uniquePrefix'] = isset($data['uniquePrefix']) ? $data['uniquePrefix'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['recipient_integration_id'] = isset($data['recipient_integration_id']) ? $data['recipient_integration_id'] : null;
+        $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
     }
 
     /**
@@ -238,29 +238,29 @@ class NewCoupons implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['usage_limit'] === null) {
-            $invalidProperties[] = "'usage_limit' can't be null";
+        if ($this->container['usageLimit'] === null) {
+            $invalidProperties[] = "'usageLimit' can't be null";
         }
-        if (($this->container['usage_limit'] > 999999)) {
-            $invalidProperties[] = "invalid value for 'usage_limit', must be smaller than or equal to 999999.";
-        }
-
-        if (($this->container['usage_limit'] < 0)) {
-            $invalidProperties[] = "invalid value for 'usage_limit', must be bigger than or equal to 0.";
+        if (($this->container['usageLimit'] > 999999)) {
+            $invalidProperties[] = "invalid value for 'usageLimit', must be smaller than or equal to 999999.";
         }
 
-        if ($this->container['valid_characters'] === null) {
-            $invalidProperties[] = "'valid_characters' can't be null";
-        }
-        if ($this->container['coupon_pattern'] === null) {
-            $invalidProperties[] = "'coupon_pattern' can't be null";
-        }
-        if ((mb_strlen($this->container['coupon_pattern']) < 3)) {
-            $invalidProperties[] = "invalid value for 'coupon_pattern', the character length must be bigger than or equal to 3.";
+        if (($this->container['usageLimit'] < 0)) {
+            $invalidProperties[] = "invalid value for 'usageLimit', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['number_of_coupons'] === null) {
-            $invalidProperties[] = "'number_of_coupons' can't be null";
+        if ($this->container['validCharacters'] === null) {
+            $invalidProperties[] = "'validCharacters' can't be null";
+        }
+        if ($this->container['couponPattern'] === null) {
+            $invalidProperties[] = "'couponPattern' can't be null";
+        }
+        if ((mb_strlen($this->container['couponPattern']) < 3)) {
+            $invalidProperties[] = "invalid value for 'couponPattern', the character length must be bigger than or equal to 3.";
+        }
+
+        if ($this->container['numberOfCoupons'] === null) {
+            $invalidProperties[] = "'numberOfCoupons' can't be null";
         }
         return $invalidProperties;
     }
@@ -278,182 +278,182 @@ class NewCoupons implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets usage_limit
+     * Gets usageLimit
      *
      * @return int
      */
     public function getUsageLimit()
     {
-        return $this->container['usage_limit'];
+        return $this->container['usageLimit'];
     }
 
     /**
-     * Sets usage_limit
+     * Sets usageLimit
      *
-     * @param int $usage_limit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     * @param int $usageLimit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
      *
      * @return $this
      */
-    public function setUsageLimit($usage_limit)
+    public function setUsageLimit($usageLimit)
     {
 
-        if (($usage_limit > 999999)) {
-            throw new \InvalidArgumentException('invalid value for $usage_limit when calling NewCoupons., must be smaller than or equal to 999999.');
+        if (($usageLimit > 999999)) {
+            throw new \InvalidArgumentException('invalid value for $usageLimit when calling NewCoupons., must be smaller than or equal to 999999.');
         }
-        if (($usage_limit < 0)) {
-            throw new \InvalidArgumentException('invalid value for $usage_limit when calling NewCoupons., must be bigger than or equal to 0.');
+        if (($usageLimit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $usageLimit when calling NewCoupons., must be bigger than or equal to 0.');
         }
 
-        $this->container['usage_limit'] = $usage_limit;
+        $this->container['usageLimit'] = $usageLimit;
 
         return $this;
     }
 
     /**
-     * Gets start_date
+     * Gets startDate
      *
      * @return \DateTime|null
      */
     public function getStartDate()
     {
-        return $this->container['start_date'];
+        return $this->container['startDate'];
     }
 
     /**
-     * Sets start_date
+     * Sets startDate
      *
-     * @param \DateTime|null $start_date Timestamp at which point the coupon becomes valid.
+     * @param \DateTime|null $startDate Timestamp at which point the coupon becomes valid.
      *
      * @return $this
      */
-    public function setStartDate($start_date)
+    public function setStartDate($startDate)
     {
-        $this->container['start_date'] = $start_date;
+        $this->container['startDate'] = $startDate;
 
         return $this;
     }
 
     /**
-     * Gets expiry_date
+     * Gets expiryDate
      *
      * @return \DateTime|null
      */
     public function getExpiryDate()
     {
-        return $this->container['expiry_date'];
+        return $this->container['expiryDate'];
     }
 
     /**
-     * Sets expiry_date
+     * Sets expiryDate
      *
-     * @param \DateTime|null $expiry_date Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative.
+     * @param \DateTime|null $expiryDate Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative.
      *
      * @return $this
      */
-    public function setExpiryDate($expiry_date)
+    public function setExpiryDate($expiryDate)
     {
-        $this->container['expiry_date'] = $expiry_date;
+        $this->container['expiryDate'] = $expiryDate;
 
         return $this;
     }
 
     /**
-     * Gets valid_characters
+     * Gets validCharacters
      *
      * @return string[]
      */
     public function getValidCharacters()
     {
-        return $this->container['valid_characters'];
+        return $this->container['validCharacters'];
     }
 
     /**
-     * Sets valid_characters
+     * Sets validCharacters
      *
-     * @param string[] $valid_characters Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
+     * @param string[] $validCharacters Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
      *
      * @return $this
      */
-    public function setValidCharacters($valid_characters)
+    public function setValidCharacters($validCharacters)
     {
-        $this->container['valid_characters'] = $valid_characters;
+        $this->container['validCharacters'] = $validCharacters;
 
         return $this;
     }
 
     /**
-     * Gets coupon_pattern
+     * Gets couponPattern
      *
      * @return string
      */
     public function getCouponPattern()
     {
-        return $this->container['coupon_pattern'];
+        return $this->container['couponPattern'];
     }
 
     /**
-     * Sets coupon_pattern
+     * Sets couponPattern
      *
-     * @param string $coupon_pattern The pattern that will be used to generate coupon codes. The character `#` acts as a placeholder and will be replaced by a random character from the `validCharacters` set.
+     * @param string $couponPattern The pattern that will be used to generate coupon codes. The character `#` acts as a placeholder and will be replaced by a random character from the `validCharacters` set.
      *
      * @return $this
      */
-    public function setCouponPattern($coupon_pattern)
+    public function setCouponPattern($couponPattern)
     {
 
-        if ((mb_strlen($coupon_pattern) < 3)) {
-            throw new \InvalidArgumentException('invalid length for $coupon_pattern when calling NewCoupons., must be bigger than or equal to 3.');
+        if ((mb_strlen($couponPattern) < 3)) {
+            throw new \InvalidArgumentException('invalid length for $couponPattern when calling NewCoupons., must be bigger than or equal to 3.');
         }
 
-        $this->container['coupon_pattern'] = $coupon_pattern;
+        $this->container['couponPattern'] = $couponPattern;
 
         return $this;
     }
 
     /**
-     * Gets number_of_coupons
+     * Gets numberOfCoupons
      *
      * @return int
      */
     public function getNumberOfCoupons()
     {
-        return $this->container['number_of_coupons'];
+        return $this->container['numberOfCoupons'];
     }
 
     /**
-     * Sets number_of_coupons
+     * Sets numberOfCoupons
      *
-     * @param int $number_of_coupons The number of new coupon codes to generate for the campaign. Must be at least 1.
+     * @param int $numberOfCoupons The number of new coupon codes to generate for the campaign. Must be at least 1.
      *
      * @return $this
      */
-    public function setNumberOfCoupons($number_of_coupons)
+    public function setNumberOfCoupons($numberOfCoupons)
     {
-        $this->container['number_of_coupons'] = $number_of_coupons;
+        $this->container['numberOfCoupons'] = $numberOfCoupons;
 
         return $this;
     }
 
     /**
-     * Gets unique_prefix
+     * Gets uniquePrefix
      *
      * @return string|null
      */
     public function getUniquePrefix()
     {
-        return $this->container['unique_prefix'];
+        return $this->container['uniquePrefix'];
     }
 
     /**
-     * Sets unique_prefix
+     * Sets uniquePrefix
      *
-     * @param string|null $unique_prefix A unique prefix to prepend to all generated coupons.
+     * @param string|null $uniquePrefix A unique prefix to prepend to all generated coupons.
      *
      * @return $this
      */
-    public function setUniquePrefix($unique_prefix)
+    public function setUniquePrefix($uniquePrefix)
     {
-        $this->container['unique_prefix'] = $unique_prefix;
+        $this->container['uniquePrefix'] = $uniquePrefix;
 
         return $this;
     }
@@ -483,25 +483,25 @@ class NewCoupons implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets recipient_integration_id
+     * Gets recipientIntegrationId
      *
      * @return string|null
      */
     public function getRecipientIntegrationId()
     {
-        return $this->container['recipient_integration_id'];
+        return $this->container['recipientIntegrationId'];
     }
 
     /**
-     * Sets recipient_integration_id
+     * Sets recipientIntegrationId
      *
-     * @param string|null $recipient_integration_id The integration ID for this coupon's beneficiary's profile
+     * @param string|null $recipientIntegrationId The integration ID for this coupon's beneficiary's profile
      *
      * @return $this
      */
-    public function setRecipientIntegrationId($recipient_integration_id)
+    public function setRecipientIntegrationId($recipientIntegrationId)
     {
-        $this->container['recipient_integration_id'] = $recipient_integration_id;
+        $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;
     }

@@ -57,7 +57,7 @@ class CouponReservations implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'integration_i_ds' => 'string[]'
+        'integrationIDs' => 'string[]'
     ];
 
     /**
@@ -66,7 +66,7 @@ class CouponReservations implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'integration_i_ds' => null
+        'integrationIDs' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class CouponReservations implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'integration_i_ds' => 'integrationIDs'
+        'integrationIDs' => 'integrationIDs'
     ];
 
     /**
@@ -105,7 +105,7 @@ class CouponReservations implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'integration_i_ds' => 'setIntegrationIDs'
+        'integrationIDs' => 'setIntegrationIDs'
     ];
 
     /**
@@ -114,7 +114,7 @@ class CouponReservations implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'integration_i_ds' => 'getIntegrationIDs'
+        'integrationIDs' => 'getIntegrationIDs'
     ];
 
     /**
@@ -177,7 +177,7 @@ class CouponReservations implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['integration_i_ds'] = isset($data['integration_i_ds']) ? $data['integration_i_ds'] : null;
+        $this->container['integrationIDs'] = isset($data['integrationIDs']) ? $data['integrationIDs'] : null;
     }
 
     /**
@@ -189,8 +189,8 @@ class CouponReservations implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['integration_i_ds'] === null) {
-            $invalidProperties[] = "'integration_i_ds' can't be null";
+        if ($this->container['integrationIDs'] === null) {
+            $invalidProperties[] = "'integrationIDs' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,25 +208,25 @@ class CouponReservations implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets integration_i_ds
+     * Gets integrationIDs
      *
      * @return string[]
      */
     public function getIntegrationIDs()
     {
-        return $this->container['integration_i_ds'];
+        return $this->container['integrationIDs'];
     }
 
     /**
-     * Sets integration_i_ds
+     * Sets integrationIDs
      *
-     * @param string[] $integration_i_ds List of Integration IDs
+     * @param string[] $integrationIDs List of Integration IDs
      *
      * @return $this
      */
-    public function setIntegrationIDs($integration_i_ds)
+    public function setIntegrationIDs($integrationIDs)
     {
-        $this->container['integration_i_ds'] = $integration_i_ds;
+        $this->container['integrationIDs'] = $integrationIDs;
 
         return $this;
     }

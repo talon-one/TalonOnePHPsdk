@@ -59,13 +59,13 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'account_id' => 'int',
+        'accountID' => 'int',
         'name' => 'string',
         'title' => 'string',
         'description' => 'string',
-        'subscribed_applications' => 'int[]',
-        'default_validity' => 'string',
-        'allow_subledger' => 'bool'
+        'subscribedApplications' => 'int[]',
+        'defaultValidity' => 'string',
+        'allowSubledger' => 'bool'
     ];
 
     /**
@@ -75,13 +75,13 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'account_id' => null,
+        'accountID' => null,
         'name' => null,
         'title' => null,
         'description' => null,
-        'subscribed_applications' => null,
-        'default_validity' => null,
-        'allow_subledger' => null
+        'subscribedApplications' => null,
+        'defaultValidity' => null,
+        'allowSubledger' => null
     ];
 
     /**
@@ -112,13 +112,13 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'account_id' => 'accountID',
+        'accountID' => 'accountID',
         'name' => 'name',
         'title' => 'title',
         'description' => 'description',
-        'subscribed_applications' => 'subscribedApplications',
-        'default_validity' => 'defaultValidity',
-        'allow_subledger' => 'allowSubledger'
+        'subscribedApplications' => 'subscribedApplications',
+        'defaultValidity' => 'defaultValidity',
+        'allowSubledger' => 'allowSubledger'
     ];
 
     /**
@@ -128,13 +128,13 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'account_id' => 'setAccountId',
+        'accountID' => 'setAccountID',
         'name' => 'setName',
         'title' => 'setTitle',
         'description' => 'setDescription',
-        'subscribed_applications' => 'setSubscribedApplications',
-        'default_validity' => 'setDefaultValidity',
-        'allow_subledger' => 'setAllowSubledger'
+        'subscribedApplications' => 'setSubscribedApplications',
+        'defaultValidity' => 'setDefaultValidity',
+        'allowSubledger' => 'setAllowSubledger'
     ];
 
     /**
@@ -144,13 +144,13 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'account_id' => 'getAccountId',
+        'accountID' => 'getAccountID',
         'name' => 'getName',
         'title' => 'getTitle',
         'description' => 'getDescription',
-        'subscribed_applications' => 'getSubscribedApplications',
-        'default_validity' => 'getDefaultValidity',
-        'allow_subledger' => 'getAllowSubledger'
+        'subscribedApplications' => 'getSubscribedApplications',
+        'defaultValidity' => 'getDefaultValidity',
+        'allowSubledger' => 'getAllowSubledger'
     ];
 
     /**
@@ -214,13 +214,13 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['subscribed_applications'] = isset($data['subscribed_applications']) ? $data['subscribed_applications'] : null;
-        $this->container['default_validity'] = isset($data['default_validity']) ? $data['default_validity'] : null;
-        $this->container['allow_subledger'] = isset($data['allow_subledger']) ? $data['allow_subledger'] : null;
+        $this->container['subscribedApplications'] = isset($data['subscribedApplications']) ? $data['subscribedApplications'] : null;
+        $this->container['defaultValidity'] = isset($data['defaultValidity']) ? $data['defaultValidity'] : null;
+        $this->container['allowSubledger'] = isset($data['allowSubledger']) ? $data['allowSubledger'] : null;
     }
 
     /**
@@ -235,8 +235,8 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountID'] === null) {
+            $invalidProperties[] = "'accountID' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
@@ -247,14 +247,14 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         if ($this->container['description'] === null) {
             $invalidProperties[] = "'description' can't be null";
         }
-        if ($this->container['subscribed_applications'] === null) {
-            $invalidProperties[] = "'subscribed_applications' can't be null";
+        if ($this->container['subscribedApplications'] === null) {
+            $invalidProperties[] = "'subscribedApplications' can't be null";
         }
-        if ($this->container['default_validity'] === null) {
-            $invalidProperties[] = "'default_validity' can't be null";
+        if ($this->container['defaultValidity'] === null) {
+            $invalidProperties[] = "'defaultValidity' can't be null";
         }
-        if ($this->container['allow_subledger'] === null) {
-            $invalidProperties[] = "'allow_subledger' can't be null";
+        if ($this->container['allowSubledger'] === null) {
+            $invalidProperties[] = "'allowSubledger' can't be null";
         }
         return $invalidProperties;
     }
@@ -296,25 +296,25 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets account_id
+     * Gets accountID
      *
      * @return int
      */
-    public function getAccountId()
+    public function getAccountID()
     {
-        return $this->container['account_id'];
+        return $this->container['accountID'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountID
      *
-     * @param int $account_id The ID of the Talon.One account that owns this program.
+     * @param int $accountID The ID of the Talon.One account that owns this program.
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountID($accountID)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountID'] = $accountID;
 
         return $this;
     }
@@ -392,73 +392,73 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets subscribed_applications
+     * Gets subscribedApplications
      *
      * @return int[]
      */
     public function getSubscribedApplications()
     {
-        return $this->container['subscribed_applications'];
+        return $this->container['subscribedApplications'];
     }
 
     /**
-     * Sets subscribed_applications
+     * Sets subscribedApplications
      *
-     * @param int[] $subscribed_applications A list containing the IDs of all applications that are subscribed to this Loyalty Program.
+     * @param int[] $subscribedApplications A list containing the IDs of all applications that are subscribed to this Loyalty Program.
      *
      * @return $this
      */
-    public function setSubscribedApplications($subscribed_applications)
+    public function setSubscribedApplications($subscribedApplications)
     {
-        $this->container['subscribed_applications'] = $subscribed_applications;
+        $this->container['subscribedApplications'] = $subscribedApplications;
 
         return $this;
     }
 
     /**
-     * Gets default_validity
+     * Gets defaultValidity
      *
      * @return string
      */
     public function getDefaultValidity()
     {
-        return $this->container['default_validity'];
+        return $this->container['defaultValidity'];
     }
 
     /**
-     * Sets default_validity
+     * Sets defaultValidity
      *
-     * @param string $default_validity Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m' or '30d'.
+     * @param string $defaultValidity Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m' or '30d'.
      *
      * @return $this
      */
-    public function setDefaultValidity($default_validity)
+    public function setDefaultValidity($defaultValidity)
     {
-        $this->container['default_validity'] = $default_validity;
+        $this->container['defaultValidity'] = $defaultValidity;
 
         return $this;
     }
 
     /**
-     * Gets allow_subledger
+     * Gets allowSubledger
      *
      * @return bool
      */
     public function getAllowSubledger()
     {
-        return $this->container['allow_subledger'];
+        return $this->container['allowSubledger'];
     }
 
     /**
-     * Sets allow_subledger
+     * Sets allowSubledger
      *
-     * @param bool $allow_subledger Indicates if this program supports subledgers inside the program
+     * @param bool $allowSubledger Indicates if this program supports subledgers inside the program
      *
      * @return $this
      */
-    public function setAllowSubledger($allow_subledger)
+    public function setAllowSubledger($allowSubledger)
     {
-        $this->container['allow_subledger'] = $allow_subledger;
+        $this->container['allowSubledger'] = $allowSubledger;
 
         return $this;
     }

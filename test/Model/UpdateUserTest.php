@@ -100,14 +100,14 @@ class UpdateUserTest extends TestCase
     }
 
     /**
-     * Test attribute "release_update"
+     * Test attribute "releaseUpdate"
      */
     public function testPropertyReleaseUpdate()
     {
     }
 
     /**
-     * Test attribute "latest_feature"
+     * Test attribute "latestFeature"
      */
     public function testPropertyLatestFeature()
     {
@@ -121,7 +121,7 @@ class UpdateUserTest extends TestCase
     }
 
     /**
-     * Test attribute "application_notification_subscriptions"
+     * Test attribute "applicationNotificationSubscriptions"
      */
     public function testPropertyApplicationNotificationSubscriptions()
     {

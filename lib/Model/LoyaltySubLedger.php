@@ -60,7 +60,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'total' => 'float',
         'transactions' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
-        'expiring_points' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]'
+        'expiringPoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]'
     ];
 
     /**
@@ -71,7 +71,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'total' => null,
         'transactions' => null,
-        'expiring_points' => null
+        'expiringPoints' => null
     ];
 
     /**
@@ -103,7 +103,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'total' => 'total',
         'transactions' => 'transactions',
-        'expiring_points' => 'expiringPoints'
+        'expiringPoints' => 'expiringPoints'
     ];
 
     /**
@@ -114,7 +114,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     protected static $setters = [
         'total' => 'setTotal',
         'transactions' => 'setTransactions',
-        'expiring_points' => 'setExpiringPoints'
+        'expiringPoints' => 'setExpiringPoints'
     ];
 
     /**
@@ -125,7 +125,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     protected static $getters = [
         'total' => 'getTotal',
         'transactions' => 'getTransactions',
-        'expiring_points' => 'getExpiringPoints'
+        'expiringPoints' => 'getExpiringPoints'
     ];
 
     /**
@@ -190,7 +190,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     {
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['transactions'] = isset($data['transactions']) ? $data['transactions'] : null;
-        $this->container['expiring_points'] = isset($data['expiring_points']) ? $data['expiring_points'] : null;
+        $this->container['expiringPoints'] = isset($data['expiringPoints']) ? $data['expiringPoints'] : null;
     }
 
     /**
@@ -269,25 +269,25 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets expiring_points
+     * Gets expiringPoints
      *
      * @return \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null
      */
     public function getExpiringPoints()
     {
-        return $this->container['expiring_points'];
+        return $this->container['expiringPoints'];
     }
 
     /**
-     * Sets expiring_points
+     * Sets expiringPoints
      *
-     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $expiring_points ExpiringPoints contains a list of all points that will expiry and when
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $expiringPoints ExpiringPoints contains a list of all points that will expiry and when
      *
      * @return $this
      */
-    public function setExpiringPoints($expiring_points)
+    public function setExpiringPoints($expiringPoints)
     {
-        $this->container['expiring_points'] = $expiring_points;
+        $this->container['expiringPoints'] = $expiringPoints;
 
         return $this;
     }

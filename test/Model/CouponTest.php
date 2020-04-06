@@ -93,7 +93,7 @@ class CouponTest extends TestCase
     }
 
     /**
-     * Test attribute "campaign_id"
+     * Test attribute "campaignId"
      */
     public function testPropertyCampaignId()
     {
@@ -107,28 +107,28 @@ class CouponTest extends TestCase
     }
 
     /**
-     * Test attribute "usage_limit"
+     * Test attribute "usageLimit"
      */
     public function testPropertyUsageLimit()
     {
     }
 
     /**
-     * Test attribute "start_date"
+     * Test attribute "startDate"
      */
     public function testPropertyStartDate()
     {
     }
 
     /**
-     * Test attribute "expiry_date"
+     * Test attribute "expiryDate"
      */
     public function testPropertyExpiryDate()
     {
     }
 
     /**
-     * Test attribute "usage_counter"
+     * Test attribute "usageCounter"
      */
     public function testPropertyUsageCounter()
     {
@@ -142,21 +142,21 @@ class CouponTest extends TestCase
     }
 
     /**
-     * Test attribute "referral_id"
+     * Test attribute "referralId"
      */
     public function testPropertyReferralId()
     {
     }
 
     /**
-     * Test attribute "recipient_integration_id"
+     * Test attribute "recipientIntegrationId"
      */
     public function testPropertyRecipientIntegrationId()
     {
     }
 
     /**
-     * Test attribute "import_id"
+     * Test attribute "importId"
      */
     public function testPropertyImportId()
     {
@@ -170,7 +170,7 @@ class CouponTest extends TestCase
     }
 
     /**
-     * Test attribute "batch_id"
+     * Test attribute "batchId"
      */
     public function testPropertyBatchId()
     {

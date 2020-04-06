@@ -93,21 +93,21 @@ class ApplicationEventTest extends TestCase
     }
 
     /**
-     * Test attribute "application_id"
+     * Test attribute "applicationId"
      */
     public function testPropertyApplicationId()
     {
     }
 
     /**
-     * Test attribute "profile_id"
+     * Test attribute "profileId"
      */
     public function testPropertyProfileId()
     {
     }
 
     /**
-     * Test attribute "session_id"
+     * Test attribute "sessionId"
      */
     public function testPropertySessionId()
     {

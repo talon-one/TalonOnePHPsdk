@@ -79,7 +79,7 @@ class FeatureFlagsTest extends TestCase
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "accountId"
      */
     public function testPropertyAccountId()
     {
@@ -93,14 +93,14 @@ class FeatureFlagsTest extends TestCase
     }
 
     /**
-     * Test attribute "coupons_without_count"
+     * Test attribute "couponsWithoutCount"
      */
     public function testPropertyCouponsWithoutCount()
     {
     }
 
     /**
-     * Test attribute "beta_effects"
+     * Test attribute "betaEffects"
      */
     public function testPropertyBetaEffects()
     {

@@ -58,7 +58,7 @@ class ShowNotificationEffectProps implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'notification_type' => 'string',
+        'notificationType' => 'string',
         'title' => 'string',
         'body' => 'string'
     ];
@@ -69,7 +69,7 @@ class ShowNotificationEffectProps implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'notification_type' => null,
+        'notificationType' => null,
         'title' => null,
         'body' => null
     ];
@@ -101,7 +101,7 @@ class ShowNotificationEffectProps implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'notification_type' => 'notificationType',
+        'notificationType' => 'notificationType',
         'title' => 'title',
         'body' => 'body'
     ];
@@ -112,7 +112,7 @@ class ShowNotificationEffectProps implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'notification_type' => 'setNotificationType',
+        'notificationType' => 'setNotificationType',
         'title' => 'setTitle',
         'body' => 'setBody'
     ];
@@ -123,7 +123,7 @@ class ShowNotificationEffectProps implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'notification_type' => 'getNotificationType',
+        'notificationType' => 'getNotificationType',
         'title' => 'getTitle',
         'body' => 'getBody'
     ];
@@ -188,7 +188,7 @@ class ShowNotificationEffectProps implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['notification_type'] = isset($data['notification_type']) ? $data['notification_type'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['body'] = isset($data['body']) ? $data['body'] : null;
     }
@@ -202,8 +202,8 @@ class ShowNotificationEffectProps implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['notification_type'] === null) {
-            $invalidProperties[] = "'notification_type' can't be null";
+        if ($this->container['notificationType'] === null) {
+            $invalidProperties[] = "'notificationType' can't be null";
         }
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
@@ -227,25 +227,25 @@ class ShowNotificationEffectProps implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets notification_type
+     * Gets notificationType
      *
      * @return string
      */
     public function getNotificationType()
     {
-        return $this->container['notification_type'];
+        return $this->container['notificationType'];
     }
 
     /**
-     * Sets notification_type
+     * Sets notificationType
      *
-     * @param string $notification_type The type of notification that should be shown (e.g. error/warning/info)
+     * @param string $notificationType The type of notification that should be shown (e.g. error/warning/info)
      *
      * @return $this
      */
-    public function setNotificationType($notification_type)
+    public function setNotificationType($notificationType)
     {
-        $this->container['notification_type'] = $notification_type;
+        $this->container['notificationType'] = $notificationType;
 
         return $this;
     }

@@ -58,7 +58,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'current_balance' => 'float'
+        'currentBalance' => 'float'
     ];
 
     /**
@@ -67,7 +67,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'current_balance' => null
+        'currentBalance' => null
     ];
 
     /**
@@ -97,7 +97,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_balance' => 'currentBalance'
+        'currentBalance' => 'currentBalance'
     ];
 
     /**
@@ -106,7 +106,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'current_balance' => 'setCurrentBalance'
+        'currentBalance' => 'setCurrentBalance'
     ];
 
     /**
@@ -115,7 +115,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'current_balance' => 'getCurrentBalance'
+        'currentBalance' => 'getCurrentBalance'
     ];
 
     /**
@@ -178,7 +178,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_balance'] = isset($data['current_balance']) ? $data['current_balance'] : null;
+        $this->container['currentBalance'] = isset($data['currentBalance']) ? $data['currentBalance'] : null;
     }
 
     /**
@@ -190,8 +190,8 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['current_balance'] === null) {
-            $invalidProperties[] = "'current_balance' can't be null";
+        if ($this->container['currentBalance'] === null) {
+            $invalidProperties[] = "'currentBalance' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,25 +209,25 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets current_balance
+     * Gets currentBalance
      *
      * @return float
      */
     public function getCurrentBalance()
     {
-        return $this->container['current_balance'];
+        return $this->container['currentBalance'];
     }
 
     /**
-     * Sets current_balance
+     * Sets currentBalance
      *
-     * @param float $current_balance current_balance
+     * @param float $currentBalance currentBalance
      *
      * @return $this
      */
-    public function setCurrentBalance($current_balance)
+    public function setCurrentBalance($currentBalance)
     {
-        $this->container['current_balance'] = $current_balance;
+        $this->container['currentBalance'] = $currentBalance;
 
         return $this;
     }

@@ -58,7 +58,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'login_url' => 'string'
+        'loginURL' => 'string'
     ];
 
     /**
@@ -68,7 +68,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'login_url' => null
+        'loginURL' => null
     ];
 
     /**
@@ -99,7 +99,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'login_url' => 'loginURL'
+        'loginURL' => 'loginURL'
     ];
 
     /**
@@ -109,7 +109,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'login_url' => 'setLoginUrl'
+        'loginURL' => 'setLoginURL'
     ];
 
     /**
@@ -119,7 +119,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'login_url' => 'getLoginUrl'
+        'loginURL' => 'getLoginURL'
     ];
 
     /**
@@ -183,7 +183,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['login_url'] = isset($data['login_url']) ? $data['login_url'] : null;
+        $this->container['loginURL'] = isset($data['loginURL']) ? $data['loginURL'] : null;
     }
 
     /**
@@ -202,11 +202,11 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['login_url'] === null) {
-            $invalidProperties[] = "'login_url' can't be null";
+        if ($this->container['loginURL'] === null) {
+            $invalidProperties[] = "'loginURL' can't be null";
         }
-        if ((mb_strlen($this->container['login_url']) < 1)) {
-            $invalidProperties[] = "invalid value for 'login_url', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['loginURL']) < 1)) {
+            $invalidProperties[] = "invalid value for 'loginURL', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -254,30 +254,30 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets login_url
+     * Gets loginURL
      *
      * @return string
      */
-    public function getLoginUrl()
+    public function getLoginURL()
     {
-        return $this->container['login_url'];
+        return $this->container['loginURL'];
     }
 
     /**
-     * Sets login_url
+     * Sets loginURL
      *
-     * @param string $login_url Single Sign-On URL.
+     * @param string $loginURL Single Sign-On URL.
      *
      * @return $this
      */
-    public function setLoginUrl($login_url)
+    public function setLoginURL($loginURL)
     {
 
-        if ((mb_strlen($login_url) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $login_url when calling SamlLoginEndpoint., must be bigger than or equal to 1.');
+        if ((mb_strlen($loginURL) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $loginURL when calling SamlLoginEndpoint., must be bigger than or equal to 1.');
         }
 
-        $this->container['login_url'] = $login_url;
+        $this->container['loginURL'] = $loginURL;
 
         return $this;
     }

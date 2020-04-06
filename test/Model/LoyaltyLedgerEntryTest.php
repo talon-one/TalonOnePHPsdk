@@ -86,30 +86,30 @@ class LoyaltyLedgerEntryTest extends TestCase
     }
 
     /**
-     * Test attribute "program_id"
+     * Test attribute "programID"
      */
-    public function testPropertyProgramId()
+    public function testPropertyProgramID()
     {
     }
 
     /**
-     * Test attribute "customer_profile_id"
+     * Test attribute "customerProfileID"
      */
-    public function testPropertyCustomerProfileId()
+    public function testPropertyCustomerProfileID()
     {
     }
 
     /**
-     * Test attribute "customer_session_id"
+     * Test attribute "customerSessionID"
      */
-    public function testPropertyCustomerSessionId()
+    public function testPropertyCustomerSessionID()
     {
     }
 
     /**
-     * Test attribute "event_id"
+     * Test attribute "eventID"
      */
-    public function testPropertyEventId()
+    public function testPropertyEventID()
     {
     }
 
@@ -128,7 +128,7 @@ class LoyaltyLedgerEntryTest extends TestCase
     }
 
     /**
-     * Test attribute "expiry_date"
+     * Test attribute "expiryDate"
      */
     public function testPropertyExpiryDate()
     {
@@ -142,9 +142,9 @@ class LoyaltyLedgerEntryTest extends TestCase
     }
 
     /**
-     * Test attribute "sub_ledger_id"
+     * Test attribute "subLedgerID"
      */
-    public function testPropertySubLedgerId()
+    public function testPropertySubLedgerID()
     {
     }
 }

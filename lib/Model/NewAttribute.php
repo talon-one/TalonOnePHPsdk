@@ -59,14 +59,14 @@ class NewAttribute implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'entity' => 'string',
-        'event_type' => 'string',
+        'eventType' => 'string',
         'name' => 'string',
         'title' => 'string',
         'type' => 'string',
         'description' => 'string',
         'suggestions' => 'string[]',
         'editable' => 'bool',
-        'subscribed_applications_ids' => 'int[]'
+        'subscribedApplicationsIds' => 'int[]'
     ];
 
     /**
@@ -76,14 +76,14 @@ class NewAttribute implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'entity' => null,
-        'event_type' => null,
+        'eventType' => null,
         'name' => null,
         'title' => null,
         'type' => null,
         'description' => null,
         'suggestions' => null,
         'editable' => null,
-        'subscribed_applications_ids' => null
+        'subscribedApplicationsIds' => null
     ];
 
     /**
@@ -114,14 +114,14 @@ class NewAttribute implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'entity' => 'entity',
-        'event_type' => 'eventType',
+        'eventType' => 'eventType',
         'name' => 'name',
         'title' => 'title',
         'type' => 'type',
         'description' => 'description',
         'suggestions' => 'suggestions',
         'editable' => 'editable',
-        'subscribed_applications_ids' => 'subscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'subscribedApplicationsIds'
     ];
 
     /**
@@ -131,14 +131,14 @@ class NewAttribute implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'entity' => 'setEntity',
-        'event_type' => 'setEventType',
+        'eventType' => 'setEventType',
         'name' => 'setName',
         'title' => 'setTitle',
         'type' => 'setType',
         'description' => 'setDescription',
         'suggestions' => 'setSuggestions',
         'editable' => 'setEditable',
-        'subscribed_applications_ids' => 'setSubscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds'
     ];
 
     /**
@@ -148,14 +148,14 @@ class NewAttribute implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'entity' => 'getEntity',
-        'event_type' => 'getEventType',
+        'eventType' => 'getEventType',
         'name' => 'getName',
         'title' => 'getTitle',
         'type' => 'getType',
         'description' => 'getDescription',
         'suggestions' => 'getSuggestions',
         'editable' => 'getEditable',
-        'subscribed_applications_ids' => 'getSubscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds'
     ];
 
     /**
@@ -275,14 +275,14 @@ class NewAttribute implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['entity'] = isset($data['entity']) ? $data['entity'] : null;
-        $this->container['event_type'] = isset($data['event_type']) ? $data['event_type'] : null;
+        $this->container['eventType'] = isset($data['eventType']) ? $data['eventType'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['suggestions'] = isset($data['suggestions']) ? $data['suggestions'] : null;
         $this->container['editable'] = isset($data['editable']) ? $data['editable'] : null;
-        $this->container['subscribed_applications_ids'] = isset($data['subscribed_applications_ids']) ? $data['subscribed_applications_ids'] : null;
+        $this->container['subscribedApplicationsIds'] = isset($data['subscribedApplicationsIds']) ? $data['subscribedApplicationsIds'] : null;
     }
 
     /**
@@ -380,25 +380,25 @@ class NewAttribute implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets event_type
+     * Gets eventType
      *
      * @return string|null
      */
     public function getEventType()
     {
-        return $this->container['event_type'];
+        return $this->container['eventType'];
     }
 
     /**
-     * Sets event_type
+     * Sets eventType
      *
-     * @param string|null $event_type event_type
+     * @param string|null $eventType eventType
      *
      * @return $this
      */
-    public function setEventType($event_type)
+    public function setEventType($eventType)
     {
-        $this->container['event_type'] = $event_type;
+        $this->container['eventType'] = $eventType;
 
         return $this;
     }
@@ -557,25 +557,25 @@ class NewAttribute implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets subscribed_applications_ids
+     * Gets subscribedApplicationsIds
      *
      * @return int[]|null
      */
     public function getSubscribedApplicationsIds()
     {
-        return $this->container['subscribed_applications_ids'];
+        return $this->container['subscribedApplicationsIds'];
     }
 
     /**
-     * Sets subscribed_applications_ids
+     * Sets subscribedApplicationsIds
      *
-     * @param int[]|null $subscribed_applications_ids A list of the IDs of the applications that are subscribed to this attribute
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that are subscribed to this attribute
      *
      * @return $this
      */
-    public function setSubscribedApplicationsIds($subscribed_applications_ids)
+    public function setSubscribedApplicationsIds($subscribedApplicationsIds)
     {
-        $this->container['subscribed_applications_ids'] = $subscribed_applications_ids;
+        $this->container['subscribedApplicationsIds'] = $subscribedApplicationsIds;
 
         return $this;
     }

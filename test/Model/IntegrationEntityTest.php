@@ -79,7 +79,7 @@ class IntegrationEntityTest extends TestCase
     }
 
     /**
-     * Test attribute "integration_id"
+     * Test attribute "integrationId"
      */
     public function testPropertyIntegrationId()
     {

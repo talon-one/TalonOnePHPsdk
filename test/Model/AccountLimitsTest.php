@@ -79,21 +79,21 @@ class AccountLimitsTest extends TestCase
     }
 
     /**
-     * Test attribute "live_applications"
+     * Test attribute "liveApplications"
      */
     public function testPropertyLiveApplications()
     {
     }
 
     /**
-     * Test attribute "sandbox_applications"
+     * Test attribute "sandboxApplications"
      */
     public function testPropertySandboxApplications()
     {
     }
 
     /**
-     * Test attribute "active_campaigns"
+     * Test attribute "activeCampaigns"
      */
     public function testPropertyActiveCampaigns()
     {
@@ -107,21 +107,21 @@ class AccountLimitsTest extends TestCase
     }
 
     /**
-     * Test attribute "referral_codes"
+     * Test attribute "referralCodes"
      */
     public function testPropertyReferralCodes()
     {
     }
 
     /**
-     * Test attribute "live_loyalty_programs"
+     * Test attribute "liveLoyaltyPrograms"
      */
     public function testPropertyLiveLoyaltyPrograms()
     {
     }
 
     /**
-     * Test attribute "sandbox_loyalty_programs"
+     * Test attribute "sandboxLoyaltyPrograms"
      */
     public function testPropertySandboxLoyaltyPrograms()
     {
@@ -142,21 +142,21 @@ class AccountLimitsTest extends TestCase
     }
 
     /**
-     * Test attribute "api_volume"
+     * Test attribute "apiVolume"
      */
     public function testPropertyApiVolume()
     {
     }
 
     /**
-     * Test attribute "active_rules"
+     * Test attribute "activeRules"
      */
     public function testPropertyActiveRules()
     {
     }
 
     /**
-     * Test attribute "promotion_types"
+     * Test attribute "promotionTypes"
      */
     public function testPropertyPromotionTypes()
     {

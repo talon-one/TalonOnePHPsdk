@@ -86,7 +86,7 @@ class ApplicationApiHealthTest extends TestCase
     }
 
     /**
-     * Test attribute "last_used"
+     * Test attribute "lastUsed"
      */
     public function testPropertyLastUsed()
     {

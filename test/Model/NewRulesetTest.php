@@ -93,7 +93,7 @@ class NewRulesetTest extends TestCase
     }
 
     /**
-     * Test attribute "rb_version"
+     * Test attribute "rbVersion"
      */
     public function testPropertyRbVersion()
     {

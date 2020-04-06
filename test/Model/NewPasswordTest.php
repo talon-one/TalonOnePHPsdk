@@ -86,7 +86,7 @@ class NewPasswordTest extends TestCase
     }
 
     /**
-     * Test attribute "reset_token"
+     * Test attribute "resetToken"
      */
     public function testPropertyResetToken()
     {

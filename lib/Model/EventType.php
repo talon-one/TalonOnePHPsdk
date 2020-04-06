@@ -60,14 +60,14 @@ class EventType implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'application_ids' => 'int[]',
+        'applicationIds' => 'int[]',
         'title' => 'string',
         'name' => 'string',
         'description' => 'string',
-        'mime_type' => 'string',
-        'example_payload' => 'string',
+        'mimeType' => 'string',
+        'examplePayload' => 'string',
         'schema' => 'object',
-        'handler_language' => 'string',
+        'handlerLanguage' => 'string',
         'handler' => 'string',
         'version' => 'int'
     ];
@@ -80,14 +80,14 @@ class EventType implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'application_ids' => null,
+        'applicationIds' => null,
         'title' => null,
         'name' => null,
         'description' => null,
-        'mime_type' => null,
-        'example_payload' => null,
+        'mimeType' => null,
+        'examplePayload' => null,
         'schema' => null,
-        'handler_language' => null,
+        'handlerLanguage' => null,
         'handler' => null,
         'version' => null
     ];
@@ -121,14 +121,14 @@ class EventType implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'application_ids' => 'applicationIds',
+        'applicationIds' => 'applicationIds',
         'title' => 'title',
         'name' => 'name',
         'description' => 'description',
-        'mime_type' => 'mimeType',
-        'example_payload' => 'examplePayload',
+        'mimeType' => 'mimeType',
+        'examplePayload' => 'examplePayload',
         'schema' => 'schema',
-        'handler_language' => 'handlerLanguage',
+        'handlerLanguage' => 'handlerLanguage',
         'handler' => 'handler',
         'version' => 'version'
     ];
@@ -141,14 +141,14 @@ class EventType implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'application_ids' => 'setApplicationIds',
+        'applicationIds' => 'setApplicationIds',
         'title' => 'setTitle',
         'name' => 'setName',
         'description' => 'setDescription',
-        'mime_type' => 'setMimeType',
-        'example_payload' => 'setExamplePayload',
+        'mimeType' => 'setMimeType',
+        'examplePayload' => 'setExamplePayload',
         'schema' => 'setSchema',
-        'handler_language' => 'setHandlerLanguage',
+        'handlerLanguage' => 'setHandlerLanguage',
         'handler' => 'setHandler',
         'version' => 'setVersion'
     ];
@@ -161,14 +161,14 @@ class EventType implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'application_ids' => 'getApplicationIds',
+        'applicationIds' => 'getApplicationIds',
         'title' => 'getTitle',
         'name' => 'getName',
         'description' => 'getDescription',
-        'mime_type' => 'getMimeType',
-        'example_payload' => 'getExamplePayload',
+        'mimeType' => 'getMimeType',
+        'examplePayload' => 'getExamplePayload',
         'schema' => 'getSchema',
-        'handler_language' => 'getHandlerLanguage',
+        'handlerLanguage' => 'getHandlerLanguage',
         'handler' => 'getHandler',
         'version' => 'getVersion'
     ];
@@ -265,14 +265,14 @@ class EventType implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['application_ids'] = isset($data['application_ids']) ? $data['application_ids'] : null;
+        $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['mime_type'] = isset($data['mime_type']) ? $data['mime_type'] : null;
-        $this->container['example_payload'] = isset($data['example_payload']) ? $data['example_payload'] : null;
+        $this->container['mimeType'] = isset($data['mimeType']) ? $data['mimeType'] : null;
+        $this->container['examplePayload'] = isset($data['examplePayload']) ? $data['examplePayload'] : null;
         $this->container['schema'] = isset($data['schema']) ? $data['schema'] : null;
-        $this->container['handler_language'] = isset($data['handler_language']) ? $data['handler_language'] : null;
+        $this->container['handlerLanguage'] = isset($data['handlerLanguage']) ? $data['handlerLanguage'] : null;
         $this->container['handler'] = isset($data['handler']) ? $data['handler'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
@@ -292,8 +292,8 @@ class EventType implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['application_ids'] === null) {
-            $invalidProperties[] = "'application_ids' can't be null";
+        if ($this->container['applicationIds'] === null) {
+            $invalidProperties[] = "'applicationIds' can't be null";
         }
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
@@ -312,21 +312,21 @@ class EventType implements ModelInterface, ArrayAccess
         if ($this->container['description'] === null) {
             $invalidProperties[] = "'description' can't be null";
         }
-        if ($this->container['mime_type'] === null) {
-            $invalidProperties[] = "'mime_type' can't be null";
+        if ($this->container['mimeType'] === null) {
+            $invalidProperties[] = "'mimeType' can't be null";
         }
         $allowedValues = $this->getMimeTypeAllowableValues();
-        if (!is_null($this->container['mime_type']) && !in_array($this->container['mime_type'], $allowedValues, true)) {
+        if (!is_null($this->container['mimeType']) && !in_array($this->container['mimeType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'mime_type', must be one of '%s'",
+                "invalid value for 'mimeType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getHandlerLanguageAllowableValues();
-        if (!is_null($this->container['handler_language']) && !in_array($this->container['handler_language'], $allowedValues, true)) {
+        if (!is_null($this->container['handlerLanguage']) && !in_array($this->container['handlerLanguage'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'handler_language', must be one of '%s'",
+                "invalid value for 'handlerLanguage', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -401,25 +401,25 @@ class EventType implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets application_ids
+     * Gets applicationIds
      *
      * @return int[]
      */
     public function getApplicationIds()
     {
-        return $this->container['application_ids'];
+        return $this->container['applicationIds'];
     }
 
     /**
-     * Sets application_ids
+     * Sets applicationIds
      *
-     * @param int[] $application_ids The IDs of the applications that are related to this entity.
+     * @param int[] $applicationIds The IDs of the applications that are related to this entity.
      *
      * @return $this
      */
-    public function setApplicationIds($application_ids)
+    public function setApplicationIds($applicationIds)
     {
-        $this->container['application_ids'] = $application_ids;
+        $this->container['applicationIds'] = $applicationIds;
 
         return $this;
     }
@@ -507,58 +507,58 @@ class EventType implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets mime_type
+     * Gets mimeType
      *
      * @return string
      */
     public function getMimeType()
     {
-        return $this->container['mime_type'];
+        return $this->container['mimeType'];
     }
 
     /**
-     * Sets mime_type
+     * Sets mimeType
      *
-     * @param string $mime_type This defines how the request payload will be parsed before your handler code is run.
+     * @param string $mimeType This defines how the request payload will be parsed before your handler code is run.
      *
      * @return $this
      */
-    public function setMimeType($mime_type)
+    public function setMimeType($mimeType)
     {
         $allowedValues = $this->getMimeTypeAllowableValues();
-        if (!in_array($mime_type, $allowedValues, true)) {
+        if (!in_array($mimeType, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'mime_type', must be one of '%s'",
+                    "Invalid value for 'mimeType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['mime_type'] = $mime_type;
+        $this->container['mimeType'] = $mimeType;
 
         return $this;
     }
 
     /**
-     * Gets example_payload
+     * Gets examplePayload
      *
      * @return string|null
      */
     public function getExamplePayload()
     {
-        return $this->container['example_payload'];
+        return $this->container['examplePayload'];
     }
 
     /**
-     * Sets example_payload
+     * Sets examplePayload
      *
-     * @param string|null $example_payload It is often helpful to include an example payload with the event type definition for documentation purposes.
+     * @param string|null $examplePayload It is often helpful to include an example payload with the event type definition for documentation purposes.
      *
      * @return $this
      */
-    public function setExamplePayload($example_payload)
+    public function setExamplePayload($examplePayload)
     {
-        $this->container['example_payload'] = $example_payload;
+        $this->container['examplePayload'] = $examplePayload;
 
         return $this;
     }
@@ -588,34 +588,34 @@ class EventType implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets handler_language
+     * Gets handlerLanguage
      *
      * @return string|null
      */
     public function getHandlerLanguage()
     {
-        return $this->container['handler_language'];
+        return $this->container['handlerLanguage'];
     }
 
     /**
-     * Sets handler_language
+     * Sets handlerLanguage
      *
-     * @param string|null $handler_language The language of the handler code. Currently only `\"talang\"` is supported.
+     * @param string|null $handlerLanguage The language of the handler code. Currently only `\"talang\"` is supported.
      *
      * @return $this
      */
-    public function setHandlerLanguage($handler_language)
+    public function setHandlerLanguage($handlerLanguage)
     {
         $allowedValues = $this->getHandlerLanguageAllowableValues();
-        if (!is_null($handler_language) && !in_array($handler_language, $allowedValues, true)) {
+        if (!is_null($handlerLanguage) && !in_array($handlerLanguage, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'handler_language', must be one of '%s'",
+                    "Invalid value for 'handlerLanguage', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['handler_language'] = $handler_language;
+        $this->container['handlerLanguage'] = $handlerLanguage;
 
         return $this;
     }

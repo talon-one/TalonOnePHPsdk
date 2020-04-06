@@ -59,7 +59,7 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'ledger' => '\TalonOne\Client\Model\LoyaltySubLedger',
-        'sub_ledgers' => 'map[string,\TalonOne\Client\Model\LoyaltySubLedger]'
+        'subLedgers' => 'map[string,\TalonOne\Client\Model\LoyaltySubLedger]'
     ];
 
     /**
@@ -69,7 +69,7 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'ledger' => null,
-        'sub_ledgers' => null
+        'subLedgers' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'ledger' => 'ledger',
-        'sub_ledgers' => 'subLedgers'
+        'subLedgers' => 'subLedgers'
     ];
 
     /**
@@ -110,7 +110,7 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'ledger' => 'setLedger',
-        'sub_ledgers' => 'setSubLedgers'
+        'subLedgers' => 'setSubLedgers'
     ];
 
     /**
@@ -120,7 +120,7 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'ledger' => 'getLedger',
-        'sub_ledgers' => 'getSubLedgers'
+        'subLedgers' => 'getSubLedgers'
     ];
 
     /**
@@ -184,7 +184,7 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ledger'] = isset($data['ledger']) ? $data['ledger'] : null;
-        $this->container['sub_ledgers'] = isset($data['sub_ledgers']) ? $data['sub_ledgers'] : null;
+        $this->container['subLedgers'] = isset($data['subLedgers']) ? $data['subLedgers'] : null;
     }
 
     /**
@@ -239,25 +239,25 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets sub_ledgers
+     * Gets subLedgers
      *
      * @return map[string,\TalonOne\Client\Model\LoyaltySubLedger]|null
      */
     public function getSubLedgers()
     {
-        return $this->container['sub_ledgers'];
+        return $this->container['subLedgers'];
     }
 
     /**
-     * Sets sub_ledgers
+     * Sets subLedgers
      *
-     * @param map[string,\TalonOne\Client\Model\LoyaltySubLedger]|null $sub_ledgers A map containing a list of all loyalty subledger balances
+     * @param map[string,\TalonOne\Client\Model\LoyaltySubLedger]|null $subLedgers A map containing a list of all loyalty subledger balances
      *
      * @return $this
      */
-    public function setSubLedgers($sub_ledgers)
+    public function setSubLedgers($subLedgers)
     {
-        $this->container['sub_ledgers'] = $sub_ledgers;
+        $this->container['subLedgers'] = $subLedgers;
 
         return $this;
     }

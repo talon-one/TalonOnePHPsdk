@@ -58,8 +58,8 @@ class NewFeatureFlags implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'loyalty' => 'bool',
-        'coupons_without_count' => 'bool',
-        'beta_effects' => 'bool'
+        'couponsWithoutCount' => 'bool',
+        'betaEffects' => 'bool'
     ];
 
     /**
@@ -69,8 +69,8 @@ class NewFeatureFlags implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'loyalty' => null,
-        'coupons_without_count' => null,
-        'beta_effects' => null
+        'couponsWithoutCount' => null,
+        'betaEffects' => null
     ];
 
     /**
@@ -101,8 +101,8 @@ class NewFeatureFlags implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'loyalty' => 'loyalty',
-        'coupons_without_count' => 'coupons_without_count',
-        'beta_effects' => 'betaEffects'
+        'couponsWithoutCount' => 'coupons_without_count',
+        'betaEffects' => 'betaEffects'
     ];
 
     /**
@@ -112,8 +112,8 @@ class NewFeatureFlags implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'loyalty' => 'setLoyalty',
-        'coupons_without_count' => 'setCouponsWithoutCount',
-        'beta_effects' => 'setBetaEffects'
+        'couponsWithoutCount' => 'setCouponsWithoutCount',
+        'betaEffects' => 'setBetaEffects'
     ];
 
     /**
@@ -123,8 +123,8 @@ class NewFeatureFlags implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'loyalty' => 'getLoyalty',
-        'coupons_without_count' => 'getCouponsWithoutCount',
-        'beta_effects' => 'getBetaEffects'
+        'couponsWithoutCount' => 'getCouponsWithoutCount',
+        'betaEffects' => 'getBetaEffects'
     ];
 
     /**
@@ -188,8 +188,8 @@ class NewFeatureFlags implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
-        $this->container['coupons_without_count'] = isset($data['coupons_without_count']) ? $data['coupons_without_count'] : null;
-        $this->container['beta_effects'] = isset($data['beta_effects']) ? $data['beta_effects'] : null;
+        $this->container['couponsWithoutCount'] = isset($data['couponsWithoutCount']) ? $data['couponsWithoutCount'] : null;
+        $this->container['betaEffects'] = isset($data['betaEffects']) ? $data['betaEffects'] : null;
     }
 
     /**
@@ -241,49 +241,49 @@ class NewFeatureFlags implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets coupons_without_count
+     * Gets couponsWithoutCount
      *
      * @return bool|null
      */
     public function getCouponsWithoutCount()
     {
-        return $this->container['coupons_without_count'];
+        return $this->container['couponsWithoutCount'];
     }
 
     /**
-     * Sets coupons_without_count
+     * Sets couponsWithoutCount
      *
-     * @param bool|null $coupons_without_count Whether the account queries coupons with or without total result size
+     * @param bool|null $couponsWithoutCount Whether the account queries coupons with or without total result size
      *
      * @return $this
      */
-    public function setCouponsWithoutCount($coupons_without_count)
+    public function setCouponsWithoutCount($couponsWithoutCount)
     {
-        $this->container['coupons_without_count'] = $coupons_without_count;
+        $this->container['couponsWithoutCount'] = $couponsWithoutCount;
 
         return $this;
     }
 
     /**
-     * Gets beta_effects
+     * Gets betaEffects
      *
      * @return bool|null
      */
     public function getBetaEffects()
     {
-        return $this->container['beta_effects'];
+        return $this->container['betaEffects'];
     }
 
     /**
-     * Sets beta_effects
+     * Sets betaEffects
      *
-     * @param bool|null $beta_effects Whether the account can test beta effects or not
+     * @param bool|null $betaEffects Whether the account can test beta effects or not
      *
      * @return $this
      */
-    public function setBetaEffects($beta_effects)
+    public function setBetaEffects($betaEffects)
     {
-        $this->container['beta_effects'] = $beta_effects;
+        $this->container['betaEffects'] = $betaEffects;
 
         return $this;
     }

@@ -93,14 +93,14 @@ class NewCampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "start_time"
+     * Test attribute "startTime"
      */
     public function testPropertyStartTime()
     {
     }
 
     /**
-     * Test attribute "end_time"
+     * Test attribute "endTime"
      */
     public function testPropertyEndTime()
     {
@@ -121,7 +121,7 @@ class NewCampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "active_ruleset_id"
+     * Test attribute "activeRulesetId"
      */
     public function testPropertyActiveRulesetId()
     {
@@ -142,14 +142,14 @@ class NewCampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "coupon_settings"
+     * Test attribute "couponSettings"
      */
     public function testPropertyCouponSettings()
     {
     }
 
     /**
-     * Test attribute "referral_settings"
+     * Test attribute "referralSettings"
      */
     public function testPropertyReferralSettings()
     {

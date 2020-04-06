@@ -79,7 +79,7 @@ class LoyaltyProgramBalanceTest extends TestCase
     }
 
     /**
-     * Test attribute "current_balance"
+     * Test attribute "currentBalance"
      */
     public function testPropertyCurrentBalance()
     {

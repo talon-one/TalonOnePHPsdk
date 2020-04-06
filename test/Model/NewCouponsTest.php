@@ -79,49 +79,49 @@ class NewCouponsTest extends TestCase
     }
 
     /**
-     * Test attribute "usage_limit"
+     * Test attribute "usageLimit"
      */
     public function testPropertyUsageLimit()
     {
     }
 
     /**
-     * Test attribute "start_date"
+     * Test attribute "startDate"
      */
     public function testPropertyStartDate()
     {
     }
 
     /**
-     * Test attribute "expiry_date"
+     * Test attribute "expiryDate"
      */
     public function testPropertyExpiryDate()
     {
     }
 
     /**
-     * Test attribute "valid_characters"
+     * Test attribute "validCharacters"
      */
     public function testPropertyValidCharacters()
     {
     }
 
     /**
-     * Test attribute "coupon_pattern"
+     * Test attribute "couponPattern"
      */
     public function testPropertyCouponPattern()
     {
     }
 
     /**
-     * Test attribute "number_of_coupons"
+     * Test attribute "numberOfCoupons"
      */
     public function testPropertyNumberOfCoupons()
     {
     }
 
     /**
-     * Test attribute "unique_prefix"
+     * Test attribute "uniquePrefix"
      */
     public function testPropertyUniquePrefix()
     {
@@ -135,7 +135,7 @@ class NewCouponsTest extends TestCase
     }
 
     /**
-     * Test attribute "recipient_integration_id"
+     * Test attribute "recipientIntegrationId"
      */
     public function testPropertyRecipientIntegrationId()
     {

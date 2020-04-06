@@ -79,7 +79,7 @@ class MiscUpdateUserLatestFeatureTest extends TestCase
     }
 
     /**
-     * Test attribute "latest_feature"
+     * Test attribute "latestFeature"
      */
     public function testPropertyLatestFeature()
     {

@@ -59,26 +59,26 @@ class CampaignAnalytics implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'date' => '\DateTime',
-        'campaign_revenue' => 'float',
-        'total_campaign_revenue' => 'float',
-        'campaign_refund' => 'float',
-        'total_campaign_refund' => 'float',
-        'campaign_discount_costs' => 'float',
-        'total_campaign_discount_costs' => 'float',
-        'campaign_refunded_discounts' => 'float',
-        'total_campaign_refunded_discounts' => 'float',
-        'campaign_free_items' => 'int',
-        'total_campaign_free_items' => 'int',
-        'coupon_redemptions' => 'int',
-        'total_coupon_redemptions' => 'int',
-        'coupon_rolledback_redemptions' => 'int',
-        'total_coupon_rolledback_redemptions' => 'int',
-        'referral_redemptions' => 'int',
-        'total_referral_redemptions' => 'int',
-        'coupons_created' => 'int',
-        'total_coupons_created' => 'int',
-        'referrals_created' => 'int',
-        'total_referrals_created' => 'int'
+        'campaignRevenue' => 'float',
+        'totalCampaignRevenue' => 'float',
+        'campaignRefund' => 'float',
+        'totalCampaignRefund' => 'float',
+        'campaignDiscountCosts' => 'float',
+        'totalCampaignDiscountCosts' => 'float',
+        'campaignRefundedDiscounts' => 'float',
+        'totalCampaignRefundedDiscounts' => 'float',
+        'campaignFreeItems' => 'int',
+        'totalCampaignFreeItems' => 'int',
+        'couponRedemptions' => 'int',
+        'totalCouponRedemptions' => 'int',
+        'couponRolledbackRedemptions' => 'int',
+        'totalCouponRolledbackRedemptions' => 'int',
+        'referralRedemptions' => 'int',
+        'totalReferralRedemptions' => 'int',
+        'couponsCreated' => 'int',
+        'totalCouponsCreated' => 'int',
+        'referralsCreated' => 'int',
+        'totalReferralsCreated' => 'int'
     ];
 
     /**
@@ -88,26 +88,26 @@ class CampaignAnalytics implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'date' => 'date-time',
-        'campaign_revenue' => null,
-        'total_campaign_revenue' => null,
-        'campaign_refund' => null,
-        'total_campaign_refund' => null,
-        'campaign_discount_costs' => null,
-        'total_campaign_discount_costs' => null,
-        'campaign_refunded_discounts' => null,
-        'total_campaign_refunded_discounts' => null,
-        'campaign_free_items' => null,
-        'total_campaign_free_items' => null,
-        'coupon_redemptions' => null,
-        'total_coupon_redemptions' => null,
-        'coupon_rolledback_redemptions' => null,
-        'total_coupon_rolledback_redemptions' => null,
-        'referral_redemptions' => null,
-        'total_referral_redemptions' => null,
-        'coupons_created' => null,
-        'total_coupons_created' => null,
-        'referrals_created' => null,
-        'total_referrals_created' => null
+        'campaignRevenue' => null,
+        'totalCampaignRevenue' => null,
+        'campaignRefund' => null,
+        'totalCampaignRefund' => null,
+        'campaignDiscountCosts' => null,
+        'totalCampaignDiscountCosts' => null,
+        'campaignRefundedDiscounts' => null,
+        'totalCampaignRefundedDiscounts' => null,
+        'campaignFreeItems' => null,
+        'totalCampaignFreeItems' => null,
+        'couponRedemptions' => null,
+        'totalCouponRedemptions' => null,
+        'couponRolledbackRedemptions' => null,
+        'totalCouponRolledbackRedemptions' => null,
+        'referralRedemptions' => null,
+        'totalReferralRedemptions' => null,
+        'couponsCreated' => null,
+        'totalCouponsCreated' => null,
+        'referralsCreated' => null,
+        'totalReferralsCreated' => null
     ];
 
     /**
@@ -138,26 +138,26 @@ class CampaignAnalytics implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'date' => 'date',
-        'campaign_revenue' => 'campaignRevenue',
-        'total_campaign_revenue' => 'totalCampaignRevenue',
-        'campaign_refund' => 'campaignRefund',
-        'total_campaign_refund' => 'totalCampaignRefund',
-        'campaign_discount_costs' => 'campaignDiscountCosts',
-        'total_campaign_discount_costs' => 'totalCampaignDiscountCosts',
-        'campaign_refunded_discounts' => 'campaignRefundedDiscounts',
-        'total_campaign_refunded_discounts' => 'totalCampaignRefundedDiscounts',
-        'campaign_free_items' => 'campaignFreeItems',
-        'total_campaign_free_items' => 'totalCampaignFreeItems',
-        'coupon_redemptions' => 'couponRedemptions',
-        'total_coupon_redemptions' => 'totalCouponRedemptions',
-        'coupon_rolledback_redemptions' => 'couponRolledbackRedemptions',
-        'total_coupon_rolledback_redemptions' => 'totalCouponRolledbackRedemptions',
-        'referral_redemptions' => 'referralRedemptions',
-        'total_referral_redemptions' => 'totalReferralRedemptions',
-        'coupons_created' => 'couponsCreated',
-        'total_coupons_created' => 'totalCouponsCreated',
-        'referrals_created' => 'referralsCreated',
-        'total_referrals_created' => 'totalReferralsCreated'
+        'campaignRevenue' => 'campaignRevenue',
+        'totalCampaignRevenue' => 'totalCampaignRevenue',
+        'campaignRefund' => 'campaignRefund',
+        'totalCampaignRefund' => 'totalCampaignRefund',
+        'campaignDiscountCosts' => 'campaignDiscountCosts',
+        'totalCampaignDiscountCosts' => 'totalCampaignDiscountCosts',
+        'campaignRefundedDiscounts' => 'campaignRefundedDiscounts',
+        'totalCampaignRefundedDiscounts' => 'totalCampaignRefundedDiscounts',
+        'campaignFreeItems' => 'campaignFreeItems',
+        'totalCampaignFreeItems' => 'totalCampaignFreeItems',
+        'couponRedemptions' => 'couponRedemptions',
+        'totalCouponRedemptions' => 'totalCouponRedemptions',
+        'couponRolledbackRedemptions' => 'couponRolledbackRedemptions',
+        'totalCouponRolledbackRedemptions' => 'totalCouponRolledbackRedemptions',
+        'referralRedemptions' => 'referralRedemptions',
+        'totalReferralRedemptions' => 'totalReferralRedemptions',
+        'couponsCreated' => 'couponsCreated',
+        'totalCouponsCreated' => 'totalCouponsCreated',
+        'referralsCreated' => 'referralsCreated',
+        'totalReferralsCreated' => 'totalReferralsCreated'
     ];
 
     /**
@@ -167,26 +167,26 @@ class CampaignAnalytics implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'date' => 'setDate',
-        'campaign_revenue' => 'setCampaignRevenue',
-        'total_campaign_revenue' => 'setTotalCampaignRevenue',
-        'campaign_refund' => 'setCampaignRefund',
-        'total_campaign_refund' => 'setTotalCampaignRefund',
-        'campaign_discount_costs' => 'setCampaignDiscountCosts',
-        'total_campaign_discount_costs' => 'setTotalCampaignDiscountCosts',
-        'campaign_refunded_discounts' => 'setCampaignRefundedDiscounts',
-        'total_campaign_refunded_discounts' => 'setTotalCampaignRefundedDiscounts',
-        'campaign_free_items' => 'setCampaignFreeItems',
-        'total_campaign_free_items' => 'setTotalCampaignFreeItems',
-        'coupon_redemptions' => 'setCouponRedemptions',
-        'total_coupon_redemptions' => 'setTotalCouponRedemptions',
-        'coupon_rolledback_redemptions' => 'setCouponRolledbackRedemptions',
-        'total_coupon_rolledback_redemptions' => 'setTotalCouponRolledbackRedemptions',
-        'referral_redemptions' => 'setReferralRedemptions',
-        'total_referral_redemptions' => 'setTotalReferralRedemptions',
-        'coupons_created' => 'setCouponsCreated',
-        'total_coupons_created' => 'setTotalCouponsCreated',
-        'referrals_created' => 'setReferralsCreated',
-        'total_referrals_created' => 'setTotalReferralsCreated'
+        'campaignRevenue' => 'setCampaignRevenue',
+        'totalCampaignRevenue' => 'setTotalCampaignRevenue',
+        'campaignRefund' => 'setCampaignRefund',
+        'totalCampaignRefund' => 'setTotalCampaignRefund',
+        'campaignDiscountCosts' => 'setCampaignDiscountCosts',
+        'totalCampaignDiscountCosts' => 'setTotalCampaignDiscountCosts',
+        'campaignRefundedDiscounts' => 'setCampaignRefundedDiscounts',
+        'totalCampaignRefundedDiscounts' => 'setTotalCampaignRefundedDiscounts',
+        'campaignFreeItems' => 'setCampaignFreeItems',
+        'totalCampaignFreeItems' => 'setTotalCampaignFreeItems',
+        'couponRedemptions' => 'setCouponRedemptions',
+        'totalCouponRedemptions' => 'setTotalCouponRedemptions',
+        'couponRolledbackRedemptions' => 'setCouponRolledbackRedemptions',
+        'totalCouponRolledbackRedemptions' => 'setTotalCouponRolledbackRedemptions',
+        'referralRedemptions' => 'setReferralRedemptions',
+        'totalReferralRedemptions' => 'setTotalReferralRedemptions',
+        'couponsCreated' => 'setCouponsCreated',
+        'totalCouponsCreated' => 'setTotalCouponsCreated',
+        'referralsCreated' => 'setReferralsCreated',
+        'totalReferralsCreated' => 'setTotalReferralsCreated'
     ];
 
     /**
@@ -196,26 +196,26 @@ class CampaignAnalytics implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'date' => 'getDate',
-        'campaign_revenue' => 'getCampaignRevenue',
-        'total_campaign_revenue' => 'getTotalCampaignRevenue',
-        'campaign_refund' => 'getCampaignRefund',
-        'total_campaign_refund' => 'getTotalCampaignRefund',
-        'campaign_discount_costs' => 'getCampaignDiscountCosts',
-        'total_campaign_discount_costs' => 'getTotalCampaignDiscountCosts',
-        'campaign_refunded_discounts' => 'getCampaignRefundedDiscounts',
-        'total_campaign_refunded_discounts' => 'getTotalCampaignRefundedDiscounts',
-        'campaign_free_items' => 'getCampaignFreeItems',
-        'total_campaign_free_items' => 'getTotalCampaignFreeItems',
-        'coupon_redemptions' => 'getCouponRedemptions',
-        'total_coupon_redemptions' => 'getTotalCouponRedemptions',
-        'coupon_rolledback_redemptions' => 'getCouponRolledbackRedemptions',
-        'total_coupon_rolledback_redemptions' => 'getTotalCouponRolledbackRedemptions',
-        'referral_redemptions' => 'getReferralRedemptions',
-        'total_referral_redemptions' => 'getTotalReferralRedemptions',
-        'coupons_created' => 'getCouponsCreated',
-        'total_coupons_created' => 'getTotalCouponsCreated',
-        'referrals_created' => 'getReferralsCreated',
-        'total_referrals_created' => 'getTotalReferralsCreated'
+        'campaignRevenue' => 'getCampaignRevenue',
+        'totalCampaignRevenue' => 'getTotalCampaignRevenue',
+        'campaignRefund' => 'getCampaignRefund',
+        'totalCampaignRefund' => 'getTotalCampaignRefund',
+        'campaignDiscountCosts' => 'getCampaignDiscountCosts',
+        'totalCampaignDiscountCosts' => 'getTotalCampaignDiscountCosts',
+        'campaignRefundedDiscounts' => 'getCampaignRefundedDiscounts',
+        'totalCampaignRefundedDiscounts' => 'getTotalCampaignRefundedDiscounts',
+        'campaignFreeItems' => 'getCampaignFreeItems',
+        'totalCampaignFreeItems' => 'getTotalCampaignFreeItems',
+        'couponRedemptions' => 'getCouponRedemptions',
+        'totalCouponRedemptions' => 'getTotalCouponRedemptions',
+        'couponRolledbackRedemptions' => 'getCouponRolledbackRedemptions',
+        'totalCouponRolledbackRedemptions' => 'getTotalCouponRolledbackRedemptions',
+        'referralRedemptions' => 'getReferralRedemptions',
+        'totalReferralRedemptions' => 'getTotalReferralRedemptions',
+        'couponsCreated' => 'getCouponsCreated',
+        'totalCouponsCreated' => 'getTotalCouponsCreated',
+        'referralsCreated' => 'getReferralsCreated',
+        'totalReferralsCreated' => 'getTotalReferralsCreated'
     ];
 
     /**
@@ -279,26 +279,26 @@ class CampaignAnalytics implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['date'] = isset($data['date']) ? $data['date'] : null;
-        $this->container['campaign_revenue'] = isset($data['campaign_revenue']) ? $data['campaign_revenue'] : null;
-        $this->container['total_campaign_revenue'] = isset($data['total_campaign_revenue']) ? $data['total_campaign_revenue'] : null;
-        $this->container['campaign_refund'] = isset($data['campaign_refund']) ? $data['campaign_refund'] : null;
-        $this->container['total_campaign_refund'] = isset($data['total_campaign_refund']) ? $data['total_campaign_refund'] : null;
-        $this->container['campaign_discount_costs'] = isset($data['campaign_discount_costs']) ? $data['campaign_discount_costs'] : null;
-        $this->container['total_campaign_discount_costs'] = isset($data['total_campaign_discount_costs']) ? $data['total_campaign_discount_costs'] : null;
-        $this->container['campaign_refunded_discounts'] = isset($data['campaign_refunded_discounts']) ? $data['campaign_refunded_discounts'] : null;
-        $this->container['total_campaign_refunded_discounts'] = isset($data['total_campaign_refunded_discounts']) ? $data['total_campaign_refunded_discounts'] : null;
-        $this->container['campaign_free_items'] = isset($data['campaign_free_items']) ? $data['campaign_free_items'] : null;
-        $this->container['total_campaign_free_items'] = isset($data['total_campaign_free_items']) ? $data['total_campaign_free_items'] : null;
-        $this->container['coupon_redemptions'] = isset($data['coupon_redemptions']) ? $data['coupon_redemptions'] : null;
-        $this->container['total_coupon_redemptions'] = isset($data['total_coupon_redemptions']) ? $data['total_coupon_redemptions'] : null;
-        $this->container['coupon_rolledback_redemptions'] = isset($data['coupon_rolledback_redemptions']) ? $data['coupon_rolledback_redemptions'] : null;
-        $this->container['total_coupon_rolledback_redemptions'] = isset($data['total_coupon_rolledback_redemptions']) ? $data['total_coupon_rolledback_redemptions'] : null;
-        $this->container['referral_redemptions'] = isset($data['referral_redemptions']) ? $data['referral_redemptions'] : null;
-        $this->container['total_referral_redemptions'] = isset($data['total_referral_redemptions']) ? $data['total_referral_redemptions'] : null;
-        $this->container['coupons_created'] = isset($data['coupons_created']) ? $data['coupons_created'] : null;
-        $this->container['total_coupons_created'] = isset($data['total_coupons_created']) ? $data['total_coupons_created'] : null;
-        $this->container['referrals_created'] = isset($data['referrals_created']) ? $data['referrals_created'] : null;
-        $this->container['total_referrals_created'] = isset($data['total_referrals_created']) ? $data['total_referrals_created'] : null;
+        $this->container['campaignRevenue'] = isset($data['campaignRevenue']) ? $data['campaignRevenue'] : null;
+        $this->container['totalCampaignRevenue'] = isset($data['totalCampaignRevenue']) ? $data['totalCampaignRevenue'] : null;
+        $this->container['campaignRefund'] = isset($data['campaignRefund']) ? $data['campaignRefund'] : null;
+        $this->container['totalCampaignRefund'] = isset($data['totalCampaignRefund']) ? $data['totalCampaignRefund'] : null;
+        $this->container['campaignDiscountCosts'] = isset($data['campaignDiscountCosts']) ? $data['campaignDiscountCosts'] : null;
+        $this->container['totalCampaignDiscountCosts'] = isset($data['totalCampaignDiscountCosts']) ? $data['totalCampaignDiscountCosts'] : null;
+        $this->container['campaignRefundedDiscounts'] = isset($data['campaignRefundedDiscounts']) ? $data['campaignRefundedDiscounts'] : null;
+        $this->container['totalCampaignRefundedDiscounts'] = isset($data['totalCampaignRefundedDiscounts']) ? $data['totalCampaignRefundedDiscounts'] : null;
+        $this->container['campaignFreeItems'] = isset($data['campaignFreeItems']) ? $data['campaignFreeItems'] : null;
+        $this->container['totalCampaignFreeItems'] = isset($data['totalCampaignFreeItems']) ? $data['totalCampaignFreeItems'] : null;
+        $this->container['couponRedemptions'] = isset($data['couponRedemptions']) ? $data['couponRedemptions'] : null;
+        $this->container['totalCouponRedemptions'] = isset($data['totalCouponRedemptions']) ? $data['totalCouponRedemptions'] : null;
+        $this->container['couponRolledbackRedemptions'] = isset($data['couponRolledbackRedemptions']) ? $data['couponRolledbackRedemptions'] : null;
+        $this->container['totalCouponRolledbackRedemptions'] = isset($data['totalCouponRolledbackRedemptions']) ? $data['totalCouponRolledbackRedemptions'] : null;
+        $this->container['referralRedemptions'] = isset($data['referralRedemptions']) ? $data['referralRedemptions'] : null;
+        $this->container['totalReferralRedemptions'] = isset($data['totalReferralRedemptions']) ? $data['totalReferralRedemptions'] : null;
+        $this->container['couponsCreated'] = isset($data['couponsCreated']) ? $data['couponsCreated'] : null;
+        $this->container['totalCouponsCreated'] = isset($data['totalCouponsCreated']) ? $data['totalCouponsCreated'] : null;
+        $this->container['referralsCreated'] = isset($data['referralsCreated']) ? $data['referralsCreated'] : null;
+        $this->container['totalReferralsCreated'] = isset($data['totalReferralsCreated']) ? $data['totalReferralsCreated'] : null;
     }
 
     /**
@@ -313,65 +313,65 @@ class CampaignAnalytics implements ModelInterface, ArrayAccess
         if ($this->container['date'] === null) {
             $invalidProperties[] = "'date' can't be null";
         }
-        if ($this->container['campaign_revenue'] === null) {
-            $invalidProperties[] = "'campaign_revenue' can't be null";
+        if ($this->container['campaignRevenue'] === null) {
+            $invalidProperties[] = "'campaignRevenue' can't be null";
         }
-        if ($this->container['total_campaign_revenue'] === null) {
-            $invalidProperties[] = "'total_campaign_revenue' can't be null";
+        if ($this->container['totalCampaignRevenue'] === null) {
+            $invalidProperties[] = "'totalCampaignRevenue' can't be null";
         }
-        if ($this->container['campaign_refund'] === null) {
-            $invalidProperties[] = "'campaign_refund' can't be null";
+        if ($this->container['campaignRefund'] === null) {
+            $invalidProperties[] = "'campaignRefund' can't be null";
         }
-        if ($this->container['total_campaign_refund'] === null) {
-            $invalidProperties[] = "'total_campaign_refund' can't be null";
+        if ($this->container['totalCampaignRefund'] === null) {
+            $invalidProperties[] = "'totalCampaignRefund' can't be null";
         }
-        if ($this->container['campaign_discount_costs'] === null) {
-            $invalidProperties[] = "'campaign_discount_costs' can't be null";
+        if ($this->container['campaignDiscountCosts'] === null) {
+            $invalidProperties[] = "'campaignDiscountCosts' can't be null";
         }
-        if ($this->container['total_campaign_discount_costs'] === null) {
-            $invalidProperties[] = "'total_campaign_discount_costs' can't be null";
+        if ($this->container['totalCampaignDiscountCosts'] === null) {
+            $invalidProperties[] = "'totalCampaignDiscountCosts' can't be null";
         }
-        if ($this->container['campaign_refunded_discounts'] === null) {
-            $invalidProperties[] = "'campaign_refunded_discounts' can't be null";
+        if ($this->container['campaignRefundedDiscounts'] === null) {
+            $invalidProperties[] = "'campaignRefundedDiscounts' can't be null";
         }
-        if ($this->container['total_campaign_refunded_discounts'] === null) {
-            $invalidProperties[] = "'total_campaign_refunded_discounts' can't be null";
+        if ($this->container['totalCampaignRefundedDiscounts'] === null) {
+            $invalidProperties[] = "'totalCampaignRefundedDiscounts' can't be null";
         }
-        if ($this->container['campaign_free_items'] === null) {
-            $invalidProperties[] = "'campaign_free_items' can't be null";
+        if ($this->container['campaignFreeItems'] === null) {
+            $invalidProperties[] = "'campaignFreeItems' can't be null";
         }
-        if ($this->container['total_campaign_free_items'] === null) {
-            $invalidProperties[] = "'total_campaign_free_items' can't be null";
+        if ($this->container['totalCampaignFreeItems'] === null) {
+            $invalidProperties[] = "'totalCampaignFreeItems' can't be null";
         }
-        if ($this->container['coupon_redemptions'] === null) {
-            $invalidProperties[] = "'coupon_redemptions' can't be null";
+        if ($this->container['couponRedemptions'] === null) {
+            $invalidProperties[] = "'couponRedemptions' can't be null";
         }
-        if ($this->container['total_coupon_redemptions'] === null) {
-            $invalidProperties[] = "'total_coupon_redemptions' can't be null";
+        if ($this->container['totalCouponRedemptions'] === null) {
+            $invalidProperties[] = "'totalCouponRedemptions' can't be null";
         }
-        if ($this->container['coupon_rolledback_redemptions'] === null) {
-            $invalidProperties[] = "'coupon_rolledback_redemptions' can't be null";
+        if ($this->container['couponRolledbackRedemptions'] === null) {
+            $invalidProperties[] = "'couponRolledbackRedemptions' can't be null";
         }
-        if ($this->container['total_coupon_rolledback_redemptions'] === null) {
-            $invalidProperties[] = "'total_coupon_rolledback_redemptions' can't be null";
+        if ($this->container['totalCouponRolledbackRedemptions'] === null) {
+            $invalidProperties[] = "'totalCouponRolledbackRedemptions' can't be null";
         }
-        if ($this->container['referral_redemptions'] === null) {
-            $invalidProperties[] = "'referral_redemptions' can't be null";
+        if ($this->container['referralRedemptions'] === null) {
+            $invalidProperties[] = "'referralRedemptions' can't be null";
         }
-        if ($this->container['total_referral_redemptions'] === null) {
-            $invalidProperties[] = "'total_referral_redemptions' can't be null";
+        if ($this->container['totalReferralRedemptions'] === null) {
+            $invalidProperties[] = "'totalReferralRedemptions' can't be null";
         }
-        if ($this->container['coupons_created'] === null) {
-            $invalidProperties[] = "'coupons_created' can't be null";
+        if ($this->container['couponsCreated'] === null) {
+            $invalidProperties[] = "'couponsCreated' can't be null";
         }
-        if ($this->container['total_coupons_created'] === null) {
-            $invalidProperties[] = "'total_coupons_created' can't be null";
+        if ($this->container['totalCouponsCreated'] === null) {
+            $invalidProperties[] = "'totalCouponsCreated' can't be null";
         }
-        if ($this->container['referrals_created'] === null) {
-            $invalidProperties[] = "'referrals_created' can't be null";
+        if ($this->container['referralsCreated'] === null) {
+            $invalidProperties[] = "'referralsCreated' can't be null";
         }
-        if ($this->container['total_referrals_created'] === null) {
-            $invalidProperties[] = "'total_referrals_created' can't be null";
+        if ($this->container['totalReferralsCreated'] === null) {
+            $invalidProperties[] = "'totalReferralsCreated' can't be null";
         }
         return $invalidProperties;
     }
@@ -413,481 +413,481 @@ class CampaignAnalytics implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets campaign_revenue
+     * Gets campaignRevenue
      *
      * @return float
      */
     public function getCampaignRevenue()
     {
-        return $this->container['campaign_revenue'];
+        return $this->container['campaignRevenue'];
     }
 
     /**
-     * Sets campaign_revenue
+     * Sets campaignRevenue
      *
-     * @param float $campaign_revenue Amount of revenue in this campaign (for coupon or discount sessions).
+     * @param float $campaignRevenue Amount of revenue in this campaign (for coupon or discount sessions).
      *
      * @return $this
      */
-    public function setCampaignRevenue($campaign_revenue)
+    public function setCampaignRevenue($campaignRevenue)
     {
-        $this->container['campaign_revenue'] = $campaign_revenue;
+        $this->container['campaignRevenue'] = $campaignRevenue;
 
         return $this;
     }
 
     /**
-     * Gets total_campaign_revenue
+     * Gets totalCampaignRevenue
      *
      * @return float
      */
     public function getTotalCampaignRevenue()
     {
-        return $this->container['total_campaign_revenue'];
+        return $this->container['totalCampaignRevenue'];
     }
 
     /**
-     * Sets total_campaign_revenue
+     * Sets totalCampaignRevenue
      *
-     * @param float $total_campaign_revenue Amount of revenue in this campaign since it began (for coupon or discount sessions).
+     * @param float $totalCampaignRevenue Amount of revenue in this campaign since it began (for coupon or discount sessions).
      *
      * @return $this
      */
-    public function setTotalCampaignRevenue($total_campaign_revenue)
+    public function setTotalCampaignRevenue($totalCampaignRevenue)
     {
-        $this->container['total_campaign_revenue'] = $total_campaign_revenue;
+        $this->container['totalCampaignRevenue'] = $totalCampaignRevenue;
 
         return $this;
     }
 
     /**
-     * Gets campaign_refund
+     * Gets campaignRefund
      *
      * @return float
      */
     public function getCampaignRefund()
     {
-        return $this->container['campaign_refund'];
+        return $this->container['campaignRefund'];
     }
 
     /**
-     * Sets campaign_refund
+     * Sets campaignRefund
      *
-     * @param float $campaign_refund Amount of refunds in this campaign (for coupon or discount sessions).
+     * @param float $campaignRefund Amount of refunds in this campaign (for coupon or discount sessions).
      *
      * @return $this
      */
-    public function setCampaignRefund($campaign_refund)
+    public function setCampaignRefund($campaignRefund)
     {
-        $this->container['campaign_refund'] = $campaign_refund;
+        $this->container['campaignRefund'] = $campaignRefund;
 
         return $this;
     }
 
     /**
-     * Gets total_campaign_refund
+     * Gets totalCampaignRefund
      *
      * @return float
      */
     public function getTotalCampaignRefund()
     {
-        return $this->container['total_campaign_refund'];
+        return $this->container['totalCampaignRefund'];
     }
 
     /**
-     * Sets total_campaign_refund
+     * Sets totalCampaignRefund
      *
-     * @param float $total_campaign_refund Amount of refunds in this campaign since it began (for coupon or discount sessions).
+     * @param float $totalCampaignRefund Amount of refunds in this campaign since it began (for coupon or discount sessions).
      *
      * @return $this
      */
-    public function setTotalCampaignRefund($total_campaign_refund)
+    public function setTotalCampaignRefund($totalCampaignRefund)
     {
-        $this->container['total_campaign_refund'] = $total_campaign_refund;
+        $this->container['totalCampaignRefund'] = $totalCampaignRefund;
 
         return $this;
     }
 
     /**
-     * Gets campaign_discount_costs
+     * Gets campaignDiscountCosts
      *
      * @return float
      */
     public function getCampaignDiscountCosts()
     {
-        return $this->container['campaign_discount_costs'];
+        return $this->container['campaignDiscountCosts'];
     }
 
     /**
-     * Sets campaign_discount_costs
+     * Sets campaignDiscountCosts
      *
-     * @param float $campaign_discount_costs Amount of cost caused by discounts given in the campaign.
+     * @param float $campaignDiscountCosts Amount of cost caused by discounts given in the campaign.
      *
      * @return $this
      */
-    public function setCampaignDiscountCosts($campaign_discount_costs)
+    public function setCampaignDiscountCosts($campaignDiscountCosts)
     {
-        $this->container['campaign_discount_costs'] = $campaign_discount_costs;
+        $this->container['campaignDiscountCosts'] = $campaignDiscountCosts;
 
         return $this;
     }
 
     /**
-     * Gets total_campaign_discount_costs
+     * Gets totalCampaignDiscountCosts
      *
      * @return float
      */
     public function getTotalCampaignDiscountCosts()
     {
-        return $this->container['total_campaign_discount_costs'];
+        return $this->container['totalCampaignDiscountCosts'];
     }
 
     /**
-     * Sets total_campaign_discount_costs
+     * Sets totalCampaignDiscountCosts
      *
-     * @param float $total_campaign_discount_costs Amount of cost caused by discounts given in the campaign since it began.
+     * @param float $totalCampaignDiscountCosts Amount of cost caused by discounts given in the campaign since it began.
      *
      * @return $this
      */
-    public function setTotalCampaignDiscountCosts($total_campaign_discount_costs)
+    public function setTotalCampaignDiscountCosts($totalCampaignDiscountCosts)
     {
-        $this->container['total_campaign_discount_costs'] = $total_campaign_discount_costs;
+        $this->container['totalCampaignDiscountCosts'] = $totalCampaignDiscountCosts;
 
         return $this;
     }
 
     /**
-     * Gets campaign_refunded_discounts
+     * Gets campaignRefundedDiscounts
      *
      * @return float
      */
     public function getCampaignRefundedDiscounts()
     {
-        return $this->container['campaign_refunded_discounts'];
+        return $this->container['campaignRefundedDiscounts'];
     }
 
     /**
-     * Sets campaign_refunded_discounts
+     * Sets campaignRefundedDiscounts
      *
-     * @param float $campaign_refunded_discounts Amount of discounts rolledback due to refund in the campaign.
+     * @param float $campaignRefundedDiscounts Amount of discounts rolledback due to refund in the campaign.
      *
      * @return $this
      */
-    public function setCampaignRefundedDiscounts($campaign_refunded_discounts)
+    public function setCampaignRefundedDiscounts($campaignRefundedDiscounts)
     {
-        $this->container['campaign_refunded_discounts'] = $campaign_refunded_discounts;
+        $this->container['campaignRefundedDiscounts'] = $campaignRefundedDiscounts;
 
         return $this;
     }
 
     /**
-     * Gets total_campaign_refunded_discounts
+     * Gets totalCampaignRefundedDiscounts
      *
      * @return float
      */
     public function getTotalCampaignRefundedDiscounts()
     {
-        return $this->container['total_campaign_refunded_discounts'];
+        return $this->container['totalCampaignRefundedDiscounts'];
     }
 
     /**
-     * Sets total_campaign_refunded_discounts
+     * Sets totalCampaignRefundedDiscounts
      *
-     * @param float $total_campaign_refunded_discounts Amount of discounts rolledback due to refund in the campaign since it began.
+     * @param float $totalCampaignRefundedDiscounts Amount of discounts rolledback due to refund in the campaign since it began.
      *
      * @return $this
      */
-    public function setTotalCampaignRefundedDiscounts($total_campaign_refunded_discounts)
+    public function setTotalCampaignRefundedDiscounts($totalCampaignRefundedDiscounts)
     {
-        $this->container['total_campaign_refunded_discounts'] = $total_campaign_refunded_discounts;
+        $this->container['totalCampaignRefundedDiscounts'] = $totalCampaignRefundedDiscounts;
 
         return $this;
     }
 
     /**
-     * Gets campaign_free_items
+     * Gets campaignFreeItems
      *
      * @return int
      */
     public function getCampaignFreeItems()
     {
-        return $this->container['campaign_free_items'];
+        return $this->container['campaignFreeItems'];
     }
 
     /**
-     * Sets campaign_free_items
+     * Sets campaignFreeItems
      *
-     * @param int $campaign_free_items Amount of free items given in the campaign.
+     * @param int $campaignFreeItems Amount of free items given in the campaign.
      *
      * @return $this
      */
-    public function setCampaignFreeItems($campaign_free_items)
+    public function setCampaignFreeItems($campaignFreeItems)
     {
-        $this->container['campaign_free_items'] = $campaign_free_items;
+        $this->container['campaignFreeItems'] = $campaignFreeItems;
 
         return $this;
     }
 
     /**
-     * Gets total_campaign_free_items
+     * Gets totalCampaignFreeItems
      *
      * @return int
      */
     public function getTotalCampaignFreeItems()
     {
-        return $this->container['total_campaign_free_items'];
+        return $this->container['totalCampaignFreeItems'];
     }
 
     /**
-     * Sets total_campaign_free_items
+     * Sets totalCampaignFreeItems
      *
-     * @param int $total_campaign_free_items Amount of free items given in the campaign since it began.
+     * @param int $totalCampaignFreeItems Amount of free items given in the campaign since it began.
      *
      * @return $this
      */
-    public function setTotalCampaignFreeItems($total_campaign_free_items)
+    public function setTotalCampaignFreeItems($totalCampaignFreeItems)
     {
-        $this->container['total_campaign_free_items'] = $total_campaign_free_items;
+        $this->container['totalCampaignFreeItems'] = $totalCampaignFreeItems;
 
         return $this;
     }
 
     /**
-     * Gets coupon_redemptions
+     * Gets couponRedemptions
      *
      * @return int
      */
     public function getCouponRedemptions()
     {
-        return $this->container['coupon_redemptions'];
+        return $this->container['couponRedemptions'];
     }
 
     /**
-     * Sets coupon_redemptions
+     * Sets couponRedemptions
      *
-     * @param int $coupon_redemptions Number of coupon redemptions in the campaign.
+     * @param int $couponRedemptions Number of coupon redemptions in the campaign.
      *
      * @return $this
      */
-    public function setCouponRedemptions($coupon_redemptions)
+    public function setCouponRedemptions($couponRedemptions)
     {
-        $this->container['coupon_redemptions'] = $coupon_redemptions;
+        $this->container['couponRedemptions'] = $couponRedemptions;
 
         return $this;
     }
 
     /**
-     * Gets total_coupon_redemptions
+     * Gets totalCouponRedemptions
      *
      * @return int
      */
     public function getTotalCouponRedemptions()
     {
-        return $this->container['total_coupon_redemptions'];
+        return $this->container['totalCouponRedemptions'];
     }
 
     /**
-     * Sets total_coupon_redemptions
+     * Sets totalCouponRedemptions
      *
-     * @param int $total_coupon_redemptions Number of coupon redemptions in the campaign since it began.
+     * @param int $totalCouponRedemptions Number of coupon redemptions in the campaign since it began.
      *
      * @return $this
      */
-    public function setTotalCouponRedemptions($total_coupon_redemptions)
+    public function setTotalCouponRedemptions($totalCouponRedemptions)
     {
-        $this->container['total_coupon_redemptions'] = $total_coupon_redemptions;
+        $this->container['totalCouponRedemptions'] = $totalCouponRedemptions;
 
         return $this;
     }
 
     /**
-     * Gets coupon_rolledback_redemptions
+     * Gets couponRolledbackRedemptions
      *
      * @return int
      */
     public function getCouponRolledbackRedemptions()
     {
-        return $this->container['coupon_rolledback_redemptions'];
+        return $this->container['couponRolledbackRedemptions'];
     }
 
     /**
-     * Sets coupon_rolledback_redemptions
+     * Sets couponRolledbackRedemptions
      *
-     * @param int $coupon_rolledback_redemptions Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign.
+     * @param int $couponRolledbackRedemptions Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign.
      *
      * @return $this
      */
-    public function setCouponRolledbackRedemptions($coupon_rolledback_redemptions)
+    public function setCouponRolledbackRedemptions($couponRolledbackRedemptions)
     {
-        $this->container['coupon_rolledback_redemptions'] = $coupon_rolledback_redemptions;
+        $this->container['couponRolledbackRedemptions'] = $couponRolledbackRedemptions;
 
         return $this;
     }
 
     /**
-     * Gets total_coupon_rolledback_redemptions
+     * Gets totalCouponRolledbackRedemptions
      *
      * @return int
      */
     public function getTotalCouponRolledbackRedemptions()
     {
-        return $this->container['total_coupon_rolledback_redemptions'];
+        return $this->container['totalCouponRolledbackRedemptions'];
     }
 
     /**
-     * Sets total_coupon_rolledback_redemptions
+     * Sets totalCouponRolledbackRedemptions
      *
-     * @param int $total_coupon_rolledback_redemptions Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign since it began.
+     * @param int $totalCouponRolledbackRedemptions Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign since it began.
      *
      * @return $this
      */
-    public function setTotalCouponRolledbackRedemptions($total_coupon_rolledback_redemptions)
+    public function setTotalCouponRolledbackRedemptions($totalCouponRolledbackRedemptions)
     {
-        $this->container['total_coupon_rolledback_redemptions'] = $total_coupon_rolledback_redemptions;
+        $this->container['totalCouponRolledbackRedemptions'] = $totalCouponRolledbackRedemptions;
 
         return $this;
     }
 
     /**
-     * Gets referral_redemptions
+     * Gets referralRedemptions
      *
      * @return int
      */
     public function getReferralRedemptions()
     {
-        return $this->container['referral_redemptions'];
+        return $this->container['referralRedemptions'];
     }
 
     /**
-     * Sets referral_redemptions
+     * Sets referralRedemptions
      *
-     * @param int $referral_redemptions Number of referral redemptions in the campaign.
+     * @param int $referralRedemptions Number of referral redemptions in the campaign.
      *
      * @return $this
      */
-    public function setReferralRedemptions($referral_redemptions)
+    public function setReferralRedemptions($referralRedemptions)
     {
-        $this->container['referral_redemptions'] = $referral_redemptions;
+        $this->container['referralRedemptions'] = $referralRedemptions;
 
         return $this;
     }
 
     /**
-     * Gets total_referral_redemptions
+     * Gets totalReferralRedemptions
      *
      * @return int
      */
     public function getTotalReferralRedemptions()
     {
-        return $this->container['total_referral_redemptions'];
+        return $this->container['totalReferralRedemptions'];
     }
 
     /**
-     * Sets total_referral_redemptions
+     * Sets totalReferralRedemptions
      *
-     * @param int $total_referral_redemptions Number of referral redemptions in the campaign since it began.
+     * @param int $totalReferralRedemptions Number of referral redemptions in the campaign since it began.
      *
      * @return $this
      */
-    public function setTotalReferralRedemptions($total_referral_redemptions)
+    public function setTotalReferralRedemptions($totalReferralRedemptions)
     {
-        $this->container['total_referral_redemptions'] = $total_referral_redemptions;
+        $this->container['totalReferralRedemptions'] = $totalReferralRedemptions;
 
         return $this;
     }
 
     /**
-     * Gets coupons_created
+     * Gets couponsCreated
      *
      * @return int
      */
     public function getCouponsCreated()
     {
-        return $this->container['coupons_created'];
+        return $this->container['couponsCreated'];
     }
 
     /**
-     * Sets coupons_created
+     * Sets couponsCreated
      *
-     * @param int $coupons_created Number of coupons created in the campaign by the rule engine.
+     * @param int $couponsCreated Number of coupons created in the campaign by the rule engine.
      *
      * @return $this
      */
-    public function setCouponsCreated($coupons_created)
+    public function setCouponsCreated($couponsCreated)
     {
-        $this->container['coupons_created'] = $coupons_created;
+        $this->container['couponsCreated'] = $couponsCreated;
 
         return $this;
     }
 
     /**
-     * Gets total_coupons_created
+     * Gets totalCouponsCreated
      *
      * @return int
      */
     public function getTotalCouponsCreated()
     {
-        return $this->container['total_coupons_created'];
+        return $this->container['totalCouponsCreated'];
     }
 
     /**
-     * Sets total_coupons_created
+     * Sets totalCouponsCreated
      *
-     * @param int $total_coupons_created Number of coupons created in the campaign by the rule engine since it began.
+     * @param int $totalCouponsCreated Number of coupons created in the campaign by the rule engine since it began.
      *
      * @return $this
      */
-    public function setTotalCouponsCreated($total_coupons_created)
+    public function setTotalCouponsCreated($totalCouponsCreated)
     {
-        $this->container['total_coupons_created'] = $total_coupons_created;
+        $this->container['totalCouponsCreated'] = $totalCouponsCreated;
 
         return $this;
     }
 
     /**
-     * Gets referrals_created
+     * Gets referralsCreated
      *
      * @return int
      */
     public function getReferralsCreated()
     {
-        return $this->container['referrals_created'];
+        return $this->container['referralsCreated'];
     }
 
     /**
-     * Sets referrals_created
+     * Sets referralsCreated
      *
-     * @param int $referrals_created Number of referrals created in the campaign by the rule engine.
+     * @param int $referralsCreated Number of referrals created in the campaign by the rule engine.
      *
      * @return $this
      */
-    public function setReferralsCreated($referrals_created)
+    public function setReferralsCreated($referralsCreated)
     {
-        $this->container['referrals_created'] = $referrals_created;
+        $this->container['referralsCreated'] = $referralsCreated;
 
         return $this;
     }
 
     /**
-     * Gets total_referrals_created
+     * Gets totalReferralsCreated
      *
      * @return int
      */
     public function getTotalReferralsCreated()
     {
-        return $this->container['total_referrals_created'];
+        return $this->container['totalReferralsCreated'];
     }
 
     /**
-     * Sets total_referrals_created
+     * Sets totalReferralsCreated
      *
-     * @param int $total_referrals_created Number of referrals created in the campaign by the rule engine since it began.
+     * @param int $totalReferralsCreated Number of referrals created in the campaign by the rule engine since it began.
      *
      * @return $this
      */
-    public function setTotalReferralsCreated($total_referrals_created)
+    public function setTotalReferralsCreated($totalReferralsCreated)
     {
-        $this->container['total_referrals_created'] = $total_referrals_created;
+        $this->container['totalReferralsCreated'] = $totalReferralsCreated;
 
         return $this;
     }

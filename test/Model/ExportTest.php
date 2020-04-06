@@ -93,14 +93,14 @@ class ExportTest extends TestCase
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "accountId"
      */
     public function testPropertyAccountId()
     {
     }
 
     /**
-     * Test attribute "user_id"
+     * Test attribute "userId"
      */
     public function testPropertyUserId()
     {

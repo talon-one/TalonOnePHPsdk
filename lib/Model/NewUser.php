@@ -61,7 +61,7 @@ class NewUser implements ModelInterface, ArrayAccess
         'email' => 'string',
         'password' => 'string',
         'name' => 'string',
-        'invite_token' => 'string'
+        'inviteToken' => 'string'
     ];
 
     /**
@@ -73,7 +73,7 @@ class NewUser implements ModelInterface, ArrayAccess
         'email' => 'email',
         'password' => null,
         'name' => null,
-        'invite_token' => null
+        'inviteToken' => null
     ];
 
     /**
@@ -106,7 +106,7 @@ class NewUser implements ModelInterface, ArrayAccess
         'email' => 'email',
         'password' => 'password',
         'name' => 'name',
-        'invite_token' => 'inviteToken'
+        'inviteToken' => 'inviteToken'
     ];
 
     /**
@@ -118,7 +118,7 @@ class NewUser implements ModelInterface, ArrayAccess
         'email' => 'setEmail',
         'password' => 'setPassword',
         'name' => 'setName',
-        'invite_token' => 'setInviteToken'
+        'inviteToken' => 'setInviteToken'
     ];
 
     /**
@@ -130,7 +130,7 @@ class NewUser implements ModelInterface, ArrayAccess
         'email' => 'getEmail',
         'password' => 'getPassword',
         'name' => 'getName',
-        'invite_token' => 'getInviteToken'
+        'inviteToken' => 'getInviteToken'
     ];
 
     /**
@@ -196,7 +196,7 @@ class NewUser implements ModelInterface, ArrayAccess
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['invite_token'] = isset($data['invite_token']) ? $data['invite_token'] : null;
+        $this->container['inviteToken'] = isset($data['inviteToken']) ? $data['inviteToken'] : null;
     }
 
     /**
@@ -214,11 +214,11 @@ class NewUser implements ModelInterface, ArrayAccess
         if ($this->container['password'] === null) {
             $invalidProperties[] = "'password' can't be null";
         }
-        if ($this->container['invite_token'] === null) {
-            $invalidProperties[] = "'invite_token' can't be null";
+        if ($this->container['inviteToken'] === null) {
+            $invalidProperties[] = "'inviteToken' can't be null";
         }
-        if ((mb_strlen($this->container['invite_token']) < 1)) {
-            $invalidProperties[] = "invalid value for 'invite_token', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['inviteToken']) < 1)) {
+            $invalidProperties[] = "invalid value for 'inviteToken', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -309,30 +309,30 @@ class NewUser implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets invite_token
+     * Gets inviteToken
      *
      * @return string
      */
     public function getInviteToken()
     {
-        return $this->container['invite_token'];
+        return $this->container['inviteToken'];
     }
 
     /**
-     * Sets invite_token
+     * Sets inviteToken
      *
-     * @param string $invite_token invite_token
+     * @param string $inviteToken inviteToken
      *
      * @return $this
      */
-    public function setInviteToken($invite_token)
+    public function setInviteToken($inviteToken)
     {
 
-        if ((mb_strlen($invite_token) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $invite_token when calling NewUser., must be bigger than or equal to 1.');
+        if ((mb_strlen($inviteToken) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $inviteToken when calling NewUser., must be bigger than or equal to 1.');
         }
 
-        $this->container['invite_token'] = $invite_token;
+        $this->container['inviteToken'] = $inviteToken;
 
         return $this;
     }

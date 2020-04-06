@@ -58,9 +58,9 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'rule_title' => 'string',
-        'program_id' => 'int',
-        'sub_ledger_id' => 'string',
+        'ruleTitle' => 'string',
+        'programId' => 'int',
+        'subLedgerId' => 'string',
         'value' => 'float'
     ];
 
@@ -70,9 +70,9 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'rule_title' => null,
-        'program_id' => null,
-        'sub_ledger_id' => null,
+        'ruleTitle' => null,
+        'programId' => null,
+        'subLedgerId' => null,
         'value' => null
     ];
 
@@ -103,9 +103,9 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'rule_title' => 'ruleTitle',
-        'program_id' => 'programId',
-        'sub_ledger_id' => 'subLedgerId',
+        'ruleTitle' => 'ruleTitle',
+        'programId' => 'programId',
+        'subLedgerId' => 'subLedgerId',
         'value' => 'value'
     ];
 
@@ -115,9 +115,9 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'rule_title' => 'setRuleTitle',
-        'program_id' => 'setProgramId',
-        'sub_ledger_id' => 'setSubLedgerId',
+        'ruleTitle' => 'setRuleTitle',
+        'programId' => 'setProgramId',
+        'subLedgerId' => 'setSubLedgerId',
         'value' => 'setValue'
     ];
 
@@ -127,9 +127,9 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'rule_title' => 'getRuleTitle',
-        'program_id' => 'getProgramId',
-        'sub_ledger_id' => 'getSubLedgerId',
+        'ruleTitle' => 'getRuleTitle',
+        'programId' => 'getProgramId',
+        'subLedgerId' => 'getSubLedgerId',
         'value' => 'getValue'
     ];
 
@@ -193,9 +193,9 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['rule_title'] = isset($data['rule_title']) ? $data['rule_title'] : null;
-        $this->container['program_id'] = isset($data['program_id']) ? $data['program_id'] : null;
-        $this->container['sub_ledger_id'] = isset($data['sub_ledger_id']) ? $data['sub_ledger_id'] : null;
+        $this->container['ruleTitle'] = isset($data['ruleTitle']) ? $data['ruleTitle'] : null;
+        $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
+        $this->container['subLedgerId'] = isset($data['subLedgerId']) ? $data['subLedgerId'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
@@ -208,14 +208,14 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['rule_title'] === null) {
-            $invalidProperties[] = "'rule_title' can't be null";
+        if ($this->container['ruleTitle'] === null) {
+            $invalidProperties[] = "'ruleTitle' can't be null";
         }
-        if ($this->container['program_id'] === null) {
-            $invalidProperties[] = "'program_id' can't be null";
+        if ($this->container['programId'] === null) {
+            $invalidProperties[] = "'programId' can't be null";
         }
-        if ($this->container['sub_ledger_id'] === null) {
-            $invalidProperties[] = "'sub_ledger_id' can't be null";
+        if ($this->container['subLedgerId'] === null) {
+            $invalidProperties[] = "'subLedgerId' can't be null";
         }
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
@@ -236,73 +236,73 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets rule_title
+     * Gets ruleTitle
      *
      * @return string
      */
     public function getRuleTitle()
     {
-        return $this->container['rule_title'];
+        return $this->container['ruleTitle'];
     }
 
     /**
-     * Sets rule_title
+     * Sets ruleTitle
      *
-     * @param string $rule_title The title of the rule that contained triggered this points deduction
+     * @param string $ruleTitle The title of the rule that contained triggered this points deduction
      *
      * @return $this
      */
-    public function setRuleTitle($rule_title)
+    public function setRuleTitle($ruleTitle)
     {
-        $this->container['rule_title'] = $rule_title;
+        $this->container['ruleTitle'] = $ruleTitle;
 
         return $this;
     }
 
     /**
-     * Gets program_id
+     * Gets programId
      *
      * @return int
      */
     public function getProgramId()
     {
-        return $this->container['program_id'];
+        return $this->container['programId'];
     }
 
     /**
-     * Sets program_id
+     * Sets programId
      *
-     * @param int $program_id The ID of the loyalty program where these points were added
+     * @param int $programId The ID of the loyalty program where these points were added
      *
      * @return $this
      */
-    public function setProgramId($program_id)
+    public function setProgramId($programId)
     {
-        $this->container['program_id'] = $program_id;
+        $this->container['programId'] = $programId;
 
         return $this;
     }
 
     /**
-     * Gets sub_ledger_id
+     * Gets subLedgerId
      *
      * @return string
      */
     public function getSubLedgerId()
     {
-        return $this->container['sub_ledger_id'];
+        return $this->container['subLedgerId'];
     }
 
     /**
-     * Sets sub_ledger_id
+     * Sets subLedgerId
      *
-     * @param string $sub_ledger_id The ID of the subledger within the loyalty program where these points were added
+     * @param string $subLedgerId The ID of the subledger within the loyalty program where these points were added
      *
      * @return $this
      */
-    public function setSubLedgerId($sub_ledger_id)
+    public function setSubLedgerId($subLedgerId)
     {
-        $this->container['sub_ledger_id'] = $sub_ledger_id;
+        $this->container['subLedgerId'] = $subLedgerId;
 
         return $this;
     }

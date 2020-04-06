@@ -79,7 +79,7 @@ class ManagerConfigTest extends TestCase
     }
 
     /**
-     * Test attribute "schema_version"
+     * Test attribute "schemaVersion"
      */
     public function testPropertySchemaVersion()
     {

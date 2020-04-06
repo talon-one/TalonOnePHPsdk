@@ -100,7 +100,7 @@ class LoyaltyProgramLedgersTest extends TestCase
     }
 
     /**
-     * Test attribute "sub_ledgers"
+     * Test attribute "subLedgers"
      */
     public function testPropertySubLedgers()
     {

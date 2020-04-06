@@ -79,35 +79,35 @@ class EffectEntityTest extends TestCase
     }
 
     /**
-     * Test attribute "campaign_id"
+     * Test attribute "campaignId"
      */
     public function testPropertyCampaignId()
     {
     }
 
     /**
-     * Test attribute "ruleset_id"
+     * Test attribute "rulesetId"
      */
     public function testPropertyRulesetId()
     {
     }
 
     /**
-     * Test attribute "rule_index"
+     * Test attribute "ruleIndex"
      */
     public function testPropertyRuleIndex()
     {
     }
 
     /**
-     * Test attribute "rule_name"
+     * Test attribute "ruleName"
      */
     public function testPropertyRuleName()
     {
     }
 
     /**
-     * Test attribute "effect_type"
+     * Test attribute "effectType"
      */
     public function testPropertyEffectType()
     {

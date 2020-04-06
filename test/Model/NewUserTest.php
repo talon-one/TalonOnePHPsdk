@@ -100,7 +100,7 @@ class NewUserTest extends TestCase
     }
 
     /**
-     * Test attribute "invite_token"
+     * Test attribute "inviteToken"
      */
     public function testPropertyInviteToken()
     {

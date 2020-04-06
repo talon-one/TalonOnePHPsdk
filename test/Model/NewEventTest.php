@@ -79,7 +79,7 @@ class NewEventTest extends TestCase
     }
 
     /**
-     * Test attribute "profile_id"
+     * Test attribute "profileId"
      */
     public function testPropertyProfileId()
     {
@@ -100,7 +100,7 @@ class NewEventTest extends TestCase
     }
 
     /**
-     * Test attribute "session_id"
+     * Test attribute "sessionId"
      */
     public function testPropertySessionId()
     {

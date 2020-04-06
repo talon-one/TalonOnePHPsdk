@@ -58,8 +58,8 @@ class ApplicationCustomerSearch implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'attributes' => 'object',
-        'integration_i_ds' => 'string[]',
-        'profile_i_ds' => 'int[]'
+        'integrationIDs' => 'string[]',
+        'profileIDs' => 'int[]'
     ];
 
     /**
@@ -69,8 +69,8 @@ class ApplicationCustomerSearch implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'attributes' => null,
-        'integration_i_ds' => null,
-        'profile_i_ds' => null
+        'integrationIDs' => null,
+        'profileIDs' => null
     ];
 
     /**
@@ -101,8 +101,8 @@ class ApplicationCustomerSearch implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'attributes' => 'attributes',
-        'integration_i_ds' => 'integrationIDs',
-        'profile_i_ds' => 'profileIDs'
+        'integrationIDs' => 'integrationIDs',
+        'profileIDs' => 'profileIDs'
     ];
 
     /**
@@ -112,8 +112,8 @@ class ApplicationCustomerSearch implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'attributes' => 'setAttributes',
-        'integration_i_ds' => 'setIntegrationIDs',
-        'profile_i_ds' => 'setProfileIDs'
+        'integrationIDs' => 'setIntegrationIDs',
+        'profileIDs' => 'setProfileIDs'
     ];
 
     /**
@@ -123,8 +123,8 @@ class ApplicationCustomerSearch implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'attributes' => 'getAttributes',
-        'integration_i_ds' => 'getIntegrationIDs',
-        'profile_i_ds' => 'getProfileIDs'
+        'integrationIDs' => 'getIntegrationIDs',
+        'profileIDs' => 'getProfileIDs'
     ];
 
     /**
@@ -188,8 +188,8 @@ class ApplicationCustomerSearch implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['integration_i_ds'] = isset($data['integration_i_ds']) ? $data['integration_i_ds'] : null;
-        $this->container['profile_i_ds'] = isset($data['profile_i_ds']) ? $data['profile_i_ds'] : null;
+        $this->container['integrationIDs'] = isset($data['integrationIDs']) ? $data['integrationIDs'] : null;
+        $this->container['profileIDs'] = isset($data['profileIDs']) ? $data['profileIDs'] : null;
     }
 
     /**
@@ -241,49 +241,49 @@ class ApplicationCustomerSearch implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets integration_i_ds
+     * Gets integrationIDs
      *
      * @return string[]|null
      */
     public function getIntegrationIDs()
     {
-        return $this->container['integration_i_ds'];
+        return $this->container['integrationIDs'];
     }
 
     /**
-     * Sets integration_i_ds
+     * Sets integrationIDs
      *
-     * @param string[]|null $integration_i_ds integration_i_ds
+     * @param string[]|null $integrationIDs integrationIDs
      *
      * @return $this
      */
-    public function setIntegrationIDs($integration_i_ds)
+    public function setIntegrationIDs($integrationIDs)
     {
-        $this->container['integration_i_ds'] = $integration_i_ds;
+        $this->container['integrationIDs'] = $integrationIDs;
 
         return $this;
     }
 
     /**
-     * Gets profile_i_ds
+     * Gets profileIDs
      *
      * @return int[]|null
      */
     public function getProfileIDs()
     {
-        return $this->container['profile_i_ds'];
+        return $this->container['profileIDs'];
     }
 
     /**
-     * Sets profile_i_ds
+     * Sets profileIDs
      *
-     * @param int[]|null $profile_i_ds profile_i_ds
+     * @param int[]|null $profileIDs profileIDs
      *
      * @return $this
      */
-    public function setProfileIDs($profile_i_ds)
+    public function setProfileIDs($profileIDs)
     {
-        $this->container['profile_i_ds'] = $profile_i_ds;
+        $this->container['profileIDs'] = $profileIDs;
 
         return $this;
     }

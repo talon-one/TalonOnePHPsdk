@@ -58,7 +58,7 @@ class NewWebhook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'application_ids' => 'int[]',
+        'applicationIds' => 'int[]',
         'title' => 'string',
         'verb' => 'string',
         'url' => 'string',
@@ -74,7 +74,7 @@ class NewWebhook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'application_ids' => null,
+        'applicationIds' => null,
         'title' => null,
         'verb' => null,
         'url' => null,
@@ -111,7 +111,7 @@ class NewWebhook implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'application_ids' => 'applicationIds',
+        'applicationIds' => 'applicationIds',
         'title' => 'title',
         'verb' => 'verb',
         'url' => 'url',
@@ -127,7 +127,7 @@ class NewWebhook implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'application_ids' => 'setApplicationIds',
+        'applicationIds' => 'setApplicationIds',
         'title' => 'setTitle',
         'verb' => 'setVerb',
         'url' => 'setUrl',
@@ -143,7 +143,7 @@ class NewWebhook implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'application_ids' => 'getApplicationIds',
+        'applicationIds' => 'getApplicationIds',
         'title' => 'getTitle',
         'verb' => 'getVerb',
         'url' => 'getUrl',
@@ -234,7 +234,7 @@ class NewWebhook implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['application_ids'] = isset($data['application_ids']) ? $data['application_ids'] : null;
+        $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['verb'] = isset($data['verb']) ? $data['verb'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
@@ -253,8 +253,8 @@ class NewWebhook implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['application_ids'] === null) {
-            $invalidProperties[] = "'application_ids' can't be null";
+        if ($this->container['applicationIds'] === null) {
+            $invalidProperties[] = "'applicationIds' can't be null";
         }
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
@@ -298,25 +298,25 @@ class NewWebhook implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets application_ids
+     * Gets applicationIds
      *
      * @return int[]
      */
     public function getApplicationIds()
     {
-        return $this->container['application_ids'];
+        return $this->container['applicationIds'];
     }
 
     /**
-     * Sets application_ids
+     * Sets applicationIds
      *
-     * @param int[] $application_ids The IDs of the applications that are related to this entity.
+     * @param int[] $applicationIds The IDs of the applications that are related to this entity.
      *
      * @return $this
      */
-    public function setApplicationIds($application_ids)
+    public function setApplicationIds($applicationIds)
     {
-        $this->container['application_ids'] = $application_ids;
+        $this->container['applicationIds'] = $applicationIds;
 
         return $this;
     }

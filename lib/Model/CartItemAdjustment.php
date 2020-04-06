@@ -57,9 +57,9 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pay_from_loyalty_program' => 'int',
-        'point_payment' => 'int',
-        'remaining_price' => 'float'
+        'payFromLoyaltyProgram' => 'int',
+        'pointPayment' => 'int',
+        'remainingPrice' => 'float'
     ];
 
     /**
@@ -68,9 +68,9 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'pay_from_loyalty_program' => null,
-        'point_payment' => null,
-        'remaining_price' => null
+        'payFromLoyaltyProgram' => null,
+        'pointPayment' => null,
+        'remainingPrice' => null
     ];
 
     /**
@@ -100,9 +100,9 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'pay_from_loyalty_program' => 'payFromLoyaltyProgram',
-        'point_payment' => 'pointPayment',
-        'remaining_price' => 'remainingPrice'
+        'payFromLoyaltyProgram' => 'payFromLoyaltyProgram',
+        'pointPayment' => 'pointPayment',
+        'remainingPrice' => 'remainingPrice'
     ];
 
     /**
@@ -111,9 +111,9 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'pay_from_loyalty_program' => 'setPayFromLoyaltyProgram',
-        'point_payment' => 'setPointPayment',
-        'remaining_price' => 'setRemainingPrice'
+        'payFromLoyaltyProgram' => 'setPayFromLoyaltyProgram',
+        'pointPayment' => 'setPointPayment',
+        'remainingPrice' => 'setRemainingPrice'
     ];
 
     /**
@@ -122,9 +122,9 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'pay_from_loyalty_program' => 'getPayFromLoyaltyProgram',
-        'point_payment' => 'getPointPayment',
-        'remaining_price' => 'getRemainingPrice'
+        'payFromLoyaltyProgram' => 'getPayFromLoyaltyProgram',
+        'pointPayment' => 'getPointPayment',
+        'remainingPrice' => 'getRemainingPrice'
     ];
 
     /**
@@ -187,9 +187,9 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['pay_from_loyalty_program'] = isset($data['pay_from_loyalty_program']) ? $data['pay_from_loyalty_program'] : null;
-        $this->container['point_payment'] = isset($data['point_payment']) ? $data['point_payment'] : null;
-        $this->container['remaining_price'] = isset($data['remaining_price']) ? $data['remaining_price'] : null;
+        $this->container['payFromLoyaltyProgram'] = isset($data['payFromLoyaltyProgram']) ? $data['payFromLoyaltyProgram'] : null;
+        $this->container['pointPayment'] = isset($data['pointPayment']) ? $data['pointPayment'] : null;
+        $this->container['remainingPrice'] = isset($data['remainingPrice']) ? $data['remainingPrice'] : null;
     }
 
     /**
@@ -201,18 +201,18 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['pay_from_loyalty_program'] === null) {
-            $invalidProperties[] = "'pay_from_loyalty_program' can't be null";
+        if ($this->container['payFromLoyaltyProgram'] === null) {
+            $invalidProperties[] = "'payFromLoyaltyProgram' can't be null";
         }
-        if ($this->container['point_payment'] === null) {
-            $invalidProperties[] = "'point_payment' can't be null";
+        if ($this->container['pointPayment'] === null) {
+            $invalidProperties[] = "'pointPayment' can't be null";
         }
-        if (($this->container['point_payment'] < 1)) {
-            $invalidProperties[] = "invalid value for 'point_payment', must be bigger than or equal to 1.";
+        if (($this->container['pointPayment'] < 1)) {
+            $invalidProperties[] = "invalid value for 'pointPayment', must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['remaining_price']) && ($this->container['remaining_price'] < 0)) {
-            $invalidProperties[] = "invalid value for 'remaining_price', must be bigger than or equal to 0.";
+        if (!is_null($this->container['remainingPrice']) && ($this->container['remainingPrice'] < 0)) {
+            $invalidProperties[] = "invalid value for 'remainingPrice', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -231,83 +231,83 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets pay_from_loyalty_program
+     * Gets payFromLoyaltyProgram
      *
      * @return int
      */
     public function getPayFromLoyaltyProgram()
     {
-        return $this->container['pay_from_loyalty_program'];
+        return $this->container['payFromLoyaltyProgram'];
     }
 
     /**
-     * Sets pay_from_loyalty_program
+     * Sets payFromLoyaltyProgram
      *
-     * @param int $pay_from_loyalty_program Loyalty Program to be used for payment
+     * @param int $payFromLoyaltyProgram Loyalty Program to be used for payment
      *
      * @return $this
      */
-    public function setPayFromLoyaltyProgram($pay_from_loyalty_program)
+    public function setPayFromLoyaltyProgram($payFromLoyaltyProgram)
     {
-        $this->container['pay_from_loyalty_program'] = $pay_from_loyalty_program;
+        $this->container['payFromLoyaltyProgram'] = $payFromLoyaltyProgram;
 
         return $this;
     }
 
     /**
-     * Gets point_payment
+     * Gets pointPayment
      *
      * @return int
      */
     public function getPointPayment()
     {
-        return $this->container['point_payment'];
+        return $this->container['pointPayment'];
     }
 
     /**
-     * Sets point_payment
+     * Sets pointPayment
      *
-     * @param int $point_payment Amount of points to be spend
+     * @param int $pointPayment Amount of points to be spend
      *
      * @return $this
      */
-    public function setPointPayment($point_payment)
+    public function setPointPayment($pointPayment)
     {
 
-        if (($point_payment < 1)) {
-            throw new \InvalidArgumentException('invalid value for $point_payment when calling CartItemAdjustment., must be bigger than or equal to 1.');
+        if (($pointPayment < 1)) {
+            throw new \InvalidArgumentException('invalid value for $pointPayment when calling CartItemAdjustment., must be bigger than or equal to 1.');
         }
 
-        $this->container['point_payment'] = $point_payment;
+        $this->container['pointPayment'] = $pointPayment;
 
         return $this;
     }
 
     /**
-     * Gets remaining_price
+     * Gets remainingPrice
      *
      * @return float|null
      */
     public function getRemainingPrice()
     {
-        return $this->container['remaining_price'];
+        return $this->container['remainingPrice'];
     }
 
     /**
-     * Sets remaining_price
+     * Sets remainingPrice
      *
-     * @param float|null $remaining_price Remaining price in currency after payment in points has been made
+     * @param float|null $remainingPrice Remaining price in currency after payment in points has been made
      *
      * @return $this
      */
-    public function setRemainingPrice($remaining_price)
+    public function setRemainingPrice($remainingPrice)
     {
 
-        if (!is_null($remaining_price) && ($remaining_price < 0)) {
-            throw new \InvalidArgumentException('invalid value for $remaining_price when calling CartItemAdjustment., must be bigger than or equal to 0.');
+        if (!is_null($remainingPrice) && ($remainingPrice < 0)) {
+            throw new \InvalidArgumentException('invalid value for $remainingPrice when calling CartItemAdjustment., must be bigger than or equal to 0.');
         }
 
-        $this->container['remaining_price'] = $remaining_price;
+        $this->container['remainingPrice'] = $remainingPrice;
 
         return $this;
     }

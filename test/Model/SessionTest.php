@@ -79,7 +79,7 @@ class SessionTest extends TestCase
     }
 
     /**
-     * Test attribute "user_id"
+     * Test attribute "userId"
      */
     public function testPropertyUserId()
     {

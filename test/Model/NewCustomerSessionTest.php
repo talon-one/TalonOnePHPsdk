@@ -79,7 +79,7 @@ class NewCustomerSessionTest extends TestCase
     }
 
     /**
-     * Test attribute "profile_id"
+     * Test attribute "profileId"
      */
     public function testPropertyProfileId()
     {
@@ -107,7 +107,7 @@ class NewCustomerSessionTest extends TestCase
     }
 
     /**
-     * Test attribute "cart_items"
+     * Test attribute "cartItems"
      */
     public function testPropertyCartItems()
     {

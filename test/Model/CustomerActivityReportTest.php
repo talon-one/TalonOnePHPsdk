@@ -79,7 +79,7 @@ class CustomerActivityReportTest extends TestCase
     }
 
     /**
-     * Test attribute "integration_id"
+     * Test attribute "integrationId"
      */
     public function testPropertyIntegrationId()
     {
@@ -100,70 +100,70 @@ class CustomerActivityReportTest extends TestCase
     }
 
     /**
-     * Test attribute "customer_id"
+     * Test attribute "customerId"
      */
     public function testPropertyCustomerId()
     {
     }
 
     /**
-     * Test attribute "last_activity"
+     * Test attribute "lastActivity"
      */
     public function testPropertyLastActivity()
     {
     }
 
     /**
-     * Test attribute "coupon_redemptions"
+     * Test attribute "couponRedemptions"
      */
     public function testPropertyCouponRedemptions()
     {
     }
 
     /**
-     * Test attribute "coupon_use_attempts"
+     * Test attribute "couponUseAttempts"
      */
     public function testPropertyCouponUseAttempts()
     {
     }
 
     /**
-     * Test attribute "coupon_failed_attempts"
+     * Test attribute "couponFailedAttempts"
      */
     public function testPropertyCouponFailedAttempts()
     {
     }
 
     /**
-     * Test attribute "accrued_discounts"
+     * Test attribute "accruedDiscounts"
      */
     public function testPropertyAccruedDiscounts()
     {
     }
 
     /**
-     * Test attribute "accrued_revenue"
+     * Test attribute "accruedRevenue"
      */
     public function testPropertyAccruedRevenue()
     {
     }
 
     /**
-     * Test attribute "total_orders"
+     * Test attribute "totalOrders"
      */
     public function testPropertyTotalOrders()
     {
     }
 
     /**
-     * Test attribute "total_orders_no_coupon"
+     * Test attribute "totalOrdersNoCoupon"
      */
     public function testPropertyTotalOrdersNoCoupon()
     {
     }
 
     /**
-     * Test attribute "campaign_name"
+     * Test attribute "campaignName"
      */
     public function testPropertyCampaignName()
     {

@@ -59,7 +59,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'value' => 'string',
-        'rejection_reason' => 'string'
+        'rejectionReason' => 'string'
     ];
 
     /**
@@ -69,7 +69,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'value' => null,
-        'rejection_reason' => null
+        'rejectionReason' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'value' => 'value',
-        'rejection_reason' => 'rejectionReason'
+        'rejectionReason' => 'rejectionReason'
     ];
 
     /**
@@ -110,7 +110,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'value' => 'setValue',
-        'rejection_reason' => 'setRejectionReason'
+        'rejectionReason' => 'setRejectionReason'
     ];
 
     /**
@@ -120,7 +120,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'value' => 'getValue',
-        'rejection_reason' => 'getRejectionReason'
+        'rejectionReason' => 'getRejectionReason'
     ];
 
     /**
@@ -184,7 +184,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['rejection_reason'] = isset($data['rejection_reason']) ? $data['rejection_reason'] : null;
+        $this->container['rejectionReason'] = isset($data['rejectionReason']) ? $data['rejectionReason'] : null;
     }
 
     /**
@@ -199,8 +199,8 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
-        if ($this->container['rejection_reason'] === null) {
-            $invalidProperties[] = "'rejection_reason' can't be null";
+        if ($this->container['rejectionReason'] === null) {
+            $invalidProperties[] = "'rejectionReason' can't be null";
         }
         return $invalidProperties;
     }
@@ -242,25 +242,25 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets rejection_reason
+     * Gets rejectionReason
      *
      * @return string
      */
     public function getRejectionReason()
     {
-        return $this->container['rejection_reason'];
+        return $this->container['rejectionReason'];
     }
 
     /**
-     * Sets rejection_reason
+     * Sets rejectionReason
      *
-     * @param string $rejection_reason The reason why this referral code was rejected
+     * @param string $rejectionReason The reason why this referral code was rejected
      *
      * @return $this
      */
-    public function setRejectionReason($rejection_reason)
+    public function setRejectionReason($rejectionReason)
     {
-        $this->container['rejection_reason'] = $rejection_reason;
+        $this->container['rejectionReason'] = $rejectionReason;
 
         return $this;
     }

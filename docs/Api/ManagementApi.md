@@ -91,7 +91,7 @@ Method | HTTP request | Description
 
 ## addLoyaltyPoints
 
-> addLoyaltyPoints($program_id, $integration_id, $body)
+> addLoyaltyPoints($programID, $integrationID, $body)
 
 Add points in a certain loyalty program for the specified customer
 
@@ -114,12 +114,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$program_id = 'program_id_example'; // string | 
-$integration_id = 'integration_id_example'; // string | 
+$programID = 'programID_example'; // string | 
+$integrationID = 'integrationID_example'; // string | 
 $body = new \TalonOne\Client\Model\LoyaltyPoints(); // \TalonOne\Client\Model\LoyaltyPoints | 
 
 try {
-    $apiInstance->addLoyaltyPoints($program_id, $integration_id, $body);
+    $apiInstance->addLoyaltyPoints($programID, $integrationID, $body);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->addLoyaltyPoints: ', $e->getMessage(), PHP_EOL;
 }
@@ -131,8 +131,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **program_id** | **string**|  |
- **integration_id** | **string**|  |
+ **programID** | **string**|  |
+ **integrationID** | **string**|  |
  **body** | [**\TalonOne\Client\Model\LoyaltyPoints**](../Model/LoyaltyPoints.md)|  |
 
 ### Return type
@@ -155,7 +155,7 @@ void (empty response body)
 
 ## copyCampaignToApplications
 
-> \TalonOne\Client\Model\InlineResponse2003 copyCampaignToApplications($application_id, $campaign_id, $body)
+> \TalonOne\Client\Model\InlineResponse2003 copyCampaignToApplications($applicationId, $campaignId, $body)
 
 Copy the campaign into every specified application
 
@@ -180,12 +180,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
 $body = new \TalonOne\Client\Model\CampaignCopy(); // \TalonOne\Client\Model\CampaignCopy | 
 
 try {
-    $result = $apiInstance->copyCampaignToApplications($application_id, $campaign_id, $body);
+    $result = $apiInstance->copyCampaignToApplications($applicationId, $campaignId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->copyCampaignToApplications: ', $e->getMessage(), PHP_EOL;
@@ -198,8 +198,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\CampaignCopy**](../Model/CampaignCopy.md)|  |
 
 ### Return type
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 ## createCampaign
 
-> \TalonOne\Client\Model\Campaign createCampaign($application_id, $body)
+> \TalonOne\Client\Model\Campaign createCampaign($applicationId, $body)
 
 Create a Campaign
 
@@ -371,11 +371,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
+$applicationId = 56; // int | 
 $body = new \TalonOne\Client\Model\NewCampaign(); // \TalonOne\Client\Model\NewCampaign | 
 
 try {
-    $result = $apiInstance->createCampaign($application_id, $body);
+    $result = $apiInstance->createCampaign($applicationId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->createCampaign: ', $e->getMessage(), PHP_EOL;
@@ -388,7 +388,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
+ **applicationId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\NewCampaign**](../Model/NewCampaign.md)|  |
 
 ### Return type
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ## createCoupons
 
-> \TalonOne\Client\Model\InlineResponse2001 createCoupons($application_id, $campaign_id, $body, $silent)
+> \TalonOne\Client\Model\InlineResponse2001 createCoupons($applicationId, $campaignId, $body, $silent)
 
 Create Coupons
 
@@ -436,13 +436,13 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
 $body = new \TalonOne\Client\Model\NewCoupons(); // \TalonOne\Client\Model\NewCoupons | 
 $silent = 'silent_example'; // string | If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000).
 
 try {
-    $result = $apiInstance->createCoupons($application_id, $campaign_id, $body, $silent);
+    $result = $apiInstance->createCoupons($applicationId, $campaignId, $body, $silent);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->createCoupons: ', $e->getMessage(), PHP_EOL;
@@ -455,8 +455,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\NewCoupons**](../Model/NewCoupons.md)|  |
  **silent** | **string**| If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). | [optional]
 
@@ -543,7 +543,7 @@ Name | Type | Description  | Notes
 
 ## createRuleset
 
-> \TalonOne\Client\Model\Ruleset createRuleset($application_id, $campaign_id, $body)
+> \TalonOne\Client\Model\Ruleset createRuleset($applicationId, $campaignId, $body)
 
 Create a Ruleset
 
@@ -566,12 +566,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
 $body = new \TalonOne\Client\Model\NewRuleset(); // \TalonOne\Client\Model\NewRuleset | 
 
 try {
-    $result = $apiInstance->createRuleset($application_id, $campaign_id, $body);
+    $result = $apiInstance->createRuleset($applicationId, $campaignId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->createRuleset: ', $e->getMessage(), PHP_EOL;
@@ -584,8 +584,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\NewRuleset**](../Model/NewRuleset.md)|  |
 
 ### Return type
@@ -669,7 +669,7 @@ Name | Type | Description  | Notes
 
 ## deleteCampaign
 
-> deleteCampaign($application_id, $campaign_id)
+> deleteCampaign($applicationId, $campaignId)
 
 Delete a Campaign
 
@@ -692,11 +692,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
 
 try {
-    $apiInstance->deleteCampaign($application_id, $campaign_id);
+    $apiInstance->deleteCampaign($applicationId, $campaignId);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->deleteCampaign: ', $e->getMessage(), PHP_EOL;
 }
@@ -708,8 +708,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
 
 ### Return type
 
@@ -731,7 +731,7 @@ void (empty response body)
 
 ## deleteCoupon
 
-> deleteCoupon($application_id, $campaign_id, $coupon_id)
+> deleteCoupon($applicationId, $campaignId, $couponId)
 
 Delete one Coupon
 
@@ -754,12 +754,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
-$coupon_id = 'coupon_id_example'; // string | The ID of the coupon code to delete
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$couponId = 'couponId_example'; // string | The ID of the coupon code to delete
 
 try {
-    $apiInstance->deleteCoupon($application_id, $campaign_id, $coupon_id);
+    $apiInstance->deleteCoupon($applicationId, $campaignId, $couponId);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->deleteCoupon: ', $e->getMessage(), PHP_EOL;
 }
@@ -771,9 +771,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
- **coupon_id** | **string**| The ID of the coupon code to delete |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **couponId** | **string**| The ID of the coupon code to delete |
 
 ### Return type
 
@@ -795,7 +795,7 @@ void (empty response body)
 
 ## deleteCoupons
 
-> deleteCoupons($application_id, $campaign_id, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match)
+> deleteCoupons($applicationId, $campaignId, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch)
 
 Delete Coupons
 
@@ -818,24 +818,24 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$starts_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$starts_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$expires_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$expires_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$startsAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$startsBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$expiresAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$expiresBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.
-$batch_id = 'batch_id_example'; // string | Filter results by batches of coupons
+$batchId = 'batchId_example'; // string | Filter results by batches of coupons
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
-$referral_id = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
-$recipient_integration_id = 'recipient_integration_id_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
-$exact_match = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
+$referralId = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
 
 try {
-    $apiInstance->deleteCoupons($application_id, $campaign_id, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match);
+    $apiInstance->deleteCoupons($applicationId, $campaignId, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->deleteCoupons: ', $e->getMessage(), PHP_EOL;
 }
@@ -847,21 +847,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **starts_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **starts_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **expires_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **expires_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **startsAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **startsBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **expiresAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **expiresBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. | [optional]
- **batch_id** | **string**| Filter results by batches of coupons | [optional]
+ **batchId** | **string**| Filter results by batches of coupons | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
- **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
- **recipient_integration_id** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
+ **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
 
 ### Return type
 
@@ -883,7 +883,7 @@ void (empty response body)
 
 ## deleteReferral
 
-> deleteReferral($application_id, $campaign_id, $referral_id)
+> deleteReferral($applicationId, $campaignId, $referralId)
 
 Delete one Referral
 
@@ -906,12 +906,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
-$referral_id = 'referral_id_example'; // string | The ID of the referral code to delete
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$referralId = 'referralId_example'; // string | The ID of the referral code to delete
 
 try {
-    $apiInstance->deleteReferral($application_id, $campaign_id, $referral_id);
+    $apiInstance->deleteReferral($applicationId, $campaignId, $referralId);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->deleteReferral: ', $e->getMessage(), PHP_EOL;
 }
@@ -923,9 +923,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
- **referral_id** | **string**| The ID of the referral code to delete |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **referralId** | **string**| The ID of the referral code to delete |
 
 ### Return type
 
@@ -947,7 +947,7 @@ void (empty response body)
 
 ## deleteRuleset
 
-> deleteRuleset($application_id, $campaign_id, $ruleset_id)
+> deleteRuleset($applicationId, $campaignId, $rulesetId)
 
 Delete a Ruleset
 
@@ -970,12 +970,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
-$ruleset_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$rulesetId = 56; // int | 
 
 try {
-    $apiInstance->deleteRuleset($application_id, $campaign_id, $ruleset_id);
+    $apiInstance->deleteRuleset($applicationId, $campaignId, $rulesetId);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->deleteRuleset: ', $e->getMessage(), PHP_EOL;
 }
@@ -987,9 +987,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
- **ruleset_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **rulesetId** | **int**|  |
 
 ### Return type
 
@@ -1011,7 +1011,7 @@ void (empty response body)
 
 ## getAccessLogs
 
-> \TalonOne\Client\Model\InlineResponse2009 getAccessLogs($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2009 getAccessLogs($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
 
 Get access logs for application
 
@@ -1034,18 +1034,18 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$range_start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$range_end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$applicationId = 56; // int | 
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
 $path = 'path_example'; // string | Only return results where the request path matches the given regular expression.
 $method = 'method_example'; // string | Only return results where the request method matches the given regular expression.
 $status = 'status_example'; // string | Filter results by HTTP status codes.
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
 try {
-    $result = $apiInstance->getAccessLogs($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort);
+    $result = $apiInstance->getAccessLogs($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getAccessLogs: ', $e->getMessage(), PHP_EOL;
@@ -1058,13 +1058,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **range_start** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **range_end** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **applicationId** | **int**|  |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
  **path** | **string**| Only return results where the request path matches the given regular expression. | [optional]
  **method** | **string**| Only return results where the request method matches the given regular expression. | [optional]
  **status** | **string**| Filter results by HTTP status codes. | [optional]
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
 
@@ -1088,7 +1088,7 @@ Name | Type | Description  | Notes
 
 ## getAccessLogsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20010 getAccessLogsWithoutTotalCount($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20010 getAccessLogsWithoutTotalCount($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
 
 Get access logs for application
 
@@ -1111,18 +1111,18 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$range_start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$range_end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$applicationId = 56; // int | 
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
 $path = 'path_example'; // string | Only return results where the request path matches the given regular expression.
 $method = 'method_example'; // string | Only return results where the request method matches the given regular expression.
 $status = 'status_example'; // string | Filter results by HTTP status codes.
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
 try {
-    $result = $apiInstance->getAccessLogsWithoutTotalCount($application_id, $range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort);
+    $result = $apiInstance->getAccessLogsWithoutTotalCount($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getAccessLogsWithoutTotalCount: ', $e->getMessage(), PHP_EOL;
@@ -1135,13 +1135,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **range_start** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **range_end** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **applicationId** | **int**|  |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
  **path** | **string**| Only return results where the request path matches the given regular expression. | [optional]
  **method** | **string**| Only return results where the request method matches the given regular expression. | [optional]
  **status** | **string**| Filter results by HTTP status codes. | [optional]
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
 
@@ -1165,7 +1165,7 @@ Name | Type | Description  | Notes
 
 ## getAccount
 
-> \TalonOne\Client\Model\Account getAccount($account_id)
+> \TalonOne\Client\Model\Account getAccount($accountId)
 
 Get Account Details
 
@@ -1190,10 +1190,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$account_id = 56; // int | 
+$accountId = 56; // int | 
 
 try {
-    $result = $apiInstance->getAccount($account_id);
+    $result = $apiInstance->getAccount($accountId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getAccount: ', $e->getMessage(), PHP_EOL;
@@ -1206,7 +1206,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **int**|  |
+ **accountId** | **int**|  |
 
 ### Return type
 
@@ -1228,7 +1228,7 @@ Name | Type | Description  | Notes
 
 ## getAccountAnalytics
 
-> \TalonOne\Client\Model\AccountAnalytics getAccountAnalytics($account_id)
+> \TalonOne\Client\Model\AccountAnalytics getAccountAnalytics($accountId)
 
 Get Account Analytics
 
@@ -1253,10 +1253,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$account_id = 56; // int | 
+$accountId = 56; // int | 
 
 try {
-    $result = $apiInstance->getAccountAnalytics($account_id);
+    $result = $apiInstance->getAccountAnalytics($accountId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getAccountAnalytics: ', $e->getMessage(), PHP_EOL;
@@ -1269,7 +1269,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **int**|  |
+ **accountId** | **int**|  |
 
 ### Return type
 
@@ -1291,7 +1291,7 @@ Name | Type | Description  | Notes
 
 ## getAdditionalCost
 
-> \TalonOne\Client\Model\AccountAdditionalCost getAdditionalCost($additional_cost_id)
+> \TalonOne\Client\Model\AccountAdditionalCost getAdditionalCost($additionalCostId)
 
 Get an additional cost
 
@@ -1316,10 +1316,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$additional_cost_id = 56; // int | 
+$additionalCostId = 56; // int | 
 
 try {
-    $result = $apiInstance->getAdditionalCost($additional_cost_id);
+    $result = $apiInstance->getAdditionalCost($additionalCostId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getAdditionalCost: ', $e->getMessage(), PHP_EOL;
@@ -1332,7 +1332,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **additional_cost_id** | **int**|  |
+ **additionalCostId** | **int**|  |
 
 ### Return type
 
@@ -1354,7 +1354,7 @@ Name | Type | Description  | Notes
 
 ## getAdditionalCosts
 
-> \TalonOne\Client\Model\InlineResponse20021 getAdditionalCosts($page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20021 getAdditionalCosts($pageSize, $skip, $sort)
 
 List additional costs
 
@@ -1379,12 +1379,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
 try {
-    $result = $apiInstance->getAdditionalCosts($page_size, $skip, $sort);
+    $result = $apiInstance->getAdditionalCosts($pageSize, $skip, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getAdditionalCosts: ', $e->getMessage(), PHP_EOL;
@@ -1397,7 +1397,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
 
@@ -1421,7 +1421,7 @@ Name | Type | Description  | Notes
 
 ## getAllAccessLogs
 
-> \TalonOne\Client\Model\InlineResponse2009 getAllAccessLogs($range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2009 getAllAccessLogs($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
 
 Get all access logs
 
@@ -1446,17 +1446,17 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$range_start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$range_end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
 $path = 'path_example'; // string | Only return results where the request path matches the given regular expression.
 $method = 'method_example'; // string | Only return results where the request method matches the given regular expression.
 $status = 'status_example'; // string | Filter results by HTTP status codes.
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
 try {
-    $result = $apiInstance->getAllAccessLogs($range_start, $range_end, $path, $method, $status, $page_size, $skip, $sort);
+    $result = $apiInstance->getAllAccessLogs($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getAllAccessLogs: ', $e->getMessage(), PHP_EOL;
@@ -1469,12 +1469,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **range_start** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **range_end** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
  **path** | **string**| Only return results where the request path matches the given regular expression. | [optional]
  **method** | **string**| Only return results where the request method matches the given regular expression. | [optional]
  **status** | **string**| Filter results by HTTP status codes. | [optional]
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
 
@@ -1555,7 +1555,7 @@ This endpoint does not need any parameter.
 
 ## getApplication
 
-> \TalonOne\Client\Model\Application getApplication($application_id)
+> \TalonOne\Client\Model\Application getApplication($applicationId)
 
 Get Application
 
@@ -1580,10 +1580,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
+$applicationId = 56; // int | 
 
 try {
-    $result = $apiInstance->getApplication($application_id);
+    $result = $apiInstance->getApplication($applicationId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplication: ', $e->getMessage(), PHP_EOL;
@@ -1596,7 +1596,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
+ **applicationId** | **int**|  |
 
 ### Return type
 
@@ -1618,7 +1618,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationApiHealth
 
-> \TalonOne\Client\Model\ApplicationApiHealth getApplicationApiHealth($application_id)
+> \TalonOne\Client\Model\ApplicationApiHealth getApplicationApiHealth($applicationId)
 
 Get report of health of application API
 
@@ -1641,10 +1641,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
+$applicationId = 56; // int | 
 
 try {
-    $result = $apiInstance->getApplicationApiHealth($application_id);
+    $result = $apiInstance->getApplicationApiHealth($applicationId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationApiHealth: ', $e->getMessage(), PHP_EOL;
@@ -1657,7 +1657,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
+ **applicationId** | **int**|  |
 
 ### Return type
 
@@ -1679,7 +1679,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomer
 
-> \TalonOne\Client\Model\ApplicationCustomer getApplicationCustomer($application_id, $customer_id)
+> \TalonOne\Client\Model\ApplicationCustomer getApplicationCustomer($applicationId, $customerId)
 
 Get Application Customer
 
@@ -1702,11 +1702,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$customer_id = 56; // int | 
+$applicationId = 56; // int | 
+$customerId = 56; // int | 
 
 try {
-    $result = $apiInstance->getApplicationCustomer($application_id, $customer_id);
+    $result = $apiInstance->getApplicationCustomer($applicationId, $customerId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationCustomer: ', $e->getMessage(), PHP_EOL;
@@ -1719,8 +1719,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **customer_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **customerId** | **int**|  |
 
 ### Return type
 
@@ -1742,7 +1742,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomers
 
-> \TalonOne\Client\Model\InlineResponse20012 getApplicationCustomers($application_id)
+> \TalonOne\Client\Model\InlineResponse20012 getApplicationCustomers($applicationId)
 
 List Application Customers
 
@@ -1765,10 +1765,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
+$applicationId = 56; // int | 
 
 try {
-    $result = $apiInstance->getApplicationCustomers($application_id);
+    $result = $apiInstance->getApplicationCustomers($applicationId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationCustomers: ', $e->getMessage(), PHP_EOL;
@@ -1781,7 +1781,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
+ **applicationId** | **int**|  |
 
 ### Return type
 
@@ -1866,7 +1866,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventTypes
 
-> \TalonOne\Client\Model\InlineResponse20019 getApplicationEventTypes($application_id, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20019 getApplicationEventTypes($applicationId, $pageSize, $skip, $sort)
 
 List Applications Event Types
 
@@ -1891,13 +1891,13 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$applicationId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
 try {
-    $result = $apiInstance->getApplicationEventTypes($application_id, $page_size, $skip, $sort);
+    $result = $apiInstance->getApplicationEventTypes($applicationId, $pageSize, $skip, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationEventTypes: ', $e->getMessage(), PHP_EOL;
@@ -1910,8 +1910,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **applicationId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
 
@@ -1935,7 +1935,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEvents
 
-> \TalonOne\Client\Model\InlineResponse20017 getApplicationEvents($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query)
+> \TalonOne\Client\Model\InlineResponse20017 getApplicationEvents($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
 
 List Applications Events
 
@@ -1960,24 +1960,24 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$applicationId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $type = 'type_example'; // string | Comma-separated list of types by which to filter events. Must be exact match(es).
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created after this date
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created after this date
 $session = 'session_example'; // string | Session integration ID filter for events. Must be exact match.
 $profile = 'profile_example'; // string | Profile integration ID filter for events. Must be exact match.
-$customer_name = 'customer_name_example'; // string | Customer name filter for events. Will match substrings case-insensitively.
-$customer_email = 'customer_email_example'; // string | Customer e-mail address filter for events. Will match substrings case-insensitively.
-$coupon_code = 'coupon_code_example'; // string | Coupon code
-$referral_code = 'referral_code_example'; // string | Referral code
-$rule_query = 'rule_query_example'; // string | Rule name filter for events
-$campaign_query = 'campaign_query_example'; // string | Campaign name filter for events
+$customerName = 'customerName_example'; // string | Customer name filter for events. Will match substrings case-insensitively.
+$customerEmail = 'customerEmail_example'; // string | Customer e-mail address filter for events. Will match substrings case-insensitively.
+$couponCode = 'couponCode_example'; // string | Coupon code
+$referralCode = 'referralCode_example'; // string | Referral code
+$ruleQuery = 'ruleQuery_example'; // string | Rule name filter for events
+$campaignQuery = 'campaignQuery_example'; // string | Campaign name filter for events
 
 try {
-    $result = $apiInstance->getApplicationEvents($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query);
+    $result = $apiInstance->getApplicationEvents($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationEvents: ', $e->getMessage(), PHP_EOL;
@@ -1990,21 +1990,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **applicationId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **type** | **string**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional]
- **created_before** | **\DateTime**| Only return events created before this date | [optional]
- **created_after** | **\DateTime**| Only return events created after this date | [optional]
+ **createdBefore** | **\DateTime**| Only return events created before this date | [optional]
+ **createdAfter** | **\DateTime**| Only return events created after this date | [optional]
  **session** | **string**| Session integration ID filter for events. Must be exact match. | [optional]
  **profile** | **string**| Profile integration ID filter for events. Must be exact match. | [optional]
- **customer_name** | **string**| Customer name filter for events. Will match substrings case-insensitively. | [optional]
- **customer_email** | **string**| Customer e-mail address filter for events. Will match substrings case-insensitively. | [optional]
- **coupon_code** | **string**| Coupon code | [optional]
- **referral_code** | **string**| Referral code | [optional]
- **rule_query** | **string**| Rule name filter for events | [optional]
- **campaign_query** | **string**| Campaign name filter for events | [optional]
+ **customerName** | **string**| Customer name filter for events. Will match substrings case-insensitively. | [optional]
+ **customerEmail** | **string**| Customer e-mail address filter for events. Will match substrings case-insensitively. | [optional]
+ **couponCode** | **string**| Coupon code | [optional]
+ **referralCode** | **string**| Referral code | [optional]
+ **ruleQuery** | **string**| Rule name filter for events | [optional]
+ **campaignQuery** | **string**| Campaign name filter for events | [optional]
 
 ### Return type
 
@@ -2026,7 +2026,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20018 getApplicationEventsWithoutTotalCount($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query)
+> \TalonOne\Client\Model\InlineResponse20018 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
 
 List Applications Events
 
@@ -2051,24 +2051,24 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$applicationId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $type = 'type_example'; // string | Comma-separated list of types by which to filter events. Must be exact match(es).
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created after this date
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created after this date
 $session = 'session_example'; // string | Session integration ID filter for events. Must be exact match.
 $profile = 'profile_example'; // string | Profile integration ID filter for events. Must be exact match.
-$customer_name = 'customer_name_example'; // string | Customer name filter for events. Will match substrings case-insensitively.
-$customer_email = 'customer_email_example'; // string | Customer e-mail address filter for events. Will match substrings case-insensitively.
-$coupon_code = 'coupon_code_example'; // string | Coupon code
-$referral_code = 'referral_code_example'; // string | Referral code
-$rule_query = 'rule_query_example'; // string | Rule name filter for events
-$campaign_query = 'campaign_query_example'; // string | Campaign name filter for events
+$customerName = 'customerName_example'; // string | Customer name filter for events. Will match substrings case-insensitively.
+$customerEmail = 'customerEmail_example'; // string | Customer e-mail address filter for events. Will match substrings case-insensitively.
+$couponCode = 'couponCode_example'; // string | Coupon code
+$referralCode = 'referralCode_example'; // string | Referral code
+$ruleQuery = 'ruleQuery_example'; // string | Rule name filter for events
+$campaignQuery = 'campaignQuery_example'; // string | Campaign name filter for events
 
 try {
-    $result = $apiInstance->getApplicationEventsWithoutTotalCount($application_id, $page_size, $skip, $sort, $type, $created_before, $created_after, $session, $profile, $customer_name, $customer_email, $coupon_code, $referral_code, $rule_query, $campaign_query);
+    $result = $apiInstance->getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationEventsWithoutTotalCount: ', $e->getMessage(), PHP_EOL;
@@ -2081,21 +2081,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **applicationId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **type** | **string**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional]
- **created_before** | **\DateTime**| Only return events created before this date | [optional]
- **created_after** | **\DateTime**| Only return events created after this date | [optional]
+ **createdBefore** | **\DateTime**| Only return events created before this date | [optional]
+ **createdAfter** | **\DateTime**| Only return events created after this date | [optional]
  **session** | **string**| Session integration ID filter for events. Must be exact match. | [optional]
  **profile** | **string**| Profile integration ID filter for events. Must be exact match. | [optional]
- **customer_name** | **string**| Customer name filter for events. Will match substrings case-insensitively. | [optional]
- **customer_email** | **string**| Customer e-mail address filter for events. Will match substrings case-insensitively. | [optional]
- **coupon_code** | **string**| Coupon code | [optional]
- **referral_code** | **string**| Referral code | [optional]
- **rule_query** | **string**| Rule name filter for events | [optional]
- **campaign_query** | **string**| Campaign name filter for events | [optional]
+ **customerName** | **string**| Customer name filter for events. Will match substrings case-insensitively. | [optional]
+ **customerEmail** | **string**| Customer e-mail address filter for events. Will match substrings case-insensitively. | [optional]
+ **couponCode** | **string**| Coupon code | [optional]
+ **referralCode** | **string**| Referral code | [optional]
+ **ruleQuery** | **string**| Rule name filter for events | [optional]
+ **campaignQuery** | **string**| Campaign name filter for events | [optional]
 
 ### Return type
 
@@ -2117,7 +2117,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationSession
 
-> \TalonOne\Client\Model\ApplicationSession getApplicationSession($application_id, $session_id)
+> \TalonOne\Client\Model\ApplicationSession getApplicationSession($applicationId, $sessionId)
 
 Get Application Session
 
@@ -2140,11 +2140,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$session_id = 56; // int | 
+$applicationId = 56; // int | 
+$sessionId = 56; // int | 
 
 try {
-    $result = $apiInstance->getApplicationSession($application_id, $session_id);
+    $result = $apiInstance->getApplicationSession($applicationId, $sessionId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationSession: ', $e->getMessage(), PHP_EOL;
@@ -2157,8 +2157,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **session_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **sessionId** | **int**|  |
 
 ### Return type
 
@@ -2180,7 +2180,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationSessions
 
-> \TalonOne\Client\Model\InlineResponse20016 getApplicationSessions($application_id, $page_size, $skip, $sort, $profile, $state, $coupon, $referral, $integration_id, $customer_id)
+> \TalonOne\Client\Model\InlineResponse20016 getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $coupon, $referral, $integrationId, $customerId)
 
 List Application Sessions
 
@@ -2203,19 +2203,19 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$applicationId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $profile = 'profile_example'; // string | Profile integration ID filter for sessions. Must be exact match.
 $state = 'state_example'; // string | Filter by sessions with this state. Must be exact match.
 $coupon = 'coupon_example'; // string | Filter by sessions with this coupon. Must be exact match.
 $referral = 'referral_example'; // string | Filter by sessions with this referral. Must be exact match.
-$integration_id = 'integration_id_example'; // string | Filter by sessions with this integrationId. Must be exact match.
-$customer_id = 'customer_id_example'; // string | Filter by integration ID of the customer for the session
+$integrationId = 'integrationId_example'; // string | Filter by sessions with this integrationId. Must be exact match.
+$customerId = 'customerId_example'; // string | Filter by integration ID of the customer for the session
 
 try {
-    $result = $apiInstance->getApplicationSessions($application_id, $page_size, $skip, $sort, $profile, $state, $coupon, $referral, $integration_id, $customer_id);
+    $result = $apiInstance->getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $coupon, $referral, $integrationId, $customerId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationSessions: ', $e->getMessage(), PHP_EOL;
@@ -2228,16 +2228,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **applicationId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **profile** | **string**| Profile integration ID filter for sessions. Must be exact match. | [optional]
  **state** | **string**| Filter by sessions with this state. Must be exact match. | [optional]
  **coupon** | **string**| Filter by sessions with this coupon. Must be exact match. | [optional]
  **referral** | **string**| Filter by sessions with this referral. Must be exact match. | [optional]
- **integration_id** | **string**| Filter by sessions with this integrationId. Must be exact match. | [optional]
- **customer_id** | **string**| Filter by integration ID of the customer for the session | [optional]
+ **integrationId** | **string**| Filter by sessions with this integrationId. Must be exact match. | [optional]
+ **customerId** | **string**| Filter by integration ID of the customer for the session | [optional]
 
 ### Return type
 
@@ -2259,7 +2259,7 @@ Name | Type | Description  | Notes
 
 ## getApplications
 
-> \TalonOne\Client\Model\InlineResponse2002 getApplications($page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2002 getApplications($pageSize, $skip, $sort)
 
 List Applications
 
@@ -2284,12 +2284,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
 try {
-    $result = $apiInstance->getApplications($page_size, $skip, $sort);
+    $result = $apiInstance->getApplications($pageSize, $skip, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplications: ', $e->getMessage(), PHP_EOL;
@@ -2302,7 +2302,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
 
@@ -2326,7 +2326,7 @@ Name | Type | Description  | Notes
 
 ## getAttribute
 
-> \TalonOne\Client\Model\Attribute getAttribute($attribute_id)
+> \TalonOne\Client\Model\Attribute getAttribute($attributeId)
 
 Get a custom attribute
 
@@ -2351,10 +2351,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$attribute_id = 56; // int | 
+$attributeId = 56; // int | 
 
 try {
-    $result = $apiInstance->getAttribute($attribute_id);
+    $result = $apiInstance->getAttribute($attributeId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getAttribute: ', $e->getMessage(), PHP_EOL;
@@ -2367,7 +2367,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attribute_id** | **int**|  |
+ **attributeId** | **int**|  |
 
 ### Return type
 
@@ -2389,7 +2389,7 @@ Name | Type | Description  | Notes
 
 ## getAttributes
 
-> \TalonOne\Client\Model\InlineResponse20020 getAttributes($page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20020 getAttributes($pageSize, $skip, $sort)
 
 List custom attributes
 
@@ -2414,12 +2414,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
 try {
-    $result = $apiInstance->getAttributes($page_size, $skip, $sort);
+    $result = $apiInstance->getAttributes($pageSize, $skip, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getAttributes: ', $e->getMessage(), PHP_EOL;
@@ -2432,7 +2432,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
 
@@ -2456,7 +2456,7 @@ Name | Type | Description  | Notes
 
 ## getCampaign
 
-> \TalonOne\Client\Model\Campaign getCampaign($application_id, $campaign_id)
+> \TalonOne\Client\Model\Campaign getCampaign($applicationId, $campaignId)
 
 Get a Campaign
 
@@ -2479,11 +2479,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
 
 try {
-    $result = $apiInstance->getCampaign($application_id, $campaign_id);
+    $result = $apiInstance->getCampaign($applicationId, $campaignId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCampaign: ', $e->getMessage(), PHP_EOL;
@@ -2496,8 +2496,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
 
 ### Return type
 
@@ -2519,7 +2519,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignAnalytics
 
-> \TalonOne\Client\Model\InlineResponse20011 getCampaignAnalytics($application_id, $campaign_id, $range_start, $range_end, $granularity)
+> \TalonOne\Client\Model\InlineResponse20011 getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity)
 
 Get analytics of campaigns
 
@@ -2542,14 +2542,14 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
-$range_start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$range_end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
 $granularity = 'granularity_example'; // string | The time interval between the results in the returned time-series.
 
 try {
-    $result = $apiInstance->getCampaignAnalytics($application_id, $campaign_id, $range_start, $range_end, $granularity);
+    $result = $apiInstance->getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCampaignAnalytics: ', $e->getMessage(), PHP_EOL;
@@ -2562,10 +2562,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
- **range_start** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **range_end** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
  **granularity** | **string**| The time interval between the results in the returned time-series. | [optional]
 
 ### Return type
@@ -2588,7 +2588,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignByAttributes
 
-> \TalonOne\Client\Model\InlineResponse2003 getCampaignByAttributes($application_id, $body, $page_size, $skip, $sort, $campaign_state)
+> \TalonOne\Client\Model\InlineResponse2003 getCampaignByAttributes($applicationId, $body, $pageSize, $skip, $sort, $campaignState)
 
 Get a list of all campaigns that match the given attributes
 
@@ -2613,15 +2613,15 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
+$applicationId = 56; // int | 
 $body = new \TalonOne\Client\Model\CampaignSearch(); // \TalonOne\Client\Model\CampaignSearch | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-$campaign_state = 'campaign_state_example'; // string | Filter results by the state of the campaign.
+$campaignState = 'campaignState_example'; // string | Filter results by the state of the campaign.
 
 try {
-    $result = $apiInstance->getCampaignByAttributes($application_id, $body, $page_size, $skip, $sort, $campaign_state);
+    $result = $apiInstance->getCampaignByAttributes($applicationId, $body, $pageSize, $skip, $sort, $campaignState);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCampaignByAttributes: ', $e->getMessage(), PHP_EOL;
@@ -2634,12 +2634,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
+ **applicationId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\CampaignSearch**](../Model/CampaignSearch.md)|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
- **campaign_state** | **string**| Filter results by the state of the campaign. | [optional]
+ **campaignState** | **string**| Filter results by the state of the campaign. | [optional]
 
 ### Return type
 
@@ -2661,7 +2661,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignSet
 
-> \TalonOne\Client\Model\CampaignSet getCampaignSet($application_id)
+> \TalonOne\Client\Model\CampaignSet getCampaignSet($applicationId)
 
 List CampaignSet
 
@@ -2684,10 +2684,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
+$applicationId = 56; // int | 
 
 try {
-    $result = $apiInstance->getCampaignSet($application_id);
+    $result = $apiInstance->getCampaignSet($applicationId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCampaignSet: ', $e->getMessage(), PHP_EOL;
@@ -2700,7 +2700,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
+ **applicationId** | **int**|  |
 
 ### Return type
 
@@ -2722,7 +2722,7 @@ Name | Type | Description  | Notes
 
 ## getCampaigns
 
-> \TalonOne\Client\Model\InlineResponse2003 getCampaigns($application_id, $page_size, $skip, $sort, $campaign_state, $name, $tags, $created_before, $created_after)
+> \TalonOne\Client\Model\InlineResponse2003 getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter)
 
 List your Campaigns
 
@@ -2745,18 +2745,18 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$applicationId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-$campaign_state = 'campaign_state_example'; // string | Filter results by the state of the campaign.
+$campaignState = 'campaignState_example'; // string | Filter results by the state of the campaign.
 $name = 'name_example'; // string | Filter results performing case-insensitive matching against the name of the campaign.
 $tags = 'tags_example'; // string | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
 
 try {
-    $result = $apiInstance->getCampaigns($application_id, $page_size, $skip, $sort, $campaign_state, $name, $tags, $created_before, $created_after);
+    $result = $apiInstance->getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCampaigns: ', $e->getMessage(), PHP_EOL;
@@ -2769,15 +2769,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **applicationId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
- **campaign_state** | **string**| Filter results by the state of the campaign. | [optional]
+ **campaignState** | **string**| Filter results by the state of the campaign. | [optional]
  **name** | **string**| Filter results performing case-insensitive matching against the name of the campaign. | [optional]
  **tags** | **string**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional]
 
 ### Return type
 
@@ -2799,7 +2799,7 @@ Name | Type | Description  | Notes
 
 ## getChanges
 
-> \TalonOne\Client\Model\InlineResponse20027 getChanges($page_size, $skip, $sort, $application_id, $created_before, $created_after, $with_total_result_size, $include_old)
+> \TalonOne\Client\Model\InlineResponse20027 getChanges($pageSize, $skip, $sort, $applicationId, $createdBefore, $createdAfter, $withTotalResultSize, $includeOld)
 
 Get audit log for an account
 
@@ -2824,17 +2824,17 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-$application_id = 56; // int | 
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
-$with_total_result_size = True; // bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.
-$include_old = True; // bool | When this flag is set to false, the state without the change will not be returned. The default value is true.
+$applicationId = 56; // int | 
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
+$withTotalResultSize = True; // bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.
+$includeOld = True; // bool | When this flag is set to false, the state without the change will not be returned. The default value is true.
 
 try {
-    $result = $apiInstance->getChanges($page_size, $skip, $sort, $application_id, $created_before, $created_after, $with_total_result_size, $include_old);
+    $result = $apiInstance->getChanges($pageSize, $skip, $sort, $applicationId, $createdBefore, $createdAfter, $withTotalResultSize, $includeOld);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getChanges: ', $e->getMessage(), PHP_EOL;
@@ -2847,14 +2847,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
- **application_id** | **int**|  | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. | [optional]
- **with_total_result_size** | **bool**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. | [optional]
- **include_old** | **bool**| When this flag is set to false, the state without the change will not be returned. The default value is true. | [optional]
+ **applicationId** | **int**|  | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. | [optional]
+ **includeOld** | **bool**| When this flag is set to false, the state without the change will not be returned. The default value is true. | [optional]
 
 ### Return type
 
@@ -2876,7 +2876,7 @@ Name | Type | Description  | Notes
 
 ## getCoupons
 
-> \TalonOne\Client\Model\InlineResponse2001 getCoupons($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match)
+> \TalonOne\Client\Model\InlineResponse2001 getCoupons($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch)
 
 List Coupons
 
@@ -2899,27 +2899,27 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$starts_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$starts_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$expires_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$expires_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$startsAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$startsBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$expiresAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$expiresBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.
-$batch_id = 'batch_id_example'; // string | Filter results by batches of coupons
+$batchId = 'batchId_example'; // string | Filter results by batches of coupons
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
-$referral_id = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
-$recipient_integration_id = 'recipient_integration_id_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
-$exact_match = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
+$referralId = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
 
 try {
-    $result = $apiInstance->getCoupons($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $starts_after, $starts_before, $expires_after, $expires_before, $valid, $batch_id, $usable, $referral_id, $recipient_integration_id, $exact_match);
+    $result = $apiInstance->getCoupons($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCoupons: ', $e->getMessage(), PHP_EOL;
@@ -2932,24 +2932,24 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **starts_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **starts_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **expires_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **expires_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **startsAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **startsBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **expiresAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **expiresBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. | [optional]
- **batch_id** | **string**| Filter results by batches of coupons | [optional]
+ **batchId** | **string**| Filter results by batches of coupons | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
- **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
- **recipient_integration_id** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
+ **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
 
 ### Return type
 
@@ -2971,7 +2971,7 @@ Name | Type | Description  | Notes
 
 ## getCouponsByAttributes
 
-> \TalonOne\Client\Model\InlineResponse2001 getCouponsByAttributes($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id)
+> \TalonOne\Client\Model\InlineResponse2001 getCouponsByAttributes($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
 
 Get a list of the coupons that match the given attributes
 
@@ -2996,24 +2996,24 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
 $body = new \TalonOne\Client\Model\CouponSearch(); // \TalonOne\Client\Model\CouponSearch | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
-$referral_id = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
-$recipient_integration_id = 'recipient_integration_id_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
-$exact_match = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
-$batch_id = 'batch_id_example'; // string | Filter results by batches of coupons
+$referralId = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
+$batchId = 'batchId_example'; // string | Filter results by batches of coupons
 
 try {
-    $result = $apiInstance->getCouponsByAttributes($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id);
+    $result = $apiInstance->getCouponsByAttributes($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCouponsByAttributes: ', $e->getMessage(), PHP_EOL;
@@ -3026,21 +3026,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\CouponSearch**](../Model/CouponSearch.md)|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
- **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
- **recipient_integration_id** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
- **batch_id** | **string**| Filter results by batches of coupons | [optional]
+ **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
+ **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **batchId** | **string**| Filter results by batches of coupons | [optional]
 
 ### Return type
 
@@ -3062,7 +3062,7 @@ Name | Type | Description  | Notes
 
 ## getCouponsByAttributesApplicationWide
 
-> \TalonOne\Client\Model\InlineResponse2001 getCouponsByAttributesApplicationWide($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state)
+> \TalonOne\Client\Model\InlineResponse2001 getCouponsByAttributesApplicationWide($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
 
 Get a list of the coupons that match the given attributes in all active campaigns of an application
 
@@ -3087,24 +3087,24 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
+$applicationId = 56; // int | 
 $body = new \TalonOne\Client\Model\CouponSearch(); // \TalonOne\Client\Model\CouponSearch | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
-$referral_id = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
-$recipient_integration_id = 'recipient_integration_id_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
-$batch_id = 'batch_id_example'; // string | Filter results by batches of coupons
-$exact_match = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
-$campaign_state = 'campaign_state_example'; // string | Filter results by the state of the campaign.
+$referralId = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+$batchId = 'batchId_example'; // string | Filter results by batches of coupons
+$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
+$campaignState = 'campaignState_example'; // string | Filter results by the state of the campaign.
 
 try {
-    $result = $apiInstance->getCouponsByAttributesApplicationWide($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state);
+    $result = $apiInstance->getCouponsByAttributesApplicationWide($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCouponsByAttributesApplicationWide: ', $e->getMessage(), PHP_EOL;
@@ -3117,21 +3117,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
+ **applicationId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\CouponSearch**](../Model/CouponSearch.md)|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
- **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
- **recipient_integration_id** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
- **batch_id** | **string**| Filter results by batches of coupons | [optional]
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
- **campaign_state** | **string**| Filter results by the state of the campaign. | [optional]
+ **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
+ **batchId** | **string**| Filter results by batches of coupons | [optional]
+ **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **campaignState** | **string**| Filter results by the state of the campaign. | [optional]
 
 ### Return type
 
@@ -3153,7 +3153,7 @@ Name | Type | Description  | Notes
 
 ## getCouponsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse2005 getCouponsWithoutTotalCount($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match)
+> \TalonOne\Client\Model\InlineResponse2005 getCouponsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch)
 
 List Coupons
 
@@ -3176,23 +3176,23 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
-$referral_id = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
-$recipient_integration_id = 'recipient_integration_id_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
-$batch_id = 'batch_id_example'; // string | Filter results by batches of coupons
-$exact_match = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
+$referralId = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+$batchId = 'batchId_example'; // string | Filter results by batches of coupons
+$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
 
 try {
-    $result = $apiInstance->getCouponsWithoutTotalCount($application_id, $campaign_id, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match);
+    $result = $apiInstance->getCouponsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCouponsWithoutTotalCount: ', $e->getMessage(), PHP_EOL;
@@ -3205,20 +3205,20 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
- **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
- **recipient_integration_id** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
- **batch_id** | **string**| Filter results by batches of coupons | [optional]
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
+ **batchId** | **string**| Filter results by batches of coupons | [optional]
+ **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
 
 ### Return type
 
@@ -3240,7 +3240,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerActivityReport
 
-> \TalonOne\Client\Model\CustomerActivityReport getCustomerActivityReport($range_start, $range_end, $application_id, $customer_id, $page_size, $skip)
+> \TalonOne\Client\Model\CustomerActivityReport getCustomerActivityReport($rangeStart, $rangeEnd, $applicationId, $customerId, $pageSize, $skip)
 
 Get Activity Report for Single Customer
 
@@ -3265,15 +3265,15 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$range_start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$range_end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
-$application_id = 56; // int | 
-$customer_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$applicationId = 56; // int | 
+$customerId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 
 try {
-    $result = $apiInstance->getCustomerActivityReport($range_start, $range_end, $application_id, $customer_id, $page_size, $skip);
+    $result = $apiInstance->getCustomerActivityReport($rangeStart, $rangeEnd, $applicationId, $customerId, $pageSize, $skip);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCustomerActivityReport: ', $e->getMessage(), PHP_EOL;
@@ -3286,11 +3286,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **range_start** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **range_end** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
- **application_id** | **int**|  |
- **customer_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **applicationId** | **int**|  |
+ **customerId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
 
 ### Return type
@@ -3313,7 +3313,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerActivityReports
 
-> \TalonOne\Client\Model\InlineResponse20014 getCustomerActivityReports($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name)
+> \TalonOne\Client\Model\InlineResponse20014 getCustomerActivityReports($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
 
 Get Activity Reports for Application Customers
 
@@ -3338,19 +3338,19 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$range_start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$range_end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
-$application_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$applicationId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $name = 'name_example'; // string | Only return reports matching the customer name
-$integration_id = 'integration_id_example'; // string | Only return reports matching the integrationId
-$campaign_name = 'campaign_name_example'; // string | Only return reports matching the campaignName
-$advocate_name = 'advocate_name_example'; // string | Only return reports matching the current customer referrer name
+$integrationId = 'integrationId_example'; // string | Only return reports matching the integrationId
+$campaignName = 'campaignName_example'; // string | Only return reports matching the campaignName
+$advocateName = 'advocateName_example'; // string | Only return reports matching the current customer referrer name
 
 try {
-    $result = $apiInstance->getCustomerActivityReports($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name);
+    $result = $apiInstance->getCustomerActivityReports($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCustomerActivityReports: ', $e->getMessage(), PHP_EOL;
@@ -3363,16 +3363,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **range_start** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **range_end** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
- **application_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **applicationId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **name** | **string**| Only return reports matching the customer name | [optional]
- **integration_id** | **string**| Only return reports matching the integrationId | [optional]
- **campaign_name** | **string**| Only return reports matching the campaignName | [optional]
- **advocate_name** | **string**| Only return reports matching the current customer referrer name | [optional]
+ **integrationId** | **string**| Only return reports matching the integrationId | [optional]
+ **campaignName** | **string**| Only return reports matching the campaignName | [optional]
+ **advocateName** | **string**| Only return reports matching the current customer referrer name | [optional]
 
 ### Return type
 
@@ -3394,7 +3394,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerActivityReportsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20015 getCustomerActivityReportsWithoutTotalCount($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name)
+> \TalonOne\Client\Model\InlineResponse20015 getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
 
 Get Activity Reports for Application Customers
 
@@ -3419,19 +3419,19 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$range_start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$range_end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
-$application_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$applicationId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $name = 'name_example'; // string | Only return reports matching the customer name
-$integration_id = 'integration_id_example'; // string | Only return reports matching the integrationId
-$campaign_name = 'campaign_name_example'; // string | Only return reports matching the campaignName
-$advocate_name = 'advocate_name_example'; // string | Only return reports matching the current customer referrer name
+$integrationId = 'integrationId_example'; // string | Only return reports matching the integrationId
+$campaignName = 'campaignName_example'; // string | Only return reports matching the campaignName
+$advocateName = 'advocateName_example'; // string | Only return reports matching the current customer referrer name
 
 try {
-    $result = $apiInstance->getCustomerActivityReportsWithoutTotalCount($range_start, $range_end, $application_id, $page_size, $skip, $sort, $name, $integration_id, $campaign_name, $advocate_name);
+    $result = $apiInstance->getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCustomerActivityReportsWithoutTotalCount: ', $e->getMessage(), PHP_EOL;
@@ -3444,16 +3444,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **range_start** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **range_end** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
- **application_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **applicationId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **name** | **string**| Only return reports matching the customer name | [optional]
- **integration_id** | **string**| Only return reports matching the integrationId | [optional]
- **campaign_name** | **string**| Only return reports matching the campaignName | [optional]
- **advocate_name** | **string**| Only return reports matching the current customer referrer name | [optional]
+ **integrationId** | **string**| Only return reports matching the integrationId | [optional]
+ **campaignName** | **string**| Only return reports matching the campaignName | [optional]
+ **advocateName** | **string**| Only return reports matching the current customer referrer name | [optional]
 
 ### Return type
 
@@ -3475,7 +3475,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerAnalytics
 
-> \TalonOne\Client\Model\CustomerAnalytics getCustomerAnalytics($application_id, $customer_id, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\CustomerAnalytics getCustomerAnalytics($applicationId, $customerId, $pageSize, $skip, $sort)
 
 Get Analytics Report for a Customer
 
@@ -3500,14 +3500,14 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$customer_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$applicationId = 56; // int | 
+$customerId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
 try {
-    $result = $apiInstance->getCustomerAnalytics($application_id, $customer_id, $page_size, $skip, $sort);
+    $result = $apiInstance->getCustomerAnalytics($applicationId, $customerId, $pageSize, $skip, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCustomerAnalytics: ', $e->getMessage(), PHP_EOL;
@@ -3520,9 +3520,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **customer_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **applicationId** | **int**|  |
+ **customerId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
 
@@ -3546,7 +3546,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerProfile
 
-> \TalonOne\Client\Model\ApplicationCustomer getCustomerProfile($application_id, $customer_id)
+> \TalonOne\Client\Model\ApplicationCustomer getCustomerProfile($applicationId, $customerId)
 
 Get Customer Profile
 
@@ -3569,11 +3569,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$customer_id = 56; // int | 
+$applicationId = 56; // int | 
+$customerId = 56; // int | 
 
 try {
-    $result = $apiInstance->getCustomerProfile($application_id, $customer_id);
+    $result = $apiInstance->getCustomerProfile($applicationId, $customerId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCustomerProfile: ', $e->getMessage(), PHP_EOL;
@@ -3586,8 +3586,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **customer_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **customerId** | **int**|  |
 
 ### Return type
 
@@ -3609,7 +3609,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerProfiles
 
-> \TalonOne\Client\Model\InlineResponse20013 getCustomerProfiles($page_size, $skip)
+> \TalonOne\Client\Model\InlineResponse20013 getCustomerProfiles($pageSize, $skip)
 
 List Customer Profiles
 
@@ -3632,11 +3632,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 
 try {
-    $result = $apiInstance->getCustomerProfiles($page_size, $skip);
+    $result = $apiInstance->getCustomerProfiles($pageSize, $skip);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCustomerProfiles: ', $e->getMessage(), PHP_EOL;
@@ -3649,7 +3649,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
 
 ### Return type
@@ -3672,7 +3672,7 @@ Name | Type | Description  | Notes
 
 ## getCustomersByAttributes
 
-> \TalonOne\Client\Model\InlineResponse20013 getCustomersByAttributes($body, $page_size, $skip)
+> \TalonOne\Client\Model\InlineResponse20013 getCustomersByAttributes($body, $pageSize, $skip)
 
 Get a list of the customer profiles that match the given attributes
 
@@ -3698,11 +3698,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $body = new \TalonOne\Client\Model\ApplicationCustomerSearch(); // \TalonOne\Client\Model\ApplicationCustomerSearch | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 
 try {
-    $result = $apiInstance->getCustomersByAttributes($body, $page_size, $skip);
+    $result = $apiInstance->getCustomersByAttributes($body, $pageSize, $skip);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCustomersByAttributes: ', $e->getMessage(), PHP_EOL;
@@ -3716,7 +3716,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**\TalonOne\Client\Model\ApplicationCustomerSearch**](../Model/ApplicationCustomerSearch.md)|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
 
 ### Return type
@@ -3739,7 +3739,7 @@ Name | Type | Description  | Notes
 
 ## getEventTypes
 
-> \TalonOne\Client\Model\InlineResponse20025 getEventTypes($application_ids, $name, $include_old_versions, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20025 getEventTypes($applicationIds, $name, $includeOldVersions, $pageSize, $skip, $sort)
 
 List Event Types
 
@@ -3764,15 +3764,15 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_ids = 'application_ids_example'; // string | Filter by one or more application ids separated by comma
+$applicationIds = 'applicationIds_example'; // string | Filter by one or more application ids separated by comma
 $name = 'name_example'; // string | Filter results to event types with the given name. This parameter implies `includeOldVersions`.
-$include_old_versions = false; // bool | Include all versions of every event type.
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$includeOldVersions = false; // bool | Include all versions of every event type.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
 try {
-    $result = $apiInstance->getEventTypes($application_ids, $name, $include_old_versions, $page_size, $skip, $sort);
+    $result = $apiInstance->getEventTypes($applicationIds, $name, $includeOldVersions, $pageSize, $skip, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getEventTypes: ', $e->getMessage(), PHP_EOL;
@@ -3785,10 +3785,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_ids** | **string**| Filter by one or more application ids separated by comma | [optional]
+ **applicationIds** | **string**| Filter by one or more application ids separated by comma | [optional]
  **name** | **string**| Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. | [optional]
- **include_old_versions** | **bool**| Include all versions of every event type. | [optional] [default to false]
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **includeOldVersions** | **bool**| Include all versions of every event type. | [optional] [default to false]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
 
@@ -3812,7 +3812,7 @@ Name | Type | Description  | Notes
 
 ## getExports
 
-> \TalonOne\Client\Model\InlineResponse20028 getExports($page_size, $skip, $application_id, $campaign_id, $entity)
+> \TalonOne\Client\Model\InlineResponse20028 getExports($pageSize, $skip, $applicationId, $campaignId, $entity)
 
 Get Exports
 
@@ -3837,14 +3837,14 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
 $entity = 'entity_example'; // string | The name of the entity type that was exported.
 
 try {
-    $result = $apiInstance->getExports($page_size, $skip, $application_id, $campaign_id, $entity);
+    $result = $apiInstance->getExports($pageSize, $skip, $applicationId, $campaignId, $entity);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getExports: ', $e->getMessage(), PHP_EOL;
@@ -3857,10 +3857,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **application_id** | **int**|  | [optional]
- **campaign_id** | **int**|  | [optional]
+ **applicationId** | **int**|  | [optional]
+ **campaignId** | **int**|  | [optional]
  **entity** | **string**| The name of the entity type that was exported. | [optional]
 
 ### Return type
@@ -3883,7 +3883,7 @@ Name | Type | Description  | Notes
 
 ## getImports
 
-> \TalonOne\Client\Model\InlineResponse20029 getImports($page_size, $skip)
+> \TalonOne\Client\Model\InlineResponse20029 getImports($pageSize, $skip)
 
 Get Imports
 
@@ -3908,11 +3908,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 
 try {
-    $result = $apiInstance->getImports($page_size, $skip);
+    $result = $apiInstance->getImports($pageSize, $skip);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getImports: ', $e->getMessage(), PHP_EOL;
@@ -3925,7 +3925,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
 
 ### Return type
@@ -3948,7 +3948,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyPoints
 
-> \TalonOne\Client\Model\LoyaltyLedger getLoyaltyPoints($program_id, $integration_id)
+> \TalonOne\Client\Model\LoyaltyLedger getLoyaltyPoints($programID, $integrationID)
 
 get the Loyalty Ledger for this integrationID
 
@@ -3973,11 +3973,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$program_id = 'program_id_example'; // string | The identifier for the application, must be unique within the account.
-$integration_id = 'integration_id_example'; // string | The identifier for the application, must be unique within the account.
+$programID = 'programID_example'; // string | The identifier for the application, must be unique within the account.
+$integrationID = 'integrationID_example'; // string | The identifier for the application, must be unique within the account.
 
 try {
-    $result = $apiInstance->getLoyaltyPoints($program_id, $integration_id);
+    $result = $apiInstance->getLoyaltyPoints($programID, $integrationID);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getLoyaltyPoints: ', $e->getMessage(), PHP_EOL;
@@ -3990,8 +3990,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **program_id** | **string**| The identifier for the application, must be unique within the account. |
- **integration_id** | **string**| The identifier for the application, must be unique within the account. |
+ **programID** | **string**| The identifier for the application, must be unique within the account. |
+ **integrationID** | **string**| The identifier for the application, must be unique within the account. |
 
 ### Return type
 
@@ -4013,7 +4013,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyProgram
 
-> \TalonOne\Client\Model\LoyaltyProgram getLoyaltyProgram($program_id)
+> \TalonOne\Client\Model\LoyaltyProgram getLoyaltyProgram($programID)
 
 Get a loyalty program
 
@@ -4036,10 +4036,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$program_id = 'program_id_example'; // string | 
+$programID = 'programID_example'; // string | 
 
 try {
-    $result = $apiInstance->getLoyaltyProgram($program_id);
+    $result = $apiInstance->getLoyaltyProgram($programID);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getLoyaltyProgram: ', $e->getMessage(), PHP_EOL;
@@ -4052,7 +4052,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **program_id** | **string**|  |
+ **programID** | **string**|  |
 
 ### Return type
 
@@ -4131,7 +4131,7 @@ This endpoint does not need any parameter.
 
 ## getReferrals
 
-> \TalonOne\Client\Model\InlineResponse2006 getReferrals($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate)
+> \TalonOne\Client\Model\InlineResponse2006 getReferrals($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
 
 List Referrals
 
@@ -4154,20 +4154,20 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $code = 'code_example'; // string | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.
 $advocate = 'advocate_example'; // string | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field
 
 try {
-    $result = $apiInstance->getReferrals($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate);
+    $result = $apiInstance->getReferrals($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getReferrals: ', $e->getMessage(), PHP_EOL;
@@ -4180,14 +4180,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **code** | **string**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional]
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
  **advocate** | **string**| Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field | [optional]
@@ -4212,7 +4212,7 @@ Name | Type | Description  | Notes
 
 ## getReferralsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse2007 getReferralsWithoutTotalCount($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate)
+> \TalonOne\Client\Model\InlineResponse2007 getReferralsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
 
 List Referrals
 
@@ -4235,20 +4235,20 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $code = 'code_example'; // string | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.
 $advocate = 'advocate_example'; // string | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field
 
 try {
-    $result = $apiInstance->getReferralsWithoutTotalCount($application_id, $campaign_id, $page_size, $skip, $sort, $code, $created_before, $created_after, $valid, $usable, $advocate);
+    $result = $apiInstance->getReferralsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getReferralsWithoutTotalCount: ', $e->getMessage(), PHP_EOL;
@@ -4261,14 +4261,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **code** | **string**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional]
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
  **advocate** | **string**| Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field | [optional]
@@ -4293,7 +4293,7 @@ Name | Type | Description  | Notes
 
 ## getRole
 
-> \TalonOne\Client\Model\Role getRole($role_id)
+> \TalonOne\Client\Model\Role getRole($roleId)
 
 Get information for the specified role.
 
@@ -4316,10 +4316,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$role_id = 56; // int | 
+$roleId = 56; // int | 
 
 try {
-    $result = $apiInstance->getRole($role_id);
+    $result = $apiInstance->getRole($roleId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getRole: ', $e->getMessage(), PHP_EOL;
@@ -4332,7 +4332,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **role_id** | **int**|  |
+ **roleId** | **int**|  |
 
 ### Return type
 
@@ -4354,7 +4354,7 @@ Name | Type | Description  | Notes
 
 ## getRuleset
 
-> \TalonOne\Client\Model\Ruleset getRuleset($application_id, $campaign_id, $ruleset_id)
+> \TalonOne\Client\Model\Ruleset getRuleset($applicationId, $campaignId, $rulesetId)
 
 Get a Ruleset
 
@@ -4377,12 +4377,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
-$ruleset_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$rulesetId = 56; // int | 
 
 try {
-    $result = $apiInstance->getRuleset($application_id, $campaign_id, $ruleset_id);
+    $result = $apiInstance->getRuleset($applicationId, $campaignId, $rulesetId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getRuleset: ', $e->getMessage(), PHP_EOL;
@@ -4395,9 +4395,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
- **ruleset_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **rulesetId** | **int**|  |
 
 ### Return type
 
@@ -4419,7 +4419,7 @@ Name | Type | Description  | Notes
 
 ## getRulesets
 
-> \TalonOne\Client\Model\InlineResponse2004 getRulesets($application_id, $campaign_id, $page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2004 getRulesets($applicationId, $campaignId, $pageSize, $skip, $sort)
 
 List Campaign Rulesets
 
@@ -4442,14 +4442,14 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
 try {
-    $result = $apiInstance->getRulesets($application_id, $campaign_id, $page_size, $skip, $sort);
+    $result = $apiInstance->getRulesets($applicationId, $campaignId, $pageSize, $skip, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getRulesets: ', $e->getMessage(), PHP_EOL;
@@ -4462,9 +4462,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
 
@@ -4488,7 +4488,7 @@ Name | Type | Description  | Notes
 
 ## getUser
 
-> \TalonOne\Client\Model\User getUser($user_id)
+> \TalonOne\Client\Model\User getUser($userId)
 
 Get a single User
 
@@ -4513,10 +4513,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id = 56; // int | 
+$userId = 56; // int | 
 
 try {
-    $result = $apiInstance->getUser($user_id);
+    $result = $apiInstance->getUser($userId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getUser: ', $e->getMessage(), PHP_EOL;
@@ -4529,7 +4529,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**|  |
+ **userId** | **int**|  |
 
 ### Return type
 
@@ -4551,7 +4551,7 @@ Name | Type | Description  | Notes
 
 ## getUsers
 
-> \TalonOne\Client\Model\InlineResponse20026 getUsers($page_size, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20026 getUsers($pageSize, $skip, $sort)
 
 List Users in your account
 
@@ -4576,12 +4576,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 
 try {
-    $result = $apiInstance->getUsers($page_size, $skip, $sort);
+    $result = $apiInstance->getUsers($pageSize, $skip, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getUsers: ', $e->getMessage(), PHP_EOL;
@@ -4594,7 +4594,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
 
@@ -4618,7 +4618,7 @@ Name | Type | Description  | Notes
 
 ## getWebhook
 
-> \TalonOne\Client\Model\Webhook getWebhook($webhook_id)
+> \TalonOne\Client\Model\Webhook getWebhook($webhookId)
 
 Get Webhook
 
@@ -4643,10 +4643,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$webhook_id = 56; // int | 
+$webhookId = 56; // int | 
 
 try {
-    $result = $apiInstance->getWebhook($webhook_id);
+    $result = $apiInstance->getWebhook($webhookId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getWebhook: ', $e->getMessage(), PHP_EOL;
@@ -4659,7 +4659,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook_id** | **int**|  |
+ **webhookId** | **int**|  |
 
 ### Return type
 
@@ -4681,7 +4681,7 @@ Name | Type | Description  | Notes
 
 ## getWebhookActivationLogs
 
-> \TalonOne\Client\Model\InlineResponse20023 getWebhookActivationLogs($page_size, $skip, $sort, $integration_request_uuid, $webhook_id, $application_id, $campaign_id, $created_before, $created_after)
+> \TalonOne\Client\Model\InlineResponse20023 getWebhookActivationLogs($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter)
 
 List Webhook activation Log Entries
 
@@ -4706,18 +4706,18 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-$integration_request_uuid = 'integration_request_uuid_example'; // string | Filter results by integration request UUID.
-$webhook_id = 3.4; // float | Filter results by Webhook.
-$application_id = 3.4; // float | 
-$campaign_id = 3.4; // float | Filter results by campaign.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string.
+$integrationRequestUuid = 'integrationRequestUuid_example'; // string | Filter results by integration request UUID.
+$webhookId = 3.4; // float | Filter results by Webhook.
+$applicationId = 3.4; // float | 
+$campaignId = 3.4; // float | Filter results by campaign.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string.
 
 try {
-    $result = $apiInstance->getWebhookActivationLogs($page_size, $skip, $sort, $integration_request_uuid, $webhook_id, $application_id, $campaign_id, $created_before, $created_after);
+    $result = $apiInstance->getWebhookActivationLogs($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getWebhookActivationLogs: ', $e->getMessage(), PHP_EOL;
@@ -4730,15 +4730,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
- **integration_request_uuid** | **string**| Filter results by integration request UUID. | [optional]
- **webhook_id** | **float**| Filter results by Webhook. | [optional]
- **application_id** | **float**|  | [optional]
- **campaign_id** | **float**| Filter results by campaign. | [optional]
- **created_before** | **\DateTime**| Only return events created before this date. | [optional]
- **created_after** | **\DateTime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. | [optional]
+ **integrationRequestUuid** | **string**| Filter results by integration request UUID. | [optional]
+ **webhookId** | **float**| Filter results by Webhook. | [optional]
+ **applicationId** | **float**|  | [optional]
+ **campaignId** | **float**| Filter results by campaign. | [optional]
+ **createdBefore** | **\DateTime**| Only return events created before this date. | [optional]
+ **createdAfter** | **\DateTime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. | [optional]
 
 ### Return type
 
@@ -4760,7 +4760,7 @@ Name | Type | Description  | Notes
 
 ## getWebhookLogs
 
-> \TalonOne\Client\Model\InlineResponse20024 getWebhookLogs($page_size, $skip, $sort, $status, $webhook_id, $application_id, $campaign_id, $request_uuid, $created_before, $created_after)
+> \TalonOne\Client\Model\InlineResponse20024 getWebhookLogs($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter)
 
 List Webhook Log Entries
 
@@ -4783,19 +4783,19 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $status = 'status_example'; // string | Filter results by HTTP status codes.
-$webhook_id = 3.4; // float | Filter results by Webhook.
-$application_id = 3.4; // float | 
-$campaign_id = 3.4; // float | Filter results by campaign.
-$request_uuid = 'request_uuid_example'; // string | Filter results by request UUID.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string.
+$webhookId = 3.4; // float | Filter results by Webhook.
+$applicationId = 3.4; // float | 
+$campaignId = 3.4; // float | Filter results by campaign.
+$requestUuid = 'requestUuid_example'; // string | Filter results by request UUID.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string.
 
 try {
-    $result = $apiInstance->getWebhookLogs($page_size, $skip, $sort, $status, $webhook_id, $application_id, $campaign_id, $request_uuid, $created_before, $created_after);
+    $result = $apiInstance->getWebhookLogs($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getWebhookLogs: ', $e->getMessage(), PHP_EOL;
@@ -4808,16 +4808,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **status** | **string**| Filter results by HTTP status codes. | [optional]
- **webhook_id** | **float**| Filter results by Webhook. | [optional]
- **application_id** | **float**|  | [optional]
- **campaign_id** | **float**| Filter results by campaign. | [optional]
- **request_uuid** | **string**| Filter results by request UUID. | [optional]
- **created_before** | **\DateTime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. | [optional]
- **created_after** | **\DateTime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. | [optional]
+ **webhookId** | **float**| Filter results by Webhook. | [optional]
+ **applicationId** | **float**|  | [optional]
+ **campaignId** | **float**| Filter results by campaign. | [optional]
+ **requestUuid** | **string**| Filter results by request UUID. | [optional]
+ **createdBefore** | **\DateTime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. | [optional]
+ **createdAfter** | **\DateTime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. | [optional]
 
 ### Return type
 
@@ -4839,7 +4839,7 @@ Name | Type | Description  | Notes
 
 ## getWebhooks
 
-> \TalonOne\Client\Model\InlineResponse20022 getWebhooks($application_ids, $sort, $page_size, $skip)
+> \TalonOne\Client\Model\InlineResponse20022 getWebhooks($applicationIds, $sort, $pageSize, $skip)
 
 List Webhooks
 
@@ -4862,13 +4862,13 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_ids = 'application_ids_example'; // string | Filter by one or more application ids separated by comma
+$applicationIds = 'applicationIds_example'; // string | Filter by one or more application ids separated by comma
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 
 try {
-    $result = $apiInstance->getWebhooks($application_ids, $sort, $page_size, $skip);
+    $result = $apiInstance->getWebhooks($applicationIds, $sort, $pageSize, $skip);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getWebhooks: ', $e->getMessage(), PHP_EOL;
@@ -4881,9 +4881,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_ids** | **string**| Filter by one or more application ids separated by comma | [optional]
+ **applicationIds** | **string**| Filter by one or more application ids separated by comma | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
 
 ### Return type
@@ -4906,7 +4906,7 @@ Name | Type | Description  | Notes
 
 ## removeLoyaltyPoints
 
-> removeLoyaltyPoints($program_id, $integration_id, $body)
+> removeLoyaltyPoints($programID, $integrationID, $body)
 
 Deduct points in a certain loyalty program for the specified customer
 
@@ -4929,12 +4929,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$program_id = 'program_id_example'; // string | 
-$integration_id = 'integration_id_example'; // string | 
+$programID = 'programID_example'; // string | 
+$integrationID = 'integrationID_example'; // string | 
 $body = new \TalonOne\Client\Model\LoyaltyPoints(); // \TalonOne\Client\Model\LoyaltyPoints | 
 
 try {
-    $apiInstance->removeLoyaltyPoints($program_id, $integration_id, $body);
+    $apiInstance->removeLoyaltyPoints($programID, $integrationID, $body);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->removeLoyaltyPoints: ', $e->getMessage(), PHP_EOL;
 }
@@ -4946,8 +4946,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **program_id** | **string**|  |
- **integration_id** | **string**|  |
+ **programID** | **string**|  |
+ **integrationID** | **string**|  |
  **body** | [**\TalonOne\Client\Model\LoyaltyPoints**](../Model/LoyaltyPoints.md)|  |
 
 ### Return type
@@ -5033,7 +5033,7 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvanced
 
-> \TalonOne\Client\Model\InlineResponse2001 searchCouponsAdvanced($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id)
+> \TalonOne\Client\Model\InlineResponse2001 searchCouponsAdvanced($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
 
 Get a list of the coupons that match the given attributes
 
@@ -5058,24 +5058,24 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
 $body = new \stdClass; // object | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
-$referral_id = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
-$recipient_integration_id = 'recipient_integration_id_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
-$exact_match = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
-$batch_id = 'batch_id_example'; // string | Filter results by batches of coupons
+$referralId = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
+$batchId = 'batchId_example'; // string | Filter results by batches of coupons
 
 try {
-    $result = $apiInstance->searchCouponsAdvanced($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id);
+    $result = $apiInstance->searchCouponsAdvanced($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->searchCouponsAdvanced: ', $e->getMessage(), PHP_EOL;
@@ -5088,21 +5088,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
  **body** | **object**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
- **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
- **recipient_integration_id** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
- **batch_id** | **string**| Filter results by batches of coupons | [optional]
+ **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
+ **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **batchId** | **string**| Filter results by batches of coupons | [optional]
 
 ### Return type
 
@@ -5124,7 +5124,7 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvancedApplicationWide
 
-> \TalonOne\Client\Model\InlineResponse2001 searchCouponsAdvancedApplicationWide($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state)
+> \TalonOne\Client\Model\InlineResponse2001 searchCouponsAdvancedApplicationWide($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
 
 Get a list of the coupons that match the given attributes in all active campaigns of an application
 
@@ -5149,24 +5149,24 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
+$applicationId = 56; // int | 
 $body = new \stdClass; // object | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
-$referral_id = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
-$recipient_integration_id = 'recipient_integration_id_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
-$batch_id = 'batch_id_example'; // string | Filter results by batches of coupons
-$exact_match = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
-$campaign_state = 'campaign_state_example'; // string | Filter results by the state of the campaign.
+$referralId = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+$batchId = 'batchId_example'; // string | Filter results by batches of coupons
+$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
+$campaignState = 'campaignState_example'; // string | Filter results by the state of the campaign.
 
 try {
-    $result = $apiInstance->searchCouponsAdvancedApplicationWide($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state);
+    $result = $apiInstance->searchCouponsAdvancedApplicationWide($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->searchCouponsAdvancedApplicationWide: ', $e->getMessage(), PHP_EOL;
@@ -5179,21 +5179,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
+ **applicationId** | **int**|  |
  **body** | **object**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
- **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
- **recipient_integration_id** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
- **batch_id** | **string**| Filter results by batches of coupons | [optional]
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
- **campaign_state** | **string**| Filter results by the state of the campaign. | [optional]
+ **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
+ **batchId** | **string**| Filter results by batches of coupons | [optional]
+ **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **campaignState** | **string**| Filter results by the state of the campaign. | [optional]
 
 ### Return type
 
@@ -5215,7 +5215,7 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvancedApplicationWideWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse2005 searchCouponsAdvancedApplicationWideWithoutTotalCount($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state)
+> \TalonOne\Client\Model\InlineResponse2005 searchCouponsAdvancedApplicationWideWithoutTotalCount($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
 
 Get a list of the coupons that match the given attributes in all active campaigns of an application
 
@@ -5240,24 +5240,24 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
+$applicationId = 56; // int | 
 $body = new \stdClass; // object | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
-$referral_id = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
-$recipient_integration_id = 'recipient_integration_id_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
-$batch_id = 'batch_id_example'; // string | Filter results by batches of coupons
-$exact_match = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
-$campaign_state = 'campaign_state_example'; // string | Filter results by the state of the campaign.
+$referralId = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+$batchId = 'batchId_example'; // string | Filter results by batches of coupons
+$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
+$campaignState = 'campaignState_example'; // string | Filter results by the state of the campaign.
 
 try {
-    $result = $apiInstance->searchCouponsAdvancedApplicationWideWithoutTotalCount($application_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $batch_id, $exact_match, $campaign_state);
+    $result = $apiInstance->searchCouponsAdvancedApplicationWideWithoutTotalCount($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->searchCouponsAdvancedApplicationWideWithoutTotalCount: ', $e->getMessage(), PHP_EOL;
@@ -5270,21 +5270,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
+ **applicationId** | **int**|  |
  **body** | **object**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
- **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
- **recipient_integration_id** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
- **batch_id** | **string**| Filter results by batches of coupons | [optional]
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
- **campaign_state** | **string**| Filter results by the state of the campaign. | [optional]
+ **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
+ **batchId** | **string**| Filter results by batches of coupons | [optional]
+ **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **campaignState** | **string**| Filter results by the state of the campaign. | [optional]
 
 ### Return type
 
@@ -5306,7 +5306,7 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvancedWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse2005 searchCouponsAdvancedWithoutTotalCount($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id)
+> \TalonOne\Client\Model\InlineResponse2005 searchCouponsAdvancedWithoutTotalCount($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
 
 Get a list of the coupons that match the given attributes
 
@@ -5331,24 +5331,24 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
 $body = new \stdClass; // object | 
-$page_size = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
-$referral_id = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
-$recipient_integration_id = 'recipient_integration_id_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
-$exact_match = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
-$batch_id = 'batch_id_example'; // string | Filter results by batches of coupons
+$referralId = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
+$batchId = 'batchId_example'; // string | Filter results by batches of coupons
 
 try {
-    $result = $apiInstance->searchCouponsAdvancedWithoutTotalCount($application_id, $campaign_id, $body, $page_size, $skip, $sort, $value, $created_before, $created_after, $valid, $usable, $referral_id, $recipient_integration_id, $exact_match, $batch_id);
+    $result = $apiInstance->searchCouponsAdvancedWithoutTotalCount($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->searchCouponsAdvancedWithoutTotalCount: ', $e->getMessage(), PHP_EOL;
@@ -5361,21 +5361,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
  **body** | **object**|  |
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
- **created_before** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
- **created_after** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
+ **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional]
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
- **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
- **recipient_integration_id** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
- **batch_id** | **string**| Filter results by batches of coupons | [optional]
+ **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
+ **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **batchId** | **string**| Filter results by batches of coupons | [optional]
 
 ### Return type
 
@@ -5397,7 +5397,7 @@ Name | Type | Description  | Notes
 
 ## updateAdditionalCost
 
-> \TalonOne\Client\Model\AccountAdditionalCost updateAdditionalCost($additional_cost_id, $body)
+> \TalonOne\Client\Model\AccountAdditionalCost updateAdditionalCost($additionalCostId, $body)
 
 Update an additional cost
 
@@ -5422,11 +5422,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$additional_cost_id = 56; // int | 
+$additionalCostId = 56; // int | 
 $body = new \TalonOne\Client\Model\NewAdditionalCost(); // \TalonOne\Client\Model\NewAdditionalCost | 
 
 try {
-    $result = $apiInstance->updateAdditionalCost($additional_cost_id, $body);
+    $result = $apiInstance->updateAdditionalCost($additionalCostId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateAdditionalCost: ', $e->getMessage(), PHP_EOL;
@@ -5439,7 +5439,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **additional_cost_id** | **int**|  |
+ **additionalCostId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\NewAdditionalCost**](../Model/NewAdditionalCost.md)|  |
 
 ### Return type
@@ -5462,7 +5462,7 @@ Name | Type | Description  | Notes
 
 ## updateAttribute
 
-> \TalonOne\Client\Model\Attribute updateAttribute($attribute_id, $body)
+> \TalonOne\Client\Model\Attribute updateAttribute($attributeId, $body)
 
 Update a custom attribute
 
@@ -5487,11 +5487,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$attribute_id = 56; // int | 
+$attributeId = 56; // int | 
 $body = new \TalonOne\Client\Model\NewAttribute(); // \TalonOne\Client\Model\NewAttribute | 
 
 try {
-    $result = $apiInstance->updateAttribute($attribute_id, $body);
+    $result = $apiInstance->updateAttribute($attributeId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateAttribute: ', $e->getMessage(), PHP_EOL;
@@ -5504,7 +5504,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attribute_id** | **int**|  |
+ **attributeId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\NewAttribute**](../Model/NewAttribute.md)|  |
 
 ### Return type
@@ -5527,7 +5527,7 @@ Name | Type | Description  | Notes
 
 ## updateCampaign
 
-> \TalonOne\Client\Model\Campaign updateCampaign($application_id, $campaign_id, $body)
+> \TalonOne\Client\Model\Campaign updateCampaign($applicationId, $campaignId, $body)
 
 Update a Campaign
 
@@ -5550,12 +5550,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
 $body = new \TalonOne\Client\Model\UpdateCampaign(); // \TalonOne\Client\Model\UpdateCampaign | 
 
 try {
-    $result = $apiInstance->updateCampaign($application_id, $campaign_id, $body);
+    $result = $apiInstance->updateCampaign($applicationId, $campaignId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateCampaign: ', $e->getMessage(), PHP_EOL;
@@ -5568,8 +5568,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\UpdateCampaign**](../Model/UpdateCampaign.md)|  |
 
 ### Return type
@@ -5592,7 +5592,7 @@ Name | Type | Description  | Notes
 
 ## updateCampaignSet
 
-> \TalonOne\Client\Model\CampaignSet updateCampaignSet($application_id, $body)
+> \TalonOne\Client\Model\CampaignSet updateCampaignSet($applicationId, $body)
 
 Update a Campaign Set
 
@@ -5615,11 +5615,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
+$applicationId = 56; // int | 
 $body = new \TalonOne\Client\Model\NewCampaignSet(); // \TalonOne\Client\Model\NewCampaignSet | 
 
 try {
-    $result = $apiInstance->updateCampaignSet($application_id, $body);
+    $result = $apiInstance->updateCampaignSet($applicationId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateCampaignSet: ', $e->getMessage(), PHP_EOL;
@@ -5632,7 +5632,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
+ **applicationId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\NewCampaignSet**](../Model/NewCampaignSet.md)|  |
 
 ### Return type
@@ -5655,7 +5655,7 @@ Name | Type | Description  | Notes
 
 ## updateCoupon
 
-> \TalonOne\Client\Model\Coupon updateCoupon($application_id, $campaign_id, $coupon_id, $body)
+> \TalonOne\Client\Model\Coupon updateCoupon($applicationId, $campaignId, $couponId, $body)
 
 Update a Coupon
 
@@ -5678,13 +5678,13 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
-$coupon_id = 'coupon_id_example'; // string | The ID of the coupon code to update
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$couponId = 'couponId_example'; // string | The ID of the coupon code to update
 $body = new \TalonOne\Client\Model\UpdateCoupon(); // \TalonOne\Client\Model\UpdateCoupon | 
 
 try {
-    $result = $apiInstance->updateCoupon($application_id, $campaign_id, $coupon_id, $body);
+    $result = $apiInstance->updateCoupon($applicationId, $campaignId, $couponId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateCoupon: ', $e->getMessage(), PHP_EOL;
@@ -5697,9 +5697,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
- **coupon_id** | **string**| The ID of the coupon code to update |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **couponId** | **string**| The ID of the coupon code to update |
  **body** | [**\TalonOne\Client\Model\UpdateCoupon**](../Model/UpdateCoupon.md)|  |
 
 ### Return type
@@ -5722,7 +5722,7 @@ Name | Type | Description  | Notes
 
 ## updateCouponBatch
 
-> updateCouponBatch($application_id, $campaign_id, $body)
+> updateCouponBatch($applicationId, $campaignId, $body)
 
 Update a Batch of Coupons
 
@@ -5745,12 +5745,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
 $body = new \TalonOne\Client\Model\UpdateCouponBatch(); // \TalonOne\Client\Model\UpdateCouponBatch | 
 
 try {
-    $apiInstance->updateCouponBatch($application_id, $campaign_id, $body);
+    $apiInstance->updateCouponBatch($applicationId, $campaignId, $body);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateCouponBatch: ', $e->getMessage(), PHP_EOL;
 }
@@ -5762,8 +5762,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\UpdateCouponBatch**](../Model/UpdateCouponBatch.md)|  |
 
 ### Return type
@@ -5786,7 +5786,7 @@ void (empty response body)
 
 ## updateRuleset
 
-> \TalonOne\Client\Model\Ruleset updateRuleset($application_id, $campaign_id, $ruleset_id, $body)
+> \TalonOne\Client\Model\Ruleset updateRuleset($applicationId, $campaignId, $rulesetId, $body)
 
 Update a Ruleset
 
@@ -5809,13 +5809,13 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$application_id = 56; // int | 
-$campaign_id = 56; // int | 
-$ruleset_id = 56; // int | 
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$rulesetId = 56; // int | 
 $body = new \TalonOne\Client\Model\NewRuleset(); // \TalonOne\Client\Model\NewRuleset | 
 
 try {
-    $result = $apiInstance->updateRuleset($application_id, $campaign_id, $ruleset_id, $body);
+    $result = $apiInstance->updateRuleset($applicationId, $campaignId, $rulesetId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateRuleset: ', $e->getMessage(), PHP_EOL;
@@ -5828,9 +5828,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  |
- **campaign_id** | **int**|  |
- **ruleset_id** | **int**|  |
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **rulesetId** | **int**|  |
  **body** | [**\TalonOne\Client\Model\NewRuleset**](../Model/NewRuleset.md)|  |
 
 ### Return type

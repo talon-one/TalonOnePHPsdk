@@ -58,11 +58,11 @@ class Effect implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'campaign_id' => 'int',
-        'ruleset_id' => 'int',
-        'rule_index' => 'int',
-        'rule_name' => 'string',
-        'effect_type' => 'string',
+        'campaignId' => 'int',
+        'rulesetId' => 'int',
+        'ruleIndex' => 'int',
+        'ruleName' => 'string',
+        'effectType' => 'string',
         'props' => 'object'
     ];
 
@@ -72,11 +72,11 @@ class Effect implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaign_id' => null,
-        'ruleset_id' => null,
-        'rule_index' => null,
-        'rule_name' => null,
-        'effect_type' => null,
+        'campaignId' => null,
+        'rulesetId' => null,
+        'ruleIndex' => null,
+        'ruleName' => null,
+        'effectType' => null,
         'props' => null
     ];
 
@@ -107,11 +107,11 @@ class Effect implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'campaign_id' => 'campaignId',
-        'ruleset_id' => 'rulesetId',
-        'rule_index' => 'ruleIndex',
-        'rule_name' => 'ruleName',
-        'effect_type' => 'effectType',
+        'campaignId' => 'campaignId',
+        'rulesetId' => 'rulesetId',
+        'ruleIndex' => 'ruleIndex',
+        'ruleName' => 'ruleName',
+        'effectType' => 'effectType',
         'props' => 'props'
     ];
 
@@ -121,11 +121,11 @@ class Effect implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'campaign_id' => 'setCampaignId',
-        'ruleset_id' => 'setRulesetId',
-        'rule_index' => 'setRuleIndex',
-        'rule_name' => 'setRuleName',
-        'effect_type' => 'setEffectType',
+        'campaignId' => 'setCampaignId',
+        'rulesetId' => 'setRulesetId',
+        'ruleIndex' => 'setRuleIndex',
+        'ruleName' => 'setRuleName',
+        'effectType' => 'setEffectType',
         'props' => 'setProps'
     ];
 
@@ -135,11 +135,11 @@ class Effect implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'campaign_id' => 'getCampaignId',
-        'ruleset_id' => 'getRulesetId',
-        'rule_index' => 'getRuleIndex',
-        'rule_name' => 'getRuleName',
-        'effect_type' => 'getEffectType',
+        'campaignId' => 'getCampaignId',
+        'rulesetId' => 'getRulesetId',
+        'ruleIndex' => 'getRuleIndex',
+        'ruleName' => 'getRuleName',
+        'effectType' => 'getEffectType',
         'props' => 'getProps'
     ];
 
@@ -203,11 +203,11 @@ class Effect implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['campaign_id'] = isset($data['campaign_id']) ? $data['campaign_id'] : null;
-        $this->container['ruleset_id'] = isset($data['ruleset_id']) ? $data['ruleset_id'] : null;
-        $this->container['rule_index'] = isset($data['rule_index']) ? $data['rule_index'] : null;
-        $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
-        $this->container['effect_type'] = isset($data['effect_type']) ? $data['effect_type'] : null;
+        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
+        $this->container['rulesetId'] = isset($data['rulesetId']) ? $data['rulesetId'] : null;
+        $this->container['ruleIndex'] = isset($data['ruleIndex']) ? $data['ruleIndex'] : null;
+        $this->container['ruleName'] = isset($data['ruleName']) ? $data['ruleName'] : null;
+        $this->container['effectType'] = isset($data['effectType']) ? $data['effectType'] : null;
         $this->container['props'] = isset($data['props']) ? $data['props'] : null;
     }
 
@@ -220,20 +220,20 @@ class Effect implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
+        if ($this->container['campaignId'] === null) {
+            $invalidProperties[] = "'campaignId' can't be null";
         }
-        if ($this->container['ruleset_id'] === null) {
-            $invalidProperties[] = "'ruleset_id' can't be null";
+        if ($this->container['rulesetId'] === null) {
+            $invalidProperties[] = "'rulesetId' can't be null";
         }
-        if ($this->container['rule_index'] === null) {
-            $invalidProperties[] = "'rule_index' can't be null";
+        if ($this->container['ruleIndex'] === null) {
+            $invalidProperties[] = "'ruleIndex' can't be null";
         }
-        if ($this->container['rule_name'] === null) {
-            $invalidProperties[] = "'rule_name' can't be null";
+        if ($this->container['ruleName'] === null) {
+            $invalidProperties[] = "'ruleName' can't be null";
         }
-        if ($this->container['effect_type'] === null) {
-            $invalidProperties[] = "'effect_type' can't be null";
+        if ($this->container['effectType'] === null) {
+            $invalidProperties[] = "'effectType' can't be null";
         }
         if ($this->container['props'] === null) {
             $invalidProperties[] = "'props' can't be null";
@@ -254,121 +254,121 @@ class Effect implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets campaign_id
+     * Gets campaignId
      *
      * @return int
      */
     public function getCampaignId()
     {
-        return $this->container['campaign_id'];
+        return $this->container['campaignId'];
     }
 
     /**
-     * Sets campaign_id
+     * Sets campaignId
      *
-     * @param int $campaign_id The ID of the campaign that triggered this effect
+     * @param int $campaignId The ID of the campaign that triggered this effect
      *
      * @return $this
      */
-    public function setCampaignId($campaign_id)
+    public function setCampaignId($campaignId)
     {
-        $this->container['campaign_id'] = $campaign_id;
+        $this->container['campaignId'] = $campaignId;
 
         return $this;
     }
 
     /**
-     * Gets ruleset_id
+     * Gets rulesetId
      *
      * @return int
      */
     public function getRulesetId()
     {
-        return $this->container['ruleset_id'];
+        return $this->container['rulesetId'];
     }
 
     /**
-     * Sets ruleset_id
+     * Sets rulesetId
      *
-     * @param int $ruleset_id The ID of the ruleset that was active in the campaign when this effect was triggered
+     * @param int $rulesetId The ID of the ruleset that was active in the campaign when this effect was triggered
      *
      * @return $this
      */
-    public function setRulesetId($ruleset_id)
+    public function setRulesetId($rulesetId)
     {
-        $this->container['ruleset_id'] = $ruleset_id;
+        $this->container['rulesetId'] = $rulesetId;
 
         return $this;
     }
 
     /**
-     * Gets rule_index
+     * Gets ruleIndex
      *
      * @return int
      */
     public function getRuleIndex()
     {
-        return $this->container['rule_index'];
+        return $this->container['ruleIndex'];
     }
 
     /**
-     * Sets rule_index
+     * Sets ruleIndex
      *
-     * @param int $rule_index The position of the rule that triggered this effect within the ruleset
+     * @param int $ruleIndex The position of the rule that triggered this effect within the ruleset
      *
      * @return $this
      */
-    public function setRuleIndex($rule_index)
+    public function setRuleIndex($ruleIndex)
     {
-        $this->container['rule_index'] = $rule_index;
+        $this->container['ruleIndex'] = $ruleIndex;
 
         return $this;
     }
 
     /**
-     * Gets rule_name
+     * Gets ruleName
      *
      * @return string
      */
     public function getRuleName()
     {
-        return $this->container['rule_name'];
+        return $this->container['ruleName'];
     }
 
     /**
-     * Sets rule_name
+     * Sets ruleName
      *
-     * @param string $rule_name The name of the rule that triggered this effect
+     * @param string $ruleName The name of the rule that triggered this effect
      *
      * @return $this
      */
-    public function setRuleName($rule_name)
+    public function setRuleName($ruleName)
     {
-        $this->container['rule_name'] = $rule_name;
+        $this->container['ruleName'] = $ruleName;
 
         return $this;
     }
 
     /**
-     * Gets effect_type
+     * Gets effectType
      *
      * @return string
      */
     public function getEffectType()
     {
-        return $this->container['effect_type'];
+        return $this->container['effectType'];
     }
 
     /**
-     * Sets effect_type
+     * Sets effectType
      *
-     * @param string $effect_type The type of effect that was triggered
+     * @param string $effectType The type of effect that was triggered
      *
      * @return $this
      */
-    public function setEffectType($effect_type)
+    public function setEffectType($effectType)
     {
-        $this->container['effect_type'] = $effect_type;
+        $this->container['effectType'] = $effectType;
 
         return $this;
     }

@@ -60,8 +60,8 @@ class Export implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'account_id' => 'int',
-        'user_id' => 'int',
+        'accountId' => 'int',
+        'userId' => 'int',
         'entity' => 'string',
         'filter' => 'object'
     ];
@@ -74,8 +74,8 @@ class Export implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'account_id' => null,
-        'user_id' => null,
+        'accountId' => null,
+        'userId' => null,
         'entity' => null,
         'filter' => null
     ];
@@ -109,8 +109,8 @@ class Export implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'account_id' => 'accountId',
-        'user_id' => 'userId',
+        'accountId' => 'accountId',
+        'userId' => 'userId',
         'entity' => 'entity',
         'filter' => 'filter'
     ];
@@ -123,8 +123,8 @@ class Export implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'account_id' => 'setAccountId',
-        'user_id' => 'setUserId',
+        'accountId' => 'setAccountId',
+        'userId' => 'setUserId',
         'entity' => 'setEntity',
         'filter' => 'setFilter'
     ];
@@ -137,8 +137,8 @@ class Export implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'account_id' => 'getAccountId',
-        'user_id' => 'getUserId',
+        'accountId' => 'getAccountId',
+        'userId' => 'getUserId',
         'entity' => 'getEntity',
         'filter' => 'getFilter'
     ];
@@ -222,8 +222,8 @@ class Export implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
+        $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
         $this->container['entity'] = isset($data['entity']) ? $data['entity'] : null;
         $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
     }
@@ -243,11 +243,11 @@ class Export implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
         }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
+        if ($this->container['userId'] === null) {
+            $invalidProperties[] = "'userId' can't be null";
         }
         if ($this->container['entity'] === null) {
             $invalidProperties[] = "'entity' can't be null";
@@ -327,49 +327,49 @@ class Export implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets account_id
+     * Gets accountId
      *
      * @return int
      */
     public function getAccountId()
     {
-        return $this->container['account_id'];
+        return $this->container['accountId'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountId
      *
-     * @param int $account_id The ID of the account that owns this entity.
+     * @param int $accountId The ID of the account that owns this entity.
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountId($accountId)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }
 
     /**
-     * Gets user_id
+     * Gets userId
      *
      * @return int
      */
     public function getUserId()
     {
-        return $this->container['user_id'];
+        return $this->container['userId'];
     }
 
     /**
-     * Sets user_id
+     * Sets userId
      *
-     * @param int $user_id The ID of the account that owns this entity.
+     * @param int $userId The ID of the account that owns this entity.
      *
      * @return $this
      */
-    public function setUserId($user_id)
+    public function setUserId($userId)
     {
-        $this->container['user_id'] = $user_id;
+        $this->container['userId'] = $userId;
 
         return $this;
     }

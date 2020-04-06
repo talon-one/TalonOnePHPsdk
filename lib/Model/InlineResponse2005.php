@@ -57,7 +57,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'has_more' => 'bool',
+        'hasMore' => 'bool',
         'data' => '\TalonOne\Client\Model\Coupon[]'
     ];
 
@@ -67,7 +67,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'has_more' => null,
+        'hasMore' => null,
         'data' => null
     ];
 
@@ -98,7 +98,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'has_more' => 'hasMore',
+        'hasMore' => 'hasMore',
         'data' => 'data'
     ];
 
@@ -108,7 +108,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'has_more' => 'setHasMore',
+        'hasMore' => 'setHasMore',
         'data' => 'setData'
     ];
 
@@ -118,7 +118,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'has_more' => 'getHasMore',
+        'hasMore' => 'getHasMore',
         'data' => 'getData'
     ];
 
@@ -182,7 +182,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['has_more'] = isset($data['has_more']) ? $data['has_more'] : null;
+        $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -195,8 +195,8 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['has_more'] === null) {
-            $invalidProperties[] = "'has_more' can't be null";
+        if ($this->container['hasMore'] === null) {
+            $invalidProperties[] = "'hasMore' can't be null";
         }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
@@ -217,25 +217,25 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets has_more
+     * Gets hasMore
      *
      * @return bool
      */
     public function getHasMore()
     {
-        return $this->container['has_more'];
+        return $this->container['hasMore'];
     }
 
     /**
-     * Sets has_more
+     * Sets hasMore
      *
-     * @param bool $has_more has_more
+     * @param bool $hasMore hasMore
      *
      * @return $this
      */
-    public function setHasMore($has_more)
+    public function setHasMore($hasMore)
     {
-        $this->container['has_more'] = $has_more;
+        $this->container['hasMore'] = $hasMore;
 
         return $this;
     }

@@ -100,21 +100,21 @@ class NewLoyaltyProgramTest extends TestCase
     }
 
     /**
-     * Test attribute "subscribed_applications"
+     * Test attribute "subscribedApplications"
      */
     public function testPropertySubscribedApplications()
     {
     }
 
     /**
-     * Test attribute "default_validity"
+     * Test attribute "defaultValidity"
      */
     public function testPropertyDefaultValidity()
     {
     }
 
     /**
-     * Test attribute "allow_subledger"
+     * Test attribute "allowSubledger"
      */
     public function testPropertyAllowSubledger()
     {

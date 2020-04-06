@@ -58,7 +58,7 @@ class NewPassword implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'password' => 'string',
-        'reset_token' => 'string'
+        'resetToken' => 'string'
     ];
 
     /**
@@ -68,7 +68,7 @@ class NewPassword implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'password' => null,
-        'reset_token' => null
+        'resetToken' => null
     ];
 
     /**
@@ -99,7 +99,7 @@ class NewPassword implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'password' => 'password',
-        'reset_token' => 'resetToken'
+        'resetToken' => 'resetToken'
     ];
 
     /**
@@ -109,7 +109,7 @@ class NewPassword implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'password' => 'setPassword',
-        'reset_token' => 'setResetToken'
+        'resetToken' => 'setResetToken'
     ];
 
     /**
@@ -119,7 +119,7 @@ class NewPassword implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'password' => 'getPassword',
-        'reset_token' => 'getResetToken'
+        'resetToken' => 'getResetToken'
     ];
 
     /**
@@ -183,7 +183,7 @@ class NewPassword implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
-        $this->container['reset_token'] = isset($data['reset_token']) ? $data['reset_token'] : null;
+        $this->container['resetToken'] = isset($data['resetToken']) ? $data['resetToken'] : null;
     }
 
     /**
@@ -198,11 +198,11 @@ class NewPassword implements ModelInterface, ArrayAccess
         if ($this->container['password'] === null) {
             $invalidProperties[] = "'password' can't be null";
         }
-        if ($this->container['reset_token'] === null) {
-            $invalidProperties[] = "'reset_token' can't be null";
+        if ($this->container['resetToken'] === null) {
+            $invalidProperties[] = "'resetToken' can't be null";
         }
-        if ((mb_strlen($this->container['reset_token']) < 1)) {
-            $invalidProperties[] = "invalid value for 'reset_token', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['resetToken']) < 1)) {
+            $invalidProperties[] = "invalid value for 'resetToken', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -245,30 +245,30 @@ class NewPassword implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets reset_token
+     * Gets resetToken
      *
      * @return string
      */
     public function getResetToken()
     {
-        return $this->container['reset_token'];
+        return $this->container['resetToken'];
     }
 
     /**
-     * Sets reset_token
+     * Sets resetToken
      *
-     * @param string $reset_token reset_token
+     * @param string $resetToken resetToken
      *
      * @return $this
      */
-    public function setResetToken($reset_token)
+    public function setResetToken($resetToken)
     {
 
-        if ((mb_strlen($reset_token) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $reset_token when calling NewPassword., must be bigger than or equal to 1.');
+        if ((mb_strlen($resetToken) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $resetToken when calling NewPassword., must be bigger than or equal to 1.');
         }
 
-        $this->container['reset_token'] = $reset_token;
+        $this->container['resetToken'] = $resetToken;
 
         return $this;
     }

@@ -86,9 +86,9 @@ class SamlLoginEndpointTest extends TestCase
     }
 
     /**
-     * Test attribute "login_url"
+     * Test attribute "loginURL"
      */
-    public function testPropertyLoginUrl()
+    public function testPropertyLoginURL()
     {
     }
 }

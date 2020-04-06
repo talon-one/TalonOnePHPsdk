@@ -58,10 +58,10 @@ class WebhookActivationLogEntry implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'integration_request_uuid' => 'string',
-        'webhook_id' => 'int',
-        'application_id' => 'int',
-        'campaign_id' => 'int',
+        'integrationRequestUuid' => 'string',
+        'webhookId' => 'int',
+        'applicationId' => 'int',
+        'campaignId' => 'int',
         'created' => '\DateTime'
     ];
 
@@ -71,10 +71,10 @@ class WebhookActivationLogEntry implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'integration_request_uuid' => null,
-        'webhook_id' => null,
-        'application_id' => null,
-        'campaign_id' => null,
+        'integrationRequestUuid' => null,
+        'webhookId' => null,
+        'applicationId' => null,
+        'campaignId' => null,
         'created' => 'date-time'
     ];
 
@@ -105,10 +105,10 @@ class WebhookActivationLogEntry implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'integration_request_uuid' => 'integrationRequestUuid',
-        'webhook_id' => 'webhookId',
-        'application_id' => 'applicationId',
-        'campaign_id' => 'campaignId',
+        'integrationRequestUuid' => 'integrationRequestUuid',
+        'webhookId' => 'webhookId',
+        'applicationId' => 'applicationId',
+        'campaignId' => 'campaignId',
         'created' => 'created'
     ];
 
@@ -118,10 +118,10 @@ class WebhookActivationLogEntry implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'integration_request_uuid' => 'setIntegrationRequestUuid',
-        'webhook_id' => 'setWebhookId',
-        'application_id' => 'setApplicationId',
-        'campaign_id' => 'setCampaignId',
+        'integrationRequestUuid' => 'setIntegrationRequestUuid',
+        'webhookId' => 'setWebhookId',
+        'applicationId' => 'setApplicationId',
+        'campaignId' => 'setCampaignId',
         'created' => 'setCreated'
     ];
 
@@ -131,10 +131,10 @@ class WebhookActivationLogEntry implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'integration_request_uuid' => 'getIntegrationRequestUuid',
-        'webhook_id' => 'getWebhookId',
-        'application_id' => 'getApplicationId',
-        'campaign_id' => 'getCampaignId',
+        'integrationRequestUuid' => 'getIntegrationRequestUuid',
+        'webhookId' => 'getWebhookId',
+        'applicationId' => 'getApplicationId',
+        'campaignId' => 'getCampaignId',
         'created' => 'getCreated'
     ];
 
@@ -198,10 +198,10 @@ class WebhookActivationLogEntry implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['integration_request_uuid'] = isset($data['integration_request_uuid']) ? $data['integration_request_uuid'] : null;
-        $this->container['webhook_id'] = isset($data['webhook_id']) ? $data['webhook_id'] : null;
-        $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
-        $this->container['campaign_id'] = isset($data['campaign_id']) ? $data['campaign_id'] : null;
+        $this->container['integrationRequestUuid'] = isset($data['integrationRequestUuid']) ? $data['integrationRequestUuid'] : null;
+        $this->container['webhookId'] = isset($data['webhookId']) ? $data['webhookId'] : null;
+        $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
+        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
     }
 
@@ -214,17 +214,17 @@ class WebhookActivationLogEntry implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['integration_request_uuid'] === null) {
-            $invalidProperties[] = "'integration_request_uuid' can't be null";
+        if ($this->container['integrationRequestUuid'] === null) {
+            $invalidProperties[] = "'integrationRequestUuid' can't be null";
         }
-        if ($this->container['webhook_id'] === null) {
-            $invalidProperties[] = "'webhook_id' can't be null";
+        if ($this->container['webhookId'] === null) {
+            $invalidProperties[] = "'webhookId' can't be null";
         }
-        if ($this->container['application_id'] === null) {
-            $invalidProperties[] = "'application_id' can't be null";
+        if ($this->container['applicationId'] === null) {
+            $invalidProperties[] = "'applicationId' can't be null";
         }
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
+        if ($this->container['campaignId'] === null) {
+            $invalidProperties[] = "'campaignId' can't be null";
         }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
@@ -245,97 +245,97 @@ class WebhookActivationLogEntry implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets integration_request_uuid
+     * Gets integrationRequestUuid
      *
      * @return string
      */
     public function getIntegrationRequestUuid()
     {
-        return $this->container['integration_request_uuid'];
+        return $this->container['integrationRequestUuid'];
     }
 
     /**
-     * Sets integration_request_uuid
+     * Sets integrationRequestUuid
      *
-     * @param string $integration_request_uuid UUID reference of the integration request that triggered the effect with the webhook
+     * @param string $integrationRequestUuid UUID reference of the integration request that triggered the effect with the webhook
      *
      * @return $this
      */
-    public function setIntegrationRequestUuid($integration_request_uuid)
+    public function setIntegrationRequestUuid($integrationRequestUuid)
     {
-        $this->container['integration_request_uuid'] = $integration_request_uuid;
+        $this->container['integrationRequestUuid'] = $integrationRequestUuid;
 
         return $this;
     }
 
     /**
-     * Gets webhook_id
+     * Gets webhookId
      *
      * @return int
      */
     public function getWebhookId()
     {
-        return $this->container['webhook_id'];
+        return $this->container['webhookId'];
     }
 
     /**
-     * Sets webhook_id
+     * Sets webhookId
      *
-     * @param int $webhook_id ID of the webhook that triggered the request
+     * @param int $webhookId ID of the webhook that triggered the request
      *
      * @return $this
      */
-    public function setWebhookId($webhook_id)
+    public function setWebhookId($webhookId)
     {
-        $this->container['webhook_id'] = $webhook_id;
+        $this->container['webhookId'] = $webhookId;
 
         return $this;
     }
 
     /**
-     * Gets application_id
+     * Gets applicationId
      *
      * @return int
      */
     public function getApplicationId()
     {
-        return $this->container['application_id'];
+        return $this->container['applicationId'];
     }
 
     /**
-     * Sets application_id
+     * Sets applicationId
      *
-     * @param int $application_id ID of the application that triggered the webhook
+     * @param int $applicationId ID of the application that triggered the webhook
      *
      * @return $this
      */
-    public function setApplicationId($application_id)
+    public function setApplicationId($applicationId)
     {
-        $this->container['application_id'] = $application_id;
+        $this->container['applicationId'] = $applicationId;
 
         return $this;
     }
 
     /**
-     * Gets campaign_id
+     * Gets campaignId
      *
      * @return int
      */
     public function getCampaignId()
     {
-        return $this->container['campaign_id'];
+        return $this->container['campaignId'];
     }
 
     /**
-     * Sets campaign_id
+     * Sets campaignId
      *
-     * @param int $campaign_id ID of the campaign that triggered the webhook
+     * @param int $campaignId ID of the campaign that triggered the webhook
      *
      * @return $this
      */
-    public function setCampaignId($campaign_id)
+    public function setCampaignId($campaignId)
     {
-        $this->container['campaign_id'] = $campaign_id;
+        $this->container['campaignId'] = $campaignId;
 
         return $this;
     }

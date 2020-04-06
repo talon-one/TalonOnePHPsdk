@@ -86,14 +86,14 @@ class ShowBundleMetadataEffectPropsTest extends TestCase
     }
 
     /**
-     * Test attribute "bundle_attributes"
+     * Test attribute "bundleAttributes"
      */
     public function testPropertyBundleAttributes()
     {
     }
 
     /**
-     * Test attribute "items_indices"
+     * Test attribute "itemsIndices"
      */
     public function testPropertyItemsIndices()
     {

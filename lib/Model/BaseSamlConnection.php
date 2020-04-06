@@ -57,14 +57,14 @@ class BaseSamlConnection implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account_id' => 'int',
+        'accountId' => 'int',
         'name' => 'string',
         'enabled' => 'bool',
         'issuer' => 'string',
-        'sign_on_url' => 'string',
-        'sign_out_url' => 'string',
-        'metadata_url' => 'string',
-        'audience_uri' => 'string'
+        'signOnURL' => 'string',
+        'signOutURL' => 'string',
+        'metadataURL' => 'string',
+        'audienceURI' => 'string'
     ];
 
     /**
@@ -73,14 +73,14 @@ class BaseSamlConnection implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'account_id' => null,
+        'accountId' => null,
         'name' => null,
         'enabled' => null,
         'issuer' => null,
-        'sign_on_url' => null,
-        'sign_out_url' => null,
-        'metadata_url' => null,
-        'audience_uri' => null
+        'signOnURL' => null,
+        'signOutURL' => null,
+        'metadataURL' => null,
+        'audienceURI' => null
     ];
 
     /**
@@ -110,14 +110,14 @@ class BaseSamlConnection implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'accountId',
+        'accountId' => 'accountId',
         'name' => 'name',
         'enabled' => 'enabled',
         'issuer' => 'issuer',
-        'sign_on_url' => 'signOnURL',
-        'sign_out_url' => 'signOutURL',
-        'metadata_url' => 'metadataURL',
-        'audience_uri' => 'audienceURI'
+        'signOnURL' => 'signOnURL',
+        'signOutURL' => 'signOutURL',
+        'metadataURL' => 'metadataURL',
+        'audienceURI' => 'audienceURI'
     ];
 
     /**
@@ -126,14 +126,14 @@ class BaseSamlConnection implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
+        'accountId' => 'setAccountId',
         'name' => 'setName',
         'enabled' => 'setEnabled',
         'issuer' => 'setIssuer',
-        'sign_on_url' => 'setSignOnUrl',
-        'sign_out_url' => 'setSignOutUrl',
-        'metadata_url' => 'setMetadataUrl',
-        'audience_uri' => 'setAudienceUri'
+        'signOnURL' => 'setSignOnURL',
+        'signOutURL' => 'setSignOutURL',
+        'metadataURL' => 'setMetadataURL',
+        'audienceURI' => 'setAudienceURI'
     ];
 
     /**
@@ -142,14 +142,14 @@ class BaseSamlConnection implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
+        'accountId' => 'getAccountId',
         'name' => 'getName',
         'enabled' => 'getEnabled',
         'issuer' => 'getIssuer',
-        'sign_on_url' => 'getSignOnUrl',
-        'sign_out_url' => 'getSignOutUrl',
-        'metadata_url' => 'getMetadataUrl',
-        'audience_uri' => 'getAudienceUri'
+        'signOnURL' => 'getSignOnURL',
+        'signOutURL' => 'getSignOutURL',
+        'metadataURL' => 'getMetadataURL',
+        'audienceURI' => 'getAudienceURI'
     ];
 
     /**
@@ -212,14 +212,14 @@ class BaseSamlConnection implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['issuer'] = isset($data['issuer']) ? $data['issuer'] : null;
-        $this->container['sign_on_url'] = isset($data['sign_on_url']) ? $data['sign_on_url'] : null;
-        $this->container['sign_out_url'] = isset($data['sign_out_url']) ? $data['sign_out_url'] : null;
-        $this->container['metadata_url'] = isset($data['metadata_url']) ? $data['metadata_url'] : null;
-        $this->container['audience_uri'] = isset($data['audience_uri']) ? $data['audience_uri'] : null;
+        $this->container['signOnURL'] = isset($data['signOnURL']) ? $data['signOnURL'] : null;
+        $this->container['signOutURL'] = isset($data['signOutURL']) ? $data['signOutURL'] : null;
+        $this->container['metadataURL'] = isset($data['metadataURL']) ? $data['metadataURL'] : null;
+        $this->container['audienceURI'] = isset($data['audienceURI']) ? $data['audienceURI'] : null;
     }
 
     /**
@@ -231,8 +231,8 @@ class BaseSamlConnection implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
@@ -251,11 +251,11 @@ class BaseSamlConnection implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'issuer', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['sign_on_url'] === null) {
-            $invalidProperties[] = "'sign_on_url' can't be null";
+        if ($this->container['signOnURL'] === null) {
+            $invalidProperties[] = "'signOnURL' can't be null";
         }
-        if ((mb_strlen($this->container['sign_on_url']) < 1)) {
-            $invalidProperties[] = "invalid value for 'sign_on_url', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['signOnURL']) < 1)) {
+            $invalidProperties[] = "invalid value for 'signOnURL', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -274,25 +274,25 @@ class BaseSamlConnection implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets account_id
+     * Gets accountId
      *
      * @return int
      */
     public function getAccountId()
     {
-        return $this->container['account_id'];
+        return $this->container['accountId'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountId
      *
-     * @param int $account_id The ID of the account that owns this entity.
+     * @param int $accountId The ID of the account that owns this entity.
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountId($accountId)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }
@@ -380,102 +380,102 @@ class BaseSamlConnection implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets sign_on_url
+     * Gets signOnURL
      *
      * @return string
      */
-    public function getSignOnUrl()
+    public function getSignOnURL()
     {
-        return $this->container['sign_on_url'];
+        return $this->container['signOnURL'];
     }
 
     /**
-     * Sets sign_on_url
+     * Sets signOnURL
      *
-     * @param string $sign_on_url Single Sign-On URL.
+     * @param string $signOnURL Single Sign-On URL.
      *
      * @return $this
      */
-    public function setSignOnUrl($sign_on_url)
+    public function setSignOnURL($signOnURL)
     {
 
-        if ((mb_strlen($sign_on_url) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $sign_on_url when calling BaseSamlConnection., must be bigger than or equal to 1.');
+        if ((mb_strlen($signOnURL) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $signOnURL when calling BaseSamlConnection., must be bigger than or equal to 1.');
         }
 
-        $this->container['sign_on_url'] = $sign_on_url;
+        $this->container['signOnURL'] = $signOnURL;
 
         return $this;
     }
 
     /**
-     * Gets sign_out_url
+     * Gets signOutURL
      *
      * @return string|null
      */
-    public function getSignOutUrl()
+    public function getSignOutURL()
     {
-        return $this->container['sign_out_url'];
+        return $this->container['signOutURL'];
     }
 
     /**
-     * Sets sign_out_url
+     * Sets signOutURL
      *
-     * @param string|null $sign_out_url Single Sign-Out URL.
+     * @param string|null $signOutURL Single Sign-Out URL.
      *
      * @return $this
      */
-    public function setSignOutUrl($sign_out_url)
+    public function setSignOutURL($signOutURL)
     {
-        $this->container['sign_out_url'] = $sign_out_url;
+        $this->container['signOutURL'] = $signOutURL;
 
         return $this;
     }
 
     /**
-     * Gets metadata_url
+     * Gets metadataURL
      *
      * @return string|null
      */
-    public function getMetadataUrl()
+    public function getMetadataURL()
     {
-        return $this->container['metadata_url'];
+        return $this->container['metadataURL'];
     }
 
     /**
-     * Sets metadata_url
+     * Sets metadataURL
      *
-     * @param string|null $metadata_url Metadata URL.
+     * @param string|null $metadataURL Metadata URL.
      *
      * @return $this
      */
-    public function setMetadataUrl($metadata_url)
+    public function setMetadataURL($metadataURL)
     {
-        $this->container['metadata_url'] = $metadata_url;
+        $this->container['metadataURL'] = $metadataURL;
 
         return $this;
     }
 
     /**
-     * Gets audience_uri
+     * Gets audienceURI
      *
      * @return string|null
      */
-    public function getAudienceUri()
+    public function getAudienceURI()
     {
-        return $this->container['audience_uri'];
+        return $this->container['audienceURI'];
     }
 
     /**
-     * Sets audience_uri
+     * Sets audienceURI
      *
-     * @param string|null $audience_uri The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used.
+     * @param string|null $audienceURI The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used.
      *
      * @return $this
      */
-    public function setAudienceUri($audience_uri)
+    public function setAudienceURI($audienceURI)
     {
-        $this->container['audience_uri'] = $audience_uri;
+        $this->container['audienceURI'] = $audienceURI;
 
         return $this;
     }

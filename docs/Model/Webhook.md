@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** | Unique ID for this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
 **modified** | [**\DateTime**](\DateTime.md) | The exact moment this entity was last modified. | 
-**application_ids** | **int[]** | The IDs of the applications that are related to this entity. The IDs of the applications that are related to this entity. | 
+**applicationIds** | **int[]** | The IDs of the applications that are related to this entity. The IDs of the applications that are related to this entity. | 
 **title** | **string** | Friendly title for this webhook | 
 **verb** | **string** | API method for this webhook | 
 **url** | **string** | API url (supports templating using parameters) for this webhook | 

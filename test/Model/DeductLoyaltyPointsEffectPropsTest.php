@@ -79,21 +79,21 @@ class DeductLoyaltyPointsEffectPropsTest extends TestCase
     }
 
     /**
-     * Test attribute "rule_title"
+     * Test attribute "ruleTitle"
      */
     public function testPropertyRuleTitle()
     {
     }
 
     /**
-     * Test attribute "program_id"
+     * Test attribute "programId"
      */
     public function testPropertyProgramId()
     {
     }
 
     /**
-     * Test attribute "sub_ledger_id"
+     * Test attribute "subLedgerId"
      */
     public function testPropertySubLedgerId()
     {

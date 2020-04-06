@@ -58,10 +58,10 @@ class CampaignCopy implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'application_ids' => 'string[]',
+        'applicationIds' => 'string[]',
         'description' => 'string',
-        'start_time' => '\DateTime',
-        'end_time' => '\DateTime',
+        'startTime' => '\DateTime',
+        'endTime' => '\DateTime',
         'tags' => 'string[]'
     ];
 
@@ -72,10 +72,10 @@ class CampaignCopy implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'application_ids' => null,
+        'applicationIds' => null,
         'description' => null,
-        'start_time' => 'date-time',
-        'end_time' => 'date-time',
+        'startTime' => 'date-time',
+        'endTime' => 'date-time',
         'tags' => null
     ];
 
@@ -107,10 +107,10 @@ class CampaignCopy implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'application_ids' => 'applicationIds',
+        'applicationIds' => 'applicationIds',
         'description' => 'description',
-        'start_time' => 'startTime',
-        'end_time' => 'endTime',
+        'startTime' => 'startTime',
+        'endTime' => 'endTime',
         'tags' => 'tags'
     ];
 
@@ -121,10 +121,10 @@ class CampaignCopy implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'application_ids' => 'setApplicationIds',
+        'applicationIds' => 'setApplicationIds',
         'description' => 'setDescription',
-        'start_time' => 'setStartTime',
-        'end_time' => 'setEndTime',
+        'startTime' => 'setStartTime',
+        'endTime' => 'setEndTime',
         'tags' => 'setTags'
     ];
 
@@ -135,10 +135,10 @@ class CampaignCopy implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'application_ids' => 'getApplicationIds',
+        'applicationIds' => 'getApplicationIds',
         'description' => 'getDescription',
-        'start_time' => 'getStartTime',
-        'end_time' => 'getEndTime',
+        'startTime' => 'getStartTime',
+        'endTime' => 'getEndTime',
         'tags' => 'getTags'
     ];
 
@@ -203,10 +203,10 @@ class CampaignCopy implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['application_ids'] = isset($data['application_ids']) ? $data['application_ids'] : null;
+        $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
-        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
+        $this->container['endTime'] = isset($data['endTime']) ? $data['endTime'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
@@ -219,8 +219,8 @@ class CampaignCopy implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['application_ids'] === null) {
-            $invalidProperties[] = "'application_ids' can't be null";
+        if ($this->container['applicationIds'] === null) {
+            $invalidProperties[] = "'applicationIds' can't be null";
         }
         return $invalidProperties;
     }
@@ -262,25 +262,25 @@ class CampaignCopy implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets application_ids
+     * Gets applicationIds
      *
      * @return string[]
      */
     public function getApplicationIds()
     {
-        return $this->container['application_ids'];
+        return $this->container['applicationIds'];
     }
 
     /**
-     * Sets application_ids
+     * Sets applicationIds
      *
-     * @param string[] $application_ids Application IDs of the applications to which a campaign should be copied to
+     * @param string[] $applicationIds Application IDs of the applications to which a campaign should be copied to
      *
      * @return $this
      */
-    public function setApplicationIds($application_ids)
+    public function setApplicationIds($applicationIds)
     {
-        $this->container['application_ids'] = $application_ids;
+        $this->container['applicationIds'] = $applicationIds;
 
         return $this;
     }
@@ -310,49 +310,49 @@ class CampaignCopy implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets start_time
+     * Gets startTime
      *
      * @return \DateTime|null
      */
     public function getStartTime()
     {
-        return $this->container['start_time'];
+        return $this->container['startTime'];
     }
 
     /**
-     * Sets start_time
+     * Sets startTime
      *
-     * @param \DateTime|null $start_time Datetime when the campaign will become active.
+     * @param \DateTime|null $startTime Datetime when the campaign will become active.
      *
      * @return $this
      */
-    public function setStartTime($start_time)
+    public function setStartTime($startTime)
     {
-        $this->container['start_time'] = $start_time;
+        $this->container['startTime'] = $startTime;
 
         return $this;
     }
 
     /**
-     * Gets end_time
+     * Gets endTime
      *
      * @return \DateTime|null
      */
     public function getEndTime()
     {
-        return $this->container['end_time'];
+        return $this->container['endTime'];
     }
 
     /**
-     * Sets end_time
+     * Sets endTime
      *
-     * @param \DateTime|null $end_time Datetime when the campaign will become in-active.
+     * @param \DateTime|null $endTime Datetime when the campaign will become in-active.
      *
      * @return $this
      */
-    public function setEndTime($end_time)
+    public function setEndTime($endTime)
     {
-        $this->container['end_time'] = $end_time;
+        $this->container['endTime'] = $endTime;
 
         return $this;
     }

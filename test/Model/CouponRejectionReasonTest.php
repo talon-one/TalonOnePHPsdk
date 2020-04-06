@@ -79,14 +79,14 @@ class CouponRejectionReasonTest extends TestCase
     }
 
     /**
-     * Test attribute "campaign_id"
+     * Test attribute "campaignId"
      */
     public function testPropertyCampaignId()
     {
     }
 
     /**
-     * Test attribute "coupon_id"
+     * Test attribute "couponId"
      */
     public function testPropertyCouponId()
     {

@@ -58,19 +58,19 @@ class CustomerActivityReport implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'integration_id' => 'string',
+        'integrationId' => 'string',
         'created' => '\DateTime',
         'name' => 'string',
-        'customer_id' => 'int',
-        'last_activity' => '\DateTime',
-        'coupon_redemptions' => 'int',
-        'coupon_use_attempts' => 'int',
-        'coupon_failed_attempts' => 'int',
-        'accrued_discounts' => 'float',
-        'accrued_revenue' => 'float',
-        'total_orders' => 'int',
-        'total_orders_no_coupon' => 'int',
-        'campaign_name' => 'string'
+        'customerId' => 'int',
+        'lastActivity' => '\DateTime',
+        'couponRedemptions' => 'int',
+        'couponUseAttempts' => 'int',
+        'couponFailedAttempts' => 'int',
+        'accruedDiscounts' => 'float',
+        'accruedRevenue' => 'float',
+        'totalOrders' => 'int',
+        'totalOrdersNoCoupon' => 'int',
+        'campaignName' => 'string'
     ];
 
     /**
@@ -79,19 +79,19 @@ class CustomerActivityReport implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'integration_id' => 'string',
+        'integrationId' => 'string',
         'created' => 'date-time',
         'name' => null,
-        'customer_id' => null,
-        'last_activity' => 'date-time',
-        'coupon_redemptions' => null,
-        'coupon_use_attempts' => null,
-        'coupon_failed_attempts' => null,
-        'accrued_discounts' => null,
-        'accrued_revenue' => null,
-        'total_orders' => null,
-        'total_orders_no_coupon' => null,
-        'campaign_name' => null
+        'customerId' => null,
+        'lastActivity' => 'date-time',
+        'couponRedemptions' => null,
+        'couponUseAttempts' => null,
+        'couponFailedAttempts' => null,
+        'accruedDiscounts' => null,
+        'accruedRevenue' => null,
+        'totalOrders' => null,
+        'totalOrdersNoCoupon' => null,
+        'campaignName' => null
     ];
 
     /**
@@ -121,19 +121,19 @@ class CustomerActivityReport implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'integration_id' => 'integrationId',
+        'integrationId' => 'integrationId',
         'created' => 'created',
         'name' => 'name',
-        'customer_id' => 'customerId',
-        'last_activity' => 'lastActivity',
-        'coupon_redemptions' => 'couponRedemptions',
-        'coupon_use_attempts' => 'couponUseAttempts',
-        'coupon_failed_attempts' => 'couponFailedAttempts',
-        'accrued_discounts' => 'accruedDiscounts',
-        'accrued_revenue' => 'accruedRevenue',
-        'total_orders' => 'totalOrders',
-        'total_orders_no_coupon' => 'totalOrdersNoCoupon',
-        'campaign_name' => 'campaignName'
+        'customerId' => 'customerId',
+        'lastActivity' => 'lastActivity',
+        'couponRedemptions' => 'couponRedemptions',
+        'couponUseAttempts' => 'couponUseAttempts',
+        'couponFailedAttempts' => 'couponFailedAttempts',
+        'accruedDiscounts' => 'accruedDiscounts',
+        'accruedRevenue' => 'accruedRevenue',
+        'totalOrders' => 'totalOrders',
+        'totalOrdersNoCoupon' => 'totalOrdersNoCoupon',
+        'campaignName' => 'campaignName'
     ];
 
     /**
@@ -142,19 +142,19 @@ class CustomerActivityReport implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'integration_id' => 'setIntegrationId',
+        'integrationId' => 'setIntegrationId',
         'created' => 'setCreated',
         'name' => 'setName',
-        'customer_id' => 'setCustomerId',
-        'last_activity' => 'setLastActivity',
-        'coupon_redemptions' => 'setCouponRedemptions',
-        'coupon_use_attempts' => 'setCouponUseAttempts',
-        'coupon_failed_attempts' => 'setCouponFailedAttempts',
-        'accrued_discounts' => 'setAccruedDiscounts',
-        'accrued_revenue' => 'setAccruedRevenue',
-        'total_orders' => 'setTotalOrders',
-        'total_orders_no_coupon' => 'setTotalOrdersNoCoupon',
-        'campaign_name' => 'setCampaignName'
+        'customerId' => 'setCustomerId',
+        'lastActivity' => 'setLastActivity',
+        'couponRedemptions' => 'setCouponRedemptions',
+        'couponUseAttempts' => 'setCouponUseAttempts',
+        'couponFailedAttempts' => 'setCouponFailedAttempts',
+        'accruedDiscounts' => 'setAccruedDiscounts',
+        'accruedRevenue' => 'setAccruedRevenue',
+        'totalOrders' => 'setTotalOrders',
+        'totalOrdersNoCoupon' => 'setTotalOrdersNoCoupon',
+        'campaignName' => 'setCampaignName'
     ];
 
     /**
@@ -163,19 +163,19 @@ class CustomerActivityReport implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'integration_id' => 'getIntegrationId',
+        'integrationId' => 'getIntegrationId',
         'created' => 'getCreated',
         'name' => 'getName',
-        'customer_id' => 'getCustomerId',
-        'last_activity' => 'getLastActivity',
-        'coupon_redemptions' => 'getCouponRedemptions',
-        'coupon_use_attempts' => 'getCouponUseAttempts',
-        'coupon_failed_attempts' => 'getCouponFailedAttempts',
-        'accrued_discounts' => 'getAccruedDiscounts',
-        'accrued_revenue' => 'getAccruedRevenue',
-        'total_orders' => 'getTotalOrders',
-        'total_orders_no_coupon' => 'getTotalOrdersNoCoupon',
-        'campaign_name' => 'getCampaignName'
+        'customerId' => 'getCustomerId',
+        'lastActivity' => 'getLastActivity',
+        'couponRedemptions' => 'getCouponRedemptions',
+        'couponUseAttempts' => 'getCouponUseAttempts',
+        'couponFailedAttempts' => 'getCouponFailedAttempts',
+        'accruedDiscounts' => 'getAccruedDiscounts',
+        'accruedRevenue' => 'getAccruedRevenue',
+        'totalOrders' => 'getTotalOrders',
+        'totalOrdersNoCoupon' => 'getTotalOrdersNoCoupon',
+        'campaignName' => 'getCampaignName'
     ];
 
     /**
@@ -238,19 +238,19 @@ class CustomerActivityReport implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['integration_id'] = isset($data['integration_id']) ? $data['integration_id'] : null;
+        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
-        $this->container['last_activity'] = isset($data['last_activity']) ? $data['last_activity'] : null;
-        $this->container['coupon_redemptions'] = isset($data['coupon_redemptions']) ? $data['coupon_redemptions'] : null;
-        $this->container['coupon_use_attempts'] = isset($data['coupon_use_attempts']) ? $data['coupon_use_attempts'] : null;
-        $this->container['coupon_failed_attempts'] = isset($data['coupon_failed_attempts']) ? $data['coupon_failed_attempts'] : null;
-        $this->container['accrued_discounts'] = isset($data['accrued_discounts']) ? $data['accrued_discounts'] : null;
-        $this->container['accrued_revenue'] = isset($data['accrued_revenue']) ? $data['accrued_revenue'] : null;
-        $this->container['total_orders'] = isset($data['total_orders']) ? $data['total_orders'] : null;
-        $this->container['total_orders_no_coupon'] = isset($data['total_orders_no_coupon']) ? $data['total_orders_no_coupon'] : null;
-        $this->container['campaign_name'] = isset($data['campaign_name']) ? $data['campaign_name'] : null;
+        $this->container['customerId'] = isset($data['customerId']) ? $data['customerId'] : null;
+        $this->container['lastActivity'] = isset($data['lastActivity']) ? $data['lastActivity'] : null;
+        $this->container['couponRedemptions'] = isset($data['couponRedemptions']) ? $data['couponRedemptions'] : null;
+        $this->container['couponUseAttempts'] = isset($data['couponUseAttempts']) ? $data['couponUseAttempts'] : null;
+        $this->container['couponFailedAttempts'] = isset($data['couponFailedAttempts']) ? $data['couponFailedAttempts'] : null;
+        $this->container['accruedDiscounts'] = isset($data['accruedDiscounts']) ? $data['accruedDiscounts'] : null;
+        $this->container['accruedRevenue'] = isset($data['accruedRevenue']) ? $data['accruedRevenue'] : null;
+        $this->container['totalOrders'] = isset($data['totalOrders']) ? $data['totalOrders'] : null;
+        $this->container['totalOrdersNoCoupon'] = isset($data['totalOrdersNoCoupon']) ? $data['totalOrdersNoCoupon'] : null;
+        $this->container['campaignName'] = isset($data['campaignName']) ? $data['campaignName'] : null;
     }
 
     /**
@@ -262,8 +262,8 @@ class CustomerActivityReport implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['integration_id'] === null) {
-            $invalidProperties[] = "'integration_id' can't be null";
+        if ($this->container['integrationId'] === null) {
+            $invalidProperties[] = "'integrationId' can't be null";
         }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
@@ -271,32 +271,32 @@ class CustomerActivityReport implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['customer_id'] === null) {
-            $invalidProperties[] = "'customer_id' can't be null";
+        if ($this->container['customerId'] === null) {
+            $invalidProperties[] = "'customerId' can't be null";
         }
-        if ($this->container['coupon_redemptions'] === null) {
-            $invalidProperties[] = "'coupon_redemptions' can't be null";
+        if ($this->container['couponRedemptions'] === null) {
+            $invalidProperties[] = "'couponRedemptions' can't be null";
         }
-        if ($this->container['coupon_use_attempts'] === null) {
-            $invalidProperties[] = "'coupon_use_attempts' can't be null";
+        if ($this->container['couponUseAttempts'] === null) {
+            $invalidProperties[] = "'couponUseAttempts' can't be null";
         }
-        if ($this->container['coupon_failed_attempts'] === null) {
-            $invalidProperties[] = "'coupon_failed_attempts' can't be null";
+        if ($this->container['couponFailedAttempts'] === null) {
+            $invalidProperties[] = "'couponFailedAttempts' can't be null";
         }
-        if ($this->container['accrued_discounts'] === null) {
-            $invalidProperties[] = "'accrued_discounts' can't be null";
+        if ($this->container['accruedDiscounts'] === null) {
+            $invalidProperties[] = "'accruedDiscounts' can't be null";
         }
-        if ($this->container['accrued_revenue'] === null) {
-            $invalidProperties[] = "'accrued_revenue' can't be null";
+        if ($this->container['accruedRevenue'] === null) {
+            $invalidProperties[] = "'accruedRevenue' can't be null";
         }
-        if ($this->container['total_orders'] === null) {
-            $invalidProperties[] = "'total_orders' can't be null";
+        if ($this->container['totalOrders'] === null) {
+            $invalidProperties[] = "'totalOrders' can't be null";
         }
-        if ($this->container['total_orders_no_coupon'] === null) {
-            $invalidProperties[] = "'total_orders_no_coupon' can't be null";
+        if ($this->container['totalOrdersNoCoupon'] === null) {
+            $invalidProperties[] = "'totalOrdersNoCoupon' can't be null";
         }
-        if ($this->container['campaign_name'] === null) {
-            $invalidProperties[] = "'campaign_name' can't be null";
+        if ($this->container['campaignName'] === null) {
+            $invalidProperties[] = "'campaignName' can't be null";
         }
         return $invalidProperties;
     }
@@ -314,25 +314,25 @@ class CustomerActivityReport implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets integration_id
+     * Gets integrationId
      *
      * @return string
      */
     public function getIntegrationId()
     {
-        return $this->container['integration_id'];
+        return $this->container['integrationId'];
     }
 
     /**
-     * Sets integration_id
+     * Sets integrationId
      *
-     * @param string $integration_id The ID used for this entity in the application system.
+     * @param string $integrationId The ID used for this entity in the application system.
      *
      * @return $this
      */
-    public function setIntegrationId($integration_id)
+    public function setIntegrationId($integrationId)
     {
-        $this->container['integration_id'] = $integration_id;
+        $this->container['integrationId'] = $integrationId;
 
         return $this;
     }
@@ -386,241 +386,241 @@ class CustomerActivityReport implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets customer_id
+     * Gets customerId
      *
      * @return int
      */
     public function getCustomerId()
     {
-        return $this->container['customer_id'];
+        return $this->container['customerId'];
     }
 
     /**
-     * Sets customer_id
+     * Sets customerId
      *
-     * @param int $customer_id The internal Talon.One ID of the customer.
+     * @param int $customerId The internal Talon.One ID of the customer.
      *
      * @return $this
      */
-    public function setCustomerId($customer_id)
+    public function setCustomerId($customerId)
     {
-        $this->container['customer_id'] = $customer_id;
+        $this->container['customerId'] = $customerId;
 
         return $this;
     }
 
     /**
-     * Gets last_activity
+     * Gets lastActivity
      *
      * @return \DateTime|null
      */
     public function getLastActivity()
     {
-        return $this->container['last_activity'];
+        return $this->container['lastActivity'];
     }
 
     /**
-     * Sets last_activity
+     * Sets lastActivity
      *
-     * @param \DateTime|null $last_activity The last activity of the customer.
+     * @param \DateTime|null $lastActivity The last activity of the customer.
      *
      * @return $this
      */
-    public function setLastActivity($last_activity)
+    public function setLastActivity($lastActivity)
     {
-        $this->container['last_activity'] = $last_activity;
+        $this->container['lastActivity'] = $lastActivity;
 
         return $this;
     }
 
     /**
-     * Gets coupon_redemptions
+     * Gets couponRedemptions
      *
      * @return int
      */
     public function getCouponRedemptions()
     {
-        return $this->container['coupon_redemptions'];
+        return $this->container['couponRedemptions'];
     }
 
     /**
-     * Sets coupon_redemptions
+     * Sets couponRedemptions
      *
-     * @param int $coupon_redemptions Number of coupon redemptions in all customer campaigns.
+     * @param int $couponRedemptions Number of coupon redemptions in all customer campaigns.
      *
      * @return $this
      */
-    public function setCouponRedemptions($coupon_redemptions)
+    public function setCouponRedemptions($couponRedemptions)
     {
-        $this->container['coupon_redemptions'] = $coupon_redemptions;
+        $this->container['couponRedemptions'] = $couponRedemptions;
 
         return $this;
     }
 
     /**
-     * Gets coupon_use_attempts
+     * Gets couponUseAttempts
      *
      * @return int
      */
     public function getCouponUseAttempts()
     {
-        return $this->container['coupon_use_attempts'];
+        return $this->container['couponUseAttempts'];
     }
 
     /**
-     * Sets coupon_use_attempts
+     * Sets couponUseAttempts
      *
-     * @param int $coupon_use_attempts Number of coupon use attempts in all customer campaigns.
+     * @param int $couponUseAttempts Number of coupon use attempts in all customer campaigns.
      *
      * @return $this
      */
-    public function setCouponUseAttempts($coupon_use_attempts)
+    public function setCouponUseAttempts($couponUseAttempts)
     {
-        $this->container['coupon_use_attempts'] = $coupon_use_attempts;
+        $this->container['couponUseAttempts'] = $couponUseAttempts;
 
         return $this;
     }
 
     /**
-     * Gets coupon_failed_attempts
+     * Gets couponFailedAttempts
      *
      * @return int
      */
     public function getCouponFailedAttempts()
     {
-        return $this->container['coupon_failed_attempts'];
+        return $this->container['couponFailedAttempts'];
     }
 
     /**
-     * Sets coupon_failed_attempts
+     * Sets couponFailedAttempts
      *
-     * @param int $coupon_failed_attempts Number of failed coupon use attempts in all customer campaigns.
+     * @param int $couponFailedAttempts Number of failed coupon use attempts in all customer campaigns.
      *
      * @return $this
      */
-    public function setCouponFailedAttempts($coupon_failed_attempts)
+    public function setCouponFailedAttempts($couponFailedAttempts)
     {
-        $this->container['coupon_failed_attempts'] = $coupon_failed_attempts;
+        $this->container['couponFailedAttempts'] = $couponFailedAttempts;
 
         return $this;
     }
 
     /**
-     * Gets accrued_discounts
+     * Gets accruedDiscounts
      *
      * @return float
      */
     public function getAccruedDiscounts()
     {
-        return $this->container['accrued_discounts'];
+        return $this->container['accruedDiscounts'];
     }
 
     /**
-     * Sets accrued_discounts
+     * Sets accruedDiscounts
      *
-     * @param float $accrued_discounts Number of accrued discounts in all customer campaigns.
+     * @param float $accruedDiscounts Number of accrued discounts in all customer campaigns.
      *
      * @return $this
      */
-    public function setAccruedDiscounts($accrued_discounts)
+    public function setAccruedDiscounts($accruedDiscounts)
     {
-        $this->container['accrued_discounts'] = $accrued_discounts;
+        $this->container['accruedDiscounts'] = $accruedDiscounts;
 
         return $this;
     }
 
     /**
-     * Gets accrued_revenue
+     * Gets accruedRevenue
      *
      * @return float
      */
     public function getAccruedRevenue()
     {
-        return $this->container['accrued_revenue'];
+        return $this->container['accruedRevenue'];
     }
 
     /**
-     * Sets accrued_revenue
+     * Sets accruedRevenue
      *
-     * @param float $accrued_revenue Amount of accrued revenue in all customer campaigns.
+     * @param float $accruedRevenue Amount of accrued revenue in all customer campaigns.
      *
      * @return $this
      */
-    public function setAccruedRevenue($accrued_revenue)
+    public function setAccruedRevenue($accruedRevenue)
     {
-        $this->container['accrued_revenue'] = $accrued_revenue;
+        $this->container['accruedRevenue'] = $accruedRevenue;
 
         return $this;
     }
 
     /**
-     * Gets total_orders
+     * Gets totalOrders
      *
      * @return int
      */
     public function getTotalOrders()
     {
-        return $this->container['total_orders'];
+        return $this->container['totalOrders'];
     }
 
     /**
-     * Sets total_orders
+     * Sets totalOrders
      *
-     * @param int $total_orders Number of orders in all customer campaigns.
+     * @param int $totalOrders Number of orders in all customer campaigns.
      *
      * @return $this
      */
-    public function setTotalOrders($total_orders)
+    public function setTotalOrders($totalOrders)
     {
-        $this->container['total_orders'] = $total_orders;
+        $this->container['totalOrders'] = $totalOrders;
 
         return $this;
     }
 
     /**
-     * Gets total_orders_no_coupon
+     * Gets totalOrdersNoCoupon
      *
      * @return int
      */
     public function getTotalOrdersNoCoupon()
     {
-        return $this->container['total_orders_no_coupon'];
+        return $this->container['totalOrdersNoCoupon'];
     }
 
     /**
-     * Sets total_orders_no_coupon
+     * Sets totalOrdersNoCoupon
      *
-     * @param int $total_orders_no_coupon Number of orders without coupon used in all customer campaigns.
+     * @param int $totalOrdersNoCoupon Number of orders without coupon used in all customer campaigns.
      *
      * @return $this
      */
-    public function setTotalOrdersNoCoupon($total_orders_no_coupon)
+    public function setTotalOrdersNoCoupon($totalOrdersNoCoupon)
     {
-        $this->container['total_orders_no_coupon'] = $total_orders_no_coupon;
+        $this->container['totalOrdersNoCoupon'] = $totalOrdersNoCoupon;
 
         return $this;
     }
 
     /**
-     * Gets campaign_name
+     * Gets campaignName
      *
      * @return string
      */
     public function getCampaignName()
     {
-        return $this->container['campaign_name'];
+        return $this->container['campaignName'];
     }
 
     /**
-     * Sets campaign_name
+     * Sets campaignName
      *
-     * @param string $campaign_name The name of the campaign this customer belongs to.
+     * @param string $campaignName The name of the campaign this customer belongs to.
      *
      * @return $this
      */
-    public function setCampaignName($campaign_name)
+    public function setCampaignName($campaignName)
     {
-        $this->container['campaign_name'] = $campaign_name;
+        $this->container['campaignName'] = $campaignName;
 
         return $this;
     }

@@ -58,10 +58,10 @@ class FeatureFlags implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account_id' => 'int',
+        'accountId' => 'int',
         'loyalty' => 'bool',
-        'coupons_without_count' => 'bool',
-        'beta_effects' => 'bool'
+        'couponsWithoutCount' => 'bool',
+        'betaEffects' => 'bool'
     ];
 
     /**
@@ -70,10 +70,10 @@ class FeatureFlags implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'account_id' => null,
+        'accountId' => null,
         'loyalty' => null,
-        'coupons_without_count' => null,
-        'beta_effects' => null
+        'couponsWithoutCount' => null,
+        'betaEffects' => null
     ];
 
     /**
@@ -103,10 +103,10 @@ class FeatureFlags implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'accountId',
+        'accountId' => 'accountId',
         'loyalty' => 'loyalty',
-        'coupons_without_count' => 'coupons_without_count',
-        'beta_effects' => 'betaEffects'
+        'couponsWithoutCount' => 'coupons_without_count',
+        'betaEffects' => 'betaEffects'
     ];
 
     /**
@@ -115,10 +115,10 @@ class FeatureFlags implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
+        'accountId' => 'setAccountId',
         'loyalty' => 'setLoyalty',
-        'coupons_without_count' => 'setCouponsWithoutCount',
-        'beta_effects' => 'setBetaEffects'
+        'couponsWithoutCount' => 'setCouponsWithoutCount',
+        'betaEffects' => 'setBetaEffects'
     ];
 
     /**
@@ -127,10 +127,10 @@ class FeatureFlags implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
+        'accountId' => 'getAccountId',
         'loyalty' => 'getLoyalty',
-        'coupons_without_count' => 'getCouponsWithoutCount',
-        'beta_effects' => 'getBetaEffects'
+        'couponsWithoutCount' => 'getCouponsWithoutCount',
+        'betaEffects' => 'getBetaEffects'
     ];
 
     /**
@@ -193,10 +193,10 @@ class FeatureFlags implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
         $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
-        $this->container['coupons_without_count'] = isset($data['coupons_without_count']) ? $data['coupons_without_count'] : null;
-        $this->container['beta_effects'] = isset($data['beta_effects']) ? $data['beta_effects'] : null;
+        $this->container['couponsWithoutCount'] = isset($data['couponsWithoutCount']) ? $data['couponsWithoutCount'] : null;
+        $this->container['betaEffects'] = isset($data['betaEffects']) ? $data['betaEffects'] : null;
     }
 
     /**
@@ -208,8 +208,8 @@ class FeatureFlags implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
         }
         return $invalidProperties;
     }
@@ -227,25 +227,25 @@ class FeatureFlags implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets account_id
+     * Gets accountId
      *
      * @return int
      */
     public function getAccountId()
     {
-        return $this->container['account_id'];
+        return $this->container['accountId'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountId
      *
-     * @param int $account_id The ID of the account that owns this entity.
+     * @param int $accountId The ID of the account that owns this entity.
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountId($accountId)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }
@@ -275,49 +275,49 @@ class FeatureFlags implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets coupons_without_count
+     * Gets couponsWithoutCount
      *
      * @return bool|null
      */
     public function getCouponsWithoutCount()
     {
-        return $this->container['coupons_without_count'];
+        return $this->container['couponsWithoutCount'];
     }
 
     /**
-     * Sets coupons_without_count
+     * Sets couponsWithoutCount
      *
-     * @param bool|null $coupons_without_count Whether the account queries coupons with or without total result size
+     * @param bool|null $couponsWithoutCount Whether the account queries coupons with or without total result size
      *
      * @return $this
      */
-    public function setCouponsWithoutCount($coupons_without_count)
+    public function setCouponsWithoutCount($couponsWithoutCount)
     {
-        $this->container['coupons_without_count'] = $coupons_without_count;
+        $this->container['couponsWithoutCount'] = $couponsWithoutCount;
 
         return $this;
     }
 
     /**
-     * Gets beta_effects
+     * Gets betaEffects
      *
      * @return bool|null
      */
     public function getBetaEffects()
     {
-        return $this->container['beta_effects'];
+        return $this->container['betaEffects'];
     }
 
     /**
-     * Sets beta_effects
+     * Sets betaEffects
      *
-     * @param bool|null $beta_effects Whether the account can test beta effects or not
+     * @param bool|null $betaEffects Whether the account can test beta effects or not
      *
      * @return $this
      */
-    public function setBetaEffects($beta_effects)
+    public function setBetaEffects($betaEffects)
     {
-        $this->container['beta_effects'] = $beta_effects;
+        $this->container['betaEffects'] = $betaEffects;
 
         return $this;
     }

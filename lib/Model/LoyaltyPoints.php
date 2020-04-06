@@ -60,8 +60,8 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'points' => 'float',
         'name' => 'string',
-        'expiry_duration' => 'string',
-        'sub_ledger_id' => 'string'
+        'expiryDuration' => 'string',
+        'subLedgerID' => 'string'
     ];
 
     /**
@@ -72,8 +72,8 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'points' => null,
         'name' => null,
-        'expiry_duration' => null,
-        'sub_ledger_id' => null
+        'expiryDuration' => null,
+        'subLedgerID' => null
     ];
 
     /**
@@ -105,8 +105,8 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'points' => 'points',
         'name' => 'name',
-        'expiry_duration' => 'expiryDuration',
-        'sub_ledger_id' => 'subLedgerID'
+        'expiryDuration' => 'expiryDuration',
+        'subLedgerID' => 'subLedgerID'
     ];
 
     /**
@@ -117,8 +117,8 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     protected static $setters = [
         'points' => 'setPoints',
         'name' => 'setName',
-        'expiry_duration' => 'setExpiryDuration',
-        'sub_ledger_id' => 'setSubLedgerId'
+        'expiryDuration' => 'setExpiryDuration',
+        'subLedgerID' => 'setSubLedgerID'
     ];
 
     /**
@@ -129,8 +129,8 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     protected static $getters = [
         'points' => 'getPoints',
         'name' => 'getName',
-        'expiry_duration' => 'getExpiryDuration',
-        'sub_ledger_id' => 'getSubLedgerId'
+        'expiryDuration' => 'getExpiryDuration',
+        'subLedgerID' => 'getSubLedgerID'
     ];
 
     /**
@@ -195,8 +195,8 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     {
         $this->container['points'] = isset($data['points']) ? $data['points'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['expiry_duration'] = isset($data['expiry_duration']) ? $data['expiry_duration'] : null;
-        $this->container['sub_ledger_id'] = isset($data['sub_ledger_id']) ? $data['sub_ledger_id'] : null;
+        $this->container['expiryDuration'] = isset($data['expiryDuration']) ? $data['expiryDuration'] : null;
+        $this->container['subLedgerID'] = isset($data['subLedgerID']) ? $data['subLedgerID'] : null;
     }
 
     /**
@@ -275,49 +275,49 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets expiry_duration
+     * Gets expiryDuration
      *
      * @return string|null
      */
     public function getExpiryDuration()
     {
-        return $this->container['expiry_duration'];
+        return $this->container['expiryDuration'];
     }
 
     /**
-     * Sets expiry_duration
+     * Sets expiryDuration
      *
-     * @param string|null $expiry_duration Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the unit, like '1h' or '40m' or '30d'.
+     * @param string|null $expiryDuration Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the unit, like '1h' or '40m' or '30d'.
      *
      * @return $this
      */
-    public function setExpiryDuration($expiry_duration)
+    public function setExpiryDuration($expiryDuration)
     {
-        $this->container['expiry_duration'] = $expiry_duration;
+        $this->container['expiryDuration'] = $expiryDuration;
 
         return $this;
     }
 
     /**
-     * Gets sub_ledger_id
+     * Gets subLedgerID
      *
      * @return string|null
      */
-    public function getSubLedgerId()
+    public function getSubLedgerID()
     {
-        return $this->container['sub_ledger_id'];
+        return $this->container['subLedgerID'];
     }
 
     /**
-     * Sets sub_ledger_id
+     * Sets subLedgerID
      *
-     * @param string|null $sub_ledger_id This specifies if we are adding loyalty points to the main ledger or a subledger
+     * @param string|null $subLedgerID This specifies if we are adding loyalty points to the main ledger or a subledger
      *
      * @return $this
      */
-    public function setSubLedgerId($sub_ledger_id)
+    public function setSubLedgerID($subLedgerID)
     {
-        $this->container['sub_ledger_id'] = $sub_ledger_id;
+        $this->container['subLedgerID'] = $subLedgerID;
 
         return $this;
     }

@@ -58,10 +58,10 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'created_by' => 'int',
+        'createdBy' => 'int',
         'title' => 'string',
-        'account_id' => 'int',
-        'application_id' => 'int',
+        'accountID' => 'int',
+        'applicationID' => 'int',
         'created' => '\DateTime',
         'expires' => '\DateTime'
     ];
@@ -73,10 +73,10 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'created_by' => null,
+        'createdBy' => null,
         'title' => null,
-        'account_id' => null,
-        'application_id' => null,
+        'accountID' => null,
+        'applicationID' => null,
         'created' => 'date-time',
         'expires' => 'date-time'
     ];
@@ -109,10 +109,10 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'created_by' => 'createdBy',
+        'createdBy' => 'createdBy',
         'title' => 'title',
-        'account_id' => 'accountID',
-        'application_id' => 'applicationID',
+        'accountID' => 'accountID',
+        'applicationID' => 'applicationID',
         'created' => 'created',
         'expires' => 'expires'
     ];
@@ -124,10 +124,10 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'created_by' => 'setCreatedBy',
+        'createdBy' => 'setCreatedBy',
         'title' => 'setTitle',
-        'account_id' => 'setAccountId',
-        'application_id' => 'setApplicationId',
+        'accountID' => 'setAccountID',
+        'applicationID' => 'setApplicationID',
         'created' => 'setCreated',
         'expires' => 'setExpires'
     ];
@@ -139,10 +139,10 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'created_by' => 'getCreatedBy',
+        'createdBy' => 'getCreatedBy',
         'title' => 'getTitle',
-        'account_id' => 'getAccountId',
-        'application_id' => 'getApplicationId',
+        'accountID' => 'getAccountID',
+        'applicationID' => 'getApplicationID',
         'created' => 'getCreated',
         'expires' => 'getExpires'
     ];
@@ -208,10 +208,10 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
+        $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
+        $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
+        $this->container['applicationID'] = isset($data['applicationID']) ? $data['applicationID'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['expires'] = isset($data['expires']) ? $data['expires'] : null;
     }
@@ -228,17 +228,17 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['created_by'] === null) {
-            $invalidProperties[] = "'created_by' can't be null";
+        if ($this->container['createdBy'] === null) {
+            $invalidProperties[] = "'createdBy' can't be null";
         }
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
         }
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountID'] === null) {
+            $invalidProperties[] = "'accountID' can't be null";
         }
-        if ($this->container['application_id'] === null) {
-            $invalidProperties[] = "'application_id' can't be null";
+        if ($this->container['applicationID'] === null) {
+            $invalidProperties[] = "'applicationID' can't be null";
         }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
@@ -286,25 +286,25 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets created_by
+     * Gets createdBy
      *
      * @return int
      */
     public function getCreatedBy()
     {
-        return $this->container['created_by'];
+        return $this->container['createdBy'];
     }
 
     /**
-     * Sets created_by
+     * Sets createdBy
      *
-     * @param int $created_by ID of user who created
+     * @param int $createdBy ID of user who created
      *
      * @return $this
      */
-    public function setCreatedBy($created_by)
+    public function setCreatedBy($createdBy)
     {
-        $this->container['created_by'] = $created_by;
+        $this->container['createdBy'] = $createdBy;
 
         return $this;
     }
@@ -334,49 +334,49 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets account_id
+     * Gets accountID
      *
      * @return int
      */
-    public function getAccountId()
+    public function getAccountID()
     {
-        return $this->container['account_id'];
+        return $this->container['accountID'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountID
      *
-     * @param int $account_id ID of account the key is used for
+     * @param int $accountID ID of account the key is used for
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountID($accountID)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountID'] = $accountID;
 
         return $this;
     }
 
     /**
-     * Gets application_id
+     * Gets applicationID
      *
      * @return int
      */
-    public function getApplicationId()
+    public function getApplicationID()
     {
-        return $this->container['application_id'];
+        return $this->container['applicationID'];
     }
 
     /**
-     * Sets application_id
+     * Sets applicationID
      *
-     * @param int $application_id ID of application the key is used for
+     * @param int $applicationID ID of application the key is used for
      *
      * @return $this
      */
-    public function setApplicationId($application_id)
+    public function setApplicationID($applicationID)
     {
-        $this->container['application_id'] = $application_id;
+        $this->container['applicationID'] = $applicationID;
 
         return $this;
     }

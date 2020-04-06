@@ -79,14 +79,14 @@ class IntegrationStateV2Test extends TestCase
     }
 
     /**
-     * Test attribute "customer_session"
+     * Test attribute "customerSession"
      */
     public function testPropertyCustomerSession()
     {
     }
 
     /**
-     * Test attribute "customer_profile"
+     * Test attribute "customerProfile"
      */
     public function testPropertyCustomerProfile()
     {
@@ -121,7 +121,7 @@ class IntegrationStateV2Test extends TestCase
     }
 
     /**
-     * Test attribute "triggered_campaigns"
+     * Test attribute "triggeredCampaigns"
      */
     public function testPropertyTriggeredCampaigns()
     {
@@ -135,14 +135,14 @@ class IntegrationStateV2Test extends TestCase
     }
 
     /**
-     * Test attribute "created_coupons"
+     * Test attribute "createdCoupons"
      */
     public function testPropertyCreatedCoupons()
     {
     }
 
     /**
-     * Test attribute "created_referrals"
+     * Test attribute "createdReferrals"
      */
     public function testPropertyCreatedReferrals()
     {

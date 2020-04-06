@@ -57,7 +57,7 @@ class AccountEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account_id' => 'int'
+        'accountId' => 'int'
     ];
 
     /**
@@ -66,7 +66,7 @@ class AccountEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'account_id' => null
+        'accountId' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class AccountEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'accountId'
+        'accountId' => 'accountId'
     ];
 
     /**
@@ -105,7 +105,7 @@ class AccountEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId'
+        'accountId' => 'setAccountId'
     ];
 
     /**
@@ -114,7 +114,7 @@ class AccountEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId'
+        'accountId' => 'getAccountId'
     ];
 
     /**
@@ -177,7 +177,7 @@ class AccountEntity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
     }
 
     /**
@@ -189,8 +189,8 @@ class AccountEntity implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,25 +208,25 @@ class AccountEntity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets account_id
+     * Gets accountId
      *
      * @return int
      */
     public function getAccountId()
     {
-        return $this->container['account_id'];
+        return $this->container['accountId'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountId
      *
-     * @param int $account_id The ID of the account that owns this entity.
+     * @param int $accountId The ID of the account that owns this entity.
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountId($accountId)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }

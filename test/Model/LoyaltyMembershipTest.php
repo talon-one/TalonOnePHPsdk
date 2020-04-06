@@ -86,7 +86,7 @@ class LoyaltyMembershipTest extends TestCase
     }
 
     /**
-     * Test attribute "loyalty_program_id"
+     * Test attribute "loyaltyProgramId"
      */
     public function testPropertyLoyaltyProgramId()
     {

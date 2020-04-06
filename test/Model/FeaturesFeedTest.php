@@ -86,7 +86,7 @@ class FeaturesFeedTest extends TestCase
     }
 
     /**
-     * Test attribute "pub_date"
+     * Test attribute "pubDate"
      */
     public function testPropertyPubDate()
     {

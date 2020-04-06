@@ -79,7 +79,7 @@ class IntegrationEventTest extends TestCase
     }
 
     /**
-     * Test attribute "profile_id"
+     * Test attribute "profileId"
      */
     public function testPropertyProfileId()
     {

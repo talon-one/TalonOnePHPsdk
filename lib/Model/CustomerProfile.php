@@ -58,14 +58,14 @@ class CustomerProfile implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'integration_id' => 'string',
+        'integrationId' => 'string',
         'created' => '\DateTime',
         'attributes' => 'object',
-        'account_id' => 'int',
-        'closed_sessions' => 'int',
-        'total_sales' => 'float',
-        'loyalty_memberships' => '\TalonOne\Client\Model\LoyaltyMembership[]',
-        'last_activity' => '\DateTime'
+        'accountId' => 'int',
+        'closedSessions' => 'int',
+        'totalSales' => 'float',
+        'loyaltyMemberships' => '\TalonOne\Client\Model\LoyaltyMembership[]',
+        'lastActivity' => '\DateTime'
     ];
 
     /**
@@ -74,14 +74,14 @@ class CustomerProfile implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'integration_id' => 'string',
+        'integrationId' => 'string',
         'created' => 'date-time',
         'attributes' => null,
-        'account_id' => null,
-        'closed_sessions' => null,
-        'total_sales' => null,
-        'loyalty_memberships' => null,
-        'last_activity' => 'date-time'
+        'accountId' => null,
+        'closedSessions' => null,
+        'totalSales' => null,
+        'loyaltyMemberships' => null,
+        'lastActivity' => 'date-time'
     ];
 
     /**
@@ -111,14 +111,14 @@ class CustomerProfile implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'integration_id' => 'integrationId',
+        'integrationId' => 'integrationId',
         'created' => 'created',
         'attributes' => 'attributes',
-        'account_id' => 'accountId',
-        'closed_sessions' => 'closedSessions',
-        'total_sales' => 'totalSales',
-        'loyalty_memberships' => 'loyaltyMemberships',
-        'last_activity' => 'lastActivity'
+        'accountId' => 'accountId',
+        'closedSessions' => 'closedSessions',
+        'totalSales' => 'totalSales',
+        'loyaltyMemberships' => 'loyaltyMemberships',
+        'lastActivity' => 'lastActivity'
     ];
 
     /**
@@ -127,14 +127,14 @@ class CustomerProfile implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'integration_id' => 'setIntegrationId',
+        'integrationId' => 'setIntegrationId',
         'created' => 'setCreated',
         'attributes' => 'setAttributes',
-        'account_id' => 'setAccountId',
-        'closed_sessions' => 'setClosedSessions',
-        'total_sales' => 'setTotalSales',
-        'loyalty_memberships' => 'setLoyaltyMemberships',
-        'last_activity' => 'setLastActivity'
+        'accountId' => 'setAccountId',
+        'closedSessions' => 'setClosedSessions',
+        'totalSales' => 'setTotalSales',
+        'loyaltyMemberships' => 'setLoyaltyMemberships',
+        'lastActivity' => 'setLastActivity'
     ];
 
     /**
@@ -143,14 +143,14 @@ class CustomerProfile implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'integration_id' => 'getIntegrationId',
+        'integrationId' => 'getIntegrationId',
         'created' => 'getCreated',
         'attributes' => 'getAttributes',
-        'account_id' => 'getAccountId',
-        'closed_sessions' => 'getClosedSessions',
-        'total_sales' => 'getTotalSales',
-        'loyalty_memberships' => 'getLoyaltyMemberships',
-        'last_activity' => 'getLastActivity'
+        'accountId' => 'getAccountId',
+        'closedSessions' => 'getClosedSessions',
+        'totalSales' => 'getTotalSales',
+        'loyaltyMemberships' => 'getLoyaltyMemberships',
+        'lastActivity' => 'getLastActivity'
     ];
 
     /**
@@ -213,14 +213,14 @@ class CustomerProfile implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['integration_id'] = isset($data['integration_id']) ? $data['integration_id'] : null;
+        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['closed_sessions'] = isset($data['closed_sessions']) ? $data['closed_sessions'] : null;
-        $this->container['total_sales'] = isset($data['total_sales']) ? $data['total_sales'] : null;
-        $this->container['loyalty_memberships'] = isset($data['loyalty_memberships']) ? $data['loyalty_memberships'] : null;
-        $this->container['last_activity'] = isset($data['last_activity']) ? $data['last_activity'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
+        $this->container['closedSessions'] = isset($data['closedSessions']) ? $data['closedSessions'] : null;
+        $this->container['totalSales'] = isset($data['totalSales']) ? $data['totalSales'] : null;
+        $this->container['loyaltyMemberships'] = isset($data['loyaltyMemberships']) ? $data['loyaltyMemberships'] : null;
+        $this->container['lastActivity'] = isset($data['lastActivity']) ? $data['lastActivity'] : null;
     }
 
     /**
@@ -232,8 +232,8 @@ class CustomerProfile implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['integration_id'] === null) {
-            $invalidProperties[] = "'integration_id' can't be null";
+        if ($this->container['integrationId'] === null) {
+            $invalidProperties[] = "'integrationId' can't be null";
         }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
@@ -241,17 +241,17 @@ class CustomerProfile implements ModelInterface, ArrayAccess
         if ($this->container['attributes'] === null) {
             $invalidProperties[] = "'attributes' can't be null";
         }
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
         }
-        if ($this->container['closed_sessions'] === null) {
-            $invalidProperties[] = "'closed_sessions' can't be null";
+        if ($this->container['closedSessions'] === null) {
+            $invalidProperties[] = "'closedSessions' can't be null";
         }
-        if ($this->container['total_sales'] === null) {
-            $invalidProperties[] = "'total_sales' can't be null";
+        if ($this->container['totalSales'] === null) {
+            $invalidProperties[] = "'totalSales' can't be null";
         }
-        if ($this->container['last_activity'] === null) {
-            $invalidProperties[] = "'last_activity' can't be null";
+        if ($this->container['lastActivity'] === null) {
+            $invalidProperties[] = "'lastActivity' can't be null";
         }
         return $invalidProperties;
     }
@@ -269,25 +269,25 @@ class CustomerProfile implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets integration_id
+     * Gets integrationId
      *
      * @return string
      */
     public function getIntegrationId()
     {
-        return $this->container['integration_id'];
+        return $this->container['integrationId'];
     }
 
     /**
-     * Sets integration_id
+     * Sets integrationId
      *
-     * @param string $integration_id The ID used for this entity in the application system.
+     * @param string $integrationId The ID used for this entity in the application system.
      *
      * @return $this
      */
-    public function setIntegrationId($integration_id)
+    public function setIntegrationId($integrationId)
     {
-        $this->container['integration_id'] = $integration_id;
+        $this->container['integrationId'] = $integrationId;
 
         return $this;
     }
@@ -341,121 +341,121 @@ class CustomerProfile implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets account_id
+     * Gets accountId
      *
      * @return int
      */
     public function getAccountId()
     {
-        return $this->container['account_id'];
+        return $this->container['accountId'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountId
      *
-     * @param int $account_id The ID of the Talon.One account that owns this profile.
+     * @param int $accountId The ID of the Talon.One account that owns this profile.
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountId($accountId)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }
 
     /**
-     * Gets closed_sessions
+     * Gets closedSessions
      *
      * @return int
      */
     public function getClosedSessions()
     {
-        return $this->container['closed_sessions'];
+        return $this->container['closedSessions'];
     }
 
     /**
-     * Sets closed_sessions
+     * Sets closedSessions
      *
-     * @param int $closed_sessions The total amount of closed sessions by a customer. A closed session is a successful purchase.
+     * @param int $closedSessions The total amount of closed sessions by a customer. A closed session is a successful purchase.
      *
      * @return $this
      */
-    public function setClosedSessions($closed_sessions)
+    public function setClosedSessions($closedSessions)
     {
-        $this->container['closed_sessions'] = $closed_sessions;
+        $this->container['closedSessions'] = $closedSessions;
 
         return $this;
     }
 
     /**
-     * Gets total_sales
+     * Gets totalSales
      *
      * @return float
      */
     public function getTotalSales()
     {
-        return $this->container['total_sales'];
+        return $this->container['totalSales'];
     }
 
     /**
-     * Sets total_sales
+     * Sets totalSales
      *
-     * @param float $total_sales Sum of all purchases made by this customer
+     * @param float $totalSales Sum of all purchases made by this customer
      *
      * @return $this
      */
-    public function setTotalSales($total_sales)
+    public function setTotalSales($totalSales)
     {
-        $this->container['total_sales'] = $total_sales;
+        $this->container['totalSales'] = $totalSales;
 
         return $this;
     }
 
     /**
-     * Gets loyalty_memberships
+     * Gets loyaltyMemberships
      *
      * @return \TalonOne\Client\Model\LoyaltyMembership[]|null
      */
     public function getLoyaltyMemberships()
     {
-        return $this->container['loyalty_memberships'];
+        return $this->container['loyaltyMemberships'];
     }
 
     /**
-     * Sets loyalty_memberships
+     * Sets loyaltyMemberships
      *
-     * @param \TalonOne\Client\Model\LoyaltyMembership[]|null $loyalty_memberships A list of loyalty programs joined by the customer
+     * @param \TalonOne\Client\Model\LoyaltyMembership[]|null $loyaltyMemberships A list of loyalty programs joined by the customer
      *
      * @return $this
      */
-    public function setLoyaltyMemberships($loyalty_memberships)
+    public function setLoyaltyMemberships($loyaltyMemberships)
     {
-        $this->container['loyalty_memberships'] = $loyalty_memberships;
+        $this->container['loyaltyMemberships'] = $loyaltyMemberships;
 
         return $this;
     }
 
     /**
-     * Gets last_activity
+     * Gets lastActivity
      *
      * @return \DateTime
      */
     public function getLastActivity()
     {
-        return $this->container['last_activity'];
+        return $this->container['lastActivity'];
     }
 
     /**
-     * Sets last_activity
+     * Sets lastActivity
      *
-     * @param \DateTime $last_activity Timestamp of the most recent event received from this customer
+     * @param \DateTime $lastActivity Timestamp of the most recent event received from this customer
      *
      * @return $this
      */
-    public function setLastActivity($last_activity)
+    public function setLastActivity($lastActivity)
     {
-        $this->container['last_activity'] = $last_activity;
+        $this->container['lastActivity'] = $lastActivity;
 
         return $this;
     }

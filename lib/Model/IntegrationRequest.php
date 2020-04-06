@@ -58,8 +58,8 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'customer_session' => '\TalonOne\Client\Model\NewCustomerSessionV2',
-        'response_content' => 'string[]'
+        'customerSession' => '\TalonOne\Client\Model\NewCustomerSessionV2',
+        'responseContent' => 'string[]'
     ];
 
     /**
@@ -68,8 +68,8 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'customer_session' => null,
-        'response_content' => null
+        'customerSession' => null,
+        'responseContent' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'customer_session' => 'customerSession',
-        'response_content' => 'responseContent'
+        'customerSession' => 'customerSession',
+        'responseContent' => 'responseContent'
     ];
 
     /**
@@ -109,8 +109,8 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'customer_session' => 'setCustomerSession',
-        'response_content' => 'setResponseContent'
+        'customerSession' => 'setCustomerSession',
+        'responseContent' => 'setResponseContent'
     ];
 
     /**
@@ -119,8 +119,8 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'customer_session' => 'getCustomerSession',
-        'response_content' => 'getResponseContent'
+        'customerSession' => 'getCustomerSession',
+        'responseContent' => 'getResponseContent'
     ];
 
     /**
@@ -208,8 +208,8 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['customer_session'] = isset($data['customer_session']) ? $data['customer_session'] : null;
-        $this->container['response_content'] = isset($data['response_content']) ? $data['response_content'] : null;
+        $this->container['customerSession'] = isset($data['customerSession']) ? $data['customerSession'] : null;
+        $this->container['responseContent'] = isset($data['responseContent']) ? $data['responseContent'] : null;
     }
 
     /**
@@ -221,8 +221,8 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['customer_session'] === null) {
-            $invalidProperties[] = "'customer_session' can't be null";
+        if ($this->container['customerSession'] === null) {
+            $invalidProperties[] = "'customerSession' can't be null";
         }
         return $invalidProperties;
     }
@@ -240,58 +240,58 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets customer_session
+     * Gets customerSession
      *
      * @return \TalonOne\Client\Model\NewCustomerSessionV2
      */
     public function getCustomerSession()
     {
-        return $this->container['customer_session'];
+        return $this->container['customerSession'];
     }
 
     /**
-     * Sets customer_session
+     * Sets customerSession
      *
-     * @param \TalonOne\Client\Model\NewCustomerSessionV2 $customer_session customer_session
+     * @param \TalonOne\Client\Model\NewCustomerSessionV2 $customerSession customerSession
      *
      * @return $this
      */
-    public function setCustomerSession($customer_session)
+    public function setCustomerSession($customerSession)
     {
-        $this->container['customer_session'] = $customer_session;
+        $this->container['customerSession'] = $customerSession;
 
         return $this;
     }
 
     /**
-     * Gets response_content
+     * Gets responseContent
      *
      * @return string[]|null
      */
     public function getResponseContent()
     {
-        return $this->container['response_content'];
+        return $this->container['responseContent'];
     }
 
     /**
-     * Sets response_content
+     * Sets responseContent
      *
-     * @param string[]|null $response_content Optional list of requested information to be present on the response related to the customer session update. Currently supported: \"customerSession\", \"customerProfile\", \"coupons\", \"triggeredCampaigns\", \"referral\", \"loyalty\" and \"event\".
+     * @param string[]|null $responseContent Optional list of requested information to be present on the response related to the customer session update. Currently supported: \"customerSession\", \"customerProfile\", \"coupons\", \"triggeredCampaigns\", \"referral\", \"loyalty\" and \"event\".
      *
      * @return $this
      */
-    public function setResponseContent($response_content)
+    public function setResponseContent($responseContent)
     {
         $allowedValues = $this->getResponseContentAllowableValues();
-        if (!is_null($response_content) && array_diff($response_content, $allowedValues)) {
+        if (!is_null($responseContent) && array_diff($responseContent, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'response_content', must be one of '%s'",
+                    "Invalid value for 'responseContent', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['response_content'] = $response_content;
+        $this->container['responseContent'] = $responseContent;
 
         return $this;
     }

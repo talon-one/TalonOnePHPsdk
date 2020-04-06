@@ -57,7 +57,7 @@ class ManagerConfig implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'schema_version' => 'int'
+        'schemaVersion' => 'int'
     ];
 
     /**
@@ -66,7 +66,7 @@ class ManagerConfig implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'schema_version' => null
+        'schemaVersion' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class ManagerConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'schema_version' => 'schemaVersion'
+        'schemaVersion' => 'schemaVersion'
     ];
 
     /**
@@ -105,7 +105,7 @@ class ManagerConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'schema_version' => 'setSchemaVersion'
+        'schemaVersion' => 'setSchemaVersion'
     ];
 
     /**
@@ -114,7 +114,7 @@ class ManagerConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'schema_version' => 'getSchemaVersion'
+        'schemaVersion' => 'getSchemaVersion'
     ];
 
     /**
@@ -177,7 +177,7 @@ class ManagerConfig implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['schema_version'] = isset($data['schema_version']) ? $data['schema_version'] : null;
+        $this->container['schemaVersion'] = isset($data['schemaVersion']) ? $data['schemaVersion'] : null;
     }
 
     /**
@@ -189,8 +189,8 @@ class ManagerConfig implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['schema_version'] === null) {
-            $invalidProperties[] = "'schema_version' can't be null";
+        if ($this->container['schemaVersion'] === null) {
+            $invalidProperties[] = "'schemaVersion' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,25 +208,25 @@ class ManagerConfig implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets schema_version
+     * Gets schemaVersion
      *
      * @return int
      */
     public function getSchemaVersion()
     {
-        return $this->container['schema_version'];
+        return $this->container['schemaVersion'];
     }
 
     /**
-     * Sets schema_version
+     * Sets schemaVersion
      *
-     * @param int $schema_version schema_version
+     * @param int $schemaVersion schemaVersion
      *
      * @return $this
      */
-    public function setSchemaVersion($schema_version)
+    public function setSchemaVersion($schemaVersion)
     {
-        $this->container['schema_version'] = $schema_version;
+        $this->container['schemaVersion'] = $schemaVersion;
 
         return $this;
     }

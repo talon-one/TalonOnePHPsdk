@@ -93,35 +93,35 @@ class ReferralTest extends TestCase
     }
 
     /**
-     * Test attribute "campaign_id"
+     * Test attribute "campaignId"
      */
     public function testPropertyCampaignId()
     {
     }
 
     /**
-     * Test attribute "advocate_profile_integration_id"
+     * Test attribute "advocateProfileIntegrationId"
      */
     public function testPropertyAdvocateProfileIntegrationId()
     {
     }
 
     /**
-     * Test attribute "friend_profile_integration_id"
+     * Test attribute "friendProfileIntegrationId"
      */
     public function testPropertyFriendProfileIntegrationId()
     {
     }
 
     /**
-     * Test attribute "start_date"
+     * Test attribute "startDate"
      */
     public function testPropertyStartDate()
     {
     }
 
     /**
-     * Test attribute "expiry_date"
+     * Test attribute "expiryDate"
      */
     public function testPropertyExpiryDate()
     {
@@ -135,14 +135,14 @@ class ReferralTest extends TestCase
     }
 
     /**
-     * Test attribute "usage_counter"
+     * Test attribute "usageCounter"
      */
     public function testPropertyUsageCounter()
     {
     }
 
     /**
-     * Test attribute "usage_limit"
+     * Test attribute "usageLimit"
      */
     public function testPropertyUsageLimit()
     {

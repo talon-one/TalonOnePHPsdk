@@ -59,8 +59,8 @@ class SamlConnectionMetadata implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'enabled' => 'bool',
-        'account_id' => 'float',
-        'metadata_document' => 'string'
+        'accountId' => 'float',
+        'metadataDocument' => 'string'
     ];
 
     /**
@@ -71,8 +71,8 @@ class SamlConnectionMetadata implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'enabled' => null,
-        'account_id' => null,
-        'metadata_document' => null
+        'accountId' => null,
+        'metadataDocument' => null
     ];
 
     /**
@@ -104,8 +104,8 @@ class SamlConnectionMetadata implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'enabled' => 'enabled',
-        'account_id' => 'accountId',
-        'metadata_document' => 'metadataDocument'
+        'accountId' => 'accountId',
+        'metadataDocument' => 'metadataDocument'
     ];
 
     /**
@@ -116,8 +116,8 @@ class SamlConnectionMetadata implements ModelInterface, ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'enabled' => 'setEnabled',
-        'account_id' => 'setAccountId',
-        'metadata_document' => 'setMetadataDocument'
+        'accountId' => 'setAccountId',
+        'metadataDocument' => 'setMetadataDocument'
     ];
 
     /**
@@ -128,8 +128,8 @@ class SamlConnectionMetadata implements ModelInterface, ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'enabled' => 'getEnabled',
-        'account_id' => 'getAccountId',
-        'metadata_document' => 'getMetadataDocument'
+        'accountId' => 'getAccountId',
+        'metadataDocument' => 'getMetadataDocument'
     ];
 
     /**
@@ -194,8 +194,8 @@ class SamlConnectionMetadata implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['metadata_document'] = isset($data['metadata_document']) ? $data['metadata_document'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
+        $this->container['metadataDocument'] = isset($data['metadataDocument']) ? $data['metadataDocument'] : null;
     }
 
     /**
@@ -217,14 +217,14 @@ class SamlConnectionMetadata implements ModelInterface, ArrayAccess
         if ($this->container['enabled'] === null) {
             $invalidProperties[] = "'enabled' can't be null";
         }
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
         }
-        if ($this->container['metadata_document'] === null) {
-            $invalidProperties[] = "'metadata_document' can't be null";
+        if ($this->container['metadataDocument'] === null) {
+            $invalidProperties[] = "'metadataDocument' can't be null";
         }
-        if ((mb_strlen($this->container['metadata_document']) < 1)) {
-            $invalidProperties[] = "invalid value for 'metadata_document', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['metadataDocument']) < 1)) {
+            $invalidProperties[] = "invalid value for 'metadataDocument', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -296,54 +296,54 @@ class SamlConnectionMetadata implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets account_id
+     * Gets accountId
      *
      * @return float
      */
     public function getAccountId()
     {
-        return $this->container['account_id'];
+        return $this->container['accountId'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountId
      *
-     * @param float $account_id account_id
+     * @param float $accountId accountId
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountId($accountId)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }
 
     /**
-     * Gets metadata_document
+     * Gets metadataDocument
      *
      * @return string
      */
     public function getMetadataDocument()
     {
-        return $this->container['metadata_document'];
+        return $this->container['metadataDocument'];
     }
 
     /**
-     * Sets metadata_document
+     * Sets metadataDocument
      *
-     * @param string $metadata_document Identity Provider metadata XML document.
+     * @param string $metadataDocument Identity Provider metadata XML document.
      *
      * @return $this
      */
-    public function setMetadataDocument($metadata_document)
+    public function setMetadataDocument($metadataDocument)
     {
 
-        if ((mb_strlen($metadata_document) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $metadata_document when calling SamlConnectionMetadata., must be bigger than or equal to 1.');
+        if ((mb_strlen($metadataDocument) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $metadataDocument when calling SamlConnectionMetadata., must be bigger than or equal to 1.');
         }
 
-        $this->container['metadata_document'] = $metadata_document;
+        $this->container['metadataDocument'] = $metadataDocument;
 
         return $this;
     }

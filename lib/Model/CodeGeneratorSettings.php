@@ -57,8 +57,8 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'valid_characters' => 'string[]',
-        'coupon_pattern' => 'string'
+        'validCharacters' => 'string[]',
+        'couponPattern' => 'string'
     ];
 
     /**
@@ -67,8 +67,8 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'valid_characters' => null,
-        'coupon_pattern' => null
+        'validCharacters' => null,
+        'couponPattern' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'valid_characters' => 'validCharacters',
-        'coupon_pattern' => 'couponPattern'
+        'validCharacters' => 'validCharacters',
+        'couponPattern' => 'couponPattern'
     ];
 
     /**
@@ -108,8 +108,8 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'valid_characters' => 'setValidCharacters',
-        'coupon_pattern' => 'setCouponPattern'
+        'validCharacters' => 'setValidCharacters',
+        'couponPattern' => 'setCouponPattern'
     ];
 
     /**
@@ -118,8 +118,8 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'valid_characters' => 'getValidCharacters',
-        'coupon_pattern' => 'getCouponPattern'
+        'validCharacters' => 'getValidCharacters',
+        'couponPattern' => 'getCouponPattern'
     ];
 
     /**
@@ -182,8 +182,8 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['valid_characters'] = isset($data['valid_characters']) ? $data['valid_characters'] : null;
-        $this->container['coupon_pattern'] = isset($data['coupon_pattern']) ? $data['coupon_pattern'] : null;
+        $this->container['validCharacters'] = isset($data['validCharacters']) ? $data['validCharacters'] : null;
+        $this->container['couponPattern'] = isset($data['couponPattern']) ? $data['couponPattern'] : null;
     }
 
     /**
@@ -195,14 +195,14 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['valid_characters'] === null) {
-            $invalidProperties[] = "'valid_characters' can't be null";
+        if ($this->container['validCharacters'] === null) {
+            $invalidProperties[] = "'validCharacters' can't be null";
         }
-        if ($this->container['coupon_pattern'] === null) {
-            $invalidProperties[] = "'coupon_pattern' can't be null";
+        if ($this->container['couponPattern'] === null) {
+            $invalidProperties[] = "'couponPattern' can't be null";
         }
-        if ((mb_strlen($this->container['coupon_pattern']) < 3)) {
-            $invalidProperties[] = "invalid value for 'coupon_pattern', the character length must be bigger than or equal to 3.";
+        if ((mb_strlen($this->container['couponPattern']) < 3)) {
+            $invalidProperties[] = "invalid value for 'couponPattern', the character length must be bigger than or equal to 3.";
         }
 
         return $invalidProperties;
@@ -221,54 +221,54 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets valid_characters
+     * Gets validCharacters
      *
      * @return string[]
      */
     public function getValidCharacters()
     {
-        return $this->container['valid_characters'];
+        return $this->container['validCharacters'];
     }
 
     /**
-     * Sets valid_characters
+     * Sets validCharacters
      *
-     * @param string[] $valid_characters Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
+     * @param string[] $validCharacters Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
      *
      * @return $this
      */
-    public function setValidCharacters($valid_characters)
+    public function setValidCharacters($validCharacters)
     {
-        $this->container['valid_characters'] = $valid_characters;
+        $this->container['validCharacters'] = $validCharacters;
 
         return $this;
     }
 
     /**
-     * Gets coupon_pattern
+     * Gets couponPattern
      *
      * @return string
      */
     public function getCouponPattern()
     {
-        return $this->container['coupon_pattern'];
+        return $this->container['couponPattern'];
     }
 
     /**
-     * Sets coupon_pattern
+     * Sets couponPattern
      *
-     * @param string $coupon_pattern The pattern that will be used to generate coupon codes. The character `#` acts as a placeholder and will be replaced by a random character from the `validCharacters` set.
+     * @param string $couponPattern The pattern that will be used to generate coupon codes. The character `#` acts as a placeholder and will be replaced by a random character from the `validCharacters` set.
      *
      * @return $this
      */
-    public function setCouponPattern($coupon_pattern)
+    public function setCouponPattern($couponPattern)
     {
 
-        if ((mb_strlen($coupon_pattern) < 3)) {
-            throw new \InvalidArgumentException('invalid length for $coupon_pattern when calling CodeGeneratorSettings., must be bigger than or equal to 3.');
+        if ((mb_strlen($couponPattern) < 3)) {
+            throw new \InvalidArgumentException('invalid length for $couponPattern when calling CodeGeneratorSettings., must be bigger than or equal to 3.');
         }
 
-        $this->container['coupon_pattern'] = $coupon_pattern;
+        $this->container['couponPattern'] = $couponPattern;
 
         return $this;
     }
