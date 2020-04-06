@@ -1,0 +1,40 @@
+{
+    "name": "talon-one/talon-one-client",
+    "type": "library",
+    "version": "3.0.0",
+    "description": "The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.",
+    "keywords": [
+        "talon-one",
+        "openapi-generator",
+        "sdk",
+        "rest",
+        "api"
+    ],
+    "homepage": "https://developers.talon.one/SDKs/PHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Talon.One Developers",
+            "email": "devs@talon.one",
+            "homepage": "https://developers.talon.one"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4",
+        "squizlabs/php_codesniffer": "~2.6",
+        "friendsofphp/php-cs-fixer": "~2.12"
+    },
+    "autoload": {
+        "psr-4": { "TalonOne\\Client\\" : "lib/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "TalonOne\\Client\\" : "test/" }
+    }
+}
