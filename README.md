@@ -1,4 +1,4 @@
-# Talon.One PHP SDK
+# talon-one-client
 
 The Talon.One API is used to manage applications and campaigns, as well as to
 integrate with your application. The operations in the _Integration API_ section
@@ -33,11 +33,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/talon-one/TalonOnePHPSdk.git"
+      "url": "https://github.com/talon-one/TalonOnePHPsdk.git"
     }
   ],
   "require": {
-    "talon-one/TalonOnePHPSdk": "*@dev"
+    "talon-one/TalonOnePHPsdk": "*@dev"
   }
 }
 ```
@@ -49,7 +49,7 @@ Then run `composer install`
 Download the files and include `autoload.php`:
 
 ```php
-    require_once('/path/to/Talon.One PHP SDK/vendor/autoload.php');
+    require_once('/path/to/talon-one-client/vendor/autoload.php');
 ```
 
 ## Tests
