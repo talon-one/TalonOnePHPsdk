@@ -37,7 +37,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
     }
   ],
   "require": {
-    "talon-one/TalonOnePHPsdk": "*@dev"
+    "talon-one/TalonOnePHPSdk": "*@dev"
   }
 }
 ```
