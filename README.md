@@ -88,6 +88,56 @@ $this->apiInstance = new \TalonOne\Client\Api\IntegrationApi(
     $config
 );
 
+$customer_session_id = 'customer_session_id_example'; // string | The unique identifier for this session
+$customer_session = new \TalonOne\Client\Model\NewCustomerSessionV2([
+    'profileId' => 'example_prof_id',
+    'couponCodes' => [
+        'Cool-Summer!'
+    ],
+    'cartItems' => [
+        new \TalonOne\Client\Model\CartItem([
+            'name' => 'Hawaiian Pizza',
+            'sku' => 'piz-hw-001',
+            'quantity' => 1,
+            'price' => 5.85
+        ])
+    ]
+]);
+$body = new \TalonOne\Client\Model\IntegrationRequest([
+    'customerSession' => $customer_session,
+    // Optional list of requested information to be present on the response.
+    // See lib/Model/IntegrationRequest.php#getResponseContentAllowableValues for full list 
+    // 'responseContent' => [
+    //     \TalonOne\Client\Model\IntegrationRequest::RESPONSE_CONTENT_CUSTOMER_SESSION,
+    //     \TalonOne\Client\Model\IntegrationRequest::RESPONSE_CONTENT_COUPONS
+    // ]
+]);
+
+try {
+    // Create/Update a customer session using `updateCustomerSessionV2` function (https://developers.talon.one/Getting-Started/APIV2)
+    $integration_state = $this->apiInstance->updateCustomerSessionV2($customer_session_id, $body);
+    print_r($integration_state);
+
+    // Parsing the returned effects list, please consult https://developers.talon.one/Integration-API/handling-effects-v2 for the full list of effects and their corresponding properties
+    foreach ($integration_state->getEffects() as $effect) {
+        if ("addLoyaltyPoints" == $effect->getEffectType()) {
+            // Initiating right props instance according to the effect type
+            $props = new \TalonOne\Client\Model\AddLoyaltyPointsEffectProps($effect->getProps());
+            
+            // Access the specific effect's properties
+            echo $props->getName(), ':: ', $props->getRecipientIntegrationId(), ' just earned ',  $props->getValue(), ' points', PHP_EOL;
+        }
+        if ("acceptCoupon" == $effect->getEffectType()) {
+            // Initiating right props instance according to the effect type
+            $props = new \TalonOne\Client\Model\AcceptCouponEffectProps($effect->getProps());
+            // work with AcceptCouponEffectProps' properties
+            // ...
+        }
+    }
+} catch (Exception $e) {
+    echo 'Exception when calling IntegrationApi->updateCustomerSessionV2: ', $e->getMessage(), PHP_EOL;
+}
+
 ?>
 ```
 
