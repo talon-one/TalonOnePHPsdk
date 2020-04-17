@@ -117,7 +117,7 @@ $body = new \TalonOne\Client\Model\IntegrationRequest([
 ]);
 
 try {
-    // Create/Update a customer session using `updateCustomerSessionV2` function (https://developers.talon.one/Getting-Started/APIV2)
+    // Create/Update a customer session using `updateCustomerSessionV2` function
     $integration_state = $this->apiInstance->updateCustomerSessionV2($customer_session_id, $body);
     print_r($integration_state);
 
