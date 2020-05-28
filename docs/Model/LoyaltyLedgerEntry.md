@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **customerProfileID** | **string** |  | 
 **customerSessionID** | **string** |  | [optional] 
 **eventID** | **int** |  | [optional] 
-**type** | **string** |  | 
+**type** | **string** | one of the values: addition,subtraction, expire or expiring | 
 **amount** | **float** |  | 
 **expiryDate** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **name** | **string** | A name referencing the condition or effect that added this entry, or the specific name provided in an API call. | 

@@ -209,25 +209,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const TYPE_ADDITION = 'addition';
-    const TYPE_SUBTRACTION = 'subtraction';
-    const TYPE_EXPIRE = 'expire';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_ADDITION,
-            self::TYPE_SUBTRACTION,
-            self::TYPE_EXPIRE,
-        ];
-    }
     
 
     /**
@@ -279,14 +262,6 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
@@ -444,21 +419,12 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type one of the values: addition,subtraction, expire or expiring
      *
      * @return $this
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
 
         return $this;
