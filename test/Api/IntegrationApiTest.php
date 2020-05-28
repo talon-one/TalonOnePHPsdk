@@ -123,16 +123,6 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
-     * Test case for getReservedCoupons
-     *
-     * Get all valid reserved coupons.
-     *
-     */
-    public function testGetReservedCoupons()
-    {
-    }
-
-    /**
      * Test case for getReservedCustomers
      *
      * Get the users that have this coupon reserved.
@@ -159,6 +149,16 @@ class IntegrationApiTest extends TestCase
      *
      */
     public function testUpdateCustomerProfile()
+    {
+    }
+
+    /**
+     * Test case for updateCustomerProfileV2
+     *
+     * Update a Customer Profile.
+     *
+     */
+    public function testUpdateCustomerProfileV2()
     {
     }
 

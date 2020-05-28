@@ -86,6 +86,13 @@ class UpdateCouponBatchTest extends TestCase
     }
 
     /**
+     * Test attribute "discountLimit"
+     */
+    public function testPropertyDiscountLimit()
+    {
+    }
+
+    /**
      * Test attribute "startDate"
      */
     public function testPropertyStartDate()

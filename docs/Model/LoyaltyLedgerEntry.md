@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **expiryDate** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **name** | **string** | A name referencing the condition or effect that added this entry, or the specific name provided in an API call. | 
 **subLedgerID** | **string** | This specifies if we are adding loyalty points to the main ledger or a subledger | 
+**userID** | **int** | This is the ID of the user who created this entry, if the addition or subtraction was done manually. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

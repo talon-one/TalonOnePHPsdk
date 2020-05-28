@@ -63,9 +63,12 @@ class Coupon implements ModelInterface, ArrayAccess
         'campaignId' => 'int',
         'value' => 'string',
         'usageLimit' => 'int',
+        'discountLimit' => 'float',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
         'usageCounter' => 'int',
+        'discountCounter' => 'float',
+        'discountRemainder' => 'float',
         'attributes' => 'object',
         'referralId' => 'int',
         'recipientIntegrationId' => 'string',
@@ -85,9 +88,12 @@ class Coupon implements ModelInterface, ArrayAccess
         'campaignId' => null,
         'value' => null,
         'usageLimit' => null,
+        'discountLimit' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
         'usageCounter' => null,
+        'discountCounter' => null,
+        'discountRemainder' => null,
         'attributes' => null,
         'referralId' => null,
         'recipientIntegrationId' => null,
@@ -128,9 +134,12 @@ class Coupon implements ModelInterface, ArrayAccess
         'campaignId' => 'campaignId',
         'value' => 'value',
         'usageLimit' => 'usageLimit',
+        'discountLimit' => 'discountLimit',
         'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
         'usageCounter' => 'usageCounter',
+        'discountCounter' => 'discountCounter',
+        'discountRemainder' => 'discountRemainder',
         'attributes' => 'attributes',
         'referralId' => 'referralId',
         'recipientIntegrationId' => 'recipientIntegrationId',
@@ -150,9 +159,12 @@ class Coupon implements ModelInterface, ArrayAccess
         'campaignId' => 'setCampaignId',
         'value' => 'setValue',
         'usageLimit' => 'setUsageLimit',
+        'discountLimit' => 'setDiscountLimit',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
         'usageCounter' => 'setUsageCounter',
+        'discountCounter' => 'setDiscountCounter',
+        'discountRemainder' => 'setDiscountRemainder',
         'attributes' => 'setAttributes',
         'referralId' => 'setReferralId',
         'recipientIntegrationId' => 'setRecipientIntegrationId',
@@ -172,9 +184,12 @@ class Coupon implements ModelInterface, ArrayAccess
         'campaignId' => 'getCampaignId',
         'value' => 'getValue',
         'usageLimit' => 'getUsageLimit',
+        'discountLimit' => 'getDiscountLimit',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
         'usageCounter' => 'getUsageCounter',
+        'discountCounter' => 'getDiscountCounter',
+        'discountRemainder' => 'getDiscountRemainder',
         'attributes' => 'getAttributes',
         'referralId' => 'getReferralId',
         'recipientIntegrationId' => 'getRecipientIntegrationId',
@@ -248,9 +263,12 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['usageLimit'] = isset($data['usageLimit']) ? $data['usageLimit'] : null;
+        $this->container['discountLimit'] = isset($data['discountLimit']) ? $data['discountLimit'] : null;
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['usageCounter'] = isset($data['usageCounter']) ? $data['usageCounter'] : null;
+        $this->container['discountCounter'] = isset($data['discountCounter']) ? $data['discountCounter'] : null;
+        $this->container['discountRemainder'] = isset($data['discountRemainder']) ? $data['discountRemainder'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['referralId'] = isset($data['referralId']) ? $data['referralId'] : null;
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
@@ -293,6 +311,14 @@ class Coupon implements ModelInterface, ArrayAccess
 
         if (($this->container['usageLimit'] < 0)) {
             $invalidProperties[] = "invalid value for 'usageLimit', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] > 999999)) {
+            $invalidProperties[] = "invalid value for 'discountLimit', must be smaller than or equal to 999999.";
+        }
+
+        if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] < 0)) {
+            $invalidProperties[] = "invalid value for 'discountLimit', must be bigger than or equal to 0.";
         }
 
         if ($this->container['usageCounter'] === null) {
@@ -447,6 +473,38 @@ class Coupon implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets discountLimit
+     *
+     * @return float|null
+     */
+    public function getDiscountLimit()
+    {
+        return $this->container['discountLimit'];
+    }
+
+    /**
+     * Sets discountLimit
+     *
+     * @param float|null $discountLimit The amount of discounts that can be given with this coupon code.
+     *
+     * @return $this
+     */
+    public function setDiscountLimit($discountLimit)
+    {
+
+        if (!is_null($discountLimit) && ($discountLimit > 999999)) {
+            throw new \InvalidArgumentException('invalid value for $discountLimit when calling Coupon., must be smaller than or equal to 999999.');
+        }
+        if (!is_null($discountLimit) && ($discountLimit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $discountLimit when calling Coupon., must be bigger than or equal to 0.');
+        }
+
+        $this->container['discountLimit'] = $discountLimit;
+
+        return $this;
+    }
+
+    /**
      * Gets startDate
      *
      * @return \DateTime|null
@@ -519,6 +577,54 @@ class Coupon implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets discountCounter
+     *
+     * @return float|null
+     */
+    public function getDiscountCounter()
+    {
+        return $this->container['discountCounter'];
+    }
+
+    /**
+     * Sets discountCounter
+     *
+     * @param float|null $discountCounter The amount of discounts given on rules redeeming this coupon. Only usable if a coupon discount budget was set for this coupon.
+     *
+     * @return $this
+     */
+    public function setDiscountCounter($discountCounter)
+    {
+        $this->container['discountCounter'] = $discountCounter;
+
+        return $this;
+    }
+
+    /**
+     * Gets discountRemainder
+     *
+     * @return float|null
+     */
+    public function getDiscountRemainder()
+    {
+        return $this->container['discountRemainder'];
+    }
+
+    /**
+     * Sets discountRemainder
+     *
+     * @param float|null $discountRemainder The remaining discount this coupon can give.
+     *
+     * @return $this
+     */
+    public function setDiscountRemainder($discountRemainder)
+    {
+        $this->container['discountRemainder'] = $discountRemainder;
+
+        return $this;
+    }
+
+    /**
      * Gets attributes
      *
      * @return object|null
@@ -579,7 +685,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets recipientIntegrationId
      *
-     * @param string|null $recipientIntegrationId The integration ID of a referred customer profile.
+     * @param string|null $recipientIntegrationId The Integration ID of the customer that is allowed to redeem this coupon.
      *
      * @return $this
      */

@@ -58,7 +58,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'profile' => '\TalonOne\Client\Model\CustomerProfile',
-        'referrals' => '\TalonOne\Client\Model\Referral[]'
+        'referrals' => '\TalonOne\Client\Model\Referral[]',
+        'coupons' => '\TalonOne\Client\Model\Coupon[]'
     ];
 
     /**
@@ -68,7 +69,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'profile' => null,
-        'referrals' => null
+        'referrals' => null,
+        'coupons' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'profile' => 'profile',
-        'referrals' => 'referrals'
+        'referrals' => 'referrals',
+        'coupons' => 'coupons'
     ];
 
     /**
@@ -109,7 +112,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'profile' => 'setProfile',
-        'referrals' => 'setReferrals'
+        'referrals' => 'setReferrals',
+        'coupons' => 'setCoupons'
     ];
 
     /**
@@ -119,7 +123,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'profile' => 'getProfile',
-        'referrals' => 'getReferrals'
+        'referrals' => 'getReferrals',
+        'coupons' => 'getCoupons'
     ];
 
     /**
@@ -184,6 +189,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     {
         $this->container['profile'] = isset($data['profile']) ? $data['profile'] : null;
         $this->container['referrals'] = isset($data['referrals']) ? $data['referrals'] : null;
+        $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
     }
 
     /**
@@ -254,6 +260,30 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     public function setReferrals($referrals)
     {
         $this->container['referrals'] = $referrals;
+
+        return $this;
+    }
+
+    /**
+     * Gets coupons
+     *
+     * @return \TalonOne\Client\Model\Coupon[]|null
+     */
+    public function getCoupons()
+    {
+        return $this->container['coupons'];
+    }
+
+    /**
+     * Sets coupons
+     *
+     * @param \TalonOne\Client\Model\Coupon[]|null $coupons coupons
+     *
+     * @return $this
+     */
+    public function setCoupons($coupons)
+    {
+        $this->container['coupons'] = $coupons;
 
         return $this;
     }

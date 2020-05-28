@@ -67,7 +67,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'amount' => 'float',
         'expiryDate' => '\DateTime',
         'name' => 'string',
-        'subLedgerID' => 'string'
+        'subLedgerID' => 'string',
+        'userID' => 'int'
     ];
 
     /**
@@ -85,7 +86,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'amount' => null,
         'expiryDate' => 'date-time',
         'name' => null,
-        'subLedgerID' => null
+        'subLedgerID' => null,
+        'userID' => null
     ];
 
     /**
@@ -124,7 +126,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'amount' => 'amount',
         'expiryDate' => 'expiryDate',
         'name' => 'name',
-        'subLedgerID' => 'subLedgerID'
+        'subLedgerID' => 'subLedgerID',
+        'userID' => 'userID'
     ];
 
     /**
@@ -142,7 +145,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'amount' => 'setAmount',
         'expiryDate' => 'setExpiryDate',
         'name' => 'setName',
-        'subLedgerID' => 'setSubLedgerID'
+        'subLedgerID' => 'setSubLedgerID',
+        'userID' => 'setUserID'
     ];
 
     /**
@@ -160,7 +164,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'amount' => 'getAmount',
         'expiryDate' => 'getExpiryDate',
         'name' => 'getName',
-        'subLedgerID' => 'getSubLedgerID'
+        'subLedgerID' => 'getSubLedgerID',
+        'userID' => 'getUserID'
     ];
 
     /**
@@ -206,6 +211,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
 
     const TYPE_ADDITION = 'addition';
     const TYPE_SUBTRACTION = 'subtraction';
+    const TYPE_EXPIRE = 'expire';
     
 
     
@@ -219,6 +225,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         return [
             self::TYPE_ADDITION,
             self::TYPE_SUBTRACTION,
+            self::TYPE_EXPIRE,
         ];
     }
     
@@ -248,6 +255,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['subLedgerID'] = isset($data['subLedgerID']) ? $data['subLedgerID'] : null;
+        $this->container['userID'] = isset($data['userID']) ? $data['userID'] : null;
     }
 
     /**
@@ -548,6 +556,30 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     public function setSubLedgerID($subLedgerID)
     {
         $this->container['subLedgerID'] = $subLedgerID;
+
+        return $this;
+    }
+
+    /**
+     * Gets userID
+     *
+     * @return int|null
+     */
+    public function getUserID()
+    {
+        return $this->container['userID'];
+    }
+
+    /**
+     * Sets userID
+     *
+     * @param int|null $userID This is the ID of the user who created this entry, if the addition or subtraction was done manually.
+     *
+     * @return $this
+     */
+    public function setUserID($userID)
+    {
+        $this->container['userID'] = $userID;
 
         return $this;
     }

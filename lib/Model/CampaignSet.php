@@ -61,6 +61,7 @@ class CampaignSet implements ModelInterface, ArrayAccess
         'id' => 'int',
         'created' => '\DateTime',
         'applicationId' => 'int',
+        'version' => 'int',
         'set' => '\TalonOne\Client\Model\CampaignSetBranchNode'
     ];
 
@@ -73,6 +74,7 @@ class CampaignSet implements ModelInterface, ArrayAccess
         'id' => null,
         'created' => 'date-time',
         'applicationId' => null,
+        'version' => null,
         'set' => null
     ];
 
@@ -106,6 +108,7 @@ class CampaignSet implements ModelInterface, ArrayAccess
         'id' => 'id',
         'created' => 'created',
         'applicationId' => 'applicationId',
+        'version' => 'version',
         'set' => 'set'
     ];
 
@@ -118,6 +121,7 @@ class CampaignSet implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'created' => 'setCreated',
         'applicationId' => 'setApplicationId',
+        'version' => 'setVersion',
         'set' => 'setSet'
     ];
 
@@ -130,6 +134,7 @@ class CampaignSet implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'created' => 'getCreated',
         'applicationId' => 'getApplicationId',
+        'version' => 'getVersion',
         'set' => 'getSet'
     ];
 
@@ -196,6 +201,7 @@ class CampaignSet implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
         $this->container['set'] = isset($data['set']) ? $data['set'] : null;
     }
 
@@ -217,6 +223,13 @@ class CampaignSet implements ModelInterface, ArrayAccess
         if ($this->container['applicationId'] === null) {
             $invalidProperties[] = "'applicationId' can't be null";
         }
+        if ($this->container['version'] === null) {
+            $invalidProperties[] = "'version' can't be null";
+        }
+        if (($this->container['version'] < 1)) {
+            $invalidProperties[] = "invalid value for 'version', must be bigger than or equal to 1.";
+        }
+
         if ($this->container['set'] === null) {
             $invalidProperties[] = "'set' can't be null";
         }
@@ -303,6 +316,35 @@ class CampaignSet implements ModelInterface, ArrayAccess
     public function setApplicationId($applicationId)
     {
         $this->container['applicationId'] = $applicationId;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param int $version Version of the campaign set
+     *
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+
+        if (($version < 1)) {
+            throw new \InvalidArgumentException('invalid value for $version when calling CampaignSet., must be bigger than or equal to 1.');
+        }
+
+        $this->container['version'] = $version;
 
         return $this;
     }

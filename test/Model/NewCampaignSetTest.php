@@ -86,6 +86,13 @@ class NewCampaignSetTest extends TestCase
     }
 
     /**
+     * Test attribute "version"
+     */
+    public function testPropertyVersion()
+    {
+    }
+
+    /**
      * Test attribute "set"
      */
     public function testPropertySet()

@@ -91,4 +91,11 @@ class CustomerInventoryTest extends TestCase
     public function testPropertyReferrals()
     {
     }
+
+    /**
+     * Test attribute "coupons"
+     */
+    public function testPropertyCoupons()
+    {
+    }
 }

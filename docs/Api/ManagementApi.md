@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**deleteCoupons**](ManagementApi.md#deleteCoupons) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete Coupons
 [**deleteReferral**](ManagementApi.md#deleteReferral) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete one Referral
 [**deleteRuleset**](ManagementApi.md#deleteRuleset) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Delete a Ruleset
-[**getAccessLogs**](ManagementApi.md#getAccessLogs) | **GET** /v1/applications/{applicationId}/access_logs | Get access logs for application
+[**getAccessLogs**](ManagementApi.md#getAccessLogs) | **GET** /v1/applications/{applicationId}/access_logs | Get access logs for application (with total count)
 [**getAccessLogsWithoutTotalCount**](ManagementApi.md#getAccessLogsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/access_logs/no_total | Get access logs for application
 [**getAccount**](ManagementApi.md#getAccount) | **GET** /v1/accounts/{accountId} | Get Account Details
 [**getAccountAnalytics**](ManagementApi.md#getAccountAnalytics) | **GET** /v1/accounts/{accountId}/analytics | Get Account Analytics
@@ -30,9 +30,9 @@ Method | HTTP request | Description
 [**getApplicationApiHealth**](ManagementApi.md#getApplicationApiHealth) | **GET** /v1/applications/{applicationId}/health_report | Get report of health of application API
 [**getApplicationCustomer**](ManagementApi.md#getApplicationCustomer) | **GET** /v1/applications/{applicationId}/customers/{customerId} | Get Application Customer
 [**getApplicationCustomers**](ManagementApi.md#getApplicationCustomers) | **GET** /v1/applications/{applicationId}/customers | List Application Customers
-[**getApplicationCustomersByAttributes**](ManagementApi.md#getApplicationCustomersByAttributes) | **POST** /v1/application_customer_search | Get a list of the customer profiles that match the given attributes
+[**getApplicationCustomersByAttributes**](ManagementApi.md#getApplicationCustomersByAttributes) | **POST** /v1/application_customer_search | Get a list of the customer profiles that match the given attributes (with total count)
 [**getApplicationEventTypes**](ManagementApi.md#getApplicationEventTypes) | **GET** /v1/applications/{applicationId}/event_types | List Applications Event Types
-[**getApplicationEvents**](ManagementApi.md#getApplicationEvents) | **GET** /v1/applications/{applicationId}/events | List Applications Events
+[**getApplicationEvents**](ManagementApi.md#getApplicationEvents) | **GET** /v1/applications/{applicationId}/events | List Applications Events (with total count)
 [**getApplicationEventsWithoutTotalCount**](ManagementApi.md#getApplicationEventsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/events/no_total | List Applications Events
 [**getApplicationSession**](ManagementApi.md#getApplicationSession) | **GET** /v1/applications/{applicationId}/sessions/{sessionId} | Get Application Session
 [**getApplicationSessions**](ManagementApi.md#getApplicationSessions) | **GET** /v1/applications/{applicationId}/sessions | List Application Sessions
@@ -42,15 +42,14 @@ Method | HTTP request | Description
 [**getCampaign**](ManagementApi.md#getCampaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get a Campaign
 [**getCampaignAnalytics**](ManagementApi.md#getCampaignAnalytics) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/analytics | Get analytics of campaigns
 [**getCampaignByAttributes**](ManagementApi.md#getCampaignByAttributes) | **POST** /v1/applications/{applicationId}/campaigns_search | Get a list of all campaigns that match the given attributes
-[**getCampaignSet**](ManagementApi.md#getCampaignSet) | **GET** /v1/applications/{applicationId}/campaign_set | List CampaignSet
 [**getCampaigns**](ManagementApi.md#getCampaigns) | **GET** /v1/applications/{applicationId}/campaigns | List your Campaigns
 [**getChanges**](ManagementApi.md#getChanges) | **GET** /v1/changes | Get audit log for an account
-[**getCoupons**](ManagementApi.md#getCoupons) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | List Coupons
+[**getCoupons**](ManagementApi.md#getCoupons) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | List Coupons (with total count)
 [**getCouponsByAttributes**](ManagementApi.md#getCouponsByAttributes) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search | Get a list of the coupons that match the given attributes
-[**getCouponsByAttributesApplicationWide**](ManagementApi.md#getCouponsByAttributesApplicationWide) | **POST** /v1/applications/{applicationId}/coupons_search | Get a list of the coupons that match the given attributes in all active campaigns of an application
+[**getCouponsByAttributesApplicationWide**](ManagementApi.md#getCouponsByAttributesApplicationWide) | **POST** /v1/applications/{applicationId}/coupons_search | Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
 [**getCouponsWithoutTotalCount**](ManagementApi.md#getCouponsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List Coupons
 [**getCustomerActivityReport**](ManagementApi.md#getCustomerActivityReport) | **GET** /v1/applications/{applicationId}/customer_activity_reports/{customerId} | Get Activity Report for Single Customer
-[**getCustomerActivityReports**](ManagementApi.md#getCustomerActivityReports) | **GET** /v1/applications/{applicationId}/customer_activity_reports | Get Activity Reports for Application Customers
+[**getCustomerActivityReports**](ManagementApi.md#getCustomerActivityReports) | **GET** /v1/applications/{applicationId}/customer_activity_reports | Get Activity Reports for Application Customers (with total count)
 [**getCustomerActivityReportsWithoutTotalCount**](ManagementApi.md#getCustomerActivityReportsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/customer_activity_reports/no_total | Get Activity Reports for Application Customers
 [**getCustomerAnalytics**](ManagementApi.md#getCustomerAnalytics) | **GET** /v1/applications/{applicationId}/customers/{customerId}/analytics | Get Analytics Report for a Customer
 [**getCustomerProfile**](ManagementApi.md#getCustomerProfile) | **GET** /v1/customers/{customerId} | Get Customer Profile
@@ -62,7 +61,7 @@ Method | HTTP request | Description
 [**getLoyaltyPoints**](ManagementApi.md#getLoyaltyPoints) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | get the Loyalty Ledger for this integrationID
 [**getLoyaltyProgram**](ManagementApi.md#getLoyaltyProgram) | **GET** /v1/loyalty_programs/{programID} | Get a loyalty program
 [**getLoyaltyPrograms**](ManagementApi.md#getLoyaltyPrograms) | **GET** /v1/loyalty_programs | List all loyalty Programs
-[**getReferrals**](ManagementApi.md#getReferrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List Referrals
+[**getReferrals**](ManagementApi.md#getReferrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List Referrals (with total count)
 [**getReferralsWithoutTotalCount**](ManagementApi.md#getReferralsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List Referrals
 [**getRole**](ManagementApi.md#getRole) | **GET** /v1/roles/{roleId} | Get information for the specified role.
 [**getRuleset**](ManagementApi.md#getRuleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get a Ruleset
@@ -75,14 +74,13 @@ Method | HTTP request | Description
 [**getWebhooks**](ManagementApi.md#getWebhooks) | **GET** /v1/webhooks | List Webhooks
 [**removeLoyaltyPoints**](ManagementApi.md#removeLoyaltyPoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/deduct_points | Deduct points in a certain loyalty program for the specified customer
 [**resetPassword**](ManagementApi.md#resetPassword) | **POST** /v1/reset_password | Reset password
-[**searchCouponsAdvanced**](ManagementApi.md#searchCouponsAdvanced) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced | Get a list of the coupons that match the given attributes
-[**searchCouponsAdvancedApplicationWide**](ManagementApi.md#searchCouponsAdvancedApplicationWide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | Get a list of the coupons that match the given attributes in all active campaigns of an application
+[**searchCouponsAdvanced**](ManagementApi.md#searchCouponsAdvanced) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced | Get a list of the coupons that match the given attributes (with total count)
+[**searchCouponsAdvancedApplicationWide**](ManagementApi.md#searchCouponsAdvancedApplicationWide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
 [**searchCouponsAdvancedApplicationWideWithoutTotalCount**](ManagementApi.md#searchCouponsAdvancedApplicationWideWithoutTotalCount) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes in all active campaigns of an application
 [**searchCouponsAdvancedWithoutTotalCount**](ManagementApi.md#searchCouponsAdvancedWithoutTotalCount) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes
 [**updateAdditionalCost**](ManagementApi.md#updateAdditionalCost) | **PUT** /v1/additional_costs/{additionalCostId} | Update an additional cost
 [**updateAttribute**](ManagementApi.md#updateAttribute) | **PUT** /v1/attributes/{attributeId} | Update a custom attribute
 [**updateCampaign**](ManagementApi.md#updateCampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update a Campaign
-[**updateCampaignSet**](ManagementApi.md#updateCampaignSet) | **PUT** /v1/applications/{applicationId}/campaign_set | Update a Campaign Set
 [**updateCoupon**](ManagementApi.md#updateCoupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update a Coupon
 [**updateCouponBatch**](ManagementApi.md#updateCouponBatch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update a Batch of Coupons
 [**updateRuleset**](ManagementApi.md#updateRuleset) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Update a Ruleset
@@ -155,7 +153,7 @@ void (empty response body)
 
 ## copyCampaignToApplications
 
-> \TalonOne\Client\Model\InlineResponse2003 copyCampaignToApplications($applicationId, $campaignId, $body)
+> \TalonOne\Client\Model\InlineResponse2002 copyCampaignToApplications($applicationId, $campaignId, $body)
 
 Copy the campaign into every specified application
 
@@ -204,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\TalonOne\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
@@ -411,7 +409,7 @@ Name | Type | Description  | Notes
 
 ## createCoupons
 
-> \TalonOne\Client\Model\InlineResponse2001 createCoupons($applicationId, $campaignId, $body, $silent)
+> \TalonOne\Client\Model\InlineResponse2004 createCoupons($applicationId, $campaignId, $body, $silent)
 
 Create Coupons
 
@@ -462,7 +460,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
 
 ### Authorization
 
@@ -1013,7 +1011,7 @@ void (empty response body)
 
 > \TalonOne\Client\Model\InlineResponse2009 getAccessLogs($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
 
-Get access logs for application
+Get access logs for application (with total count)
 
 ### Example
 
@@ -1805,7 +1803,7 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse20013 getApplicationCustomersByAttributes($body)
 
-Get a list of the customer profiles that match the given attributes
+Get a list of the customer profiles that match the given attributes (with total count)
 
 Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile
 
@@ -1937,7 +1935,7 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse20017 getApplicationEvents($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
 
-List Applications Events
+List Applications Events (with total count)
 
 Lists all events recorded for an application.
 
@@ -2259,7 +2257,7 @@ Name | Type | Description  | Notes
 
 ## getApplications
 
-> \TalonOne\Client\Model\InlineResponse2002 getApplications($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2001 getApplications($pageSize, $skip, $sort)
 
 List Applications
 
@@ -2308,7 +2306,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -2588,7 +2586,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignByAttributes
 
-> \TalonOne\Client\Model\InlineResponse2003 getCampaignByAttributes($applicationId, $body, $pageSize, $skip, $sort, $campaignState)
+> \TalonOne\Client\Model\InlineResponse2002 getCampaignByAttributes($applicationId, $body, $pageSize, $skip, $sort, $campaignState)
 
 Get a list of all campaigns that match the given attributes
 
@@ -2643,7 +2641,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\TalonOne\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
@@ -2659,70 +2657,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## getCampaignSet
-
-> \TalonOne\Client\Model\CampaignSet getCampaignSet($applicationId)
-
-List CampaignSet
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new TalonOne\Client\Api\ManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$applicationId = 56; // int | 
-
-try {
-    $result = $apiInstance->getCampaignSet($applicationId);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ManagementApi->getCampaignSet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  |
-
-### Return type
-
-[**\TalonOne\Client\Model\CampaignSet**](../Model/CampaignSet.md)
-
-### Authorization
-
-[manager_auth](../../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
 ## getCampaigns
 
-> \TalonOne\Client\Model\InlineResponse2003 getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter)
+> \TalonOne\Client\Model\InlineResponse2002 getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter)
 
 List your Campaigns
 
@@ -2781,7 +2718,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\TalonOne\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
@@ -2876,9 +2813,9 @@ Name | Type | Description  | Notes
 
 ## getCoupons
 
-> \TalonOne\Client\Model\InlineResponse2001 getCoupons($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch)
+> \TalonOne\Client\Model\InlineResponse2004 getCoupons($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch)
 
-List Coupons
+List Coupons (with total count)
 
 ### Example
 
@@ -2953,7 +2890,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
 
 ### Authorization
 
@@ -2971,7 +2908,7 @@ Name | Type | Description  | Notes
 
 ## getCouponsByAttributes
 
-> \TalonOne\Client\Model\InlineResponse2001 getCouponsByAttributes($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
+> \TalonOne\Client\Model\InlineResponse2004 getCouponsByAttributes($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
 
 Get a list of the coupons that match the given attributes
 
@@ -3044,7 +2981,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
 
 ### Authorization
 
@@ -3062,9 +2999,9 @@ Name | Type | Description  | Notes
 
 ## getCouponsByAttributesApplicationWide
 
-> \TalonOne\Client\Model\InlineResponse2001 getCouponsByAttributesApplicationWide($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
+> \TalonOne\Client\Model\InlineResponse2004 getCouponsByAttributesApplicationWide($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application
+Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
 
 Gets a list of all the coupons with attributes matching the query criteria Application wide
 
@@ -3135,7 +3072,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
 
 ### Authorization
 
@@ -3315,7 +3252,7 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse20014 getCustomerActivityReports($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
 
-Get Activity Reports for Application Customers
+Get Activity Reports for Application Customers (with total count)
 
 Fetch summary reports for all application customers based on a time range
 
@@ -4133,7 +4070,7 @@ This endpoint does not need any parameter.
 
 > \TalonOne\Client\Model\InlineResponse2006 getReferrals($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
 
-List Referrals
+List Referrals (with total count)
 
 ### Example
 
@@ -4419,7 +4356,7 @@ Name | Type | Description  | Notes
 
 ## getRulesets
 
-> \TalonOne\Client\Model\InlineResponse2004 getRulesets($applicationId, $campaignId, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2003 getRulesets($applicationId, $campaignId, $pageSize, $skip, $sort)
 
 List Campaign Rulesets
 
@@ -4470,7 +4407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -5033,9 +4970,9 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvanced
 
-> \TalonOne\Client\Model\InlineResponse2001 searchCouponsAdvanced($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
+> \TalonOne\Client\Model\InlineResponse2004 searchCouponsAdvanced($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
 
-Get a list of the coupons that match the given attributes
+Get a list of the coupons that match the given attributes (with total count)
 
 Gets a list of all the coupons with attributes matching the query criteria
 
@@ -5106,7 +5043,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
 
 ### Authorization
 
@@ -5124,9 +5061,9 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvancedApplicationWide
 
-> \TalonOne\Client\Model\InlineResponse2001 searchCouponsAdvancedApplicationWide($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
+> \TalonOne\Client\Model\InlineResponse2004 searchCouponsAdvancedApplicationWide($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application
+Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
 
 Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application
 
@@ -5197,7 +5134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
 
 ### Authorization
 
@@ -5575,69 +5512,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\TalonOne\Client\Model\Campaign**](../Model/Campaign.md)
-
-### Authorization
-
-[manager_auth](../../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
-## updateCampaignSet
-
-> \TalonOne\Client\Model\CampaignSet updateCampaignSet($applicationId, $body)
-
-Update a Campaign Set
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new TalonOne\Client\Api\ManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$applicationId = 56; // int | 
-$body = new \TalonOne\Client\Model\NewCampaignSet(); // \TalonOne\Client\Model\NewCampaignSet | 
-
-try {
-    $result = $apiInstance->updateCampaignSet($applicationId, $body);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ManagementApi->updateCampaignSet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\NewCampaignSet**](../Model/NewCampaignSet.md)|  |
-
-### Return type
-
-[**\TalonOne\Client\Model\CampaignSet**](../Model/CampaignSet.md)
 
 ### Authorization
 

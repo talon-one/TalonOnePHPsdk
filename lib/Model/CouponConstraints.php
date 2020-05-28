@@ -58,6 +58,7 @@ class CouponConstraints implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'usageLimit' => 'int',
+        'discountLimit' => 'float',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime'
     ];
@@ -69,6 +70,7 @@ class CouponConstraints implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'usageLimit' => null,
+        'discountLimit' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time'
     ];
@@ -101,6 +103,7 @@ class CouponConstraints implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'usageLimit' => 'usageLimit',
+        'discountLimit' => 'discountLimit',
         'startDate' => 'startDate',
         'expiryDate' => 'expiryDate'
     ];
@@ -112,6 +115,7 @@ class CouponConstraints implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'usageLimit' => 'setUsageLimit',
+        'discountLimit' => 'setDiscountLimit',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate'
     ];
@@ -123,6 +127,7 @@ class CouponConstraints implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'usageLimit' => 'getUsageLimit',
+        'discountLimit' => 'getDiscountLimit',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate'
     ];
@@ -188,6 +193,7 @@ class CouponConstraints implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['usageLimit'] = isset($data['usageLimit']) ? $data['usageLimit'] : null;
+        $this->container['discountLimit'] = isset($data['discountLimit']) ? $data['discountLimit'] : null;
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
     }
@@ -207,6 +213,14 @@ class CouponConstraints implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['usageLimit']) && ($this->container['usageLimit'] < 0)) {
             $invalidProperties[] = "invalid value for 'usageLimit', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] > 999999)) {
+            $invalidProperties[] = "invalid value for 'discountLimit', must be smaller than or equal to 999999.";
+        }
+
+        if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] < 0)) {
+            $invalidProperties[] = "invalid value for 'discountLimit', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -252,6 +266,38 @@ class CouponConstraints implements ModelInterface, ArrayAccess
         }
 
         $this->container['usageLimit'] = $usageLimit;
+
+        return $this;
+    }
+
+    /**
+     * Gets discountLimit
+     *
+     * @return float|null
+     */
+    public function getDiscountLimit()
+    {
+        return $this->container['discountLimit'];
+    }
+
+    /**
+     * Sets discountLimit
+     *
+     * @param float|null $discountLimit The amount of discounts that can be given with this coupon code.
+     *
+     * @return $this
+     */
+    public function setDiscountLimit($discountLimit)
+    {
+
+        if (!is_null($discountLimit) && ($discountLimit > 999999)) {
+            throw new \InvalidArgumentException('invalid value for $discountLimit when calling CouponConstraints., must be smaller than or equal to 999999.');
+        }
+        if (!is_null($discountLimit) && ($discountLimit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $discountLimit when calling CouponConstraints., must be bigger than or equal to 0.');
+        }
+
+        $this->container['discountLimit'] = $discountLimit;
 
         return $this;
     }
