@@ -114,6 +114,13 @@ class CouponTest extends TestCase
     }
 
     /**
+     * Test attribute "discountLimit"
+     */
+    public function testPropertyDiscountLimit()
+    {
+    }
+
+    /**
      * Test attribute "startDate"
      */
     public function testPropertyStartDate()
@@ -131,6 +138,20 @@ class CouponTest extends TestCase
      * Test attribute "usageCounter"
      */
     public function testPropertyUsageCounter()
+    {
+    }
+
+    /**
+     * Test attribute "discountCounter"
+     */
+    public function testPropertyDiscountCounter()
+    {
+    }
+
+    /**
+     * Test attribute "discountRemainder"
+     */
+    public function testPropertyDiscountRemainder()
     {
     }
 

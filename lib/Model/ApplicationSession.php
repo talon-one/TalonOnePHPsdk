@@ -314,6 +314,9 @@ class ApplicationSession implements ModelInterface, ArrayAccess
         if ($this->container['discounts'] === null) {
             $invalidProperties[] = "'discounts' can't be null";
         }
+        if ($this->container['total'] === null) {
+            $invalidProperties[] = "'total' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -605,7 +608,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     /**
      * Gets total
      *
-     * @return float|null
+     * @return float
      */
     public function getTotal()
     {
@@ -615,7 +618,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param float|null $total The total sum of the session before any discounts applied.
+     * @param float $total The total sum of the session before any discounts applied.
      *
      * @return $this
      */

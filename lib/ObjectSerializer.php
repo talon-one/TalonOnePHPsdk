@@ -272,7 +272,7 @@ class ObjectSerializer
             return $deserialized;
         } elseif (strcasecmp(substr($class, -2), '[]') === 0) {
             $data = is_string($data) ? json_decode($data) : $data;
-            $subClass = substr($class, 0, -2);  
+            $subClass = substr($class, 0, -2);
             $values = [];
             foreach ($data as $key => $value) {
                 $values[] = self::deserialize($value, $subClass, null);

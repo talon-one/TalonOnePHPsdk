@@ -215,7 +215,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getAccessLogs
      *
-     * Get access logs for application.
+     * Get access logs for application (with total count).
      *
      */
     public function testGetAccessLogs()
@@ -335,7 +335,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getApplicationCustomersByAttributes
      *
-     * Get a list of the customer profiles that match the given attributes.
+     * Get a list of the customer profiles that match the given attributes (with total count).
      *
      */
     public function testGetApplicationCustomersByAttributes()
@@ -355,7 +355,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getApplicationEvents
      *
-     * List Applications Events.
+     * List Applications Events (with total count).
      *
      */
     public function testGetApplicationEvents()
@@ -453,16 +453,6 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for getCampaignSet
-     *
-     * List CampaignSet.
-     *
-     */
-    public function testGetCampaignSet()
-    {
-    }
-
-    /**
      * Test case for getCampaigns
      *
      * List your Campaigns.
@@ -485,7 +475,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getCoupons
      *
-     * List Coupons.
+     * List Coupons (with total count).
      *
      */
     public function testGetCoupons()
@@ -505,7 +495,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getCouponsByAttributesApplicationWide
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application.
+     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count).
      *
      */
     public function testGetCouponsByAttributesApplicationWide()
@@ -535,7 +525,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getCustomerActivityReports
      *
-     * Get Activity Reports for Application Customers.
+     * Get Activity Reports for Application Customers (with total count).
      *
      */
     public function testGetCustomerActivityReports()
@@ -655,7 +645,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getReferrals
      *
-     * List Referrals.
+     * List Referrals (with total count).
      *
      */
     public function testGetReferrals()
@@ -785,7 +775,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for searchCouponsAdvanced
      *
-     * Get a list of the coupons that match the given attributes.
+     * Get a list of the coupons that match the given attributes (with total count).
      *
      */
     public function testSearchCouponsAdvanced()
@@ -795,7 +785,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for searchCouponsAdvancedApplicationWide
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application.
+     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count).
      *
      */
     public function testSearchCouponsAdvancedApplicationWide()
@@ -849,16 +839,6 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testUpdateCampaign()
-    {
-    }
-
-    /**
-     * Test case for updateCampaignSet
-     *
-     * Update a Campaign Set.
-     *
-     */
-    public function testUpdateCampaignSet()
     {
     }
 

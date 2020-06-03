@@ -65,6 +65,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         'caseSensitivity' => 'string',
         'attributes' => 'object',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
+        'campaignPriority' => 'string',
         'attributesSettings' => '\TalonOne\Client\Model\AttributesSettings',
         'key' => 'string'
     ];
@@ -82,6 +83,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         'caseSensitivity' => null,
         'attributes' => null,
         'limits' => null,
+        'campaignPriority' => null,
         'attributesSettings' => null,
         'key' => null
     ];
@@ -120,6 +122,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         'caseSensitivity' => 'caseSensitivity',
         'attributes' => 'attributes',
         'limits' => 'limits',
+        'campaignPriority' => 'campaignPriority',
         'attributesSettings' => 'attributesSettings',
         'key' => 'key'
     ];
@@ -137,6 +140,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         'caseSensitivity' => 'setCaseSensitivity',
         'attributes' => 'setAttributes',
         'limits' => 'setLimits',
+        'campaignPriority' => 'setCampaignPriority',
         'attributesSettings' => 'setAttributesSettings',
         'key' => 'setKey'
     ];
@@ -154,6 +158,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         'caseSensitivity' => 'getCaseSensitivity',
         'attributes' => 'getAttributes',
         'limits' => 'getLimits',
+        'campaignPriority' => 'getCampaignPriority',
         'attributesSettings' => 'getAttributesSettings',
         'key' => 'getKey'
     ];
@@ -202,6 +207,9 @@ class NewApplication implements ModelInterface, ArrayAccess
     const CASE_SENSITIVITY_SENSITIVE = 'sensitive';
     const CASE_SENSITIVITY_INSENSITIVE_UPPERCASE = 'insensitive-uppercase';
     const CASE_SENSITIVITY_INSENSITIVE_LOWERCASE = 'insensitive-lowercase';
+    const CAMPAIGN_PRIORITY_UNIVERSAL = 'universal';
+    const CAMPAIGN_PRIORITY_STACKABLE = 'stackable';
+    const CAMPAIGN_PRIORITY_EXCLUSIVE = 'exclusive';
     
 
     
@@ -216,6 +224,20 @@ class NewApplication implements ModelInterface, ArrayAccess
             self::CASE_SENSITIVITY_SENSITIVE,
             self::CASE_SENSITIVITY_INSENSITIVE_UPPERCASE,
             self::CASE_SENSITIVITY_INSENSITIVE_LOWERCASE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCampaignPriorityAllowableValues()
+    {
+        return [
+            self::CAMPAIGN_PRIORITY_UNIVERSAL,
+            self::CAMPAIGN_PRIORITY_STACKABLE,
+            self::CAMPAIGN_PRIORITY_EXCLUSIVE,
         ];
     }
     
@@ -242,6 +264,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         $this->container['caseSensitivity'] = isset($data['caseSensitivity']) ? $data['caseSensitivity'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
+        $this->container['campaignPriority'] = isset($data['campaignPriority']) ? $data['campaignPriority'] : null;
         $this->container['attributesSettings'] = isset($data['attributesSettings']) ? $data['attributesSettings'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
     }
@@ -284,12 +307,12 @@ class NewApplication implements ModelInterface, ArrayAccess
             );
         }
 
-        if (!is_null($this->container['key']) && (mb_strlen($this->container['key']) > 16)) {
-            $invalidProperties[] = "invalid value for 'key', the character length must be smaller than or equal to 16.";
-        }
-
-        if (!is_null($this->container['key']) && (mb_strlen($this->container['key']) < 16)) {
-            $invalidProperties[] = "invalid value for 'key', the character length must be bigger than or equal to 16.";
+        $allowedValues = $this->getCampaignPriorityAllowableValues();
+        if (!is_null($this->container['campaignPriority']) && !in_array($this->container['campaignPriority'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'campaignPriority', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
         if (!is_null($this->container['key']) && !preg_match("/^[a-fA-F0-9]{16}$/", $this->container['key'])) {
@@ -504,6 +527,39 @@ class NewApplication implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets campaignPriority
+     *
+     * @return string|null
+     */
+    public function getCampaignPriority()
+    {
+        return $this->container['campaignPriority'];
+    }
+
+    /**
+     * Sets campaignPriority
+     *
+     * @param string|null $campaignPriority Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)
+     *
+     * @return $this
+     */
+    public function setCampaignPriority($campaignPriority)
+    {
+        $allowedValues = $this->getCampaignPriorityAllowableValues();
+        if (!is_null($campaignPriority) && !in_array($campaignPriority, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'campaignPriority', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['campaignPriority'] = $campaignPriority;
+
+        return $this;
+    }
+
+    /**
      * Gets attributesSettings
      *
      * @return \TalonOne\Client\Model\AttributesSettings|null
@@ -546,12 +602,7 @@ class NewApplication implements ModelInterface, ArrayAccess
      */
     public function setKey($key)
     {
-        if (!is_null($key) && (mb_strlen($key) > 16)) {
-            throw new \InvalidArgumentException('invalid length for $key when calling NewApplication., must be smaller than or equal to 16.');
-        }
-        if (!is_null($key) && (mb_strlen($key) < 16)) {
-            throw new \InvalidArgumentException('invalid length for $key when calling NewApplication., must be bigger than or equal to 16.');
-        }
+
         if (!is_null($key) && (!preg_match("/^[a-fA-F0-9]{16}$/", $key))) {
             throw new \InvalidArgumentException("invalid value for $key when calling NewApplication., must conform to the pattern /^[a-fA-F0-9]{16}$/.");
         }

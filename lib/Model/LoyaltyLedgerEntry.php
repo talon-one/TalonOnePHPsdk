@@ -67,7 +67,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'amount' => 'float',
         'expiryDate' => '\DateTime',
         'name' => 'string',
-        'subLedgerID' => 'string'
+        'subLedgerID' => 'string',
+        'userID' => 'int'
     ];
 
     /**
@@ -85,7 +86,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'amount' => null,
         'expiryDate' => 'date-time',
         'name' => null,
-        'subLedgerID' => null
+        'subLedgerID' => null,
+        'userID' => null
     ];
 
     /**
@@ -124,7 +126,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'amount' => 'amount',
         'expiryDate' => 'expiryDate',
         'name' => 'name',
-        'subLedgerID' => 'subLedgerID'
+        'subLedgerID' => 'subLedgerID',
+        'userID' => 'userID'
     ];
 
     /**
@@ -142,7 +145,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'amount' => 'setAmount',
         'expiryDate' => 'setExpiryDate',
         'name' => 'setName',
-        'subLedgerID' => 'setSubLedgerID'
+        'subLedgerID' => 'setSubLedgerID',
+        'userID' => 'setUserID'
     ];
 
     /**
@@ -160,7 +164,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'amount' => 'getAmount',
         'expiryDate' => 'getExpiryDate',
         'name' => 'getName',
-        'subLedgerID' => 'getSubLedgerID'
+        'subLedgerID' => 'getSubLedgerID',
+        'userID' => 'getUserID'
     ];
 
     /**
@@ -204,23 +209,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const TYPE_ADDITION = 'addition';
-    const TYPE_SUBTRACTION = 'subtraction';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_ADDITION,
-            self::TYPE_SUBTRACTION,
-        ];
-    }
     
 
     /**
@@ -248,6 +238,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['subLedgerID'] = isset($data['subLedgerID']) ? $data['subLedgerID'] : null;
+        $this->container['userID'] = isset($data['userID']) ? $data['userID'] : null;
     }
 
     /**
@@ -271,14 +262,6 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
@@ -436,21 +419,12 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type The type of the ledger transaction. Possible values are addition, subtraction, expire or expiring (for expiring points ledgers)
      *
      * @return $this
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
 
         return $this;
@@ -548,6 +522,30 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     public function setSubLedgerID($subLedgerID)
     {
         $this->container['subLedgerID'] = $subLedgerID;
+
+        return $this;
+    }
+
+    /**
+     * Gets userID
+     *
+     * @return int|null
+     */
+    public function getUserID()
+    {
+        return $this->container['userID'];
+    }
+
+    /**
+     * Sets userID
+     *
+     * @param int|null $userID This is the ID of the user who created this entry, if the addition or subtraction was done manually.
+     *
+     * @return $this
+     */
+    public function setUserID($userID)
+    {
+        $this->container['userID'] = $userID;
 
         return $this;
     }

@@ -147,4 +147,11 @@ class LoyaltyLedgerEntryTest extends TestCase
     public function testPropertySubLedgerID()
     {
     }
+
+    /**
+     * Test attribute "userID"
+     */
+    public function testPropertyUserID()
+    {
+    }
 }

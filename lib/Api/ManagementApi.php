@@ -388,7 +388,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2003
+     * @return \TalonOne\Client\Model\InlineResponse2002
      */
     public function copyCampaignToApplications($applicationId, $campaignId, $body)
     {
@@ -407,7 +407,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
     public function copyCampaignToApplicationsWithHttpInfo($applicationId, $campaignId, $body)
     {
@@ -444,20 +444,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2003' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2002' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2003', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2002', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2003';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2002';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -476,7 +476,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2003',
+                        '\TalonOne\Client\Model\InlineResponse2002',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -522,7 +522,7 @@ class ManagementApi
      */
     public function copyCampaignToApplicationsAsyncWithHttpInfo($applicationId, $campaignId, $body)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2003';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2002';
         $request = $this->copyCampaignToApplicationsRequest($applicationId, $campaignId, $body);
 
         return $this->client
@@ -1534,7 +1534,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2001
+     * @return \TalonOne\Client\Model\InlineResponse2004
      */
     public function createCoupons($applicationId, $campaignId, $body, $silent = null)
     {
@@ -1554,7 +1554,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCouponsWithHttpInfo($applicationId, $campaignId, $body, $silent = null)
     {
@@ -1591,20 +1591,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2004' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2004', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2004';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1623,7 +1623,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2001',
+                        '\TalonOne\Client\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1671,7 +1671,7 @@ class ManagementApi
      */
     public function createCouponsAsyncWithHttpInfo($applicationId, $campaignId, $body, $silent = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2004';
         $request = $this->createCouponsRequest($applicationId, $campaignId, $body, $silent);
 
         return $this->client
@@ -4112,7 +4112,7 @@ class ManagementApi
     /**
      * Operation getAccessLogs
      *
-     * Get access logs for application
+     * Get access logs for application (with total count)
      *
      * @param  int $applicationId applicationId (required)
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
@@ -4137,7 +4137,7 @@ class ManagementApi
     /**
      * Operation getAccessLogsWithHttpInfo
      *
-     * Get access logs for application
+     * Get access logs for application (with total count)
      *
      * @param  int $applicationId (required)
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
@@ -4233,7 +4233,7 @@ class ManagementApi
     /**
      * Operation getAccessLogsAsync
      *
-     * Get access logs for application
+     * Get access logs for application (with total count)
      *
      * @param  int $applicationId (required)
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
@@ -4261,7 +4261,7 @@ class ManagementApi
     /**
      * Operation getAccessLogsAsyncWithHttpInfo
      *
-     * Get access logs for application
+     * Get access logs for application (with total count)
      *
      * @param  int $applicationId (required)
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
@@ -7677,7 +7677,7 @@ class ManagementApi
     /**
      * Operation getApplicationCustomersByAttributes
      *
-     * Get a list of the customer profiles that match the given attributes
+     * Get a list of the customer profiles that match the given attributes (with total count)
      *
      * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body body (required)
      *
@@ -7694,7 +7694,7 @@ class ManagementApi
     /**
      * Operation getApplicationCustomersByAttributesWithHttpInfo
      *
-     * Get a list of the customer profiles that match the given attributes
+     * Get a list of the customer profiles that match the given attributes (with total count)
      *
      * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
      *
@@ -7782,7 +7782,7 @@ class ManagementApi
     /**
      * Operation getApplicationCustomersByAttributesAsync
      *
-     * Get a list of the customer profiles that match the given attributes
+     * Get a list of the customer profiles that match the given attributes (with total count)
      *
      * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
      *
@@ -7802,7 +7802,7 @@ class ManagementApi
     /**
      * Operation getApplicationCustomersByAttributesAsyncWithHttpInfo
      *
-     * Get a list of the customer profiles that match the given attributes
+     * Get a list of the customer profiles that match the given attributes (with total count)
      *
      * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
      *
@@ -8253,7 +8253,7 @@ class ManagementApi
     /**
      * Operation getApplicationEvents
      *
-     * List Applications Events
+     * List Applications Events (with total count)
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
@@ -8284,7 +8284,7 @@ class ManagementApi
     /**
      * Operation getApplicationEventsWithHttpInfo
      *
-     * List Applications Events
+     * List Applications Events (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
@@ -8386,7 +8386,7 @@ class ManagementApi
     /**
      * Operation getApplicationEventsAsync
      *
-     * List Applications Events
+     * List Applications Events (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
@@ -8420,7 +8420,7 @@ class ManagementApi
     /**
      * Operation getApplicationEventsAsyncWithHttpInfo
      *
-     * List Applications Events
+     * List Applications Events (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
@@ -9737,7 +9737,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2002
+     * @return \TalonOne\Client\Model\InlineResponse2001
      */
     public function getApplications($pageSize = null, $skip = null, $sort = null)
     {
@@ -9756,7 +9756,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
     public function getApplicationsWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
@@ -9793,20 +9793,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2002' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2002', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2002';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -9825,7 +9825,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2002',
+                        '\TalonOne\Client\Model\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9871,7 +9871,7 @@ class ManagementApi
      */
     public function getApplicationsAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2002';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
         $request = $this->getApplicationsRequest($pageSize, $skip, $sort);
 
         return $this->client
@@ -11218,7 +11218,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2003
+     * @return \TalonOne\Client\Model\InlineResponse2002
      */
     public function getCampaignByAttributes($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
@@ -11240,7 +11240,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCampaignByAttributesWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
@@ -11277,20 +11277,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2003' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2002' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2003', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2002', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2003';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2002';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -11309,7 +11309,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2003',
+                        '\TalonOne\Client\Model\InlineResponse2002',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11361,7 +11361,7 @@ class ManagementApi
      */
     public function getCampaignByAttributesAsyncWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2003';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2002';
         $request = $this->getCampaignByAttributesRequest($applicationId, $body, $pageSize, $skip, $sort, $campaignState);
 
         return $this->client
@@ -11532,283 +11532,6 @@ class ManagementApi
     }
 
     /**
-     * Operation getCampaignSet
-     *
-     * List CampaignSet
-     *
-     * @param  int $applicationId applicationId (required)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\CampaignSet
-     */
-    public function getCampaignSet($applicationId)
-    {
-        list($response) = $this->getCampaignSetWithHttpInfo($applicationId);
-        return $response;
-    }
-
-    /**
-     * Operation getCampaignSetWithHttpInfo
-     *
-     * List CampaignSet
-     *
-     * @param  int $applicationId (required)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\CampaignSet, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getCampaignSetWithHttpInfo($applicationId)
-    {
-        $request = $this->getCampaignSetRequest($applicationId);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\CampaignSet' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\CampaignSet', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\CampaignSet';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\CampaignSet',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getCampaignSetAsync
-     *
-     * List CampaignSet
-     *
-     * @param  int $applicationId (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCampaignSetAsync($applicationId)
-    {
-        return $this->getCampaignSetAsyncWithHttpInfo($applicationId)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getCampaignSetAsyncWithHttpInfo
-     *
-     * List CampaignSet
-     *
-     * @param  int $applicationId (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCampaignSetAsyncWithHttpInfo($applicationId)
-    {
-        $returnType = '\TalonOne\Client\Model\CampaignSet';
-        $request = $this->getCampaignSetRequest($applicationId);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getCampaignSet'
-     *
-     * @param  int $applicationId (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getCampaignSetRequest($applicationId)
-    {
-        // verify the required parameter 'applicationId' is set
-        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $applicationId when calling getCampaignSet'
-            );
-        }
-
-        $resourcePath = '/v1/applications/{applicationId}/campaign_set';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($applicationId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($applicationId),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation getCampaigns
      *
      * List your Campaigns
@@ -11825,7 +11548,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2003
+     * @return \TalonOne\Client\Model\InlineResponse2002
      */
     public function getCampaigns($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
     {
@@ -11850,7 +11573,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCampaignsWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
     {
@@ -11887,20 +11610,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2003' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2002' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2003', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2002', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2003';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2002';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -11919,7 +11642,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2003',
+                        '\TalonOne\Client\Model\InlineResponse2002',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11977,7 +11700,7 @@ class ManagementApi
      */
     public function getCampaignsAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2003';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2002';
         $request = $this->getCampaignsRequest($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter);
 
         return $this->client
@@ -12490,7 +12213,7 @@ class ManagementApi
     /**
      * Operation getCoupons
      *
-     * List Coupons
+     * List Coupons (with total count)
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
@@ -12513,7 +12236,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2001
+     * @return \TalonOne\Client\Model\InlineResponse2004
      */
     public function getCoupons($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
@@ -12524,7 +12247,7 @@ class ManagementApi
     /**
      * Operation getCouponsWithHttpInfo
      *
-     * List Coupons
+     * List Coupons (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -12547,7 +12270,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCouponsWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
@@ -12584,20 +12307,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2004' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2004', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2004';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -12616,7 +12339,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2001',
+                        '\TalonOne\Client\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12629,7 +12352,7 @@ class ManagementApi
     /**
      * Operation getCouponsAsync
      *
-     * List Coupons
+     * List Coupons (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -12666,7 +12389,7 @@ class ManagementApi
     /**
      * Operation getCouponsAsyncWithHttpInfo
      *
-     * List Coupons
+     * List Coupons (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -12692,7 +12415,7 @@ class ManagementApi
      */
     public function getCouponsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $startsAfter = null, $startsBefore = null, $expiresAfter = null, $expiresBefore = null, $valid = null, $batchId = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2004';
         $request = $this->getCouponsRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch);
 
         return $this->client
@@ -12950,7 +12673,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2001
+     * @return \TalonOne\Client\Model\InlineResponse2004
      */
     public function getCouponsByAttributes($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
@@ -12981,7 +12704,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCouponsByAttributesWithHttpInfo($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
@@ -13018,20 +12741,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2004' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2004', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2004';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -13050,7 +12773,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2001',
+                        '\TalonOne\Client\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13120,7 +12843,7 @@ class ManagementApi
      */
     public function getCouponsByAttributesAsyncWithHttpInfo($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2004';
         $request = $this->getCouponsByAttributesRequest($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
 
         return $this->client
@@ -13348,7 +13071,7 @@ class ManagementApi
     /**
      * Operation getCouponsByAttributesApplicationWide
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application
+     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId applicationId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body body (required)
@@ -13368,7 +13091,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2001
+     * @return \TalonOne\Client\Model\InlineResponse2004
      */
     public function getCouponsByAttributesApplicationWide($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
@@ -13379,7 +13102,7 @@ class ManagementApi
     /**
      * Operation getCouponsByAttributesApplicationWideWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application
+     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body (required)
@@ -13399,7 +13122,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCouponsByAttributesApplicationWideWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
@@ -13436,20 +13159,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2004' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2004', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2004';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -13468,7 +13191,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2001',
+                        '\TalonOne\Client\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13481,7 +13204,7 @@ class ManagementApi
     /**
      * Operation getCouponsByAttributesApplicationWideAsync
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application
+     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body (required)
@@ -13515,7 +13238,7 @@ class ManagementApi
     /**
      * Operation getCouponsByAttributesApplicationWideAsyncWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application
+     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId (required)
      * @param  \TalonOne\Client\Model\CouponSearch $body (required)
@@ -13538,7 +13261,7 @@ class ManagementApi
      */
     public function getCouponsByAttributesApplicationWideAsyncWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2004';
         $request = $this->getCouponsByAttributesApplicationWideRequest($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
 
         return $this->client
@@ -14504,7 +14227,7 @@ class ManagementApi
     /**
      * Operation getCustomerActivityReports
      *
-     * Get Activity Reports for Application Customers
+     * Get Activity Reports for Application Customers (with total count)
      *
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
@@ -14530,7 +14253,7 @@ class ManagementApi
     /**
      * Operation getCustomerActivityReportsWithHttpInfo
      *
-     * Get Activity Reports for Application Customers
+     * Get Activity Reports for Application Customers (with total count)
      *
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
@@ -14627,7 +14350,7 @@ class ManagementApi
     /**
      * Operation getCustomerActivityReportsAsync
      *
-     * Get Activity Reports for Application Customers
+     * Get Activity Reports for Application Customers (with total count)
      *
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
@@ -14656,7 +14379,7 @@ class ManagementApi
     /**
      * Operation getCustomerActivityReportsAsyncWithHttpInfo
      *
-     * Get Activity Reports for Application Customers
+     * Get Activity Reports for Application Customers (with total count)
      *
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
@@ -18151,7 +17874,7 @@ class ManagementApi
     /**
      * Operation getReferrals
      *
-     * List Referrals
+     * List Referrals (with total count)
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
@@ -18178,7 +17901,7 @@ class ManagementApi
     /**
      * Operation getReferralsWithHttpInfo
      *
-     * List Referrals
+     * List Referrals (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -18276,7 +17999,7 @@ class ManagementApi
     /**
      * Operation getReferralsAsync
      *
-     * List Referrals
+     * List Referrals (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -18306,7 +18029,7 @@ class ManagementApi
     /**
      * Operation getReferralsAsyncWithHttpInfo
      *
-     * List Referrals
+     * List Referrals (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -19507,7 +19230,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2004
+     * @return \TalonOne\Client\Model\InlineResponse2003
      */
     public function getRulesets($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null)
     {
@@ -19528,7 +19251,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRulesetsWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null)
     {
@@ -19565,20 +19288,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2004' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2003' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2004', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2003', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2004';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2003';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -19597,7 +19320,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2004',
+                        '\TalonOne\Client\Model\InlineResponse2003',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19647,7 +19370,7 @@ class ManagementApi
      */
     public function getRulesetsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2004';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2003';
         $request = $this->getRulesetsRequest($applicationId, $campaignId, $pageSize, $skip, $sort);
 
         return $this->client
@@ -22174,7 +21897,7 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvanced
      *
-     * Get a list of the coupons that match the given attributes
+     * Get a list of the coupons that match the given attributes (with total count)
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
@@ -22194,7 +21917,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2001
+     * @return \TalonOne\Client\Model\InlineResponse2004
      */
     public function searchCouponsAdvanced($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
@@ -22205,7 +21928,7 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes
+     * Get a list of the coupons that match the given attributes (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -22225,7 +21948,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchCouponsAdvancedWithHttpInfo($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
@@ -22262,20 +21985,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2004' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2004', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2004';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -22294,7 +22017,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2001',
+                        '\TalonOne\Client\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22307,7 +22030,7 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedAsync
      *
-     * Get a list of the coupons that match the given attributes
+     * Get a list of the coupons that match the given attributes (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -22341,7 +22064,7 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedAsyncWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes
+     * Get a list of the coupons that match the given attributes (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -22364,7 +22087,7 @@ class ManagementApi
      */
     public function searchCouponsAdvancedAsyncWithHttpInfo($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2004';
         $request = $this->searchCouponsAdvancedRequest($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
 
         return $this->client
@@ -22592,7 +22315,7 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedApplicationWide
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application
+     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId applicationId (required)
      * @param  object $body body (required)
@@ -22612,7 +22335,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2001
+     * @return \TalonOne\Client\Model\InlineResponse2004
      */
     public function searchCouponsAdvancedApplicationWide($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
@@ -22623,7 +22346,7 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedApplicationWideWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application
+     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId (required)
      * @param  object $body (required)
@@ -22643,7 +22366,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchCouponsAdvancedApplicationWideWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
@@ -22680,20 +22403,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2004' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2004', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2004';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -22712,7 +22435,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2001',
+                        '\TalonOne\Client\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22725,7 +22448,7 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedApplicationWideAsync
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application
+     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId (required)
      * @param  object $body (required)
@@ -22759,7 +22482,7 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedApplicationWideAsyncWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application
+     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId (required)
      * @param  object $body (required)
@@ -22782,7 +22505,7 @@ class ManagementApi
      */
     public function searchCouponsAdvancedApplicationWideAsyncWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2004';
         $request = $this->searchCouponsAdvancedApplicationWideRequest($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
 
         return $this->client
@@ -24639,297 +24362,6 @@ class ManagementApi
             $resourcePath = str_replace(
                 '{' . 'campaignId' . '}',
                 ObjectSerializer::toPathValue($campaignId),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateCampaignSet
-     *
-     * Update a Campaign Set
-     *
-     * @param  int $applicationId applicationId (required)
-     * @param  \TalonOne\Client\Model\NewCampaignSet $body body (required)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\CampaignSet
-     */
-    public function updateCampaignSet($applicationId, $body)
-    {
-        list($response) = $this->updateCampaignSetWithHttpInfo($applicationId, $body);
-        return $response;
-    }
-
-    /**
-     * Operation updateCampaignSetWithHttpInfo
-     *
-     * Update a Campaign Set
-     *
-     * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\NewCampaignSet $body (required)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\CampaignSet, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateCampaignSetWithHttpInfo($applicationId, $body)
-    {
-        $request = $this->updateCampaignSetRequest($applicationId, $body);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\CampaignSet' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\CampaignSet', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\CampaignSet';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\CampaignSet',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateCampaignSetAsync
-     *
-     * Update a Campaign Set
-     *
-     * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\NewCampaignSet $body (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateCampaignSetAsync($applicationId, $body)
-    {
-        return $this->updateCampaignSetAsyncWithHttpInfo($applicationId, $body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateCampaignSetAsyncWithHttpInfo
-     *
-     * Update a Campaign Set
-     *
-     * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\NewCampaignSet $body (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateCampaignSetAsyncWithHttpInfo($applicationId, $body)
-    {
-        $returnType = '\TalonOne\Client\Model\CampaignSet';
-        $request = $this->updateCampaignSetRequest($applicationId, $body);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateCampaignSet'
-     *
-     * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\NewCampaignSet $body (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function updateCampaignSetRequest($applicationId, $body)
-    {
-        // verify the required parameter 'applicationId' is set
-        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $applicationId when calling updateCampaignSet'
-            );
-        }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling updateCampaignSet'
-            );
-        }
-
-        $resourcePath = '/v1/applications/{applicationId}/campaign_set';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($applicationId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($applicationId),
                 $resourcePath
             );
         }

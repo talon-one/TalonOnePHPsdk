@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2003
+ * CustomerProfileUpdate
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * InlineResponse2003 Class Doc Comment
+ * CustomerProfileUpdate Class Doc Comment
  *
  * @category Class
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InlineResponse2003 implements ModelInterface, ArrayAccess
+class CustomerProfileUpdate implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200_3';
+    protected static $openAPIModelName = 'CustomerProfileUpdate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\Ruleset[]'
+        'customerProfile' => '\TalonOne\Client\Model\CustomerProfile'
     ];
 
     /**
@@ -67,8 +66,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'totalResultSize' => null,
-        'data' => null
+        'customerProfile' => null
     ];
 
     /**
@@ -98,8 +96,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'totalResultSize' => 'totalResultSize',
-        'data' => 'data'
+        'customerProfile' => 'customerProfile'
     ];
 
     /**
@@ -108,8 +105,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'totalResultSize' => 'setTotalResultSize',
-        'data' => 'setData'
+        'customerProfile' => 'setCustomerProfile'
     ];
 
     /**
@@ -118,8 +114,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'totalResultSize' => 'getTotalResultSize',
-        'data' => 'getData'
+        'customerProfile' => 'getCustomerProfile'
     ];
 
     /**
@@ -182,8 +177,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['customerProfile'] = isset($data['customerProfile']) ? $data['customerProfile'] : null;
     }
 
     /**
@@ -195,11 +189,8 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['totalResultSize'] === null) {
-            $invalidProperties[] = "'totalResultSize' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['customerProfile'] === null) {
+            $invalidProperties[] = "'customerProfile' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,49 +208,25 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets totalResultSize
+     * Gets customerProfile
      *
-     * @return int
+     * @return \TalonOne\Client\Model\CustomerProfile
      */
-    public function getTotalResultSize()
+    public function getCustomerProfile()
     {
-        return $this->container['totalResultSize'];
+        return $this->container['customerProfile'];
     }
 
     /**
-     * Sets totalResultSize
+     * Sets customerProfile
      *
-     * @param int $totalResultSize totalResultSize
+     * @param \TalonOne\Client\Model\CustomerProfile $customerProfile customerProfile
      *
      * @return $this
      */
-    public function setTotalResultSize($totalResultSize)
+    public function setCustomerProfile($customerProfile)
     {
-        $this->container['totalResultSize'] = $totalResultSize;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \TalonOne\Client\Model\Ruleset[]
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \TalonOne\Client\Model\Ruleset[] $data data
-     *
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
+        $this->container['customerProfile'] = $customerProfile;
 
         return $this;
     }

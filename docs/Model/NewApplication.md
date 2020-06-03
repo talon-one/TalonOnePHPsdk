@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **caseSensitivity** | **string** | A string indicating how should campaigns in this application deal with case sensitivity on coupon codes. | [optional] 
 **attributes** | [**object**](.md) | Arbitrary properties associated with this campaign | [optional] 
 **limits** | [**\TalonOne\Client\Model\LimitConfig[]**](LimitConfig.md) | Default limits for campaigns created in this application | [optional] 
+**campaignPriority** | **string** | Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive) | [optional] 
 **attributesSettings** | [**\TalonOne\Client\Model\AttributesSettings**](AttributesSettings.md) |  | [optional] 
 **key** | **string** | Hex key for HMAC-signing API calls as coming from this application (16 hex digits) | [optional] 
 

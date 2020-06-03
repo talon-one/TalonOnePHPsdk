@@ -1,6 +1,6 @@
 <?php
 /**
- * CouponConstraintsTest
+ * CustomerProfileUpdateTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CouponConstraintsTest Class Doc Comment
+ * CustomerProfileUpdateTest Class Doc Comment
  *
  * @category    Class
- * @description CouponConstraints
+ * @description CustomerProfileUpdate
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CouponConstraintsTest extends TestCase
+class CustomerProfileUpdateTest extends TestCase
 {
 
     /**
@@ -72,37 +72,16 @@ class CouponConstraintsTest extends TestCase
     }
 
     /**
-     * Test "CouponConstraints"
+     * Test "CustomerProfileUpdate"
      */
-    public function testCouponConstraints()
+    public function testCustomerProfileUpdate()
     {
     }
 
     /**
-     * Test attribute "usageLimit"
+     * Test attribute "customerProfile"
      */
-    public function testPropertyUsageLimit()
-    {
-    }
-
-    /**
-     * Test attribute "discountLimit"
-     */
-    public function testPropertyDiscountLimit()
-    {
-    }
-
-    /**
-     * Test attribute "startDate"
-     */
-    public function testPropertyStartDate()
-    {
-    }
-
-    /**
-     * Test attribute "expiryDate"
-     */
-    public function testPropertyExpiryDate()
+    public function testPropertyCustomerProfile()
     {
     }
 }

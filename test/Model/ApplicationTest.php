@@ -156,6 +156,13 @@ class ApplicationTest extends TestCase
     }
 
     /**
+     * Test attribute "campaignPriority"
+     */
+    public function testPropertyCampaignPriority()
+    {
+    }
+
+    /**
      * Test attribute "attributesSettings"
      */
     public function testPropertyAttributesSettings()
