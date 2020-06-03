@@ -419,7 +419,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type one of the values: addition,subtraction, expire or expiring
+     * @param string $type The type of the ledger transaction. Possible values are addition, subtraction, expire or expiring (for expiring points ledgers)
      *
      * @return $this
      */
