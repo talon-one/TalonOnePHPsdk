@@ -107,6 +107,13 @@ class CampaignTest extends TestCase
     }
 
     /**
+     * Test attribute "campaignGroups"
+     */
+    public function testPropertyCampaignGroups()
+    {
+    }
+
+    /**
      * Test attribute "name"
      */
     public function testPropertyName()

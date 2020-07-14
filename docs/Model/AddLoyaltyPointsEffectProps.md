@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **subLedgerId** | **string** | The ID of the subledger within the loyalty program where these points were added | 
 **value** | **float** | The amount of points that were added | 
 **recipientIntegrationId** | **string** | The user for whom these points were added | 
-**expiryCondition** | **string** | The amount of time (in days) these points are valid | 
+**startDate** | [**\DateTime**](\DateTime.md) | Date after which points will be valid | [optional] 
+**expiryDate** | [**\DateTime**](\DateTime.md) | Date after which points will expire | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

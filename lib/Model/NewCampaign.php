@@ -36,6 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * NewCampaign Class Doc Comment
  *
  * @category Class
+ * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,6 +58,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'campaignGroups' => 'int[]',
         'name' => 'string',
         'description' => 'string',
         'startTime' => '\DateTime',
@@ -77,6 +79,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'campaignGroups' => null,
         'name' => null,
         'description' => null,
         'startTime' => 'date-time',
@@ -118,6 +121,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'campaignGroups' => 'campaignGroups',
         'name' => 'name',
         'description' => 'description',
         'startTime' => 'startTime',
@@ -138,6 +142,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'campaignGroups' => 'setCampaignGroups',
         'name' => 'setName',
         'description' => 'setDescription',
         'startTime' => 'setStartTime',
@@ -158,6 +163,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'campaignGroups' => 'getCampaignGroups',
         'name' => 'getName',
         'description' => 'getDescription',
         'startTime' => 'getStartTime',
@@ -266,6 +272,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
@@ -330,6 +337,30 @@ class NewCampaign implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets campaignGroups
+     *
+     * @return int[]|null
+     */
+    public function getCampaignGroups()
+    {
+        return $this->container['campaignGroups'];
+    }
+
+    /**
+     * Sets campaignGroups
+     *
+     * @param int[]|null $campaignGroups The IDs of the campaign groups that own this entity.
+     *
+     * @return $this
+     */
+    public function setCampaignGroups($campaignGroups)
+    {
+        $this->container['campaignGroups'] = $campaignGroups;
+
+        return $this;
+    }
 
     /**
      * Gets name

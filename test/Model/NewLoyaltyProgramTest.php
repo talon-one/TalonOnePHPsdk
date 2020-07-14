@@ -114,6 +114,13 @@ class NewLoyaltyProgramTest extends TestCase
     }
 
     /**
+     * Test attribute "defaultPending"
+     */
+    public function testPropertyDefaultPending()
+    {
+    }
+
+    /**
      * Test attribute "allowSubledger"
      */
     public function testPropertyAllowSubledger()

@@ -65,6 +65,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'eventID' => 'int',
         'type' => 'string',
         'amount' => 'float',
+        'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
         'name' => 'string',
         'subLedgerID' => 'string',
@@ -84,6 +85,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'eventID' => null,
         'type' => null,
         'amount' => null,
+        'startDate' => 'date-time',
         'expiryDate' => 'date-time',
         'name' => null,
         'subLedgerID' => null,
@@ -124,6 +126,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'eventID' => 'eventID',
         'type' => 'type',
         'amount' => 'amount',
+        'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
         'name' => 'name',
         'subLedgerID' => 'subLedgerID',
@@ -143,6 +146,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'eventID' => 'setEventID',
         'type' => 'setType',
         'amount' => 'setAmount',
+        'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
         'name' => 'setName',
         'subLedgerID' => 'setSubLedgerID',
@@ -162,6 +166,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'eventID' => 'getEventID',
         'type' => 'getType',
         'amount' => 'getAmount',
+        'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
         'name' => 'getName',
         'subLedgerID' => 'getSubLedgerID',
@@ -235,6 +240,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         $this->container['eventID'] = isset($data['eventID']) ? $data['eventID'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['subLedgerID'] = isset($data['subLedgerID']) ? $data['subLedgerID'] : null;
@@ -450,6 +456,30 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     public function setAmount($amount)
     {
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets startDate
+     *
+     * @return \DateTime|null
+     */
+    public function getStartDate()
+    {
+        return $this->container['startDate'];
+    }
+
+    /**
+     * Sets startDate
+     *
+     * @param \DateTime|null $startDate startDate
+     *
+     * @return $this
+     */
+    public function setStartDate($startDate)
+    {
+        $this->container['startDate'] = $startDate;
 
         return $this;
     }

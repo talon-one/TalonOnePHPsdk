@@ -11545,14 +11545,15 @@ class ManagementApi
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  int $campaignGroupId Filter results to campaigns owned by the specified campaign group ID. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2002
      */
-    public function getCampaigns($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
+    public function getCampaigns($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null, $campaignGroupId = null)
     {
-        list($response) = $this->getCampaignsWithHttpInfo($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter);
+        list($response) = $this->getCampaignsWithHttpInfo($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $campaignGroupId);
         return $response;
     }
 
@@ -11570,14 +11571,15 @@ class ManagementApi
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  int $campaignGroupId Filter results to campaigns owned by the specified campaign group ID. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignsWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
+    public function getCampaignsWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null, $campaignGroupId = null)
     {
-        $request = $this->getCampaignsRequest($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter);
+        $request = $this->getCampaignsRequest($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $campaignGroupId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11666,13 +11668,14 @@ class ManagementApi
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  int $campaignGroupId Filter results to campaigns owned by the specified campaign group ID. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignsAsync($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
+    public function getCampaignsAsync($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null, $campaignGroupId = null)
     {
-        return $this->getCampaignsAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter)
+        return $this->getCampaignsAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $campaignGroupId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11694,14 +11697,15 @@ class ManagementApi
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  int $campaignGroupId Filter results to campaigns owned by the specified campaign group ID. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignsAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
+    public function getCampaignsAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null, $campaignGroupId = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2002';
-        $request = $this->getCampaignsRequest($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter);
+        $request = $this->getCampaignsRequest($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $campaignGroupId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11749,11 +11753,12 @@ class ManagementApi
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+     * @param  int $campaignGroupId Filter results to campaigns owned by the specified campaign group ID. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCampaignsRequest($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null)
+    protected function getCampaignsRequest($applicationId, $pageSize = null, $skip = null, $sort = null, $campaignState = null, $name = null, $tags = null, $createdBefore = null, $createdAfter = null, $campaignGroupId = null)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -11800,6 +11805,10 @@ class ManagementApi
         // query params
         if ($createdAfter !== null) {
             $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
+        }
+        // query params
+        if ($campaignGroupId !== null) {
+            $queryParams['campaignGroupId'] = ObjectSerializer::toQueryValue($campaignGroupId);
         }
 
         // path params
@@ -15292,16 +15301,15 @@ class ManagementApi
      *
      * Get Customer Profile
      *
-     * @param  int $applicationId applicationId (required)
      * @param  int $customerId customerId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\ApplicationCustomer
      */
-    public function getCustomerProfile($applicationId, $customerId)
+    public function getCustomerProfile($customerId)
     {
-        list($response) = $this->getCustomerProfileWithHttpInfo($applicationId, $customerId);
+        list($response) = $this->getCustomerProfileWithHttpInfo($customerId);
         return $response;
     }
 
@@ -15310,16 +15318,15 @@ class ManagementApi
      *
      * Get Customer Profile
      *
-     * @param  int $applicationId (required)
      * @param  int $customerId (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\ApplicationCustomer, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomerProfileWithHttpInfo($applicationId, $customerId)
+    public function getCustomerProfileWithHttpInfo($customerId)
     {
-        $request = $this->getCustomerProfileRequest($applicationId, $customerId);
+        $request = $this->getCustomerProfileRequest($customerId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15399,15 +15406,14 @@ class ManagementApi
      *
      * Get Customer Profile
      *
-     * @param  int $applicationId (required)
      * @param  int $customerId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerProfileAsync($applicationId, $customerId)
+    public function getCustomerProfileAsync($customerId)
     {
-        return $this->getCustomerProfileAsyncWithHttpInfo($applicationId, $customerId)
+        return $this->getCustomerProfileAsyncWithHttpInfo($customerId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15420,16 +15426,15 @@ class ManagementApi
      *
      * Get Customer Profile
      *
-     * @param  int $applicationId (required)
      * @param  int $customerId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerProfileAsyncWithHttpInfo($applicationId, $customerId)
+    public function getCustomerProfileAsyncWithHttpInfo($customerId)
     {
         $returnType = '\TalonOne\Client\Model\ApplicationCustomer';
-        $request = $this->getCustomerProfileRequest($applicationId, $customerId);
+        $request = $this->getCustomerProfileRequest($customerId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15468,20 +15473,13 @@ class ManagementApi
     /**
      * Create request for operation 'getCustomerProfile'
      *
-     * @param  int $applicationId (required)
      * @param  int $customerId (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomerProfileRequest($applicationId, $customerId)
+    protected function getCustomerProfileRequest($customerId)
     {
-        // verify the required parameter 'applicationId' is set
-        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $applicationId when calling getCustomerProfile'
-            );
-        }
         // verify the required parameter 'customerId' is set
         if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
             throw new \InvalidArgumentException(
@@ -15497,14 +15495,6 @@ class ManagementApi
         $multipart = false;
 
 
-        // path params
-        if ($applicationId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($applicationId),
-                $resourcePath
-            );
-        }
         // path params
         if ($customerId !== null) {
             $resourcePath = str_replace(

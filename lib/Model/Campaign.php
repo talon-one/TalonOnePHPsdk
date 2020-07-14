@@ -62,6 +62,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'created' => '\DateTime',
         'applicationId' => 'int',
         'userId' => 'int',
+        'campaignGroups' => 'int[]',
         'name' => 'string',
         'description' => 'string',
         'startTime' => '\DateTime',
@@ -95,6 +96,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'created' => 'date-time',
         'applicationId' => null,
         'userId' => null,
+        'campaignGroups' => null,
         'name' => null,
         'description' => null,
         'startTime' => 'date-time',
@@ -149,6 +151,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'created' => 'created',
         'applicationId' => 'applicationId',
         'userId' => 'userId',
+        'campaignGroups' => 'campaignGroups',
         'name' => 'name',
         'description' => 'description',
         'startTime' => 'startTime',
@@ -182,6 +185,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'created' => 'setCreated',
         'applicationId' => 'setApplicationId',
         'userId' => 'setUserId',
+        'campaignGroups' => 'setCampaignGroups',
         'name' => 'setName',
         'description' => 'setDescription',
         'startTime' => 'setStartTime',
@@ -215,6 +219,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'created' => 'getCreated',
         'applicationId' => 'getApplicationId',
         'userId' => 'getUserId',
+        'campaignGroups' => 'getCampaignGroups',
         'name' => 'getName',
         'description' => 'getDescription',
         'startTime' => 'getStartTime',
@@ -336,6 +341,7 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
+        $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
@@ -517,6 +523,30 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setUserId($userId)
     {
         $this->container['userId'] = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignGroups
+     *
+     * @return int[]|null
+     */
+    public function getCampaignGroups()
+    {
+        return $this->container['campaignGroups'];
+    }
+
+    /**
+     * Sets campaignGroups
+     *
+     * @param int[]|null $campaignGroups The IDs of the campaign groups that own this entity.
+     *
+     * @return $this
+     */
+    public function setCampaignGroups($campaignGroups)
+    {
+        $this->container['campaignGroups'] = $campaignGroups;
 
         return $this;
     }

@@ -60,8 +60,6 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'name' => 'string',
         'policy' => 'string',
         'state' => 'string',
-        'releaseUpdate' => 'bool',
-        'latestFeature' => 'string',
         'roles' => 'int[]',
         'applicationNotificationSubscriptions' => 'object'
     ];
@@ -75,8 +73,6 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'name' => null,
         'policy' => null,
         'state' => null,
-        'releaseUpdate' => null,
-        'latestFeature' => null,
         'roles' => null,
         'applicationNotificationSubscriptions' => null
     ];
@@ -111,8 +107,6 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'name' => 'name',
         'policy' => 'policy',
         'state' => 'state',
-        'releaseUpdate' => 'releaseUpdate',
-        'latestFeature' => 'latestFeature',
         'roles' => 'roles',
         'applicationNotificationSubscriptions' => 'applicationNotificationSubscriptions'
     ];
@@ -126,8 +120,6 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'policy' => 'setPolicy',
         'state' => 'setState',
-        'releaseUpdate' => 'setReleaseUpdate',
-        'latestFeature' => 'setLatestFeature',
         'roles' => 'setRoles',
         'applicationNotificationSubscriptions' => 'setApplicationNotificationSubscriptions'
     ];
@@ -141,8 +133,6 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'policy' => 'getPolicy',
         'state' => 'getState',
-        'releaseUpdate' => 'getReleaseUpdate',
-        'latestFeature' => 'getLatestFeature',
         'roles' => 'getRoles',
         'applicationNotificationSubscriptions' => 'getApplicationNotificationSubscriptions'
     ];
@@ -225,8 +215,6 @@ class UpdateUser implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['releaseUpdate'] = isset($data['releaseUpdate']) ? $data['releaseUpdate'] : null;
-        $this->container['latestFeature'] = isset($data['latestFeature']) ? $data['latestFeature'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
         $this->container['applicationNotificationSubscriptions'] = isset($data['applicationNotificationSubscriptions']) ? $data['applicationNotificationSubscriptions'] : null;
     }
@@ -340,54 +328,6 @@ class UpdateUser implements ModelInterface, ArrayAccess
             );
         }
         $this->container['state'] = $state;
-
-        return $this;
-    }
-
-    /**
-     * Gets releaseUpdate
-     *
-     * @return bool|null
-     */
-    public function getReleaseUpdate()
-    {
-        return $this->container['releaseUpdate'];
-    }
-
-    /**
-     * Sets releaseUpdate
-     *
-     * @param bool|null $releaseUpdate Update the user via email
-     *
-     * @return $this
-     */
-    public function setReleaseUpdate($releaseUpdate)
-    {
-        $this->container['releaseUpdate'] = $releaseUpdate;
-
-        return $this;
-    }
-
-    /**
-     * Gets latestFeature
-     *
-     * @return string|null
-     */
-    public function getLatestFeature()
-    {
-        return $this->container['latestFeature'];
-    }
-
-    /**
-     * Sets latestFeature
-     *
-     * @param string|null $latestFeature The latest feature you've been notified.
-     *
-     * @return $this
-     */
-    public function setLatestFeature($latestFeature)
-    {
-        $this->container['latestFeature'] = $latestFeature;
 
         return $this;
     }

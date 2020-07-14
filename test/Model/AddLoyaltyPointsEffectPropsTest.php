@@ -114,9 +114,16 @@ class AddLoyaltyPointsEffectPropsTest extends TestCase
     }
 
     /**
-     * Test attribute "expiryCondition"
+     * Test attribute "startDate"
      */
-    public function testPropertyExpiryCondition()
+    public function testPropertyStartDate()
+    {
+    }
+
+    /**
+     * Test attribute "expiryDate"
+     */
+    public function testPropertyExpiryDate()
     {
     }
 }

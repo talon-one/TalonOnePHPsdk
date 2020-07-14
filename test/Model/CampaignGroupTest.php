@@ -1,6 +1,6 @@
 <?php
 /**
- * MiscUpdateUserLatestFeatureTest
+ * CampaignGroupTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MiscUpdateUserLatestFeatureTest Class Doc Comment
+ * CampaignGroupTest Class Doc Comment
  *
  * @category    Class
- * @description MiscUpdateUserLatestFeature
+ * @description 
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MiscUpdateUserLatestFeatureTest extends TestCase
+class CampaignGroupTest extends TestCase
 {
 
     /**
@@ -72,16 +72,65 @@ class MiscUpdateUserLatestFeatureTest extends TestCase
     }
 
     /**
-     * Test "MiscUpdateUserLatestFeature"
+     * Test "CampaignGroup"
      */
-    public function testMiscUpdateUserLatestFeature()
+    public function testCampaignGroup()
     {
     }
 
     /**
-     * Test attribute "latestFeature"
+     * Test attribute "id"
      */
-    public function testPropertyLatestFeature()
+    public function testPropertyId()
+    {
+    }
+
+    /**
+     * Test attribute "created"
+     */
+    public function testPropertyCreated()
+    {
+    }
+
+    /**
+     * Test attribute "modified"
+     */
+    public function testPropertyModified()
+    {
+    }
+
+    /**
+     * Test attribute "accountId"
+     */
+    public function testPropertyAccountId()
+    {
+    }
+
+    /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+    }
+
+    /**
+     * Test attribute "subscribedApplicationsIds"
+     */
+    public function testPropertySubscribedApplicationsIds()
+    {
+    }
+
+    /**
+     * Test attribute "campaignIds"
+     */
+    public function testPropertyCampaignIds()
     {
     }
 }

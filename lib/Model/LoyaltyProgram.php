@@ -65,6 +65,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'description' => 'string',
         'subscribedApplications' => 'int[]',
         'defaultValidity' => 'string',
+        'defaultPending' => 'string',
         'allowSubledger' => 'bool'
     ];
 
@@ -81,6 +82,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'description' => null,
         'subscribedApplications' => null,
         'defaultValidity' => null,
+        'defaultPending' => null,
         'allowSubledger' => null
     ];
 
@@ -118,6 +120,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'description' => 'description',
         'subscribedApplications' => 'subscribedApplications',
         'defaultValidity' => 'defaultValidity',
+        'defaultPending' => 'defaultPending',
         'allowSubledger' => 'allowSubledger'
     ];
 
@@ -134,6 +137,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'subscribedApplications' => 'setSubscribedApplications',
         'defaultValidity' => 'setDefaultValidity',
+        'defaultPending' => 'setDefaultPending',
         'allowSubledger' => 'setAllowSubledger'
     ];
 
@@ -150,6 +154,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'subscribedApplications' => 'getSubscribedApplications',
         'defaultValidity' => 'getDefaultValidity',
+        'defaultPending' => 'getDefaultPending',
         'allowSubledger' => 'getAllowSubledger'
     ];
 
@@ -220,6 +225,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['subscribedApplications'] = isset($data['subscribedApplications']) ? $data['subscribedApplications'] : null;
         $this->container['defaultValidity'] = isset($data['defaultValidity']) ? $data['defaultValidity'] : null;
+        $this->container['defaultPending'] = isset($data['defaultPending']) ? $data['defaultPending'] : null;
         $this->container['allowSubledger'] = isset($data['allowSubledger']) ? $data['allowSubledger'] : null;
     }
 
@@ -252,6 +258,9 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         }
         if ($this->container['defaultValidity'] === null) {
             $invalidProperties[] = "'defaultValidity' can't be null";
+        }
+        if ($this->container['defaultPending'] === null) {
+            $invalidProperties[] = "'defaultPending' can't be null";
         }
         if ($this->container['allowSubledger'] === null) {
             $invalidProperties[] = "'allowSubledger' can't be null";
@@ -428,13 +437,37 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     /**
      * Sets defaultValidity
      *
-     * @param string $defaultValidity Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m' or '30d'.
+     * @param string $defaultValidity Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m'.
      *
      * @return $this
      */
     public function setDefaultValidity($defaultValidity)
     {
         $this->container['defaultValidity'] = $defaultValidity;
+
+        return $this;
+    }
+
+    /**
+     * Gets defaultPending
+     *
+     * @return string
+     */
+    public function getDefaultPending()
+    {
+        return $this->container['defaultPending'];
+    }
+
+    /**
+     * Sets defaultPending
+     *
+     * @param string $defaultPending Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like '1h' or '40m'.
+     *
+     * @return $this
+     */
+    public function setDefaultPending($defaultPending)
+    {
+        $this->container['defaultPending'] = $defaultPending;
 
         return $this;
     }

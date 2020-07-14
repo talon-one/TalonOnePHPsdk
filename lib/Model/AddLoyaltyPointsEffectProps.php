@@ -63,7 +63,8 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'subLedgerId' => 'string',
         'value' => 'float',
         'recipientIntegrationId' => 'string',
-        'expiryCondition' => 'string'
+        'startDate' => '\DateTime',
+        'expiryDate' => '\DateTime'
     ];
 
     /**
@@ -77,7 +78,8 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'subLedgerId' => null,
         'value' => null,
         'recipientIntegrationId' => null,
-        'expiryCondition' => null
+        'startDate' => 'date-time',
+        'expiryDate' => 'date-time'
     ];
 
     /**
@@ -112,7 +114,8 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'subLedgerId' => 'subLedgerId',
         'value' => 'value',
         'recipientIntegrationId' => 'recipientIntegrationId',
-        'expiryCondition' => 'expiryCondition'
+        'startDate' => 'startDate',
+        'expiryDate' => 'expiryDate'
     ];
 
     /**
@@ -126,7 +129,8 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'subLedgerId' => 'setSubLedgerId',
         'value' => 'setValue',
         'recipientIntegrationId' => 'setRecipientIntegrationId',
-        'expiryCondition' => 'setExpiryCondition'
+        'startDate' => 'setStartDate',
+        'expiryDate' => 'setExpiryDate'
     ];
 
     /**
@@ -140,7 +144,8 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'subLedgerId' => 'getSubLedgerId',
         'value' => 'getValue',
         'recipientIntegrationId' => 'getRecipientIntegrationId',
-        'expiryCondition' => 'getExpiryCondition'
+        'startDate' => 'getStartDate',
+        'expiryDate' => 'getExpiryDate'
     ];
 
     /**
@@ -208,7 +213,8 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         $this->container['subLedgerId'] = isset($data['subLedgerId']) ? $data['subLedgerId'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
-        $this->container['expiryCondition'] = isset($data['expiryCondition']) ? $data['expiryCondition'] : null;
+        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
+        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
     }
 
     /**
@@ -234,9 +240,6 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         }
         if ($this->container['recipientIntegrationId'] === null) {
             $invalidProperties[] = "'recipientIntegrationId' can't be null";
-        }
-        if ($this->container['expiryCondition'] === null) {
-            $invalidProperties[] = "'expiryCondition' can't be null";
         }
         return $invalidProperties;
     }
@@ -374,25 +377,49 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets expiryCondition
+     * Gets startDate
      *
-     * @return string
+     * @return \DateTime|null
      */
-    public function getExpiryCondition()
+    public function getStartDate()
     {
-        return $this->container['expiryCondition'];
+        return $this->container['startDate'];
     }
 
     /**
-     * Sets expiryCondition
+     * Sets startDate
      *
-     * @param string $expiryCondition The amount of time (in days) these points are valid
+     * @param \DateTime|null $startDate Date after which points will be valid
      *
      * @return $this
      */
-    public function setExpiryCondition($expiryCondition)
+    public function setStartDate($startDate)
     {
-        $this->container['expiryCondition'] = $expiryCondition;
+        $this->container['startDate'] = $startDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiryDate
+     *
+     * @return \DateTime|null
+     */
+    public function getExpiryDate()
+    {
+        return $this->container['expiryDate'];
+    }
+
+    /**
+     * Sets expiryDate
+     *
+     * @param \DateTime|null $expiryDate Date after which points will expire
+     *
+     * @return $this
+     */
+    public function setExpiryDate($expiryDate)
+    {
+        $this->container['expiryDate'] = $expiryDate;
 
         return $this;
     }

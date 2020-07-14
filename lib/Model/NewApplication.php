@@ -66,7 +66,10 @@ class NewApplication implements ModelInterface, ArrayAccess
         'attributes' => 'object',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
         'campaignPriority' => 'string',
+        'exclusiveCampaignsStrategy' => 'string',
+        'enableCascadingDiscounts' => 'bool',
         'attributesSettings' => '\TalonOne\Client\Model\AttributesSettings',
+        'sandbox' => 'bool',
         'key' => 'string'
     ];
 
@@ -84,7 +87,10 @@ class NewApplication implements ModelInterface, ArrayAccess
         'attributes' => null,
         'limits' => null,
         'campaignPriority' => null,
+        'exclusiveCampaignsStrategy' => null,
+        'enableCascadingDiscounts' => null,
         'attributesSettings' => null,
+        'sandbox' => null,
         'key' => null
     ];
 
@@ -123,7 +129,10 @@ class NewApplication implements ModelInterface, ArrayAccess
         'attributes' => 'attributes',
         'limits' => 'limits',
         'campaignPriority' => 'campaignPriority',
+        'exclusiveCampaignsStrategy' => 'exclusiveCampaignsStrategy',
+        'enableCascadingDiscounts' => 'enableCascadingDiscounts',
         'attributesSettings' => 'attributesSettings',
+        'sandbox' => 'sandbox',
         'key' => 'key'
     ];
 
@@ -141,7 +150,10 @@ class NewApplication implements ModelInterface, ArrayAccess
         'attributes' => 'setAttributes',
         'limits' => 'setLimits',
         'campaignPriority' => 'setCampaignPriority',
+        'exclusiveCampaignsStrategy' => 'setExclusiveCampaignsStrategy',
+        'enableCascadingDiscounts' => 'setEnableCascadingDiscounts',
         'attributesSettings' => 'setAttributesSettings',
+        'sandbox' => 'setSandbox',
         'key' => 'setKey'
     ];
 
@@ -159,7 +171,10 @@ class NewApplication implements ModelInterface, ArrayAccess
         'attributes' => 'getAttributes',
         'limits' => 'getLimits',
         'campaignPriority' => 'getCampaignPriority',
+        'exclusiveCampaignsStrategy' => 'getExclusiveCampaignsStrategy',
+        'enableCascadingDiscounts' => 'getEnableCascadingDiscounts',
         'attributesSettings' => 'getAttributesSettings',
+        'sandbox' => 'getSandbox',
         'key' => 'getKey'
     ];
 
@@ -210,6 +225,9 @@ class NewApplication implements ModelInterface, ArrayAccess
     const CAMPAIGN_PRIORITY_UNIVERSAL = 'universal';
     const CAMPAIGN_PRIORITY_STACKABLE = 'stackable';
     const CAMPAIGN_PRIORITY_EXCLUSIVE = 'exclusive';
+    const EXCLUSIVE_CAMPAIGNS_STRATEGY_LIST_ORDER = 'listOrder';
+    const EXCLUSIVE_CAMPAIGNS_STRATEGY_LOWEST_DISCOUNT = 'lowestDiscount';
+    const EXCLUSIVE_CAMPAIGNS_STRATEGY_HIGHEST_DISCOUNT = 'highestDiscount';
     
 
     
@@ -241,6 +259,20 @@ class NewApplication implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getExclusiveCampaignsStrategyAllowableValues()
+    {
+        return [
+            self::EXCLUSIVE_CAMPAIGNS_STRATEGY_LIST_ORDER,
+            self::EXCLUSIVE_CAMPAIGNS_STRATEGY_LOWEST_DISCOUNT,
+            self::EXCLUSIVE_CAMPAIGNS_STRATEGY_HIGHEST_DISCOUNT,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -265,7 +297,10 @@ class NewApplication implements ModelInterface, ArrayAccess
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['campaignPriority'] = isset($data['campaignPriority']) ? $data['campaignPriority'] : null;
+        $this->container['exclusiveCampaignsStrategy'] = isset($data['exclusiveCampaignsStrategy']) ? $data['exclusiveCampaignsStrategy'] : null;
+        $this->container['enableCascadingDiscounts'] = isset($data['enableCascadingDiscounts']) ? $data['enableCascadingDiscounts'] : null;
         $this->container['attributesSettings'] = isset($data['attributesSettings']) ? $data['attributesSettings'] : null;
+        $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
     }
 
@@ -311,6 +346,14 @@ class NewApplication implements ModelInterface, ArrayAccess
         if (!is_null($this->container['campaignPriority']) && !in_array($this->container['campaignPriority'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'campaignPriority', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getExclusiveCampaignsStrategyAllowableValues();
+        if (!is_null($this->container['exclusiveCampaignsStrategy']) && !in_array($this->container['exclusiveCampaignsStrategy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'exclusiveCampaignsStrategy', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -539,7 +582,7 @@ class NewApplication implements ModelInterface, ArrayAccess
     /**
      * Sets campaignPriority
      *
-     * @param string|null $campaignPriority Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)
+     * @param string|null $campaignPriority Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \"universal\"
      *
      * @return $this
      */
@@ -555,6 +598,63 @@ class NewApplication implements ModelInterface, ArrayAccess
             );
         }
         $this->container['campaignPriority'] = $campaignPriority;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclusiveCampaignsStrategy
+     *
+     * @return string|null
+     */
+    public function getExclusiveCampaignsStrategy()
+    {
+        return $this->container['exclusiveCampaignsStrategy'];
+    }
+
+    /**
+     * Sets exclusiveCampaignsStrategy
+     *
+     * @param string|null $exclusiveCampaignsStrategy The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \"listOrder\"
+     *
+     * @return $this
+     */
+    public function setExclusiveCampaignsStrategy($exclusiveCampaignsStrategy)
+    {
+        $allowedValues = $this->getExclusiveCampaignsStrategyAllowableValues();
+        if (!is_null($exclusiveCampaignsStrategy) && !in_array($exclusiveCampaignsStrategy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'exclusiveCampaignsStrategy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['exclusiveCampaignsStrategy'] = $exclusiveCampaignsStrategy;
+
+        return $this;
+    }
+
+    /**
+     * Gets enableCascadingDiscounts
+     *
+     * @return bool|null
+     */
+    public function getEnableCascadingDiscounts()
+    {
+        return $this->container['enableCascadingDiscounts'];
+    }
+
+    /**
+     * Sets enableCascadingDiscounts
+     *
+     * @param bool|null $enableCascadingDiscounts Flag indicating if discounts should cascade for this application
+     *
+     * @return $this
+     */
+    public function setEnableCascadingDiscounts($enableCascadingDiscounts)
+    {
+        $this->container['enableCascadingDiscounts'] = $enableCascadingDiscounts;
 
         return $this;
     }
@@ -579,6 +679,30 @@ class NewApplication implements ModelInterface, ArrayAccess
     public function setAttributesSettings($attributesSettings)
     {
         $this->container['attributesSettings'] = $attributesSettings;
+
+        return $this;
+    }
+
+    /**
+     * Gets sandbox
+     *
+     * @return bool|null
+     */
+    public function getSandbox()
+    {
+        return $this->container['sandbox'];
+    }
+
+    /**
+     * Sets sandbox
+     *
+     * @param bool|null $sandbox Flag indicating if this is a live or sandbox application
+     *
+     * @return $this
+     */
+    public function setSandbox($sandbox)
+    {
+        $this->container['sandbox'] = $sandbox;
 
         return $this;
     }

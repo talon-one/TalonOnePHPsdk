@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **webhooks** | **int** | Total Number of webhooks inside the account | 
 **loyaltyPrograms** | **int** | Total Number of loyalty programs inside the account | 
 **activeRules** | **int** | Total Number of active rules in the account | 
+**sandboxApplications** | **int** | Total Number of sandbox applications in the account | 
+**liveApplications** | **int** | Total Number of live applications in the account | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

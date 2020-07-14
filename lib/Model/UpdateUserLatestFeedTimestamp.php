@@ -1,6 +1,6 @@
 <?php
 /**
- * MiscUpdateUserLatestFeature
+ * UpdateUserLatestFeedTimestamp
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * MiscUpdateUserLatestFeature Class Doc Comment
+ * UpdateUserLatestFeedTimestamp Class Doc Comment
  *
  * @category Class
+ * @description Updates current user&#39;s latest seen notifications timestamp
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
+class UpdateUserLatestFeedTimestamp implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MiscUpdateUserLatestFeature';
+    protected static $openAPIModelName = 'UpdateUserLatestFeedTimestamp';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'latestFeature' => 'string'
+        'newLatestFeedTimestamp' => '\DateTime'
     ];
 
     /**
@@ -66,7 +67,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'latestFeature' => null
+        'newLatestFeedTimestamp' => 'date-time'
     ];
 
     /**
@@ -96,7 +97,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'latestFeature' => 'latestFeature'
+        'newLatestFeedTimestamp' => 'newLatestFeedTimestamp'
     ];
 
     /**
@@ -105,7 +106,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'latestFeature' => 'setLatestFeature'
+        'newLatestFeedTimestamp' => 'setNewLatestFeedTimestamp'
     ];
 
     /**
@@ -114,7 +115,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'latestFeature' => 'getLatestFeature'
+        'newLatestFeedTimestamp' => 'getNewLatestFeedTimestamp'
     ];
 
     /**
@@ -177,7 +178,7 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['latestFeature'] = isset($data['latestFeature']) ? $data['latestFeature'] : null;
+        $this->container['newLatestFeedTimestamp'] = isset($data['newLatestFeedTimestamp']) ? $data['newLatestFeedTimestamp'] : null;
     }
 
     /**
@@ -189,6 +190,9 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['newLatestFeedTimestamp'] === null) {
+            $invalidProperties[] = "'newLatestFeedTimestamp' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,25 +209,25 @@ class MiscUpdateUserLatestFeature implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets latestFeature
+     * Gets newLatestFeedTimestamp
      *
-     * @return string|null
+     * @return \DateTime
      */
-    public function getLatestFeature()
+    public function getNewLatestFeedTimestamp()
     {
-        return $this->container['latestFeature'];
+        return $this->container['newLatestFeedTimestamp'];
     }
 
     /**
-     * Sets latestFeature
+     * Sets newLatestFeedTimestamp
      *
-     * @param string|null $latestFeature latestFeature
+     * @param \DateTime $newLatestFeedTimestamp New timestamp to update for the current user
      *
      * @return $this
      */
-    public function setLatestFeature($latestFeature)
+    public function setNewLatestFeedTimestamp($newLatestFeedTimestamp)
     {
-        $this->container['latestFeature'] = $latestFeature;
+        $this->container['newLatestFeedTimestamp'] = $newLatestFeedTimestamp;
 
         return $this;
     }

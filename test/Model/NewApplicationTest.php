@@ -135,9 +135,30 @@ class NewApplicationTest extends TestCase
     }
 
     /**
+     * Test attribute "exclusiveCampaignsStrategy"
+     */
+    public function testPropertyExclusiveCampaignsStrategy()
+    {
+    }
+
+    /**
+     * Test attribute "enableCascadingDiscounts"
+     */
+    public function testPropertyEnableCascadingDiscounts()
+    {
+    }
+
+    /**
      * Test attribute "attributesSettings"
      */
     public function testPropertyAttributesSettings()
+    {
+    }
+
+    /**
+     * Test attribute "sandbox"
+     */
+    public function testPropertySandbox()
     {
     }
 

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**campaignGroups** | **int[]** | The IDs of the campaign groups that own this entity. | [optional] 
 **name** | **string** | A friendly name for this campaign. | 
 **description** | **string** | A detailed description of the campaign. | [optional] 
 **startTime** | [**\DateTime**](\DateTime.md) | Datetime when the campaign will become active. | [optional] 

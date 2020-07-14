@@ -2050,7 +2050,7 @@ class IntegrationApi
     /**
      * Operation updateCustomerProfile
      *
-     * Update a Customer Profile
+     * Update a Customer Profile V1
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body body (required)
@@ -2069,7 +2069,7 @@ class IntegrationApi
     /**
      * Operation updateCustomerProfileWithHttpInfo
      *
-     * Update a Customer Profile
+     * Update a Customer Profile V1
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
@@ -2159,7 +2159,7 @@ class IntegrationApi
     /**
      * Operation updateCustomerProfileAsync
      *
-     * Update a Customer Profile
+     * Update a Customer Profile V1
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
@@ -2181,7 +2181,7 @@ class IntegrationApi
     /**
      * Operation updateCustomerProfileAsyncWithHttpInfo
      *
-     * Update a Customer Profile
+     * Update a Customer Profile V1
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
@@ -2646,7 +2646,7 @@ class IntegrationApi
     /**
      * Operation updateCustomerSession
      *
-     * Update a Customer Session
+     * Update a Customer Session V1
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body body (required)
@@ -2665,7 +2665,7 @@ class IntegrationApi
     /**
      * Operation updateCustomerSessionWithHttpInfo
      *
-     * Update a Customer Session
+     * Update a Customer Session V1
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
@@ -2755,7 +2755,7 @@ class IntegrationApi
     /**
      * Operation updateCustomerSessionAsync
      *
-     * Update a Customer Session
+     * Update a Customer Session V1
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
@@ -2777,7 +2777,7 @@ class IntegrationApi
     /**
      * Operation updateCustomerSessionAsyncWithHttpInfo
      *
-     * Update a Customer Session
+     * Update a Customer Session V1
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
