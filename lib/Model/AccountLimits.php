@@ -62,12 +62,12 @@ class AccountLimits implements ModelInterface, ArrayAccess
         'activeCampaigns' => 'int',
         'coupons' => 'int',
         'referralCodes' => 'int',
+        'activeRules' => 'int',
         'liveLoyaltyPrograms' => 'int',
         'sandboxLoyaltyPrograms' => 'int',
         'webhooks' => 'int',
         'users' => 'int',
         'apiVolume' => 'int',
-        'activeRules' => 'int',
         'promotionTypes' => 'string[]'
     ];
 
@@ -82,12 +82,12 @@ class AccountLimits implements ModelInterface, ArrayAccess
         'activeCampaigns' => null,
         'coupons' => null,
         'referralCodes' => null,
+        'activeRules' => null,
         'liveLoyaltyPrograms' => null,
         'sandboxLoyaltyPrograms' => null,
         'webhooks' => null,
         'users' => null,
         'apiVolume' => null,
-        'activeRules' => null,
         'promotionTypes' => null
     ];
 
@@ -123,12 +123,12 @@ class AccountLimits implements ModelInterface, ArrayAccess
         'activeCampaigns' => 'activeCampaigns',
         'coupons' => 'coupons',
         'referralCodes' => 'referralCodes',
+        'activeRules' => 'activeRules',
         'liveLoyaltyPrograms' => 'liveLoyaltyPrograms',
         'sandboxLoyaltyPrograms' => 'sandboxLoyaltyPrograms',
         'webhooks' => 'webhooks',
         'users' => 'users',
         'apiVolume' => 'apiVolume',
-        'activeRules' => 'activeRules',
         'promotionTypes' => 'promotionTypes'
     ];
 
@@ -143,12 +143,12 @@ class AccountLimits implements ModelInterface, ArrayAccess
         'activeCampaigns' => 'setActiveCampaigns',
         'coupons' => 'setCoupons',
         'referralCodes' => 'setReferralCodes',
+        'activeRules' => 'setActiveRules',
         'liveLoyaltyPrograms' => 'setLiveLoyaltyPrograms',
         'sandboxLoyaltyPrograms' => 'setSandboxLoyaltyPrograms',
         'webhooks' => 'setWebhooks',
         'users' => 'setUsers',
         'apiVolume' => 'setApiVolume',
-        'activeRules' => 'setActiveRules',
         'promotionTypes' => 'setPromotionTypes'
     ];
 
@@ -163,12 +163,12 @@ class AccountLimits implements ModelInterface, ArrayAccess
         'activeCampaigns' => 'getActiveCampaigns',
         'coupons' => 'getCoupons',
         'referralCodes' => 'getReferralCodes',
+        'activeRules' => 'getActiveRules',
         'liveLoyaltyPrograms' => 'getLiveLoyaltyPrograms',
         'sandboxLoyaltyPrograms' => 'getSandboxLoyaltyPrograms',
         'webhooks' => 'getWebhooks',
         'users' => 'getUsers',
         'apiVolume' => 'getApiVolume',
-        'activeRules' => 'getActiveRules',
         'promotionTypes' => 'getPromotionTypes'
     ];
 
@@ -237,12 +237,12 @@ class AccountLimits implements ModelInterface, ArrayAccess
         $this->container['activeCampaigns'] = isset($data['activeCampaigns']) ? $data['activeCampaigns'] : null;
         $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
         $this->container['referralCodes'] = isset($data['referralCodes']) ? $data['referralCodes'] : null;
+        $this->container['activeRules'] = isset($data['activeRules']) ? $data['activeRules'] : null;
         $this->container['liveLoyaltyPrograms'] = isset($data['liveLoyaltyPrograms']) ? $data['liveLoyaltyPrograms'] : null;
         $this->container['sandboxLoyaltyPrograms'] = isset($data['sandboxLoyaltyPrograms']) ? $data['sandboxLoyaltyPrograms'] : null;
         $this->container['webhooks'] = isset($data['webhooks']) ? $data['webhooks'] : null;
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
         $this->container['apiVolume'] = isset($data['apiVolume']) ? $data['apiVolume'] : null;
-        $this->container['activeRules'] = isset($data['activeRules']) ? $data['activeRules'] : null;
         $this->container['promotionTypes'] = isset($data['promotionTypes']) ? $data['promotionTypes'] : null;
     }
 
@@ -269,6 +269,9 @@ class AccountLimits implements ModelInterface, ArrayAccess
         }
         if ($this->container['referralCodes'] === null) {
             $invalidProperties[] = "'referralCodes' can't be null";
+        }
+        if ($this->container['activeRules'] === null) {
+            $invalidProperties[] = "'activeRules' can't be null";
         }
         if ($this->container['liveLoyaltyPrograms'] === null) {
             $invalidProperties[] = "'liveLoyaltyPrograms' can't be null";
@@ -316,7 +319,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets liveApplications
      *
-     * @param int $liveApplications Total Number of allowed live applications in the account
+     * @param int $liveApplications Total number of allowed live applications in the account
      *
      * @return $this
      */
@@ -340,7 +343,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets sandboxApplications
      *
-     * @param int $sandboxApplications Total Number of allowed sandbox applications in the account
+     * @param int $sandboxApplications Total number of allowed sandbox applications in the account
      *
      * @return $this
      */
@@ -364,7 +367,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets activeCampaigns
      *
-     * @param int $activeCampaigns Total Number of allowed active campaigns in the account
+     * @param int $activeCampaigns Total number of allowed active campaigns in live applications in the account
      *
      * @return $this
      */
@@ -388,7 +391,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets coupons
      *
-     * @param int $coupons Total Number of allowed coupons in the account
+     * @param int $coupons Total number of allowed coupons in the account
      *
      * @return $this
      */
@@ -412,13 +415,37 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets referralCodes
      *
-     * @param int $referralCodes Total Number of allowed referral codes in the account
+     * @param int $referralCodes Total number of allowed referral codes in the account
      *
      * @return $this
      */
     public function setReferralCodes($referralCodes)
     {
         $this->container['referralCodes'] = $referralCodes;
+
+        return $this;
+    }
+
+    /**
+     * Gets activeRules
+     *
+     * @return int
+     */
+    public function getActiveRules()
+    {
+        return $this->container['activeRules'];
+    }
+
+    /**
+     * Sets activeRules
+     *
+     * @param int $activeRules Total number of allowed active rulesets in the account
+     *
+     * @return $this
+     */
+    public function setActiveRules($activeRules)
+    {
+        $this->container['activeRules'] = $activeRules;
 
         return $this;
     }
@@ -436,7 +463,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets liveLoyaltyPrograms
      *
-     * @param int $liveLoyaltyPrograms Total Number of allowed live loyalty programs in the account
+     * @param int $liveLoyaltyPrograms Total number of allowed live loyalty programs in the account
      *
      * @return $this
      */
@@ -460,7 +487,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets sandboxLoyaltyPrograms
      *
-     * @param int $sandboxLoyaltyPrograms Total Number of allowed sandbox loyalty programs in the account
+     * @param int $sandboxLoyaltyPrograms Total number of allowed sandbox loyalty programs in the account
      *
      * @return $this
      */
@@ -484,7 +511,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets webhooks
      *
-     * @param int $webhooks Total Number of allowed webhooks in the account
+     * @param int $webhooks Total number of allowed webhooks in the account
      *
      * @return $this
      */
@@ -508,7 +535,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets users
      *
-     * @param int $users Total Number of allowed users in the account
+     * @param int $users Total number of allowed users in the account
      *
      * @return $this
      */
@@ -532,37 +559,13 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets apiVolume
      *
-     * @param int $apiVolume Total allowed api volume
+     * @param int $apiVolume Allowed volume of API requests to the account
      *
      * @return $this
      */
     public function setApiVolume($apiVolume)
     {
         $this->container['apiVolume'] = $apiVolume;
-
-        return $this;
-    }
-
-    /**
-     * Gets activeRules
-     *
-     * @return int|null
-     */
-    public function getActiveRules()
-    {
-        return $this->container['activeRules'];
-    }
-
-    /**
-     * Sets activeRules
-     *
-     * @param int|null $activeRules Total allowed active rulesets
-     *
-     * @return $this
-     */
-    public function setActiveRules($activeRules)
-    {
-        $this->container['activeRules'] = $activeRules;
 
         return $this;
     }
@@ -580,7 +583,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets promotionTypes
      *
-     * @param string[] $promotionTypes array of rulesets where webhook is used
+     * @param string[] $promotionTypes Array of promotion types that are employed in the account
      *
      * @return $this
      */

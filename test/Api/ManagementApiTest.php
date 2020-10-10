@@ -643,6 +643,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for getLoyaltyStatistics
+     *
+     * Get loyalty program statistics by loyalty program ID.
+     *
+     */
+    public function testGetLoyaltyStatistics()
+    {
+    }
+
+    /**
      * Test case for getReferrals
      *
      * List Referrals (with total count).

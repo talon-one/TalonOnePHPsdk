@@ -62,7 +62,6 @@ class Campaign implements ModelInterface, ArrayAccess
         'created' => '\DateTime',
         'applicationId' => 'int',
         'userId' => 'int',
-        'campaignGroups' => 'int[]',
         'name' => 'string',
         'description' => 'string',
         'startTime' => '\DateTime',
@@ -75,6 +74,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
+        'campaignGroups' => 'int[]',
         'couponRedemptionCount' => 'int',
         'referralRedemptionCount' => 'int',
         'discountCount' => 'int',
@@ -96,7 +96,6 @@ class Campaign implements ModelInterface, ArrayAccess
         'created' => 'date-time',
         'applicationId' => null,
         'userId' => null,
-        'campaignGroups' => null,
         'name' => null,
         'description' => null,
         'startTime' => 'date-time',
@@ -109,6 +108,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'couponSettings' => null,
         'referralSettings' => null,
         'limits' => null,
+        'campaignGroups' => null,
         'couponRedemptionCount' => null,
         'referralRedemptionCount' => null,
         'discountCount' => null,
@@ -151,7 +151,6 @@ class Campaign implements ModelInterface, ArrayAccess
         'created' => 'created',
         'applicationId' => 'applicationId',
         'userId' => 'userId',
-        'campaignGroups' => 'campaignGroups',
         'name' => 'name',
         'description' => 'description',
         'startTime' => 'startTime',
@@ -164,6 +163,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'couponSettings' => 'couponSettings',
         'referralSettings' => 'referralSettings',
         'limits' => 'limits',
+        'campaignGroups' => 'campaignGroups',
         'couponRedemptionCount' => 'couponRedemptionCount',
         'referralRedemptionCount' => 'referralRedemptionCount',
         'discountCount' => 'discountCount',
@@ -185,7 +185,6 @@ class Campaign implements ModelInterface, ArrayAccess
         'created' => 'setCreated',
         'applicationId' => 'setApplicationId',
         'userId' => 'setUserId',
-        'campaignGroups' => 'setCampaignGroups',
         'name' => 'setName',
         'description' => 'setDescription',
         'startTime' => 'setStartTime',
@@ -198,6 +197,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'couponSettings' => 'setCouponSettings',
         'referralSettings' => 'setReferralSettings',
         'limits' => 'setLimits',
+        'campaignGroups' => 'setCampaignGroups',
         'couponRedemptionCount' => 'setCouponRedemptionCount',
         'referralRedemptionCount' => 'setReferralRedemptionCount',
         'discountCount' => 'setDiscountCount',
@@ -219,7 +219,6 @@ class Campaign implements ModelInterface, ArrayAccess
         'created' => 'getCreated',
         'applicationId' => 'getApplicationId',
         'userId' => 'getUserId',
-        'campaignGroups' => 'getCampaignGroups',
         'name' => 'getName',
         'description' => 'getDescription',
         'startTime' => 'getStartTime',
@@ -232,6 +231,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'couponSettings' => 'getCouponSettings',
         'referralSettings' => 'getReferralSettings',
         'limits' => 'getLimits',
+        'campaignGroups' => 'getCampaignGroups',
         'couponRedemptionCount' => 'getCouponRedemptionCount',
         'referralRedemptionCount' => 'getReferralRedemptionCount',
         'discountCount' => 'getDiscountCount',
@@ -341,7 +341,6 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
-        $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
@@ -354,6 +353,7 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['couponSettings'] = isset($data['couponSettings']) ? $data['couponSettings'] : null;
         $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
+        $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
         $this->container['couponRedemptionCount'] = isset($data['couponRedemptionCount']) ? $data['couponRedemptionCount'] : null;
         $this->container['referralRedemptionCount'] = isset($data['referralRedemptionCount']) ? $data['referralRedemptionCount'] : null;
         $this->container['discountCount'] = isset($data['discountCount']) ? $data['discountCount'] : null;
@@ -523,30 +523,6 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setUserId($userId)
     {
         $this->container['userId'] = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaignGroups
-     *
-     * @return int[]|null
-     */
-    public function getCampaignGroups()
-    {
-        return $this->container['campaignGroups'];
-    }
-
-    /**
-     * Sets campaignGroups
-     *
-     * @param int[]|null $campaignGroups The IDs of the campaign groups that own this entity.
-     *
-     * @return $this
-     */
-    public function setCampaignGroups($campaignGroups)
-    {
-        $this->container['campaignGroups'] = $campaignGroups;
 
         return $this;
     }
@@ -858,6 +834,30 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setLimits($limits)
     {
         $this->container['limits'] = $limits;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignGroups
+     *
+     * @return int[]|null
+     */
+    public function getCampaignGroups()
+    {
+        return $this->container['campaignGroups'];
+    }
+
+    /**
+     * Sets campaignGroups
+     *
+     * @param int[]|null $campaignGroups The IDs of the campaign groups that own this entity.
+     *
+     * @return $this
+     */
+    public function setCampaignGroups($campaignGroups)
+    {
+        $this->container['campaignGroups'] = $campaignGroups;
 
         return $this;
     }

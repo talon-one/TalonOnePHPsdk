@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * SetDiscountEffectPropsTest Class Doc Comment
  *
  * @category    Class
- * @description The properties specific to the \&quot;setDiscount\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set discount\&quot; effect. This is a discount that should be applied globally on the session total.
+ * @description The properties specific to the \&quot;setDiscount\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set discount\&quot; effect. This is a discount that should be applied on the scope of defined with it.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -89,6 +89,13 @@ class SetDiscountEffectPropsTest extends TestCase
      * Test attribute "value"
      */
     public function testPropertyValue()
+    {
+    }
+
+    /**
+     * Test attribute "scope"
+     */
+    public function testPropertyScope()
     {
     }
 }

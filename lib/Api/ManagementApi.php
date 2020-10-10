@@ -7403,14 +7403,18 @@ class ManagementApi
      * List Application Customers
      *
      * @param  int $applicationId applicationId (required)
+     * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20012
      */
-    public function getApplicationCustomers($applicationId)
+    public function getApplicationCustomers($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
     {
-        list($response) = $this->getApplicationCustomersWithHttpInfo($applicationId);
+        list($response) = $this->getApplicationCustomersWithHttpInfo($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize);
         return $response;
     }
 
@@ -7420,14 +7424,18 @@ class ManagementApi
      * List Application Customers
      *
      * @param  int $applicationId (required)
+     * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationCustomersWithHttpInfo($applicationId)
+    public function getApplicationCustomersWithHttpInfo($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
     {
-        $request = $this->getApplicationCustomersRequest($applicationId);
+        $request = $this->getApplicationCustomersRequest($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7508,13 +7516,17 @@ class ManagementApi
      * List Application Customers
      *
      * @param  int $applicationId (required)
+     * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationCustomersAsync($applicationId)
+    public function getApplicationCustomersAsync($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
     {
-        return $this->getApplicationCustomersAsyncWithHttpInfo($applicationId)
+        return $this->getApplicationCustomersAsyncWithHttpInfo($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7528,14 +7540,18 @@ class ManagementApi
      * List Application Customers
      *
      * @param  int $applicationId (required)
+     * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationCustomersAsyncWithHttpInfo($applicationId)
+    public function getApplicationCustomersAsyncWithHttpInfo($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20012';
-        $request = $this->getApplicationCustomersRequest($applicationId);
+        $request = $this->getApplicationCustomersRequest($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7575,11 +7591,15 @@ class ManagementApi
      * Create request for operation 'getApplicationCustomers'
      *
      * @param  int $applicationId (required)
+     * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationCustomersRequest($applicationId)
+    protected function getApplicationCustomersRequest($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -7595,6 +7615,22 @@ class ManagementApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($integrationId !== null) {
+            $queryParams['integrationId'] = ObjectSerializer::toQueryValue($integrationId);
+        }
+        // query params
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
+        }
+        // query params
+        if ($skip !== null) {
+            $queryParams['skip'] = ObjectSerializer::toQueryValue($skip);
+        }
+        // query params
+        if ($withTotalResultSize !== null) {
+            $queryParams['withTotalResultSize'] = ObjectSerializer::toQueryValue($withTotalResultSize);
+        }
 
         // path params
         if ($applicationId !== null) {
@@ -9379,18 +9415,19 @@ class ManagementApi
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
      * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
-     * @param  string $customerId Filter by integration ID of the customer for the session (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20016
      */
-    public function getApplicationSessions($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integrationId = null, $customerId = null)
+    public function getApplicationSessions($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $createdBefore = null, $createdAfter = null, $coupon = null, $referral = null, $integrationId = null)
     {
-        list($response) = $this->getApplicationSessionsWithHttpInfo($applicationId, $pageSize, $skip, $sort, $profile, $state, $coupon, $referral, $integrationId, $customerId);
+        list($response) = $this->getApplicationSessionsWithHttpInfo($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId);
         return $response;
     }
 
@@ -9405,18 +9442,19 @@ class ManagementApi
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
      * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
-     * @param  string $customerId Filter by integration ID of the customer for the session (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20016, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationSessionsWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integrationId = null, $customerId = null)
+    public function getApplicationSessionsWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $createdBefore = null, $createdAfter = null, $coupon = null, $referral = null, $integrationId = null)
     {
-        $request = $this->getApplicationSessionsRequest($applicationId, $pageSize, $skip, $sort, $profile, $state, $coupon, $referral, $integrationId, $customerId);
+        $request = $this->getApplicationSessionsRequest($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9502,17 +9540,18 @@ class ManagementApi
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
      * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
-     * @param  string $customerId Filter by integration ID of the customer for the session (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationSessionsAsync($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integrationId = null, $customerId = null)
+    public function getApplicationSessionsAsync($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $createdBefore = null, $createdAfter = null, $coupon = null, $referral = null, $integrationId = null)
     {
-        return $this->getApplicationSessionsAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort, $profile, $state, $coupon, $referral, $integrationId, $customerId)
+        return $this->getApplicationSessionsAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9531,18 +9570,19 @@ class ManagementApi
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
      * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
-     * @param  string $customerId Filter by integration ID of the customer for the session (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationSessionsAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integrationId = null, $customerId = null)
+    public function getApplicationSessionsAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $createdBefore = null, $createdAfter = null, $coupon = null, $referral = null, $integrationId = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20016';
-        $request = $this->getApplicationSessionsRequest($applicationId, $pageSize, $skip, $sort, $profile, $state, $coupon, $referral, $integrationId, $customerId);
+        $request = $this->getApplicationSessionsRequest($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9587,15 +9627,16 @@ class ManagementApi
      * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
      * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
-     * @param  string $customerId Filter by integration ID of the customer for the session (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationSessionsRequest($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $coupon = null, $referral = null, $integrationId = null, $customerId = null)
+    protected function getApplicationSessionsRequest($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $createdBefore = null, $createdAfter = null, $coupon = null, $referral = null, $integrationId = null)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -9632,6 +9673,14 @@ class ManagementApi
             $queryParams['state'] = ObjectSerializer::toQueryValue($state);
         }
         // query params
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = ObjectSerializer::toQueryValue($createdBefore);
+        }
+        // query params
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = ObjectSerializer::toQueryValue($createdAfter);
+        }
+        // query params
         if ($coupon !== null) {
             $queryParams['coupon'] = ObjectSerializer::toQueryValue($coupon);
         }
@@ -9642,10 +9691,6 @@ class ManagementApi
         // query params
         if ($integrationId !== null) {
             $queryParams['integrationId'] = ObjectSerializer::toQueryValue($integrationId);
-        }
-        // query params
-        if ($customerId !== null) {
-            $queryParams['customerId'] = ObjectSerializer::toQueryValue($customerId);
         }
 
         // path params
@@ -17791,6 +17836,283 @@ class ManagementApi
         $multipart = false;
 
 
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getLoyaltyStatistics
+     *
+     * Get loyalty program statistics by loyalty program ID
+     *
+     * @param  string $programID programID (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\LoyaltyStatistics
+     */
+    public function getLoyaltyStatistics($programID)
+    {
+        list($response) = $this->getLoyaltyStatisticsWithHttpInfo($programID);
+        return $response;
+    }
+
+    /**
+     * Operation getLoyaltyStatisticsWithHttpInfo
+     *
+     * Get loyalty program statistics by loyalty program ID
+     *
+     * @param  string $programID (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\LoyaltyStatistics, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getLoyaltyStatisticsWithHttpInfo($programID)
+    {
+        $request = $this->getLoyaltyStatisticsRequest($programID);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\LoyaltyStatistics' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\LoyaltyStatistics', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\LoyaltyStatistics';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\LoyaltyStatistics',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getLoyaltyStatisticsAsync
+     *
+     * Get loyalty program statistics by loyalty program ID
+     *
+     * @param  string $programID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getLoyaltyStatisticsAsync($programID)
+    {
+        return $this->getLoyaltyStatisticsAsyncWithHttpInfo($programID)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getLoyaltyStatisticsAsyncWithHttpInfo
+     *
+     * Get loyalty program statistics by loyalty program ID
+     *
+     * @param  string $programID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getLoyaltyStatisticsAsyncWithHttpInfo($programID)
+    {
+        $returnType = '\TalonOne\Client\Model\LoyaltyStatistics';
+        $request = $this->getLoyaltyStatisticsRequest($programID);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getLoyaltyStatistics'
+     *
+     * @param  string $programID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getLoyaltyStatisticsRequest($programID)
+    {
+        // verify the required parameter 'programID' is set
+        if ($programID === null || (is_array($programID) && count($programID) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $programID when calling getLoyaltyStatistics'
+            );
+        }
+
+        $resourcePath = '/v1/loyalty_programs/{programID}/statistics';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($programID !== null) {
+            $resourcePath = str_replace(
+                '{' . 'programID' . '}',
+                ObjectSerializer::toPathValue($programID),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;

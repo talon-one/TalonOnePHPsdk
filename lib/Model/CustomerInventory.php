@@ -58,6 +58,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'profile' => '\TalonOne\Client\Model\CustomerProfile',
+        'loyalty' => '\TalonOne\Client\Model\Loyalty',
         'referrals' => '\TalonOne\Client\Model\Referral[]',
         'coupons' => '\TalonOne\Client\Model\Coupon[]'
     ];
@@ -69,6 +70,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'profile' => null,
+        'loyalty' => null,
         'referrals' => null,
         'coupons' => null
     ];
@@ -101,6 +103,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'profile' => 'profile',
+        'loyalty' => 'loyalty',
         'referrals' => 'referrals',
         'coupons' => 'coupons'
     ];
@@ -112,6 +115,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'profile' => 'setProfile',
+        'loyalty' => 'setLoyalty',
         'referrals' => 'setReferrals',
         'coupons' => 'setCoupons'
     ];
@@ -123,6 +127,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'profile' => 'getProfile',
+        'loyalty' => 'getLoyalty',
         'referrals' => 'getReferrals',
         'coupons' => 'getCoupons'
     ];
@@ -188,6 +193,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['profile'] = isset($data['profile']) ? $data['profile'] : null;
+        $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
         $this->container['referrals'] = isset($data['referrals']) ? $data['referrals'] : null;
         $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
     }
@@ -236,6 +242,30 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     public function setProfile($profile)
     {
         $this->container['profile'] = $profile;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyalty
+     *
+     * @return \TalonOne\Client\Model\Loyalty|null
+     */
+    public function getLoyalty()
+    {
+        return $this->container['loyalty'];
+    }
+
+    /**
+     * Sets loyalty
+     *
+     * @param \TalonOne\Client\Model\Loyalty|null $loyalty loyalty
+     *
+     * @return $this
+     */
+    public function setLoyalty($loyalty)
+    {
+        $this->container['loyalty'] = $loyalty;
 
         return $this;
     }

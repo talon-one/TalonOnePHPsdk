@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerProfileUpdateTest
+ * MultipleCustomerProfileIntegrationRequestTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CustomerProfileUpdateTest Class Doc Comment
+ * MultipleCustomerProfileIntegrationRequestTest Class Doc Comment
  *
  * @category    Class
- * @description CustomerProfileUpdate
+ * @description MultipleCustomerProfileIntegrationRequest
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CustomerProfileUpdateTest extends TestCase
+class MultipleCustomerProfileIntegrationRequestTest extends TestCase
 {
 
     /**
@@ -72,16 +72,16 @@ class CustomerProfileUpdateTest extends TestCase
     }
 
     /**
-     * Test "CustomerProfileUpdate"
+     * Test "MultipleCustomerProfileIntegrationRequest"
      */
-    public function testCustomerProfileUpdate()
+    public function testMultipleCustomerProfileIntegrationRequest()
     {
     }
 
     /**
-     * Test attribute "customerProfile"
+     * Test attribute "customerProfiles"
      */
-    public function testPropertyCustomerProfile()
+    public function testPropertyCustomerProfiles()
     {
     }
 }

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewCampaignTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description NewCampaign
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -75,13 +75,6 @@ class NewCampaignTest extends TestCase
      * Test "NewCampaign"
      */
     public function testNewCampaign()
-    {
-    }
-
-    /**
-     * Test attribute "campaignGroups"
-     */
-    public function testPropertyCampaignGroups()
     {
     }
 
@@ -166,6 +159,13 @@ class NewCampaignTest extends TestCase
      * Test attribute "limits"
      */
     public function testPropertyLimits()
+    {
+    }
+
+    /**
+     * Test attribute "campaignGroups"
+     */
+    public function testPropertyCampaignGroups()
     {
     }
 }

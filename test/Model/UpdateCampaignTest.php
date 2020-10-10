@@ -161,4 +161,11 @@ class UpdateCampaignTest extends TestCase
     public function testPropertyLimits()
     {
     }
+
+    /**
+     * Test attribute "campaignGroups"
+     */
+    public function testPropertyCampaignGroups()
+    {
+    }
 }

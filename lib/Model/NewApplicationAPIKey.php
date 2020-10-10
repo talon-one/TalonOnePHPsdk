@@ -58,13 +58,14 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'title' => 'string',
+        'expires' => '\DateTime',
+        'platform' => 'string',
         'id' => 'int',
         'createdBy' => 'int',
-        'title' => 'string',
         'accountID' => 'int',
         'applicationID' => 'int',
         'created' => '\DateTime',
-        'expires' => '\DateTime',
         'key' => 'string'
     ];
 
@@ -74,13 +75,14 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'title' => null,
+        'expires' => 'date-time',
+        'platform' => null,
         'id' => null,
         'createdBy' => null,
-        'title' => null,
         'accountID' => null,
         'applicationID' => null,
         'created' => 'date-time',
-        'expires' => 'date-time',
         'key' => null
     ];
 
@@ -111,13 +113,14 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'title' => 'title',
+        'expires' => 'expires',
+        'platform' => 'platform',
         'id' => 'id',
         'createdBy' => 'createdBy',
-        'title' => 'title',
         'accountID' => 'accountID',
         'applicationID' => 'applicationID',
         'created' => 'created',
-        'expires' => 'expires',
         'key' => 'key'
     ];
 
@@ -127,13 +130,14 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'title' => 'setTitle',
+        'expires' => 'setExpires',
+        'platform' => 'setPlatform',
         'id' => 'setId',
         'createdBy' => 'setCreatedBy',
-        'title' => 'setTitle',
         'accountID' => 'setAccountID',
         'applicationID' => 'setApplicationID',
         'created' => 'setCreated',
-        'expires' => 'setExpires',
         'key' => 'setKey'
     ];
 
@@ -143,13 +147,14 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'title' => 'getTitle',
+        'expires' => 'getExpires',
+        'platform' => 'getPlatform',
         'id' => 'getId',
         'createdBy' => 'getCreatedBy',
-        'title' => 'getTitle',
         'accountID' => 'getAccountID',
         'applicationID' => 'getApplicationID',
         'created' => 'getCreated',
-        'expires' => 'getExpires',
         'key' => 'getKey'
     ];
 
@@ -194,8 +199,27 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const PLATFORM_NONE = 'none';
+    const PLATFORM_SEGMENT = 'segment';
+    const PLATFORM_BRAZE = 'braze';
+    const PLATFORM_MPARTICLE = 'mparticle';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPlatformAllowableValues()
+    {
+        return [
+            self::PLATFORM_NONE,
+            self::PLATFORM_SEGMENT,
+            self::PLATFORM_BRAZE,
+            self::PLATFORM_MPARTICLE,
+        ];
+    }
     
 
     /**
@@ -213,13 +237,14 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['expires'] = isset($data['expires']) ? $data['expires'] : null;
+        $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
         $this->container['applicationID'] = isset($data['applicationID']) ? $data['applicationID'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['expires'] = isset($data['expires']) ? $data['expires'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
     }
 
@@ -232,14 +257,25 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['expires'] === null) {
+            $invalidProperties[] = "'expires' can't be null";
+        }
+        $allowedValues = $this->getPlatformAllowableValues();
+        if (!is_null($this->container['platform']) && !in_array($this->container['platform'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'platform', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['createdBy'] === null) {
             $invalidProperties[] = "'createdBy' can't be null";
-        }
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
         }
         if ($this->container['accountID'] === null) {
             $invalidProperties[] = "'accountID' can't be null";
@@ -249,9 +285,6 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
         }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
-        }
-        if ($this->container['expires'] === null) {
-            $invalidProperties[] = "'expires' can't be null";
         }
         if ($this->container['key'] === null) {
             $invalidProperties[] = "'key' can't be null";
@@ -270,6 +303,87 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string $title Title for API Key
+     *
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets expires
+     *
+     * @return \DateTime
+     */
+    public function getExpires()
+    {
+        return $this->container['expires'];
+    }
+
+    /**
+     * Sets expires
+     *
+     * @param \DateTime $expires The date the API key expired
+     *
+     * @return $this
+     */
+    public function setExpires($expires)
+    {
+        $this->container['expires'] = $expires;
+
+        return $this;
+    }
+
+    /**
+     * Gets platform
+     *
+     * @return string|null
+     */
+    public function getPlatform()
+    {
+        return $this->container['platform'];
+    }
+
+    /**
+     * Sets platform
+     *
+     * @param string|null $platform Platform the API key is valid for.
+     *
+     * @return $this
+     */
+    public function setPlatform($platform)
+    {
+        $allowedValues = $this->getPlatformAllowableValues();
+        if (!is_null($platform) && !in_array($platform, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'platform', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['platform'] = $platform;
+
+        return $this;
+    }
 
     /**
      * Gets id
@@ -315,30 +429,6 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
     public function setCreatedBy($createdBy)
     {
         $this->container['createdBy'] = $createdBy;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->container['title'];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string $title Title for API Key
-     *
-     * @return $this
-     */
-    public function setTitle($title)
-    {
-        $this->container['title'] = $title;
 
         return $this;
     }
@@ -411,30 +501,6 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
     public function setCreated($created)
     {
         $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
-     * Gets expires
-     *
-     * @return \DateTime
-     */
-    public function getExpires()
-    {
-        return $this->container['expires'];
-    }
-
-    /**
-     * Sets expires
-     *
-     * @param \DateTime $expires The date the API key expired
-     *
-     * @return $this
-     */
-    public function setExpires($expires)
-    {
-        $this->container['expires'] = $expires;
 
         return $this;
     }

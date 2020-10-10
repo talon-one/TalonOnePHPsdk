@@ -1179,14 +1179,15 @@ class IntegrationApi
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
      * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      * @param  bool $coupons optional flag to decide if you would like coupon information in the response (optional)
+     * @param  bool $loyalty optional flag to decide if you would like loyalty information in the response (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\CustomerInventory
      */
-    public function getCustomerInventory($integrationId, $profile = null, $referrals = null, $coupons = null)
+    public function getCustomerInventory($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null)
     {
-        list($response) = $this->getCustomerInventoryWithHttpInfo($integrationId, $profile, $referrals, $coupons);
+        list($response) = $this->getCustomerInventoryWithHttpInfo($integrationId, $profile, $referrals, $coupons, $loyalty);
         return $response;
     }
 
@@ -1199,14 +1200,15 @@ class IntegrationApi
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
      * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      * @param  bool $coupons optional flag to decide if you would like coupon information in the response (optional)
+     * @param  bool $loyalty optional flag to decide if you would like loyalty information in the response (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\CustomerInventory, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomerInventoryWithHttpInfo($integrationId, $profile = null, $referrals = null, $coupons = null)
+    public function getCustomerInventoryWithHttpInfo($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null)
     {
-        $request = $this->getCustomerInventoryRequest($integrationId, $profile, $referrals, $coupons);
+        $request = $this->getCustomerInventoryRequest($integrationId, $profile, $referrals, $coupons, $loyalty);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1290,13 +1292,14 @@ class IntegrationApi
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
      * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      * @param  bool $coupons optional flag to decide if you would like coupon information in the response (optional)
+     * @param  bool $loyalty optional flag to decide if you would like loyalty information in the response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerInventoryAsync($integrationId, $profile = null, $referrals = null, $coupons = null)
+    public function getCustomerInventoryAsync($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null)
     {
-        return $this->getCustomerInventoryAsyncWithHttpInfo($integrationId, $profile, $referrals, $coupons)
+        return $this->getCustomerInventoryAsyncWithHttpInfo($integrationId, $profile, $referrals, $coupons, $loyalty)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1313,14 +1316,15 @@ class IntegrationApi
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
      * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      * @param  bool $coupons optional flag to decide if you would like coupon information in the response (optional)
+     * @param  bool $loyalty optional flag to decide if you would like loyalty information in the response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerInventoryAsyncWithHttpInfo($integrationId, $profile = null, $referrals = null, $coupons = null)
+    public function getCustomerInventoryAsyncWithHttpInfo($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null)
     {
         $returnType = '\TalonOne\Client\Model\CustomerInventory';
-        $request = $this->getCustomerInventoryRequest($integrationId, $profile, $referrals, $coupons);
+        $request = $this->getCustomerInventoryRequest($integrationId, $profile, $referrals, $coupons, $loyalty);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1363,11 +1367,12 @@ class IntegrationApi
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
      * @param  bool $referrals optional flag to decide if you would like referral information in the response (optional)
      * @param  bool $coupons optional flag to decide if you would like coupon information in the response (optional)
+     * @param  bool $loyalty optional flag to decide if you would like loyalty information in the response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomerInventoryRequest($integrationId, $profile = null, $referrals = null, $coupons = null)
+    protected function getCustomerInventoryRequest($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null)
     {
         // verify the required parameter 'integrationId' is set
         if ($integrationId === null || (is_array($integrationId) && count($integrationId) === 0)) {
@@ -1394,6 +1399,10 @@ class IntegrationApi
         // query params
         if ($coupons !== null) {
             $queryParams['coupons'] = ObjectSerializer::toQueryValue($coupons);
+        }
+        // query params
+        if ($loyalty !== null) {
+            $queryParams['loyalty'] = ObjectSerializer::toQueryValue($loyalty);
         }
 
         // path params
@@ -2353,20 +2362,246 @@ class IntegrationApi
     }
 
     /**
+     * Operation updateCustomerProfileAudiences
+     *
+     * Update a Customer Profile Audiences
+     *
+     * @param  \TalonOne\Client\Model\CustomerProfileAudienceRequest $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateCustomerProfileAudiences($body)
+    {
+        $this->updateCustomerProfileAudiencesWithHttpInfo($body);
+    }
+
+    /**
+     * Operation updateCustomerProfileAudiencesWithHttpInfo
+     *
+     * Update a Customer Profile Audiences
+     *
+     * @param  \TalonOne\Client\Model\CustomerProfileAudienceRequest $body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateCustomerProfileAudiencesWithHttpInfo($body)
+    {
+        $request = $this->updateCustomerProfileAudiencesRequest($body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateCustomerProfileAudiencesAsync
+     *
+     * Update a Customer Profile Audiences
+     *
+     * @param  \TalonOne\Client\Model\CustomerProfileAudienceRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateCustomerProfileAudiencesAsync($body)
+    {
+        return $this->updateCustomerProfileAudiencesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateCustomerProfileAudiencesAsyncWithHttpInfo
+     *
+     * Update a Customer Profile Audiences
+     *
+     * @param  \TalonOne\Client\Model\CustomerProfileAudienceRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateCustomerProfileAudiencesAsyncWithHttpInfo($body)
+    {
+        $returnType = '';
+        $request = $this->updateCustomerProfileAudiencesRequest($body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateCustomerProfileAudiences'
+     *
+     * @param  \TalonOne\Client\Model\CustomerProfileAudienceRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateCustomerProfileAudiencesRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling updateCustomerProfileAudiences'
+            );
+        }
+
+        $resourcePath = '/v2/customer_audiences';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation updateCustomerProfileV2
      *
      * Update a Customer Profile
      *
-     * @param  string $customerProfileId The custom identifier for this profile, must be unique within the account. (required)
-     * @param  \TalonOne\Client\Model\NewCustomerProfile $body body (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body body (required)
+     * @param  bool $runRuleEngine Flag to indicate whether to run the rule engine (Defaults to false). (optional)
+     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\CustomerProfileUpdate
+     * @return \TalonOne\Client\Model\IntegrationStateV2
      */
-    public function updateCustomerProfileV2($customerProfileId, $body)
+    public function updateCustomerProfileV2($integrationId, $body, $runRuleEngine = null, $dry = null)
     {
-        list($response) = $this->updateCustomerProfileV2WithHttpInfo($customerProfileId, $body);
+        list($response) = $this->updateCustomerProfileV2WithHttpInfo($integrationId, $body, $runRuleEngine, $dry);
         return $response;
     }
 
@@ -2375,16 +2610,18 @@ class IntegrationApi
      *
      * Update a Customer Profile
      *
-     * @param  string $customerProfileId The custom identifier for this profile, must be unique within the account. (required)
-     * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body (required)
+     * @param  bool $runRuleEngine Flag to indicate whether to run the rule engine (Defaults to false). (optional)
+     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\CustomerProfileUpdate, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\IntegrationStateV2, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCustomerProfileV2WithHttpInfo($customerProfileId, $body)
+    public function updateCustomerProfileV2WithHttpInfo($integrationId, $body, $runRuleEngine = null, $dry = null)
     {
-        $request = $this->updateCustomerProfileV2Request($customerProfileId, $body);
+        $request = $this->updateCustomerProfileV2Request($integrationId, $body, $runRuleEngine, $dry);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2417,20 +2654,20 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\CustomerProfileUpdate' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\IntegrationStateV2' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\CustomerProfileUpdate', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\IntegrationStateV2', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\CustomerProfileUpdate';
+            $returnType = '\TalonOne\Client\Model\IntegrationStateV2';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2449,7 +2686,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\CustomerProfileUpdate',
+                        '\TalonOne\Client\Model\IntegrationStateV2',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2464,15 +2701,17 @@ class IntegrationApi
      *
      * Update a Customer Profile
      *
-     * @param  string $customerProfileId The custom identifier for this profile, must be unique within the account. (required)
-     * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body (required)
+     * @param  bool $runRuleEngine Flag to indicate whether to run the rule engine (Defaults to false). (optional)
+     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomerProfileV2Async($customerProfileId, $body)
+    public function updateCustomerProfileV2Async($integrationId, $body, $runRuleEngine = null, $dry = null)
     {
-        return $this->updateCustomerProfileV2AsyncWithHttpInfo($customerProfileId, $body)
+        return $this->updateCustomerProfileV2AsyncWithHttpInfo($integrationId, $body, $runRuleEngine, $dry)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2485,16 +2724,18 @@ class IntegrationApi
      *
      * Update a Customer Profile
      *
-     * @param  string $customerProfileId The custom identifier for this profile, must be unique within the account. (required)
-     * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body (required)
+     * @param  bool $runRuleEngine Flag to indicate whether to run the rule engine (Defaults to false). (optional)
+     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomerProfileV2AsyncWithHttpInfo($customerProfileId, $body)
+    public function updateCustomerProfileV2AsyncWithHttpInfo($integrationId, $body, $runRuleEngine = null, $dry = null)
     {
-        $returnType = '\TalonOne\Client\Model\CustomerProfileUpdate';
-        $request = $this->updateCustomerProfileV2Request($customerProfileId, $body);
+        $returnType = '\TalonOne\Client\Model\IntegrationStateV2';
+        $request = $this->updateCustomerProfileV2Request($integrationId, $body, $runRuleEngine, $dry);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2533,18 +2774,20 @@ class IntegrationApi
     /**
      * Create request for operation 'updateCustomerProfileV2'
      *
-     * @param  string $customerProfileId The custom identifier for this profile, must be unique within the account. (required)
-     * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
+     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body (required)
+     * @param  bool $runRuleEngine Flag to indicate whether to run the rule engine (Defaults to false). (optional)
+     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCustomerProfileV2Request($customerProfileId, $body)
+    protected function updateCustomerProfileV2Request($integrationId, $body, $runRuleEngine = null, $dry = null)
     {
-        // verify the required parameter 'customerProfileId' is set
-        if ($customerProfileId === null || (is_array($customerProfileId) && count($customerProfileId) === 0)) {
+        // verify the required parameter 'integrationId' is set
+        if ($integrationId === null || (is_array($integrationId) && count($integrationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customerProfileId when calling updateCustomerProfileV2'
+                'Missing the required parameter $integrationId when calling updateCustomerProfileV2'
             );
         }
         // verify the required parameter 'body' is set
@@ -2554,22 +2797,311 @@ class IntegrationApi
             );
         }
 
-        $resourcePath = '/v2/customer_profiles/{customerProfileId}';
+        $resourcePath = '/v2/customer_profiles/{integrationId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($runRuleEngine !== null) {
+            $queryParams['runRuleEngine'] = ObjectSerializer::toQueryValue($runRuleEngine);
+        }
+        // query params
+        if ($dry !== null) {
+            $queryParams['dry'] = ObjectSerializer::toQueryValue($dry);
+        }
 
         // path params
-        if ($customerProfileId !== null) {
+        if ($integrationId !== null) {
             $resourcePath = str_replace(
-                '{' . 'customerProfileId' . '}',
-                ObjectSerializer::toPathValue($customerProfileId),
+                '{' . 'integrationId' . '}',
+                ObjectSerializer::toPathValue($integrationId),
                 $resourcePath
             );
         }
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateCustomerProfilesV2
+     *
+     * Update multiple Customer Profiles
+     *
+     * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body body (required)
+     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\MultipleCustomerProfileIntegrationResponseV2
+     */
+    public function updateCustomerProfilesV2($body, $silent = null)
+    {
+        list($response) = $this->updateCustomerProfilesV2WithHttpInfo($body, $silent);
+        return $response;
+    }
+
+    /**
+     * Operation updateCustomerProfilesV2WithHttpInfo
+     *
+     * Update multiple Customer Profiles
+     *
+     * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body (required)
+     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\MultipleCustomerProfileIntegrationResponseV2, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateCustomerProfilesV2WithHttpInfo($body, $silent = null)
+    {
+        $request = $this->updateCustomerProfilesV2Request($body, $silent);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\MultipleCustomerProfileIntegrationResponseV2' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\MultipleCustomerProfileIntegrationResponseV2', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\MultipleCustomerProfileIntegrationResponseV2';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\MultipleCustomerProfileIntegrationResponseV2',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateCustomerProfilesV2Async
+     *
+     * Update multiple Customer Profiles
+     *
+     * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body (required)
+     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateCustomerProfilesV2Async($body, $silent = null)
+    {
+        return $this->updateCustomerProfilesV2AsyncWithHttpInfo($body, $silent)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateCustomerProfilesV2AsyncWithHttpInfo
+     *
+     * Update multiple Customer Profiles
+     *
+     * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body (required)
+     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateCustomerProfilesV2AsyncWithHttpInfo($body, $silent = null)
+    {
+        $returnType = '\TalonOne\Client\Model\MultipleCustomerProfileIntegrationResponseV2';
+        $request = $this->updateCustomerProfilesV2Request($body, $silent);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateCustomerProfilesV2'
+     *
+     * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body (required)
+     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateCustomerProfilesV2Request($body, $silent = null)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling updateCustomerProfilesV2'
+            );
+        }
+
+        $resourcePath = '/v2/customer_profiles';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($silent !== null) {
+            $queryParams['silent'] = ObjectSerializer::toQueryValue($silent);
+        }
+
 
         // body params
         $_tempBody = null;

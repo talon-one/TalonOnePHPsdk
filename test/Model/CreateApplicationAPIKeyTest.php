@@ -91,4 +91,11 @@ class CreateApplicationAPIKeyTest extends TestCase
     public function testPropertyExpires()
     {
     }
+
+    /**
+     * Test attribute "platform"
+     */
+    public function testPropertyPlatform()
+    {
+    }
 }

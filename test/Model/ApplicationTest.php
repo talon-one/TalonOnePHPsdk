@@ -177,6 +177,13 @@ class ApplicationTest extends TestCase
     }
 
     /**
+     * Test attribute "enableFlattenedCartItems"
+     */
+    public function testPropertyEnableFlattenedCartItems()
+    {
+    }
+
+    /**
      * Test attribute "attributesSettings"
      */
     public function testPropertyAttributesSettings()

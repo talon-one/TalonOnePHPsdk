@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name of the copied campaign (Defaults to \&quot;Copy of original campaign name\&quot;) | [optional] 
-**applicationIds** | **string[]** | Application IDs of the applications to which a campaign should be copied to | 
+**applicationIds** | **int[]** | Application IDs of the applications to which a campaign should be copied to | 
 **description** | **string** | A detailed description of the campaign. | [optional] 
 **startTime** | [**\DateTime**](\DateTime.md) | Datetime when the campaign will become active. | [optional] 
 **endTime** | [**\DateTime**](\DateTime.md) | Datetime when the campaign will become in-active. | [optional] 

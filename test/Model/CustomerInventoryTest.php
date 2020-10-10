@@ -86,6 +86,13 @@ class CustomerInventoryTest extends TestCase
     }
 
     /**
+     * Test attribute "loyalty"
+     */
+    public function testPropertyLoyalty()
+    {
+    }
+
+    /**
      * Test attribute "referrals"
      */
     public function testPropertyReferrals()

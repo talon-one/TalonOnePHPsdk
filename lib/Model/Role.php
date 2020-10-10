@@ -60,10 +60,11 @@ class Role implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'accountID' => 'int',
+        'campaignGroupID' => 'int',
         'name' => 'string',
         'description' => 'string',
         'members' => 'int[]',
-        'acl' => 'string'
+        'acl' => 'object'
     ];
 
     /**
@@ -74,10 +75,11 @@ class Role implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'accountID' => null,
+        'campaignGroupID' => null,
         'name' => null,
         'description' => null,
         'members' => null,
-        'acl' => 'aclRole'
+        'acl' => null
     ];
 
     /**
@@ -109,6 +111,7 @@ class Role implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'accountID' => 'accountID',
+        'campaignGroupID' => 'campaignGroupID',
         'name' => 'name',
         'description' => 'description',
         'members' => 'members',
@@ -123,6 +126,7 @@ class Role implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'accountID' => 'setAccountID',
+        'campaignGroupID' => 'setCampaignGroupID',
         'name' => 'setName',
         'description' => 'setDescription',
         'members' => 'setMembers',
@@ -137,6 +141,7 @@ class Role implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'accountID' => 'getAccountID',
+        'campaignGroupID' => 'getCampaignGroupID',
         'name' => 'getName',
         'description' => 'getDescription',
         'members' => 'getMembers',
@@ -205,6 +210,7 @@ class Role implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
+        $this->container['campaignGroupID'] = isset($data['campaignGroupID']) ? $data['campaignGroupID'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['members'] = isset($data['members']) ? $data['members'] : null;
@@ -290,6 +296,30 @@ class Role implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets campaignGroupID
+     *
+     * @return int|null
+     */
+    public function getCampaignGroupID()
+    {
+        return $this->container['campaignGroupID'];
+    }
+
+    /**
+     * Sets campaignGroupID
+     *
+     * @param int|null $campaignGroupID The ID of the Campaign Group this role was created for.
+     *
+     * @return $this
+     */
+    public function setCampaignGroupID($campaignGroupID)
+    {
+        $this->container['campaignGroupID'] = $campaignGroupID;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string|null
@@ -364,7 +394,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Gets acl
      *
-     * @return string|null
+     * @return object|null
      */
     public function getAcl()
     {
@@ -374,7 +404,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets acl
      *
-     * @param string|null $acl Role Policy this should be a stringified blob of json
+     * @param object|null $acl Role ACL Policy
      *
      * @return $this
      */

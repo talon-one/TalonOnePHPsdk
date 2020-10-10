@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerProfileUpdate
+ * CustomerProfileIntegrationRequestV2
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * CustomerProfileUpdate Class Doc Comment
+ * CustomerProfileIntegrationRequestV2 Class Doc Comment
  *
  * @category Class
+ * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomerProfileUpdate implements ModelInterface, ArrayAccess
+class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class CustomerProfileUpdate implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomerProfileUpdate';
+    protected static $openAPIModelName = 'CustomerProfileIntegrationRequestV2';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class CustomerProfileUpdate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'customerProfile' => '\TalonOne\Client\Model\CustomerProfile'
+        'attributes' => 'object',
+        'responseContent' => 'string[]'
     ];
 
     /**
@@ -66,7 +68,8 @@ class CustomerProfileUpdate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'customerProfile' => null
+        'attributes' => null,
+        'responseContent' => null
     ];
 
     /**
@@ -96,7 +99,8 @@ class CustomerProfileUpdate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'customerProfile' => 'customerProfile'
+        'attributes' => 'attributes',
+        'responseContent' => 'responseContent'
     ];
 
     /**
@@ -105,7 +109,8 @@ class CustomerProfileUpdate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'customerProfile' => 'setCustomerProfile'
+        'attributes' => 'setAttributes',
+        'responseContent' => 'setResponseContent'
     ];
 
     /**
@@ -114,7 +119,8 @@ class CustomerProfileUpdate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'customerProfile' => 'getCustomerProfile'
+        'attributes' => 'getAttributes',
+        'responseContent' => 'getResponseContent'
     ];
 
     /**
@@ -158,8 +164,27 @@ class CustomerProfileUpdate implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const RESPONSE_CONTENT_CUSTOMER_PROFILE = 'customerProfile';
+    const RESPONSE_CONTENT_TRIGGERED_CAMPAIGNS = 'triggeredCampaigns';
+    const RESPONSE_CONTENT_LOYALTY = 'loyalty';
+    const RESPONSE_CONTENT_EVENT = 'event';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getResponseContentAllowableValues()
+    {
+        return [
+            self::RESPONSE_CONTENT_CUSTOMER_PROFILE,
+            self::RESPONSE_CONTENT_TRIGGERED_CAMPAIGNS,
+            self::RESPONSE_CONTENT_LOYALTY,
+            self::RESPONSE_CONTENT_EVENT,
+        ];
+    }
     
 
     /**
@@ -177,7 +202,8 @@ class CustomerProfileUpdate implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['customerProfile'] = isset($data['customerProfile']) ? $data['customerProfile'] : null;
+        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['responseContent'] = isset($data['responseContent']) ? $data['responseContent'] : null;
     }
 
     /**
@@ -189,9 +215,6 @@ class CustomerProfileUpdate implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['customerProfile'] === null) {
-            $invalidProperties[] = "'customerProfile' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -208,25 +231,58 @@ class CustomerProfileUpdate implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets customerProfile
+     * Gets attributes
      *
-     * @return \TalonOne\Client\Model\CustomerProfile
+     * @return object|null
      */
-    public function getCustomerProfile()
+    public function getAttributes()
     {
-        return $this->container['customerProfile'];
+        return $this->container['attributes'];
     }
 
     /**
-     * Sets customerProfile
+     * Sets attributes
      *
-     * @param \TalonOne\Client\Model\CustomerProfile $customerProfile customerProfile
+     * @param object|null $attributes Arbitrary properties associated with this item
      *
      * @return $this
      */
-    public function setCustomerProfile($customerProfile)
+    public function setAttributes($attributes)
     {
-        $this->container['customerProfile'] = $customerProfile;
+        $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets responseContent
+     *
+     * @return string[]|null
+     */
+    public function getResponseContent()
+    {
+        return $this->container['responseContent'];
+    }
+
+    /**
+     * Sets responseContent
+     *
+     * @param string[]|null $responseContent Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\" and \"event\".
+     *
+     * @return $this
+     */
+    public function setResponseContent($responseContent)
+    {
+        $allowedValues = $this->getResponseContentAllowableValues();
+        if (!is_null($responseContent) && array_diff($responseContent, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'responseContent', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['responseContent'] = $responseContent;
 
         return $this;
     }

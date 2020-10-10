@@ -351,7 +351,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
     /**
      * Sets integrationId
      *
-     * @param string $integrationId The ID used for this entity in the application system.
+     * @param string $integrationId The integration ID for this entity sent to and used in the Talon.One system.
      *
      * @return $this
      */

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **campaignPriority** | **string** | Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \&quot;universal\&quot; | [optional] 
 **exclusiveCampaignsStrategy** | **string** | The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \&quot;listOrder\&quot; | [optional] 
 **enableCascadingDiscounts** | **bool** | Flag indicating if discounts should cascade for this application | [optional] 
+**enableFlattenedCartItems** | **bool** | Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one | [optional] 
 **attributesSettings** | [**\TalonOne\Client\Model\AttributesSettings**](AttributesSettings.md) |  | [optional] 
 **sandbox** | **bool** | Flag indicating if this is a live or sandbox application | [optional] 
 

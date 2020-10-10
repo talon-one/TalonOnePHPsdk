@@ -79,6 +79,27 @@ class NewApplicationAPIKeyTest extends TestCase
     }
 
     /**
+     * Test attribute "title"
+     */
+    public function testPropertyTitle()
+    {
+    }
+
+    /**
+     * Test attribute "expires"
+     */
+    public function testPropertyExpires()
+    {
+    }
+
+    /**
+     * Test attribute "platform"
+     */
+    public function testPropertyPlatform()
+    {
+    }
+
+    /**
      * Test attribute "id"
      */
     public function testPropertyId()
@@ -89,13 +110,6 @@ class NewApplicationAPIKeyTest extends TestCase
      * Test attribute "createdBy"
      */
     public function testPropertyCreatedBy()
-    {
-    }
-
-    /**
-     * Test attribute "title"
-     */
-    public function testPropertyTitle()
     {
     }
 
@@ -117,13 +131,6 @@ class NewApplicationAPIKeyTest extends TestCase
      * Test attribute "created"
      */
     public function testPropertyCreated()
-    {
-    }
-
-    /**
-     * Test attribute "expires"
-     */
-    public function testPropertyExpires()
     {
     }
 

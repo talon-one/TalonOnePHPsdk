@@ -153,12 +153,32 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for updateCustomerProfileAudiences
+     *
+     * Update a Customer Profile Audiences.
+     *
+     */
+    public function testUpdateCustomerProfileAudiences()
+    {
+    }
+
+    /**
      * Test case for updateCustomerProfileV2
      *
      * Update a Customer Profile.
      *
      */
     public function testUpdateCustomerProfileV2()
+    {
+    }
+
+    /**
+     * Test case for updateCustomerProfilesV2
+     *
+     * Update multiple Customer Profiles.
+     *
+     */
+    public function testUpdateCustomerProfilesV2()
     {
     }
 

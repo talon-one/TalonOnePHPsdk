@@ -58,22 +58,23 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'applications' => 'int',
-        'activeCampaigns' => 'int',
+        'liveApplications' => 'int',
+        'sandboxApplications' => 'int',
         'campaigns' => 'int',
+        'activeCampaigns' => 'int',
+        'liveActiveCampaigns' => 'int',
         'coupons' => 'int',
         'activeCoupons' => 'int',
         'expiredCoupons' => 'int',
-        'customAttributes' => 'int',
         'referralCodes' => 'int',
         'activeReferralCodes' => 'int',
         'expiredReferralCodes' => 'int',
+        'activeRules' => 'int',
         'users' => 'int',
         'roles' => 'int',
+        'customAttributes' => 'int',
         'webhooks' => 'int',
-        'loyaltyPrograms' => 'int',
-        'activeRules' => 'int',
-        'sandboxApplications' => 'int',
-        'liveApplications' => 'int'
+        'loyaltyPrograms' => 'int'
     ];
 
     /**
@@ -83,22 +84,23 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'applications' => null,
-        'activeCampaigns' => null,
+        'liveApplications' => null,
+        'sandboxApplications' => null,
         'campaigns' => null,
+        'activeCampaigns' => null,
+        'liveActiveCampaigns' => null,
         'coupons' => null,
         'activeCoupons' => null,
         'expiredCoupons' => null,
-        'customAttributes' => null,
         'referralCodes' => null,
         'activeReferralCodes' => null,
         'expiredReferralCodes' => null,
+        'activeRules' => null,
         'users' => null,
         'roles' => null,
+        'customAttributes' => null,
         'webhooks' => null,
-        'loyaltyPrograms' => null,
-        'activeRules' => null,
-        'sandboxApplications' => null,
-        'liveApplications' => null
+        'loyaltyPrograms' => null
     ];
 
     /**
@@ -129,22 +131,23 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'applications' => 'applications',
-        'activeCampaigns' => 'activeCampaigns',
+        'liveApplications' => 'liveApplications',
+        'sandboxApplications' => 'sandboxApplications',
         'campaigns' => 'campaigns',
+        'activeCampaigns' => 'activeCampaigns',
+        'liveActiveCampaigns' => 'liveActiveCampaigns',
         'coupons' => 'coupons',
         'activeCoupons' => 'activeCoupons',
         'expiredCoupons' => 'expiredCoupons',
-        'customAttributes' => 'customAttributes',
         'referralCodes' => 'referralCodes',
         'activeReferralCodes' => 'activeReferralCodes',
         'expiredReferralCodes' => 'expiredReferralCodes',
+        'activeRules' => 'activeRules',
         'users' => 'users',
         'roles' => 'roles',
+        'customAttributes' => 'customAttributes',
         'webhooks' => 'webhooks',
-        'loyaltyPrograms' => 'loyaltyPrograms',
-        'activeRules' => 'activeRules',
-        'sandboxApplications' => 'sandboxApplications',
-        'liveApplications' => 'liveApplications'
+        'loyaltyPrograms' => 'loyaltyPrograms'
     ];
 
     /**
@@ -154,22 +157,23 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'applications' => 'setApplications',
-        'activeCampaigns' => 'setActiveCampaigns',
+        'liveApplications' => 'setLiveApplications',
+        'sandboxApplications' => 'setSandboxApplications',
         'campaigns' => 'setCampaigns',
+        'activeCampaigns' => 'setActiveCampaigns',
+        'liveActiveCampaigns' => 'setLiveActiveCampaigns',
         'coupons' => 'setCoupons',
         'activeCoupons' => 'setActiveCoupons',
         'expiredCoupons' => 'setExpiredCoupons',
-        'customAttributes' => 'setCustomAttributes',
         'referralCodes' => 'setReferralCodes',
         'activeReferralCodes' => 'setActiveReferralCodes',
         'expiredReferralCodes' => 'setExpiredReferralCodes',
+        'activeRules' => 'setActiveRules',
         'users' => 'setUsers',
         'roles' => 'setRoles',
+        'customAttributes' => 'setCustomAttributes',
         'webhooks' => 'setWebhooks',
-        'loyaltyPrograms' => 'setLoyaltyPrograms',
-        'activeRules' => 'setActiveRules',
-        'sandboxApplications' => 'setSandboxApplications',
-        'liveApplications' => 'setLiveApplications'
+        'loyaltyPrograms' => 'setLoyaltyPrograms'
     ];
 
     /**
@@ -179,22 +183,23 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'applications' => 'getApplications',
-        'activeCampaigns' => 'getActiveCampaigns',
+        'liveApplications' => 'getLiveApplications',
+        'sandboxApplications' => 'getSandboxApplications',
         'campaigns' => 'getCampaigns',
+        'activeCampaigns' => 'getActiveCampaigns',
+        'liveActiveCampaigns' => 'getLiveActiveCampaigns',
         'coupons' => 'getCoupons',
         'activeCoupons' => 'getActiveCoupons',
         'expiredCoupons' => 'getExpiredCoupons',
-        'customAttributes' => 'getCustomAttributes',
         'referralCodes' => 'getReferralCodes',
         'activeReferralCodes' => 'getActiveReferralCodes',
         'expiredReferralCodes' => 'getExpiredReferralCodes',
+        'activeRules' => 'getActiveRules',
         'users' => 'getUsers',
         'roles' => 'getRoles',
+        'customAttributes' => 'getCustomAttributes',
         'webhooks' => 'getWebhooks',
-        'loyaltyPrograms' => 'getLoyaltyPrograms',
-        'activeRules' => 'getActiveRules',
-        'sandboxApplications' => 'getSandboxApplications',
-        'liveApplications' => 'getLiveApplications'
+        'loyaltyPrograms' => 'getLoyaltyPrograms'
     ];
 
     /**
@@ -258,22 +263,23 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['applications'] = isset($data['applications']) ? $data['applications'] : null;
-        $this->container['activeCampaigns'] = isset($data['activeCampaigns']) ? $data['activeCampaigns'] : null;
+        $this->container['liveApplications'] = isset($data['liveApplications']) ? $data['liveApplications'] : null;
+        $this->container['sandboxApplications'] = isset($data['sandboxApplications']) ? $data['sandboxApplications'] : null;
         $this->container['campaigns'] = isset($data['campaigns']) ? $data['campaigns'] : null;
+        $this->container['activeCampaigns'] = isset($data['activeCampaigns']) ? $data['activeCampaigns'] : null;
+        $this->container['liveActiveCampaigns'] = isset($data['liveActiveCampaigns']) ? $data['liveActiveCampaigns'] : null;
         $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
         $this->container['activeCoupons'] = isset($data['activeCoupons']) ? $data['activeCoupons'] : null;
         $this->container['expiredCoupons'] = isset($data['expiredCoupons']) ? $data['expiredCoupons'] : null;
-        $this->container['customAttributes'] = isset($data['customAttributes']) ? $data['customAttributes'] : null;
         $this->container['referralCodes'] = isset($data['referralCodes']) ? $data['referralCodes'] : null;
         $this->container['activeReferralCodes'] = isset($data['activeReferralCodes']) ? $data['activeReferralCodes'] : null;
         $this->container['expiredReferralCodes'] = isset($data['expiredReferralCodes']) ? $data['expiredReferralCodes'] : null;
+        $this->container['activeRules'] = isset($data['activeRules']) ? $data['activeRules'] : null;
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
+        $this->container['customAttributes'] = isset($data['customAttributes']) ? $data['customAttributes'] : null;
         $this->container['webhooks'] = isset($data['webhooks']) ? $data['webhooks'] : null;
         $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
-        $this->container['activeRules'] = isset($data['activeRules']) ? $data['activeRules'] : null;
-        $this->container['sandboxApplications'] = isset($data['sandboxApplications']) ? $data['sandboxApplications'] : null;
-        $this->container['liveApplications'] = isset($data['liveApplications']) ? $data['liveApplications'] : null;
     }
 
     /**
@@ -288,11 +294,20 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         if ($this->container['applications'] === null) {
             $invalidProperties[] = "'applications' can't be null";
         }
-        if ($this->container['activeCampaigns'] === null) {
-            $invalidProperties[] = "'activeCampaigns' can't be null";
+        if ($this->container['liveApplications'] === null) {
+            $invalidProperties[] = "'liveApplications' can't be null";
+        }
+        if ($this->container['sandboxApplications'] === null) {
+            $invalidProperties[] = "'sandboxApplications' can't be null";
         }
         if ($this->container['campaigns'] === null) {
             $invalidProperties[] = "'campaigns' can't be null";
+        }
+        if ($this->container['activeCampaigns'] === null) {
+            $invalidProperties[] = "'activeCampaigns' can't be null";
+        }
+        if ($this->container['liveActiveCampaigns'] === null) {
+            $invalidProperties[] = "'liveActiveCampaigns' can't be null";
         }
         if ($this->container['coupons'] === null) {
             $invalidProperties[] = "'coupons' can't be null";
@@ -303,9 +318,6 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         if ($this->container['expiredCoupons'] === null) {
             $invalidProperties[] = "'expiredCoupons' can't be null";
         }
-        if ($this->container['customAttributes'] === null) {
-            $invalidProperties[] = "'customAttributes' can't be null";
-        }
         if ($this->container['referralCodes'] === null) {
             $invalidProperties[] = "'referralCodes' can't be null";
         }
@@ -315,26 +327,23 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         if ($this->container['expiredReferralCodes'] === null) {
             $invalidProperties[] = "'expiredReferralCodes' can't be null";
         }
+        if ($this->container['activeRules'] === null) {
+            $invalidProperties[] = "'activeRules' can't be null";
+        }
         if ($this->container['users'] === null) {
             $invalidProperties[] = "'users' can't be null";
         }
         if ($this->container['roles'] === null) {
             $invalidProperties[] = "'roles' can't be null";
         }
+        if ($this->container['customAttributes'] === null) {
+            $invalidProperties[] = "'customAttributes' can't be null";
+        }
         if ($this->container['webhooks'] === null) {
             $invalidProperties[] = "'webhooks' can't be null";
         }
         if ($this->container['loyaltyPrograms'] === null) {
             $invalidProperties[] = "'loyaltyPrograms' can't be null";
-        }
-        if ($this->container['activeRules'] === null) {
-            $invalidProperties[] = "'activeRules' can't be null";
-        }
-        if ($this->container['sandboxApplications'] === null) {
-            $invalidProperties[] = "'sandboxApplications' can't be null";
-        }
-        if ($this->container['liveApplications'] === null) {
-            $invalidProperties[] = "'liveApplications' can't be null";
         }
         return $invalidProperties;
     }
@@ -364,7 +373,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets applications
      *
-     * @param int $applications Total Number of Applications inside the account
+     * @param int $applications Total number of applications in the account
      *
      * @return $this
      */
@@ -376,25 +385,49 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets activeCampaigns
+     * Gets liveApplications
      *
      * @return int
      */
-    public function getActiveCampaigns()
+    public function getLiveApplications()
     {
-        return $this->container['activeCampaigns'];
+        return $this->container['liveApplications'];
     }
 
     /**
-     * Sets activeCampaigns
+     * Sets liveApplications
      *
-     * @param int $activeCampaigns Total Number of Active Applications inside the account
+     * @param int $liveApplications Total number of live applications in the account
      *
      * @return $this
      */
-    public function setActiveCampaigns($activeCampaigns)
+    public function setLiveApplications($liveApplications)
     {
-        $this->container['activeCampaigns'] = $activeCampaigns;
+        $this->container['liveApplications'] = $liveApplications;
+
+        return $this;
+    }
+
+    /**
+     * Gets sandboxApplications
+     *
+     * @return int
+     */
+    public function getSandboxApplications()
+    {
+        return $this->container['sandboxApplications'];
+    }
+
+    /**
+     * Sets sandboxApplications
+     *
+     * @param int $sandboxApplications Total number of sandbox applications in the account
+     *
+     * @return $this
+     */
+    public function setSandboxApplications($sandboxApplications)
+    {
+        $this->container['sandboxApplications'] = $sandboxApplications;
 
         return $this;
     }
@@ -412,13 +445,61 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets campaigns
      *
-     * @param int $campaigns Total Number of campaigns inside the account
+     * @param int $campaigns Total number of campaigns in the account
      *
      * @return $this
      */
     public function setCampaigns($campaigns)
     {
         $this->container['campaigns'] = $campaigns;
+
+        return $this;
+    }
+
+    /**
+     * Gets activeCampaigns
+     *
+     * @return int
+     */
+    public function getActiveCampaigns()
+    {
+        return $this->container['activeCampaigns'];
+    }
+
+    /**
+     * Sets activeCampaigns
+     *
+     * @param int $activeCampaigns Total number of active campaigns in the account
+     *
+     * @return $this
+     */
+    public function setActiveCampaigns($activeCampaigns)
+    {
+        $this->container['activeCampaigns'] = $activeCampaigns;
+
+        return $this;
+    }
+
+    /**
+     * Gets liveActiveCampaigns
+     *
+     * @return int
+     */
+    public function getLiveActiveCampaigns()
+    {
+        return $this->container['liveActiveCampaigns'];
+    }
+
+    /**
+     * Sets liveActiveCampaigns
+     *
+     * @param int $liveActiveCampaigns Total number of active campaigns in live applications in the account
+     *
+     * @return $this
+     */
+    public function setLiveActiveCampaigns($liveActiveCampaigns)
+    {
+        $this->container['liveActiveCampaigns'] = $liveActiveCampaigns;
 
         return $this;
     }
@@ -436,7 +517,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets coupons
      *
-     * @param int $coupons Total Number of coupons inside the account
+     * @param int $coupons Total number of coupons in the account
      *
      * @return $this
      */
@@ -460,7 +541,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets activeCoupons
      *
-     * @param int $activeCoupons Total Number of active coupons inside the account
+     * @param int $activeCoupons Total number of active coupons in the account
      *
      * @return $this
      */
@@ -484,37 +565,13 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets expiredCoupons
      *
-     * @param int $expiredCoupons Total Number of expired coupons inside the account
+     * @param int $expiredCoupons Total number of expired coupons in the account
      *
      * @return $this
      */
     public function setExpiredCoupons($expiredCoupons)
     {
         $this->container['expiredCoupons'] = $expiredCoupons;
-
-        return $this;
-    }
-
-    /**
-     * Gets customAttributes
-     *
-     * @return int
-     */
-    public function getCustomAttributes()
-    {
-        return $this->container['customAttributes'];
-    }
-
-    /**
-     * Sets customAttributes
-     *
-     * @param int $customAttributes Total Number of custom attributes inside the account
-     *
-     * @return $this
-     */
-    public function setCustomAttributes($customAttributes)
-    {
-        $this->container['customAttributes'] = $customAttributes;
 
         return $this;
     }
@@ -532,7 +589,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets referralCodes
      *
-     * @param int $referralCodes Total Number of referral codes inside the account
+     * @param int $referralCodes Total number of referral codes in the account
      *
      * @return $this
      */
@@ -556,7 +613,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets activeReferralCodes
      *
-     * @param int $activeReferralCodes Total Number of active referral codes inside the account
+     * @param int $activeReferralCodes Total number of active referral codes in the account
      *
      * @return $this
      */
@@ -580,13 +637,37 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets expiredReferralCodes
      *
-     * @param int $expiredReferralCodes Total Number of expired referral codes inside the account
+     * @param int $expiredReferralCodes Total number of expired referral codes in the account
      *
      * @return $this
      */
     public function setExpiredReferralCodes($expiredReferralCodes)
     {
         $this->container['expiredReferralCodes'] = $expiredReferralCodes;
+
+        return $this;
+    }
+
+    /**
+     * Gets activeRules
+     *
+     * @return int
+     */
+    public function getActiveRules()
+    {
+        return $this->container['activeRules'];
+    }
+
+    /**
+     * Sets activeRules
+     *
+     * @param int $activeRules Total number of active rules in the account
+     *
+     * @return $this
+     */
+    public function setActiveRules($activeRules)
+    {
+        $this->container['activeRules'] = $activeRules;
 
         return $this;
     }
@@ -604,7 +685,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets users
      *
-     * @param int $users Total Number of users inside the account
+     * @param int $users Total number of users in the account
      *
      * @return $this
      */
@@ -628,13 +709,37 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets roles
      *
-     * @param int $roles Total Number of roles inside the account
+     * @param int $roles Total number of roles in the account
      *
      * @return $this
      */
     public function setRoles($roles)
     {
         $this->container['roles'] = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Gets customAttributes
+     *
+     * @return int
+     */
+    public function getCustomAttributes()
+    {
+        return $this->container['customAttributes'];
+    }
+
+    /**
+     * Sets customAttributes
+     *
+     * @param int $customAttributes Total number of custom attributes in the account
+     *
+     * @return $this
+     */
+    public function setCustomAttributes($customAttributes)
+    {
+        $this->container['customAttributes'] = $customAttributes;
 
         return $this;
     }
@@ -652,7 +757,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets webhooks
      *
-     * @param int $webhooks Total Number of webhooks inside the account
+     * @param int $webhooks Total number of webhooks in the account
      *
      * @return $this
      */
@@ -676,85 +781,13 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets loyaltyPrograms
      *
-     * @param int $loyaltyPrograms Total Number of loyalty programs inside the account
+     * @param int $loyaltyPrograms Total number of loyalty programs in the account
      *
      * @return $this
      */
     public function setLoyaltyPrograms($loyaltyPrograms)
     {
         $this->container['loyaltyPrograms'] = $loyaltyPrograms;
-
-        return $this;
-    }
-
-    /**
-     * Gets activeRules
-     *
-     * @return int
-     */
-    public function getActiveRules()
-    {
-        return $this->container['activeRules'];
-    }
-
-    /**
-     * Sets activeRules
-     *
-     * @param int $activeRules Total Number of active rules in the account
-     *
-     * @return $this
-     */
-    public function setActiveRules($activeRules)
-    {
-        $this->container['activeRules'] = $activeRules;
-
-        return $this;
-    }
-
-    /**
-     * Gets sandboxApplications
-     *
-     * @return int
-     */
-    public function getSandboxApplications()
-    {
-        return $this->container['sandboxApplications'];
-    }
-
-    /**
-     * Sets sandboxApplications
-     *
-     * @param int $sandboxApplications Total Number of sandbox applications in the account
-     *
-     * @return $this
-     */
-    public function setSandboxApplications($sandboxApplications)
-    {
-        $this->container['sandboxApplications'] = $sandboxApplications;
-
-        return $this;
-    }
-
-    /**
-     * Gets liveApplications
-     *
-     * @return int
-     */
-    public function getLiveApplications()
-    {
-        return $this->container['liveApplications'];
-    }
-
-    /**
-     * Sets liveApplications
-     *
-     * @param int $liveApplications Total Number of live applications in the account
-     *
-     * @return $this
-     */
-    public function setLiveApplications($liveApplications)
-    {
-        $this->container['liveApplications'] = $liveApplications;
 
         return $this;
     }

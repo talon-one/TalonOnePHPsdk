@@ -114,6 +114,13 @@ class AccountLimitsTest extends TestCase
     }
 
     /**
+     * Test attribute "activeRules"
+     */
+    public function testPropertyActiveRules()
+    {
+    }
+
+    /**
      * Test attribute "liveLoyaltyPrograms"
      */
     public function testPropertyLiveLoyaltyPrograms()
@@ -145,13 +152,6 @@ class AccountLimitsTest extends TestCase
      * Test attribute "apiVolume"
      */
     public function testPropertyApiVolume()
-    {
-    }
-
-    /**
-     * Test attribute "activeRules"
-     */
-    public function testPropertyActiveRules()
     {
     }
 

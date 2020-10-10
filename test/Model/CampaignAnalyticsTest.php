@@ -224,4 +224,32 @@ class CampaignAnalyticsTest extends TestCase
     public function testPropertyTotalReferralsCreated()
     {
     }
+
+    /**
+     * Test attribute "addedLoyaltyPoints"
+     */
+    public function testPropertyAddedLoyaltyPoints()
+    {
+    }
+
+    /**
+     * Test attribute "totalAddedLoyaltyPoints"
+     */
+    public function testPropertyTotalAddedLoyaltyPoints()
+    {
+    }
+
+    /**
+     * Test attribute "deductedLoyaltyPoints"
+     */
+    public function testPropertyDeductedLoyaltyPoints()
+    {
+    }
+
+    /**
+     * Test attribute "totalDeductedLoyaltyPoints"
+     */
+    public function testPropertyTotalDeductedLoyaltyPoints()
+    {
+    }
 }

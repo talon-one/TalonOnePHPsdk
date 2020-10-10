@@ -61,6 +61,7 @@ Method | HTTP request | Description
 [**getLoyaltyPoints**](ManagementApi.md#getLoyaltyPoints) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | get the Loyalty Ledger for this integrationID
 [**getLoyaltyProgram**](ManagementApi.md#getLoyaltyProgram) | **GET** /v1/loyalty_programs/{programID} | Get a loyalty program
 [**getLoyaltyPrograms**](ManagementApi.md#getLoyaltyPrograms) | **GET** /v1/loyalty_programs | List all loyalty Programs
+[**getLoyaltyStatistics**](ManagementApi.md#getLoyaltyStatistics) | **GET** /v1/loyalty_programs/{programID}/statistics | Get loyalty program statistics by loyalty program ID
 [**getReferrals**](ManagementApi.md#getReferrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List Referrals (with total count)
 [**getReferralsWithoutTotalCount**](ManagementApi.md#getReferralsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List Referrals
 [**getRole**](ManagementApi.md#getRole) | **GET** /v1/roles/{roleId} | Get information for the specified role.
@@ -1740,7 +1741,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomers
 
-> \TalonOne\Client\Model\InlineResponse20012 getApplicationCustomers($applicationId)
+> \TalonOne\Client\Model\InlineResponse20012 getApplicationCustomers($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize)
 
 List Application Customers
 
@@ -1764,9 +1765,13 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | 
+$integrationId = 'integrationId_example'; // string | Filter results performing an exact matching against the profile integration identifier.
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$skip = 56; // int | Skips the given number of items when paging through large result sets.
+$withTotalResultSize = True; // bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.
 
 try {
-    $result = $apiInstance->getApplicationCustomers($applicationId);
+    $result = $apiInstance->getApplicationCustomers($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationCustomers: ', $e->getMessage(), PHP_EOL;
@@ -1780,6 +1785,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  |
+ **integrationId** | **string**| Filter results performing an exact matching against the profile integration identifier. | [optional]
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. | [optional]
 
 ### Return type
 
@@ -2178,7 +2187,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationSessions
 
-> \TalonOne\Client\Model\InlineResponse20016 getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $coupon, $referral, $integrationId, $customerId)
+> \TalonOne\Client\Model\InlineResponse20016 getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId)
 
 List Application Sessions
 
@@ -2207,13 +2216,14 @@ $skip = 56; // int | Skips the given number of items when paging through large r
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $profile = 'profile_example'; // string | Profile integration ID filter for sessions. Must be exact match.
 $state = 'state_example'; // string | Filter by sessions with this state. Must be exact match.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created after this date
 $coupon = 'coupon_example'; // string | Filter by sessions with this coupon. Must be exact match.
 $referral = 'referral_example'; // string | Filter by sessions with this referral. Must be exact match.
 $integrationId = 'integrationId_example'; // string | Filter by sessions with this integrationId. Must be exact match.
-$customerId = 'customerId_example'; // string | Filter by integration ID of the customer for the session
 
 try {
-    $result = $apiInstance->getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $coupon, $referral, $integrationId, $customerId);
+    $result = $apiInstance->getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationSessions: ', $e->getMessage(), PHP_EOL;
@@ -2232,10 +2242,11 @@ Name | Type | Description  | Notes
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **profile** | **string**| Profile integration ID filter for sessions. Must be exact match. | [optional]
  **state** | **string**| Filter by sessions with this state. Must be exact match. | [optional]
+ **createdBefore** | **\DateTime**| Only return events created before this date | [optional]
+ **createdAfter** | **\DateTime**| Only return events created after this date | [optional]
  **coupon** | **string**| Filter by sessions with this coupon. Must be exact match. | [optional]
  **referral** | **string**| Filter by sessions with this referral. Must be exact match. | [optional]
  **integrationId** | **string**| Filter by sessions with this integrationId. Must be exact match. | [optional]
- **customerId** | **string**| Filter by integration ID of the customer for the session | [optional]
 
 ### Return type
 
@@ -4051,6 +4062,67 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+
+### Authorization
+
+[manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getLoyaltyStatistics
+
+> \TalonOne\Client\Model\LoyaltyStatistics getLoyaltyStatistics($programID)
+
+Get loyalty program statistics by loyalty program ID
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$programID = 'programID_example'; // string | 
+
+try {
+    $result = $apiInstance->getLoyaltyStatistics($programID);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getLoyaltyStatistics: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **programID** | **string**|  |
+
+### Return type
+
+[**\TalonOne\Client\Model\LoyaltyStatistics**](../Model/LoyaltyStatistics.md)
 
 ### Authorization
 

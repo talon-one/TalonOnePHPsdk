@@ -72,6 +72,7 @@ class Application implements ModelInterface, ArrayAccess
         'campaignPriority' => 'string',
         'exclusiveCampaignsStrategy' => 'string',
         'enableCascadingDiscounts' => 'bool',
+        'enableFlattenedCartItems' => 'bool',
         'attributesSettings' => '\TalonOne\Client\Model\AttributesSettings',
         'sandbox' => 'bool',
         'loyaltyPrograms' => '\TalonOne\Client\Model\LoyaltyProgram[]'
@@ -97,6 +98,7 @@ class Application implements ModelInterface, ArrayAccess
         'campaignPriority' => null,
         'exclusiveCampaignsStrategy' => null,
         'enableCascadingDiscounts' => null,
+        'enableFlattenedCartItems' => null,
         'attributesSettings' => null,
         'sandbox' => null,
         'loyaltyPrograms' => null
@@ -143,6 +145,7 @@ class Application implements ModelInterface, ArrayAccess
         'campaignPriority' => 'campaignPriority',
         'exclusiveCampaignsStrategy' => 'exclusiveCampaignsStrategy',
         'enableCascadingDiscounts' => 'enableCascadingDiscounts',
+        'enableFlattenedCartItems' => 'enableFlattenedCartItems',
         'attributesSettings' => 'attributesSettings',
         'sandbox' => 'sandbox',
         'loyaltyPrograms' => 'loyaltyPrograms'
@@ -168,6 +171,7 @@ class Application implements ModelInterface, ArrayAccess
         'campaignPriority' => 'setCampaignPriority',
         'exclusiveCampaignsStrategy' => 'setExclusiveCampaignsStrategy',
         'enableCascadingDiscounts' => 'setEnableCascadingDiscounts',
+        'enableFlattenedCartItems' => 'setEnableFlattenedCartItems',
         'attributesSettings' => 'setAttributesSettings',
         'sandbox' => 'setSandbox',
         'loyaltyPrograms' => 'setLoyaltyPrograms'
@@ -193,6 +197,7 @@ class Application implements ModelInterface, ArrayAccess
         'campaignPriority' => 'getCampaignPriority',
         'exclusiveCampaignsStrategy' => 'getExclusiveCampaignsStrategy',
         'enableCascadingDiscounts' => 'getEnableCascadingDiscounts',
+        'enableFlattenedCartItems' => 'getEnableFlattenedCartItems',
         'attributesSettings' => 'getAttributesSettings',
         'sandbox' => 'getSandbox',
         'loyaltyPrograms' => 'getLoyaltyPrograms'
@@ -323,6 +328,7 @@ class Application implements ModelInterface, ArrayAccess
         $this->container['campaignPriority'] = isset($data['campaignPriority']) ? $data['campaignPriority'] : null;
         $this->container['exclusiveCampaignsStrategy'] = isset($data['exclusiveCampaignsStrategy']) ? $data['exclusiveCampaignsStrategy'] : null;
         $this->container['enableCascadingDiscounts'] = isset($data['enableCascadingDiscounts']) ? $data['enableCascadingDiscounts'] : null;
+        $this->container['enableFlattenedCartItems'] = isset($data['enableFlattenedCartItems']) ? $data['enableFlattenedCartItems'] : null;
         $this->container['attributesSettings'] = isset($data['attributesSettings']) ? $data['attributesSettings'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
@@ -786,6 +792,30 @@ class Application implements ModelInterface, ArrayAccess
     public function setEnableCascadingDiscounts($enableCascadingDiscounts)
     {
         $this->container['enableCascadingDiscounts'] = $enableCascadingDiscounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets enableFlattenedCartItems
+     *
+     * @return bool|null
+     */
+    public function getEnableFlattenedCartItems()
+    {
+        return $this->container['enableFlattenedCartItems'];
+    }
+
+    /**
+     * Sets enableFlattenedCartItems
+     *
+     * @param bool|null $enableFlattenedCartItems Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one
+     *
+     * @return $this
+     */
+    public function setEnableFlattenedCartItems($enableFlattenedCartItems)
+    {
+        $this->container['enableFlattenedCartItems'] = $enableFlattenedCartItems;
 
         return $this;
     }

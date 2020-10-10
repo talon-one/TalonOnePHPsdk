@@ -58,7 +58,7 @@ class CampaignCopy implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'applicationIds' => 'string[]',
+        'applicationIds' => 'int[]',
         'description' => 'string',
         'startTime' => '\DateTime',
         'endTime' => '\DateTime',
@@ -264,7 +264,7 @@ class CampaignCopy implements ModelInterface, ArrayAccess
     /**
      * Gets applicationIds
      *
-     * @return string[]
+     * @return int[]
      */
     public function getApplicationIds()
     {
@@ -274,7 +274,7 @@ class CampaignCopy implements ModelInterface, ArrayAccess
     /**
      * Sets applicationIds
      *
-     * @param string[] $applicationIds Application IDs of the applications to which a campaign should be copied to
+     * @param int[] $applicationIds Application IDs of the applications to which a campaign should be copied to
      *
      * @return $this
      */

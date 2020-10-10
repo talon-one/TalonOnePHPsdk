@@ -93,6 +93,13 @@ class RoleTest extends TestCase
     }
 
     /**
+     * Test attribute "campaignGroupID"
+     */
+    public function testPropertyCampaignGroupID()
+    {
+    }
+
+    /**
      * Test attribute "name"
      */
     public function testPropertyName()

@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * SetDiscountEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;setDiscount\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set discount\&quot; effect. This is a discount that should be applied globally on the session total.
+ * @description The properties specific to the \&quot;setDiscount\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set discount\&quot; effect. This is a discount that should be applied on the scope of defined with it.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,7 +59,8 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'value' => 'float'
+        'value' => 'float',
+        'scope' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'value' => null
+        'value' => null,
+        'scope' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'value' => 'value'
+        'value' => 'value',
+        'scope' => 'scope'
     ];
 
     /**
@@ -110,7 +113,8 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'scope' => 'setScope'
     ];
 
     /**
@@ -120,7 +124,8 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'scope' => 'getScope'
     ];
 
     /**
@@ -185,6 +190,7 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['scope'] = isset($data['scope']) ? $data['scope'] : null;
     }
 
     /**
@@ -261,6 +267,30 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets scope
+     *
+     * @return string|null
+     */
+    public function getScope()
+    {
+        return $this->container['scope'];
+    }
+
+    /**
+     * Sets scope
+     *
+     * @param string|null $scope The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal)
+     *
+     * @return $this
+     */
+    public function setScope($scope)
+    {
+        $this->container['scope'] = $scope;
 
         return $this;
     }

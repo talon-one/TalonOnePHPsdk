@@ -287,7 +287,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param float $total ⚠️ Deprecated: Please use 'totalActivePoints' property instead. Current Balance of Loyalty Program's ledger.
+     * @param float $total ⚠️ Deprecated: Please use 'totalActivePoints' property instead. Total amount of currently active and available points in the customer's balance
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets totalActivePoints
      *
-     * @param float $totalActivePoints Current Balance of Loyalty Program's ledger.
+     * @param float $totalActivePoints Total amount of currently active and available points in the customer's balance
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets totalPendingPoints
      *
-     * @param float $totalPendingPoints totalPendingPoints
+     * @param float $totalPendingPoints Total amount of pending points, which are not active yet but will become active in the future
      *
      * @return $this
      */
@@ -359,7 +359,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets totalSpentPoints
      *
-     * @param float $totalSpentPoints totalSpentPoints
+     * @param float $totalSpentPoints Total amount of points already spent by this customer
      *
      * @return $this
      */
@@ -383,7 +383,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets totalExpiredPoints
      *
-     * @param float $totalExpiredPoints totalExpiredPoints
+     * @param float $totalExpiredPoints Total amount of points, that expired without ever being spent
      *
      * @return $this
      */

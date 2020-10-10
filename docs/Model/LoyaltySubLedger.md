@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **float** | ⚠️ Deprecated: Please use &#39;totalActivePoints&#39; property instead. Current Balance of Loyalty Program&#39;s ledger. | 
-**totalActivePoints** | **float** | Current Balance of Loyalty Program&#39;s ledger. | 
-**totalPendingPoints** | **float** |  | 
-**totalSpentPoints** | **float** |  | 
-**totalExpiredPoints** | **float** |  | 
+**total** | **float** | ⚠️ Deprecated: Please use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance | 
+**totalActivePoints** | **float** | Total amount of currently active and available points in the customer&#39;s balance | 
+**totalPendingPoints** | **float** | Total amount of pending points, which are not active yet but will become active in the future | 
+**totalSpentPoints** | **float** | Total amount of points already spent by this customer | 
+**totalExpiredPoints** | **float** | Total amount of points, that expired without ever being spent | 
 **transactions** | [**\TalonOne\Client\Model\LoyaltyLedgerEntry[]**](LoyaltyLedgerEntry.md) | List of all events that have happened such as additions, subtractions and expiries | [optional] 
 **expiringPoints** | [**\TalonOne\Client\Model\LoyaltyLedgerEntry[]**](LoyaltyLedgerEntry.md) | List of all points that will expire | [optional] 
 **activePoints** | [**\TalonOne\Client\Model\LoyaltyLedgerEntry[]**](LoyaltyLedgerEntry.md) | List of all currently active points | [optional] 

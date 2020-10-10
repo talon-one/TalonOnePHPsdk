@@ -68,7 +68,8 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
         'features' => 'string[]',
         'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
-        'limits' => '\TalonOne\Client\Model\LimitConfig[]'
+        'limits' => '\TalonOne\Client\Model\LimitConfig[]',
+        'campaignGroups' => 'int[]'
     ];
 
     /**
@@ -88,7 +89,8 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
         'features' => null,
         'couponSettings' => null,
         'referralSettings' => null,
-        'limits' => null
+        'limits' => null,
+        'campaignGroups' => null
     ];
 
     /**
@@ -129,7 +131,8 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
         'features' => 'features',
         'couponSettings' => 'couponSettings',
         'referralSettings' => 'referralSettings',
-        'limits' => 'limits'
+        'limits' => 'limits',
+        'campaignGroups' => 'campaignGroups'
     ];
 
     /**
@@ -149,7 +152,8 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
         'features' => 'setFeatures',
         'couponSettings' => 'setCouponSettings',
         'referralSettings' => 'setReferralSettings',
-        'limits' => 'setLimits'
+        'limits' => 'setLimits',
+        'campaignGroups' => 'setCampaignGroups'
     ];
 
     /**
@@ -169,7 +173,8 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
         'features' => 'getFeatures',
         'couponSettings' => 'getCouponSettings',
         'referralSettings' => 'getReferralSettings',
-        'limits' => 'getLimits'
+        'limits' => 'getLimits',
+        'campaignGroups' => 'getCampaignGroups'
     ];
 
     /**
@@ -278,6 +283,7 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
         $this->container['couponSettings'] = isset($data['couponSettings']) ? $data['couponSettings'] : null;
         $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
+        $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
     }
 
     /**
@@ -635,6 +641,30 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
     public function setLimits($limits)
     {
         $this->container['limits'] = $limits;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignGroups
+     *
+     * @return int[]|null
+     */
+    public function getCampaignGroups()
+    {
+        return $this->container['campaignGroups'];
+    }
+
+    /**
+     * Sets campaignGroups
+     *
+     * @param int[]|null $campaignGroups The IDs of the campaign groups that own this entity.
+     *
+     * @return $this
+     */
+    public function setCampaignGroups($campaignGroups)
+    {
+        $this->container['campaignGroups'] = $campaignGroups;
 
         return $this;
     }

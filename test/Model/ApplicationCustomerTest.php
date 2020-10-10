@@ -135,6 +135,13 @@ class ApplicationCustomerTest extends TestCase
     }
 
     /**
+     * Test attribute "audienceMemberships"
+     */
+    public function testPropertyAudienceMemberships()
+    {
+    }
+
+    /**
      * Test attribute "lastActivity"
      */
     public function testPropertyLastActivity()

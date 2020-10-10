@@ -98,4 +98,11 @@ class SetDiscountPerItemEffectPropsTest extends TestCase
     public function testPropertyPosition()
     {
     }
+
+    /**
+     * Test attribute "subPosition"
+     */
+    public function testPropertySubPosition()
+    {
+    }
 }

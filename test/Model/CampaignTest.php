@@ -107,13 +107,6 @@ class CampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "campaignGroups"
-     */
-    public function testPropertyCampaignGroups()
-    {
-    }
-
-    /**
      * Test attribute "name"
      */
     public function testPropertyName()
@@ -194,6 +187,13 @@ class CampaignTest extends TestCase
      * Test attribute "limits"
      */
     public function testPropertyLimits()
+    {
+    }
+
+    /**
+     * Test attribute "campaignGroups"
+     */
+    public function testPropertyCampaignGroups()
     {
     }
 
