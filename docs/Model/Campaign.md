@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
 **applicationId** | **int** | The ID of the application that owns this entity. | 
 **userId** | **int** | The ID of the account that owns this entity. | 
-**campaignGroups** | **int[]** | The IDs of the campaign groups that own this entity. | [optional] 
 **name** | **string** | A friendly name for this campaign. | 
 **description** | **string** | A detailed description of the campaign. | 
 **startTime** | [**\DateTime**](\DateTime.md) | Datetime when the campaign will become active. | [optional] 
@@ -21,6 +20,7 @@ Name | Type | Description | Notes
 **couponSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **referralSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **limits** | [**\TalonOne\Client\Model\LimitConfig[]**](LimitConfig.md) | The set of limits that will operate for this campaign | 
+**campaignGroups** | **int[]** | The IDs of the campaign groups that own this entity. | [optional] 
 **couponRedemptionCount** | **int** | Number of coupons redeemed in the campaign. | [optional] 
 **referralRedemptionCount** | **int** | Number of referral codes redeemed in the campaign. | [optional] 
 **discountCount** | **int** | Total amount of discounts redeemed in the campaign. | [optional] 

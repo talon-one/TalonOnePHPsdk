@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. The exact moment this entity was created. | 
 **applicationId** | **int** | The ID of the application that owns this entity. | 
 **profileId** | **int** | The globally unique Talon.One ID of the customer that created this entity. | [optional] 
-**integrationId** | **string** | The ID used for this entity in the application system. | 
+**integrationId** | **string** | The integration ID for this entity sent to and used in the Talon.One system. | 
 **profileintegrationid** | **string** | Integration ID of the customer for the session. | [optional] 
 **coupon** | **string** | Any coupon code entered. | 
 **referral** | **string** | Any referral code entered. | 

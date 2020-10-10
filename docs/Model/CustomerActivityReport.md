@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**integrationId** | **string** | The ID used for this entity in the application system. | 
+**integrationId** | **string** | The integration ID for this entity sent to and used in the Talon.One system. | 
 **created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
 **name** | **string** | The name for this customer profile. | 
 **customerId** | **int** | The internal Talon.One ID of the customer. | 
