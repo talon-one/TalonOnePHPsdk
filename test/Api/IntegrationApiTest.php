@@ -145,7 +145,7 @@ class IntegrationApiTest extends TestCase
     /**
      * Test case for updateCustomerProfile
      *
-     * Update a Customer Profile.
+     * Update a Customer Profile V1.
      *
      */
     public function testUpdateCustomerProfile()
@@ -165,7 +165,7 @@ class IntegrationApiTest extends TestCase
     /**
      * Test case for updateCustomerSession
      *
-     * Update a Customer Session.
+     * Update a Customer Session V1.
      *
      */
     public function testUpdateCustomerSession()

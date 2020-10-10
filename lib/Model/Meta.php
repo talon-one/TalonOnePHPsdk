@@ -337,7 +337,7 @@ class Meta implements ModelInterface, ArrayAccess
     /**
      * Sets warnings
      *
-     * @param object|null $warnings warnings
+     * @param object|null $warnings Contains warnings about possible misuse.
      *
      * @return $this
      */

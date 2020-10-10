@@ -59,8 +59,15 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'total' => 'float',
+        'totalActivePoints' => 'float',
+        'totalPendingPoints' => 'float',
+        'totalSpentPoints' => 'float',
+        'totalExpiredPoints' => 'float',
         'transactions' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
-        'expiringPoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]'
+        'expiringPoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
+        'activePoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
+        'pendingPoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
+        'expiredPoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]'
     ];
 
     /**
@@ -70,8 +77,15 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'total' => null,
+        'totalActivePoints' => null,
+        'totalPendingPoints' => null,
+        'totalSpentPoints' => null,
+        'totalExpiredPoints' => null,
         'transactions' => null,
-        'expiringPoints' => null
+        'expiringPoints' => null,
+        'activePoints' => null,
+        'pendingPoints' => null,
+        'expiredPoints' => null
     ];
 
     /**
@@ -102,8 +116,15 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'total' => 'total',
+        'totalActivePoints' => 'totalActivePoints',
+        'totalPendingPoints' => 'totalPendingPoints',
+        'totalSpentPoints' => 'totalSpentPoints',
+        'totalExpiredPoints' => 'totalExpiredPoints',
         'transactions' => 'transactions',
-        'expiringPoints' => 'expiringPoints'
+        'expiringPoints' => 'expiringPoints',
+        'activePoints' => 'activePoints',
+        'pendingPoints' => 'pendingPoints',
+        'expiredPoints' => 'expiredPoints'
     ];
 
     /**
@@ -113,8 +134,15 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'total' => 'setTotal',
+        'totalActivePoints' => 'setTotalActivePoints',
+        'totalPendingPoints' => 'setTotalPendingPoints',
+        'totalSpentPoints' => 'setTotalSpentPoints',
+        'totalExpiredPoints' => 'setTotalExpiredPoints',
         'transactions' => 'setTransactions',
-        'expiringPoints' => 'setExpiringPoints'
+        'expiringPoints' => 'setExpiringPoints',
+        'activePoints' => 'setActivePoints',
+        'pendingPoints' => 'setPendingPoints',
+        'expiredPoints' => 'setExpiredPoints'
     ];
 
     /**
@@ -124,8 +152,15 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'total' => 'getTotal',
+        'totalActivePoints' => 'getTotalActivePoints',
+        'totalPendingPoints' => 'getTotalPendingPoints',
+        'totalSpentPoints' => 'getTotalSpentPoints',
+        'totalExpiredPoints' => 'getTotalExpiredPoints',
         'transactions' => 'getTransactions',
-        'expiringPoints' => 'getExpiringPoints'
+        'expiringPoints' => 'getExpiringPoints',
+        'activePoints' => 'getActivePoints',
+        'pendingPoints' => 'getPendingPoints',
+        'expiredPoints' => 'getExpiredPoints'
     ];
 
     /**
@@ -189,8 +224,15 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['totalActivePoints'] = isset($data['totalActivePoints']) ? $data['totalActivePoints'] : null;
+        $this->container['totalPendingPoints'] = isset($data['totalPendingPoints']) ? $data['totalPendingPoints'] : null;
+        $this->container['totalSpentPoints'] = isset($data['totalSpentPoints']) ? $data['totalSpentPoints'] : null;
+        $this->container['totalExpiredPoints'] = isset($data['totalExpiredPoints']) ? $data['totalExpiredPoints'] : null;
         $this->container['transactions'] = isset($data['transactions']) ? $data['transactions'] : null;
         $this->container['expiringPoints'] = isset($data['expiringPoints']) ? $data['expiringPoints'] : null;
+        $this->container['activePoints'] = isset($data['activePoints']) ? $data['activePoints'] : null;
+        $this->container['pendingPoints'] = isset($data['pendingPoints']) ? $data['pendingPoints'] : null;
+        $this->container['expiredPoints'] = isset($data['expiredPoints']) ? $data['expiredPoints'] : null;
     }
 
     /**
@@ -204,6 +246,18 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
 
         if ($this->container['total'] === null) {
             $invalidProperties[] = "'total' can't be null";
+        }
+        if ($this->container['totalActivePoints'] === null) {
+            $invalidProperties[] = "'totalActivePoints' can't be null";
+        }
+        if ($this->container['totalPendingPoints'] === null) {
+            $invalidProperties[] = "'totalPendingPoints' can't be null";
+        }
+        if ($this->container['totalSpentPoints'] === null) {
+            $invalidProperties[] = "'totalSpentPoints' can't be null";
+        }
+        if ($this->container['totalExpiredPoints'] === null) {
+            $invalidProperties[] = "'totalExpiredPoints' can't be null";
         }
         return $invalidProperties;
     }
@@ -233,13 +287,109 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param float $total total
+     * @param float $total ⚠️ Deprecated: Please use 'totalActivePoints' property instead. Current Balance of Loyalty Program's ledger.
      *
      * @return $this
      */
     public function setTotal($total)
     {
         $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalActivePoints
+     *
+     * @return float
+     */
+    public function getTotalActivePoints()
+    {
+        return $this->container['totalActivePoints'];
+    }
+
+    /**
+     * Sets totalActivePoints
+     *
+     * @param float $totalActivePoints Current Balance of Loyalty Program's ledger.
+     *
+     * @return $this
+     */
+    public function setTotalActivePoints($totalActivePoints)
+    {
+        $this->container['totalActivePoints'] = $totalActivePoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalPendingPoints
+     *
+     * @return float
+     */
+    public function getTotalPendingPoints()
+    {
+        return $this->container['totalPendingPoints'];
+    }
+
+    /**
+     * Sets totalPendingPoints
+     *
+     * @param float $totalPendingPoints totalPendingPoints
+     *
+     * @return $this
+     */
+    public function setTotalPendingPoints($totalPendingPoints)
+    {
+        $this->container['totalPendingPoints'] = $totalPendingPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalSpentPoints
+     *
+     * @return float
+     */
+    public function getTotalSpentPoints()
+    {
+        return $this->container['totalSpentPoints'];
+    }
+
+    /**
+     * Sets totalSpentPoints
+     *
+     * @param float $totalSpentPoints totalSpentPoints
+     *
+     * @return $this
+     */
+    public function setTotalSpentPoints($totalSpentPoints)
+    {
+        $this->container['totalSpentPoints'] = $totalSpentPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalExpiredPoints
+     *
+     * @return float
+     */
+    public function getTotalExpiredPoints()
+    {
+        return $this->container['totalExpiredPoints'];
+    }
+
+    /**
+     * Sets totalExpiredPoints
+     *
+     * @param float $totalExpiredPoints totalExpiredPoints
+     *
+     * @return $this
+     */
+    public function setTotalExpiredPoints($totalExpiredPoints)
+    {
+        $this->container['totalExpiredPoints'] = $totalExpiredPoints;
 
         return $this;
     }
@@ -257,7 +407,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets transactions
      *
-     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $transactions Transactions contains a list of all events that have happened such as additions, subtractions and expiries
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $transactions List of all events that have happened such as additions, subtractions and expiries
      *
      * @return $this
      */
@@ -281,13 +431,85 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets expiringPoints
      *
-     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $expiringPoints ExpiringPoints contains a list of all points that will expiry and when
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $expiringPoints List of all points that will expire
      *
      * @return $this
      */
     public function setExpiringPoints($expiringPoints)
     {
         $this->container['expiringPoints'] = $expiringPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets activePoints
+     *
+     * @return \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null
+     */
+    public function getActivePoints()
+    {
+        return $this->container['activePoints'];
+    }
+
+    /**
+     * Sets activePoints
+     *
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $activePoints List of all currently active points
+     *
+     * @return $this
+     */
+    public function setActivePoints($activePoints)
+    {
+        $this->container['activePoints'] = $activePoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets pendingPoints
+     *
+     * @return \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null
+     */
+    public function getPendingPoints()
+    {
+        return $this->container['pendingPoints'];
+    }
+
+    /**
+     * Sets pendingPoints
+     *
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $pendingPoints List of all points pending activation
+     *
+     * @return $this
+     */
+    public function setPendingPoints($pendingPoints)
+    {
+        $this->container['pendingPoints'] = $pendingPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiredPoints
+     *
+     * @return \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null
+     */
+    public function getExpiredPoints()
+    {
+        return $this->container['expiredPoints'];
+    }
+
+    /**
+     * Sets expiredPoints
+     *
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $expiredPoints List of expired points
+     *
+     * @return $this
+     */
+    public function setExpiredPoints($expiredPoints)
+    {
+        $this->container['expiredPoints'] = $expiredPoints;
 
         return $this;
     }

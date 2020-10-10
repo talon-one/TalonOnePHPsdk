@@ -71,7 +71,9 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => 'int',
         'webhooks' => 'int',
         'loyaltyPrograms' => 'int',
-        'activeRules' => 'int'
+        'activeRules' => 'int',
+        'sandboxApplications' => 'int',
+        'liveApplications' => 'int'
     ];
 
     /**
@@ -94,7 +96,9 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => null,
         'webhooks' => null,
         'loyaltyPrograms' => null,
-        'activeRules' => null
+        'activeRules' => null,
+        'sandboxApplications' => null,
+        'liveApplications' => null
     ];
 
     /**
@@ -138,7 +142,9 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => 'roles',
         'webhooks' => 'webhooks',
         'loyaltyPrograms' => 'loyaltyPrograms',
-        'activeRules' => 'activeRules'
+        'activeRules' => 'activeRules',
+        'sandboxApplications' => 'sandboxApplications',
+        'liveApplications' => 'liveApplications'
     ];
 
     /**
@@ -161,7 +167,9 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => 'setRoles',
         'webhooks' => 'setWebhooks',
         'loyaltyPrograms' => 'setLoyaltyPrograms',
-        'activeRules' => 'setActiveRules'
+        'activeRules' => 'setActiveRules',
+        'sandboxApplications' => 'setSandboxApplications',
+        'liveApplications' => 'setLiveApplications'
     ];
 
     /**
@@ -184,7 +192,9 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => 'getRoles',
         'webhooks' => 'getWebhooks',
         'loyaltyPrograms' => 'getLoyaltyPrograms',
-        'activeRules' => 'getActiveRules'
+        'activeRules' => 'getActiveRules',
+        'sandboxApplications' => 'getSandboxApplications',
+        'liveApplications' => 'getLiveApplications'
     ];
 
     /**
@@ -262,6 +272,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         $this->container['webhooks'] = isset($data['webhooks']) ? $data['webhooks'] : null;
         $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
         $this->container['activeRules'] = isset($data['activeRules']) ? $data['activeRules'] : null;
+        $this->container['sandboxApplications'] = isset($data['sandboxApplications']) ? $data['sandboxApplications'] : null;
+        $this->container['liveApplications'] = isset($data['liveApplications']) ? $data['liveApplications'] : null;
     }
 
     /**
@@ -317,6 +329,12 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         }
         if ($this->container['activeRules'] === null) {
             $invalidProperties[] = "'activeRules' can't be null";
+        }
+        if ($this->container['sandboxApplications'] === null) {
+            $invalidProperties[] = "'sandboxApplications' can't be null";
+        }
+        if ($this->container['liveApplications'] === null) {
+            $invalidProperties[] = "'liveApplications' can't be null";
         }
         return $invalidProperties;
     }
@@ -689,6 +707,54 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     public function setActiveRules($activeRules)
     {
         $this->container['activeRules'] = $activeRules;
+
+        return $this;
+    }
+
+    /**
+     * Gets sandboxApplications
+     *
+     * @return int
+     */
+    public function getSandboxApplications()
+    {
+        return $this->container['sandboxApplications'];
+    }
+
+    /**
+     * Sets sandboxApplications
+     *
+     * @param int $sandboxApplications Total Number of sandbox applications in the account
+     *
+     * @return $this
+     */
+    public function setSandboxApplications($sandboxApplications)
+    {
+        $this->container['sandboxApplications'] = $sandboxApplications;
+
+        return $this;
+    }
+
+    /**
+     * Gets liveApplications
+     *
+     * @return int
+     */
+    public function getLiveApplications()
+    {
+        return $this->container['liveApplications'];
+    }
+
+    /**
+     * Sets liveApplications
+     *
+     * @param int $liveApplications Total Number of live applications in the account
+     *
+     * @return $this
+     */
+    public function setLiveApplications($liveApplications)
+    {
+        $this->container['liveApplications'] = $liveApplications;
 
         return $this;
     }

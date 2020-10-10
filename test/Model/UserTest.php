@@ -142,16 +142,9 @@ class UserTest extends TestCase
     }
 
     /**
-     * Test attribute "releaseUpdate"
+     * Test attribute "latestFeedTimestamp"
      */
-    public function testPropertyReleaseUpdate()
-    {
-    }
-
-    /**
-     * Test attribute "latestFeature"
-     */
-    public function testPropertyLatestFeature()
+    public function testPropertyLatestFeedTimestamp()
     {
     }
 

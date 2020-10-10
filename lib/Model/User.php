@@ -67,8 +67,7 @@ class User implements ModelInterface, ArrayAccess
         'state' => 'string',
         'name' => 'string',
         'policy' => 'string',
-        'releaseUpdate' => 'bool',
-        'latestFeature' => 'string',
+        'latestFeedTimestamp' => '\DateTime',
         'roles' => 'int[]',
         'applicationNotificationSubscriptions' => 'object',
         'authMethod' => 'string'
@@ -89,8 +88,7 @@ class User implements ModelInterface, ArrayAccess
         'state' => null,
         'name' => null,
         'policy' => 'acl',
-        'releaseUpdate' => null,
-        'latestFeature' => null,
+        'latestFeedTimestamp' => 'date-time',
         'roles' => null,
         'applicationNotificationSubscriptions' => null,
         'authMethod' => null
@@ -132,8 +130,7 @@ class User implements ModelInterface, ArrayAccess
         'state' => 'state',
         'name' => 'name',
         'policy' => 'policy',
-        'releaseUpdate' => 'releaseUpdate',
-        'latestFeature' => 'latestFeature',
+        'latestFeedTimestamp' => 'latestFeedTimestamp',
         'roles' => 'roles',
         'applicationNotificationSubscriptions' => 'applicationNotificationSubscriptions',
         'authMethod' => 'authMethod'
@@ -154,8 +151,7 @@ class User implements ModelInterface, ArrayAccess
         'state' => 'setState',
         'name' => 'setName',
         'policy' => 'setPolicy',
-        'releaseUpdate' => 'setReleaseUpdate',
-        'latestFeature' => 'setLatestFeature',
+        'latestFeedTimestamp' => 'setLatestFeedTimestamp',
         'roles' => 'setRoles',
         'applicationNotificationSubscriptions' => 'setApplicationNotificationSubscriptions',
         'authMethod' => 'setAuthMethod'
@@ -176,8 +172,7 @@ class User implements ModelInterface, ArrayAccess
         'state' => 'getState',
         'name' => 'getName',
         'policy' => 'getPolicy',
-        'releaseUpdate' => 'getReleaseUpdate',
-        'latestFeature' => 'getLatestFeature',
+        'latestFeedTimestamp' => 'getLatestFeedTimestamp',
         'roles' => 'getRoles',
         'applicationNotificationSubscriptions' => 'getApplicationNotificationSubscriptions',
         'authMethod' => 'getAuthMethod'
@@ -269,8 +264,7 @@ class User implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
-        $this->container['releaseUpdate'] = isset($data['releaseUpdate']) ? $data['releaseUpdate'] : null;
-        $this->container['latestFeature'] = isset($data['latestFeature']) ? $data['latestFeature'] : null;
+        $this->container['latestFeedTimestamp'] = isset($data['latestFeedTimestamp']) ? $data['latestFeedTimestamp'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
         $this->container['applicationNotificationSubscriptions'] = isset($data['applicationNotificationSubscriptions']) ? $data['applicationNotificationSubscriptions'] : null;
         $this->container['authMethod'] = isset($data['authMethod']) ? $data['authMethod'] : null;
@@ -319,9 +313,6 @@ class User implements ModelInterface, ArrayAccess
         }
         if ($this->container['policy'] === null) {
             $invalidProperties[] = "'policy' can't be null";
-        }
-        if ($this->container['releaseUpdate'] === null) {
-            $invalidProperties[] = "'releaseUpdate' can't be null";
         }
         return $invalidProperties;
     }
@@ -564,49 +555,25 @@ class User implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets releaseUpdate
+     * Gets latestFeedTimestamp
      *
-     * @return bool
+     * @return \DateTime|null
      */
-    public function getReleaseUpdate()
+    public function getLatestFeedTimestamp()
     {
-        return $this->container['releaseUpdate'];
+        return $this->container['latestFeedTimestamp'];
     }
 
     /**
-     * Sets releaseUpdate
+     * Sets latestFeedTimestamp
      *
-     * @param bool $releaseUpdate Update the user via email
+     * @param \DateTime|null $latestFeedTimestamp Latest timestamp the user has been notified for feed.
      *
      * @return $this
      */
-    public function setReleaseUpdate($releaseUpdate)
+    public function setLatestFeedTimestamp($latestFeedTimestamp)
     {
-        $this->container['releaseUpdate'] = $releaseUpdate;
-
-        return $this;
-    }
-
-    /**
-     * Gets latestFeature
-     *
-     * @return string|null
-     */
-    public function getLatestFeature()
-    {
-        return $this->container['latestFeature'];
-    }
-
-    /**
-     * Sets latestFeature
-     *
-     * @param string|null $latestFeature Latest feature the user has been notified.
-     *
-     * @return $this
-     */
-    public function setLatestFeature($latestFeature)
-    {
-        $this->container['latestFeature'] = $latestFeature;
+        $this->container['latestFeedTimestamp'] = $latestFeedTimestamp;
 
         return $this;
     }

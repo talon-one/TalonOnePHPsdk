@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
 **applicationId** | **int** | The ID of the application that owns this entity. | 
 **userId** | **int** | The ID of the account that owns this entity. | 
+**campaignGroups** | **int[]** | The IDs of the campaign groups that own this entity. | [optional] 
 **name** | **string** | A friendly name for this campaign. | 
 **description** | **string** | A detailed description of the campaign. | 
 **startTime** | [**\DateTime**](\DateTime.md) | Datetime when the campaign will become active. | [optional] 

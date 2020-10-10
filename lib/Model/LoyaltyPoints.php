@@ -60,7 +60,8 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'points' => 'float',
         'name' => 'string',
-        'expiryDuration' => 'string',
+        'validityDuration' => 'string',
+        'pendingDuration' => 'string',
         'subLedgerID' => 'string'
     ];
 
@@ -72,7 +73,8 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'points' => null,
         'name' => null,
-        'expiryDuration' => null,
+        'validityDuration' => null,
+        'pendingDuration' => null,
         'subLedgerID' => null
     ];
 
@@ -105,7 +107,8 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'points' => 'points',
         'name' => 'name',
-        'expiryDuration' => 'expiryDuration',
+        'validityDuration' => 'validityDuration',
+        'pendingDuration' => 'pendingDuration',
         'subLedgerID' => 'subLedgerID'
     ];
 
@@ -117,7 +120,8 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     protected static $setters = [
         'points' => 'setPoints',
         'name' => 'setName',
-        'expiryDuration' => 'setExpiryDuration',
+        'validityDuration' => 'setValidityDuration',
+        'pendingDuration' => 'setPendingDuration',
         'subLedgerID' => 'setSubLedgerID'
     ];
 
@@ -129,7 +133,8 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     protected static $getters = [
         'points' => 'getPoints',
         'name' => 'getName',
-        'expiryDuration' => 'getExpiryDuration',
+        'validityDuration' => 'getValidityDuration',
+        'pendingDuration' => 'getPendingDuration',
         'subLedgerID' => 'getSubLedgerID'
     ];
 
@@ -195,7 +200,8 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     {
         $this->container['points'] = isset($data['points']) ? $data['points'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['expiryDuration'] = isset($data['expiryDuration']) ? $data['expiryDuration'] : null;
+        $this->container['validityDuration'] = isset($data['validityDuration']) ? $data['validityDuration'] : null;
+        $this->container['pendingDuration'] = isset($data['pendingDuration']) ? $data['pendingDuration'] : null;
         $this->container['subLedgerID'] = isset($data['subLedgerID']) ? $data['subLedgerID'] : null;
     }
 
@@ -275,25 +281,49 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets expiryDuration
+     * Gets validityDuration
      *
      * @return string|null
      */
-    public function getExpiryDuration()
+    public function getValidityDuration()
     {
-        return $this->container['expiryDuration'];
+        return $this->container['validityDuration'];
     }
 
     /**
-     * Sets expiryDuration
+     * Sets validityDuration
      *
-     * @param string|null $expiryDuration Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the unit, like '1h' or '40m' or '30d'.
+     * @param string|null $validityDuration Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the time unit, like '1h' or '40m' (defined by Go time package).
      *
      * @return $this
      */
-    public function setExpiryDuration($expiryDuration)
+    public function setValidityDuration($validityDuration)
     {
-        $this->container['expiryDuration'] = $expiryDuration;
+        $this->container['validityDuration'] = $validityDuration;
+
+        return $this;
+    }
+
+    /**
+     * Gets pendingDuration
+     *
+     * @return string|null
+     */
+    public function getPendingDuration()
+    {
+        return $this->container['pendingDuration'];
+    }
+
+    /**
+     * Sets pendingDuration
+     *
+     * @param string|null $pendingDuration Indicates the amount of time before the points are considered valid. The format is a number followed by one letter indicating the time unit, like '1h' or '40m' (defined by Go time package).
+     *
+     * @return $this
+     */
+    public function setPendingDuration($pendingDuration)
+    {
+        $this->container['pendingDuration'] = $pendingDuration;
 
         return $this;
     }

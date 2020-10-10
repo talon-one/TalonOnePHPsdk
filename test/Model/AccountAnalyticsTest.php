@@ -182,4 +182,18 @@ class AccountAnalyticsTest extends TestCase
     public function testPropertyActiveRules()
     {
     }
+
+    /**
+     * Test attribute "sandboxApplications"
+     */
+    public function testPropertySandboxApplications()
+    {
+    }
+
+    /**
+     * Test attribute "liveApplications"
+     */
+    public function testPropertyLiveApplications()
+    {
+    }
 }

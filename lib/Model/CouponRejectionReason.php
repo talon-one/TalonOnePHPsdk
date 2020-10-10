@@ -171,7 +171,6 @@ class CouponRejectionReason implements ModelInterface, ArrayAccess
 
     const REASON_COUPON_NOT_FOUND = 'CouponNotFound';
     const REASON_COUPON_PART_OF_NOT_RUNNING_CAMPAIGN = 'CouponPartOfNotRunningCampaign';
-    const REASON_COUPON_VALID_CONDITION_MISSING = 'CouponValidConditionMissing';
     const REASON_COUPON_LIMIT_REACHED = 'CouponLimitReached';
     const REASON_CAMPAIGN_LIMIT_REACHED = 'CampaignLimitReached';
     const REASON_PROFILE_LIMIT_REACHED = 'ProfileLimitReached';
@@ -193,7 +192,6 @@ class CouponRejectionReason implements ModelInterface, ArrayAccess
         return [
             self::REASON_COUPON_NOT_FOUND,
             self::REASON_COUPON_PART_OF_NOT_RUNNING_CAMPAIGN,
-            self::REASON_COUPON_VALID_CONDITION_MISSING,
             self::REASON_COUPON_LIMIT_REACHED,
             self::REASON_CAMPAIGN_LIMIT_REACHED,
             self::REASON_PROFILE_LIMIT_REACHED,

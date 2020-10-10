@@ -2659,7 +2659,7 @@ Name | Type | Description  | Notes
 
 ## getCampaigns
 
-> \TalonOne\Client\Model\InlineResponse2002 getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter)
+> \TalonOne\Client\Model\InlineResponse2002 getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $campaignGroupId)
 
 List your Campaigns
 
@@ -2691,9 +2691,10 @@ $name = 'name_example'; // string | Filter results performing case-insensitive m
 $tags = 'tags_example'; // string | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
+$campaignGroupId = 56; // int | Filter results to campaigns owned by the specified campaign group ID.
 
 try {
-    $result = $apiInstance->getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter);
+    $result = $apiInstance->getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $campaignGroupId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCampaigns: ', $e->getMessage(), PHP_EOL;
@@ -2715,6 +2716,7 @@ Name | Type | Description  | Notes
  **tags** | **string**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional]
+ **campaignGroupId** | **int**| Filter results to campaigns owned by the specified campaign group ID. | [optional]
 
 ### Return type
 
@@ -3483,7 +3485,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerProfile
 
-> \TalonOne\Client\Model\ApplicationCustomer getCustomerProfile($applicationId, $customerId)
+> \TalonOne\Client\Model\ApplicationCustomer getCustomerProfile($customerId)
 
 Get Customer Profile
 
@@ -3506,11 +3508,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$applicationId = 56; // int | 
 $customerId = 56; // int | 
 
 try {
-    $result = $apiInstance->getCustomerProfile($applicationId, $customerId);
+    $result = $apiInstance->getCustomerProfile($customerId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCustomerProfile: ', $e->getMessage(), PHP_EOL;
@@ -3523,7 +3524,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  |
  **customerId** | **int**|  |
 
 ### Return type

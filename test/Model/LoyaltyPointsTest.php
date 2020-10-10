@@ -93,9 +93,16 @@ class LoyaltyPointsTest extends TestCase
     }
 
     /**
-     * Test attribute "expiryDuration"
+     * Test attribute "validityDuration"
      */
-    public function testPropertyExpiryDuration()
+    public function testPropertyValidityDuration()
+    {
+    }
+
+    /**
+     * Test attribute "pendingDuration"
+     */
+    public function testPropertyPendingDuration()
     {
     }
 

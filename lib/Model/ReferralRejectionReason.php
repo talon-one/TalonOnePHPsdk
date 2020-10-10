@@ -172,7 +172,6 @@ class ReferralRejectionReason implements ModelInterface, ArrayAccess
     const REASON_REFERRAL_NOT_FOUND = 'ReferralNotFound';
     const REASON_REFERRAL_RECIPIENT_ID_SAME_AS_ADVOCATE = 'ReferralRecipientIdSameAsAdvocate';
     const REASON_REFERRAL_PART_OF_NOT_RUNNING_CAMPAIGN = 'ReferralPartOfNotRunningCampaign';
-    const REASON_REFERRAL_VALID_CONDITION_MISSING = 'ReferralValidConditionMissing';
     const REASON_REFERRAL_LIMIT_REACHED = 'ReferralLimitReached';
     const REASON_CAMPAIGN_LIMIT_REACHED = 'CampaignLimitReached';
     const REASON_PROFILE_LIMIT_REACHED = 'ProfileLimitReached';
@@ -195,7 +194,6 @@ class ReferralRejectionReason implements ModelInterface, ArrayAccess
             self::REASON_REFERRAL_NOT_FOUND,
             self::REASON_REFERRAL_RECIPIENT_ID_SAME_AS_ADVOCATE,
             self::REASON_REFERRAL_PART_OF_NOT_RUNNING_CAMPAIGN,
-            self::REASON_REFERRAL_VALID_CONDITION_MISSING,
             self::REASON_REFERRAL_LIMIT_REACHED,
             self::REASON_CAMPAIGN_LIMIT_REACHED,
             self::REASON_PROFILE_LIMIT_REACHED,

@@ -100,20 +100,6 @@ class UpdateUserTest extends TestCase
     }
 
     /**
-     * Test attribute "releaseUpdate"
-     */
-    public function testPropertyReleaseUpdate()
-    {
-    }
-
-    /**
-     * Test attribute "latestFeature"
-     */
-    public function testPropertyLatestFeature()
-    {
-    }
-
-    /**
      * Test attribute "roles"
      */
     public function testPropertyRoles()

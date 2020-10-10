@@ -86,6 +86,34 @@ class LoyaltySubLedgerTest extends TestCase
     }
 
     /**
+     * Test attribute "totalActivePoints"
+     */
+    public function testPropertyTotalActivePoints()
+    {
+    }
+
+    /**
+     * Test attribute "totalPendingPoints"
+     */
+    public function testPropertyTotalPendingPoints()
+    {
+    }
+
+    /**
+     * Test attribute "totalSpentPoints"
+     */
+    public function testPropertyTotalSpentPoints()
+    {
+    }
+
+    /**
+     * Test attribute "totalExpiredPoints"
+     */
+    public function testPropertyTotalExpiredPoints()
+    {
+    }
+
+    /**
      * Test attribute "transactions"
      */
     public function testPropertyTransactions()
@@ -96,6 +124,27 @@ class LoyaltySubLedgerTest extends TestCase
      * Test attribute "expiringPoints"
      */
     public function testPropertyExpiringPoints()
+    {
+    }
+
+    /**
+     * Test attribute "activePoints"
+     */
+    public function testPropertyActivePoints()
+    {
+    }
+
+    /**
+     * Test attribute "pendingPoints"
+     */
+    public function testPropertyPendingPoints()
+    {
+    }
+
+    /**
+     * Test attribute "expiredPoints"
+     */
+    public function testPropertyExpiredPoints()
     {
     }
 }
