@@ -125,14 +125,14 @@ try {
     foreach ($integration_state->getEffects() as $effect) {
         if ("addLoyaltyPoints" == $effect->getEffectType()) {
             // Initiating right props instance according to the effect type
-            $props = new \TalonOne\Client\Model\AddLoyaltyPointsEffectProps($effect->getProps());
+            $props = new \TalonOne\Client\Model\AddLoyaltyPointsEffectProps((array) $effect->getProps());
             
             // Access the specific effect's properties
             echo $props->getName(), ':: ', $props->getRecipientIntegrationId(), ' just earned ',  $props->getValue(), ' points', PHP_EOL;
         }
         if ("acceptCoupon" == $effect->getEffectType()) {
             // Initiating right props instance according to the effect type
-            $props = new \TalonOne\Client\Model\AcceptCouponEffectProps($effect->getProps());
+            $props = new \TalonOne\Client\Model\AcceptCouponEffectProps((array) $effect->getProps());
             // work with AcceptCouponEffectProps' properties
             // ...
         }
