@@ -1,6 +1,6 @@
 <?php
 /**
- * NewImportTest
+ * RollbackReferralEffectPropsTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * NewImportTest Class Doc Comment
+ * RollbackReferralEffectPropsTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description The properties specific to the \&quot;rollbackReferral\&quot; effect. This gets triggered whenever previously closed session is now cancelled and a referral redemption was cancelled on our internal usage limit counters.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class NewImportTest extends TestCase
+class RollbackReferralEffectPropsTest extends TestCase
 {
 
     /**
@@ -72,16 +72,16 @@ class NewImportTest extends TestCase
     }
 
     /**
-     * Test "NewImport"
+     * Test "RollbackReferralEffectProps"
      */
-    public function testNewImport()
+    public function testRollbackReferralEffectProps()
     {
     }
 
     /**
-     * Test attribute "entity"
+     * Test attribute "value"
      */
-    public function testPropertyEntity()
+    public function testPropertyValue()
     {
     }
 }

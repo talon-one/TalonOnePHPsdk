@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **programId** | **int** | The ID of the loyalty program where these points were added | 
 **subLedgerId** | **string** | The ID of the subledger within the loyalty program where these points were added | 
 **value** | **float** | The amount of points that were deducted | 
+**transactionUUID** | **string** | The identifier of this deduction in the loyalty ledger | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

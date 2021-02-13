@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** | The internal ID of loyalty program | 
 **title** | **string** | Visible name of loyalty program | 
 **name** | **string** | Internal name of loyalty program | 
 **ledger** | [**\TalonOne\Client\Model\LoyaltyProgramBalance**](LoyaltyProgramBalance.md) |  | 

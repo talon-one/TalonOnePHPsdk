@@ -1,6 +1,6 @@
 <?php
 /**
- * CartItemAdjustmentTest
+ * RuleFailureReasonTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CartItemAdjustmentTest Class Doc Comment
+ * RuleFailureReasonTest Class Doc Comment
  *
  * @category    Class
- * @description CartItemAdjustment
+ * @description Details about why a rule failed
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CartItemAdjustmentTest extends TestCase
+class RuleFailureReasonTest extends TestCase
 {
 
     /**
@@ -72,30 +72,93 @@ class CartItemAdjustmentTest extends TestCase
     }
 
     /**
-     * Test "CartItemAdjustment"
+     * Test "RuleFailureReason"
      */
-    public function testCartItemAdjustment()
+    public function testRuleFailureReason()
     {
     }
 
     /**
-     * Test attribute "payFromLoyaltyProgram"
+     * Test attribute "campaignID"
      */
-    public function testPropertyPayFromLoyaltyProgram()
+    public function testPropertyCampaignID()
     {
     }
 
     /**
-     * Test attribute "pointPayment"
+     * Test attribute "campaignName"
      */
-    public function testPropertyPointPayment()
+    public function testPropertyCampaignName()
     {
     }
 
     /**
-     * Test attribute "remainingPrice"
+     * Test attribute "rulesetID"
      */
-    public function testPropertyRemainingPrice()
+    public function testPropertyRulesetID()
+    {
+    }
+
+    /**
+     * Test attribute "couponID"
+     */
+    public function testPropertyCouponID()
+    {
+    }
+
+    /**
+     * Test attribute "couponValue"
+     */
+    public function testPropertyCouponValue()
+    {
+    }
+
+    /**
+     * Test attribute "referralID"
+     */
+    public function testPropertyReferralID()
+    {
+    }
+
+    /**
+     * Test attribute "referralValue"
+     */
+    public function testPropertyReferralValue()
+    {
+    }
+
+    /**
+     * Test attribute "ruleIndex"
+     */
+    public function testPropertyRuleIndex()
+    {
+    }
+
+    /**
+     * Test attribute "ruleName"
+     */
+    public function testPropertyRuleName()
+    {
+    }
+
+    /**
+     * Test attribute "conditionIndex"
+     */
+    public function testPropertyConditionIndex()
+    {
+    }
+
+    /**
+     * Test attribute "effectIndex"
+     */
+    public function testPropertyEffectIndex()
+    {
+    }
+
+    /**
+     * Test attribute "details"
+     */
+    public function testPropertyDetails()
     {
     }
 }

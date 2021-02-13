@@ -65,7 +65,8 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         'sessionId' => 'int',
         'type' => 'string',
         'attributes' => 'object',
-        'effects' => 'object[]'
+        'effects' => 'object[]',
+        'ruleFailureReasons' => '\TalonOne\Client\Model\RuleFailureReason[]'
     ];
 
     /**
@@ -81,7 +82,8 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         'sessionId' => null,
         'type' => null,
         'attributes' => null,
-        'effects' => null
+        'effects' => null,
+        'ruleFailureReasons' => null
     ];
 
     /**
@@ -118,7 +120,8 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         'sessionId' => 'sessionId',
         'type' => 'type',
         'attributes' => 'attributes',
-        'effects' => 'effects'
+        'effects' => 'effects',
+        'ruleFailureReasons' => 'ruleFailureReasons'
     ];
 
     /**
@@ -134,7 +137,8 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         'sessionId' => 'setSessionId',
         'type' => 'setType',
         'attributes' => 'setAttributes',
-        'effects' => 'setEffects'
+        'effects' => 'setEffects',
+        'ruleFailureReasons' => 'setRuleFailureReasons'
     ];
 
     /**
@@ -150,7 +154,8 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         'sessionId' => 'getSessionId',
         'type' => 'getType',
         'attributes' => 'getAttributes',
-        'effects' => 'getEffects'
+        'effects' => 'getEffects',
+        'ruleFailureReasons' => 'getRuleFailureReasons'
     ];
 
     /**
@@ -221,6 +226,7 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
+        $this->container['ruleFailureReasons'] = isset($data['ruleFailureReasons']) ? $data['ruleFailureReasons'] : null;
     }
 
     /**
@@ -453,6 +459,30 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     public function setEffects($effects)
     {
         $this->container['effects'] = $effects;
+
+        return $this;
+    }
+
+    /**
+     * Gets ruleFailureReasons
+     *
+     * @return \TalonOne\Client\Model\RuleFailureReason[]|null
+     */
+    public function getRuleFailureReasons()
+    {
+        return $this->container['ruleFailureReasons'];
+    }
+
+    /**
+     * Sets ruleFailureReasons
+     *
+     * @param \TalonOne\Client\Model\RuleFailureReason[]|null $ruleFailureReasons An array containing the rule failure reasons which happened during this event.
+     *
+     * @return $this
+     */
+    public function setRuleFailureReasons($ruleFailureReasons)
+    {
+        $this->container['ruleFailureReasons'] = $ruleFailureReasons;
 
         return $this;
     }

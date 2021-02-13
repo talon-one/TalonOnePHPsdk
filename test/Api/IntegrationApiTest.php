@@ -105,7 +105,7 @@ class IntegrationApiTest extends TestCase
     /**
      * Test case for deleteCustomerData
      *
-     * Delete the personal data of a customer..
+     * Delete the personal data of a customer.
      *
      */
     public function testDeleteCustomerData()
@@ -115,7 +115,7 @@ class IntegrationApiTest extends TestCase
     /**
      * Test case for getCustomerInventory
      *
-     * Get an inventory of all data associated with a specific customer profile..
+     * Get an inventory of all data associated with a specific customer profile.
      *
      */
     public function testGetCustomerInventory()

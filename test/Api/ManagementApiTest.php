@@ -133,6 +133,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for createCouponsForMultipleRecipients
+     *
+     * Create Coupons for Multiple Recipients.
+     *
+     */
+    public function testCreateCouponsForMultipleRecipients()
+    {
+    }
+
+    /**
      * Test case for createPasswordRecoveryEmail
      *
      * Request a password reset.
@@ -213,6 +223,66 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for destroySession
+     *
+     * Destroy a Session.
+     *
+     */
+    public function testDestroySession()
+    {
+    }
+
+    /**
+     * Test case for exportCoupons
+     *
+     * Export Coupons to a CSV file.
+     *
+     */
+    public function testExportCoupons()
+    {
+    }
+
+    /**
+     * Test case for exportCustomerSessions
+     *
+     * Export Customer Sessions to a CSV file.
+     *
+     */
+    public function testExportCustomerSessions()
+    {
+    }
+
+    /**
+     * Test case for exportEffects
+     *
+     * Export triggered Effects to a CSV file.
+     *
+     */
+    public function testExportEffects()
+    {
+    }
+
+    /**
+     * Test case for exportLoyaltyBalance
+     *
+     * Export customer loyalty balance to a CSV file.
+     *
+     */
+    public function testExportLoyaltyBalance()
+    {
+    }
+
+    /**
+     * Test case for exportLoyaltyLedger
+     *
+     * Export a customer's loyalty ledger log to a CSV file.
+     *
+     */
+    public function testExportLoyaltyLedger()
+    {
+    }
+
+    /**
      * Test case for getAccessLogs
      *
      * Get access logs for application (with total count).
@@ -285,7 +355,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getAllRoles
      *
-     * Get all roles..
+     * Get all roles.
      *
      */
     public function testGetAllRoles()
@@ -419,6 +489,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testGetAttributes()
+    {
+    }
+
+    /**
+     * Test case for getAudiences
+     *
+     * Get all audiences.
+     *
+     */
+    public function testGetAudiences()
     {
     }
 
@@ -603,16 +683,6 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for getImports
-     *
-     * Get Imports.
-     *
-     */
-    public function testGetImports()
-    {
-    }
-
-    /**
      * Test case for getLoyaltyPoints
      *
      * get the Loyalty Ledger for this integrationID.
@@ -675,7 +745,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getRole
      *
-     * Get information for the specified role..
+     * Get information for the specified role.
      *
      */
     public function testGetRole()

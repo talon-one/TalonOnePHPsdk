@@ -58,7 +58,11 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currentBalance' => 'float'
+        'currentBalance' => 'float',
+        'pendingBalance' => 'float',
+        'expiredBalance' => 'float',
+        'spentBalance' => 'float',
+        'tentativeCurrentBalance' => 'float'
     ];
 
     /**
@@ -67,7 +71,11 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currentBalance' => null
+        'currentBalance' => null,
+        'pendingBalance' => null,
+        'expiredBalance' => null,
+        'spentBalance' => null,
+        'tentativeCurrentBalance' => null
     ];
 
     /**
@@ -97,7 +105,11 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currentBalance' => 'currentBalance'
+        'currentBalance' => 'currentBalance',
+        'pendingBalance' => 'pendingBalance',
+        'expiredBalance' => 'expiredBalance',
+        'spentBalance' => 'spentBalance',
+        'tentativeCurrentBalance' => 'tentativeCurrentBalance'
     ];
 
     /**
@@ -106,7 +118,11 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currentBalance' => 'setCurrentBalance'
+        'currentBalance' => 'setCurrentBalance',
+        'pendingBalance' => 'setPendingBalance',
+        'expiredBalance' => 'setExpiredBalance',
+        'spentBalance' => 'setSpentBalance',
+        'tentativeCurrentBalance' => 'setTentativeCurrentBalance'
     ];
 
     /**
@@ -115,7 +131,11 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currentBalance' => 'getCurrentBalance'
+        'currentBalance' => 'getCurrentBalance',
+        'pendingBalance' => 'getPendingBalance',
+        'expiredBalance' => 'getExpiredBalance',
+        'spentBalance' => 'getSpentBalance',
+        'tentativeCurrentBalance' => 'getTentativeCurrentBalance'
     ];
 
     /**
@@ -179,6 +199,10 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['currentBalance'] = isset($data['currentBalance']) ? $data['currentBalance'] : null;
+        $this->container['pendingBalance'] = isset($data['pendingBalance']) ? $data['pendingBalance'] : null;
+        $this->container['expiredBalance'] = isset($data['expiredBalance']) ? $data['expiredBalance'] : null;
+        $this->container['spentBalance'] = isset($data['spentBalance']) ? $data['spentBalance'] : null;
+        $this->container['tentativeCurrentBalance'] = isset($data['tentativeCurrentBalance']) ? $data['tentativeCurrentBalance'] : null;
     }
 
     /**
@@ -192,6 +216,18 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
 
         if ($this->container['currentBalance'] === null) {
             $invalidProperties[] = "'currentBalance' can't be null";
+        }
+        if ($this->container['pendingBalance'] === null) {
+            $invalidProperties[] = "'pendingBalance' can't be null";
+        }
+        if ($this->container['expiredBalance'] === null) {
+            $invalidProperties[] = "'expiredBalance' can't be null";
+        }
+        if ($this->container['spentBalance'] === null) {
+            $invalidProperties[] = "'spentBalance' can't be null";
+        }
+        if ($this->container['tentativeCurrentBalance'] === null) {
+            $invalidProperties[] = "'tentativeCurrentBalance' can't be null";
         }
         return $invalidProperties;
     }
@@ -221,13 +257,109 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
     /**
      * Sets currentBalance
      *
-     * @param float $currentBalance currentBalance
+     * @param float $currentBalance Sum of current active points amounts
      *
      * @return $this
      */
     public function setCurrentBalance($currentBalance)
     {
         $this->container['currentBalance'] = $currentBalance;
+
+        return $this;
+    }
+
+    /**
+     * Gets pendingBalance
+     *
+     * @return float
+     */
+    public function getPendingBalance()
+    {
+        return $this->container['pendingBalance'];
+    }
+
+    /**
+     * Sets pendingBalance
+     *
+     * @param float $pendingBalance Sum of pending points amounts
+     *
+     * @return $this
+     */
+    public function setPendingBalance($pendingBalance)
+    {
+        $this->container['pendingBalance'] = $pendingBalance;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiredBalance
+     *
+     * @return float
+     */
+    public function getExpiredBalance()
+    {
+        return $this->container['expiredBalance'];
+    }
+
+    /**
+     * Sets expiredBalance
+     *
+     * @param float $expiredBalance Sum of expired points amounts
+     *
+     * @return $this
+     */
+    public function setExpiredBalance($expiredBalance)
+    {
+        $this->container['expiredBalance'] = $expiredBalance;
+
+        return $this;
+    }
+
+    /**
+     * Gets spentBalance
+     *
+     * @return float
+     */
+    public function getSpentBalance()
+    {
+        return $this->container['spentBalance'];
+    }
+
+    /**
+     * Sets spentBalance
+     *
+     * @param float $spentBalance Sum of spent points amounts
+     *
+     * @return $this
+     */
+    public function setSpentBalance($spentBalance)
+    {
+        $this->container['spentBalance'] = $spentBalance;
+
+        return $this;
+    }
+
+    /**
+     * Gets tentativeCurrentBalance
+     *
+     * @return float
+     */
+    public function getTentativeCurrentBalance()
+    {
+        return $this->container['tentativeCurrentBalance'];
+    }
+
+    /**
+     * Sets tentativeCurrentBalance
+     *
+     * @param float $tentativeCurrentBalance Sum of current active points amounts, including additions and deductions on open sessions
+     *
+     * @return $this
+     */
+    public function setTentativeCurrentBalance($tentativeCurrentBalance)
+    {
+        $this->container['tentativeCurrentBalance'] = $tentativeCurrentBalance;
 
         return $this;
     }

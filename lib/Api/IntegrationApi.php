@@ -942,7 +942,7 @@ class IntegrationApi
     /**
      * Operation deleteCustomerData
      *
-     * Delete the personal data of a customer.
+     * Delete the personal data of a customer
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
@@ -958,7 +958,7 @@ class IntegrationApi
     /**
      * Operation deleteCustomerDataWithHttpInfo
      *
-     * Delete the personal data of a customer.
+     * Delete the personal data of a customer
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
@@ -1010,7 +1010,7 @@ class IntegrationApi
     /**
      * Operation deleteCustomerDataAsync
      *
-     * Delete the personal data of a customer.
+     * Delete the personal data of a customer
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
@@ -1030,7 +1030,7 @@ class IntegrationApi
     /**
      * Operation deleteCustomerDataAsyncWithHttpInfo
      *
-     * Delete the personal data of a customer.
+     * Delete the personal data of a customer
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      *
@@ -1177,7 +1177,7 @@ class IntegrationApi
     /**
      * Operation getCustomerInventory
      *
-     * Get an inventory of all data associated with a specific customer profile.
+     * Get an inventory of all data associated with a specific customer profile
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
@@ -1198,7 +1198,7 @@ class IntegrationApi
     /**
      * Operation getCustomerInventoryWithHttpInfo
      *
-     * Get an inventory of all data associated with a specific customer profile.
+     * Get an inventory of all data associated with a specific customer profile
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
@@ -1290,7 +1290,7 @@ class IntegrationApi
     /**
      * Operation getCustomerInventoryAsync
      *
-     * Get an inventory of all data associated with a specific customer profile.
+     * Get an inventory of all data associated with a specific customer profile
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
@@ -1314,7 +1314,7 @@ class IntegrationApi
     /**
      * Operation getCustomerInventoryAsyncWithHttpInfo
      *
-     * Get an inventory of all data associated with a specific customer profile.
+     * Get an inventory of all data associated with a specific customer profile
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  bool $profile optional flag to decide if you would like customer profile information in the response (optional)
@@ -1794,7 +1794,7 @@ class IntegrationApi
      * Track an Event
      *
      * @param  \TalonOne\Client\Model\NewEvent $body body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1812,7 +1812,7 @@ class IntegrationApi
      * Track an Event
      *
      * @param  \TalonOne\Client\Model\NewEvent $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1901,7 +1901,7 @@ class IntegrationApi
      * Track an Event
      *
      * @param  \TalonOne\Client\Model\NewEvent $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1922,7 +1922,7 @@ class IntegrationApi
      * Track an Event
      *
      * @param  \TalonOne\Client\Model\NewEvent $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1970,7 +1970,7 @@ class IntegrationApi
      * Create request for operation 'trackEvent'
      *
      * @param  \TalonOne\Client\Model\NewEvent $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2085,7 +2085,7 @@ class IntegrationApi
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2104,7 +2104,7 @@ class IntegrationApi
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2194,7 +2194,7 @@ class IntegrationApi
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2216,7 +2216,7 @@ class IntegrationApi
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2265,7 +2265,7 @@ class IntegrationApi
      *
      * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerProfile $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2617,16 +2617,16 @@ class IntegrationApi
      *
      * Update a Customer Profile
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile. Must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body body (required)
-     * @param  bool $runRuleEngine Flag to indicate whether to run the rule engine (Defaults to false). (optional)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)
+     * @param  bool $runRuleEngine Indicates whether to run the rule engine. (optional, default to false)
+     * @param  bool $dry Indicates whether to persist the changes. Changes are persisted with &#x60;true&#x60;. Only used when &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\IntegrationStateV2
      */
-    public function updateCustomerProfileV2($integrationId, $body, $runRuleEngine = null, $dry = null)
+    public function updateCustomerProfileV2($integrationId, $body, $runRuleEngine = false, $dry = null)
     {
         list($response) = $this->updateCustomerProfileV2WithHttpInfo($integrationId, $body, $runRuleEngine, $dry);
         return $response;
@@ -2637,16 +2637,16 @@ class IntegrationApi
      *
      * Update a Customer Profile
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile. Must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body (required)
-     * @param  bool $runRuleEngine Flag to indicate whether to run the rule engine (Defaults to false). (optional)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)
+     * @param  bool $runRuleEngine Indicates whether to run the rule engine. (optional, default to false)
+     * @param  bool $dry Indicates whether to persist the changes. Changes are persisted with &#x60;true&#x60;. Only used when &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\IntegrationStateV2, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCustomerProfileV2WithHttpInfo($integrationId, $body, $runRuleEngine = null, $dry = null)
+    public function updateCustomerProfileV2WithHttpInfo($integrationId, $body, $runRuleEngine = false, $dry = null)
     {
         $request = $this->updateCustomerProfileV2Request($integrationId, $body, $runRuleEngine, $dry);
 
@@ -2728,15 +2728,15 @@ class IntegrationApi
      *
      * Update a Customer Profile
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile. Must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body (required)
-     * @param  bool $runRuleEngine Flag to indicate whether to run the rule engine (Defaults to false). (optional)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)
+     * @param  bool $runRuleEngine Indicates whether to run the rule engine. (optional, default to false)
+     * @param  bool $dry Indicates whether to persist the changes. Changes are persisted with &#x60;true&#x60;. Only used when &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomerProfileV2Async($integrationId, $body, $runRuleEngine = null, $dry = null)
+    public function updateCustomerProfileV2Async($integrationId, $body, $runRuleEngine = false, $dry = null)
     {
         return $this->updateCustomerProfileV2AsyncWithHttpInfo($integrationId, $body, $runRuleEngine, $dry)
             ->then(
@@ -2751,15 +2751,15 @@ class IntegrationApi
      *
      * Update a Customer Profile
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile. Must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body (required)
-     * @param  bool $runRuleEngine Flag to indicate whether to run the rule engine (Defaults to false). (optional)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)
+     * @param  bool $runRuleEngine Indicates whether to run the rule engine. (optional, default to false)
+     * @param  bool $dry Indicates whether to persist the changes. Changes are persisted with &#x60;true&#x60;. Only used when &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomerProfileV2AsyncWithHttpInfo($integrationId, $body, $runRuleEngine = null, $dry = null)
+    public function updateCustomerProfileV2AsyncWithHttpInfo($integrationId, $body, $runRuleEngine = false, $dry = null)
     {
         $returnType = '\TalonOne\Client\Model\IntegrationStateV2';
         $request = $this->updateCustomerProfileV2Request($integrationId, $body, $runRuleEngine, $dry);
@@ -2801,15 +2801,15 @@ class IntegrationApi
     /**
      * Create request for operation 'updateCustomerProfileV2'
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The custom identifier for this profile. Must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body (required)
-     * @param  bool $runRuleEngine Flag to indicate whether to run the rule engine (Defaults to false). (optional)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)
+     * @param  bool $runRuleEngine Indicates whether to run the rule engine. (optional, default to false)
+     * @param  bool $dry Indicates whether to persist the changes. Changes are persisted with &#x60;true&#x60;. Only used when &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCustomerProfileV2Request($integrationId, $body, $runRuleEngine = null, $dry = null)
+    protected function updateCustomerProfileV2Request($integrationId, $body, $runRuleEngine = false, $dry = null)
     {
         // verify the required parameter 'integrationId' is set
         if ($integrationId === null || (is_array($integrationId) && count($integrationId) === 0)) {
@@ -2934,7 +2934,7 @@ class IntegrationApi
      * Update multiple Customer Profiles
      *
      * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2952,7 +2952,7 @@ class IntegrationApi
      * Update multiple Customer Profiles
      *
      * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3041,7 +3041,7 @@ class IntegrationApi
      * Update multiple Customer Profiles
      *
      * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3062,7 +3062,7 @@ class IntegrationApi
      * Update multiple Customer Profiles
      *
      * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3110,7 +3110,7 @@ class IntegrationApi
      * Create request for operation 'updateCustomerProfilesV2'
      *
      * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3220,7 +3220,7 @@ class IntegrationApi
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3239,7 +3239,7 @@ class IntegrationApi
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3329,7 +3329,7 @@ class IntegrationApi
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3351,7 +3351,7 @@ class IntegrationApi
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3400,7 +3400,7 @@ class IntegrationApi
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\NewCustomerSession $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3529,7 +3529,7 @@ class IntegrationApi
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3548,7 +3548,7 @@ class IntegrationApi
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3638,7 +3638,7 @@ class IntegrationApi
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3660,7 +3660,7 @@ class IntegrationApi
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3709,7 +3709,7 @@ class IntegrationApi
      *
      * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
-     * @param  bool $dry Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
+     * @param  bool $dry Indicates whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

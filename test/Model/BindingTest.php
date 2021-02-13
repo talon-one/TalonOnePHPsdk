@@ -86,6 +86,13 @@ class BindingTest extends TestCase
     }
 
     /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+    }
+
+    /**
      * Test attribute "expression"
      */
     public function testPropertyExpression()

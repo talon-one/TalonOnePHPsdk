@@ -58,7 +58,7 @@ class InlineResponse20020 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\Attribute[]'
+        'data' => '\TalonOne\Client\Model\Audience[]'
     ];
 
     /**
@@ -195,9 +195,6 @@ class InlineResponse20020 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['totalResultSize'] === null) {
-            $invalidProperties[] = "'totalResultSize' can't be null";
-        }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
@@ -219,7 +216,7 @@ class InlineResponse20020 implements ModelInterface, ArrayAccess
     /**
      * Gets totalResultSize
      *
-     * @return int
+     * @return int|null
      */
     public function getTotalResultSize()
     {
@@ -229,7 +226,7 @@ class InlineResponse20020 implements ModelInterface, ArrayAccess
     /**
      * Sets totalResultSize
      *
-     * @param int $totalResultSize totalResultSize
+     * @param int|null $totalResultSize totalResultSize
      *
      * @return $this
      */
@@ -243,7 +240,7 @@ class InlineResponse20020 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\Attribute[]
+     * @return \TalonOne\Client\Model\Audience[]
      */
     public function getData()
     {
@@ -253,7 +250,7 @@ class InlineResponse20020 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\Attribute[] $data data
+     * @param \TalonOne\Client\Model\Audience[] $data data
      *
      * @return $this
      */

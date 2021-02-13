@@ -154,11 +154,4 @@ class CartItemTest extends TestCase
     public function testPropertyAttributes()
     {
     }
-
-    /**
-     * Test attribute "adjustment"
-     */
-    public function testPropertyAdjustment()
-    {
-    }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * ImportCoupons
+ * RollbackReferralEffectProps
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * ImportCoupons Class Doc Comment
+ * RollbackReferralEffectProps Class Doc Comment
  *
  * @category Class
+ * @description The properties specific to the \&quot;rollbackReferral\&quot; effect. This gets triggered whenever previously closed session is now cancelled and a referral redemption was cancelled on our internal usage limit counters.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ImportCoupons implements ModelInterface, ArrayAccess
+class RollbackReferralEffectProps implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class ImportCoupons implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ImportCoupons';
+    protected static $openAPIModelName = 'RollbackReferralEffectProps';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,7 @@ class ImportCoupons implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'coupons' => 'string'
+        'value' => 'string'
     ];
 
     /**
@@ -66,7 +67,7 @@ class ImportCoupons implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'coupons' => null
+        'value' => null
     ];
 
     /**
@@ -96,7 +97,7 @@ class ImportCoupons implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'coupons' => 'coupons'
+        'value' => 'value'
     ];
 
     /**
@@ -105,7 +106,7 @@ class ImportCoupons implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'coupons' => 'setCoupons'
+        'value' => 'setValue'
     ];
 
     /**
@@ -114,7 +115,7 @@ class ImportCoupons implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'coupons' => 'getCoupons'
+        'value' => 'getValue'
     ];
 
     /**
@@ -177,7 +178,7 @@ class ImportCoupons implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -189,8 +190,8 @@ class ImportCoupons implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['coupons'] === null) {
-            $invalidProperties[] = "'coupons' can't be null";
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,25 +209,25 @@ class ImportCoupons implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets coupons
+     * Gets value
      *
      * @return string
      */
-    public function getCoupons()
+    public function getValue()
     {
-        return $this->container['coupons'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets coupons
+     * Sets value
      *
-     * @param string $coupons coupons
+     * @param string $value The referral code whose usage has been rolled back
      *
      * @return $this
      */
-    public function setCoupons($coupons)
+    public function setValue($value)
     {
-        $this->container['coupons'] = $coupons;
+        $this->container['value'] = $value;
 
         return $this;
     }

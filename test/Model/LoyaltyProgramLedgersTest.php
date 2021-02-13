@@ -79,6 +79,13 @@ class LoyaltyProgramLedgersTest extends TestCase
     }
 
     /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+    }
+
+    /**
      * Test attribute "title"
      */
     public function testPropertyTitle()

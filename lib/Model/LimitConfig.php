@@ -168,33 +168,12 @@ class LimitConfig implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const ACTION_REDEEM_COUPON = 'redeemCoupon';
-    const ACTION_REDEEM_REFERRAL = 'redeemReferral';
-    const ACTION_SET_DISCOUNT = 'setDiscount';
-    const ACTION_CREATE_COUPON = 'createCoupon';
-    const ACTION_SET_DISCOUNT_EFFECT = 'setDiscountEffect';
     const ENTITIES_COUPON = 'Coupon';
     const ENTITIES_REFERRAL = 'Referral';
     const ENTITIES_PROFILE = 'Profile';
     const ENTITIES_IDENTIFIER = 'Identifier';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getActionAllowableValues()
-    {
-        return [
-            self::ACTION_REDEEM_COUPON,
-            self::ACTION_REDEEM_REFERRAL,
-            self::ACTION_SET_DISCOUNT,
-            self::ACTION_CREATE_COUPON,
-            self::ACTION_SET_DISCOUNT_EFFECT,
-        ];
-    }
     
     /**
      * Gets allowable values of the enum
@@ -244,14 +223,6 @@ class LimitConfig implements ModelInterface, ArrayAccess
         if ($this->container['action'] === null) {
             $invalidProperties[] = "'action' can't be null";
         }
-        $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'action', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['limit'] === null) {
             $invalidProperties[] = "'limit' can't be null";
         }
@@ -296,15 +267,6 @@ class LimitConfig implements ModelInterface, ArrayAccess
      */
     public function setAction($action)
     {
-        $allowedValues = $this->getActionAllowableValues();
-        if (!in_array($action, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'action', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['action'] = $action;
 
         return $this;

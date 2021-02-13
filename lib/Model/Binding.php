@@ -58,6 +58,7 @@ class Binding implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
+        'type' => 'string',
         'expression' => 'object[]'
     ];
 
@@ -68,6 +69,7 @@ class Binding implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
+        'type' => null,
         'expression' => null
     ];
 
@@ -99,6 +101,7 @@ class Binding implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
+        'type' => 'type',
         'expression' => 'expression'
     ];
 
@@ -109,6 +112,7 @@ class Binding implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
+        'type' => 'setType',
         'expression' => 'setExpression'
     ];
 
@@ -119,6 +123,7 @@ class Binding implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
+        'type' => 'getType',
         'expression' => 'getExpression'
     ];
 
@@ -183,6 +188,7 @@ class Binding implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['expression'] = isset($data['expression']) ? $data['expression'] : null;
     }
 
@@ -236,6 +242,30 @@ class Binding implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type The kind of binding. Possible values are cartItemFilter, subledgerBalance.
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

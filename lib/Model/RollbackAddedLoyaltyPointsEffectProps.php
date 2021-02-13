@@ -1,6 +1,6 @@
 <?php
 /**
- * NewImport
+ * RollbackAddedLoyaltyPointsEffectProps
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * NewImport Class Doc Comment
+ * RollbackAddedLoyaltyPointsEffectProps Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description The properties specific to the \&quot;rollbackAddedLoyaltyPoints\&quot; effect. This gets triggered whenever previously a closed session with an addLoyaltyPoints effect is cancelled.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class NewImport implements ModelInterface, ArrayAccess
+class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class NewImport implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'NewImport';
+    protected static $openAPIModelName = 'RollbackAddedLoyaltyPointsEffectProps';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,11 @@ class NewImport implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'entity' => 'string'
+        'programId' => 'int',
+        'subLedgerId' => 'string',
+        'value' => 'float',
+        'recipientIntegrationId' => 'string',
+        'transactionUUID' => 'string'
     ];
 
     /**
@@ -67,7 +71,11 @@ class NewImport implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'entity' => null
+        'programId' => null,
+        'subLedgerId' => null,
+        'value' => null,
+        'recipientIntegrationId' => null,
+        'transactionUUID' => null
     ];
 
     /**
@@ -97,7 +105,11 @@ class NewImport implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'entity' => 'entity'
+        'programId' => 'programId',
+        'subLedgerId' => 'subLedgerId',
+        'value' => 'value',
+        'recipientIntegrationId' => 'recipientIntegrationId',
+        'transactionUUID' => 'transactionUUID'
     ];
 
     /**
@@ -106,7 +118,11 @@ class NewImport implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'entity' => 'setEntity'
+        'programId' => 'setProgramId',
+        'subLedgerId' => 'setSubLedgerId',
+        'value' => 'setValue',
+        'recipientIntegrationId' => 'setRecipientIntegrationId',
+        'transactionUUID' => 'setTransactionUUID'
     ];
 
     /**
@@ -115,7 +131,11 @@ class NewImport implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'entity' => 'getEntity'
+        'programId' => 'getProgramId',
+        'subLedgerId' => 'getSubLedgerId',
+        'value' => 'getValue',
+        'recipientIntegrationId' => 'getRecipientIntegrationId',
+        'transactionUUID' => 'getTransactionUUID'
     ];
 
     /**
@@ -159,21 +179,8 @@ class NewImport implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const ENTITY_COUPON = 'Coupon';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getEntityAllowableValues()
-    {
-        return [
-            self::ENTITY_COUPON,
-        ];
-    }
     
 
     /**
@@ -191,7 +198,11 @@ class NewImport implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['entity'] = isset($data['entity']) ? $data['entity'] : null;
+        $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
+        $this->container['subLedgerId'] = isset($data['subLedgerId']) ? $data['subLedgerId'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
+        $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
     }
 
     /**
@@ -203,17 +214,21 @@ class NewImport implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['entity'] === null) {
-            $invalidProperties[] = "'entity' can't be null";
+        if ($this->container['programId'] === null) {
+            $invalidProperties[] = "'programId' can't be null";
         }
-        $allowedValues = $this->getEntityAllowableValues();
-        if (!is_null($this->container['entity']) && !in_array($this->container['entity'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'entity', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['subLedgerId'] === null) {
+            $invalidProperties[] = "'subLedgerId' can't be null";
         }
-
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
+        }
+        if ($this->container['recipientIntegrationId'] === null) {
+            $invalidProperties[] = "'recipientIntegrationId' can't be null";
+        }
+        if ($this->container['transactionUUID'] === null) {
+            $invalidProperties[] = "'transactionUUID' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -230,34 +245,121 @@ class NewImport implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets entity
+     * Gets programId
      *
-     * @return string
+     * @return int
      */
-    public function getEntity()
+    public function getProgramId()
     {
-        return $this->container['entity'];
+        return $this->container['programId'];
     }
 
     /**
-     * Sets entity
+     * Sets programId
      *
-     * @param string $entity The name of the entity that was imported.
+     * @param int $programId The ID of the loyalty program where the points were originally added
      *
      * @return $this
      */
-    public function setEntity($entity)
+    public function setProgramId($programId)
     {
-        $allowedValues = $this->getEntityAllowableValues();
-        if (!in_array($entity, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'entity', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['entity'] = $entity;
+        $this->container['programId'] = $programId;
+
+        return $this;
+    }
+
+    /**
+     * Gets subLedgerId
+     *
+     * @return string
+     */
+    public function getSubLedgerId()
+    {
+        return $this->container['subLedgerId'];
+    }
+
+    /**
+     * Sets subLedgerId
+     *
+     * @param string $subLedgerId The ID of the subledger within the loyalty program where these points were originally added
+     *
+     * @return $this
+     */
+    public function setSubLedgerId($subLedgerId)
+    {
+        $this->container['subLedgerId'] = $subLedgerId;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return float
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param float $value The amount of points that were rolled back
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipientIntegrationId
+     *
+     * @return string
+     */
+    public function getRecipientIntegrationId()
+    {
+        return $this->container['recipientIntegrationId'];
+    }
+
+    /**
+     * Sets recipientIntegrationId
+     *
+     * @param string $recipientIntegrationId The user for whom these points were originally added
+     *
+     * @return $this
+     */
+    public function setRecipientIntegrationId($recipientIntegrationId)
+    {
+        $this->container['recipientIntegrationId'] = $recipientIntegrationId;
+
+        return $this;
+    }
+
+    /**
+     * Gets transactionUUID
+     *
+     * @return string
+     */
+    public function getTransactionUUID()
+    {
+        return $this->container['transactionUUID'];
+    }
+
+    /**
+     * Sets transactionUUID
+     *
+     * @param string $transactionUUID The identifier of 'deduction' entry added to the ledger as the `addLoyaltyPoints` effect is rolled back.
+     *
+     * @return $this
+     */
+    public function setTransactionUUID($transactionUUID)
+    {
+        $this->container['transactionUUID'] = $transactionUUID;
 
         return $this;
     }

@@ -62,12 +62,12 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'discountLimit' => 'float',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
-        'validCharacters' => 'string[]',
-        'couponPattern' => 'string',
         'numberOfCoupons' => 'int',
         'uniquePrefix' => 'string',
         'attributes' => 'object',
-        'recipientIntegrationId' => 'string'
+        'recipientIntegrationId' => 'string',
+        'validCharacters' => 'string[]',
+        'couponPattern' => 'string'
     ];
 
     /**
@@ -80,12 +80,12 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'discountLimit' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'validCharacters' => null,
-        'couponPattern' => null,
         'numberOfCoupons' => null,
         'uniquePrefix' => null,
         'attributes' => null,
-        'recipientIntegrationId' => null
+        'recipientIntegrationId' => null,
+        'validCharacters' => null,
+        'couponPattern' => null
     ];
 
     /**
@@ -119,12 +119,12 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'discountLimit' => 'discountLimit',
         'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
-        'validCharacters' => 'validCharacters',
-        'couponPattern' => 'couponPattern',
         'numberOfCoupons' => 'numberOfCoupons',
         'uniquePrefix' => 'uniquePrefix',
         'attributes' => 'attributes',
-        'recipientIntegrationId' => 'recipientIntegrationId'
+        'recipientIntegrationId' => 'recipientIntegrationId',
+        'validCharacters' => 'validCharacters',
+        'couponPattern' => 'couponPattern'
     ];
 
     /**
@@ -137,12 +137,12 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'discountLimit' => 'setDiscountLimit',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
-        'validCharacters' => 'setValidCharacters',
-        'couponPattern' => 'setCouponPattern',
         'numberOfCoupons' => 'setNumberOfCoupons',
         'uniquePrefix' => 'setUniquePrefix',
         'attributes' => 'setAttributes',
-        'recipientIntegrationId' => 'setRecipientIntegrationId'
+        'recipientIntegrationId' => 'setRecipientIntegrationId',
+        'validCharacters' => 'setValidCharacters',
+        'couponPattern' => 'setCouponPattern'
     ];
 
     /**
@@ -155,12 +155,12 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'discountLimit' => 'getDiscountLimit',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
-        'validCharacters' => 'getValidCharacters',
-        'couponPattern' => 'getCouponPattern',
         'numberOfCoupons' => 'getNumberOfCoupons',
         'uniquePrefix' => 'getUniquePrefix',
         'attributes' => 'getAttributes',
-        'recipientIntegrationId' => 'getRecipientIntegrationId'
+        'recipientIntegrationId' => 'getRecipientIntegrationId',
+        'validCharacters' => 'getValidCharacters',
+        'couponPattern' => 'getCouponPattern'
     ];
 
     /**
@@ -227,12 +227,12 @@ class NewCoupons implements ModelInterface, ArrayAccess
         $this->container['discountLimit'] = isset($data['discountLimit']) ? $data['discountLimit'] : null;
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
-        $this->container['validCharacters'] = isset($data['validCharacters']) ? $data['validCharacters'] : null;
-        $this->container['couponPattern'] = isset($data['couponPattern']) ? $data['couponPattern'] : null;
         $this->container['numberOfCoupons'] = isset($data['numberOfCoupons']) ? $data['numberOfCoupons'] : null;
         $this->container['uniquePrefix'] = isset($data['uniquePrefix']) ? $data['uniquePrefix'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
+        $this->container['validCharacters'] = isset($data['validCharacters']) ? $data['validCharacters'] : null;
+        $this->container['couponPattern'] = isset($data['couponPattern']) ? $data['couponPattern'] : null;
     }
 
     /**
@@ -263,19 +263,17 @@ class NewCoupons implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'discountLimit', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['validCharacters'] === null) {
-            $invalidProperties[] = "'validCharacters' can't be null";
-        }
-        if ($this->container['couponPattern'] === null) {
-            $invalidProperties[] = "'couponPattern' can't be null";
-        }
-        if ((mb_strlen($this->container['couponPattern']) < 3)) {
-            $invalidProperties[] = "invalid value for 'couponPattern', the character length must be bigger than or equal to 3.";
-        }
-
         if ($this->container['numberOfCoupons'] === null) {
             $invalidProperties[] = "'numberOfCoupons' can't be null";
         }
+        if (!is_null($this->container['couponPattern']) && (mb_strlen($this->container['couponPattern']) > 100)) {
+            $invalidProperties[] = "invalid value for 'couponPattern', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['couponPattern']) && (mb_strlen($this->container['couponPattern']) < 3)) {
+            $invalidProperties[] = "invalid value for 'couponPattern', the character length must be bigger than or equal to 3.";
+        }
+
         return $invalidProperties;
     }
 
@@ -404,59 +402,6 @@ class NewCoupons implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets validCharacters
-     *
-     * @return string[]
-     */
-    public function getValidCharacters()
-    {
-        return $this->container['validCharacters'];
-    }
-
-    /**
-     * Sets validCharacters
-     *
-     * @param string[] $validCharacters Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
-     *
-     * @return $this
-     */
-    public function setValidCharacters($validCharacters)
-    {
-        $this->container['validCharacters'] = $validCharacters;
-
-        return $this;
-    }
-
-    /**
-     * Gets couponPattern
-     *
-     * @return string
-     */
-    public function getCouponPattern()
-    {
-        return $this->container['couponPattern'];
-    }
-
-    /**
-     * Sets couponPattern
-     *
-     * @param string $couponPattern The pattern that will be used to generate coupon codes. The character `#` acts as a placeholder and will be replaced by a random character from the `validCharacters` set.
-     *
-     * @return $this
-     */
-    public function setCouponPattern($couponPattern)
-    {
-
-        if ((mb_strlen($couponPattern) < 3)) {
-            throw new \InvalidArgumentException('invalid length for $couponPattern when calling NewCoupons., must be bigger than or equal to 3.');
-        }
-
-        $this->container['couponPattern'] = $couponPattern;
-
-        return $this;
-    }
-
-    /**
      * Gets numberOfCoupons
      *
      * @return int
@@ -548,6 +493,61 @@ class NewCoupons implements ModelInterface, ArrayAccess
     public function setRecipientIntegrationId($recipientIntegrationId)
     {
         $this->container['recipientIntegrationId'] = $recipientIntegrationId;
+
+        return $this;
+    }
+
+    /**
+     * Gets validCharacters
+     *
+     * @return string[]|null
+     */
+    public function getValidCharacters()
+    {
+        return $this->container['validCharacters'];
+    }
+
+    /**
+     * Sets validCharacters
+     *
+     * @param string[]|null $validCharacters Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
+     *
+     * @return $this
+     */
+    public function setValidCharacters($validCharacters)
+    {
+        $this->container['validCharacters'] = $validCharacters;
+
+        return $this;
+    }
+
+    /**
+     * Gets couponPattern
+     *
+     * @return string|null
+     */
+    public function getCouponPattern()
+    {
+        return $this->container['couponPattern'];
+    }
+
+    /**
+     * Sets couponPattern
+     *
+     * @param string|null $couponPattern The pattern that will be used to generate coupon codes. The character `#` acts as a placeholder and will be replaced by a random character from the `validCharacters` set.
+     *
+     * @return $this
+     */
+    public function setCouponPattern($couponPattern)
+    {
+        if (!is_null($couponPattern) && (mb_strlen($couponPattern) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $couponPattern when calling NewCoupons., must be smaller than or equal to 100.');
+        }
+        if (!is_null($couponPattern) && (mb_strlen($couponPattern) < 3)) {
+            throw new \InvalidArgumentException('invalid length for $couponPattern when calling NewCoupons., must be bigger than or equal to 3.');
+        }
+
+        $this->container['couponPattern'] = $couponPattern;
 
         return $this;
     }

@@ -294,9 +294,17 @@ class CustomerSession implements ModelInterface, ArrayAccess
         if ($this->container['coupon'] === null) {
             $invalidProperties[] = "'coupon' can't be null";
         }
+        if ((mb_strlen($this->container['coupon']) > 100)) {
+            $invalidProperties[] = "invalid value for 'coupon', the character length must be smaller than or equal to 100.";
+        }
+
         if ($this->container['referral'] === null) {
             $invalidProperties[] = "'referral' can't be null";
         }
+        if ((mb_strlen($this->container['referral']) > 100)) {
+            $invalidProperties[] = "invalid value for 'referral', the character length must be smaller than or equal to 100.";
+        }
+
         if ($this->container['state'] === null) {
             $invalidProperties[] = "'state' can't be null";
         }
@@ -453,6 +461,10 @@ class CustomerSession implements ModelInterface, ArrayAccess
      */
     public function setCoupon($coupon)
     {
+        if ((mb_strlen($coupon) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $coupon when calling CustomerSession., must be smaller than or equal to 100.');
+        }
+
         $this->container['coupon'] = $coupon;
 
         return $this;
@@ -477,6 +489,10 @@ class CustomerSession implements ModelInterface, ArrayAccess
      */
     public function setReferral($referral)
     {
+        if ((mb_strlen($referral) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $referral when calling CustomerSession., must be smaller than or equal to 100.');
+        }
+
         $this->container['referral'] = $referral;
 
         return $this;

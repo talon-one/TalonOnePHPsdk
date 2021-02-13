@@ -1,10 +1,11 @@
-# # ImportCoupons
+# # ProfileAudiencesChanges
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**coupons** | **string** |  | 
+**adds** | **int[]** | The IDs of the audiences for the customer to join. | 
+**deletes** | **int[]** | The IDs of the audiences for the customer to leave. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

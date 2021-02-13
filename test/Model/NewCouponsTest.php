@@ -107,20 +107,6 @@ class NewCouponsTest extends TestCase
     }
 
     /**
-     * Test attribute "validCharacters"
-     */
-    public function testPropertyValidCharacters()
-    {
-    }
-
-    /**
-     * Test attribute "couponPattern"
-     */
-    public function testPropertyCouponPattern()
-    {
-    }
-
-    /**
      * Test attribute "numberOfCoupons"
      */
     public function testPropertyNumberOfCoupons()
@@ -145,6 +131,20 @@ class NewCouponsTest extends TestCase
      * Test attribute "recipientIntegrationId"
      */
     public function testPropertyRecipientIntegrationId()
+    {
+    }
+
+    /**
+     * Test attribute "validCharacters"
+     */
+    public function testPropertyValidCharacters()
+    {
+    }
+
+    /**
+     * Test attribute "couponPattern"
+     */
+    public function testPropertyCouponPattern()
     {
     }
 }

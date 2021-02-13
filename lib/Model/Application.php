@@ -71,6 +71,7 @@ class Application implements ModelInterface, ArrayAccess
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
         'campaignPriority' => 'string',
         'exclusiveCampaignsStrategy' => 'string',
+        'defaultDiscountScope' => 'string',
         'enableCascadingDiscounts' => 'bool',
         'enableFlattenedCartItems' => 'bool',
         'attributesSettings' => '\TalonOne\Client\Model\AttributesSettings',
@@ -97,6 +98,7 @@ class Application implements ModelInterface, ArrayAccess
         'limits' => null,
         'campaignPriority' => null,
         'exclusiveCampaignsStrategy' => null,
+        'defaultDiscountScope' => null,
         'enableCascadingDiscounts' => null,
         'enableFlattenedCartItems' => null,
         'attributesSettings' => null,
@@ -144,6 +146,7 @@ class Application implements ModelInterface, ArrayAccess
         'limits' => 'limits',
         'campaignPriority' => 'campaignPriority',
         'exclusiveCampaignsStrategy' => 'exclusiveCampaignsStrategy',
+        'defaultDiscountScope' => 'defaultDiscountScope',
         'enableCascadingDiscounts' => 'enableCascadingDiscounts',
         'enableFlattenedCartItems' => 'enableFlattenedCartItems',
         'attributesSettings' => 'attributesSettings',
@@ -170,6 +173,7 @@ class Application implements ModelInterface, ArrayAccess
         'limits' => 'setLimits',
         'campaignPriority' => 'setCampaignPriority',
         'exclusiveCampaignsStrategy' => 'setExclusiveCampaignsStrategy',
+        'defaultDiscountScope' => 'setDefaultDiscountScope',
         'enableCascadingDiscounts' => 'setEnableCascadingDiscounts',
         'enableFlattenedCartItems' => 'setEnableFlattenedCartItems',
         'attributesSettings' => 'setAttributesSettings',
@@ -196,6 +200,7 @@ class Application implements ModelInterface, ArrayAccess
         'limits' => 'getLimits',
         'campaignPriority' => 'getCampaignPriority',
         'exclusiveCampaignsStrategy' => 'getExclusiveCampaignsStrategy',
+        'defaultDiscountScope' => 'getDefaultDiscountScope',
         'enableCascadingDiscounts' => 'getEnableCascadingDiscounts',
         'enableFlattenedCartItems' => 'getEnableFlattenedCartItems',
         'attributesSettings' => 'getAttributesSettings',
@@ -253,6 +258,9 @@ class Application implements ModelInterface, ArrayAccess
     const EXCLUSIVE_CAMPAIGNS_STRATEGY_LIST_ORDER = 'listOrder';
     const EXCLUSIVE_CAMPAIGNS_STRATEGY_LOWEST_DISCOUNT = 'lowestDiscount';
     const EXCLUSIVE_CAMPAIGNS_STRATEGY_HIGHEST_DISCOUNT = 'highestDiscount';
+    const DEFAULT_DISCOUNT_SCOPE_SESSION_TOTAL = 'sessionTotal';
+    const DEFAULT_DISCOUNT_SCOPE_CART_ITEMS = 'cartItems';
+    const DEFAULT_DISCOUNT_SCOPE_ADDITIONAL_COSTS = 'additionalCosts';
     
 
     
@@ -298,6 +306,20 @@ class Application implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDefaultDiscountScopeAllowableValues()
+    {
+        return [
+            self::DEFAULT_DISCOUNT_SCOPE_SESSION_TOTAL,
+            self::DEFAULT_DISCOUNT_SCOPE_CART_ITEMS,
+            self::DEFAULT_DISCOUNT_SCOPE_ADDITIONAL_COSTS,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -327,6 +349,7 @@ class Application implements ModelInterface, ArrayAccess
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['campaignPriority'] = isset($data['campaignPriority']) ? $data['campaignPriority'] : null;
         $this->container['exclusiveCampaignsStrategy'] = isset($data['exclusiveCampaignsStrategy']) ? $data['exclusiveCampaignsStrategy'] : null;
+        $this->container['defaultDiscountScope'] = isset($data['defaultDiscountScope']) ? $data['defaultDiscountScope'] : null;
         $this->container['enableCascadingDiscounts'] = isset($data['enableCascadingDiscounts']) ? $data['enableCascadingDiscounts'] : null;
         $this->container['enableFlattenedCartItems'] = isset($data['enableFlattenedCartItems']) ? $data['enableFlattenedCartItems'] : null;
         $this->container['attributesSettings'] = isset($data['attributesSettings']) ? $data['attributesSettings'] : null;
@@ -396,6 +419,14 @@ class Application implements ModelInterface, ArrayAccess
         if (!is_null($this->container['exclusiveCampaignsStrategy']) && !in_array($this->container['exclusiveCampaignsStrategy'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'exclusiveCampaignsStrategy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getDefaultDiscountScopeAllowableValues();
+        if (!is_null($this->container['defaultDiscountScope']) && !in_array($this->container['defaultDiscountScope'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'defaultDiscountScope', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -768,6 +799,39 @@ class Application implements ModelInterface, ArrayAccess
             );
         }
         $this->container['exclusiveCampaignsStrategy'] = $exclusiveCampaignsStrategy;
+
+        return $this;
+    }
+
+    /**
+     * Gets defaultDiscountScope
+     *
+     * @return string|null
+     */
+    public function getDefaultDiscountScope()
+    {
+        return $this->container['defaultDiscountScope'];
+    }
+
+    /**
+     * Sets defaultDiscountScope
+     *
+     * @param string|null $defaultDiscountScope The default scope to apply \"setDiscount\" effects on if no scope was provided with the effect.
+     *
+     * @return $this
+     */
+    public function setDefaultDiscountScope($defaultDiscountScope)
+    {
+        $allowedValues = $this->getDefaultDiscountScopeAllowableValues();
+        if (!is_null($defaultDiscountScope) && !in_array($defaultDiscountScope, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'defaultDiscountScope', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['defaultDiscountScope'] = $defaultDiscountScope;
 
         return $this;
     }

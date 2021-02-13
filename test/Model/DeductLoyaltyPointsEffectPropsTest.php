@@ -105,4 +105,11 @@ class DeductLoyaltyPointsEffectPropsTest extends TestCase
     public function testPropertyValue()
     {
     }
+
+    /**
+     * Test attribute "transactionUUID"
+     */
+    public function testPropertyTransactionUUID()
+    {
+    }
 }

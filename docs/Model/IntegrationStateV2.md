@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **coupons** | [**\TalonOne\Client\Model\Coupon[]**](Coupon.md) |  | [optional] 
 **triggeredCampaigns** | [**\TalonOne\Client\Model\Campaign[]**](Campaign.md) |  | [optional] 
 **effects** | [**\TalonOne\Client\Model\Effect[]**](Effect.md) |  | 
+**ruleFailureReasons** | [**\TalonOne\Client\Model\RuleFailureReason[]**](RuleFailureReason.md) |  | [optional] 
 **createdCoupons** | [**\TalonOne\Client\Model\Coupon[]**](Coupon.md) |  | 
 **createdReferrals** | [**\TalonOne\Client\Model\Referral[]**](Referral.md) |  | 
 

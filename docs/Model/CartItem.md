@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **length** | **float** | Length of item in mm | [optional] 
 **position** | **float** | Position of the Cart Item in the Cart (calculated internally) | [optional] 
 **attributes** | [**object**](.md) | Arbitrary properties associated with this item | [optional] 
-**adjustment** | [**\TalonOne\Client\Model\CartItemAdjustment**](CartItemAdjustment.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -61,7 +61,8 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'ruleTitle' => 'string',
         'programId' => 'int',
         'subLedgerId' => 'string',
-        'value' => 'float'
+        'value' => 'float',
+        'transactionUUID' => 'string'
     ];
 
     /**
@@ -73,7 +74,8 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'ruleTitle' => null,
         'programId' => null,
         'subLedgerId' => null,
-        'value' => null
+        'value' => null,
+        'transactionUUID' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'ruleTitle' => 'ruleTitle',
         'programId' => 'programId',
         'subLedgerId' => 'subLedgerId',
-        'value' => 'value'
+        'value' => 'value',
+        'transactionUUID' => 'transactionUUID'
     ];
 
     /**
@@ -118,7 +121,8 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'ruleTitle' => 'setRuleTitle',
         'programId' => 'setProgramId',
         'subLedgerId' => 'setSubLedgerId',
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'transactionUUID' => 'setTransactionUUID'
     ];
 
     /**
@@ -130,7 +134,8 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'ruleTitle' => 'getRuleTitle',
         'programId' => 'getProgramId',
         'subLedgerId' => 'getSubLedgerId',
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'transactionUUID' => 'getTransactionUUID'
     ];
 
     /**
@@ -197,6 +202,7 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
         $this->container['subLedgerId'] = isset($data['subLedgerId']) ? $data['subLedgerId'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
     }
 
     /**
@@ -219,6 +225,9 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         }
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
+        }
+        if ($this->container['transactionUUID'] === null) {
+            $invalidProperties[] = "'transactionUUID' can't be null";
         }
         return $invalidProperties;
     }
@@ -327,6 +336,30 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets transactionUUID
+     *
+     * @return string
+     */
+    public function getTransactionUUID()
+    {
+        return $this->container['transactionUUID'];
+    }
+
+    /**
+     * Sets transactionUUID
+     *
+     * @param string $transactionUUID The identifier of this deduction in the loyalty ledger
+     *
+     * @return $this
+     */
+    public function setTransactionUUID($transactionUUID)
+    {
+        $this->container['transactionUUID'] = $transactionUUID;
 
         return $this;
     }

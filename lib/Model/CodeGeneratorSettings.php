@@ -201,6 +201,10 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
         if ($this->container['couponPattern'] === null) {
             $invalidProperties[] = "'couponPattern' can't be null";
         }
+        if ((mb_strlen($this->container['couponPattern']) > 100)) {
+            $invalidProperties[] = "invalid value for 'couponPattern', the character length must be smaller than or equal to 100.";
+        }
+
         if ((mb_strlen($this->container['couponPattern']) < 3)) {
             $invalidProperties[] = "invalid value for 'couponPattern', the character length must be bigger than or equal to 3.";
         }
@@ -263,7 +267,9 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
      */
     public function setCouponPattern($couponPattern)
     {
-
+        if ((mb_strlen($couponPattern) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $couponPattern when calling CodeGeneratorSettings., must be smaller than or equal to 100.');
+        }
         if ((mb_strlen($couponPattern) < 3)) {
             throw new \InvalidArgumentException('invalid length for $couponPattern when calling CodeGeneratorSettings., must be bigger than or equal to 3.');
         }

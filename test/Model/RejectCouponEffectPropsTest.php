@@ -91,4 +91,25 @@ class RejectCouponEffectPropsTest extends TestCase
     public function testPropertyRejectionReason()
     {
     }
+
+    /**
+     * Test attribute "conditionIndex"
+     */
+    public function testPropertyConditionIndex()
+    {
+    }
+
+    /**
+     * Test attribute "effectIndex"
+     */
+    public function testPropertyEffectIndex()
+    {
+    }
+
+    /**
+     * Test attribute "details"
+     */
+    public function testPropertyDetails()
+    {
+    }
 }

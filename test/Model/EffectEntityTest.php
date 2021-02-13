@@ -112,4 +112,11 @@ class EffectEntityTest extends TestCase
     public function testPropertyEffectType()
     {
     }
+
+    /**
+     * Test attribute "triggeredByCoupon"
+     */
+    public function testPropertyTriggeredByCoupon()
+    {
+    }
 }

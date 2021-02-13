@@ -126,4 +126,11 @@ class AddLoyaltyPointsEffectPropsTest extends TestCase
     public function testPropertyExpiryDate()
     {
     }
+
+    /**
+     * Test attribute "transactionUUID"
+     */
+    public function testPropertyTransactionUUID()
+    {
+    }
 }

@@ -217,6 +217,14 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
         if ($this->container['points'] === null) {
             $invalidProperties[] = "'points' can't be null";
         }
+        if (($this->container['points'] >= 1E+8)) {
+            $invalidProperties[] = "invalid value for 'points', must be smaller than 1E+8.";
+        }
+
+        if (($this->container['points'] <= 0)) {
+            $invalidProperties[] = "invalid value for 'points', must be bigger than 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -251,6 +259,14 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
      */
     public function setPoints($points)
     {
+
+        if (($points >= 1E+8)) {
+            throw new \InvalidArgumentException('invalid value for $points when calling LoyaltyPoints., must be smaller than 1E+8.');
+        }
+        if (($points <= 0)) {
+            throw new \InvalidArgumentException('invalid value for $points when calling LoyaltyPoints., must be bigger than 0.');
+        }
+
         $this->container['points'] = $points;
 
         return $this;

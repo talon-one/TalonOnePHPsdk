@@ -58,6 +58,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'int',
         'title' => 'string',
         'name' => 'string',
         'ledger' => '\TalonOne\Client\Model\LoyaltyProgramBalance',
@@ -70,6 +71,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'id' => null,
         'title' => null,
         'name' => null,
         'ledger' => null,
@@ -103,6 +105,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'title' => 'title',
         'name' => 'name',
         'ledger' => 'ledger',
@@ -115,6 +118,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'title' => 'setTitle',
         'name' => 'setName',
         'ledger' => 'setLedger',
@@ -127,6 +131,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'title' => 'getTitle',
         'name' => 'getName',
         'ledger' => 'getLedger',
@@ -193,6 +198,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ledger'] = isset($data['ledger']) ? $data['ledger'] : null;
@@ -208,6 +214,9 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
         }
@@ -231,6 +240,30 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id The internal ID of loyalty program
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets title

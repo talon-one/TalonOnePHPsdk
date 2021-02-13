@@ -135,6 +135,13 @@ class IntegrationStateV2Test extends TestCase
     }
 
     /**
+     * Test attribute "ruleFailureReasons"
+     */
+    public function testPropertyRuleFailureReasons()
+    {
+    }
+
+    /**
      * Test attribute "createdCoupons"
      */
     public function testPropertyCreatedCoupons()

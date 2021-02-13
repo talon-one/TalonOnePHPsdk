@@ -133,4 +133,11 @@ class ApplicationEventTest extends TestCase
     public function testPropertyEffects()
     {
     }
+
+    /**
+     * Test attribute "ruleFailureReasons"
+     */
+    public function testPropertyRuleFailureReasons()
+    {
+    }
 }
