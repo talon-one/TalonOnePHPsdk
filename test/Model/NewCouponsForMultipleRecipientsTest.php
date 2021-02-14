@@ -1,6 +1,6 @@
 <?php
 /**
- * ImportCouponsTest
+ * NewCouponsForMultipleRecipientsTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ImportCouponsTest Class Doc Comment
+ * NewCouponsForMultipleRecipientsTest Class Doc Comment
  *
  * @category    Class
- * @description ImportCoupons
+ * @description 
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ImportCouponsTest extends TestCase
+class NewCouponsForMultipleRecipientsTest extends TestCase
 {
 
     /**
@@ -72,16 +72,65 @@ class ImportCouponsTest extends TestCase
     }
 
     /**
-     * Test "ImportCoupons"
+     * Test "NewCouponsForMultipleRecipients"
      */
-    public function testImportCoupons()
+    public function testNewCouponsForMultipleRecipients()
     {
     }
 
     /**
-     * Test attribute "coupons"
+     * Test attribute "usageLimit"
      */
-    public function testPropertyCoupons()
+    public function testPropertyUsageLimit()
+    {
+    }
+
+    /**
+     * Test attribute "discountLimit"
+     */
+    public function testPropertyDiscountLimit()
+    {
+    }
+
+    /**
+     * Test attribute "startDate"
+     */
+    public function testPropertyStartDate()
+    {
+    }
+
+    /**
+     * Test attribute "expiryDate"
+     */
+    public function testPropertyExpiryDate()
+    {
+    }
+
+    /**
+     * Test attribute "attributes"
+     */
+    public function testPropertyAttributes()
+    {
+    }
+
+    /**
+     * Test attribute "recipientsIntegrationIds"
+     */
+    public function testPropertyRecipientsIntegrationIds()
+    {
+    }
+
+    /**
+     * Test attribute "validCharacters"
+     */
+    public function testPropertyValidCharacters()
+    {
+    }
+
+    /**
+     * Test attribute "couponPattern"
+     */
+    public function testPropertyCouponPattern()
     {
     }
 }

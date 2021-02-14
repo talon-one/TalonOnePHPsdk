@@ -59,7 +59,10 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'value' => 'string',
-        'rejectionReason' => 'string'
+        'rejectionReason' => 'string',
+        'conditionIndex' => 'int',
+        'effectIndex' => 'int',
+        'details' => 'string'
     ];
 
     /**
@@ -69,7 +72,10 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'value' => null,
-        'rejectionReason' => null
+        'rejectionReason' => null,
+        'conditionIndex' => null,
+        'effectIndex' => null,
+        'details' => null
     ];
 
     /**
@@ -100,7 +106,10 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'value' => 'value',
-        'rejectionReason' => 'rejectionReason'
+        'rejectionReason' => 'rejectionReason',
+        'conditionIndex' => 'conditionIndex',
+        'effectIndex' => 'effectIndex',
+        'details' => 'details'
     ];
 
     /**
@@ -110,7 +119,10 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'value' => 'setValue',
-        'rejectionReason' => 'setRejectionReason'
+        'rejectionReason' => 'setRejectionReason',
+        'conditionIndex' => 'setConditionIndex',
+        'effectIndex' => 'setEffectIndex',
+        'details' => 'setDetails'
     ];
 
     /**
@@ -120,7 +132,10 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'value' => 'getValue',
-        'rejectionReason' => 'getRejectionReason'
+        'rejectionReason' => 'getRejectionReason',
+        'conditionIndex' => 'getConditionIndex',
+        'effectIndex' => 'getEffectIndex',
+        'details' => 'getDetails'
     ];
 
     /**
@@ -185,6 +200,9 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     {
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['rejectionReason'] = isset($data['rejectionReason']) ? $data['rejectionReason'] : null;
+        $this->container['conditionIndex'] = isset($data['conditionIndex']) ? $data['conditionIndex'] : null;
+        $this->container['effectIndex'] = isset($data['effectIndex']) ? $data['effectIndex'] : null;
+        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
     }
 
     /**
@@ -261,6 +279,78 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     public function setRejectionReason($rejectionReason)
     {
         $this->container['rejectionReason'] = $rejectionReason;
+
+        return $this;
+    }
+
+    /**
+     * Gets conditionIndex
+     *
+     * @return int|null
+     */
+    public function getConditionIndex()
+    {
+        return $this->container['conditionIndex'];
+    }
+
+    /**
+     * Sets conditionIndex
+     *
+     * @param int|null $conditionIndex The index of the condition that caused the rejection of the referral
+     *
+     * @return $this
+     */
+    public function setConditionIndex($conditionIndex)
+    {
+        $this->container['conditionIndex'] = $conditionIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets effectIndex
+     *
+     * @return int|null
+     */
+    public function getEffectIndex()
+    {
+        return $this->container['effectIndex'];
+    }
+
+    /**
+     * Sets effectIndex
+     *
+     * @param int|null $effectIndex The index of the effect that caused the rejection of the referral
+     *
+     * @return $this
+     */
+    public function setEffectIndex($effectIndex)
+    {
+        $this->container['effectIndex'] = $effectIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets details
+     *
+     * @return string|null
+     */
+    public function getDetails()
+    {
+        return $this->container['details'];
+    }
+
+    /**
+     * Sets details
+     *
+     * @param string|null $details More details about the failure
+     *
+     * @return $this
+     */
+    public function setDetails($details)
+    {
+        $this->container['details'] = $details;
 
         return $this;
     }

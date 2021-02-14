@@ -77,9 +77,14 @@ class Campaign implements ModelInterface, ArrayAccess
         'campaignGroups' => 'int[]',
         'couponRedemptionCount' => 'int',
         'referralRedemptionCount' => 'int',
-        'discountCount' => 'int',
+        'discountCount' => 'float',
         'discountEffectCount' => 'int',
         'couponCreationCount' => 'int',
+        'referralCreationCount' => 'int',
+        'createdLoyaltyPointsCount' => 'float',
+        'createdLoyaltyPointsEffectCount' => 'int',
+        'redeemedLoyaltyPointsCount' => 'float',
+        'redeemedLoyaltyPointsEffectCount' => 'int',
         'lastActivity' => '\DateTime',
         'updated' => '\DateTime',
         'createdBy' => 'string',
@@ -114,6 +119,11 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountCount' => null,
         'discountEffectCount' => null,
         'couponCreationCount' => null,
+        'referralCreationCount' => null,
+        'createdLoyaltyPointsCount' => null,
+        'createdLoyaltyPointsEffectCount' => null,
+        'redeemedLoyaltyPointsCount' => null,
+        'redeemedLoyaltyPointsEffectCount' => null,
         'lastActivity' => 'date-time',
         'updated' => 'date-time',
         'createdBy' => null,
@@ -169,6 +179,11 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountCount' => 'discountCount',
         'discountEffectCount' => 'discountEffectCount',
         'couponCreationCount' => 'couponCreationCount',
+        'referralCreationCount' => 'referralCreationCount',
+        'createdLoyaltyPointsCount' => 'createdLoyaltyPointsCount',
+        'createdLoyaltyPointsEffectCount' => 'createdLoyaltyPointsEffectCount',
+        'redeemedLoyaltyPointsCount' => 'redeemedLoyaltyPointsCount',
+        'redeemedLoyaltyPointsEffectCount' => 'redeemedLoyaltyPointsEffectCount',
         'lastActivity' => 'lastActivity',
         'updated' => 'updated',
         'createdBy' => 'createdBy',
@@ -203,6 +218,11 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountCount' => 'setDiscountCount',
         'discountEffectCount' => 'setDiscountEffectCount',
         'couponCreationCount' => 'setCouponCreationCount',
+        'referralCreationCount' => 'setReferralCreationCount',
+        'createdLoyaltyPointsCount' => 'setCreatedLoyaltyPointsCount',
+        'createdLoyaltyPointsEffectCount' => 'setCreatedLoyaltyPointsEffectCount',
+        'redeemedLoyaltyPointsCount' => 'setRedeemedLoyaltyPointsCount',
+        'redeemedLoyaltyPointsEffectCount' => 'setRedeemedLoyaltyPointsEffectCount',
         'lastActivity' => 'setLastActivity',
         'updated' => 'setUpdated',
         'createdBy' => 'setCreatedBy',
@@ -237,6 +257,11 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountCount' => 'getDiscountCount',
         'discountEffectCount' => 'getDiscountEffectCount',
         'couponCreationCount' => 'getCouponCreationCount',
+        'referralCreationCount' => 'getReferralCreationCount',
+        'createdLoyaltyPointsCount' => 'getCreatedLoyaltyPointsCount',
+        'createdLoyaltyPointsEffectCount' => 'getCreatedLoyaltyPointsEffectCount',
+        'redeemedLoyaltyPointsCount' => 'getRedeemedLoyaltyPointsCount',
+        'redeemedLoyaltyPointsEffectCount' => 'getRedeemedLoyaltyPointsEffectCount',
         'lastActivity' => 'getLastActivity',
         'updated' => 'getUpdated',
         'createdBy' => 'getCreatedBy',
@@ -359,6 +384,11 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['discountCount'] = isset($data['discountCount']) ? $data['discountCount'] : null;
         $this->container['discountEffectCount'] = isset($data['discountEffectCount']) ? $data['discountEffectCount'] : null;
         $this->container['couponCreationCount'] = isset($data['couponCreationCount']) ? $data['couponCreationCount'] : null;
+        $this->container['referralCreationCount'] = isset($data['referralCreationCount']) ? $data['referralCreationCount'] : null;
+        $this->container['createdLoyaltyPointsCount'] = isset($data['createdLoyaltyPointsCount']) ? $data['createdLoyaltyPointsCount'] : null;
+        $this->container['createdLoyaltyPointsEffectCount'] = isset($data['createdLoyaltyPointsEffectCount']) ? $data['createdLoyaltyPointsEffectCount'] : null;
+        $this->container['redeemedLoyaltyPointsCount'] = isset($data['redeemedLoyaltyPointsCount']) ? $data['redeemedLoyaltyPointsCount'] : null;
+        $this->container['redeemedLoyaltyPointsEffectCount'] = isset($data['redeemedLoyaltyPointsEffectCount']) ? $data['redeemedLoyaltyPointsEffectCount'] : null;
         $this->container['lastActivity'] = isset($data['lastActivity']) ? $data['lastActivity'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
@@ -913,7 +943,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Gets discountCount
      *
-     * @return int|null
+     * @return float|null
      */
     public function getDiscountCount()
     {
@@ -923,7 +953,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets discountCount
      *
-     * @param int|null $discountCount Total amount of discounts redeemed in the campaign.
+     * @param float|null $discountCount Total amount of discounts redeemed in the campaign.
      *
      * @return $this
      */
@@ -978,6 +1008,126 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setCouponCreationCount($couponCreationCount)
     {
         $this->container['couponCreationCount'] = $couponCreationCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets referralCreationCount
+     *
+     * @return int|null
+     */
+    public function getReferralCreationCount()
+    {
+        return $this->container['referralCreationCount'];
+    }
+
+    /**
+     * Sets referralCreationCount
+     *
+     * @param int|null $referralCreationCount Total number of referrals created by rules in this campaign.
+     *
+     * @return $this
+     */
+    public function setReferralCreationCount($referralCreationCount)
+    {
+        $this->container['referralCreationCount'] = $referralCreationCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdLoyaltyPointsCount
+     *
+     * @return float|null
+     */
+    public function getCreatedLoyaltyPointsCount()
+    {
+        return $this->container['createdLoyaltyPointsCount'];
+    }
+
+    /**
+     * Sets createdLoyaltyPointsCount
+     *
+     * @param float|null $createdLoyaltyPointsCount Total number of loyalty points created by rules in this campaign.
+     *
+     * @return $this
+     */
+    public function setCreatedLoyaltyPointsCount($createdLoyaltyPointsCount)
+    {
+        $this->container['createdLoyaltyPointsCount'] = $createdLoyaltyPointsCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdLoyaltyPointsEffectCount
+     *
+     * @return int|null
+     */
+    public function getCreatedLoyaltyPointsEffectCount()
+    {
+        return $this->container['createdLoyaltyPointsEffectCount'];
+    }
+
+    /**
+     * Sets createdLoyaltyPointsEffectCount
+     *
+     * @param int|null $createdLoyaltyPointsEffectCount Total number of loyalty point creation effects triggered by rules in this campaign.
+     *
+     * @return $this
+     */
+    public function setCreatedLoyaltyPointsEffectCount($createdLoyaltyPointsEffectCount)
+    {
+        $this->container['createdLoyaltyPointsEffectCount'] = $createdLoyaltyPointsEffectCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets redeemedLoyaltyPointsCount
+     *
+     * @return float|null
+     */
+    public function getRedeemedLoyaltyPointsCount()
+    {
+        return $this->container['redeemedLoyaltyPointsCount'];
+    }
+
+    /**
+     * Sets redeemedLoyaltyPointsCount
+     *
+     * @param float|null $redeemedLoyaltyPointsCount Total number of loyalty points redeemed by rules in this campaign.
+     *
+     * @return $this
+     */
+    public function setRedeemedLoyaltyPointsCount($redeemedLoyaltyPointsCount)
+    {
+        $this->container['redeemedLoyaltyPointsCount'] = $redeemedLoyaltyPointsCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets redeemedLoyaltyPointsEffectCount
+     *
+     * @return int|null
+     */
+    public function getRedeemedLoyaltyPointsEffectCount()
+    {
+        return $this->container['redeemedLoyaltyPointsEffectCount'];
+    }
+
+    /**
+     * Sets redeemedLoyaltyPointsEffectCount
+     *
+     * @param int|null $redeemedLoyaltyPointsEffectCount Total number of loyalty point redemption effects triggered by rules in this campaign.
+     *
+     * @return $this
+     */
+    public function setRedeemedLoyaltyPointsEffectCount($redeemedLoyaltyPointsEffectCount)
+    {
+        $this->container['redeemedLoyaltyPointsEffectCount'] = $redeemedLoyaltyPointsEffectCount;
 
         return $this;
     }

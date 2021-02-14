@@ -64,7 +64,8 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'value' => 'float',
         'recipientIntegrationId' => 'string',
         'startDate' => '\DateTime',
-        'expiryDate' => '\DateTime'
+        'expiryDate' => '\DateTime',
+        'transactionUUID' => 'string'
     ];
 
     /**
@@ -79,7 +80,8 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'value' => null,
         'recipientIntegrationId' => null,
         'startDate' => 'date-time',
-        'expiryDate' => 'date-time'
+        'expiryDate' => 'date-time',
+        'transactionUUID' => null
     ];
 
     /**
@@ -115,7 +117,8 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'value' => 'value',
         'recipientIntegrationId' => 'recipientIntegrationId',
         'startDate' => 'startDate',
-        'expiryDate' => 'expiryDate'
+        'expiryDate' => 'expiryDate',
+        'transactionUUID' => 'transactionUUID'
     ];
 
     /**
@@ -130,7 +133,8 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'value' => 'setValue',
         'recipientIntegrationId' => 'setRecipientIntegrationId',
         'startDate' => 'setStartDate',
-        'expiryDate' => 'setExpiryDate'
+        'expiryDate' => 'setExpiryDate',
+        'transactionUUID' => 'setTransactionUUID'
     ];
 
     /**
@@ -145,7 +149,8 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'value' => 'getValue',
         'recipientIntegrationId' => 'getRecipientIntegrationId',
         'startDate' => 'getStartDate',
-        'expiryDate' => 'getExpiryDate'
+        'expiryDate' => 'getExpiryDate',
+        'transactionUUID' => 'getTransactionUUID'
     ];
 
     /**
@@ -215,6 +220,7 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
     }
 
     /**
@@ -240,6 +246,9 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         }
         if ($this->container['recipientIntegrationId'] === null) {
             $invalidProperties[] = "'recipientIntegrationId' can't be null";
+        }
+        if ($this->container['transactionUUID'] === null) {
+            $invalidProperties[] = "'transactionUUID' can't be null";
         }
         return $invalidProperties;
     }
@@ -420,6 +429,30 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     public function setExpiryDate($expiryDate)
     {
         $this->container['expiryDate'] = $expiryDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets transactionUUID
+     *
+     * @return string
+     */
+    public function getTransactionUUID()
+    {
+        return $this->container['transactionUUID'];
+    }
+
+    /**
+     * Sets transactionUUID
+     *
+     * @param string $transactionUUID The identifier of this addition in the loyalty ledger
+     *
+     * @return $this
+     */
+    public function setTransactionUUID($transactionUUID)
+    {
+        $this->container['transactionUUID'] = $transactionUUID;
 
         return $this;
     }

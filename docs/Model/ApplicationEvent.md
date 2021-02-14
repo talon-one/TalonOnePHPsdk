@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **type** | **string** | A string representing the event. Must not be a reserved event name. | 
 **attributes** | [**object**](.md) | Additional JSON serialized data associated with the event. | 
 **effects** | **object[]** | An array containing the effects that were applied as a result of this event. | 
+**ruleFailureReasons** | [**\TalonOne\Client\Model\RuleFailureReason[]**](RuleFailureReason.md) | An array containing the rule failure reasons which happened during this event. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

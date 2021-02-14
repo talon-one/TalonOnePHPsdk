@@ -287,7 +287,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param float $total ⚠️ Deprecated: Please use 'totalActivePoints' property instead. Total amount of currently active and available points in the customer's balance
+     * @param float $total ⚠️ Deprecated: Use 'totalActivePoints' property instead. Total amount of currently active and available points in the customer's balance
      *
      * @return $this
      */

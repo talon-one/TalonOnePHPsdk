@@ -303,6 +303,10 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         if ($this->container['profileId'] === null) {
             $invalidProperties[] = "'profileId' can't be null";
         }
+        if (!is_null($this->container['referralCode']) && (mb_strlen($this->container['referralCode']) > 100)) {
+            $invalidProperties[] = "invalid value for 'referralCode', the character length must be smaller than or equal to 100.";
+        }
+
         if ($this->container['state'] === null) {
             $invalidProperties[] = "'state' can't be null";
         }
@@ -486,6 +490,10 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
      */
     public function setReferralCode($referralCode)
     {
+        if (!is_null($referralCode) && (mb_strlen($referralCode) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $referralCode when calling CustomerSessionV2., must be smaller than or equal to 100.');
+        }
+
         $this->container['referralCode'] = $referralCode;
 
         return $this;

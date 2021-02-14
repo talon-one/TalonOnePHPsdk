@@ -59,6 +59,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'attributes' => 'object',
+        'audiencesChanges' => '\TalonOne\Client\Model\ProfileAudiencesChanges',
         'responseContent' => 'string[]'
     ];
 
@@ -69,6 +70,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'attributes' => null,
+        'audiencesChanges' => null,
         'responseContent' => null
     ];
 
@@ -100,6 +102,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'attributes' => 'attributes',
+        'audiencesChanges' => 'audiencesChanges',
         'responseContent' => 'responseContent'
     ];
 
@@ -110,6 +113,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'attributes' => 'setAttributes',
+        'audiencesChanges' => 'setAudiencesChanges',
         'responseContent' => 'setResponseContent'
     ];
 
@@ -120,6 +124,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'attributes' => 'getAttributes',
+        'audiencesChanges' => 'getAudiencesChanges',
         'responseContent' => 'getResponseContent'
     ];
 
@@ -168,6 +173,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     const RESPONSE_CONTENT_TRIGGERED_CAMPAIGNS = 'triggeredCampaigns';
     const RESPONSE_CONTENT_LOYALTY = 'loyalty';
     const RESPONSE_CONTENT_EVENT = 'event';
+    const RESPONSE_CONTENT_RULE_FAILURE_REASONS = 'ruleFailureReasons';
     
 
     
@@ -183,6 +189,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
             self::RESPONSE_CONTENT_TRIGGERED_CAMPAIGNS,
             self::RESPONSE_CONTENT_LOYALTY,
             self::RESPONSE_CONTENT_EVENT,
+            self::RESPONSE_CONTENT_RULE_FAILURE_REASONS,
         ];
     }
     
@@ -203,6 +210,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['audiencesChanges'] = isset($data['audiencesChanges']) ? $data['audiencesChanges'] : null;
         $this->container['responseContent'] = isset($data['responseContent']) ? $data['responseContent'] : null;
     }
 
@@ -255,6 +263,30 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets audiencesChanges
+     *
+     * @return \TalonOne\Client\Model\ProfileAudiencesChanges|null
+     */
+    public function getAudiencesChanges()
+    {
+        return $this->container['audiencesChanges'];
+    }
+
+    /**
+     * Sets audiencesChanges
+     *
+     * @param \TalonOne\Client\Model\ProfileAudiencesChanges|null $audiencesChanges audiencesChanges
+     *
+     * @return $this
+     */
+    public function setAudiencesChanges($audiencesChanges)
+    {
+        $this->container['audiencesChanges'] = $audiencesChanges;
+
+        return $this;
+    }
+
+    /**
      * Gets responseContent
      *
      * @return string[]|null
@@ -267,7 +299,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     /**
      * Sets responseContent
      *
-     * @param string[]|null $responseContent Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\" and \"event\".
+     * @param string[]|null $responseContent Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\", \"event\" and \"ruleFailureReasons\".
      *
      * @return $this
      */

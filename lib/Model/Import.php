@@ -184,21 +184,8 @@ class Import implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const ENTITY_COUPON = 'Coupon';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getEntityAllowableValues()
-    {
-        return [
-            self::ENTITY_COUPON,
-        ];
-    }
     
 
     /**
@@ -248,14 +235,6 @@ class Import implements ModelInterface, ArrayAccess
         if ($this->container['entity'] === null) {
             $invalidProperties[] = "'entity' can't be null";
         }
-        $allowedValues = $this->getEntityAllowableValues();
-        if (!is_null($this->container['entity']) && !in_array($this->container['entity'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'entity', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
@@ -387,21 +366,12 @@ class Import implements ModelInterface, ArrayAccess
     /**
      * Sets entity
      *
-     * @param string $entity The name of the entity that was imported.
+     * @param string $entity The name of the entity that was imported. Possible values are Coupons and LoyaltyPoints.
      *
      * @return $this
      */
     public function setEntity($entity)
     {
-        $allowedValues = $this->getEntityAllowableValues();
-        if (!in_array($entity, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'entity', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['entity'] = $entity;
 
         return $this;

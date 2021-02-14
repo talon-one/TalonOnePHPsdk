@@ -142,6 +142,13 @@ class NewApplicationTest extends TestCase
     }
 
     /**
+     * Test attribute "defaultDiscountScope"
+     */
+    public function testPropertyDefaultDiscountScope()
+    {
+    }
+
+    /**
      * Test attribute "enableCascadingDiscounts"
      */
     public function testPropertyEnableCascadingDiscounts()

@@ -249,6 +249,10 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['referralCode']) && (mb_strlen($this->container['referralCode']) > 100)) {
+            $invalidProperties[] = "invalid value for 'referralCode', the character length must be smaller than or equal to 100.";
+        }
+
         $allowedValues = $this->getStateAllowableValues();
         if (!is_null($this->container['state']) && !in_array($this->container['state'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -339,6 +343,10 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
      */
     public function setReferralCode($referralCode)
     {
+        if (!is_null($referralCode) && (mb_strlen($referralCode) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $referralCode when calling NewCustomerSessionV2., must be smaller than or equal to 100.');
+        }
+
         $this->container['referralCode'] = $referralCode;
 
         return $this;

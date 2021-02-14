@@ -61,6 +61,7 @@ class Change implements ModelInterface, ArrayAccess
         'id' => 'int',
         'created' => '\DateTime',
         'userId' => 'int',
+        'applicationId' => 'int',
         'entity' => 'string',
         'old' => 'object',
         'new' => 'object'
@@ -75,6 +76,7 @@ class Change implements ModelInterface, ArrayAccess
         'id' => null,
         'created' => 'date-time',
         'userId' => null,
+        'applicationId' => null,
         'entity' => null,
         'old' => null,
         'new' => null
@@ -110,6 +112,7 @@ class Change implements ModelInterface, ArrayAccess
         'id' => 'id',
         'created' => 'created',
         'userId' => 'userId',
+        'applicationId' => 'applicationId',
         'entity' => 'entity',
         'old' => 'old',
         'new' => 'new'
@@ -124,6 +127,7 @@ class Change implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'created' => 'setCreated',
         'userId' => 'setUserId',
+        'applicationId' => 'setApplicationId',
         'entity' => 'setEntity',
         'old' => 'setOld',
         'new' => 'setNew'
@@ -138,6 +142,7 @@ class Change implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'created' => 'getCreated',
         'userId' => 'getUserId',
+        'applicationId' => 'getApplicationId',
         'entity' => 'getEntity',
         'old' => 'getOld',
         'new' => 'getNew'
@@ -206,6 +211,7 @@ class Change implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
+        $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['entity'] = isset($data['entity']) ? $data['entity'] : null;
         $this->container['old'] = isset($data['old']) ? $data['old'] : null;
         $this->container['new'] = isset($data['new']) ? $data['new'] : null;
@@ -315,6 +321,30 @@ class Change implements ModelInterface, ArrayAccess
     public function setUserId($userId)
     {
         $this->container['userId'] = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Gets applicationId
+     *
+     * @return int|null
+     */
+    public function getApplicationId()
+    {
+        return $this->container['applicationId'];
+    }
+
+    /**
+     * Sets applicationId
+     *
+     * @param int|null $applicationId ID of application associated with change
+     *
+     * @return $this
+     */
+    public function setApplicationId($applicationId)
+    {
+        $this->container['applicationId'] = $applicationId;
 
         return $this;
     }

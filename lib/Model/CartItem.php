@@ -67,8 +67,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'width' => 'float',
         'length' => 'float',
         'position' => 'float',
-        'attributes' => 'object',
-        'adjustment' => '\TalonOne\Client\Model\CartItemAdjustment'
+        'attributes' => 'object'
     ];
 
     /**
@@ -87,8 +86,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'width' => null,
         'length' => null,
         'position' => null,
-        'attributes' => null,
-        'adjustment' => null
+        'attributes' => null
     ];
 
     /**
@@ -128,8 +126,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'width' => 'width',
         'length' => 'length',
         'position' => 'position',
-        'attributes' => 'attributes',
-        'adjustment' => 'adjustment'
+        'attributes' => 'attributes'
     ];
 
     /**
@@ -148,8 +145,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'width' => 'setWidth',
         'length' => 'setLength',
         'position' => 'setPosition',
-        'attributes' => 'setAttributes',
-        'adjustment' => 'setAdjustment'
+        'attributes' => 'setAttributes'
     ];
 
     /**
@@ -168,8 +164,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'width' => 'getWidth',
         'length' => 'getLength',
         'position' => 'getPosition',
-        'attributes' => 'getAttributes',
-        'adjustment' => 'getAdjustment'
+        'attributes' => 'getAttributes'
     ];
 
     /**
@@ -243,7 +238,6 @@ class CartItem implements ModelInterface, ArrayAccess
         $this->container['length'] = isset($data['length']) ? $data['length'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['adjustment'] = isset($data['adjustment']) ? $data['adjustment'] : null;
     }
 
     /**
@@ -569,30 +563,6 @@ class CartItem implements ModelInterface, ArrayAccess
     public function setAttributes($attributes)
     {
         $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets adjustment
-     *
-     * @return \TalonOne\Client\Model\CartItemAdjustment|null
-     */
-    public function getAdjustment()
-    {
-        return $this->container['adjustment'];
-    }
-
-    /**
-     * Sets adjustment
-     *
-     * @param \TalonOne\Client\Model\CartItemAdjustment|null $adjustment adjustment
-     *
-     * @return $this
-     */
-    public function setAdjustment($adjustment)
-    {
-        $this->container['adjustment'] = $adjustment;
 
         return $this;
     }

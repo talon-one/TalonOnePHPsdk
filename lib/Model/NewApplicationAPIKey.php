@@ -203,6 +203,7 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
     const PLATFORM_SEGMENT = 'segment';
     const PLATFORM_BRAZE = 'braze';
     const PLATFORM_MPARTICLE = 'mparticle';
+    const PLATFORM_SELLIGENT = 'selligent';
     
 
     
@@ -218,6 +219,7 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
             self::PLATFORM_SEGMENT,
             self::PLATFORM_BRAZE,
             self::PLATFORM_MPARTICLE,
+            self::PLATFORM_SELLIGENT,
         ];
     }
     

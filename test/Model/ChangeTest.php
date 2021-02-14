@@ -100,6 +100,13 @@ class ChangeTest extends TestCase
     }
 
     /**
+     * Test attribute "applicationId"
+     */
+    public function testPropertyApplicationId()
+    {
+    }
+
+    /**
      * Test attribute "entity"
      */
     public function testPropertyEntity()

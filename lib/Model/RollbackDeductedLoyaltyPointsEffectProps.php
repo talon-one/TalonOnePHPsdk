@@ -1,6 +1,6 @@
 <?php
 /**
- * CartItemAdjustment
+ * RollbackDeductedLoyaltyPointsEffectProps
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * CartItemAdjustment Class Doc Comment
+ * RollbackDeductedLoyaltyPointsEffectProps Class Doc Comment
  *
  * @category Class
+ * @description The properties specific to the \&quot;rollbackDeductedLoyaltyPoints\&quot; effect. This effect is triggered whenever a previously closed session is cancelled and a deductLoyaltyPoints effect was revoked.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CartItemAdjustment implements ModelInterface, ArrayAccess
+class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CartItemAdjustment';
+    protected static $openAPIModelName = 'RollbackDeductedLoyaltyPointsEffectProps';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +58,13 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payFromLoyaltyProgram' => 'int',
-        'pointPayment' => 'int',
-        'remainingPrice' => 'float'
+        'programId' => 'int',
+        'subLedgerId' => 'string',
+        'value' => 'float',
+        'recipientIntegrationId' => 'string',
+        'startDate' => '\DateTime',
+        'expiryDate' => '\DateTime',
+        'transactionUUID' => 'string'
     ];
 
     /**
@@ -68,9 +73,13 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'payFromLoyaltyProgram' => null,
-        'pointPayment' => null,
-        'remainingPrice' => null
+        'programId' => null,
+        'subLedgerId' => null,
+        'value' => null,
+        'recipientIntegrationId' => null,
+        'startDate' => 'date-time',
+        'expiryDate' => 'date-time',
+        'transactionUUID' => null
     ];
 
     /**
@@ -100,9 +109,13 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payFromLoyaltyProgram' => 'payFromLoyaltyProgram',
-        'pointPayment' => 'pointPayment',
-        'remainingPrice' => 'remainingPrice'
+        'programId' => 'programId',
+        'subLedgerId' => 'subLedgerId',
+        'value' => 'value',
+        'recipientIntegrationId' => 'recipientIntegrationId',
+        'startDate' => 'startDate',
+        'expiryDate' => 'expiryDate',
+        'transactionUUID' => 'transactionUUID'
     ];
 
     /**
@@ -111,9 +124,13 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payFromLoyaltyProgram' => 'setPayFromLoyaltyProgram',
-        'pointPayment' => 'setPointPayment',
-        'remainingPrice' => 'setRemainingPrice'
+        'programId' => 'setProgramId',
+        'subLedgerId' => 'setSubLedgerId',
+        'value' => 'setValue',
+        'recipientIntegrationId' => 'setRecipientIntegrationId',
+        'startDate' => 'setStartDate',
+        'expiryDate' => 'setExpiryDate',
+        'transactionUUID' => 'setTransactionUUID'
     ];
 
     /**
@@ -122,9 +139,13 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payFromLoyaltyProgram' => 'getPayFromLoyaltyProgram',
-        'pointPayment' => 'getPointPayment',
-        'remainingPrice' => 'getRemainingPrice'
+        'programId' => 'getProgramId',
+        'subLedgerId' => 'getSubLedgerId',
+        'value' => 'getValue',
+        'recipientIntegrationId' => 'getRecipientIntegrationId',
+        'startDate' => 'getStartDate',
+        'expiryDate' => 'getExpiryDate',
+        'transactionUUID' => 'getTransactionUUID'
     ];
 
     /**
@@ -187,9 +208,13 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payFromLoyaltyProgram'] = isset($data['payFromLoyaltyProgram']) ? $data['payFromLoyaltyProgram'] : null;
-        $this->container['pointPayment'] = isset($data['pointPayment']) ? $data['pointPayment'] : null;
-        $this->container['remainingPrice'] = isset($data['remainingPrice']) ? $data['remainingPrice'] : null;
+        $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
+        $this->container['subLedgerId'] = isset($data['subLedgerId']) ? $data['subLedgerId'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
+        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
+        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
     }
 
     /**
@@ -201,20 +226,21 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['payFromLoyaltyProgram'] === null) {
-            $invalidProperties[] = "'payFromLoyaltyProgram' can't be null";
+        if ($this->container['programId'] === null) {
+            $invalidProperties[] = "'programId' can't be null";
         }
-        if ($this->container['pointPayment'] === null) {
-            $invalidProperties[] = "'pointPayment' can't be null";
+        if ($this->container['subLedgerId'] === null) {
+            $invalidProperties[] = "'subLedgerId' can't be null";
         }
-        if (($this->container['pointPayment'] < 1)) {
-            $invalidProperties[] = "invalid value for 'pointPayment', must be bigger than or equal to 1.";
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
         }
-
-        if (!is_null($this->container['remainingPrice']) && ($this->container['remainingPrice'] < 0)) {
-            $invalidProperties[] = "invalid value for 'remainingPrice', must be bigger than or equal to 0.";
+        if ($this->container['recipientIntegrationId'] === null) {
+            $invalidProperties[] = "'recipientIntegrationId' can't be null";
         }
-
+        if ($this->container['transactionUUID'] === null) {
+            $invalidProperties[] = "'transactionUUID' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -231,83 +257,169 @@ class CartItemAdjustment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payFromLoyaltyProgram
+     * Gets programId
      *
      * @return int
      */
-    public function getPayFromLoyaltyProgram()
+    public function getProgramId()
     {
-        return $this->container['payFromLoyaltyProgram'];
+        return $this->container['programId'];
     }
 
     /**
-     * Sets payFromLoyaltyProgram
+     * Sets programId
      *
-     * @param int $payFromLoyaltyProgram Loyalty Program to be used for payment
+     * @param int $programId The ID of the loyalty program where these points were reimbursed
      *
      * @return $this
      */
-    public function setPayFromLoyaltyProgram($payFromLoyaltyProgram)
+    public function setProgramId($programId)
     {
-        $this->container['payFromLoyaltyProgram'] = $payFromLoyaltyProgram;
+        $this->container['programId'] = $programId;
 
         return $this;
     }
 
     /**
-     * Gets pointPayment
+     * Gets subLedgerId
      *
-     * @return int
+     * @return string
      */
-    public function getPointPayment()
+    public function getSubLedgerId()
     {
-        return $this->container['pointPayment'];
+        return $this->container['subLedgerId'];
     }
 
     /**
-     * Sets pointPayment
+     * Sets subLedgerId
      *
-     * @param int $pointPayment Amount of points to be spend
+     * @param string $subLedgerId The ID of the subledger within the loyalty program where these points were reimbursed
      *
      * @return $this
      */
-    public function setPointPayment($pointPayment)
+    public function setSubLedgerId($subLedgerId)
     {
-
-        if (($pointPayment < 1)) {
-            throw new \InvalidArgumentException('invalid value for $pointPayment when calling CartItemAdjustment., must be bigger than or equal to 1.');
-        }
-
-        $this->container['pointPayment'] = $pointPayment;
+        $this->container['subLedgerId'] = $subLedgerId;
 
         return $this;
     }
 
     /**
-     * Gets remainingPrice
+     * Gets value
      *
-     * @return float|null
+     * @return float
      */
-    public function getRemainingPrice()
+    public function getValue()
     {
-        return $this->container['remainingPrice'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets remainingPrice
+     * Sets value
      *
-     * @param float|null $remainingPrice Remaining price in currency after payment in points has been made
+     * @param float $value The amount of reimbursed points that were added
      *
      * @return $this
      */
-    public function setRemainingPrice($remainingPrice)
+    public function setValue($value)
     {
+        $this->container['value'] = $value;
 
-        if (!is_null($remainingPrice) && ($remainingPrice < 0)) {
-            throw new \InvalidArgumentException('invalid value for $remainingPrice when calling CartItemAdjustment., must be bigger than or equal to 0.');
-        }
+        return $this;
+    }
 
-        $this->container['remainingPrice'] = $remainingPrice;
+    /**
+     * Gets recipientIntegrationId
+     *
+     * @return string
+     */
+    public function getRecipientIntegrationId()
+    {
+        return $this->container['recipientIntegrationId'];
+    }
+
+    /**
+     * Sets recipientIntegrationId
+     *
+     * @param string $recipientIntegrationId The user for whom these points were reimbursed
+     *
+     * @return $this
+     */
+    public function setRecipientIntegrationId($recipientIntegrationId)
+    {
+        $this->container['recipientIntegrationId'] = $recipientIntegrationId;
+
+        return $this;
+    }
+
+    /**
+     * Gets startDate
+     *
+     * @return \DateTime|null
+     */
+    public function getStartDate()
+    {
+        return $this->container['startDate'];
+    }
+
+    /**
+     * Sets startDate
+     *
+     * @param \DateTime|null $startDate Date after which the reimbursed points will be valid
+     *
+     * @return $this
+     */
+    public function setStartDate($startDate)
+    {
+        $this->container['startDate'] = $startDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiryDate
+     *
+     * @return \DateTime|null
+     */
+    public function getExpiryDate()
+    {
+        return $this->container['expiryDate'];
+    }
+
+    /**
+     * Sets expiryDate
+     *
+     * @param \DateTime|null $expiryDate Date after which the reimbursed points will expire
+     *
+     * @return $this
+     */
+    public function setExpiryDate($expiryDate)
+    {
+        $this->container['expiryDate'] = $expiryDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets transactionUUID
+     *
+     * @return string
+     */
+    public function getTransactionUUID()
+    {
+        return $this->container['transactionUUID'];
+    }
+
+    /**
+     * Sets transactionUUID
+     *
+     * @param string $transactionUUID The identifier of 'addition' entries added to the ledger as the `deductLoyaltyPoints` effect is rolled back
+     *
+     * @return $this
+     */
+    public function setTransactionUUID($transactionUUID)
+    {
+        $this->container['transactionUUID'] = $transactionUUID;
 
         return $this;
     }

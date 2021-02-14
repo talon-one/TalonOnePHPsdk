@@ -114,6 +114,13 @@ class EffectTest extends TestCase
     }
 
     /**
+     * Test attribute "triggeredByCoupon"
+     */
+    public function testPropertyTriggeredByCoupon()
+    {
+    }
+
+    /**
      * Test attribute "props"
      */
     public function testPropertyProps()

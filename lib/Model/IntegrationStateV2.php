@@ -66,6 +66,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         'coupons' => '\TalonOne\Client\Model\Coupon[]',
         'triggeredCampaigns' => '\TalonOne\Client\Model\Campaign[]',
         'effects' => '\TalonOne\Client\Model\Effect[]',
+        'ruleFailureReasons' => '\TalonOne\Client\Model\RuleFailureReason[]',
         'createdCoupons' => '\TalonOne\Client\Model\Coupon[]',
         'createdReferrals' => '\TalonOne\Client\Model\Referral[]'
     ];
@@ -84,6 +85,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         'coupons' => null,
         'triggeredCampaigns' => null,
         'effects' => null,
+        'ruleFailureReasons' => null,
         'createdCoupons' => null,
         'createdReferrals' => null
     ];
@@ -123,6 +125,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         'coupons' => 'coupons',
         'triggeredCampaigns' => 'triggeredCampaigns',
         'effects' => 'effects',
+        'ruleFailureReasons' => 'ruleFailureReasons',
         'createdCoupons' => 'createdCoupons',
         'createdReferrals' => 'createdReferrals'
     ];
@@ -141,6 +144,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         'coupons' => 'setCoupons',
         'triggeredCampaigns' => 'setTriggeredCampaigns',
         'effects' => 'setEffects',
+        'ruleFailureReasons' => 'setRuleFailureReasons',
         'createdCoupons' => 'setCreatedCoupons',
         'createdReferrals' => 'setCreatedReferrals'
     ];
@@ -159,6 +163,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         'coupons' => 'getCoupons',
         'triggeredCampaigns' => 'getTriggeredCampaigns',
         'effects' => 'getEffects',
+        'ruleFailureReasons' => 'getRuleFailureReasons',
         'createdCoupons' => 'getCreatedCoupons',
         'createdReferrals' => 'getCreatedReferrals'
     ];
@@ -231,6 +236,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
         $this->container['triggeredCampaigns'] = isset($data['triggeredCampaigns']) ? $data['triggeredCampaigns'] : null;
         $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
+        $this->container['ruleFailureReasons'] = isset($data['ruleFailureReasons']) ? $data['ruleFailureReasons'] : null;
         $this->container['createdCoupons'] = isset($data['createdCoupons']) ? $data['createdCoupons'] : null;
         $this->container['createdReferrals'] = isset($data['createdReferrals']) ? $data['createdReferrals'] : null;
     }
@@ -456,6 +462,30 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     public function setEffects($effects)
     {
         $this->container['effects'] = $effects;
+
+        return $this;
+    }
+
+    /**
+     * Gets ruleFailureReasons
+     *
+     * @return \TalonOne\Client\Model\RuleFailureReason[]|null
+     */
+    public function getRuleFailureReasons()
+    {
+        return $this->container['ruleFailureReasons'];
+    }
+
+    /**
+     * Sets ruleFailureReasons
+     *
+     * @param \TalonOne\Client\Model\RuleFailureReason[]|null $ruleFailureReasons ruleFailureReasons
+     *
+     * @return $this
+     */
+    public function setRuleFailureReasons($ruleFailureReasons)
+    {
+        $this->container['ruleFailureReasons'] = $ruleFailureReasons;
 
         return $this;
     }

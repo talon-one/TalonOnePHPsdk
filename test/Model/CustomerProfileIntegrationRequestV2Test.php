@@ -86,6 +86,13 @@ class CustomerProfileIntegrationRequestV2Test extends TestCase
     }
 
     /**
+     * Test attribute "audiencesChanges"
+     */
+    public function testPropertyAudiencesChanges()
+    {
+    }
+
+    /**
      * Test attribute "responseContent"
      */
     public function testPropertyResponseContent()

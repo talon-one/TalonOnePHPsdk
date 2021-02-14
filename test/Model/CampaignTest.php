@@ -233,6 +233,41 @@ class CampaignTest extends TestCase
     }
 
     /**
+     * Test attribute "referralCreationCount"
+     */
+    public function testPropertyReferralCreationCount()
+    {
+    }
+
+    /**
+     * Test attribute "createdLoyaltyPointsCount"
+     */
+    public function testPropertyCreatedLoyaltyPointsCount()
+    {
+    }
+
+    /**
+     * Test attribute "createdLoyaltyPointsEffectCount"
+     */
+    public function testPropertyCreatedLoyaltyPointsEffectCount()
+    {
+    }
+
+    /**
+     * Test attribute "redeemedLoyaltyPointsCount"
+     */
+    public function testPropertyRedeemedLoyaltyPointsCount()
+    {
+    }
+
+    /**
+     * Test attribute "redeemedLoyaltyPointsEffectCount"
+     */
+    public function testPropertyRedeemedLoyaltyPointsEffectCount()
+    {
+    }
+
+    /**
      * Test attribute "lastActivity"
      */
     public function testPropertyLastActivity()

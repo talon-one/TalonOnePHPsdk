@@ -84,4 +84,32 @@ class LoyaltyProgramBalanceTest extends TestCase
     public function testPropertyCurrentBalance()
     {
     }
+
+    /**
+     * Test attribute "pendingBalance"
+     */
+    public function testPropertyPendingBalance()
+    {
+    }
+
+    /**
+     * Test attribute "expiredBalance"
+     */
+    public function testPropertyExpiredBalance()
+    {
+    }
+
+    /**
+     * Test attribute "spentBalance"
+     */
+    public function testPropertySpentBalance()
+    {
+    }
+
+    /**
+     * Test attribute "tentativeCurrentBalance"
+     */
+    public function testPropertyTentativeCurrentBalance()
+    {
+    }
 }
