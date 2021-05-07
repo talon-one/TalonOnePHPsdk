@@ -118,37 +118,37 @@ class ManagementApi
     /**
      * Operation addLoyaltyPoints
      *
-     * Add points in a certain loyalty program for the specified customer
+     * Add points in a loyalty program for the specified customer
      *
-     * @param  string $programID programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID integrationID (required)
-     * @param  \TalonOne\Client\Model\LoyaltyPoints $body body (required)
+     * @param  \TalonOne\Client\Model\LoyaltyPoints $loyaltyPoints loyaltyPoints (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addLoyaltyPoints($programID, $integrationID, $body)
+    public function addLoyaltyPoints($programID, $integrationID, $loyaltyPoints)
     {
-        $this->addLoyaltyPointsWithHttpInfo($programID, $integrationID, $body);
+        $this->addLoyaltyPointsWithHttpInfo($programID, $integrationID, $loyaltyPoints);
     }
 
     /**
      * Operation addLoyaltyPointsWithHttpInfo
      *
-     * Add points in a certain loyalty program for the specified customer
+     * Add points in a loyalty program for the specified customer
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID (required)
-     * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
+     * @param  \TalonOne\Client\Model\LoyaltyPoints $loyaltyPoints (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addLoyaltyPointsWithHttpInfo($programID, $integrationID, $body)
+    public function addLoyaltyPointsWithHttpInfo($programID, $integrationID, $loyaltyPoints)
     {
-        $request = $this->addLoyaltyPointsRequest($programID, $integrationID, $body);
+        $request = $this->addLoyaltyPointsRequest($programID, $integrationID, $loyaltyPoints);
 
         try {
             $options = $this->createHttpClientOption();
@@ -190,18 +190,18 @@ class ManagementApi
     /**
      * Operation addLoyaltyPointsAsync
      *
-     * Add points in a certain loyalty program for the specified customer
+     * Add points in a loyalty program for the specified customer
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID (required)
-     * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
+     * @param  \TalonOne\Client\Model\LoyaltyPoints $loyaltyPoints (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addLoyaltyPointsAsync($programID, $integrationID, $body)
+    public function addLoyaltyPointsAsync($programID, $integrationID, $loyaltyPoints)
     {
-        return $this->addLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID, $body)
+        return $this->addLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID, $loyaltyPoints)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -212,19 +212,19 @@ class ManagementApi
     /**
      * Operation addLoyaltyPointsAsyncWithHttpInfo
      *
-     * Add points in a certain loyalty program for the specified customer
+     * Add points in a loyalty program for the specified customer
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID (required)
-     * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
+     * @param  \TalonOne\Client\Model\LoyaltyPoints $loyaltyPoints (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID, $body)
+    public function addLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID, $loyaltyPoints)
     {
         $returnType = '';
-        $request = $this->addLoyaltyPointsRequest($programID, $integrationID, $body);
+        $request = $this->addLoyaltyPointsRequest($programID, $integrationID, $loyaltyPoints);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -252,14 +252,14 @@ class ManagementApi
     /**
      * Create request for operation 'addLoyaltyPoints'
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID (required)
-     * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
+     * @param  \TalonOne\Client\Model\LoyaltyPoints $loyaltyPoints (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addLoyaltyPointsRequest($programID, $integrationID, $body)
+    protected function addLoyaltyPointsRequest($programID, $integrationID, $loyaltyPoints)
     {
         // verify the required parameter 'programID' is set
         if ($programID === null || (is_array($programID) && count($programID) === 0)) {
@@ -273,10 +273,10 @@ class ManagementApi
                 'Missing the required parameter $integrationID when calling addLoyaltyPoints'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'loyaltyPoints' is set
+        if ($loyaltyPoints === null || (is_array($loyaltyPoints) && count($loyaltyPoints) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling addLoyaltyPoints'
+                'Missing the required parameter $loyaltyPoints when calling addLoyaltyPoints'
             );
         }
 
@@ -308,8 +308,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($loyaltyPoints)) {
+            $_tempBody = $loyaltyPoints;
         }
 
         if ($multipart) {
@@ -352,10 +352,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -385,15 +384,15 @@ class ManagementApi
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
-     * @param  \TalonOne\Client\Model\CampaignCopy $body body (required)
+     * @param  \TalonOne\Client\Model\CampaignCopy $campaignCopy campaignCopy (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2002
      */
-    public function copyCampaignToApplications($applicationId, $campaignId, $body)
+    public function copyCampaignToApplications($applicationId, $campaignId, $campaignCopy)
     {
-        list($response) = $this->copyCampaignToApplicationsWithHttpInfo($applicationId, $campaignId, $body);
+        list($response) = $this->copyCampaignToApplicationsWithHttpInfo($applicationId, $campaignId, $campaignCopy);
         return $response;
     }
 
@@ -404,15 +403,15 @@ class ManagementApi
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\CampaignCopy $body (required)
+     * @param  \TalonOne\Client\Model\CampaignCopy $campaignCopy (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
-    public function copyCampaignToApplicationsWithHttpInfo($applicationId, $campaignId, $body)
+    public function copyCampaignToApplicationsWithHttpInfo($applicationId, $campaignId, $campaignCopy)
     {
-        $request = $this->copyCampaignToApplicationsRequest($applicationId, $campaignId, $body);
+        $request = $this->copyCampaignToApplicationsRequest($applicationId, $campaignId, $campaignCopy);
 
         try {
             $options = $this->createHttpClientOption();
@@ -494,14 +493,14 @@ class ManagementApi
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\CampaignCopy $body (required)
+     * @param  \TalonOne\Client\Model\CampaignCopy $campaignCopy (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function copyCampaignToApplicationsAsync($applicationId, $campaignId, $body)
+    public function copyCampaignToApplicationsAsync($applicationId, $campaignId, $campaignCopy)
     {
-        return $this->copyCampaignToApplicationsAsyncWithHttpInfo($applicationId, $campaignId, $body)
+        return $this->copyCampaignToApplicationsAsyncWithHttpInfo($applicationId, $campaignId, $campaignCopy)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -516,15 +515,15 @@ class ManagementApi
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\CampaignCopy $body (required)
+     * @param  \TalonOne\Client\Model\CampaignCopy $campaignCopy (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function copyCampaignToApplicationsAsyncWithHttpInfo($applicationId, $campaignId, $body)
+    public function copyCampaignToApplicationsAsyncWithHttpInfo($applicationId, $campaignId, $campaignCopy)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2002';
-        $request = $this->copyCampaignToApplicationsRequest($applicationId, $campaignId, $body);
+        $request = $this->copyCampaignToApplicationsRequest($applicationId, $campaignId, $campaignCopy);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -565,12 +564,12 @@ class ManagementApi
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\CampaignCopy $body (required)
+     * @param  \TalonOne\Client\Model\CampaignCopy $campaignCopy (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function copyCampaignToApplicationsRequest($applicationId, $campaignId, $body)
+    protected function copyCampaignToApplicationsRequest($applicationId, $campaignId, $campaignCopy)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -584,10 +583,10 @@ class ManagementApi
                 'Missing the required parameter $campaignId when calling copyCampaignToApplications'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'campaignCopy' is set
+        if ($campaignCopy === null || (is_array($campaignCopy) && count($campaignCopy) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling copyCampaignToApplications'
+                'Missing the required parameter $campaignCopy when calling copyCampaignToApplications'
             );
         }
 
@@ -619,8 +618,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($campaignCopy)) {
+            $_tempBody = $campaignCopy;
         }
 
         if ($multipart) {
@@ -663,10 +662,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -694,15 +692,15 @@ class ManagementApi
      *
      * Define a new additional cost
      *
-     * @param  \TalonOne\Client\Model\NewAdditionalCost $body body (required)
+     * @param  \TalonOne\Client\Model\NewAdditionalCost $newAdditionalCost newAdditionalCost (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\AccountAdditionalCost
      */
-    public function createAdditionalCost($body)
+    public function createAdditionalCost($newAdditionalCost)
     {
-        list($response) = $this->createAdditionalCostWithHttpInfo($body);
+        list($response) = $this->createAdditionalCostWithHttpInfo($newAdditionalCost);
         return $response;
     }
 
@@ -711,15 +709,15 @@ class ManagementApi
      *
      * Define a new additional cost
      *
-     * @param  \TalonOne\Client\Model\NewAdditionalCost $body (required)
+     * @param  \TalonOne\Client\Model\NewAdditionalCost $newAdditionalCost (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\AccountAdditionalCost, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createAdditionalCostWithHttpInfo($body)
+    public function createAdditionalCostWithHttpInfo($newAdditionalCost)
     {
-        $request = $this->createAdditionalCostRequest($body);
+        $request = $this->createAdditionalCostRequest($newAdditionalCost);
 
         try {
             $options = $this->createHttpClientOption();
@@ -799,14 +797,14 @@ class ManagementApi
      *
      * Define a new additional cost
      *
-     * @param  \TalonOne\Client\Model\NewAdditionalCost $body (required)
+     * @param  \TalonOne\Client\Model\NewAdditionalCost $newAdditionalCost (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAdditionalCostAsync($body)
+    public function createAdditionalCostAsync($newAdditionalCost)
     {
-        return $this->createAdditionalCostAsyncWithHttpInfo($body)
+        return $this->createAdditionalCostAsyncWithHttpInfo($newAdditionalCost)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -819,15 +817,15 @@ class ManagementApi
      *
      * Define a new additional cost
      *
-     * @param  \TalonOne\Client\Model\NewAdditionalCost $body (required)
+     * @param  \TalonOne\Client\Model\NewAdditionalCost $newAdditionalCost (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAdditionalCostAsyncWithHttpInfo($body)
+    public function createAdditionalCostAsyncWithHttpInfo($newAdditionalCost)
     {
         $returnType = '\TalonOne\Client\Model\AccountAdditionalCost';
-        $request = $this->createAdditionalCostRequest($body);
+        $request = $this->createAdditionalCostRequest($newAdditionalCost);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -866,17 +864,17 @@ class ManagementApi
     /**
      * Create request for operation 'createAdditionalCost'
      *
-     * @param  \TalonOne\Client\Model\NewAdditionalCost $body (required)
+     * @param  \TalonOne\Client\Model\NewAdditionalCost $newAdditionalCost (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createAdditionalCostRequest($body)
+    protected function createAdditionalCostRequest($newAdditionalCost)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'newAdditionalCost' is set
+        if ($newAdditionalCost === null || (is_array($newAdditionalCost) && count($newAdditionalCost) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling createAdditionalCost'
+                'Missing the required parameter $newAdditionalCost when calling createAdditionalCost'
             );
         }
 
@@ -892,8 +890,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($newAdditionalCost)) {
+            $_tempBody = $newAdditionalCost;
         }
 
         if ($multipart) {
@@ -936,10 +934,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -967,15 +964,15 @@ class ManagementApi
      *
      * Define a new custom attribute
      *
-     * @param  \TalonOne\Client\Model\NewAttribute $body body (required)
+     * @param  \TalonOne\Client\Model\NewAttribute $newAttribute newAttribute (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Attribute
      */
-    public function createAttribute($body)
+    public function createAttribute($newAttribute)
     {
-        list($response) = $this->createAttributeWithHttpInfo($body);
+        list($response) = $this->createAttributeWithHttpInfo($newAttribute);
         return $response;
     }
 
@@ -984,15 +981,15 @@ class ManagementApi
      *
      * Define a new custom attribute
      *
-     * @param  \TalonOne\Client\Model\NewAttribute $body (required)
+     * @param  \TalonOne\Client\Model\NewAttribute $newAttribute (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Attribute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createAttributeWithHttpInfo($body)
+    public function createAttributeWithHttpInfo($newAttribute)
     {
-        $request = $this->createAttributeRequest($body);
+        $request = $this->createAttributeRequest($newAttribute);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1072,14 +1069,14 @@ class ManagementApi
      *
      * Define a new custom attribute
      *
-     * @param  \TalonOne\Client\Model\NewAttribute $body (required)
+     * @param  \TalonOne\Client\Model\NewAttribute $newAttribute (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAttributeAsync($body)
+    public function createAttributeAsync($newAttribute)
     {
-        return $this->createAttributeAsyncWithHttpInfo($body)
+        return $this->createAttributeAsyncWithHttpInfo($newAttribute)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1092,15 +1089,15 @@ class ManagementApi
      *
      * Define a new custom attribute
      *
-     * @param  \TalonOne\Client\Model\NewAttribute $body (required)
+     * @param  \TalonOne\Client\Model\NewAttribute $newAttribute (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAttributeAsyncWithHttpInfo($body)
+    public function createAttributeAsyncWithHttpInfo($newAttribute)
     {
         $returnType = '\TalonOne\Client\Model\Attribute';
-        $request = $this->createAttributeRequest($body);
+        $request = $this->createAttributeRequest($newAttribute);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1139,17 +1136,17 @@ class ManagementApi
     /**
      * Create request for operation 'createAttribute'
      *
-     * @param  \TalonOne\Client\Model\NewAttribute $body (required)
+     * @param  \TalonOne\Client\Model\NewAttribute $newAttribute (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createAttributeRequest($body)
+    protected function createAttributeRequest($newAttribute)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'newAttribute' is set
+        if ($newAttribute === null || (is_array($newAttribute) && count($newAttribute) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling createAttribute'
+                'Missing the required parameter $newAttribute when calling createAttribute'
             );
         }
 
@@ -1165,8 +1162,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($newAttribute)) {
+            $_tempBody = $newAttribute;
         }
 
         if ($multipart) {
@@ -1209,10 +1206,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -1238,36 +1234,36 @@ class ManagementApi
     /**
      * Operation createCampaign
      *
-     * Create a Campaign
+     * Create campaign
      *
      * @param  int $applicationId applicationId (required)
-     * @param  \TalonOne\Client\Model\NewCampaign $body body (required)
+     * @param  \TalonOne\Client\Model\NewCampaign $newCampaign newCampaign (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Campaign
      */
-    public function createCampaign($applicationId, $body)
+    public function createCampaign($applicationId, $newCampaign)
     {
-        list($response) = $this->createCampaignWithHttpInfo($applicationId, $body);
+        list($response) = $this->createCampaignWithHttpInfo($applicationId, $newCampaign);
         return $response;
     }
 
     /**
      * Operation createCampaignWithHttpInfo
      *
-     * Create a Campaign
+     * Create campaign
      *
      * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\NewCampaign $body (required)
+     * @param  \TalonOne\Client\Model\NewCampaign $newCampaign (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Campaign, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCampaignWithHttpInfo($applicationId, $body)
+    public function createCampaignWithHttpInfo($applicationId, $newCampaign)
     {
-        $request = $this->createCampaignRequest($applicationId, $body);
+        $request = $this->createCampaignRequest($applicationId, $newCampaign);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1345,17 +1341,17 @@ class ManagementApi
     /**
      * Operation createCampaignAsync
      *
-     * Create a Campaign
+     * Create campaign
      *
      * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\NewCampaign $body (required)
+     * @param  \TalonOne\Client\Model\NewCampaign $newCampaign (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCampaignAsync($applicationId, $body)
+    public function createCampaignAsync($applicationId, $newCampaign)
     {
-        return $this->createCampaignAsyncWithHttpInfo($applicationId, $body)
+        return $this->createCampaignAsyncWithHttpInfo($applicationId, $newCampaign)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1366,18 +1362,18 @@ class ManagementApi
     /**
      * Operation createCampaignAsyncWithHttpInfo
      *
-     * Create a Campaign
+     * Create campaign
      *
      * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\NewCampaign $body (required)
+     * @param  \TalonOne\Client\Model\NewCampaign $newCampaign (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCampaignAsyncWithHttpInfo($applicationId, $body)
+    public function createCampaignAsyncWithHttpInfo($applicationId, $newCampaign)
     {
         $returnType = '\TalonOne\Client\Model\Campaign';
-        $request = $this->createCampaignRequest($applicationId, $body);
+        $request = $this->createCampaignRequest($applicationId, $newCampaign);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1417,12 +1413,12 @@ class ManagementApi
      * Create request for operation 'createCampaign'
      *
      * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\NewCampaign $body (required)
+     * @param  \TalonOne\Client\Model\NewCampaign $newCampaign (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCampaignRequest($applicationId, $body)
+    protected function createCampaignRequest($applicationId, $newCampaign)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -1430,10 +1426,10 @@ class ManagementApi
                 'Missing the required parameter $applicationId when calling createCampaign'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'newCampaign' is set
+        if ($newCampaign === null || (is_array($newCampaign) && count($newCampaign) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling createCampaign'
+                'Missing the required parameter $newCampaign when calling createCampaign'
             );
         }
 
@@ -1457,8 +1453,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($newCampaign)) {
+            $_tempBody = $newCampaign;
         }
 
         if ($multipart) {
@@ -1501,10 +1497,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -1530,40 +1525,40 @@ class ManagementApi
     /**
      * Operation createCoupons
      *
-     * Create Coupons
+     * Create coupons
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
-     * @param  \TalonOne\Client\Model\NewCoupons $body body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
+     * @param  \TalonOne\Client\Model\NewCoupons $newCoupons newCoupons (required)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2004
      */
-    public function createCoupons($applicationId, $campaignId, $body, $silent = null)
+    public function createCoupons($applicationId, $campaignId, $newCoupons, $silent = null)
     {
-        list($response) = $this->createCouponsWithHttpInfo($applicationId, $campaignId, $body, $silent);
+        list($response) = $this->createCouponsWithHttpInfo($applicationId, $campaignId, $newCoupons, $silent);
         return $response;
     }
 
     /**
      * Operation createCouponsWithHttpInfo
      *
-     * Create Coupons
+     * Create coupons
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\NewCoupons $body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
+     * @param  \TalonOne\Client\Model\NewCoupons $newCoupons (required)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCouponsWithHttpInfo($applicationId, $campaignId, $body, $silent = null)
+    public function createCouponsWithHttpInfo($applicationId, $campaignId, $newCoupons, $silent = null)
     {
-        $request = $this->createCouponsRequest($applicationId, $campaignId, $body, $silent);
+        $request = $this->createCouponsRequest($applicationId, $campaignId, $newCoupons, $silent);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1641,19 +1636,19 @@ class ManagementApi
     /**
      * Operation createCouponsAsync
      *
-     * Create Coupons
+     * Create coupons
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\NewCoupons $body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
+     * @param  \TalonOne\Client\Model\NewCoupons $newCoupons (required)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponsAsync($applicationId, $campaignId, $body, $silent = null)
+    public function createCouponsAsync($applicationId, $campaignId, $newCoupons, $silent = null)
     {
-        return $this->createCouponsAsyncWithHttpInfo($applicationId, $campaignId, $body, $silent)
+        return $this->createCouponsAsyncWithHttpInfo($applicationId, $campaignId, $newCoupons, $silent)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1664,20 +1659,20 @@ class ManagementApi
     /**
      * Operation createCouponsAsyncWithHttpInfo
      *
-     * Create Coupons
+     * Create coupons
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\NewCoupons $body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
+     * @param  \TalonOne\Client\Model\NewCoupons $newCoupons (required)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponsAsyncWithHttpInfo($applicationId, $campaignId, $body, $silent = null)
+    public function createCouponsAsyncWithHttpInfo($applicationId, $campaignId, $newCoupons, $silent = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2004';
-        $request = $this->createCouponsRequest($applicationId, $campaignId, $body, $silent);
+        $request = $this->createCouponsRequest($applicationId, $campaignId, $newCoupons, $silent);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1718,13 +1713,13 @@ class ManagementApi
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\NewCoupons $body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
+     * @param  \TalonOne\Client\Model\NewCoupons $newCoupons (required)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCouponsRequest($applicationId, $campaignId, $body, $silent = null)
+    protected function createCouponsRequest($applicationId, $campaignId, $newCoupons, $silent = null)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -1738,10 +1733,10 @@ class ManagementApi
                 'Missing the required parameter $campaignId when calling createCoupons'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'newCoupons' is set
+        if ($newCoupons === null || (is_array($newCoupons) && count($newCoupons) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling createCoupons'
+                'Missing the required parameter $newCoupons when calling createCoupons'
             );
         }
 
@@ -1753,11 +1748,15 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($silent)) {
-            $silent = ObjectSerializer::serializeCollection($silent, '', true);
-        }
         if ($silent !== null) {
-            $queryParams['silent'] = $silent;
+            if('form' === 'form' && is_array($silent)) {
+                foreach($silent as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['silent'] = $silent;
+            }
         }
 
 
@@ -1780,8 +1779,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($newCoupons)) {
+            $_tempBody = $newCoupons;
         }
 
         if ($multipart) {
@@ -1824,10 +1823,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -1853,40 +1851,40 @@ class ManagementApi
     /**
      * Operation createCouponsForMultipleRecipients
      *
-     * Create Coupons for Multiple Recipients
+     * Create coupons for multiple recipients
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
-     * @param  \TalonOne\Client\Model\NewCouponsForMultipleRecipients $body body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
+     * @param  \TalonOne\Client\Model\NewCouponsForMultipleRecipients $newCouponsForMultipleRecipients newCouponsForMultipleRecipients (required)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2004
      */
-    public function createCouponsForMultipleRecipients($applicationId, $campaignId, $body, $silent = null)
+    public function createCouponsForMultipleRecipients($applicationId, $campaignId, $newCouponsForMultipleRecipients, $silent = null)
     {
-        list($response) = $this->createCouponsForMultipleRecipientsWithHttpInfo($applicationId, $campaignId, $body, $silent);
+        list($response) = $this->createCouponsForMultipleRecipientsWithHttpInfo($applicationId, $campaignId, $newCouponsForMultipleRecipients, $silent);
         return $response;
     }
 
     /**
      * Operation createCouponsForMultipleRecipientsWithHttpInfo
      *
-     * Create Coupons for Multiple Recipients
+     * Create coupons for multiple recipients
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\NewCouponsForMultipleRecipients $body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
+     * @param  \TalonOne\Client\Model\NewCouponsForMultipleRecipients $newCouponsForMultipleRecipients (required)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCouponsForMultipleRecipientsWithHttpInfo($applicationId, $campaignId, $body, $silent = null)
+    public function createCouponsForMultipleRecipientsWithHttpInfo($applicationId, $campaignId, $newCouponsForMultipleRecipients, $silent = null)
     {
-        $request = $this->createCouponsForMultipleRecipientsRequest($applicationId, $campaignId, $body, $silent);
+        $request = $this->createCouponsForMultipleRecipientsRequest($applicationId, $campaignId, $newCouponsForMultipleRecipients, $silent);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1964,19 +1962,19 @@ class ManagementApi
     /**
      * Operation createCouponsForMultipleRecipientsAsync
      *
-     * Create Coupons for Multiple Recipients
+     * Create coupons for multiple recipients
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\NewCouponsForMultipleRecipients $body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
+     * @param  \TalonOne\Client\Model\NewCouponsForMultipleRecipients $newCouponsForMultipleRecipients (required)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponsForMultipleRecipientsAsync($applicationId, $campaignId, $body, $silent = null)
+    public function createCouponsForMultipleRecipientsAsync($applicationId, $campaignId, $newCouponsForMultipleRecipients, $silent = null)
     {
-        return $this->createCouponsForMultipleRecipientsAsyncWithHttpInfo($applicationId, $campaignId, $body, $silent)
+        return $this->createCouponsForMultipleRecipientsAsyncWithHttpInfo($applicationId, $campaignId, $newCouponsForMultipleRecipients, $silent)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1987,20 +1985,20 @@ class ManagementApi
     /**
      * Operation createCouponsForMultipleRecipientsAsyncWithHttpInfo
      *
-     * Create Coupons for Multiple Recipients
+     * Create coupons for multiple recipients
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\NewCouponsForMultipleRecipients $body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
+     * @param  \TalonOne\Client\Model\NewCouponsForMultipleRecipients $newCouponsForMultipleRecipients (required)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponsForMultipleRecipientsAsyncWithHttpInfo($applicationId, $campaignId, $body, $silent = null)
+    public function createCouponsForMultipleRecipientsAsyncWithHttpInfo($applicationId, $campaignId, $newCouponsForMultipleRecipients, $silent = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2004';
-        $request = $this->createCouponsForMultipleRecipientsRequest($applicationId, $campaignId, $body, $silent);
+        $request = $this->createCouponsForMultipleRecipientsRequest($applicationId, $campaignId, $newCouponsForMultipleRecipients, $silent);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2041,13 +2039,13 @@ class ManagementApi
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\NewCouponsForMultipleRecipients $body (required)
-     * @param  string $silent If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
+     * @param  \TalonOne\Client\Model\NewCouponsForMultipleRecipients $newCouponsForMultipleRecipients (required)
+     * @param  string $silent If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCouponsForMultipleRecipientsRequest($applicationId, $campaignId, $body, $silent = null)
+    protected function createCouponsForMultipleRecipientsRequest($applicationId, $campaignId, $newCouponsForMultipleRecipients, $silent = null)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -2061,10 +2059,10 @@ class ManagementApi
                 'Missing the required parameter $campaignId when calling createCouponsForMultipleRecipients'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'newCouponsForMultipleRecipients' is set
+        if ($newCouponsForMultipleRecipients === null || (is_array($newCouponsForMultipleRecipients) && count($newCouponsForMultipleRecipients) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling createCouponsForMultipleRecipients'
+                'Missing the required parameter $newCouponsForMultipleRecipients when calling createCouponsForMultipleRecipients'
             );
         }
 
@@ -2076,11 +2074,15 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($silent)) {
-            $silent = ObjectSerializer::serializeCollection($silent, '', true);
-        }
         if ($silent !== null) {
-            $queryParams['silent'] = $silent;
+            if('form' === 'form' && is_array($silent)) {
+                foreach($silent as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['silent'] = $silent;
+            }
         }
 
 
@@ -2103,8 +2105,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($newCouponsForMultipleRecipients)) {
+            $_tempBody = $newCouponsForMultipleRecipients;
         }
 
         if ($multipart) {
@@ -2147,10 +2149,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -2178,15 +2179,15 @@ class ManagementApi
      *
      * Request a password reset
      *
-     * @param  \TalonOne\Client\Model\NewPasswordEmail $body body (required)
+     * @param  \TalonOne\Client\Model\NewPasswordEmail $newPasswordEmail newPasswordEmail (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\NewPasswordEmail
      */
-    public function createPasswordRecoveryEmail($body)
+    public function createPasswordRecoveryEmail($newPasswordEmail)
     {
-        list($response) = $this->createPasswordRecoveryEmailWithHttpInfo($body);
+        list($response) = $this->createPasswordRecoveryEmailWithHttpInfo($newPasswordEmail);
         return $response;
     }
 
@@ -2195,15 +2196,15 @@ class ManagementApi
      *
      * Request a password reset
      *
-     * @param  \TalonOne\Client\Model\NewPasswordEmail $body (required)
+     * @param  \TalonOne\Client\Model\NewPasswordEmail $newPasswordEmail (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\NewPasswordEmail, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPasswordRecoveryEmailWithHttpInfo($body)
+    public function createPasswordRecoveryEmailWithHttpInfo($newPasswordEmail)
     {
-        $request = $this->createPasswordRecoveryEmailRequest($body);
+        $request = $this->createPasswordRecoveryEmailRequest($newPasswordEmail);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2283,14 +2284,14 @@ class ManagementApi
      *
      * Request a password reset
      *
-     * @param  \TalonOne\Client\Model\NewPasswordEmail $body (required)
+     * @param  \TalonOne\Client\Model\NewPasswordEmail $newPasswordEmail (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPasswordRecoveryEmailAsync($body)
+    public function createPasswordRecoveryEmailAsync($newPasswordEmail)
     {
-        return $this->createPasswordRecoveryEmailAsyncWithHttpInfo($body)
+        return $this->createPasswordRecoveryEmailAsyncWithHttpInfo($newPasswordEmail)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2303,15 +2304,15 @@ class ManagementApi
      *
      * Request a password reset
      *
-     * @param  \TalonOne\Client\Model\NewPasswordEmail $body (required)
+     * @param  \TalonOne\Client\Model\NewPasswordEmail $newPasswordEmail (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPasswordRecoveryEmailAsyncWithHttpInfo($body)
+    public function createPasswordRecoveryEmailAsyncWithHttpInfo($newPasswordEmail)
     {
         $returnType = '\TalonOne\Client\Model\NewPasswordEmail';
-        $request = $this->createPasswordRecoveryEmailRequest($body);
+        $request = $this->createPasswordRecoveryEmailRequest($newPasswordEmail);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2350,17 +2351,17 @@ class ManagementApi
     /**
      * Create request for operation 'createPasswordRecoveryEmail'
      *
-     * @param  \TalonOne\Client\Model\NewPasswordEmail $body (required)
+     * @param  \TalonOne\Client\Model\NewPasswordEmail $newPasswordEmail (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPasswordRecoveryEmailRequest($body)
+    protected function createPasswordRecoveryEmailRequest($newPasswordEmail)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'newPasswordEmail' is set
+        if ($newPasswordEmail === null || (is_array($newPasswordEmail) && count($newPasswordEmail) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling createPasswordRecoveryEmail'
+                'Missing the required parameter $newPasswordEmail when calling createPasswordRecoveryEmail'
             );
         }
 
@@ -2376,8 +2377,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($newPasswordEmail)) {
+            $_tempBody = $newPasswordEmail;
         }
 
         if ($multipart) {
@@ -2420,10 +2421,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -2449,38 +2449,38 @@ class ManagementApi
     /**
      * Operation createRuleset
      *
-     * Create a Ruleset
+     * Create ruleset
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
-     * @param  \TalonOne\Client\Model\NewRuleset $body body (required)
+     * @param  \TalonOne\Client\Model\NewRuleset $newRuleset newRuleset (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Ruleset
      */
-    public function createRuleset($applicationId, $campaignId, $body)
+    public function createRuleset($applicationId, $campaignId, $newRuleset)
     {
-        list($response) = $this->createRulesetWithHttpInfo($applicationId, $campaignId, $body);
+        list($response) = $this->createRulesetWithHttpInfo($applicationId, $campaignId, $newRuleset);
         return $response;
     }
 
     /**
      * Operation createRulesetWithHttpInfo
      *
-     * Create a Ruleset
+     * Create ruleset
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\NewRuleset $body (required)
+     * @param  \TalonOne\Client\Model\NewRuleset $newRuleset (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Ruleset, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRulesetWithHttpInfo($applicationId, $campaignId, $body)
+    public function createRulesetWithHttpInfo($applicationId, $campaignId, $newRuleset)
     {
-        $request = $this->createRulesetRequest($applicationId, $campaignId, $body);
+        $request = $this->createRulesetRequest($applicationId, $campaignId, $newRuleset);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2558,18 +2558,18 @@ class ManagementApi
     /**
      * Operation createRulesetAsync
      *
-     * Create a Ruleset
+     * Create ruleset
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\NewRuleset $body (required)
+     * @param  \TalonOne\Client\Model\NewRuleset $newRuleset (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRulesetAsync($applicationId, $campaignId, $body)
+    public function createRulesetAsync($applicationId, $campaignId, $newRuleset)
     {
-        return $this->createRulesetAsyncWithHttpInfo($applicationId, $campaignId, $body)
+        return $this->createRulesetAsyncWithHttpInfo($applicationId, $campaignId, $newRuleset)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2580,19 +2580,19 @@ class ManagementApi
     /**
      * Operation createRulesetAsyncWithHttpInfo
      *
-     * Create a Ruleset
+     * Create ruleset
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\NewRuleset $body (required)
+     * @param  \TalonOne\Client\Model\NewRuleset $newRuleset (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRulesetAsyncWithHttpInfo($applicationId, $campaignId, $body)
+    public function createRulesetAsyncWithHttpInfo($applicationId, $campaignId, $newRuleset)
     {
         $returnType = '\TalonOne\Client\Model\Ruleset';
-        $request = $this->createRulesetRequest($applicationId, $campaignId, $body);
+        $request = $this->createRulesetRequest($applicationId, $campaignId, $newRuleset);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2633,12 +2633,12 @@ class ManagementApi
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\NewRuleset $body (required)
+     * @param  \TalonOne\Client\Model\NewRuleset $newRuleset (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createRulesetRequest($applicationId, $campaignId, $body)
+    protected function createRulesetRequest($applicationId, $campaignId, $newRuleset)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -2652,10 +2652,10 @@ class ManagementApi
                 'Missing the required parameter $campaignId when calling createRuleset'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'newRuleset' is set
+        if ($newRuleset === null || (is_array($newRuleset) && count($newRuleset) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling createRuleset'
+                'Missing the required parameter $newRuleset when calling createRuleset'
             );
         }
 
@@ -2687,8 +2687,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($newRuleset)) {
+            $_tempBody = $newRuleset;
         }
 
         if ($multipart) {
@@ -2731,10 +2731,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -2760,34 +2759,34 @@ class ManagementApi
     /**
      * Operation createSession
      *
-     * Create a Session
+     * Create session
      *
-     * @param  \TalonOne\Client\Model\LoginParams $body body (required)
+     * @param  \TalonOne\Client\Model\LoginParams $loginParams loginParams (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Session
      */
-    public function createSession($body)
+    public function createSession($loginParams)
     {
-        list($response) = $this->createSessionWithHttpInfo($body);
+        list($response) = $this->createSessionWithHttpInfo($loginParams);
         return $response;
     }
 
     /**
      * Operation createSessionWithHttpInfo
      *
-     * Create a Session
+     * Create session
      *
-     * @param  \TalonOne\Client\Model\LoginParams $body (required)
+     * @param  \TalonOne\Client\Model\LoginParams $loginParams (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Session, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSessionWithHttpInfo($body)
+    public function createSessionWithHttpInfo($loginParams)
     {
-        $request = $this->createSessionRequest($body);
+        $request = $this->createSessionRequest($loginParams);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2865,16 +2864,16 @@ class ManagementApi
     /**
      * Operation createSessionAsync
      *
-     * Create a Session
+     * Create session
      *
-     * @param  \TalonOne\Client\Model\LoginParams $body (required)
+     * @param  \TalonOne\Client\Model\LoginParams $loginParams (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSessionAsync($body)
+    public function createSessionAsync($loginParams)
     {
-        return $this->createSessionAsyncWithHttpInfo($body)
+        return $this->createSessionAsyncWithHttpInfo($loginParams)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2885,17 +2884,17 @@ class ManagementApi
     /**
      * Operation createSessionAsyncWithHttpInfo
      *
-     * Create a Session
+     * Create session
      *
-     * @param  \TalonOne\Client\Model\LoginParams $body (required)
+     * @param  \TalonOne\Client\Model\LoginParams $loginParams (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSessionAsyncWithHttpInfo($body)
+    public function createSessionAsyncWithHttpInfo($loginParams)
     {
         $returnType = '\TalonOne\Client\Model\Session';
-        $request = $this->createSessionRequest($body);
+        $request = $this->createSessionRequest($loginParams);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2934,17 +2933,17 @@ class ManagementApi
     /**
      * Create request for operation 'createSession'
      *
-     * @param  \TalonOne\Client\Model\LoginParams $body (required)
+     * @param  \TalonOne\Client\Model\LoginParams $loginParams (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createSessionRequest($body)
+    protected function createSessionRequest($loginParams)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'loginParams' is set
+        if ($loginParams === null || (is_array($loginParams) && count($loginParams) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling createSession'
+                'Missing the required parameter $loginParams when calling createSession'
             );
         }
 
@@ -2960,8 +2959,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($loginParams)) {
+            $_tempBody = $loginParams;
         }
 
         if ($multipart) {
@@ -3004,11 +3003,6 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -3033,7 +3027,7 @@ class ManagementApi
     /**
      * Operation deleteCampaign
      *
-     * Delete a Campaign
+     * Delete campaign
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
@@ -3050,7 +3044,7 @@ class ManagementApi
     /**
      * Operation deleteCampaignWithHttpInfo
      *
-     * Delete a Campaign
+     * Delete campaign
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -3103,7 +3097,7 @@ class ManagementApi
     /**
      * Operation deleteCampaignAsync
      *
-     * Delete a Campaign
+     * Delete campaign
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -3124,7 +3118,7 @@ class ManagementApi
     /**
      * Operation deleteCampaignAsyncWithHttpInfo
      *
-     * Delete a Campaign
+     * Delete campaign
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -3253,10 +3247,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -3282,7 +3275,7 @@ class ManagementApi
     /**
      * Operation deleteCoupon
      *
-     * Delete one Coupon
+     * Delete coupon
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
@@ -3300,7 +3293,7 @@ class ManagementApi
     /**
      * Operation deleteCouponWithHttpInfo
      *
-     * Delete one Coupon
+     * Delete coupon
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -3354,7 +3347,7 @@ class ManagementApi
     /**
      * Operation deleteCouponAsync
      *
-     * Delete one Coupon
+     * Delete coupon
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -3376,7 +3369,7 @@ class ManagementApi
     /**
      * Operation deleteCouponAsyncWithHttpInfo
      *
-     * Delete one Coupon
+     * Delete coupon
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -3521,11 +3514,6 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -3550,7 +3538,7 @@ class ManagementApi
     /**
      * Operation deleteCoupons
      *
-     * Delete Coupons
+     * Delete coupons
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
@@ -3580,7 +3568,7 @@ class ManagementApi
     /**
      * Operation deleteCouponsWithHttpInfo
      *
-     * Delete Coupons
+     * Delete coupons
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -3646,7 +3634,7 @@ class ManagementApi
     /**
      * Operation deleteCouponsAsync
      *
-     * Delete Coupons
+     * Delete coupons
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -3680,7 +3668,7 @@ class ManagementApi
     /**
      * Operation deleteCouponsAsyncWithHttpInfo
      *
-     * Delete Coupons
+     * Delete coupons
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -3774,95 +3762,147 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($value)) {
-            $value = ObjectSerializer::serializeCollection($value, '', true);
-        }
         if ($value !== null) {
-            $queryParams['value'] = $value;
+            if('form' === 'form' && is_array($value)) {
+                foreach($value as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['value'] = $value;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($startsAfter)) {
-            $startsAfter = ObjectSerializer::serializeCollection($startsAfter, '', true);
-        }
         if ($startsAfter !== null) {
-            $queryParams['startsAfter'] = $startsAfter;
+            if('form' === 'form' && is_array($startsAfter)) {
+                foreach($startsAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['startsAfter'] = $startsAfter;
+            }
         }
         // query params
-        if (is_array($startsBefore)) {
-            $startsBefore = ObjectSerializer::serializeCollection($startsBefore, '', true);
-        }
         if ($startsBefore !== null) {
-            $queryParams['startsBefore'] = $startsBefore;
+            if('form' === 'form' && is_array($startsBefore)) {
+                foreach($startsBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['startsBefore'] = $startsBefore;
+            }
         }
         // query params
-        if (is_array($expiresAfter)) {
-            $expiresAfter = ObjectSerializer::serializeCollection($expiresAfter, '', true);
-        }
         if ($expiresAfter !== null) {
-            $queryParams['expiresAfter'] = $expiresAfter;
+            if('form' === 'form' && is_array($expiresAfter)) {
+                foreach($expiresAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['expiresAfter'] = $expiresAfter;
+            }
         }
         // query params
-        if (is_array($expiresBefore)) {
-            $expiresBefore = ObjectSerializer::serializeCollection($expiresBefore, '', true);
-        }
         if ($expiresBefore !== null) {
-            $queryParams['expiresBefore'] = $expiresBefore;
+            if('form' === 'form' && is_array($expiresBefore)) {
+                foreach($expiresBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['expiresBefore'] = $expiresBefore;
+            }
         }
         // query params
-        if (is_array($valid)) {
-            $valid = ObjectSerializer::serializeCollection($valid, '', true);
-        }
         if ($valid !== null) {
-            $queryParams['valid'] = $valid;
+            if('form' === 'form' && is_array($valid)) {
+                foreach($valid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['valid'] = $valid;
+            }
         }
         // query params
-        if (is_array($batchId)) {
-            $batchId = ObjectSerializer::serializeCollection($batchId, '', true);
-        }
         if ($batchId !== null) {
-            $queryParams['batchId'] = $batchId;
+            if('form' === 'form' && is_array($batchId)) {
+                foreach($batchId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['batchId'] = $batchId;
+            }
         }
         // query params
-        if (is_array($usable)) {
-            $usable = ObjectSerializer::serializeCollection($usable, '', true);
-        }
         if ($usable !== null) {
-            $queryParams['usable'] = $usable;
+            if('form' === 'form' && is_array($usable)) {
+                foreach($usable as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['usable'] = $usable;
+            }
         }
         // query params
-        if (is_array($referralId)) {
-            $referralId = ObjectSerializer::serializeCollection($referralId, '', true);
-        }
         if ($referralId !== null) {
-            $queryParams['referralId'] = $referralId;
+            if('form' === 'form' && is_array($referralId)) {
+                foreach($referralId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referralId'] = $referralId;
+            }
         }
         // query params
-        if (is_array($recipientIntegrationId)) {
-            $recipientIntegrationId = ObjectSerializer::serializeCollection($recipientIntegrationId, '', true);
-        }
         if ($recipientIntegrationId !== null) {
-            $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            if('form' === 'form' && is_array($recipientIntegrationId)) {
+                foreach($recipientIntegrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            }
         }
         // query params
-        if (is_array($exactMatch)) {
-            $exactMatch = ObjectSerializer::serializeCollection($exactMatch, '', true);
-        }
         if ($exactMatch !== null) {
-            $queryParams['exactMatch'] = $exactMatch;
+            if('form' === 'form' && is_array($exactMatch)) {
+                foreach($exactMatch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['exactMatch'] = $exactMatch;
+            }
         }
 
 
@@ -3926,10 +3966,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -3955,7 +3994,7 @@ class ManagementApi
     /**
      * Operation deleteReferral
      *
-     * Delete one Referral
+     * Delete referral
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
@@ -3973,7 +4012,7 @@ class ManagementApi
     /**
      * Operation deleteReferralWithHttpInfo
      *
-     * Delete one Referral
+     * Delete referral
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -4027,7 +4066,7 @@ class ManagementApi
     /**
      * Operation deleteReferralAsync
      *
-     * Delete one Referral
+     * Delete referral
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -4049,7 +4088,7 @@ class ManagementApi
     /**
      * Operation deleteReferralAsyncWithHttpInfo
      *
-     * Delete one Referral
+     * Delete referral
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -4194,10 +4233,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -4223,7 +4261,7 @@ class ManagementApi
     /**
      * Operation deleteRuleset
      *
-     * Delete a Ruleset
+     * Delete ruleset
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
@@ -4241,7 +4279,7 @@ class ManagementApi
     /**
      * Operation deleteRulesetWithHttpInfo
      *
-     * Delete a Ruleset
+     * Delete ruleset
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -4295,7 +4333,7 @@ class ManagementApi
     /**
      * Operation deleteRulesetAsync
      *
-     * Delete a Ruleset
+     * Delete ruleset
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -4317,7 +4355,7 @@ class ManagementApi
     /**
      * Operation deleteRulesetAsyncWithHttpInfo
      *
-     * Delete a Ruleset
+     * Delete ruleset
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -4462,221 +4500,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation destroySession
-     *
-     * Destroy a Session
-     *
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function destroySession()
-    {
-        $this->destroySessionWithHttpInfo();
-    }
-
-    /**
-     * Operation destroySessionWithHttpInfo
-     *
-     * Destroy a Session
-     *
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function destroySessionWithHttpInfo()
-    {
-        $request = $this->destroySessionRequest();
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation destroySessionAsync
-     *
-     * Destroy a Session
-     *
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function destroySessionAsync()
-    {
-        return $this->destroySessionAsyncWithHttpInfo()
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation destroySessionAsyncWithHttpInfo
-     *
-     * Destroy a Session
-     *
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function destroySessionAsyncWithHttpInfo()
-    {
-        $returnType = '';
-        $request = $this->destroySessionRequest();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'destroySession'
-     *
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function destroySessionRequest()
-    {
-
-        $resourcePath = '/v1/sessions';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -4702,11 +4528,11 @@ class ManagementApi
     /**
      * Operation exportCoupons
      *
-     * Export Coupons to a CSV file
+     * Export coupons to a CSV file
      *
      * @param  int $applicationId applicationId (required)
      * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -4732,11 +4558,11 @@ class ManagementApi
     /**
      * Operation exportCouponsWithHttpInfo
      *
-     * Export Coupons to a CSV file
+     * Export coupons to a CSV file
      *
      * @param  int $applicationId (required)
      * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -4833,11 +4659,11 @@ class ManagementApi
     /**
      * Operation exportCouponsAsync
      *
-     * Export Coupons to a CSV file
+     * Export coupons to a CSV file
      *
      * @param  int $applicationId (required)
      * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -4866,11 +4692,11 @@ class ManagementApi
     /**
      * Operation exportCouponsAsyncWithHttpInfo
      *
-     * Export Coupons to a CSV file
+     * Export coupons to a CSV file
      *
      * @param  int $applicationId (required)
      * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -4930,7 +4756,7 @@ class ManagementApi
      *
      * @param  int $applicationId (required)
      * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -4963,95 +4789,147 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($campaignId)) {
-            $campaignId = ObjectSerializer::serializeCollection($campaignId, '', true);
-        }
         if ($campaignId !== null) {
-            $queryParams['campaignId'] = $campaignId;
+            if('form' === 'form' && is_array($campaignId)) {
+                foreach($campaignId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignId'] = $campaignId;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($value)) {
-            $value = ObjectSerializer::serializeCollection($value, '', true);
-        }
         if ($value !== null) {
-            $queryParams['value'] = $value;
+            if('form' === 'form' && is_array($value)) {
+                foreach($value as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['value'] = $value;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($valid)) {
-            $valid = ObjectSerializer::serializeCollection($valid, '', true);
-        }
         if ($valid !== null) {
-            $queryParams['valid'] = $valid;
+            if('form' === 'form' && is_array($valid)) {
+                foreach($valid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['valid'] = $valid;
+            }
         }
         // query params
-        if (is_array($usable)) {
-            $usable = ObjectSerializer::serializeCollection($usable, '', true);
-        }
         if ($usable !== null) {
-            $queryParams['usable'] = $usable;
+            if('form' === 'form' && is_array($usable)) {
+                foreach($usable as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['usable'] = $usable;
+            }
         }
         // query params
-        if (is_array($referralId)) {
-            $referralId = ObjectSerializer::serializeCollection($referralId, '', true);
-        }
         if ($referralId !== null) {
-            $queryParams['referralId'] = $referralId;
+            if('form' === 'form' && is_array($referralId)) {
+                foreach($referralId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referralId'] = $referralId;
+            }
         }
         // query params
-        if (is_array($recipientIntegrationId)) {
-            $recipientIntegrationId = ObjectSerializer::serializeCollection($recipientIntegrationId, '', true);
-        }
         if ($recipientIntegrationId !== null) {
-            $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            if('form' === 'form' && is_array($recipientIntegrationId)) {
+                foreach($recipientIntegrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            }
         }
         // query params
-        if (is_array($batchId)) {
-            $batchId = ObjectSerializer::serializeCollection($batchId, '', true);
-        }
         if ($batchId !== null) {
-            $queryParams['batchId'] = $batchId;
+            if('form' === 'form' && is_array($batchId)) {
+                foreach($batchId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['batchId'] = $batchId;
+            }
         }
         // query params
-        if (is_array($exactMatch)) {
-            $exactMatch = ObjectSerializer::serializeCollection($exactMatch, '', true);
-        }
         if ($exactMatch !== null) {
-            $queryParams['exactMatch'] = $exactMatch;
+            if('form' === 'form' && is_array($exactMatch)) {
+                foreach($exactMatch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['exactMatch'] = $exactMatch;
+            }
         }
         // query params
-        if (is_array($dateFormat)) {
-            $dateFormat = ObjectSerializer::serializeCollection($dateFormat, '', true);
-        }
         if ($dateFormat !== null) {
-            $queryParams['dateFormat'] = $dateFormat;
+            if('form' === 'form' && is_array($dateFormat)) {
+                foreach($dateFormat as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['dateFormat'] = $dateFormat;
+            }
         }
         // query params
-        if (is_array($campaignState)) {
-            $campaignState = ObjectSerializer::serializeCollection($campaignState, '', true);
-        }
         if ($campaignState !== null) {
-            $queryParams['campaignState'] = $campaignState;
+            if('form' === 'form' && is_array($campaignState)) {
+                foreach($campaignState as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignState'] = $campaignState;
+            }
         }
 
 
@@ -5069,11 +4947,11 @@ class ManagementApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/csv']
+                ['text/csv']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/csv'],
+                ['text/csv'],
                 []
             );
         }
@@ -5107,10 +4985,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -5357,39 +5234,59 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($profileIntegrationId)) {
-            $profileIntegrationId = ObjectSerializer::serializeCollection($profileIntegrationId, '', true);
-        }
         if ($profileIntegrationId !== null) {
-            $queryParams['profileIntegrationId'] = $profileIntegrationId;
+            if('form' === 'form' && is_array($profileIntegrationId)) {
+                foreach($profileIntegrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['profileIntegrationId'] = $profileIntegrationId;
+            }
         }
         // query params
-        if (is_array($dateFormat)) {
-            $dateFormat = ObjectSerializer::serializeCollection($dateFormat, '', true);
-        }
         if ($dateFormat !== null) {
-            $queryParams['dateFormat'] = $dateFormat;
+            if('form' === 'form' && is_array($dateFormat)) {
+                foreach($dateFormat as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['dateFormat'] = $dateFormat;
+            }
         }
         // query params
-        if (is_array($customerSessionState)) {
-            $customerSessionState = ObjectSerializer::serializeCollection($customerSessionState, '', true);
-        }
         if ($customerSessionState !== null) {
-            $queryParams['customerSessionState'] = $customerSessionState;
+            if('form' === 'form' && is_array($customerSessionState)) {
+                foreach($customerSessionState as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['customerSessionState'] = $customerSessionState;
+            }
         }
 
 
@@ -5407,11 +5304,11 @@ class ManagementApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/csv']
+                ['text/csv']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/csv'],
+                ['text/csv'],
                 []
             );
         }
@@ -5445,10 +5342,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -5690,32 +5586,48 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($campaignId)) {
-            $campaignId = ObjectSerializer::serializeCollection($campaignId, '', true);
-        }
         if ($campaignId !== null) {
-            $queryParams['campaignId'] = $campaignId;
+            if('form' === 'form' && is_array($campaignId)) {
+                foreach($campaignId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignId'] = $campaignId;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($dateFormat)) {
-            $dateFormat = ObjectSerializer::serializeCollection($dateFormat, '', true);
-        }
         if ($dateFormat !== null) {
-            $queryParams['dateFormat'] = $dateFormat;
+            if('form' === 'form' && is_array($dateFormat)) {
+                foreach($dateFormat as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['dateFormat'] = $dateFormat;
+            }
         }
 
 
@@ -5733,11 +5645,11 @@ class ManagementApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/csv']
+                ['text/csv']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/csv'],
+                ['text/csv'],
                 []
             );
         }
@@ -5771,10 +5683,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -5802,7 +5713,7 @@ class ManagementApi
      *
      * Export customer loyalty balance to a CSV file
      *
-     * @param  string $programID programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5819,7 +5730,7 @@ class ManagementApi
      *
      * Export customer loyalty balance to a CSV file
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5907,7 +5818,7 @@ class ManagementApi
      *
      * Export customer loyalty balance to a CSV file
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5927,7 +5838,7 @@ class ManagementApi
      *
      * Export customer loyalty balance to a CSV file
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5974,7 +5885,7 @@ class ManagementApi
     /**
      * Create request for operation 'exportLoyaltyBalance'
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6011,11 +5922,11 @@ class ManagementApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/csv']
+                ['text/csv']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/csv'],
+                ['text/csv'],
                 []
             );
         }
@@ -6049,10 +5960,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -6080,19 +5990,19 @@ class ManagementApi
      *
      * Export a customer's loyalty ledger log to a CSV file
      *
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
+     * @param  string $integrationID integrationID (required)
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  string $programID programID (required)
-     * @param  string $integrationID integrationID (required)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function exportLoyaltyLedger($rangeStart, $rangeEnd, $programID, $integrationID, $dateFormat = null)
+    public function exportLoyaltyLedger($programID, $integrationID, $rangeStart, $rangeEnd, $dateFormat = null)
     {
-        list($response) = $this->exportLoyaltyLedgerWithHttpInfo($rangeStart, $rangeEnd, $programID, $integrationID, $dateFormat);
+        list($response) = $this->exportLoyaltyLedgerWithHttpInfo($programID, $integrationID, $rangeStart, $rangeEnd, $dateFormat);
         return $response;
     }
 
@@ -6101,19 +6011,19 @@ class ManagementApi
      *
      * Export a customer's loyalty ledger log to a CSV file
      *
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
+     * @param  string $integrationID (required)
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  string $programID (required)
-     * @param  string $integrationID (required)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function exportLoyaltyLedgerWithHttpInfo($rangeStart, $rangeEnd, $programID, $integrationID, $dateFormat = null)
+    public function exportLoyaltyLedgerWithHttpInfo($programID, $integrationID, $rangeStart, $rangeEnd, $dateFormat = null)
     {
-        $request = $this->exportLoyaltyLedgerRequest($rangeStart, $rangeEnd, $programID, $integrationID, $dateFormat);
+        $request = $this->exportLoyaltyLedgerRequest($programID, $integrationID, $rangeStart, $rangeEnd, $dateFormat);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6193,18 +6103,18 @@ class ManagementApi
      *
      * Export a customer's loyalty ledger log to a CSV file
      *
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
+     * @param  string $integrationID (required)
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  string $programID (required)
-     * @param  string $integrationID (required)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function exportLoyaltyLedgerAsync($rangeStart, $rangeEnd, $programID, $integrationID, $dateFormat = null)
+    public function exportLoyaltyLedgerAsync($programID, $integrationID, $rangeStart, $rangeEnd, $dateFormat = null)
     {
-        return $this->exportLoyaltyLedgerAsyncWithHttpInfo($rangeStart, $rangeEnd, $programID, $integrationID, $dateFormat)
+        return $this->exportLoyaltyLedgerAsyncWithHttpInfo($programID, $integrationID, $rangeStart, $rangeEnd, $dateFormat)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6217,19 +6127,19 @@ class ManagementApi
      *
      * Export a customer's loyalty ledger log to a CSV file
      *
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
+     * @param  string $integrationID (required)
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  string $programID (required)
-     * @param  string $integrationID (required)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function exportLoyaltyLedgerAsyncWithHttpInfo($rangeStart, $rangeEnd, $programID, $integrationID, $dateFormat = null)
+    public function exportLoyaltyLedgerAsyncWithHttpInfo($programID, $integrationID, $rangeStart, $rangeEnd, $dateFormat = null)
     {
         $returnType = 'string';
-        $request = $this->exportLoyaltyLedgerRequest($rangeStart, $rangeEnd, $programID, $integrationID, $dateFormat);
+        $request = $this->exportLoyaltyLedgerRequest($programID, $integrationID, $rangeStart, $rangeEnd, $dateFormat);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6268,29 +6178,17 @@ class ManagementApi
     /**
      * Create request for operation 'exportLoyaltyLedger'
      *
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
+     * @param  string $integrationID (required)
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  string $programID (required)
-     * @param  string $integrationID (required)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function exportLoyaltyLedgerRequest($rangeStart, $rangeEnd, $programID, $integrationID, $dateFormat = null)
+    protected function exportLoyaltyLedgerRequest($programID, $integrationID, $rangeStart, $rangeEnd, $dateFormat = null)
     {
-        // verify the required parameter 'rangeStart' is set
-        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $rangeStart when calling exportLoyaltyLedger'
-            );
-        }
-        // verify the required parameter 'rangeEnd' is set
-        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $rangeEnd when calling exportLoyaltyLedger'
-            );
-        }
         // verify the required parameter 'programID' is set
         if ($programID === null || (is_array($programID) && count($programID) === 0)) {
             throw new \InvalidArgumentException(
@@ -6303,6 +6201,18 @@ class ManagementApi
                 'Missing the required parameter $integrationID when calling exportLoyaltyLedger'
             );
         }
+        // verify the required parameter 'rangeStart' is set
+        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $rangeStart when calling exportLoyaltyLedger'
+            );
+        }
+        // verify the required parameter 'rangeEnd' is set
+        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $rangeEnd when calling exportLoyaltyLedger'
+            );
+        }
 
         $resourcePath = '/v1/loyalty_programs/{programID}/profile/{integrationID}/export_log';
         $formParams = [];
@@ -6312,25 +6222,37 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($rangeStart)) {
-            $rangeStart = ObjectSerializer::serializeCollection($rangeStart, '', true);
-        }
         if ($rangeStart !== null) {
-            $queryParams['rangeStart'] = $rangeStart;
+            if('form' === 'form' && is_array($rangeStart)) {
+                foreach($rangeStart as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeStart'] = $rangeStart;
+            }
         }
         // query params
-        if (is_array($rangeEnd)) {
-            $rangeEnd = ObjectSerializer::serializeCollection($rangeEnd, '', true);
-        }
         if ($rangeEnd !== null) {
-            $queryParams['rangeEnd'] = $rangeEnd;
+            if('form' === 'form' && is_array($rangeEnd)) {
+                foreach($rangeEnd as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeEnd'] = $rangeEnd;
+            }
         }
         // query params
-        if (is_array($dateFormat)) {
-            $dateFormat = ObjectSerializer::serializeCollection($dateFormat, '', true);
-        }
         if ($dateFormat !== null) {
-            $queryParams['dateFormat'] = $dateFormat;
+            if('form' === 'form' && is_array($dateFormat)) {
+                foreach($dateFormat as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['dateFormat'] = $dateFormat;
+            }
         }
 
 
@@ -6356,11 +6278,11 @@ class ManagementApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/csv']
+                ['text/csv']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/csv'],
+                ['text/csv'],
                 []
             );
         }
@@ -6394,10 +6316,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -6433,11 +6354,11 @@ class ManagementApi
      * @param  string $status Filter results by HTTP status codes. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2009
+     * @return \TalonOne\Client\Model\InlineResponse2008
      */
     public function getAccessLogs($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
@@ -6458,15 +6379,439 @@ class ManagementApi
      * @param  string $status Filter results by HTTP status codes. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse2008, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAccessLogsWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
+    {
+        $request = $this->getAccessLogsRequest($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse2008' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2008', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse2008';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse2008',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAccessLogsAsync
+     *
+     * Get access logs for application (with total count)
+     *
+     * @param  int $applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
+     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
+     * @param  string $status Filter results by HTTP status codes. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAccessLogsAsync($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
+    {
+        return $this->getAccessLogsAsyncWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAccessLogsAsyncWithHttpInfo
+     *
+     * Get access logs for application (with total count)
+     *
+     * @param  int $applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
+     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
+     * @param  string $status Filter results by HTTP status codes. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAccessLogsAsyncWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse2008';
+        $request = $this->getAccessLogsRequest($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAccessLogs'
+     *
+     * @param  int $applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
+     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
+     * @param  string $status Filter results by HTTP status codes. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAccessLogsRequest($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling getAccessLogs'
+            );
+        }
+        // verify the required parameter 'rangeStart' is set
+        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $rangeStart when calling getAccessLogs'
+            );
+        }
+        // verify the required parameter 'rangeEnd' is set
+        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $rangeEnd when calling getAccessLogs'
+            );
+        }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAccessLogs, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAccessLogs, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/v1/applications/{applicationId}/access_logs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($path !== null) {
+            if('form' === 'form' && is_array($path)) {
+                foreach($path as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['path'] = $path;
+            }
+        }
+        // query params
+        if ($method !== null) {
+            if('form' === 'form' && is_array($method)) {
+                foreach($method as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['method'] = $method;
+            }
+        }
+        // query params
+        if ($status !== null) {
+            if('form' === 'form' && is_array($status)) {
+                foreach($status as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['status'] = $status;
+            }
+        }
+        // query params
+        if ($rangeStart !== null) {
+            if('form' === 'form' && is_array($rangeStart)) {
+                foreach($rangeStart as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeStart'] = $rangeStart;
+            }
+        }
+        // query params
+        if ($rangeEnd !== null) {
+            if('form' === 'form' && is_array($rangeEnd)) {
+                foreach($rangeEnd as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeEnd'] = $rangeEnd;
+            }
+        }
+        // query params
+        if ($pageSize !== null) {
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
+        }
+        // query params
+        if ($skip !== null) {
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
+        }
+        // query params
+        if ($sort !== null) {
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
+        }
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAccessLogsWithoutTotalCount
+     *
+     * Get access logs for application
+     *
+     * @param  int $applicationId applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
+     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
+     * @param  string $status Filter results by HTTP status codes. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort sort (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse2009
+     */
+    public function getAccessLogsWithoutTotalCount($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
+    {
+        list($response) = $this->getAccessLogsWithoutTotalCountWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
+        return $response;
+    }
+
+    /**
+     * Operation getAccessLogsWithoutTotalCountWithHttpInfo
+     *
+     * Get access logs for application
+     *
+     * @param  int $applicationId (required)
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
+     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
+     * @param  string $status Filter results by HTTP status codes. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccessLogsWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
+    public function getAccessLogsWithoutTotalCountWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getAccessLogsRequest($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
+        $request = $this->getAccessLogsWithoutTotalCountRequest($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6542,392 +6887,6 @@ class ManagementApi
     }
 
     /**
-     * Operation getAccessLogsAsync
-     *
-     * Get access logs for application (with total count)
-     *
-     * @param  int $applicationId (required)
-     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
-     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAccessLogsAsync($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
-    {
-        return $this->getAccessLogsAsyncWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAccessLogsAsyncWithHttpInfo
-     *
-     * Get access logs for application (with total count)
-     *
-     * @param  int $applicationId (required)
-     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
-     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAccessLogsAsyncWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
-    {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2009';
-        $request = $this->getAccessLogsRequest($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAccessLogs'
-     *
-     * @param  int $applicationId (required)
-     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
-     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getAccessLogsRequest($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
-    {
-        // verify the required parameter 'applicationId' is set
-        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $applicationId when calling getAccessLogs'
-            );
-        }
-        // verify the required parameter 'rangeStart' is set
-        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $rangeStart when calling getAccessLogs'
-            );
-        }
-        // verify the required parameter 'rangeEnd' is set
-        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $rangeEnd when calling getAccessLogs'
-            );
-        }
-
-        $resourcePath = '/v1/applications/{applicationId}/access_logs';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if (is_array($path)) {
-            $path = ObjectSerializer::serializeCollection($path, '', true);
-        }
-        if ($path !== null) {
-            $queryParams['path'] = $path;
-        }
-        // query params
-        if (is_array($method)) {
-            $method = ObjectSerializer::serializeCollection($method, '', true);
-        }
-        if ($method !== null) {
-            $queryParams['method'] = $method;
-        }
-        // query params
-        if (is_array($status)) {
-            $status = ObjectSerializer::serializeCollection($status, '', true);
-        }
-        if ($status !== null) {
-            $queryParams['status'] = $status;
-        }
-        // query params
-        if (is_array($rangeStart)) {
-            $rangeStart = ObjectSerializer::serializeCollection($rangeStart, '', true);
-        }
-        if ($rangeStart !== null) {
-            $queryParams['rangeStart'] = $rangeStart;
-        }
-        // query params
-        if (is_array($rangeEnd)) {
-            $rangeEnd = ObjectSerializer::serializeCollection($rangeEnd, '', true);
-        }
-        if ($rangeEnd !== null) {
-            $queryParams['rangeEnd'] = $rangeEnd;
-        }
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
-        if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
-        }
-        // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
-        if ($skip !== null) {
-            $queryParams['skip'] = $skip;
-        }
-        // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
-        if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-
-
-        // path params
-        if ($applicationId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($applicationId),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getAccessLogsWithoutTotalCount
-     *
-     * Get access logs for application
-     *
-     * @param  int $applicationId applicationId (required)
-     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
-     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20010
-     */
-    public function getAccessLogsWithoutTotalCount($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
-    {
-        list($response) = $this->getAccessLogsWithoutTotalCountWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
-        return $response;
-    }
-
-    /**
-     * Operation getAccessLogsWithoutTotalCountWithHttpInfo
-     *
-     * Get access logs for application
-     *
-     * @param  int $applicationId (required)
-     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
-     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20010, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAccessLogsWithoutTotalCountWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
-    {
-        $request = $this->getAccessLogsWithoutTotalCountRequest($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20010' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20010', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\InlineResponse20010';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20010',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
      * Operation getAccessLogsWithoutTotalCountAsync
      *
      * Get access logs for application
@@ -6940,7 +6899,7 @@ class ManagementApi
      * @param  string $status Filter results by HTTP status codes. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6968,14 +6927,14 @@ class ManagementApi
      * @param  string $status Filter results by HTTP status codes. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getAccessLogsWithoutTotalCountAsyncWithHttpInfo($applicationId, $rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20010';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2009';
         $request = $this->getAccessLogsWithoutTotalCountRequest($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
 
         return $this->client
@@ -7023,7 +6982,7 @@ class ManagementApi
      * @param  string $status Filter results by HTTP status codes. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7048,6 +7007,13 @@ class ManagementApi
                 'Missing the required parameter $rangeEnd when calling getAccessLogsWithoutTotalCount'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAccessLogsWithoutTotalCount, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAccessLogsWithoutTotalCount, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/access_logs/no_total';
         $formParams = [];
@@ -7057,60 +7023,92 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($path)) {
-            $path = ObjectSerializer::serializeCollection($path, '', true);
-        }
         if ($path !== null) {
-            $queryParams['path'] = $path;
+            if('form' === 'form' && is_array($path)) {
+                foreach($path as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['path'] = $path;
+            }
         }
         // query params
-        if (is_array($method)) {
-            $method = ObjectSerializer::serializeCollection($method, '', true);
-        }
         if ($method !== null) {
-            $queryParams['method'] = $method;
+            if('form' === 'form' && is_array($method)) {
+                foreach($method as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['method'] = $method;
+            }
         }
         // query params
-        if (is_array($status)) {
-            $status = ObjectSerializer::serializeCollection($status, '', true);
-        }
         if ($status !== null) {
-            $queryParams['status'] = $status;
+            if('form' === 'form' && is_array($status)) {
+                foreach($status as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['status'] = $status;
+            }
         }
         // query params
-        if (is_array($rangeStart)) {
-            $rangeStart = ObjectSerializer::serializeCollection($rangeStart, '', true);
-        }
         if ($rangeStart !== null) {
-            $queryParams['rangeStart'] = $rangeStart;
+            if('form' === 'form' && is_array($rangeStart)) {
+                foreach($rangeStart as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeStart'] = $rangeStart;
+            }
         }
         // query params
-        if (is_array($rangeEnd)) {
-            $rangeEnd = ObjectSerializer::serializeCollection($rangeEnd, '', true);
-        }
         if ($rangeEnd !== null) {
-            $queryParams['rangeEnd'] = $rangeEnd;
+            if('form' === 'form' && is_array($rangeEnd)) {
+                foreach($rangeEnd as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeEnd'] = $rangeEnd;
+            }
         }
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
 
 
@@ -7166,10 +7164,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -7444,10 +7441,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -7722,10 +7718,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -8000,10 +7995,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -8033,11 +8027,11 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20022
+     * @return \TalonOne\Client\Model\InlineResponse20021
      */
     public function getAdditionalCosts($pageSize = null, $skip = null, $sort = null)
     {
@@ -8052,11 +8046,11 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20022, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20021, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAdditionalCostsWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
@@ -8093,20 +8087,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20022' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20021' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20022', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20021', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20022';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20021';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -8125,7 +8119,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20022',
+                        '\TalonOne\Client\Model\InlineResponse20021',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8142,7 +8136,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8164,14 +8158,14 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getAdditionalCostsAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20022';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20021';
         $request = $this->getAdditionalCostsRequest($pageSize, $skip, $sort);
 
         return $this->client
@@ -8213,13 +8207,20 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     protected function getAdditionalCostsRequest($pageSize = null, $skip = null, $sort = null)
     {
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAdditionalCosts, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAdditionalCosts, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/additional_costs';
         $formParams = [];
@@ -8229,25 +8230,37 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
 
 
@@ -8295,10 +8308,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -8324,7 +8336,7 @@ class ManagementApi
     /**
      * Operation getAllAccessLogs
      *
-     * Get all access logs
+     * List access logs
      *
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
@@ -8333,11 +8345,11 @@ class ManagementApi
      * @param  string $status Filter results by HTTP status codes. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2009
+     * @return \TalonOne\Client\Model\InlineResponse2008
      */
     public function getAllAccessLogs($rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
@@ -8348,7 +8360,7 @@ class ManagementApi
     /**
      * Operation getAllAccessLogsWithHttpInfo
      *
-     * Get all access logs
+     * List access logs
      *
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
@@ -8357,11 +8369,11 @@ class ManagementApi
      * @param  string $status Filter results by HTTP status codes. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2008, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllAccessLogsWithHttpInfo($rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
@@ -8398,20 +8410,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2009' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2008' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2009', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2008', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2009';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2008';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -8430,7 +8442,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2009',
+                        '\TalonOne\Client\Model\InlineResponse2008',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8443,7 +8455,7 @@ class ManagementApi
     /**
      * Operation getAllAccessLogsAsync
      *
-     * Get all access logs
+     * List access logs
      *
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
@@ -8452,7 +8464,7 @@ class ManagementApi
      * @param  string $status Filter results by HTTP status codes. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8470,7 +8482,7 @@ class ManagementApi
     /**
      * Operation getAllAccessLogsAsyncWithHttpInfo
      *
-     * Get all access logs
+     * List access logs
      *
      * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
      * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
@@ -8479,14 +8491,14 @@ class ManagementApi
      * @param  string $status Filter results by HTTP status codes. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getAllAccessLogsAsyncWithHttpInfo($rangeStart, $rangeEnd, $path = null, $method = null, $status = null, $pageSize = null, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2009';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2008';
         $request = $this->getAllAccessLogsRequest($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
 
         return $this->client
@@ -8533,7 +8545,7 @@ class ManagementApi
      * @param  string $status Filter results by HTTP status codes. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8552,6 +8564,13 @@ class ManagementApi
                 'Missing the required parameter $rangeEnd when calling getAllAccessLogs'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAllAccessLogs, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAllAccessLogs, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/access_logs';
         $formParams = [];
@@ -8561,60 +8580,92 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($rangeStart)) {
-            $rangeStart = ObjectSerializer::serializeCollection($rangeStart, '', true);
-        }
         if ($rangeStart !== null) {
-            $queryParams['rangeStart'] = $rangeStart;
+            if('form' === 'form' && is_array($rangeStart)) {
+                foreach($rangeStart as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeStart'] = $rangeStart;
+            }
         }
         // query params
-        if (is_array($rangeEnd)) {
-            $rangeEnd = ObjectSerializer::serializeCollection($rangeEnd, '', true);
-        }
         if ($rangeEnd !== null) {
-            $queryParams['rangeEnd'] = $rangeEnd;
+            if('form' === 'form' && is_array($rangeEnd)) {
+                foreach($rangeEnd as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeEnd'] = $rangeEnd;
+            }
         }
         // query params
-        if (is_array($path)) {
-            $path = ObjectSerializer::serializeCollection($path, '', true);
-        }
         if ($path !== null) {
-            $queryParams['path'] = $path;
+            if('form' === 'form' && is_array($path)) {
+                foreach($path as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['path'] = $path;
+            }
         }
         // query params
-        if (is_array($method)) {
-            $method = ObjectSerializer::serializeCollection($method, '', true);
-        }
         if ($method !== null) {
-            $queryParams['method'] = $method;
+            if('form' === 'form' && is_array($method)) {
+                foreach($method as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['method'] = $method;
+            }
         }
         // query params
-        if (is_array($status)) {
-            $status = ObjectSerializer::serializeCollection($status, '', true);
-        }
         if ($status !== null) {
-            $queryParams['status'] = $status;
+            if('form' === 'form' && is_array($status)) {
+                foreach($status as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['status'] = $status;
+            }
         }
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
 
 
@@ -8662,10 +8713,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -8691,12 +8741,12 @@ class ManagementApi
     /**
      * Operation getAllRoles
      *
-     * Get all roles
+     * List roles
      *
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20030
+     * @return \TalonOne\Client\Model\InlineResponse20029
      */
     public function getAllRoles()
     {
@@ -8707,12 +8757,12 @@ class ManagementApi
     /**
      * Operation getAllRolesWithHttpInfo
      *
-     * Get all roles
+     * List roles
      *
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20030, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20029, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllRolesWithHttpInfo()
     {
@@ -8749,20 +8799,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20030' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20029' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20030', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20029', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20030';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20029';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -8781,7 +8831,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20030',
+                        '\TalonOne\Client\Model\InlineResponse20029',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8794,7 +8844,7 @@ class ManagementApi
     /**
      * Operation getAllRolesAsync
      *
-     * Get all roles
+     * List roles
      *
      *
      * @throws \InvalidArgumentException
@@ -8813,7 +8863,7 @@ class ManagementApi
     /**
      * Operation getAllRolesAsyncWithHttpInfo
      *
-     * Get all roles
+     * List roles
      *
      *
      * @throws \InvalidArgumentException
@@ -8821,7 +8871,7 @@ class ManagementApi
      */
     public function getAllRolesAsyncWithHttpInfo()
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20030';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20029';
         $request = $this->getAllRolesRequest();
 
         return $this->client
@@ -8921,11 +8971,6 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -9199,10 +9244,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -9477,10 +9521,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -9774,10 +9817,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -9813,7 +9855,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20012
+     * @return \TalonOne\Client\Model\InlineResponse20011
      */
     public function getApplicationCustomers($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
     {
@@ -9834,11 +9876,351 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20011, HTTP status code, HTTP response headers (array of strings)
      */
     public function getApplicationCustomersWithHttpInfo($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
     {
         $request = $this->getApplicationCustomersRequest($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse20011' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20011', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse20011';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse20011',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getApplicationCustomersAsync
+     *
+     * List Application Customers
+     *
+     * @param  int $applicationId (required)
+     * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getApplicationCustomersAsync($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
+    {
+        return $this->getApplicationCustomersAsyncWithHttpInfo($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getApplicationCustomersAsyncWithHttpInfo
+     *
+     * List Application Customers
+     *
+     * @param  int $applicationId (required)
+     * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getApplicationCustomersAsyncWithHttpInfo($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse20011';
+        $request = $this->getApplicationCustomersRequest($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getApplicationCustomers'
+     *
+     * @param  int $applicationId (required)
+     * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getApplicationCustomersRequest($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling getApplicationCustomers'
+            );
+        }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getApplicationCustomers, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getApplicationCustomers, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/v1/applications/{applicationId}/customers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($integrationId !== null) {
+            if('form' === 'form' && is_array($integrationId)) {
+                foreach($integrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['integrationId'] = $integrationId;
+            }
+        }
+        // query params
+        if ($pageSize !== null) {
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
+        }
+        // query params
+        if ($skip !== null) {
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
+        }
+        // query params
+        if ($withTotalResultSize !== null) {
+            if('form' === 'form' && is_array($withTotalResultSize)) {
+                foreach($withTotalResultSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['withTotalResultSize'] = $withTotalResultSize;
+            }
+        }
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getApplicationCustomersByAttributes
+     *
+     * Get a list of the customer profiles that match the given attributes (with total count)
+     *
+     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $applicationCustomerSearch applicationCustomerSearch (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse20012
+     */
+    public function getApplicationCustomersByAttributes($applicationCustomerSearch)
+    {
+        list($response) = $this->getApplicationCustomersByAttributesWithHttpInfo($applicationCustomerSearch);
+        return $response;
+    }
+
+    /**
+     * Operation getApplicationCustomersByAttributesWithHttpInfo
+     *
+     * Get a list of the customer profiles that match the given attributes (with total count)
+     *
+     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $applicationCustomerSearch (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getApplicationCustomersByAttributesWithHttpInfo($applicationCustomerSearch)
+    {
+        $request = $this->getApplicationCustomersByAttributesRequest($applicationCustomerSearch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9914,336 +10296,18 @@ class ManagementApi
     }
 
     /**
-     * Operation getApplicationCustomersAsync
-     *
-     * List Application Customers
-     *
-     * @param  int $applicationId (required)
-     * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getApplicationCustomersAsync($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
-    {
-        return $this->getApplicationCustomersAsyncWithHttpInfo($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getApplicationCustomersAsyncWithHttpInfo
-     *
-     * List Application Customers
-     *
-     * @param  int $applicationId (required)
-     * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getApplicationCustomersAsyncWithHttpInfo($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
-    {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20012';
-        $request = $this->getApplicationCustomersRequest($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getApplicationCustomers'
-     *
-     * @param  int $applicationId (required)
-     * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getApplicationCustomersRequest($applicationId, $integrationId = null, $pageSize = null, $skip = null, $withTotalResultSize = null)
-    {
-        // verify the required parameter 'applicationId' is set
-        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $applicationId when calling getApplicationCustomers'
-            );
-        }
-
-        $resourcePath = '/v1/applications/{applicationId}/customers';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if (is_array($integrationId)) {
-            $integrationId = ObjectSerializer::serializeCollection($integrationId, '', true);
-        }
-        if ($integrationId !== null) {
-            $queryParams['integrationId'] = $integrationId;
-        }
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
-        if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
-        }
-        // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
-        if ($skip !== null) {
-            $queryParams['skip'] = $skip;
-        }
-        // query params
-        if (is_array($withTotalResultSize)) {
-            $withTotalResultSize = ObjectSerializer::serializeCollection($withTotalResultSize, '', true);
-        }
-        if ($withTotalResultSize !== null) {
-            $queryParams['withTotalResultSize'] = $withTotalResultSize;
-        }
-
-
-        // path params
-        if ($applicationId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($applicationId),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getApplicationCustomersByAttributes
-     *
-     * Get a list of the customer profiles that match the given attributes (with total count)
-     *
-     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body body (required)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20013
-     */
-    public function getApplicationCustomersByAttributes($body)
-    {
-        list($response) = $this->getApplicationCustomersByAttributesWithHttpInfo($body);
-        return $response;
-    }
-
-    /**
-     * Operation getApplicationCustomersByAttributesWithHttpInfo
-     *
-     * Get a list of the customer profiles that match the given attributes (with total count)
-     *
-     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getApplicationCustomersByAttributesWithHttpInfo($body)
-    {
-        $request = $this->getApplicationCustomersByAttributesRequest($body);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20013' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20013', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\InlineResponse20013';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20013',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
      * Operation getApplicationCustomersByAttributesAsync
      *
      * Get a list of the customer profiles that match the given attributes (with total count)
      *
-     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
+     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $applicationCustomerSearch (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationCustomersByAttributesAsync($body)
+    public function getApplicationCustomersByAttributesAsync($applicationCustomerSearch)
     {
-        return $this->getApplicationCustomersByAttributesAsyncWithHttpInfo($body)
+        return $this->getApplicationCustomersByAttributesAsyncWithHttpInfo($applicationCustomerSearch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10256,15 +10320,15 @@ class ManagementApi
      *
      * Get a list of the customer profiles that match the given attributes (with total count)
      *
-     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
+     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $applicationCustomerSearch (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationCustomersByAttributesAsyncWithHttpInfo($body)
+    public function getApplicationCustomersByAttributesAsyncWithHttpInfo($applicationCustomerSearch)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20013';
-        $request = $this->getApplicationCustomersByAttributesRequest($body);
+        $returnType = '\TalonOne\Client\Model\InlineResponse20012';
+        $request = $this->getApplicationCustomersByAttributesRequest($applicationCustomerSearch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10303,17 +10367,17 @@ class ManagementApi
     /**
      * Create request for operation 'getApplicationCustomersByAttributes'
      *
-     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
+     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $applicationCustomerSearch (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationCustomersByAttributesRequest($body)
+    protected function getApplicationCustomersByAttributesRequest($applicationCustomerSearch)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'applicationCustomerSearch' is set
+        if ($applicationCustomerSearch === null || (is_array($applicationCustomerSearch) && count($applicationCustomerSearch) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling getApplicationCustomersByAttributes'
+                'Missing the required parameter $applicationCustomerSearch when calling getApplicationCustomersByAttributes'
             );
         }
 
@@ -10329,8 +10393,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($applicationCustomerSearch)) {
+            $_tempBody = $applicationCustomerSearch;
         }
 
         if ($multipart) {
@@ -10373,10 +10437,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Content-Signature');
-        if ($apiKey !== null) {
-            $headers['Content-Signature'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -10407,11 +10470,11 @@ class ManagementApi
      * @param  int $applicationId applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20019
+     * @return \TalonOne\Client\Model\InlineResponse20018
      */
     public function getApplicationEventTypes($applicationId, $pageSize = null, $skip = null, $sort = null)
     {
@@ -10427,805 +10490,15 @@ class ManagementApi
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20019, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getApplicationEventTypesWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null)
-    {
-        $request = $this->getApplicationEventTypesRequest($applicationId, $pageSize, $skip, $sort);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20019' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20019', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\InlineResponse20019';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20019',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getApplicationEventTypesAsync
-     *
-     * List Applications Event Types
-     *
-     * @param  int $applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getApplicationEventTypesAsync($applicationId, $pageSize = null, $skip = null, $sort = null)
-    {
-        return $this->getApplicationEventTypesAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getApplicationEventTypesAsyncWithHttpInfo
-     *
-     * List Applications Event Types
-     *
-     * @param  int $applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getApplicationEventTypesAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null)
-    {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20019';
-        $request = $this->getApplicationEventTypesRequest($applicationId, $pageSize, $skip, $sort);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getApplicationEventTypes'
-     *
-     * @param  int $applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getApplicationEventTypesRequest($applicationId, $pageSize = null, $skip = null, $sort = null)
-    {
-        // verify the required parameter 'applicationId' is set
-        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $applicationId when calling getApplicationEventTypes'
-            );
-        }
-
-        $resourcePath = '/v1/applications/{applicationId}/event_types';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
-        if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
-        }
-        // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
-        if ($skip !== null) {
-            $queryParams['skip'] = $skip;
-        }
-        // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
-        if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-
-
-        // path params
-        if ($applicationId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($applicationId),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getApplicationEvents
-     *
-     * List Applications Events (with total count)
-     *
-     * @param  int $applicationId applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
-     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $couponCode Coupon code (optional)
-     * @param  string $referralCode Referral code (optional)
-     * @param  string $ruleQuery Rule name filter for events (optional)
-     * @param  string $campaignQuery Campaign name filter for events (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20017
-     */
-    public function getApplicationEvents($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
-    {
-        list($response) = $this->getApplicationEventsWithHttpInfo($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
-        return $response;
-    }
-
-    /**
-     * Operation getApplicationEventsWithHttpInfo
-     *
-     * List Applications Events (with total count)
-     *
-     * @param  int $applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
-     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $couponCode Coupon code (optional)
-     * @param  string $referralCode Referral code (optional)
-     * @param  string $ruleQuery Rule name filter for events (optional)
-     * @param  string $campaignQuery Campaign name filter for events (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20017, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getApplicationEventsWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
-    {
-        $request = $this->getApplicationEventsRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20017' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20017', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\InlineResponse20017';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20017',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getApplicationEventsAsync
-     *
-     * List Applications Events (with total count)
-     *
-     * @param  int $applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
-     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $couponCode Coupon code (optional)
-     * @param  string $referralCode Referral code (optional)
-     * @param  string $ruleQuery Rule name filter for events (optional)
-     * @param  string $campaignQuery Campaign name filter for events (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getApplicationEventsAsync($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
-    {
-        return $this->getApplicationEventsAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getApplicationEventsAsyncWithHttpInfo
-     *
-     * List Applications Events (with total count)
-     *
-     * @param  int $applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
-     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $couponCode Coupon code (optional)
-     * @param  string $referralCode Referral code (optional)
-     * @param  string $ruleQuery Rule name filter for events (optional)
-     * @param  string $campaignQuery Campaign name filter for events (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getApplicationEventsAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
-    {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20017';
-        $request = $this->getApplicationEventsRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getApplicationEvents'
-     *
-     * @param  int $applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
-     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $couponCode Coupon code (optional)
-     * @param  string $referralCode Referral code (optional)
-     * @param  string $ruleQuery Rule name filter for events (optional)
-     * @param  string $campaignQuery Campaign name filter for events (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getApplicationEventsRequest($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
-    {
-        // verify the required parameter 'applicationId' is set
-        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $applicationId when calling getApplicationEvents'
-            );
-        }
-        if ($customerName !== null && strlen($customerName) < 2) {
-            throw new \InvalidArgumentException('invalid length for "$customerName" when calling ManagementApi.getApplicationEvents, must be bigger than or equal to 2.');
-        }
-
-        if ($customerEmail !== null && strlen($customerEmail) < 2) {
-            throw new \InvalidArgumentException('invalid length for "$customerEmail" when calling ManagementApi.getApplicationEvents, must be bigger than or equal to 2.');
-        }
-
-
-        $resourcePath = '/v1/applications/{applicationId}/events';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
-        if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
-        }
-        // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
-        if ($skip !== null) {
-            $queryParams['skip'] = $skip;
-        }
-        // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
-        if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-        // query params
-        if (is_array($type)) {
-            $type = ObjectSerializer::serializeCollection($type, '', true);
-        }
-        if ($type !== null) {
-            $queryParams['type'] = $type;
-        }
-        // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
-        if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
-        }
-        // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
-        if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
-        }
-        // query params
-        if (is_array($session)) {
-            $session = ObjectSerializer::serializeCollection($session, '', true);
-        }
-        if ($session !== null) {
-            $queryParams['session'] = $session;
-        }
-        // query params
-        if (is_array($profile)) {
-            $profile = ObjectSerializer::serializeCollection($profile, '', true);
-        }
-        if ($profile !== null) {
-            $queryParams['profile'] = $profile;
-        }
-        // query params
-        if (is_array($customerName)) {
-            $customerName = ObjectSerializer::serializeCollection($customerName, '', true);
-        }
-        if ($customerName !== null) {
-            $queryParams['customerName'] = $customerName;
-        }
-        // query params
-        if (is_array($customerEmail)) {
-            $customerEmail = ObjectSerializer::serializeCollection($customerEmail, '', true);
-        }
-        if ($customerEmail !== null) {
-            $queryParams['customerEmail'] = $customerEmail;
-        }
-        // query params
-        if (is_array($couponCode)) {
-            $couponCode = ObjectSerializer::serializeCollection($couponCode, '', true);
-        }
-        if ($couponCode !== null) {
-            $queryParams['couponCode'] = $couponCode;
-        }
-        // query params
-        if (is_array($referralCode)) {
-            $referralCode = ObjectSerializer::serializeCollection($referralCode, '', true);
-        }
-        if ($referralCode !== null) {
-            $queryParams['referralCode'] = $referralCode;
-        }
-        // query params
-        if (is_array($ruleQuery)) {
-            $ruleQuery = ObjectSerializer::serializeCollection($ruleQuery, '', true);
-        }
-        if ($ruleQuery !== null) {
-            $queryParams['ruleQuery'] = $ruleQuery;
-        }
-        // query params
-        if (is_array($campaignQuery)) {
-            $campaignQuery = ObjectSerializer::serializeCollection($campaignQuery, '', true);
-        }
-        if ($campaignQuery !== null) {
-            $queryParams['campaignQuery'] = $campaignQuery;
-        }
-
-
-        // path params
-        if ($applicationId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($applicationId),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getApplicationEventsWithoutTotalCount
-     *
-     * List Applications Events
-     *
-     * @param  int $applicationId applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
-     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $couponCode Coupon code (optional)
-     * @param  string $referralCode Referral code (optional)
-     * @param  string $ruleQuery Rule name filter for events (optional)
-     * @param  string $campaignQuery Campaign name filter for events (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20018
-     */
-    public function getApplicationEventsWithoutTotalCount($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
-    {
-        list($response) = $this->getApplicationEventsWithoutTotalCountWithHttpInfo($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
-        return $response;
-    }
-
-    /**
-     * Operation getApplicationEventsWithoutTotalCountWithHttpInfo
-     *
-     * List Applications Events
-     *
-     * @param  int $applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
-     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $couponCode Coupon code (optional)
-     * @param  string $referralCode Referral code (optional)
-     * @param  string $ruleQuery Rule name filter for events (optional)
-     * @param  string $campaignQuery Campaign name filter for events (optional)
+     * @param  string $sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20018, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationEventsWithoutTotalCountWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    public function getApplicationEventTypesWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null)
     {
-        $request = $this->getApplicationEventsWithoutTotalCountRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
+        $request = $this->getApplicationEventTypesRequest($applicationId, $pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11301,32 +10574,21 @@ class ManagementApi
     }
 
     /**
-     * Operation getApplicationEventsWithoutTotalCountAsync
+     * Operation getApplicationEventTypesAsync
      *
-     * List Applications Events
+     * List Applications Event Types
      *
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
-     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $couponCode Coupon code (optional)
-     * @param  string $referralCode Referral code (optional)
-     * @param  string $ruleQuery Rule name filter for events (optional)
-     * @param  string $campaignQuery Campaign name filter for events (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationEventsWithoutTotalCountAsync($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    public function getApplicationEventTypesAsync($applicationId, $pageSize = null, $skip = null, $sort = null)
     {
-        return $this->getApplicationEventsWithoutTotalCountAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
+        return $this->getApplicationEventTypesAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11335,33 +10597,22 @@ class ManagementApi
     }
 
     /**
-     * Operation getApplicationEventsWithoutTotalCountAsyncWithHttpInfo
+     * Operation getApplicationEventTypesAsyncWithHttpInfo
      *
-     * List Applications Events
+     * List Applications Event Types
      *
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
-     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $couponCode Coupon code (optional)
-     * @param  string $referralCode Referral code (optional)
-     * @param  string $ruleQuery Rule name filter for events (optional)
-     * @param  string $campaignQuery Campaign name filter for events (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationEventsWithoutTotalCountAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    public function getApplicationEventTypesAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20018';
-        $request = $this->getApplicationEventsWithoutTotalCountRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
+        $request = $this->getApplicationEventTypesRequest($applicationId, $pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11398,45 +10649,33 @@ class ManagementApi
     }
 
     /**
-     * Create request for operation 'getApplicationEventsWithoutTotalCount'
+     * Create request for operation 'getApplicationEventTypes'
      *
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
-     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
-     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-     * @param  string $couponCode Coupon code (optional)
-     * @param  string $referralCode Referral code (optional)
-     * @param  string $ruleQuery Rule name filter for events (optional)
-     * @param  string $campaignQuery Campaign name filter for events (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getApplicationEventsWithoutTotalCountRequest($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    protected function getApplicationEventTypesRequest($applicationId, $pageSize = null, $skip = null, $sort = null)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $applicationId when calling getApplicationEventsWithoutTotalCount'
+                'Missing the required parameter $applicationId when calling getApplicationEventTypes'
             );
         }
-        if ($customerName !== null && strlen($customerName) < 2) {
-            throw new \InvalidArgumentException('invalid length for "$customerName" when calling ManagementApi.getApplicationEventsWithoutTotalCount, must be bigger than or equal to 2.');
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getApplicationEventTypes, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getApplicationEventTypes, must be bigger than or equal to 1.');
         }
 
-        if ($customerEmail !== null && strlen($customerEmail) < 2) {
-            throw new \InvalidArgumentException('invalid length for "$customerEmail" when calling ManagementApi.getApplicationEventsWithoutTotalCount, must be bigger than or equal to 2.');
-        }
 
-
-        $resourcePath = '/v1/applications/{applicationId}/events/no_total';
+        $resourcePath = '/v1/applications/{applicationId}/event_types';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -11444,102 +10683,37 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-        // query params
-        if (is_array($type)) {
-            $type = ObjectSerializer::serializeCollection($type, '', true);
-        }
-        if ($type !== null) {
-            $queryParams['type'] = $type;
-        }
-        // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
-        if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
-        }
-        // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
-        if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
-        }
-        // query params
-        if (is_array($session)) {
-            $session = ObjectSerializer::serializeCollection($session, '', true);
-        }
-        if ($session !== null) {
-            $queryParams['session'] = $session;
-        }
-        // query params
-        if (is_array($profile)) {
-            $profile = ObjectSerializer::serializeCollection($profile, '', true);
-        }
-        if ($profile !== null) {
-            $queryParams['profile'] = $profile;
-        }
-        // query params
-        if (is_array($customerName)) {
-            $customerName = ObjectSerializer::serializeCollection($customerName, '', true);
-        }
-        if ($customerName !== null) {
-            $queryParams['customerName'] = $customerName;
-        }
-        // query params
-        if (is_array($customerEmail)) {
-            $customerEmail = ObjectSerializer::serializeCollection($customerEmail, '', true);
-        }
-        if ($customerEmail !== null) {
-            $queryParams['customerEmail'] = $customerEmail;
-        }
-        // query params
-        if (is_array($couponCode)) {
-            $couponCode = ObjectSerializer::serializeCollection($couponCode, '', true);
-        }
-        if ($couponCode !== null) {
-            $queryParams['couponCode'] = $couponCode;
-        }
-        // query params
-        if (is_array($referralCode)) {
-            $referralCode = ObjectSerializer::serializeCollection($referralCode, '', true);
-        }
-        if ($referralCode !== null) {
-            $queryParams['referralCode'] = $referralCode;
-        }
-        // query params
-        if (is_array($ruleQuery)) {
-            $ruleQuery = ObjectSerializer::serializeCollection($ruleQuery, '', true);
-        }
-        if ($ruleQuery !== null) {
-            $queryParams['ruleQuery'] = $ruleQuery;
-        }
-        // query params
-        if (is_array($campaignQuery)) {
-            $campaignQuery = ObjectSerializer::serializeCollection($campaignQuery, '', true);
-        }
-        if ($campaignQuery !== null) {
-            $queryParams['campaignQuery'] = $campaignQuery;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
 
 
@@ -11595,10 +10769,1041 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getApplicationEvents
+     *
+     * List Applications Events (with total count)
+     *
+     * @param  int $applicationId applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort sort (optional)
+     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
+     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse20016
+     */
+    public function getApplicationEvents($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    {
+        list($response) = $this->getApplicationEventsWithHttpInfo($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
+        return $response;
+    }
+
+    /**
+     * Operation getApplicationEventsWithHttpInfo
+     *
+     * List Applications Events (with total count)
+     *
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
+     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse20016, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getApplicationEventsWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    {
+        $request = $this->getApplicationEventsRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse20016' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20016', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse20016';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse20016',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getApplicationEventsAsync
+     *
+     * List Applications Events (with total count)
+     *
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
+     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getApplicationEventsAsync($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    {
+        return $this->getApplicationEventsAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getApplicationEventsAsyncWithHttpInfo
+     *
+     * List Applications Events (with total count)
+     *
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
+     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getApplicationEventsAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse20016';
+        $request = $this->getApplicationEventsRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getApplicationEvents'
+     *
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
+     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getApplicationEventsRequest($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling getApplicationEvents'
+            );
+        }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getApplicationEvents, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getApplicationEvents, must be bigger than or equal to 1.');
+        }
+
+        if ($customerName !== null && strlen($customerName) < 2) {
+            throw new \InvalidArgumentException('invalid length for "$customerName" when calling ManagementApi.getApplicationEvents, must be bigger than or equal to 2.');
+        }
+
+        if ($customerEmail !== null && strlen($customerEmail) < 2) {
+            throw new \InvalidArgumentException('invalid length for "$customerEmail" when calling ManagementApi.getApplicationEvents, must be bigger than or equal to 2.');
+        }
+
+
+        $resourcePath = '/v1/applications/{applicationId}/events';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($pageSize !== null) {
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
+        }
+        // query params
+        if ($skip !== null) {
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
+        }
+        // query params
+        if ($sort !== null) {
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
+        }
+        // query params
+        if ($type !== null) {
+            if('form' === 'form' && is_array($type)) {
+                foreach($type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['type'] = $type;
+            }
+        }
+        // query params
+        if ($createdBefore !== null) {
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
+        }
+        // query params
+        if ($createdAfter !== null) {
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
+        }
+        // query params
+        if ($session !== null) {
+            if('form' === 'form' && is_array($session)) {
+                foreach($session as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['session'] = $session;
+            }
+        }
+        // query params
+        if ($profile !== null) {
+            if('form' === 'form' && is_array($profile)) {
+                foreach($profile as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['profile'] = $profile;
+            }
+        }
+        // query params
+        if ($customerName !== null) {
+            if('form' === 'form' && is_array($customerName)) {
+                foreach($customerName as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['customerName'] = $customerName;
+            }
+        }
+        // query params
+        if ($customerEmail !== null) {
+            if('form' === 'form' && is_array($customerEmail)) {
+                foreach($customerEmail as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['customerEmail'] = $customerEmail;
+            }
+        }
+        // query params
+        if ($couponCode !== null) {
+            if('form' === 'form' && is_array($couponCode)) {
+                foreach($couponCode as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['couponCode'] = $couponCode;
+            }
+        }
+        // query params
+        if ($referralCode !== null) {
+            if('form' === 'form' && is_array($referralCode)) {
+                foreach($referralCode as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referralCode'] = $referralCode;
+            }
+        }
+        // query params
+        if ($ruleQuery !== null) {
+            if('form' === 'form' && is_array($ruleQuery)) {
+                foreach($ruleQuery as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['ruleQuery'] = $ruleQuery;
+            }
+        }
+        // query params
+        if ($campaignQuery !== null) {
+            if('form' === 'form' && is_array($campaignQuery)) {
+                foreach($campaignQuery as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignQuery'] = $campaignQuery;
+            }
+        }
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getApplicationEventsWithoutTotalCount
+     *
+     * List Applications Events
+     *
+     * @param  int $applicationId applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort sort (optional)
+     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
+     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse20017
+     */
+    public function getApplicationEventsWithoutTotalCount($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    {
+        list($response) = $this->getApplicationEventsWithoutTotalCountWithHttpInfo($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
+        return $response;
+    }
+
+    /**
+     * Operation getApplicationEventsWithoutTotalCountWithHttpInfo
+     *
+     * List Applications Events
+     *
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
+     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse20017, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getApplicationEventsWithoutTotalCountWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    {
+        $request = $this->getApplicationEventsWithoutTotalCountRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse20017' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20017', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse20017';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse20017',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getApplicationEventsWithoutTotalCountAsync
+     *
+     * List Applications Events
+     *
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
+     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getApplicationEventsWithoutTotalCountAsync($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    {
+        return $this->getApplicationEventsWithoutTotalCountAsyncWithHttpInfo($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getApplicationEventsWithoutTotalCountAsyncWithHttpInfo
+     *
+     * List Applications Events
+     *
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
+     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getApplicationEventsWithoutTotalCountAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse20017';
+        $request = $this->getApplicationEventsWithoutTotalCountRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getApplicationEventsWithoutTotalCount'
+     *
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $type Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $session Session integration ID filter for events. Must be exact match. (optional)
+     * @param  string $profile Profile integration ID filter for events. Must be exact match. (optional)
+     * @param  string $customerName Customer name filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $customerEmail Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+     * @param  string $couponCode Coupon code (optional)
+     * @param  string $referralCode Referral code (optional)
+     * @param  string $ruleQuery Rule name filter for events (optional)
+     * @param  string $campaignQuery Campaign name filter for events (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getApplicationEventsWithoutTotalCountRequest($applicationId, $pageSize = null, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling getApplicationEventsWithoutTotalCount'
+            );
+        }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getApplicationEventsWithoutTotalCount, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getApplicationEventsWithoutTotalCount, must be bigger than or equal to 1.');
+        }
+
+        if ($customerName !== null && strlen($customerName) < 2) {
+            throw new \InvalidArgumentException('invalid length for "$customerName" when calling ManagementApi.getApplicationEventsWithoutTotalCount, must be bigger than or equal to 2.');
+        }
+
+        if ($customerEmail !== null && strlen($customerEmail) < 2) {
+            throw new \InvalidArgumentException('invalid length for "$customerEmail" when calling ManagementApi.getApplicationEventsWithoutTotalCount, must be bigger than or equal to 2.');
+        }
+
+
+        $resourcePath = '/v1/applications/{applicationId}/events/no_total';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($pageSize !== null) {
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
+        }
+        // query params
+        if ($skip !== null) {
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
+        }
+        // query params
+        if ($sort !== null) {
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
+        }
+        // query params
+        if ($type !== null) {
+            if('form' === 'form' && is_array($type)) {
+                foreach($type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['type'] = $type;
+            }
+        }
+        // query params
+        if ($createdBefore !== null) {
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
+        }
+        // query params
+        if ($createdAfter !== null) {
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
+        }
+        // query params
+        if ($session !== null) {
+            if('form' === 'form' && is_array($session)) {
+                foreach($session as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['session'] = $session;
+            }
+        }
+        // query params
+        if ($profile !== null) {
+            if('form' === 'form' && is_array($profile)) {
+                foreach($profile as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['profile'] = $profile;
+            }
+        }
+        // query params
+        if ($customerName !== null) {
+            if('form' === 'form' && is_array($customerName)) {
+                foreach($customerName as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['customerName'] = $customerName;
+            }
+        }
+        // query params
+        if ($customerEmail !== null) {
+            if('form' === 'form' && is_array($customerEmail)) {
+                foreach($customerEmail as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['customerEmail'] = $customerEmail;
+            }
+        }
+        // query params
+        if ($couponCode !== null) {
+            if('form' === 'form' && is_array($couponCode)) {
+                foreach($couponCode as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['couponCode'] = $couponCode;
+            }
+        }
+        // query params
+        if ($referralCode !== null) {
+            if('form' === 'form' && is_array($referralCode)) {
+                foreach($referralCode as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referralCode'] = $referralCode;
+            }
+        }
+        // query params
+        if ($ruleQuery !== null) {
+            if('form' === 'form' && is_array($ruleQuery)) {
+                foreach($ruleQuery as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['ruleQuery'] = $ruleQuery;
+            }
+        }
+        // query params
+        if ($campaignQuery !== null) {
+            if('form' === 'form' && is_array($campaignQuery)) {
+                foreach($campaignQuery as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignQuery'] = $campaignQuery;
+            }
+        }
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -11892,10 +12097,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -11926,7 +12130,7 @@ class ManagementApi
      * @param  int $applicationId applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
      * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -11937,7 +12141,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20016
+     * @return \TalonOne\Client\Model\InlineResponse20015
      */
     public function getApplicationSessions($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $createdBefore = null, $createdAfter = null, $coupon = null, $referral = null, $integrationId = null)
     {
@@ -11953,7 +12157,7 @@ class ManagementApi
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
      * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -11964,7 +12168,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20016, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20015, HTTP status code, HTTP response headers (array of strings)
      */
     public function getApplicationSessionsWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $createdBefore = null, $createdAfter = null, $coupon = null, $referral = null, $integrationId = null)
     {
@@ -12001,20 +12205,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20016' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20015' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20016', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20015', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20016';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20015';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -12033,7 +12237,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20016',
+                        '\TalonOne\Client\Model\InlineResponse20015',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12051,7 +12255,7 @@ class ManagementApi
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
      * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -12081,7 +12285,7 @@ class ManagementApi
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
      * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -12095,7 +12299,7 @@ class ManagementApi
      */
     public function getApplicationSessionsAsyncWithHttpInfo($applicationId, $pageSize = null, $skip = null, $sort = null, $profile = null, $state = null, $createdBefore = null, $createdAfter = null, $coupon = null, $referral = null, $integrationId = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20016';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20015';
         $request = $this->getApplicationSessionsRequest($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId);
 
         return $this->client
@@ -12138,7 +12342,7 @@ class ManagementApi
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $profile Profile integration ID filter for sessions. Must be exact match. (optional)
      * @param  string $state Filter by sessions with this state. Must be exact match. (optional)
      * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -12158,6 +12362,13 @@ class ManagementApi
                 'Missing the required parameter $applicationId when calling getApplicationSessions'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getApplicationSessions, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getApplicationSessions, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/sessions';
         $formParams = [];
@@ -12167,74 +12378,114 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($profile)) {
-            $profile = ObjectSerializer::serializeCollection($profile, '', true);
-        }
         if ($profile !== null) {
-            $queryParams['profile'] = $profile;
+            if('form' === 'form' && is_array($profile)) {
+                foreach($profile as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['profile'] = $profile;
+            }
         }
         // query params
-        if (is_array($state)) {
-            $state = ObjectSerializer::serializeCollection($state, '', true);
-        }
         if ($state !== null) {
-            $queryParams['state'] = $state;
+            if('form' === 'form' && is_array($state)) {
+                foreach($state as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['state'] = $state;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($coupon)) {
-            $coupon = ObjectSerializer::serializeCollection($coupon, '', true);
-        }
         if ($coupon !== null) {
-            $queryParams['coupon'] = $coupon;
+            if('form' === 'form' && is_array($coupon)) {
+                foreach($coupon as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['coupon'] = $coupon;
+            }
         }
         // query params
-        if (is_array($referral)) {
-            $referral = ObjectSerializer::serializeCollection($referral, '', true);
-        }
         if ($referral !== null) {
-            $queryParams['referral'] = $referral;
+            if('form' === 'form' && is_array($referral)) {
+                foreach($referral as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referral'] = $referral;
+            }
         }
         // query params
-        if (is_array($integrationId)) {
-            $integrationId = ObjectSerializer::serializeCollection($integrationId, '', true);
-        }
         if ($integrationId !== null) {
-            $queryParams['integrationId'] = $integrationId;
+            if('form' === 'form' && is_array($integrationId)) {
+                foreach($integrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['integrationId'] = $integrationId;
+            }
         }
 
 
@@ -12290,10 +12541,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -12323,7 +12573,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12342,7 +12592,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12432,7 +12682,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12454,7 +12704,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12503,13 +12753,20 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     protected function getApplicationsRequest($pageSize = null, $skip = null, $sort = null)
     {
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getApplications, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getApplications, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications';
         $formParams = [];
@@ -12519,25 +12776,37 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
 
 
@@ -12585,10 +12854,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -12863,10 +13131,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -12896,15 +13163,16 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
+     * @param  string $entity entity (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20021
+     * @return \TalonOne\Client\Model\InlineResponse20020
      */
-    public function getAttributes($pageSize = null, $skip = null, $sort = null)
+    public function getAttributes($pageSize = null, $skip = null, $sort = null, $entity = null)
     {
-        list($response) = $this->getAttributesWithHttpInfo($pageSize, $skip, $sort);
+        list($response) = $this->getAttributesWithHttpInfo($pageSize, $skip, $sort, $entity);
         return $response;
     }
 
@@ -12915,312 +13183,16 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20021, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAttributesWithHttpInfo($pageSize = null, $skip = null, $sort = null)
-    {
-        $request = $this->getAttributesRequest($pageSize, $skip, $sort);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20021' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20021', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\InlineResponse20021';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20021',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getAttributesAsync
-     *
-     * List custom attributes
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAttributesAsync($pageSize = null, $skip = null, $sort = null)
-    {
-        return $this->getAttributesAsyncWithHttpInfo($pageSize, $skip, $sort)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAttributesAsyncWithHttpInfo
-     *
-     * List custom attributes
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAttributesAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null)
-    {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20021';
-        $request = $this->getAttributesRequest($pageSize, $skip, $sort);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAttributes'
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getAttributesRequest($pageSize = null, $skip = null, $sort = null)
-    {
-
-        $resourcePath = '/v1/attributes';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
-        if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
-        }
-        // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
-        if ($skip !== null) {
-            $queryParams['skip'] = $skip;
-        }
-        // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
-        if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getAudiences
-     *
-     * Get all audiences
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20020
-     */
-    public function getAudiences($pageSize = null, $skip = null, $sort = null, $withTotalResultSize = null)
-    {
-        list($response) = $this->getAudiencesWithHttpInfo($pageSize, $skip, $sort, $withTotalResultSize);
-        return $response;
-    }
-
-    /**
-     * Operation getAudiencesWithHttpInfo
-     *
-     * Get all audiences
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     * @param  string $sort (optional)
+     * @param  string $entity (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20020, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAudiencesWithHttpInfo($pageSize = null, $skip = null, $sort = null, $withTotalResultSize = null)
+    public function getAttributesWithHttpInfo($pageSize = null, $skip = null, $sort = null, $entity = null)
     {
-        $request = $this->getAudiencesRequest($pageSize, $skip, $sort, $withTotalResultSize);
+        $request = $this->getAttributesRequest($pageSize, $skip, $sort, $entity);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13296,21 +13268,21 @@ class ManagementApi
     }
 
     /**
-     * Operation getAudiencesAsync
+     * Operation getAttributesAsync
      *
-     * Get all audiences
+     * List custom attributes
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     * @param  string $sort (optional)
+     * @param  string $entity (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAudiencesAsync($pageSize = null, $skip = null, $sort = null, $withTotalResultSize = null)
+    public function getAttributesAsync($pageSize = null, $skip = null, $sort = null, $entity = null)
     {
-        return $this->getAudiencesAsyncWithHttpInfo($pageSize, $skip, $sort, $withTotalResultSize)
+        return $this->getAttributesAsyncWithHttpInfo($pageSize, $skip, $sort, $entity)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13319,22 +13291,22 @@ class ManagementApi
     }
 
     /**
-     * Operation getAudiencesAsyncWithHttpInfo
+     * Operation getAttributesAsyncWithHttpInfo
      *
-     * Get all audiences
+     * List custom attributes
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     * @param  string $sort (optional)
+     * @param  string $entity (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAudiencesAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null, $withTotalResultSize = null)
+    public function getAttributesAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null, $entity = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20020';
-        $request = $this->getAudiencesRequest($pageSize, $skip, $sort, $withTotalResultSize);
+        $request = $this->getAttributesRequest($pageSize, $skip, $sort, $entity);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13371,20 +13343,27 @@ class ManagementApi
     }
 
     /**
-     * Create request for operation 'getAudiences'
+     * Create request for operation 'getAttributes'
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     * @param  string $sort (optional)
+     * @param  string $entity (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAudiencesRequest($pageSize = null, $skip = null, $sort = null, $withTotalResultSize = null)
+    protected function getAttributesRequest($pageSize = null, $skip = null, $sort = null, $entity = null)
     {
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAttributes, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAttributes, must be bigger than or equal to 1.');
+        }
 
-        $resourcePath = '/v1/audiences';
+
+        $resourcePath = '/v1/attributes';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -13392,32 +13371,48 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($withTotalResultSize)) {
-            $withTotalResultSize = ObjectSerializer::serializeCollection($withTotalResultSize, '', true);
-        }
-        if ($withTotalResultSize !== null) {
-            $queryParams['withTotalResultSize'] = $withTotalResultSize;
+        if ($entity !== null) {
+            if('form' === 'form' && is_array($entity)) {
+                foreach($entity as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['entity'] = $entity;
+            }
         }
 
 
@@ -13465,10 +13460,338 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAudiences
+     *
+     * List audiences
+     *
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort sort (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse20019
+     */
+    public function getAudiences($pageSize = null, $skip = null, $sort = null, $withTotalResultSize = null)
+    {
+        list($response) = $this->getAudiencesWithHttpInfo($pageSize, $skip, $sort, $withTotalResultSize);
+        return $response;
+    }
+
+    /**
+     * Operation getAudiencesWithHttpInfo
+     *
+     * List audiences
+     *
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse20019, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAudiencesWithHttpInfo($pageSize = null, $skip = null, $sort = null, $withTotalResultSize = null)
+    {
+        $request = $this->getAudiencesRequest($pageSize, $skip, $sort, $withTotalResultSize);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse20019' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20019', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse20019';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse20019',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAudiencesAsync
+     *
+     * List audiences
+     *
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAudiencesAsync($pageSize = null, $skip = null, $sort = null, $withTotalResultSize = null)
+    {
+        return $this->getAudiencesAsyncWithHttpInfo($pageSize, $skip, $sort, $withTotalResultSize)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAudiencesAsyncWithHttpInfo
+     *
+     * List audiences
+     *
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAudiencesAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null, $withTotalResultSize = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse20019';
+        $request = $this->getAudiencesRequest($pageSize, $skip, $sort, $withTotalResultSize);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAudiences'
+     *
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  bool $withTotalResultSize When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAudiencesRequest($pageSize = null, $skip = null, $sort = null, $withTotalResultSize = null)
+    {
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAudiences, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAudiences, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/v1/audiences';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($pageSize !== null) {
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
+        }
+        // query params
+        if ($skip !== null) {
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
+        }
+        // query params
+        if ($sort !== null) {
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
+        }
+        // query params
+        if ($withTotalResultSize !== null) {
+            if('form' === 'form' && is_array($withTotalResultSize)) {
+                foreach($withTotalResultSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['withTotalResultSize'] = $withTotalResultSize;
+            }
+        }
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -13494,7 +13817,7 @@ class ManagementApi
     /**
      * Operation getCampaign
      *
-     * Get a Campaign
+     * Get campaign
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
@@ -13512,7 +13835,7 @@ class ManagementApi
     /**
      * Operation getCampaignWithHttpInfo
      *
-     * Get a Campaign
+     * Get campaign
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -13601,7 +13924,7 @@ class ManagementApi
     /**
      * Operation getCampaignAsync
      *
-     * Get a Campaign
+     * Get campaign
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -13622,7 +13945,7 @@ class ManagementApi
     /**
      * Operation getCampaignAsyncWithHttpInfo
      *
-     * Get a Campaign
+     * Get campaign
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -13762,10 +14085,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -13801,7 +14123,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20011
+     * @return \TalonOne\Client\Model\InlineResponse20010
      */
     public function getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity = null)
     {
@@ -13822,7 +14144,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20011, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20010, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCampaignAnalyticsWithHttpInfo($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity = null)
     {
@@ -13859,20 +14181,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20011' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20010' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20011', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20010', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20011';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20010';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -13891,7 +14213,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20011',
+                        '\TalonOne\Client\Model\InlineResponse20010',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13941,7 +14263,7 @@ class ManagementApi
      */
     public function getCampaignAnalyticsAsyncWithHttpInfo($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20011';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20010';
         $request = $this->getCampaignAnalyticsRequest($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity);
 
         return $this->client
@@ -14025,25 +14347,37 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($rangeStart)) {
-            $rangeStart = ObjectSerializer::serializeCollection($rangeStart, '', true);
-        }
         if ($rangeStart !== null) {
-            $queryParams['rangeStart'] = $rangeStart;
+            if('form' === 'form' && is_array($rangeStart)) {
+                foreach($rangeStart as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeStart'] = $rangeStart;
+            }
         }
         // query params
-        if (is_array($rangeEnd)) {
-            $rangeEnd = ObjectSerializer::serializeCollection($rangeEnd, '', true);
-        }
         if ($rangeEnd !== null) {
-            $queryParams['rangeEnd'] = $rangeEnd;
+            if('form' === 'form' && is_array($rangeEnd)) {
+                foreach($rangeEnd as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeEnd'] = $rangeEnd;
+            }
         }
         // query params
-        if (is_array($granularity)) {
-            $granularity = ObjectSerializer::serializeCollection($granularity, '', true);
-        }
         if ($granularity !== null) {
-            $queryParams['granularity'] = $granularity;
+            if('form' === 'form' && is_array($granularity)) {
+                foreach($granularity as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['granularity'] = $granularity;
+            }
         }
 
 
@@ -14107,10 +14441,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -14136,44 +14469,44 @@ class ManagementApi
     /**
      * Operation getCampaignByAttributes
      *
-     * Get a list of all campaigns that match the given attributes
+     * List campaigns that match the given attributes
      *
      * @param  int $applicationId applicationId (required)
-     * @param  \TalonOne\Client\Model\CampaignSearch $body body (required)
+     * @param  \TalonOne\Client\Model\CampaignSearch $campaignSearch campaignSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2002
      */
-    public function getCampaignByAttributes($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
+    public function getCampaignByAttributes($applicationId, $campaignSearch, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
-        list($response) = $this->getCampaignByAttributesWithHttpInfo($applicationId, $body, $pageSize, $skip, $sort, $campaignState);
+        list($response) = $this->getCampaignByAttributesWithHttpInfo($applicationId, $campaignSearch, $pageSize, $skip, $sort, $campaignState);
         return $response;
     }
 
     /**
      * Operation getCampaignByAttributesWithHttpInfo
      *
-     * Get a list of all campaigns that match the given attributes
+     * List campaigns that match the given attributes
      *
      * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\CampaignSearch $body (required)
+     * @param  \TalonOne\Client\Model\CampaignSearch $campaignSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignByAttributesWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
+    public function getCampaignByAttributesWithHttpInfo($applicationId, $campaignSearch, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
-        $request = $this->getCampaignByAttributesRequest($applicationId, $body, $pageSize, $skip, $sort, $campaignState);
+        $request = $this->getCampaignByAttributesRequest($applicationId, $campaignSearch, $pageSize, $skip, $sort, $campaignState);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14251,21 +14584,21 @@ class ManagementApi
     /**
      * Operation getCampaignByAttributesAsync
      *
-     * Get a list of all campaigns that match the given attributes
+     * List campaigns that match the given attributes
      *
      * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\CampaignSearch $body (required)
+     * @param  \TalonOne\Client\Model\CampaignSearch $campaignSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignByAttributesAsync($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
+    public function getCampaignByAttributesAsync($applicationId, $campaignSearch, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
-        return $this->getCampaignByAttributesAsyncWithHttpInfo($applicationId, $body, $pageSize, $skip, $sort, $campaignState)
+        return $this->getCampaignByAttributesAsyncWithHttpInfo($applicationId, $campaignSearch, $pageSize, $skip, $sort, $campaignState)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14276,22 +14609,22 @@ class ManagementApi
     /**
      * Operation getCampaignByAttributesAsyncWithHttpInfo
      *
-     * Get a list of all campaigns that match the given attributes
+     * List campaigns that match the given attributes
      *
      * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\CampaignSearch $body (required)
+     * @param  \TalonOne\Client\Model\CampaignSearch $campaignSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignByAttributesAsyncWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
+    public function getCampaignByAttributesAsyncWithHttpInfo($applicationId, $campaignSearch, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2002';
-        $request = $this->getCampaignByAttributesRequest($applicationId, $body, $pageSize, $skip, $sort, $campaignState);
+        $request = $this->getCampaignByAttributesRequest($applicationId, $campaignSearch, $pageSize, $skip, $sort, $campaignState);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14331,16 +14664,16 @@ class ManagementApi
      * Create request for operation 'getCampaignByAttributes'
      *
      * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\CampaignSearch $body (required)
+     * @param  \TalonOne\Client\Model\CampaignSearch $campaignSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $campaignState Filter results by the state of the campaign. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCampaignByAttributesRequest($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
+    protected function getCampaignByAttributesRequest($applicationId, $campaignSearch, $pageSize = null, $skip = null, $sort = null, $campaignState = null)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -14348,12 +14681,19 @@ class ManagementApi
                 'Missing the required parameter $applicationId when calling getCampaignByAttributes'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'campaignSearch' is set
+        if ($campaignSearch === null || (is_array($campaignSearch) && count($campaignSearch) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling getCampaignByAttributes'
+                'Missing the required parameter $campaignSearch when calling getCampaignByAttributes'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCampaignByAttributes, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCampaignByAttributes, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/campaigns_search';
         $formParams = [];
@@ -14363,32 +14703,48 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($campaignState)) {
-            $campaignState = ObjectSerializer::serializeCollection($campaignState, '', true);
-        }
         if ($campaignState !== null) {
-            $queryParams['campaignState'] = $campaignState;
+            if('form' === 'form' && is_array($campaignState)) {
+                foreach($campaignState as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignState'] = $campaignState;
+            }
         }
 
 
@@ -14403,8 +14759,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($campaignSearch)) {
+            $_tempBody = $campaignSearch;
         }
 
         if ($multipart) {
@@ -14447,10 +14803,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -14476,12 +14831,12 @@ class ManagementApi
     /**
      * Operation getCampaigns
      *
-     * List your Campaigns
+     * List campaigns
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $campaignState Filter results by the state of the campaign. (optional)
      * @param  string $name Filter results performing case-insensitive matching against the name of the campaign. (optional)
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
@@ -14502,12 +14857,12 @@ class ManagementApi
     /**
      * Operation getCampaignsWithHttpInfo
      *
-     * List your Campaigns
+     * List campaigns
      *
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $campaignState Filter results by the state of the campaign. (optional)
      * @param  string $name Filter results performing case-insensitive matching against the name of the campaign. (optional)
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
@@ -14599,12 +14954,12 @@ class ManagementApi
     /**
      * Operation getCampaignsAsync
      *
-     * List your Campaigns
+     * List campaigns
      *
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $campaignState Filter results by the state of the campaign. (optional)
      * @param  string $name Filter results performing case-insensitive matching against the name of the campaign. (optional)
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
@@ -14628,12 +14983,12 @@ class ManagementApi
     /**
      * Operation getCampaignsAsyncWithHttpInfo
      *
-     * List your Campaigns
+     * List campaigns
      *
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $campaignState Filter results by the state of the campaign. (optional)
      * @param  string $name Filter results performing case-insensitive matching against the name of the campaign. (optional)
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
@@ -14689,7 +15044,7 @@ class ManagementApi
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $campaignState Filter results by the state of the campaign. (optional)
      * @param  string $name Filter results performing case-insensitive matching against the name of the campaign. (optional)
      * @param  string $tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values (optional)
@@ -14708,6 +15063,13 @@ class ManagementApi
                 'Missing the required parameter $applicationId when calling getCampaigns'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCampaigns, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCampaigns, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/campaigns';
         $formParams = [];
@@ -14717,67 +15079,103 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($campaignState)) {
-            $campaignState = ObjectSerializer::serializeCollection($campaignState, '', true);
-        }
         if ($campaignState !== null) {
-            $queryParams['campaignState'] = $campaignState;
+            if('form' === 'form' && is_array($campaignState)) {
+                foreach($campaignState as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignState'] = $campaignState;
+            }
         }
         // query params
-        if (is_array($name)) {
-            $name = ObjectSerializer::serializeCollection($name, '', true);
-        }
         if ($name !== null) {
-            $queryParams['name'] = $name;
+            if('form' === 'form' && is_array($name)) {
+                foreach($name as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['name'] = $name;
+            }
         }
         // query params
-        if (is_array($tags)) {
-            $tags = ObjectSerializer::serializeCollection($tags, '', true);
-        }
         if ($tags !== null) {
-            $queryParams['tags'] = $tags;
+            if('form' === 'form' && is_array($tags)) {
+                foreach($tags as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['tags'] = $tags;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($campaignGroupId)) {
-            $campaignGroupId = ObjectSerializer::serializeCollection($campaignGroupId, '', true);
-        }
         if ($campaignGroupId !== null) {
-            $queryParams['campaignGroupId'] = $campaignGroupId;
+            if('form' === 'form' && is_array($campaignGroupId)) {
+                foreach($campaignGroupId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignGroupId'] = $campaignGroupId;
+            }
         }
 
 
@@ -14833,10 +15231,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -14866,7 +15263,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  int $applicationId applicationId (optional)
      * @param  string $entityPath Filter results on a case insensitive matching of the url path of the entity (optional)
      * @param  int $userId userId (optional)
@@ -14877,7 +15274,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20028
+     * @return \TalonOne\Client\Model\InlineResponse20027
      */
     public function getChanges($pageSize = null, $skip = null, $sort = null, $applicationId = null, $entityPath = null, $userId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $includeOld = null)
     {
@@ -14892,7 +15289,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  int $applicationId (optional)
      * @param  string $entityPath Filter results on a case insensitive matching of the url path of the entity (optional)
      * @param  int $userId (optional)
@@ -14903,7 +15300,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20028, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20027, HTTP status code, HTTP response headers (array of strings)
      */
     public function getChangesWithHttpInfo($pageSize = null, $skip = null, $sort = null, $applicationId = null, $entityPath = null, $userId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $includeOld = null)
     {
@@ -14940,20 +15337,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20028' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20027' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20028', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20027', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20028';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20027';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -14972,7 +15369,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20028',
+                        '\TalonOne\Client\Model\InlineResponse20027',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14989,7 +15386,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  int $applicationId (optional)
      * @param  string $entityPath Filter results on a case insensitive matching of the url path of the entity (optional)
      * @param  int $userId (optional)
@@ -15018,7 +15415,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  int $applicationId (optional)
      * @param  string $entityPath Filter results on a case insensitive matching of the url path of the entity (optional)
      * @param  int $userId (optional)
@@ -15032,7 +15429,7 @@ class ManagementApi
      */
     public function getChangesAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null, $applicationId = null, $entityPath = null, $userId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $includeOld = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20028';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20027';
         $request = $this->getChangesRequest($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $includeOld);
 
         return $this->client
@@ -15074,7 +15471,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  int $applicationId (optional)
      * @param  string $entityPath Filter results on a case insensitive matching of the url path of the entity (optional)
      * @param  int $userId (optional)
@@ -15088,6 +15485,13 @@ class ManagementApi
      */
     protected function getChangesRequest($pageSize = null, $skip = null, $sort = null, $applicationId = null, $entityPath = null, $userId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $includeOld = null)
     {
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getChanges, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getChanges, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/changes';
         $formParams = [];
@@ -15097,74 +15501,114 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($applicationId)) {
-            $applicationId = ObjectSerializer::serializeCollection($applicationId, '', true);
-        }
         if ($applicationId !== null) {
-            $queryParams['applicationId'] = $applicationId;
+            if('form' === 'form' && is_array($applicationId)) {
+                foreach($applicationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['applicationId'] = $applicationId;
+            }
         }
         // query params
-        if (is_array($entityPath)) {
-            $entityPath = ObjectSerializer::serializeCollection($entityPath, '', true);
-        }
         if ($entityPath !== null) {
-            $queryParams['entityPath'] = $entityPath;
+            if('form' === 'form' && is_array($entityPath)) {
+                foreach($entityPath as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['entityPath'] = $entityPath;
+            }
         }
         // query params
-        if (is_array($userId)) {
-            $userId = ObjectSerializer::serializeCollection($userId, '', true);
-        }
         if ($userId !== null) {
-            $queryParams['userId'] = $userId;
+            if('form' === 'form' && is_array($userId)) {
+                foreach($userId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['userId'] = $userId;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($withTotalResultSize)) {
-            $withTotalResultSize = ObjectSerializer::serializeCollection($withTotalResultSize, '', true);
-        }
         if ($withTotalResultSize !== null) {
-            $queryParams['withTotalResultSize'] = $withTotalResultSize;
+            if('form' === 'form' && is_array($withTotalResultSize)) {
+                foreach($withTotalResultSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['withTotalResultSize'] = $withTotalResultSize;
+            }
         }
         // query params
-        if (is_array($includeOld)) {
-            $includeOld = ObjectSerializer::serializeCollection($includeOld, '', true);
-        }
         if ($includeOld !== null) {
-            $queryParams['includeOld'] = $includeOld;
+            if('form' === 'form' && is_array($includeOld)) {
+                foreach($includeOld as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['includeOld'] = $includeOld;
+            }
         }
 
 
@@ -15212,10 +15656,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -15241,13 +15684,13 @@ class ManagementApi
     /**
      * Operation getCoupons
      *
-     * List Coupons (with total count)
+     * List coupons (with total count)
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -15275,13 +15718,13 @@ class ManagementApi
     /**
      * Operation getCouponsWithHttpInfo
      *
-     * List Coupons (with total count)
+     * List coupons (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -15380,13 +15823,13 @@ class ManagementApi
     /**
      * Operation getCouponsAsync
      *
-     * List Coupons (with total count)
+     * List coupons (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -15417,13 +15860,13 @@ class ManagementApi
     /**
      * Operation getCouponsAsyncWithHttpInfo
      *
-     * List Coupons (with total count)
+     * List coupons (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -15487,7 +15930,7 @@ class ManagementApi
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -15519,6 +15962,13 @@ class ManagementApi
                 'Missing the required parameter $campaignId when calling getCoupons'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCoupons, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCoupons, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons';
         $formParams = [];
@@ -15528,116 +15978,180 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($value)) {
-            $value = ObjectSerializer::serializeCollection($value, '', true);
-        }
         if ($value !== null) {
-            $queryParams['value'] = $value;
+            if('form' === 'form' && is_array($value)) {
+                foreach($value as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['value'] = $value;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($startsAfter)) {
-            $startsAfter = ObjectSerializer::serializeCollection($startsAfter, '', true);
-        }
         if ($startsAfter !== null) {
-            $queryParams['startsAfter'] = $startsAfter;
+            if('form' === 'form' && is_array($startsAfter)) {
+                foreach($startsAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['startsAfter'] = $startsAfter;
+            }
         }
         // query params
-        if (is_array($startsBefore)) {
-            $startsBefore = ObjectSerializer::serializeCollection($startsBefore, '', true);
-        }
         if ($startsBefore !== null) {
-            $queryParams['startsBefore'] = $startsBefore;
+            if('form' === 'form' && is_array($startsBefore)) {
+                foreach($startsBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['startsBefore'] = $startsBefore;
+            }
         }
         // query params
-        if (is_array($expiresAfter)) {
-            $expiresAfter = ObjectSerializer::serializeCollection($expiresAfter, '', true);
-        }
         if ($expiresAfter !== null) {
-            $queryParams['expiresAfter'] = $expiresAfter;
+            if('form' === 'form' && is_array($expiresAfter)) {
+                foreach($expiresAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['expiresAfter'] = $expiresAfter;
+            }
         }
         // query params
-        if (is_array($expiresBefore)) {
-            $expiresBefore = ObjectSerializer::serializeCollection($expiresBefore, '', true);
-        }
         if ($expiresBefore !== null) {
-            $queryParams['expiresBefore'] = $expiresBefore;
+            if('form' === 'form' && is_array($expiresBefore)) {
+                foreach($expiresBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['expiresBefore'] = $expiresBefore;
+            }
         }
         // query params
-        if (is_array($valid)) {
-            $valid = ObjectSerializer::serializeCollection($valid, '', true);
-        }
         if ($valid !== null) {
-            $queryParams['valid'] = $valid;
+            if('form' === 'form' && is_array($valid)) {
+                foreach($valid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['valid'] = $valid;
+            }
         }
         // query params
-        if (is_array($batchId)) {
-            $batchId = ObjectSerializer::serializeCollection($batchId, '', true);
-        }
         if ($batchId !== null) {
-            $queryParams['batchId'] = $batchId;
+            if('form' === 'form' && is_array($batchId)) {
+                foreach($batchId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['batchId'] = $batchId;
+            }
         }
         // query params
-        if (is_array($usable)) {
-            $usable = ObjectSerializer::serializeCollection($usable, '', true);
-        }
         if ($usable !== null) {
-            $queryParams['usable'] = $usable;
+            if('form' === 'form' && is_array($usable)) {
+                foreach($usable as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['usable'] = $usable;
+            }
         }
         // query params
-        if (is_array($referralId)) {
-            $referralId = ObjectSerializer::serializeCollection($referralId, '', true);
-        }
         if ($referralId !== null) {
-            $queryParams['referralId'] = $referralId;
+            if('form' === 'form' && is_array($referralId)) {
+                foreach($referralId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referralId'] = $referralId;
+            }
         }
         // query params
-        if (is_array($recipientIntegrationId)) {
-            $recipientIntegrationId = ObjectSerializer::serializeCollection($recipientIntegrationId, '', true);
-        }
         if ($recipientIntegrationId !== null) {
-            $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            if('form' === 'form' && is_array($recipientIntegrationId)) {
+                foreach($recipientIntegrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            }
         }
         // query params
-        if (is_array($exactMatch)) {
-            $exactMatch = ObjectSerializer::serializeCollection($exactMatch, '', true);
-        }
         if ($exactMatch !== null) {
-            $queryParams['exactMatch'] = $exactMatch;
+            if('form' === 'form' && is_array($exactMatch)) {
+                foreach($exactMatch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['exactMatch'] = $exactMatch;
+            }
         }
 
 
@@ -15701,10 +16215,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -15730,14 +16243,14 @@ class ManagementApi
     /**
      * Operation getCouponsByAttributes
      *
-     * Get a list of the coupons that match the given attributes
+     * List coupons that match the given attributes
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
-     * @param  \TalonOne\Client\Model\CouponSearch $body body (required)
+     * @param  \TalonOne\Client\Model\CouponSearch $couponSearch couponSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -15752,23 +16265,23 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2004
      */
-    public function getCouponsByAttributes($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
+    public function getCouponsByAttributes($applicationId, $campaignId, $couponSearch, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        list($response) = $this->getCouponsByAttributesWithHttpInfo($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
+        list($response) = $this->getCouponsByAttributesWithHttpInfo($applicationId, $campaignId, $couponSearch, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
         return $response;
     }
 
     /**
      * Operation getCouponsByAttributesWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes
+     * List coupons that match the given attributes
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\CouponSearch $body (required)
+     * @param  \TalonOne\Client\Model\CouponSearch $couponSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -15783,9 +16296,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCouponsByAttributesWithHttpInfo($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
+    public function getCouponsByAttributesWithHttpInfo($applicationId, $campaignId, $couponSearch, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        $request = $this->getCouponsByAttributesRequest($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
+        $request = $this->getCouponsByAttributesRequest($applicationId, $campaignId, $couponSearch, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15863,14 +16376,14 @@ class ManagementApi
     /**
      * Operation getCouponsByAttributesAsync
      *
-     * Get a list of the coupons that match the given attributes
+     * List coupons that match the given attributes
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\CouponSearch $body (required)
+     * @param  \TalonOne\Client\Model\CouponSearch $couponSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -15884,9 +16397,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsByAttributesAsync($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
+    public function getCouponsByAttributesAsync($applicationId, $campaignId, $couponSearch, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
-        return $this->getCouponsByAttributesAsyncWithHttpInfo($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
+        return $this->getCouponsByAttributesAsyncWithHttpInfo($applicationId, $campaignId, $couponSearch, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15897,14 +16410,14 @@ class ManagementApi
     /**
      * Operation getCouponsByAttributesAsyncWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes
+     * List coupons that match the given attributes
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\CouponSearch $body (required)
+     * @param  \TalonOne\Client\Model\CouponSearch $couponSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -15918,10 +16431,10 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsByAttributesAsyncWithHttpInfo($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
+    public function getCouponsByAttributesAsyncWithHttpInfo($applicationId, $campaignId, $couponSearch, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2004';
-        $request = $this->getCouponsByAttributesRequest($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
+        $request = $this->getCouponsByAttributesRequest($applicationId, $campaignId, $couponSearch, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15962,10 +16475,10 @@ class ManagementApi
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\CouponSearch $body (required)
+     * @param  \TalonOne\Client\Model\CouponSearch $couponSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -15979,7 +16492,7 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCouponsByAttributesRequest($applicationId, $campaignId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
+    protected function getCouponsByAttributesRequest($applicationId, $campaignId, $couponSearch, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $exactMatch = false, $batchId = null)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -15993,12 +16506,19 @@ class ManagementApi
                 'Missing the required parameter $campaignId when calling getCouponsByAttributes'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'couponSearch' is set
+        if ($couponSearch === null || (is_array($couponSearch) && count($couponSearch) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling getCouponsByAttributes'
+                'Missing the required parameter $couponSearch when calling getCouponsByAttributes'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCouponsByAttributes, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCouponsByAttributes, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search';
         $formParams = [];
@@ -16008,88 +16528,136 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($value)) {
-            $value = ObjectSerializer::serializeCollection($value, '', true);
-        }
         if ($value !== null) {
-            $queryParams['value'] = $value;
+            if('form' === 'form' && is_array($value)) {
+                foreach($value as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['value'] = $value;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($valid)) {
-            $valid = ObjectSerializer::serializeCollection($valid, '', true);
-        }
         if ($valid !== null) {
-            $queryParams['valid'] = $valid;
+            if('form' === 'form' && is_array($valid)) {
+                foreach($valid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['valid'] = $valid;
+            }
         }
         // query params
-        if (is_array($usable)) {
-            $usable = ObjectSerializer::serializeCollection($usable, '', true);
-        }
         if ($usable !== null) {
-            $queryParams['usable'] = $usable;
+            if('form' === 'form' && is_array($usable)) {
+                foreach($usable as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['usable'] = $usable;
+            }
         }
         // query params
-        if (is_array($referralId)) {
-            $referralId = ObjectSerializer::serializeCollection($referralId, '', true);
-        }
         if ($referralId !== null) {
-            $queryParams['referralId'] = $referralId;
+            if('form' === 'form' && is_array($referralId)) {
+                foreach($referralId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referralId'] = $referralId;
+            }
         }
         // query params
-        if (is_array($recipientIntegrationId)) {
-            $recipientIntegrationId = ObjectSerializer::serializeCollection($recipientIntegrationId, '', true);
-        }
         if ($recipientIntegrationId !== null) {
-            $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            if('form' === 'form' && is_array($recipientIntegrationId)) {
+                foreach($recipientIntegrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            }
         }
         // query params
-        if (is_array($exactMatch)) {
-            $exactMatch = ObjectSerializer::serializeCollection($exactMatch, '', true);
-        }
         if ($exactMatch !== null) {
-            $queryParams['exactMatch'] = $exactMatch;
+            if('form' === 'form' && is_array($exactMatch)) {
+                foreach($exactMatch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['exactMatch'] = $exactMatch;
+            }
         }
         // query params
-        if (is_array($batchId)) {
-            $batchId = ObjectSerializer::serializeCollection($batchId, '', true);
-        }
         if ($batchId !== null) {
-            $queryParams['batchId'] = $batchId;
+            if('form' === 'form' && is_array($batchId)) {
+                foreach($batchId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['batchId'] = $batchId;
+            }
         }
 
 
@@ -16112,8 +16680,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($couponSearch)) {
+            $_tempBody = $couponSearch;
         }
 
         if ($multipart) {
@@ -16156,10 +16724,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -16185,13 +16752,13 @@ class ManagementApi
     /**
      * Operation getCouponsByAttributesApplicationWide
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+     * List coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId applicationId (required)
-     * @param  \TalonOne\Client\Model\CouponSearch $body body (required)
+     * @param  \TalonOne\Client\Model\CouponSearch $couponSearch couponSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -16207,22 +16774,22 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2004
      */
-    public function getCouponsByAttributesApplicationWide($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
+    public function getCouponsByAttributesApplicationWide($applicationId, $couponSearch, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        list($response) = $this->getCouponsByAttributesApplicationWideWithHttpInfo($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
+        list($response) = $this->getCouponsByAttributesApplicationWideWithHttpInfo($applicationId, $couponSearch, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
         return $response;
     }
 
     /**
      * Operation getCouponsByAttributesApplicationWideWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+     * List coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\CouponSearch $body (required)
+     * @param  \TalonOne\Client\Model\CouponSearch $couponSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -16238,9 +16805,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCouponsByAttributesApplicationWideWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
+    public function getCouponsByAttributesApplicationWideWithHttpInfo($applicationId, $couponSearch, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        $request = $this->getCouponsByAttributesApplicationWideRequest($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
+        $request = $this->getCouponsByAttributesApplicationWideRequest($applicationId, $couponSearch, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16318,13 +16885,13 @@ class ManagementApi
     /**
      * Operation getCouponsByAttributesApplicationWideAsync
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+     * List coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\CouponSearch $body (required)
+     * @param  \TalonOne\Client\Model\CouponSearch $couponSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -16339,9 +16906,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsByAttributesApplicationWideAsync($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
+    public function getCouponsByAttributesApplicationWideAsync($applicationId, $couponSearch, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
-        return $this->getCouponsByAttributesApplicationWideAsyncWithHttpInfo($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
+        return $this->getCouponsByAttributesApplicationWideAsyncWithHttpInfo($applicationId, $couponSearch, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16352,13 +16919,13 @@ class ManagementApi
     /**
      * Operation getCouponsByAttributesApplicationWideAsyncWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+     * List coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\CouponSearch $body (required)
+     * @param  \TalonOne\Client\Model\CouponSearch $couponSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -16373,10 +16940,10 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsByAttributesApplicationWideAsyncWithHttpInfo($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
+    public function getCouponsByAttributesApplicationWideAsyncWithHttpInfo($applicationId, $couponSearch, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2004';
-        $request = $this->getCouponsByAttributesApplicationWideRequest($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
+        $request = $this->getCouponsByAttributesApplicationWideRequest($applicationId, $couponSearch, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16416,10 +16983,10 @@ class ManagementApi
      * Create request for operation 'getCouponsByAttributesApplicationWide'
      *
      * @param  int $applicationId (required)
-     * @param  \TalonOne\Client\Model\CouponSearch $body (required)
+     * @param  \TalonOne\Client\Model\CouponSearch $couponSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -16434,7 +17001,7 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCouponsByAttributesApplicationWideRequest($applicationId, $body, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
+    protected function getCouponsByAttributesApplicationWideRequest($applicationId, $couponSearch, $pageSize = null, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $campaignState = null)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -16442,12 +17009,19 @@ class ManagementApi
                 'Missing the required parameter $applicationId when calling getCouponsByAttributesApplicationWide'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'couponSearch' is set
+        if ($couponSearch === null || (is_array($couponSearch) && count($couponSearch) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling getCouponsByAttributesApplicationWide'
+                'Missing the required parameter $couponSearch when calling getCouponsByAttributesApplicationWide'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCouponsByAttributesApplicationWide, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCouponsByAttributesApplicationWide, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/coupons_search';
         $formParams = [];
@@ -16457,95 +17031,147 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($value)) {
-            $value = ObjectSerializer::serializeCollection($value, '', true);
-        }
         if ($value !== null) {
-            $queryParams['value'] = $value;
+            if('form' === 'form' && is_array($value)) {
+                foreach($value as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['value'] = $value;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($valid)) {
-            $valid = ObjectSerializer::serializeCollection($valid, '', true);
-        }
         if ($valid !== null) {
-            $queryParams['valid'] = $valid;
+            if('form' === 'form' && is_array($valid)) {
+                foreach($valid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['valid'] = $valid;
+            }
         }
         // query params
-        if (is_array($usable)) {
-            $usable = ObjectSerializer::serializeCollection($usable, '', true);
-        }
         if ($usable !== null) {
-            $queryParams['usable'] = $usable;
+            if('form' === 'form' && is_array($usable)) {
+                foreach($usable as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['usable'] = $usable;
+            }
         }
         // query params
-        if (is_array($referralId)) {
-            $referralId = ObjectSerializer::serializeCollection($referralId, '', true);
-        }
         if ($referralId !== null) {
-            $queryParams['referralId'] = $referralId;
+            if('form' === 'form' && is_array($referralId)) {
+                foreach($referralId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referralId'] = $referralId;
+            }
         }
         // query params
-        if (is_array($recipientIntegrationId)) {
-            $recipientIntegrationId = ObjectSerializer::serializeCollection($recipientIntegrationId, '', true);
-        }
         if ($recipientIntegrationId !== null) {
-            $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            if('form' === 'form' && is_array($recipientIntegrationId)) {
+                foreach($recipientIntegrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            }
         }
         // query params
-        if (is_array($batchId)) {
-            $batchId = ObjectSerializer::serializeCollection($batchId, '', true);
-        }
         if ($batchId !== null) {
-            $queryParams['batchId'] = $batchId;
+            if('form' === 'form' && is_array($batchId)) {
+                foreach($batchId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['batchId'] = $batchId;
+            }
         }
         // query params
-        if (is_array($exactMatch)) {
-            $exactMatch = ObjectSerializer::serializeCollection($exactMatch, '', true);
-        }
         if ($exactMatch !== null) {
-            $queryParams['exactMatch'] = $exactMatch;
+            if('form' === 'form' && is_array($exactMatch)) {
+                foreach($exactMatch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['exactMatch'] = $exactMatch;
+            }
         }
         // query params
-        if (is_array($campaignState)) {
-            $campaignState = ObjectSerializer::serializeCollection($campaignState, '', true);
-        }
         if ($campaignState !== null) {
-            $queryParams['campaignState'] = $campaignState;
+            if('form' === 'form' && is_array($campaignState)) {
+                foreach($campaignState as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignState'] = $campaignState;
+            }
         }
 
 
@@ -16560,8 +17186,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($couponSearch)) {
+            $_tempBody = $couponSearch;
         }
 
         if ($multipart) {
@@ -16604,10 +17230,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -16633,13 +17258,13 @@ class ManagementApi
     /**
      * Operation getCouponsWithoutTotalCount
      *
-     * List Coupons
+     * List coupons
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -16663,13 +17288,13 @@ class ManagementApi
     /**
      * Operation getCouponsWithoutTotalCountWithHttpInfo
      *
-     * List Coupons
+     * List coupons
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -16764,13 +17389,13 @@ class ManagementApi
     /**
      * Operation getCouponsWithoutTotalCountAsync
      *
-     * List Coupons
+     * List coupons
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -16797,13 +17422,13 @@ class ManagementApi
     /**
      * Operation getCouponsWithoutTotalCountAsyncWithHttpInfo
      *
-     * List Coupons
+     * List coupons
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -16863,7 +17488,7 @@ class ManagementApi
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -16891,6 +17516,13 @@ class ManagementApi
                 'Missing the required parameter $campaignId when calling getCouponsWithoutTotalCount'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCouponsWithoutTotalCount, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCouponsWithoutTotalCount, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total';
         $formParams = [];
@@ -16900,88 +17532,136 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($value)) {
-            $value = ObjectSerializer::serializeCollection($value, '', true);
-        }
         if ($value !== null) {
-            $queryParams['value'] = $value;
+            if('form' === 'form' && is_array($value)) {
+                foreach($value as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['value'] = $value;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($valid)) {
-            $valid = ObjectSerializer::serializeCollection($valid, '', true);
-        }
         if ($valid !== null) {
-            $queryParams['valid'] = $valid;
+            if('form' === 'form' && is_array($valid)) {
+                foreach($valid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['valid'] = $valid;
+            }
         }
         // query params
-        if (is_array($usable)) {
-            $usable = ObjectSerializer::serializeCollection($usable, '', true);
-        }
         if ($usable !== null) {
-            $queryParams['usable'] = $usable;
+            if('form' === 'form' && is_array($usable)) {
+                foreach($usable as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['usable'] = $usable;
+            }
         }
         // query params
-        if (is_array($referralId)) {
-            $referralId = ObjectSerializer::serializeCollection($referralId, '', true);
-        }
         if ($referralId !== null) {
-            $queryParams['referralId'] = $referralId;
+            if('form' === 'form' && is_array($referralId)) {
+                foreach($referralId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referralId'] = $referralId;
+            }
         }
         // query params
-        if (is_array($recipientIntegrationId)) {
-            $recipientIntegrationId = ObjectSerializer::serializeCollection($recipientIntegrationId, '', true);
-        }
         if ($recipientIntegrationId !== null) {
-            $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            if('form' === 'form' && is_array($recipientIntegrationId)) {
+                foreach($recipientIntegrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            }
         }
         // query params
-        if (is_array($batchId)) {
-            $batchId = ObjectSerializer::serializeCollection($batchId, '', true);
-        }
         if ($batchId !== null) {
-            $queryParams['batchId'] = $batchId;
+            if('form' === 'form' && is_array($batchId)) {
+                foreach($batchId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['batchId'] = $batchId;
+            }
         }
         // query params
-        if (is_array($exactMatch)) {
-            $exactMatch = ObjectSerializer::serializeCollection($exactMatch, '', true);
-        }
         if ($exactMatch !== null) {
-            $queryParams['exactMatch'] = $exactMatch;
+            if('form' === 'form' && is_array($exactMatch)) {
+                foreach($exactMatch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['exactMatch'] = $exactMatch;
+            }
         }
 
 
@@ -17045,10 +17725,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -17304,6 +17983,13 @@ class ManagementApi
                 'Missing the required parameter $customerId when calling getCustomerActivityReport'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCustomerActivityReport, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCustomerActivityReport, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/customer_activity_reports/{customerId}';
         $formParams = [];
@@ -17313,32 +17999,48 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($rangeStart)) {
-            $rangeStart = ObjectSerializer::serializeCollection($rangeStart, '', true);
-        }
         if ($rangeStart !== null) {
-            $queryParams['rangeStart'] = $rangeStart;
+            if('form' === 'form' && is_array($rangeStart)) {
+                foreach($rangeStart as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeStart'] = $rangeStart;
+            }
         }
         // query params
-        if (is_array($rangeEnd)) {
-            $rangeEnd = ObjectSerializer::serializeCollection($rangeEnd, '', true);
-        }
         if ($rangeEnd !== null) {
-            $queryParams['rangeEnd'] = $rangeEnd;
+            if('form' === 'form' && is_array($rangeEnd)) {
+                foreach($rangeEnd as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeEnd'] = $rangeEnd;
+            }
         }
 
 
@@ -17402,10 +18104,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -17438,7 +18139,7 @@ class ManagementApi
      * @param  int $applicationId applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $name Only return reports matching the customer name (optional)
      * @param  string $integrationId Only return reports matching the integrationId (optional)
      * @param  string $campaignName Only return reports matching the campaignName (optional)
@@ -17446,7 +18147,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20014
+     * @return \TalonOne\Client\Model\InlineResponse20013
      */
     public function getCustomerActivityReports($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
@@ -17464,7 +18165,447 @@ class ManagementApi
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
+     * @param  string $name Only return reports matching the customer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCustomerActivityReportsWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
+    {
+        $request = $this->getCustomerActivityReportsRequest($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse20013' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20013', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse20013';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse20013',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCustomerActivityReportsAsync
+     *
+     * Get Activity Reports for Application Customers (with total count)
+     *
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $name Only return reports matching the customer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomerActivityReportsAsync($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
+    {
+        return $this->getCustomerActivityReportsAsyncWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCustomerActivityReportsAsyncWithHttpInfo
+     *
+     * Get Activity Reports for Application Customers (with total count)
+     *
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $name Only return reports matching the customer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomerActivityReportsAsyncWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse20013';
+        $request = $this->getCustomerActivityReportsRequest($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCustomerActivityReports'
+     *
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $name Only return reports matching the customer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getCustomerActivityReportsRequest($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
+    {
+        // verify the required parameter 'rangeStart' is set
+        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $rangeStart when calling getCustomerActivityReports'
+            );
+        }
+        // verify the required parameter 'rangeEnd' is set
+        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $rangeEnd when calling getCustomerActivityReports'
+            );
+        }
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling getCustomerActivityReports'
+            );
+        }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCustomerActivityReports, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCustomerActivityReports, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/v1/applications/{applicationId}/customer_activity_reports';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($pageSize !== null) {
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
+        }
+        // query params
+        if ($skip !== null) {
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
+        }
+        // query params
+        if ($sort !== null) {
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
+        }
+        // query params
+        if ($rangeStart !== null) {
+            if('form' === 'form' && is_array($rangeStart)) {
+                foreach($rangeStart as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeStart'] = $rangeStart;
+            }
+        }
+        // query params
+        if ($rangeEnd !== null) {
+            if('form' === 'form' && is_array($rangeEnd)) {
+                foreach($rangeEnd as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeEnd'] = $rangeEnd;
+            }
+        }
+        // query params
+        if ($name !== null) {
+            if('form' === 'form' && is_array($name)) {
+                foreach($name as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['name'] = $name;
+            }
+        }
+        // query params
+        if ($integrationId !== null) {
+            if('form' === 'form' && is_array($integrationId)) {
+                foreach($integrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['integrationId'] = $integrationId;
+            }
+        }
+        // query params
+        if ($campaignName !== null) {
+            if('form' === 'form' && is_array($campaignName)) {
+                foreach($campaignName as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignName'] = $campaignName;
+            }
+        }
+        // query params
+        if ($advocateName !== null) {
+            if('form' === 'form' && is_array($advocateName)) {
+                foreach($advocateName as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['advocateName'] = $advocateName;
+            }
+        }
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCustomerActivityReportsWithoutTotalCount
+     *
+     * Get Activity Reports for Application Customers
+     *
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort sort (optional)
+     * @param  string $name Only return reports matching the customer name (optional)
+     * @param  string $integrationId Only return reports matching the integrationId (optional)
+     * @param  string $campaignName Only return reports matching the campaignName (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse20014
+     */
+    public function getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
+    {
+        list($response) = $this->getCustomerActivityReportsWithoutTotalCountWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
+        return $response;
+    }
+
+    /**
+     * Operation getCustomerActivityReportsWithoutTotalCountWithHttpInfo
+     *
+     * Get Activity Reports for Application Customers
+     *
+     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+     * @param  int $applicationId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
      * @param  string $name Only return reports matching the customer name (optional)
      * @param  string $integrationId Only return reports matching the integrationId (optional)
      * @param  string $campaignName Only return reports matching the campaignName (optional)
@@ -17474,9 +18615,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20014, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomerActivityReportsWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
+    public function getCustomerActivityReportsWithoutTotalCountWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
-        $request = $this->getCustomerActivityReportsRequest($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
+        $request = $this->getCustomerActivityReportsWithoutTotalCountRequest($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17552,404 +18693,6 @@ class ManagementApi
     }
 
     /**
-     * Operation getCustomerActivityReportsAsync
-     *
-     * Get Activity Reports for Application Customers (with total count)
-     *
-     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integrationId Only return reports matching the integrationId (optional)
-     * @param  string $campaignName Only return reports matching the campaignName (optional)
-     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCustomerActivityReportsAsync($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
-    {
-        return $this->getCustomerActivityReportsAsyncWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getCustomerActivityReportsAsyncWithHttpInfo
-     *
-     * Get Activity Reports for Application Customers (with total count)
-     *
-     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integrationId Only return reports matching the integrationId (optional)
-     * @param  string $campaignName Only return reports matching the campaignName (optional)
-     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCustomerActivityReportsAsyncWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
-    {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20014';
-        $request = $this->getCustomerActivityReportsRequest($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getCustomerActivityReports'
-     *
-     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integrationId Only return reports matching the integrationId (optional)
-     * @param  string $campaignName Only return reports matching the campaignName (optional)
-     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getCustomerActivityReportsRequest($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
-    {
-        // verify the required parameter 'rangeStart' is set
-        if ($rangeStart === null || (is_array($rangeStart) && count($rangeStart) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $rangeStart when calling getCustomerActivityReports'
-            );
-        }
-        // verify the required parameter 'rangeEnd' is set
-        if ($rangeEnd === null || (is_array($rangeEnd) && count($rangeEnd) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $rangeEnd when calling getCustomerActivityReports'
-            );
-        }
-        // verify the required parameter 'applicationId' is set
-        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $applicationId when calling getCustomerActivityReports'
-            );
-        }
-
-        $resourcePath = '/v1/applications/{applicationId}/customer_activity_reports';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
-        if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
-        }
-        // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
-        if ($skip !== null) {
-            $queryParams['skip'] = $skip;
-        }
-        // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
-        if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-        // query params
-        if (is_array($rangeStart)) {
-            $rangeStart = ObjectSerializer::serializeCollection($rangeStart, '', true);
-        }
-        if ($rangeStart !== null) {
-            $queryParams['rangeStart'] = $rangeStart;
-        }
-        // query params
-        if (is_array($rangeEnd)) {
-            $rangeEnd = ObjectSerializer::serializeCollection($rangeEnd, '', true);
-        }
-        if ($rangeEnd !== null) {
-            $queryParams['rangeEnd'] = $rangeEnd;
-        }
-        // query params
-        if (is_array($name)) {
-            $name = ObjectSerializer::serializeCollection($name, '', true);
-        }
-        if ($name !== null) {
-            $queryParams['name'] = $name;
-        }
-        // query params
-        if (is_array($integrationId)) {
-            $integrationId = ObjectSerializer::serializeCollection($integrationId, '', true);
-        }
-        if ($integrationId !== null) {
-            $queryParams['integrationId'] = $integrationId;
-        }
-        // query params
-        if (is_array($campaignName)) {
-            $campaignName = ObjectSerializer::serializeCollection($campaignName, '', true);
-        }
-        if ($campaignName !== null) {
-            $queryParams['campaignName'] = $campaignName;
-        }
-        // query params
-        if (is_array($advocateName)) {
-            $advocateName = ObjectSerializer::serializeCollection($advocateName, '', true);
-        }
-        if ($advocateName !== null) {
-            $queryParams['advocateName'] = $advocateName;
-        }
-
-
-        // path params
-        if ($applicationId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($applicationId),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getCustomerActivityReportsWithoutTotalCount
-     *
-     * Get Activity Reports for Application Customers
-     *
-     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $applicationId applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integrationId Only return reports matching the integrationId (optional)
-     * @param  string $campaignName Only return reports matching the campaignName (optional)
-     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20015
-     */
-    public function getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
-    {
-        list($response) = $this->getCustomerActivityReportsWithoutTotalCountWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
-        return $response;
-    }
-
-    /**
-     * Operation getCustomerActivityReportsWithoutTotalCountWithHttpInfo
-     *
-     * Get Activity Reports for Application Customers
-     *
-     * @param  \DateTime $rangeStart Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-     * @param  int $applicationId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $name Only return reports matching the customer name (optional)
-     * @param  string $integrationId Only return reports matching the integrationId (optional)
-     * @param  string $campaignName Only return reports matching the campaignName (optional)
-     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20015, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getCustomerActivityReportsWithoutTotalCountWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
-    {
-        $request = $this->getCustomerActivityReportsWithoutTotalCountRequest($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20015' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20015', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\InlineResponse20015';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20015',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
      * Operation getCustomerActivityReportsWithoutTotalCountAsync
      *
      * Get Activity Reports for Application Customers
@@ -17959,7 +18702,7 @@ class ManagementApi
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $name Only return reports matching the customer name (optional)
      * @param  string $integrationId Only return reports matching the integrationId (optional)
      * @param  string $campaignName Only return reports matching the campaignName (optional)
@@ -17988,7 +18731,7 @@ class ManagementApi
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $name Only return reports matching the customer name (optional)
      * @param  string $integrationId Only return reports matching the integrationId (optional)
      * @param  string $campaignName Only return reports matching the campaignName (optional)
@@ -17999,7 +18742,7 @@ class ManagementApi
      */
     public function getCustomerActivityReportsWithoutTotalCountAsyncWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = null, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20015';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20014';
         $request = $this->getCustomerActivityReportsWithoutTotalCountRequest($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
 
         return $this->client
@@ -18044,7 +18787,7 @@ class ManagementApi
      * @param  int $applicationId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $name Only return reports matching the customer name (optional)
      * @param  string $integrationId Only return reports matching the integrationId (optional)
      * @param  string $campaignName Only return reports matching the campaignName (optional)
@@ -18073,6 +18816,13 @@ class ManagementApi
                 'Missing the required parameter $applicationId when calling getCustomerActivityReportsWithoutTotalCount'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCustomerActivityReportsWithoutTotalCount, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCustomerActivityReportsWithoutTotalCount, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/customer_activity_reports/no_total';
         $formParams = [];
@@ -18082,67 +18832,103 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($rangeStart)) {
-            $rangeStart = ObjectSerializer::serializeCollection($rangeStart, '', true);
-        }
         if ($rangeStart !== null) {
-            $queryParams['rangeStart'] = $rangeStart;
+            if('form' === 'form' && is_array($rangeStart)) {
+                foreach($rangeStart as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeStart'] = $rangeStart;
+            }
         }
         // query params
-        if (is_array($rangeEnd)) {
-            $rangeEnd = ObjectSerializer::serializeCollection($rangeEnd, '', true);
-        }
         if ($rangeEnd !== null) {
-            $queryParams['rangeEnd'] = $rangeEnd;
+            if('form' === 'form' && is_array($rangeEnd)) {
+                foreach($rangeEnd as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['rangeEnd'] = $rangeEnd;
+            }
         }
         // query params
-        if (is_array($name)) {
-            $name = ObjectSerializer::serializeCollection($name, '', true);
-        }
         if ($name !== null) {
-            $queryParams['name'] = $name;
+            if('form' === 'form' && is_array($name)) {
+                foreach($name as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['name'] = $name;
+            }
         }
         // query params
-        if (is_array($integrationId)) {
-            $integrationId = ObjectSerializer::serializeCollection($integrationId, '', true);
-        }
         if ($integrationId !== null) {
-            $queryParams['integrationId'] = $integrationId;
+            if('form' === 'form' && is_array($integrationId)) {
+                foreach($integrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['integrationId'] = $integrationId;
+            }
         }
         // query params
-        if (is_array($campaignName)) {
-            $campaignName = ObjectSerializer::serializeCollection($campaignName, '', true);
-        }
         if ($campaignName !== null) {
-            $queryParams['campaignName'] = $campaignName;
+            if('form' === 'form' && is_array($campaignName)) {
+                foreach($campaignName as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignName'] = $campaignName;
+            }
         }
         // query params
-        if (is_array($advocateName)) {
-            $advocateName = ObjectSerializer::serializeCollection($advocateName, '', true);
-        }
         if ($advocateName !== null) {
-            $queryParams['advocateName'] = $advocateName;
+            if('form' === 'form' && is_array($advocateName)) {
+                foreach($advocateName as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['advocateName'] = $advocateName;
+            }
         }
 
 
@@ -18198,10 +18984,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -18233,7 +19018,7 @@ class ManagementApi
      * @param  int $customerId customerId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -18254,7 +19039,7 @@ class ManagementApi
      * @param  int $customerId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -18346,7 +19131,7 @@ class ManagementApi
      * @param  int $customerId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -18370,7 +19155,7 @@ class ManagementApi
      * @param  int $customerId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -18421,7 +19206,7 @@ class ManagementApi
      * @param  int $customerId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -18440,6 +19225,13 @@ class ManagementApi
                 'Missing the required parameter $customerId when calling getCustomerAnalytics'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCustomerAnalytics, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCustomerAnalytics, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/customers/{customerId}/analytics';
         $formParams = [];
@@ -18449,25 +19241,37 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
 
 
@@ -18531,10 +19335,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -18809,10 +19612,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -18845,7 +19647,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20013
+     * @return \TalonOne\Client\Model\InlineResponse20012
      */
     public function getCustomerProfiles($pageSize = null, $skip = null)
     {
@@ -18863,7 +19665,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomerProfilesWithHttpInfo($pageSize = null, $skip = null)
     {
@@ -18900,20 +19702,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20013' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20012' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20013', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20012', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20013';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20012';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -18932,7 +19734,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20013',
+                        '\TalonOne\Client\Model\InlineResponse20012',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18976,7 +19778,7 @@ class ManagementApi
      */
     public function getCustomerProfilesAsyncWithHttpInfo($pageSize = null, $skip = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20013';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20012';
         $request = $this->getCustomerProfilesRequest($pageSize, $skip);
 
         return $this->client
@@ -19024,6 +19826,13 @@ class ManagementApi
      */
     protected function getCustomerProfilesRequest($pageSize = null, $skip = null)
     {
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCustomerProfiles, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCustomerProfiles, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/customers/no_total';
         $formParams = [];
@@ -19033,18 +19842,26 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
 
 
@@ -19092,10 +19909,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -19121,38 +19937,38 @@ class ManagementApi
     /**
      * Operation getCustomersByAttributes
      *
-     * Get a list of the customer profiles that match the given attributes
+     * List customer profiles that match the given attributes
      *
-     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body body (required)
+     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $applicationCustomerSearch applicationCustomerSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20013
+     * @return \TalonOne\Client\Model\InlineResponse20012
      */
-    public function getCustomersByAttributes($body, $pageSize = null, $skip = null)
+    public function getCustomersByAttributes($applicationCustomerSearch, $pageSize = null, $skip = null)
     {
-        list($response) = $this->getCustomersByAttributesWithHttpInfo($body, $pageSize, $skip);
+        list($response) = $this->getCustomersByAttributesWithHttpInfo($applicationCustomerSearch, $pageSize, $skip);
         return $response;
     }
 
     /**
      * Operation getCustomersByAttributesWithHttpInfo
      *
-     * Get a list of the customer profiles that match the given attributes
+     * List customer profiles that match the given attributes
      *
-     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
+     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $applicationCustomerSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomersByAttributesWithHttpInfo($body, $pageSize = null, $skip = null)
+    public function getCustomersByAttributesWithHttpInfo($applicationCustomerSearch, $pageSize = null, $skip = null)
     {
-        $request = $this->getCustomersByAttributesRequest($body, $pageSize, $skip);
+        $request = $this->getCustomersByAttributesRequest($applicationCustomerSearch, $pageSize, $skip);
 
         try {
             $options = $this->createHttpClientOption();
@@ -19185,20 +20001,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20013' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20012' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20013', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20012', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20013';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20012';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -19217,7 +20033,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20013',
+                        '\TalonOne\Client\Model\InlineResponse20012',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19230,18 +20046,18 @@ class ManagementApi
     /**
      * Operation getCustomersByAttributesAsync
      *
-     * Get a list of the customer profiles that match the given attributes
+     * List customer profiles that match the given attributes
      *
-     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
+     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $applicationCustomerSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomersByAttributesAsync($body, $pageSize = null, $skip = null)
+    public function getCustomersByAttributesAsync($applicationCustomerSearch, $pageSize = null, $skip = null)
     {
-        return $this->getCustomersByAttributesAsyncWithHttpInfo($body, $pageSize, $skip)
+        return $this->getCustomersByAttributesAsyncWithHttpInfo($applicationCustomerSearch, $pageSize, $skip)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -19252,19 +20068,19 @@ class ManagementApi
     /**
      * Operation getCustomersByAttributesAsyncWithHttpInfo
      *
-     * Get a list of the customer profiles that match the given attributes
+     * List customer profiles that match the given attributes
      *
-     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
+     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $applicationCustomerSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomersByAttributesAsyncWithHttpInfo($body, $pageSize = null, $skip = null)
+    public function getCustomersByAttributesAsyncWithHttpInfo($applicationCustomerSearch, $pageSize = null, $skip = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20013';
-        $request = $this->getCustomersByAttributesRequest($body, $pageSize, $skip);
+        $returnType = '\TalonOne\Client\Model\InlineResponse20012';
+        $request = $this->getCustomersByAttributesRequest($applicationCustomerSearch, $pageSize, $skip);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -19303,21 +20119,28 @@ class ManagementApi
     /**
      * Create request for operation 'getCustomersByAttributes'
      *
-     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $body (required)
+     * @param  \TalonOne\Client\Model\ApplicationCustomerSearch $applicationCustomerSearch (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomersByAttributesRequest($body, $pageSize = null, $skip = null)
+    protected function getCustomersByAttributesRequest($applicationCustomerSearch, $pageSize = null, $skip = null)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'applicationCustomerSearch' is set
+        if ($applicationCustomerSearch === null || (is_array($applicationCustomerSearch) && count($applicationCustomerSearch) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling getCustomersByAttributes'
+                'Missing the required parameter $applicationCustomerSearch when calling getCustomersByAttributes'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCustomersByAttributes, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getCustomersByAttributes, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/customer_search/no_total';
         $formParams = [];
@@ -19327,26 +20150,34 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
 
 
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($applicationCustomerSearch)) {
+            $_tempBody = $applicationCustomerSearch;
         }
 
         if ($multipart) {
@@ -19389,10 +20220,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -19418,18 +20248,18 @@ class ManagementApi
     /**
      * Operation getEventTypes
      *
-     * List Event Types
+     * List event types
      *
      * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $name Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)
      * @param  bool $includeOldVersions Include all versions of every event type. (optional, default to false)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20026
+     * @return \TalonOne\Client\Model\InlineResponse20025
      */
     public function getEventTypes($applicationIds = null, $name = null, $includeOldVersions = false, $pageSize = null, $skip = null, $sort = null)
     {
@@ -19440,18 +20270,18 @@ class ManagementApi
     /**
      * Operation getEventTypesWithHttpInfo
      *
-     * List Event Types
+     * List event types
      *
      * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $name Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)
      * @param  bool $includeOldVersions Include all versions of every event type. (optional, default to false)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20026, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20025, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEventTypesWithHttpInfo($applicationIds = null, $name = null, $includeOldVersions = false, $pageSize = null, $skip = null, $sort = null)
     {
@@ -19488,20 +20318,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20026' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20025' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20026', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20025', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20026';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20025';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -19520,7 +20350,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20026',
+                        '\TalonOne\Client\Model\InlineResponse20025',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19533,14 +20363,14 @@ class ManagementApi
     /**
      * Operation getEventTypesAsync
      *
-     * List Event Types
+     * List event types
      *
      * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $name Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)
      * @param  bool $includeOldVersions Include all versions of every event type. (optional, default to false)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -19558,21 +20388,21 @@ class ManagementApi
     /**
      * Operation getEventTypesAsyncWithHttpInfo
      *
-     * List Event Types
+     * List event types
      *
      * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
      * @param  string $name Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)
      * @param  bool $includeOldVersions Include all versions of every event type. (optional, default to false)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getEventTypesAsyncWithHttpInfo($applicationIds = null, $name = null, $includeOldVersions = false, $pageSize = null, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20026';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20025';
         $request = $this->getEventTypesRequest($applicationIds, $name, $includeOldVersions, $pageSize, $skip, $sort);
 
         return $this->client
@@ -19617,13 +20447,20 @@ class ManagementApi
      * @param  bool $includeOldVersions Include all versions of every event type. (optional, default to false)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     protected function getEventTypesRequest($applicationIds = null, $name = null, $includeOldVersions = false, $pageSize = null, $skip = null, $sort = null)
     {
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getEventTypes, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getEventTypes, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/event_types';
         $formParams = [];
@@ -19633,46 +20470,70 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($applicationIds)) {
-            $applicationIds = ObjectSerializer::serializeCollection($applicationIds, '', true);
-        }
         if ($applicationIds !== null) {
-            $queryParams['applicationIds'] = $applicationIds;
+            if('form' === 'form' && is_array($applicationIds)) {
+                foreach($applicationIds as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['applicationIds'] = $applicationIds;
+            }
         }
         // query params
-        if (is_array($name)) {
-            $name = ObjectSerializer::serializeCollection($name, '', true);
-        }
         if ($name !== null) {
-            $queryParams['name'] = $name;
+            if('form' === 'form' && is_array($name)) {
+                foreach($name as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['name'] = $name;
+            }
         }
         // query params
-        if (is_array($includeOldVersions)) {
-            $includeOldVersions = ObjectSerializer::serializeCollection($includeOldVersions, '', true);
-        }
         if ($includeOldVersions !== null) {
-            $queryParams['includeOldVersions'] = $includeOldVersions;
+            if('form' === 'form' && is_array($includeOldVersions)) {
+                foreach($includeOldVersions as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['includeOldVersions'] = $includeOldVersions;
+            }
         }
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
 
 
@@ -19720,10 +20581,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -19749,7 +20609,7 @@ class ManagementApi
     /**
      * Operation getExports
      *
-     * Get Exports
+     * Get exports
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
@@ -19759,7 +20619,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20029
+     * @return \TalonOne\Client\Model\InlineResponse20028
      */
     public function getExports($pageSize = null, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
@@ -19770,7 +20630,7 @@ class ManagementApi
     /**
      * Operation getExportsWithHttpInfo
      *
-     * Get Exports
+     * Get exports
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
@@ -19780,7 +20640,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20029, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20028, HTTP status code, HTTP response headers (array of strings)
      */
     public function getExportsWithHttpInfo($pageSize = null, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
@@ -19817,20 +20677,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20029' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20028' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20029', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20028', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20029';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20028';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -19849,7 +20709,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20029',
+                        '\TalonOne\Client\Model\InlineResponse20028',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19862,7 +20722,7 @@ class ManagementApi
     /**
      * Operation getExportsAsync
      *
-     * Get Exports
+     * Get exports
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
@@ -19886,7 +20746,7 @@ class ManagementApi
     /**
      * Operation getExportsAsyncWithHttpInfo
      *
-     * Get Exports
+     * Get exports
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
@@ -19899,7 +20759,7 @@ class ManagementApi
      */
     public function getExportsAsyncWithHttpInfo($pageSize = null, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20029';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20028';
         $request = $this->getExportsRequest($pageSize, $skip, $applicationId, $campaignId, $entity);
 
         return $this->client
@@ -19950,6 +20810,13 @@ class ManagementApi
      */
     protected function getExportsRequest($pageSize = null, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getExports, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getExports, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/exports';
         $formParams = [];
@@ -19959,39 +20826,59 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($applicationId)) {
-            $applicationId = ObjectSerializer::serializeCollection($applicationId, '', true);
-        }
         if ($applicationId !== null) {
-            $queryParams['applicationId'] = $applicationId;
+            if('form' === 'form' && is_array($applicationId)) {
+                foreach($applicationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['applicationId'] = $applicationId;
+            }
         }
         // query params
-        if (is_array($campaignId)) {
-            $campaignId = ObjectSerializer::serializeCollection($campaignId, '', true);
-        }
         if ($campaignId !== null) {
-            $queryParams['campaignId'] = $campaignId;
+            if('form' === 'form' && is_array($campaignId)) {
+                foreach($campaignId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignId'] = $campaignId;
+            }
         }
         // query params
-        if (is_array($entity)) {
-            $entity = ObjectSerializer::serializeCollection($entity, '', true);
-        }
         if ($entity !== null) {
-            $queryParams['entity'] = $entity;
+            if('form' === 'form' && is_array($entity)) {
+                foreach($entity as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['entity'] = $entity;
+            }
         }
 
 
@@ -20039,10 +20926,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -20068,9 +20954,9 @@ class ManagementApi
     /**
      * Operation getLoyaltyPoints
      *
-     * get the Loyalty Ledger for this integrationID
+     * Get integration's Loyalty Ledger
      *
-     * @param  string $programID The identifier for the application, must be unique within the account. (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID The identifier for the application, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -20086,9 +20972,9 @@ class ManagementApi
     /**
      * Operation getLoyaltyPointsWithHttpInfo
      *
-     * get the Loyalty Ledger for this integrationID
+     * Get integration's Loyalty Ledger
      *
-     * @param  string $programID The identifier for the application, must be unique within the account. (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID The identifier for the application, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -20175,9 +21061,9 @@ class ManagementApi
     /**
      * Operation getLoyaltyPointsAsync
      *
-     * get the Loyalty Ledger for this integrationID
+     * Get integration's Loyalty Ledger
      *
-     * @param  string $programID The identifier for the application, must be unique within the account. (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID The identifier for the application, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
@@ -20196,9 +21082,9 @@ class ManagementApi
     /**
      * Operation getLoyaltyPointsAsyncWithHttpInfo
      *
-     * get the Loyalty Ledger for this integrationID
+     * Get integration's Loyalty Ledger
      *
-     * @param  string $programID The identifier for the application, must be unique within the account. (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID The identifier for the application, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
@@ -20246,7 +21132,7 @@ class ManagementApi
     /**
      * Create request for operation 'getLoyaltyPoints'
      *
-     * @param  string $programID The identifier for the application, must be unique within the account. (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID The identifier for the application, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
@@ -20336,10 +21222,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -20367,7 +21252,7 @@ class ManagementApi
      *
      * Get a loyalty program
      *
-     * @param  string $programID programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -20384,7 +21269,7 @@ class ManagementApi
      *
      * Get a loyalty program
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -20472,7 +21357,7 @@ class ManagementApi
      *
      * Get a loyalty program
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -20492,7 +21377,7 @@ class ManagementApi
      *
      * Get a loyalty program
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -20539,7 +21424,7 @@ class ManagementApi
     /**
      * Create request for operation 'getLoyaltyProgram'
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -20614,10 +21499,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -20643,12 +21527,12 @@ class ManagementApi
     /**
      * Operation getLoyaltyPrograms
      *
-     * List all loyalty Programs
+     * List loyalty programs
      *
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2008
+     * @return \TalonOne\Client\Model\InlineResponse2007
      */
     public function getLoyaltyPrograms()
     {
@@ -20659,12 +21543,12 @@ class ManagementApi
     /**
      * Operation getLoyaltyProgramsWithHttpInfo
      *
-     * List all loyalty Programs
+     * List loyalty programs
      *
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2008, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLoyaltyProgramsWithHttpInfo()
     {
@@ -20701,20 +21585,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2008' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2007' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2008', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2007', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2008';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2007';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -20733,7 +21617,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2008',
+                        '\TalonOne\Client\Model\InlineResponse2007',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20746,7 +21630,7 @@ class ManagementApi
     /**
      * Operation getLoyaltyProgramsAsync
      *
-     * List all loyalty Programs
+     * List loyalty programs
      *
      *
      * @throws \InvalidArgumentException
@@ -20765,7 +21649,7 @@ class ManagementApi
     /**
      * Operation getLoyaltyProgramsAsyncWithHttpInfo
      *
-     * List all loyalty Programs
+     * List loyalty programs
      *
      *
      * @throws \InvalidArgumentException
@@ -20773,7 +21657,7 @@ class ManagementApi
      */
     public function getLoyaltyProgramsAsyncWithHttpInfo()
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2008';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2007';
         $request = $this->getLoyaltyProgramsRequest();
 
         return $this->client
@@ -20873,10 +21757,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -20904,7 +21787,7 @@ class ManagementApi
      *
      * Get loyalty program statistics by loyalty program ID
      *
-     * @param  string $programID programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -20921,7 +21804,7 @@ class ManagementApi
      *
      * Get loyalty program statistics by loyalty program ID
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -21009,7 +21892,7 @@ class ManagementApi
      *
      * Get loyalty program statistics by loyalty program ID
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -21029,7 +21912,7 @@ class ManagementApi
      *
      * Get loyalty program statistics by loyalty program ID
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -21076,7 +21959,7 @@ class ManagementApi
     /**
      * Create request for operation 'getLoyaltyStatistics'
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -21151,10 +22034,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -21180,13 +22062,460 @@ class ManagementApi
     /**
      * Operation getReferrals
      *
-     * List Referrals (with total count)
+     * List referrals (with total count)
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
+     * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
+     * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
+     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse201
+     */
+    public function getReferrals($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
+    {
+        list($response) = $this->getReferralsWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
+        return $response;
+    }
+
+    /**
+     * Operation getReferralsWithHttpInfo
+     *
+     * List referrals (with total count)
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
+     * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
+     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse201, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getReferralsWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
+    {
+        $request = $this->getReferralsRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse201' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse201', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse201';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse201',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getReferralsAsync
+     *
+     * List referrals (with total count)
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
+     * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
+     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getReferralsAsync($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
+    {
+        return $this->getReferralsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getReferralsAsyncWithHttpInfo
+     *
+     * List referrals (with total count)
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
+     * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
+     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getReferralsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse201';
+        $request = $this->getReferralsRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getReferrals'
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
+     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
+     * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
+     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getReferralsRequest($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling getReferrals'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling getReferrals'
+            );
+        }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getReferrals, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getReferrals, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/referrals';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($pageSize !== null) {
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
+        }
+        // query params
+        if ($skip !== null) {
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
+        }
+        // query params
+        if ($sort !== null) {
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
+        }
+        // query params
+        if ($code !== null) {
+            if('form' === 'form' && is_array($code)) {
+                foreach($code as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['code'] = $code;
+            }
+        }
+        // query params
+        if ($createdBefore !== null) {
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
+        }
+        // query params
+        if ($createdAfter !== null) {
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
+        }
+        // query params
+        if ($valid !== null) {
+            if('form' === 'form' && is_array($valid)) {
+                foreach($valid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['valid'] = $valid;
+            }
+        }
+        // query params
+        if ($usable !== null) {
+            if('form' === 'form' && is_array($usable)) {
+                foreach($usable as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['usable'] = $usable;
+            }
+        }
+        // query params
+        if ($advocate !== null) {
+            if('form' === 'form' && is_array($advocate)) {
+                foreach($advocate as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['advocate'] = $advocate;
+            }
+        }
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getReferralsWithoutTotalCount
+     *
+     * List referrals
+     *
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -21198,22 +22527,22 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2006
      */
-    public function getReferrals($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
+    public function getReferralsWithoutTotalCount($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
-        list($response) = $this->getReferralsWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
+        list($response) = $this->getReferralsWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
         return $response;
     }
 
     /**
-     * Operation getReferralsWithHttpInfo
+     * Operation getReferralsWithoutTotalCountWithHttpInfo
      *
-     * List Referrals (with total count)
+     * List referrals
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -21225,9 +22554,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReferralsWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
+    public function getReferralsWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
-        $request = $this->getReferralsRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
+        $request = $this->getReferralsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
 
         try {
             $options = $this->createHttpClientOption();
@@ -21303,420 +22632,15 @@ class ManagementApi
     }
 
     /**
-     * Operation getReferralsAsync
-     *
-     * List Referrals (with total count)
-     *
-     * @param  int $applicationId (required)
-     * @param  int $campaignId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
-     * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getReferralsAsync($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
-    {
-        return $this->getReferralsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getReferralsAsyncWithHttpInfo
-     *
-     * List Referrals (with total count)
-     *
-     * @param  int $applicationId (required)
-     * @param  int $campaignId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
-     * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getReferralsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
-    {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2006';
-        $request = $this->getReferralsRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getReferrals'
-     *
-     * @param  int $applicationId (required)
-     * @param  int $campaignId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
-     * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getReferralsRequest($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
-    {
-        // verify the required parameter 'applicationId' is set
-        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $applicationId when calling getReferrals'
-            );
-        }
-        // verify the required parameter 'campaignId' is set
-        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $campaignId when calling getReferrals'
-            );
-        }
-
-        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/referrals';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
-        if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
-        }
-        // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
-        if ($skip !== null) {
-            $queryParams['skip'] = $skip;
-        }
-        // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
-        if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-        // query params
-        if (is_array($code)) {
-            $code = ObjectSerializer::serializeCollection($code, '', true);
-        }
-        if ($code !== null) {
-            $queryParams['code'] = $code;
-        }
-        // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
-        if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
-        }
-        // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
-        if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
-        }
-        // query params
-        if (is_array($valid)) {
-            $valid = ObjectSerializer::serializeCollection($valid, '', true);
-        }
-        if ($valid !== null) {
-            $queryParams['valid'] = $valid;
-        }
-        // query params
-        if (is_array($usable)) {
-            $usable = ObjectSerializer::serializeCollection($usable, '', true);
-        }
-        if ($usable !== null) {
-            $queryParams['usable'] = $usable;
-        }
-        // query params
-        if (is_array($advocate)) {
-            $advocate = ObjectSerializer::serializeCollection($advocate, '', true);
-        }
-        if ($advocate !== null) {
-            $queryParams['advocate'] = $advocate;
-        }
-
-
-        // path params
-        if ($applicationId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'applicationId' . '}',
-                ObjectSerializer::toPathValue($applicationId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($campaignId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaignId),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getReferralsWithoutTotalCount
-     *
-     * List Referrals
-     *
-     * @param  int $applicationId applicationId (required)
-     * @param  int $campaignId campaignId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
-     * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2007
-     */
-    public function getReferralsWithoutTotalCount($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
-    {
-        list($response) = $this->getReferralsWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
-        return $response;
-    }
-
-    /**
-     * Operation getReferralsWithoutTotalCountWithHttpInfo
-     *
-     * List Referrals
-     *
-     * @param  int $applicationId (required)
-     * @param  int $campaignId (required)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-     * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
-     * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getReferralsWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
-    {
-        $request = $this->getReferralsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2007' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2007', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\InlineResponse2007';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2007',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
      * Operation getReferralsWithoutTotalCountAsync
      *
-     * List Referrals
+     * List referrals
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -21740,13 +22664,13 @@ class ManagementApi
     /**
      * Operation getReferralsWithoutTotalCountAsyncWithHttpInfo
      *
-     * List Referrals
+     * List referrals
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -21759,7 +22683,7 @@ class ManagementApi
      */
     public function getReferralsWithoutTotalCountAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = null, $skip = null, $sort = null, $code = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $advocate = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2007';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2006';
         $request = $this->getReferralsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
 
         return $this->client
@@ -21803,7 +22727,7 @@ class ManagementApi
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $code Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -21828,6 +22752,13 @@ class ManagementApi
                 'Missing the required parameter $campaignId when calling getReferralsWithoutTotalCount'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getReferralsWithoutTotalCount, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getReferralsWithoutTotalCount, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total';
         $formParams = [];
@@ -21837,67 +22768,103 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($code)) {
-            $code = ObjectSerializer::serializeCollection($code, '', true);
-        }
         if ($code !== null) {
-            $queryParams['code'] = $code;
+            if('form' === 'form' && is_array($code)) {
+                foreach($code as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['code'] = $code;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($valid)) {
-            $valid = ObjectSerializer::serializeCollection($valid, '', true);
-        }
         if ($valid !== null) {
-            $queryParams['valid'] = $valid;
+            if('form' === 'form' && is_array($valid)) {
+                foreach($valid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['valid'] = $valid;
+            }
         }
         // query params
-        if (is_array($usable)) {
-            $usable = ObjectSerializer::serializeCollection($usable, '', true);
-        }
         if ($usable !== null) {
-            $queryParams['usable'] = $usable;
+            if('form' === 'form' && is_array($usable)) {
+                foreach($usable as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['usable'] = $usable;
+            }
         }
         // query params
-        if (is_array($advocate)) {
-            $advocate = ObjectSerializer::serializeCollection($advocate, '', true);
-        }
         if ($advocate !== null) {
-            $queryParams['advocate'] = $advocate;
+            if('form' === 'form' && is_array($advocate)) {
+                foreach($advocate as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['advocate'] = $advocate;
+            }
         }
 
 
@@ -21961,10 +22928,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -22239,11 +23205,6 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -22268,7 +23229,7 @@ class ManagementApi
     /**
      * Operation getRuleset
      *
-     * Get a Ruleset
+     * Get ruleset
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
@@ -22287,7 +23248,7 @@ class ManagementApi
     /**
      * Operation getRulesetWithHttpInfo
      *
-     * Get a Ruleset
+     * Get ruleset
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -22377,7 +23338,7 @@ class ManagementApi
     /**
      * Operation getRulesetAsync
      *
-     * Get a Ruleset
+     * Get ruleset
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -22399,7 +23360,7 @@ class ManagementApi
     /**
      * Operation getRulesetAsyncWithHttpInfo
      *
-     * Get a Ruleset
+     * Get ruleset
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
@@ -22555,10 +23516,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -22584,13 +23544,13 @@ class ManagementApi
     /**
      * Operation getRulesets
      *
-     * List Campaign Rulesets
+     * List rulesets
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -22605,13 +23565,13 @@ class ManagementApi
     /**
      * Operation getRulesetsWithHttpInfo
      *
-     * List Campaign Rulesets
+     * List rulesets
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -22697,13 +23657,13 @@ class ManagementApi
     /**
      * Operation getRulesetsAsync
      *
-     * List Campaign Rulesets
+     * List rulesets
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -22721,13 +23681,13 @@ class ManagementApi
     /**
      * Operation getRulesetsAsyncWithHttpInfo
      *
-     * List Campaign Rulesets
+     * List rulesets
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -22778,7 +23738,7 @@ class ManagementApi
      * @param  int $campaignId (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -22797,6 +23757,13 @@ class ManagementApi
                 'Missing the required parameter $campaignId when calling getRulesets'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getRulesets, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getRulesets, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/rulesets';
         $formParams = [];
@@ -22806,25 +23773,37 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
 
 
@@ -22888,10 +23867,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -23166,10 +24144,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -23195,15 +24172,15 @@ class ManagementApi
     /**
      * Operation getUsers
      *
-     * List Users in your account
+     * List users
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20027
+     * @return \TalonOne\Client\Model\InlineResponse20026
      */
     public function getUsers($pageSize = null, $skip = null, $sort = null)
     {
@@ -23214,15 +24191,15 @@ class ManagementApi
     /**
      * Operation getUsersWithHttpInfo
      *
-     * List Users in your account
+     * List users
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20027, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20026, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUsersWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
@@ -23259,20 +24236,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20027' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20026' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20027', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20026', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20027';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20026';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -23291,7 +24268,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20027',
+                        '\TalonOne\Client\Model\InlineResponse20026',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23304,11 +24281,11 @@ class ManagementApi
     /**
      * Operation getUsersAsync
      *
-     * List Users in your account
+     * List users
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -23326,18 +24303,18 @@ class ManagementApi
     /**
      * Operation getUsersAsyncWithHttpInfo
      *
-     * List Users in your account
+     * List users
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getUsersAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20027';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20026';
         $request = $this->getUsersRequest($pageSize, $skip, $sort);
 
         return $this->client
@@ -23379,13 +24356,20 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     protected function getUsersRequest($pageSize = null, $skip = null, $sort = null)
     {
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getUsers, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getUsers, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/users';
         $formParams = [];
@@ -23395,25 +24379,37 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
 
 
@@ -23461,10 +24457,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -23739,10 +24734,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -23772,7 +24766,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
      * @param  float $webhookId Filter results by Webhook. (optional)
      * @param  float $applicationId applicationId (optional)
@@ -23782,7 +24776,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20024
+     * @return \TalonOne\Client\Model\InlineResponse20023
      */
     public function getWebhookActivationLogs($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
@@ -23797,757 +24791,21 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
      * @param  float $webhookId Filter results by Webhook. (optional)
      * @param  float $applicationId (optional)
      * @param  float $campaignId Filter results by campaign. (optional)
      * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20024, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getWebhookActivationLogsWithHttpInfo($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
-    {
-        $request = $this->getWebhookActivationLogsRequest($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20024' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20024', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\InlineResponse20024';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20024',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getWebhookActivationLogsAsync
-     *
-     * List Webhook activation Log Entries
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
-     * @param  float $applicationId (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getWebhookActivationLogsAsync($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
-    {
-        return $this->getWebhookActivationLogsAsyncWithHttpInfo($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getWebhookActivationLogsAsyncWithHttpInfo
-     *
-     * List Webhook activation Log Entries
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
-     * @param  float $applicationId (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getWebhookActivationLogsAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
-    {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20024';
-        $request = $this->getWebhookActivationLogsRequest($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getWebhookActivationLogs'
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
-     * @param  float $applicationId (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getWebhookActivationLogsRequest($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
-    {
-
-        $resourcePath = '/v1/webhook_activation_logs';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
-        if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
-        }
-        // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
-        if ($skip !== null) {
-            $queryParams['skip'] = $skip;
-        }
-        // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
-        if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-        // query params
-        if (is_array($integrationRequestUuid)) {
-            $integrationRequestUuid = ObjectSerializer::serializeCollection($integrationRequestUuid, '', true);
-        }
-        if ($integrationRequestUuid !== null) {
-            $queryParams['integrationRequestUuid'] = $integrationRequestUuid;
-        }
-        // query params
-        if (is_array($webhookId)) {
-            $webhookId = ObjectSerializer::serializeCollection($webhookId, '', true);
-        }
-        if ($webhookId !== null) {
-            $queryParams['webhookId'] = $webhookId;
-        }
-        // query params
-        if (is_array($applicationId)) {
-            $applicationId = ObjectSerializer::serializeCollection($applicationId, '', true);
-        }
-        if ($applicationId !== null) {
-            $queryParams['applicationId'] = $applicationId;
-        }
-        // query params
-        if (is_array($campaignId)) {
-            $campaignId = ObjectSerializer::serializeCollection($campaignId, '', true);
-        }
-        if ($campaignId !== null) {
-            $queryParams['campaignId'] = $campaignId;
-        }
-        // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
-        if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
-        }
-        // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
-        if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
-        }
-
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getWebhookLogs
-     *
-     * List Webhook Log Entries
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
-     * @param  float $applicationId applicationId (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  string $requestUuid Filter results by request UUID. (optional)
-     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20025
-     */
-    public function getWebhookLogs($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
-    {
-        list($response) = $this->getWebhookLogsWithHttpInfo($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
-        return $response;
-    }
-
-    /**
-     * Operation getWebhookLogsWithHttpInfo
-     *
-     * List Webhook Log Entries
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
-     * @param  float $applicationId (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  string $requestUuid Filter results by request UUID. (optional)
-     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20025, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getWebhookLogsWithHttpInfo($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
-    {
-        $request = $this->getWebhookLogsRequest($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20025' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20025', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\InlineResponse20025';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20025',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getWebhookLogsAsync
-     *
-     * List Webhook Log Entries
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
-     * @param  float $applicationId (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  string $requestUuid Filter results by request UUID. (optional)
-     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getWebhookLogsAsync($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
-    {
-        return $this->getWebhookLogsAsyncWithHttpInfo($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getWebhookLogsAsyncWithHttpInfo
-     *
-     * List Webhook Log Entries
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
-     * @param  float $applicationId (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  string $requestUuid Filter results by request UUID. (optional)
-     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getWebhookLogsAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
-    {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20025';
-        $request = $this->getWebhookLogsRequest($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getWebhookLogs'
-     *
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
-     * @param  float $applicationId (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
-     * @param  string $requestUuid Filter results by request UUID. (optional)
-     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getWebhookLogsRequest($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
-    {
-
-        $resourcePath = '/v1/webhook_logs';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
-        if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
-        }
-        // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
-        if ($skip !== null) {
-            $queryParams['skip'] = $skip;
-        }
-        // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
-        if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-        // query params
-        if (is_array($status)) {
-            $status = ObjectSerializer::serializeCollection($status, '', true);
-        }
-        if ($status !== null) {
-            $queryParams['status'] = $status;
-        }
-        // query params
-        if (is_array($webhookId)) {
-            $webhookId = ObjectSerializer::serializeCollection($webhookId, '', true);
-        }
-        if ($webhookId !== null) {
-            $queryParams['webhookId'] = $webhookId;
-        }
-        // query params
-        if (is_array($applicationId)) {
-            $applicationId = ObjectSerializer::serializeCollection($applicationId, '', true);
-        }
-        if ($applicationId !== null) {
-            $queryParams['applicationId'] = $applicationId;
-        }
-        // query params
-        if (is_array($campaignId)) {
-            $campaignId = ObjectSerializer::serializeCollection($campaignId, '', true);
-        }
-        if ($campaignId !== null) {
-            $queryParams['campaignId'] = $campaignId;
-        }
-        // query params
-        if (is_array($requestUuid)) {
-            $requestUuid = ObjectSerializer::serializeCollection($requestUuid, '', true);
-        }
-        if ($requestUuid !== null) {
-            $queryParams['requestUuid'] = $requestUuid;
-        }
-        // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
-        if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
-        }
-        // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
-        if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
-        }
-
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getWebhooks
-     *
-     * List Webhooks
-     *
-     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20023
-     */
-    public function getWebhooks($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
-    {
-        list($response) = $this->getWebhooksWithHttpInfo($applicationIds, $sort, $pageSize, $skip);
-        return $response;
-    }
-
-    /**
-     * Operation getWebhooksWithHttpInfo
-     *
-     * List Webhooks
-     *
-     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
-     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20023, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhooksWithHttpInfo($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
+    public function getWebhookActivationLogsWithHttpInfo($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
-        $request = $this->getWebhooksRequest($applicationIds, $sort, $pageSize, $skip);
+        $request = $this->getWebhookActivationLogsRequest($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter);
 
         try {
             $options = $this->createHttpClientOption();
@@ -24623,21 +24881,26 @@ class ManagementApi
     }
 
     /**
-     * Operation getWebhooksAsync
+     * Operation getWebhookActivationLogsAsync
      *
-     * List Webhooks
+     * List Webhook activation Log Entries
      *
-     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhooksAsync($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
+    public function getWebhookActivationLogsAsync($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
-        return $this->getWebhooksAsyncWithHttpInfo($applicationIds, $sort, $pageSize, $skip)
+        return $this->getWebhookActivationLogsAsyncWithHttpInfo($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -24646,22 +24909,27 @@ class ManagementApi
     }
 
     /**
-     * Operation getWebhooksAsyncWithHttpInfo
+     * Operation getWebhookActivationLogsAsyncWithHttpInfo
      *
-     * List Webhooks
+     * List Webhook activation Log Entries
      *
-     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhooksAsyncWithHttpInfo($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
+    public function getWebhookActivationLogsAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20023';
-        $request = $this->getWebhooksRequest($applicationIds, $sort, $pageSize, $skip);
+        $request = $this->getWebhookActivationLogsRequest($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -24698,20 +24966,32 @@ class ManagementApi
     }
 
     /**
-     * Create request for operation 'getWebhooks'
+     * Create request for operation 'getWebhookActivationLogs'
      *
-     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  \DateTime $createdBefore Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWebhooksRequest($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
+    protected function getWebhookActivationLogsRequest($pageSize = null, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getWebhookActivationLogs, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getWebhookActivationLogs, must be bigger than or equal to 1.');
+        }
 
-        $resourcePath = '/v1/webhooks';
+
+        $resourcePath = '/v1/webhook_activation_logs';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -24719,32 +24999,103 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($applicationIds)) {
-            $applicationIds = ObjectSerializer::serializeCollection($applicationIds, '', true);
-        }
-        if ($applicationIds !== null) {
-            $queryParams['applicationIds'] = $applicationIds;
-        }
-        // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
-        if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
+        }
+        // query params
+        if ($sort !== null) {
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
+        }
+        // query params
+        if ($integrationRequestUuid !== null) {
+            if('form' === 'form' && is_array($integrationRequestUuid)) {
+                foreach($integrationRequestUuid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['integrationRequestUuid'] = $integrationRequestUuid;
+            }
+        }
+        // query params
+        if ($webhookId !== null) {
+            if('form' === 'form' && is_array($webhookId)) {
+                foreach($webhookId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['webhookId'] = $webhookId;
+            }
+        }
+        // query params
+        if ($applicationId !== null) {
+            if('form' === 'form' && is_array($applicationId)) {
+                foreach($applicationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['applicationId'] = $applicationId;
+            }
+        }
+        // query params
+        if ($campaignId !== null) {
+            if('form' === 'form' && is_array($campaignId)) {
+                foreach($campaignId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignId'] = $campaignId;
+            }
+        }
+        // query params
+        if ($createdBefore !== null) {
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
+        }
+        // query params
+        if ($createdAfter !== null) {
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
 
 
@@ -24792,10 +25143,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -24819,39 +25169,1959 @@ class ManagementApi
     }
 
     /**
+     * Operation getWebhookLogs
+     *
+     * List Webhook Log Entries
+     *
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort sort (optional)
+     * @param  string $status Filter results by HTTP status codes. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  string $requestUuid Filter results by request UUID. (optional)
+     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse20024
+     */
+    public function getWebhookLogs($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
+    {
+        list($response) = $this->getWebhookLogsWithHttpInfo($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
+        return $response;
+    }
+
+    /**
+     * Operation getWebhookLogsWithHttpInfo
+     *
+     * List Webhook Log Entries
+     *
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $status Filter results by HTTP status codes. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  string $requestUuid Filter results by request UUID. (optional)
+     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse20024, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWebhookLogsWithHttpInfo($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
+    {
+        $request = $this->getWebhookLogsRequest($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse20024' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20024', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse20024';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse20024',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getWebhookLogsAsync
+     *
+     * List Webhook Log Entries
+     *
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $status Filter results by HTTP status codes. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  string $requestUuid Filter results by request UUID. (optional)
+     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWebhookLogsAsync($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
+    {
+        return $this->getWebhookLogsAsyncWithHttpInfo($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getWebhookLogsAsyncWithHttpInfo
+     *
+     * List Webhook Log Entries
+     *
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $status Filter results by HTTP status codes. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  string $requestUuid Filter results by request UUID. (optional)
+     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWebhookLogsAsyncWithHttpInfo($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse20024';
+        $request = $this->getWebhookLogsRequest($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getWebhookLogs'
+     *
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     * @param  string $sort (optional)
+     * @param  string $status Filter results by HTTP status codes. (optional)
+     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $applicationId (optional)
+     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  string $requestUuid Filter results by request UUID. (optional)
+     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getWebhookLogsRequest($pageSize = null, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
+    {
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getWebhookLogs, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getWebhookLogs, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/v1/webhook_logs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($pageSize !== null) {
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
+        }
+        // query params
+        if ($skip !== null) {
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
+        }
+        // query params
+        if ($sort !== null) {
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
+        }
+        // query params
+        if ($status !== null) {
+            if('form' === 'form' && is_array($status)) {
+                foreach($status as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['status'] = $status;
+            }
+        }
+        // query params
+        if ($webhookId !== null) {
+            if('form' === 'form' && is_array($webhookId)) {
+                foreach($webhookId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['webhookId'] = $webhookId;
+            }
+        }
+        // query params
+        if ($applicationId !== null) {
+            if('form' === 'form' && is_array($applicationId)) {
+                foreach($applicationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['applicationId'] = $applicationId;
+            }
+        }
+        // query params
+        if ($campaignId !== null) {
+            if('form' === 'form' && is_array($campaignId)) {
+                foreach($campaignId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignId'] = $campaignId;
+            }
+        }
+        // query params
+        if ($requestUuid !== null) {
+            if('form' === 'form' && is_array($requestUuid)) {
+                foreach($requestUuid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['requestUuid'] = $requestUuid;
+            }
+        }
+        // query params
+        if ($createdBefore !== null) {
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
+        }
+        // query params
+        if ($createdAfter !== null) {
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
+        }
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getWebhooks
+     *
+     * List Webhooks
+     *
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
+     * @param  string $sort sort (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse20022
+     */
+    public function getWebhooks($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
+    {
+        list($response) = $this->getWebhooksWithHttpInfo($applicationIds, $sort, $pageSize, $skip);
+        return $response;
+    }
+
+    /**
+     * Operation getWebhooksWithHttpInfo
+     *
+     * List Webhooks
+     *
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
+     * @param  string $sort (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse20022, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWebhooksWithHttpInfo($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
+    {
+        $request = $this->getWebhooksRequest($applicationIds, $sort, $pageSize, $skip);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse20022' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20022', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse20022';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse20022',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getWebhooksAsync
+     *
+     * List Webhooks
+     *
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
+     * @param  string $sort (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWebhooksAsync($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
+    {
+        return $this->getWebhooksAsyncWithHttpInfo($applicationIds, $sort, $pageSize, $skip)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getWebhooksAsyncWithHttpInfo
+     *
+     * List Webhooks
+     *
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
+     * @param  string $sort (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWebhooksAsyncWithHttpInfo($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse20022';
+        $request = $this->getWebhooksRequest($applicationIds, $sort, $pageSize, $skip);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getWebhooks'
+     *
+     * @param  string $applicationIds Filter by one or more application ids separated by comma (optional)
+     * @param  string $sort (optional)
+     * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getWebhooksRequest($applicationIds = null, $sort = null, $pageSize = null, $skip = null)
+    {
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getWebhooks, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getWebhooks, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/v1/webhooks';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($applicationIds !== null) {
+            if('form' === 'form' && is_array($applicationIds)) {
+                foreach($applicationIds as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['applicationIds'] = $applicationIds;
+            }
+        }
+        // query params
+        if ($sort !== null) {
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
+        }
+        // query params
+        if ($pageSize !== null) {
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
+        }
+        // query params
+        if ($skip !== null) {
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
+        }
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation importCoupons
+     *
+     * Import coupons via CSV file
+     *
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  string $upfile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\Import
+     */
+    public function importCoupons($applicationId, $campaignId, $upfile = null)
+    {
+        list($response) = $this->importCouponsWithHttpInfo($applicationId, $campaignId, $upfile);
+        return $response;
+    }
+
+    /**
+     * Operation importCouponsWithHttpInfo
+     *
+     * Import coupons via CSV file
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $upfile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\Import, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function importCouponsWithHttpInfo($applicationId, $campaignId, $upfile = null)
+    {
+        $request = $this->importCouponsRequest($applicationId, $campaignId, $upfile);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\Import' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\Import', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\Import';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\Import',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation importCouponsAsync
+     *
+     * Import coupons via CSV file
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $upfile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importCouponsAsync($applicationId, $campaignId, $upfile = null)
+    {
+        return $this->importCouponsAsyncWithHttpInfo($applicationId, $campaignId, $upfile)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation importCouponsAsyncWithHttpInfo
+     *
+     * Import coupons via CSV file
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $upfile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importCouponsAsyncWithHttpInfo($applicationId, $campaignId, $upfile = null)
+    {
+        $returnType = '\TalonOne\Client\Model\Import';
+        $request = $this->importCouponsRequest($applicationId, $campaignId, $upfile);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'importCoupons'
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $upfile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function importCouponsRequest($applicationId, $campaignId, $upfile = null)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling importCoupons'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling importCoupons'
+            );
+        }
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
+                $resourcePath
+            );
+        }
+
+        // form params
+        if ($upfile !== null) {
+            $formParams['upfile'] = ObjectSerializer::toFormValue($upfile);
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation importLoyaltyPoints
+     *
+     * Import loyalty points via CSV file
+     *
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
+     * @param  string $upFile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\Import
+     */
+    public function importLoyaltyPoints($programID, $upFile = null)
+    {
+        list($response) = $this->importLoyaltyPointsWithHttpInfo($programID, $upFile);
+        return $response;
+    }
+
+    /**
+     * Operation importLoyaltyPointsWithHttpInfo
+     *
+     * Import loyalty points via CSV file
+     *
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
+     * @param  string $upFile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\Import, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function importLoyaltyPointsWithHttpInfo($programID, $upFile = null)
+    {
+        $request = $this->importLoyaltyPointsRequest($programID, $upFile);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\Import' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\Import', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\Import';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\Import',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation importLoyaltyPointsAsync
+     *
+     * Import loyalty points via CSV file
+     *
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
+     * @param  string $upFile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importLoyaltyPointsAsync($programID, $upFile = null)
+    {
+        return $this->importLoyaltyPointsAsyncWithHttpInfo($programID, $upFile)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation importLoyaltyPointsAsyncWithHttpInfo
+     *
+     * Import loyalty points via CSV file
+     *
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
+     * @param  string $upFile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importLoyaltyPointsAsyncWithHttpInfo($programID, $upFile = null)
+    {
+        $returnType = '\TalonOne\Client\Model\Import';
+        $request = $this->importLoyaltyPointsRequest($programID, $upFile);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'importLoyaltyPoints'
+     *
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
+     * @param  string $upFile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function importLoyaltyPointsRequest($programID, $upFile = null)
+    {
+        // verify the required parameter 'programID' is set
+        if ($programID === null || (is_array($programID) && count($programID) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $programID when calling importLoyaltyPoints'
+            );
+        }
+
+        $resourcePath = '/v1/loyalty_programs/{programID}/import_points';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($programID !== null) {
+            $resourcePath = str_replace(
+                '{' . 'programID' . '}',
+                ObjectSerializer::toPathValue($programID),
+                $resourcePath
+            );
+        }
+
+        // form params
+        if ($upFile !== null) {
+            $formParams['upFile'] = ObjectSerializer::toFormValue($upFile);
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation importPoolGiveaways
+     *
+     * Import giveaways codes into a giveaways pool
+     *
+     * @param  int $poolId poolId (required)
+     * @param  string $upfile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\Import
+     */
+    public function importPoolGiveaways($poolId, $upfile = null)
+    {
+        list($response) = $this->importPoolGiveawaysWithHttpInfo($poolId, $upfile);
+        return $response;
+    }
+
+    /**
+     * Operation importPoolGiveawaysWithHttpInfo
+     *
+     * Import giveaways codes into a giveaways pool
+     *
+     * @param  int $poolId (required)
+     * @param  string $upfile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\Import, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function importPoolGiveawaysWithHttpInfo($poolId, $upfile = null)
+    {
+        $request = $this->importPoolGiveawaysRequest($poolId, $upfile);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\Import' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\Import', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\Import';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\Import',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation importPoolGiveawaysAsync
+     *
+     * Import giveaways codes into a giveaways pool
+     *
+     * @param  int $poolId (required)
+     * @param  string $upfile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importPoolGiveawaysAsync($poolId, $upfile = null)
+    {
+        return $this->importPoolGiveawaysAsyncWithHttpInfo($poolId, $upfile)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation importPoolGiveawaysAsyncWithHttpInfo
+     *
+     * Import giveaways codes into a giveaways pool
+     *
+     * @param  int $poolId (required)
+     * @param  string $upfile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importPoolGiveawaysAsyncWithHttpInfo($poolId, $upfile = null)
+    {
+        $returnType = '\TalonOne\Client\Model\Import';
+        $request = $this->importPoolGiveawaysRequest($poolId, $upfile);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'importPoolGiveaways'
+     *
+     * @param  int $poolId (required)
+     * @param  string $upfile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function importPoolGiveawaysRequest($poolId, $upfile = null)
+    {
+        // verify the required parameter 'poolId' is set
+        if ($poolId === null || (is_array($poolId) && count($poolId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $poolId when calling importPoolGiveaways'
+            );
+        }
+
+        $resourcePath = '/v1/giveaways/pools/{poolId}/import';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($poolId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'poolId' . '}',
+                ObjectSerializer::toPathValue($poolId),
+                $resourcePath
+            );
+        }
+
+        // form params
+        if ($upfile !== null) {
+            $formParams['upfile'] = ObjectSerializer::toFormValue($upfile);
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation importReferrals
+     *
+     * Import referrals via CSV file
+     *
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  string $upFile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\Import
+     */
+    public function importReferrals($applicationId, $campaignId, $upFile = null)
+    {
+        list($response) = $this->importReferralsWithHttpInfo($applicationId, $campaignId, $upFile);
+        return $response;
+    }
+
+    /**
+     * Operation importReferralsWithHttpInfo
+     *
+     * Import referrals via CSV file
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $upFile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\Import, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function importReferralsWithHttpInfo($applicationId, $campaignId, $upFile = null)
+    {
+        $request = $this->importReferralsRequest($applicationId, $campaignId, $upFile);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\Import' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\Import', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\Import';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\Import',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation importReferralsAsync
+     *
+     * Import referrals via CSV file
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $upFile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importReferralsAsync($applicationId, $campaignId, $upFile = null)
+    {
+        return $this->importReferralsAsyncWithHttpInfo($applicationId, $campaignId, $upFile)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation importReferralsAsyncWithHttpInfo
+     *
+     * Import referrals via CSV file
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $upFile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importReferralsAsyncWithHttpInfo($applicationId, $campaignId, $upFile = null)
+    {
+        $returnType = '\TalonOne\Client\Model\Import';
+        $request = $this->importReferralsRequest($applicationId, $campaignId, $upFile);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'importReferrals'
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $upFile The file with the information about the loyalty points that should be imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function importReferralsRequest($applicationId, $campaignId, $upFile = null)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling importReferrals'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling importReferrals'
+            );
+        }
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
+                $resourcePath
+            );
+        }
+
+        // form params
+        if ($upFile !== null) {
+            $formParams['upFile'] = ObjectSerializer::toFormValue($upFile);
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation removeLoyaltyPoints
      *
-     * Deduct points in a certain loyalty program for the specified customer
+     * Deduct points in a loyalty program for the specified customer
      *
-     * @param  string $programID programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID integrationID (required)
-     * @param  \TalonOne\Client\Model\LoyaltyPoints $body body (required)
+     * @param  \TalonOne\Client\Model\LoyaltyPoints $loyaltyPoints loyaltyPoints (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function removeLoyaltyPoints($programID, $integrationID, $body)
+    public function removeLoyaltyPoints($programID, $integrationID, $loyaltyPoints)
     {
-        $this->removeLoyaltyPointsWithHttpInfo($programID, $integrationID, $body);
+        $this->removeLoyaltyPointsWithHttpInfo($programID, $integrationID, $loyaltyPoints);
     }
 
     /**
      * Operation removeLoyaltyPointsWithHttpInfo
      *
-     * Deduct points in a certain loyalty program for the specified customer
+     * Deduct points in a loyalty program for the specified customer
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID (required)
-     * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
+     * @param  \TalonOne\Client\Model\LoyaltyPoints $loyaltyPoints (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeLoyaltyPointsWithHttpInfo($programID, $integrationID, $body)
+    public function removeLoyaltyPointsWithHttpInfo($programID, $integrationID, $loyaltyPoints)
     {
-        $request = $this->removeLoyaltyPointsRequest($programID, $integrationID, $body);
+        $request = $this->removeLoyaltyPointsRequest($programID, $integrationID, $loyaltyPoints);
 
         try {
             $options = $this->createHttpClientOption();
@@ -24893,18 +27163,18 @@ class ManagementApi
     /**
      * Operation removeLoyaltyPointsAsync
      *
-     * Deduct points in a certain loyalty program for the specified customer
+     * Deduct points in a loyalty program for the specified customer
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID (required)
-     * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
+     * @param  \TalonOne\Client\Model\LoyaltyPoints $loyaltyPoints (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeLoyaltyPointsAsync($programID, $integrationID, $body)
+    public function removeLoyaltyPointsAsync($programID, $integrationID, $loyaltyPoints)
     {
-        return $this->removeLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID, $body)
+        return $this->removeLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID, $loyaltyPoints)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -24915,19 +27185,19 @@ class ManagementApi
     /**
      * Operation removeLoyaltyPointsAsyncWithHttpInfo
      *
-     * Deduct points in a certain loyalty program for the specified customer
+     * Deduct points in a loyalty program for the specified customer
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID (required)
-     * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
+     * @param  \TalonOne\Client\Model\LoyaltyPoints $loyaltyPoints (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID, $body)
+    public function removeLoyaltyPointsAsyncWithHttpInfo($programID, $integrationID, $loyaltyPoints)
     {
         $returnType = '';
-        $request = $this->removeLoyaltyPointsRequest($programID, $integrationID, $body);
+        $request = $this->removeLoyaltyPointsRequest($programID, $integrationID, $loyaltyPoints);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -24955,14 +27225,14 @@ class ManagementApi
     /**
      * Create request for operation 'removeLoyaltyPoints'
      *
-     * @param  string $programID (required)
+     * @param  int $programID The identifier for the loyalty program, must be unique within the account. (required)
      * @param  string $integrationID (required)
-     * @param  \TalonOne\Client\Model\LoyaltyPoints $body (required)
+     * @param  \TalonOne\Client\Model\LoyaltyPoints $loyaltyPoints (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function removeLoyaltyPointsRequest($programID, $integrationID, $body)
+    protected function removeLoyaltyPointsRequest($programID, $integrationID, $loyaltyPoints)
     {
         // verify the required parameter 'programID' is set
         if ($programID === null || (is_array($programID) && count($programID) === 0)) {
@@ -24976,10 +27246,10 @@ class ManagementApi
                 'Missing the required parameter $integrationID when calling removeLoyaltyPoints'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'loyaltyPoints' is set
+        if ($loyaltyPoints === null || (is_array($loyaltyPoints) && count($loyaltyPoints) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling removeLoyaltyPoints'
+                'Missing the required parameter $loyaltyPoints when calling removeLoyaltyPoints'
             );
         }
 
@@ -25011,8 +27281,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($loyaltyPoints)) {
+            $_tempBody = $loyaltyPoints;
         }
 
         if ($multipart) {
@@ -25055,10 +27325,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -25086,15 +27355,15 @@ class ManagementApi
      *
      * Reset password
      *
-     * @param  \TalonOne\Client\Model\NewPassword $body body (required)
+     * @param  \TalonOne\Client\Model\NewPassword $newPassword newPassword (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\NewPassword
      */
-    public function resetPassword($body)
+    public function resetPassword($newPassword)
     {
-        list($response) = $this->resetPasswordWithHttpInfo($body);
+        list($response) = $this->resetPasswordWithHttpInfo($newPassword);
         return $response;
     }
 
@@ -25103,15 +27372,15 @@ class ManagementApi
      *
      * Reset password
      *
-     * @param  \TalonOne\Client\Model\NewPassword $body (required)
+     * @param  \TalonOne\Client\Model\NewPassword $newPassword (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\NewPassword, HTTP status code, HTTP response headers (array of strings)
      */
-    public function resetPasswordWithHttpInfo($body)
+    public function resetPasswordWithHttpInfo($newPassword)
     {
-        $request = $this->resetPasswordRequest($body);
+        $request = $this->resetPasswordRequest($newPassword);
 
         try {
             $options = $this->createHttpClientOption();
@@ -25191,14 +27460,14 @@ class ManagementApi
      *
      * Reset password
      *
-     * @param  \TalonOne\Client\Model\NewPassword $body (required)
+     * @param  \TalonOne\Client\Model\NewPassword $newPassword (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function resetPasswordAsync($body)
+    public function resetPasswordAsync($newPassword)
     {
-        return $this->resetPasswordAsyncWithHttpInfo($body)
+        return $this->resetPasswordAsyncWithHttpInfo($newPassword)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -25211,15 +27480,15 @@ class ManagementApi
      *
      * Reset password
      *
-     * @param  \TalonOne\Client\Model\NewPassword $body (required)
+     * @param  \TalonOne\Client\Model\NewPassword $newPassword (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function resetPasswordAsyncWithHttpInfo($body)
+    public function resetPasswordAsyncWithHttpInfo($newPassword)
     {
         $returnType = '\TalonOne\Client\Model\NewPassword';
-        $request = $this->resetPasswordRequest($body);
+        $request = $this->resetPasswordRequest($newPassword);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -25258,17 +27527,17 @@ class ManagementApi
     /**
      * Create request for operation 'resetPassword'
      *
-     * @param  \TalonOne\Client\Model\NewPassword $body (required)
+     * @param  \TalonOne\Client\Model\NewPassword $newPassword (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function resetPasswordRequest($body)
+    protected function resetPasswordRequest($newPassword)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'newPassword' is set
+        if ($newPassword === null || (is_array($newPassword) && count($newPassword) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling resetPassword'
+                'Missing the required parameter $newPassword when calling resetPassword'
             );
         }
 
@@ -25284,8 +27553,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($newPassword)) {
+            $_tempBody = $newPassword;
         }
 
         if ($multipart) {
@@ -25328,10 +27597,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -25357,14 +27625,14 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvanced
      *
-     * Get a list of the coupons that match the given attributes (with total count)
+     * List coupons that match the given attributes (with total count)
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
      * @param  object $body body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -25388,14 +27656,14 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes (with total count)
+     * List coupons that match the given attributes (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -25490,14 +27758,14 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedAsync
      *
-     * Get a list of the coupons that match the given attributes (with total count)
+     * List coupons that match the given attributes (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -25524,14 +27792,14 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedAsyncWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes (with total count)
+     * List coupons that match the given attributes (with total count)
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -25592,7 +27860,7 @@ class ManagementApi
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -25626,6 +27894,13 @@ class ManagementApi
                 'Missing the required parameter $body when calling searchCouponsAdvanced'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.searchCouponsAdvanced, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.searchCouponsAdvanced, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced';
         $formParams = [];
@@ -25635,88 +27910,136 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($value)) {
-            $value = ObjectSerializer::serializeCollection($value, '', true);
-        }
         if ($value !== null) {
-            $queryParams['value'] = $value;
+            if('form' === 'form' && is_array($value)) {
+                foreach($value as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['value'] = $value;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($valid)) {
-            $valid = ObjectSerializer::serializeCollection($valid, '', true);
-        }
         if ($valid !== null) {
-            $queryParams['valid'] = $valid;
+            if('form' === 'form' && is_array($valid)) {
+                foreach($valid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['valid'] = $valid;
+            }
         }
         // query params
-        if (is_array($usable)) {
-            $usable = ObjectSerializer::serializeCollection($usable, '', true);
-        }
         if ($usable !== null) {
-            $queryParams['usable'] = $usable;
+            if('form' === 'form' && is_array($usable)) {
+                foreach($usable as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['usable'] = $usable;
+            }
         }
         // query params
-        if (is_array($referralId)) {
-            $referralId = ObjectSerializer::serializeCollection($referralId, '', true);
-        }
         if ($referralId !== null) {
-            $queryParams['referralId'] = $referralId;
+            if('form' === 'form' && is_array($referralId)) {
+                foreach($referralId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referralId'] = $referralId;
+            }
         }
         // query params
-        if (is_array($recipientIntegrationId)) {
-            $recipientIntegrationId = ObjectSerializer::serializeCollection($recipientIntegrationId, '', true);
-        }
         if ($recipientIntegrationId !== null) {
-            $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            if('form' === 'form' && is_array($recipientIntegrationId)) {
+                foreach($recipientIntegrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            }
         }
         // query params
-        if (is_array($exactMatch)) {
-            $exactMatch = ObjectSerializer::serializeCollection($exactMatch, '', true);
-        }
         if ($exactMatch !== null) {
-            $queryParams['exactMatch'] = $exactMatch;
+            if('form' === 'form' && is_array($exactMatch)) {
+                foreach($exactMatch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['exactMatch'] = $exactMatch;
+            }
         }
         // query params
-        if (is_array($batchId)) {
-            $batchId = ObjectSerializer::serializeCollection($batchId, '', true);
-        }
         if ($batchId !== null) {
-            $queryParams['batchId'] = $batchId;
+            if('form' === 'form' && is_array($batchId)) {
+                foreach($batchId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['batchId'] = $batchId;
+            }
         }
 
 
@@ -25783,10 +28106,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -25812,13 +28134,13 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedApplicationWide
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+     * List coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId applicationId (required)
      * @param  object $body body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -25843,13 +28165,13 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedApplicationWideWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+     * List coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId (required)
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -25945,13 +28267,13 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedApplicationWideAsync
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+     * List coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId (required)
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -25979,13 +28301,13 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedApplicationWideAsyncWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+     * List coupons that match the given attributes in all active campaigns of an application (with total count)
      *
      * @param  int $applicationId (required)
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -26046,7 +28368,7 @@ class ManagementApi
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -26075,6 +28397,13 @@ class ManagementApi
                 'Missing the required parameter $body when calling searchCouponsAdvancedApplicationWide'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.searchCouponsAdvancedApplicationWide, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.searchCouponsAdvancedApplicationWide, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/coupons_search_advanced';
         $formParams = [];
@@ -26084,95 +28413,147 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($value)) {
-            $value = ObjectSerializer::serializeCollection($value, '', true);
-        }
         if ($value !== null) {
-            $queryParams['value'] = $value;
+            if('form' === 'form' && is_array($value)) {
+                foreach($value as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['value'] = $value;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($valid)) {
-            $valid = ObjectSerializer::serializeCollection($valid, '', true);
-        }
         if ($valid !== null) {
-            $queryParams['valid'] = $valid;
+            if('form' === 'form' && is_array($valid)) {
+                foreach($valid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['valid'] = $valid;
+            }
         }
         // query params
-        if (is_array($usable)) {
-            $usable = ObjectSerializer::serializeCollection($usable, '', true);
-        }
         if ($usable !== null) {
-            $queryParams['usable'] = $usable;
+            if('form' === 'form' && is_array($usable)) {
+                foreach($usable as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['usable'] = $usable;
+            }
         }
         // query params
-        if (is_array($referralId)) {
-            $referralId = ObjectSerializer::serializeCollection($referralId, '', true);
-        }
         if ($referralId !== null) {
-            $queryParams['referralId'] = $referralId;
+            if('form' === 'form' && is_array($referralId)) {
+                foreach($referralId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referralId'] = $referralId;
+            }
         }
         // query params
-        if (is_array($recipientIntegrationId)) {
-            $recipientIntegrationId = ObjectSerializer::serializeCollection($recipientIntegrationId, '', true);
-        }
         if ($recipientIntegrationId !== null) {
-            $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            if('form' === 'form' && is_array($recipientIntegrationId)) {
+                foreach($recipientIntegrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            }
         }
         // query params
-        if (is_array($batchId)) {
-            $batchId = ObjectSerializer::serializeCollection($batchId, '', true);
-        }
         if ($batchId !== null) {
-            $queryParams['batchId'] = $batchId;
+            if('form' === 'form' && is_array($batchId)) {
+                foreach($batchId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['batchId'] = $batchId;
+            }
         }
         // query params
-        if (is_array($exactMatch)) {
-            $exactMatch = ObjectSerializer::serializeCollection($exactMatch, '', true);
-        }
         if ($exactMatch !== null) {
-            $queryParams['exactMatch'] = $exactMatch;
+            if('form' === 'form' && is_array($exactMatch)) {
+                foreach($exactMatch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['exactMatch'] = $exactMatch;
+            }
         }
         // query params
-        if (is_array($campaignState)) {
-            $campaignState = ObjectSerializer::serializeCollection($campaignState, '', true);
-        }
         if ($campaignState !== null) {
-            $queryParams['campaignState'] = $campaignState;
+            if('form' === 'form' && is_array($campaignState)) {
+                foreach($campaignState as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignState'] = $campaignState;
+            }
         }
 
 
@@ -26231,10 +28612,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -26260,13 +28640,13 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedApplicationWideWithoutTotalCount
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application
+     * List coupons that match the given attributes in all active campaigns of an application
      *
      * @param  int $applicationId applicationId (required)
      * @param  object $body body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -26291,13 +28671,13 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application
+     * List coupons that match the given attributes in all active campaigns of an application
      *
      * @param  int $applicationId (required)
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -26393,13 +28773,13 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedApplicationWideWithoutTotalCountAsync
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application
+     * List coupons that match the given attributes in all active campaigns of an application
      *
      * @param  int $applicationId (required)
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -26427,13 +28807,13 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application
+     * List coupons that match the given attributes in all active campaigns of an application
      *
      * @param  int $applicationId (required)
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -26494,7 +28874,7 @@ class ManagementApi
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -26523,6 +28903,13 @@ class ManagementApi
                 'Missing the required parameter $body when calling searchCouponsAdvancedApplicationWideWithoutTotalCount'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.searchCouponsAdvancedApplicationWideWithoutTotalCount, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.searchCouponsAdvancedApplicationWideWithoutTotalCount, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/coupons_search_advanced/no_total';
         $formParams = [];
@@ -26532,95 +28919,147 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($value)) {
-            $value = ObjectSerializer::serializeCollection($value, '', true);
-        }
         if ($value !== null) {
-            $queryParams['value'] = $value;
+            if('form' === 'form' && is_array($value)) {
+                foreach($value as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['value'] = $value;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($valid)) {
-            $valid = ObjectSerializer::serializeCollection($valid, '', true);
-        }
         if ($valid !== null) {
-            $queryParams['valid'] = $valid;
+            if('form' === 'form' && is_array($valid)) {
+                foreach($valid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['valid'] = $valid;
+            }
         }
         // query params
-        if (is_array($usable)) {
-            $usable = ObjectSerializer::serializeCollection($usable, '', true);
-        }
         if ($usable !== null) {
-            $queryParams['usable'] = $usable;
+            if('form' === 'form' && is_array($usable)) {
+                foreach($usable as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['usable'] = $usable;
+            }
         }
         // query params
-        if (is_array($referralId)) {
-            $referralId = ObjectSerializer::serializeCollection($referralId, '', true);
-        }
         if ($referralId !== null) {
-            $queryParams['referralId'] = $referralId;
+            if('form' === 'form' && is_array($referralId)) {
+                foreach($referralId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referralId'] = $referralId;
+            }
         }
         // query params
-        if (is_array($recipientIntegrationId)) {
-            $recipientIntegrationId = ObjectSerializer::serializeCollection($recipientIntegrationId, '', true);
-        }
         if ($recipientIntegrationId !== null) {
-            $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            if('form' === 'form' && is_array($recipientIntegrationId)) {
+                foreach($recipientIntegrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            }
         }
         // query params
-        if (is_array($batchId)) {
-            $batchId = ObjectSerializer::serializeCollection($batchId, '', true);
-        }
         if ($batchId !== null) {
-            $queryParams['batchId'] = $batchId;
+            if('form' === 'form' && is_array($batchId)) {
+                foreach($batchId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['batchId'] = $batchId;
+            }
         }
         // query params
-        if (is_array($exactMatch)) {
-            $exactMatch = ObjectSerializer::serializeCollection($exactMatch, '', true);
-        }
         if ($exactMatch !== null) {
-            $queryParams['exactMatch'] = $exactMatch;
+            if('form' === 'form' && is_array($exactMatch)) {
+                foreach($exactMatch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['exactMatch'] = $exactMatch;
+            }
         }
         // query params
-        if (is_array($campaignState)) {
-            $campaignState = ObjectSerializer::serializeCollection($campaignState, '', true);
-        }
         if ($campaignState !== null) {
-            $queryParams['campaignState'] = $campaignState;
+            if('form' === 'form' && is_array($campaignState)) {
+                foreach($campaignState as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['campaignState'] = $campaignState;
+            }
         }
 
 
@@ -26679,10 +29118,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -26708,14 +29146,14 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedWithoutTotalCount
      *
-     * Get a list of the coupons that match the given attributes
+     * List coupons that match the given attributes
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
      * @param  object $body body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -26739,14 +29177,14 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedWithoutTotalCountWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes
+     * List coupons that match the given attributes
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -26841,14 +29279,14 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedWithoutTotalCountAsync
      *
-     * Get a list of the coupons that match the given attributes
+     * List coupons that match the given attributes
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -26875,14 +29313,14 @@ class ManagementApi
     /**
      * Operation searchCouponsAdvancedWithoutTotalCountAsyncWithHttpInfo
      *
-     * Get a list of the coupons that match the given attributes
+     * List coupons that match the given attributes
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -26943,7 +29381,7 @@ class ManagementApi
      * @param  object $body (required)
      * @param  int $pageSize The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
      * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)
+     * @param  string $sort (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -26977,6 +29415,13 @@ class ManagementApi
                 'Missing the required parameter $body when calling searchCouponsAdvancedWithoutTotalCount'
             );
         }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.searchCouponsAdvancedWithoutTotalCount, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.searchCouponsAdvancedWithoutTotalCount, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total';
         $formParams = [];
@@ -26986,88 +29431,136 @@ class ManagementApi
         $multipart = false;
 
         // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
         if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
+            if('form' === 'form' && is_array($pageSize)) {
+                foreach($pageSize as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['pageSize'] = $pageSize;
+            }
         }
         // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
         if ($skip !== null) {
-            $queryParams['skip'] = $skip;
+            if('form' === 'form' && is_array($skip)) {
+                foreach($skip as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skip'] = $skip;
+            }
         }
         // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
         if ($sort !== null) {
-            $queryParams['sort'] = $sort;
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
         }
         // query params
-        if (is_array($value)) {
-            $value = ObjectSerializer::serializeCollection($value, '', true);
-        }
         if ($value !== null) {
-            $queryParams['value'] = $value;
+            if('form' === 'form' && is_array($value)) {
+                foreach($value as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['value'] = $value;
+            }
         }
         // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
         if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
+            if('form' === 'form' && is_array($createdBefore)) {
+                foreach($createdBefore as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdBefore'] = $createdBefore;
+            }
         }
         // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
         if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
+            if('form' === 'form' && is_array($createdAfter)) {
+                foreach($createdAfter as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['createdAfter'] = $createdAfter;
+            }
         }
         // query params
-        if (is_array($valid)) {
-            $valid = ObjectSerializer::serializeCollection($valid, '', true);
-        }
         if ($valid !== null) {
-            $queryParams['valid'] = $valid;
+            if('form' === 'form' && is_array($valid)) {
+                foreach($valid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['valid'] = $valid;
+            }
         }
         // query params
-        if (is_array($usable)) {
-            $usable = ObjectSerializer::serializeCollection($usable, '', true);
-        }
         if ($usable !== null) {
-            $queryParams['usable'] = $usable;
+            if('form' === 'form' && is_array($usable)) {
+                foreach($usable as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['usable'] = $usable;
+            }
         }
         // query params
-        if (is_array($referralId)) {
-            $referralId = ObjectSerializer::serializeCollection($referralId, '', true);
-        }
         if ($referralId !== null) {
-            $queryParams['referralId'] = $referralId;
+            if('form' === 'form' && is_array($referralId)) {
+                foreach($referralId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['referralId'] = $referralId;
+            }
         }
         // query params
-        if (is_array($recipientIntegrationId)) {
-            $recipientIntegrationId = ObjectSerializer::serializeCollection($recipientIntegrationId, '', true);
-        }
         if ($recipientIntegrationId !== null) {
-            $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            if('form' === 'form' && is_array($recipientIntegrationId)) {
+                foreach($recipientIntegrationId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['recipientIntegrationId'] = $recipientIntegrationId;
+            }
         }
         // query params
-        if (is_array($exactMatch)) {
-            $exactMatch = ObjectSerializer::serializeCollection($exactMatch, '', true);
-        }
         if ($exactMatch !== null) {
-            $queryParams['exactMatch'] = $exactMatch;
+            if('form' === 'form' && is_array($exactMatch)) {
+                foreach($exactMatch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['exactMatch'] = $exactMatch;
+            }
         }
         // query params
-        if (is_array($batchId)) {
-            $batchId = ObjectSerializer::serializeCollection($batchId, '', true);
-        }
         if ($batchId !== null) {
-            $queryParams['batchId'] = $batchId;
+            if('form' === 'form' && is_array($batchId)) {
+                foreach($batchId as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['batchId'] = $batchId;
+            }
         }
 
 
@@ -27134,10 +29627,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -27166,15 +29658,15 @@ class ManagementApi
      * Update an additional cost
      *
      * @param  int $additionalCostId additionalCostId (required)
-     * @param  \TalonOne\Client\Model\NewAdditionalCost $body body (required)
+     * @param  \TalonOne\Client\Model\NewAdditionalCost $newAdditionalCost newAdditionalCost (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\AccountAdditionalCost
      */
-    public function updateAdditionalCost($additionalCostId, $body)
+    public function updateAdditionalCost($additionalCostId, $newAdditionalCost)
     {
-        list($response) = $this->updateAdditionalCostWithHttpInfo($additionalCostId, $body);
+        list($response) = $this->updateAdditionalCostWithHttpInfo($additionalCostId, $newAdditionalCost);
         return $response;
     }
 
@@ -27184,15 +29676,15 @@ class ManagementApi
      * Update an additional cost
      *
      * @param  int $additionalCostId (required)
-     * @param  \TalonOne\Client\Model\NewAdditionalCost $body (required)
+     * @param  \TalonOne\Client\Model\NewAdditionalCost $newAdditionalCost (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\AccountAdditionalCost, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAdditionalCostWithHttpInfo($additionalCostId, $body)
+    public function updateAdditionalCostWithHttpInfo($additionalCostId, $newAdditionalCost)
     {
-        $request = $this->updateAdditionalCostRequest($additionalCostId, $body);
+        $request = $this->updateAdditionalCostRequest($additionalCostId, $newAdditionalCost);
 
         try {
             $options = $this->createHttpClientOption();
@@ -27273,14 +29765,14 @@ class ManagementApi
      * Update an additional cost
      *
      * @param  int $additionalCostId (required)
-     * @param  \TalonOne\Client\Model\NewAdditionalCost $body (required)
+     * @param  \TalonOne\Client\Model\NewAdditionalCost $newAdditionalCost (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAdditionalCostAsync($additionalCostId, $body)
+    public function updateAdditionalCostAsync($additionalCostId, $newAdditionalCost)
     {
-        return $this->updateAdditionalCostAsyncWithHttpInfo($additionalCostId, $body)
+        return $this->updateAdditionalCostAsyncWithHttpInfo($additionalCostId, $newAdditionalCost)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -27294,15 +29786,15 @@ class ManagementApi
      * Update an additional cost
      *
      * @param  int $additionalCostId (required)
-     * @param  \TalonOne\Client\Model\NewAdditionalCost $body (required)
+     * @param  \TalonOne\Client\Model\NewAdditionalCost $newAdditionalCost (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAdditionalCostAsyncWithHttpInfo($additionalCostId, $body)
+    public function updateAdditionalCostAsyncWithHttpInfo($additionalCostId, $newAdditionalCost)
     {
         $returnType = '\TalonOne\Client\Model\AccountAdditionalCost';
-        $request = $this->updateAdditionalCostRequest($additionalCostId, $body);
+        $request = $this->updateAdditionalCostRequest($additionalCostId, $newAdditionalCost);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -27342,12 +29834,12 @@ class ManagementApi
      * Create request for operation 'updateAdditionalCost'
      *
      * @param  int $additionalCostId (required)
-     * @param  \TalonOne\Client\Model\NewAdditionalCost $body (required)
+     * @param  \TalonOne\Client\Model\NewAdditionalCost $newAdditionalCost (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateAdditionalCostRequest($additionalCostId, $body)
+    protected function updateAdditionalCostRequest($additionalCostId, $newAdditionalCost)
     {
         // verify the required parameter 'additionalCostId' is set
         if ($additionalCostId === null || (is_array($additionalCostId) && count($additionalCostId) === 0)) {
@@ -27355,10 +29847,10 @@ class ManagementApi
                 'Missing the required parameter $additionalCostId when calling updateAdditionalCost'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'newAdditionalCost' is set
+        if ($newAdditionalCost === null || (is_array($newAdditionalCost) && count($newAdditionalCost) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling updateAdditionalCost'
+                'Missing the required parameter $newAdditionalCost when calling updateAdditionalCost'
             );
         }
 
@@ -27382,8 +29874,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($newAdditionalCost)) {
+            $_tempBody = $newAdditionalCost;
         }
 
         if ($multipart) {
@@ -27426,10 +29918,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -27458,15 +29949,15 @@ class ManagementApi
      * Update a custom attribute
      *
      * @param  int $attributeId attributeId (required)
-     * @param  \TalonOne\Client\Model\NewAttribute $body body (required)
+     * @param  \TalonOne\Client\Model\NewAttribute $newAttribute newAttribute (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Attribute
      */
-    public function updateAttribute($attributeId, $body)
+    public function updateAttribute($attributeId, $newAttribute)
     {
-        list($response) = $this->updateAttributeWithHttpInfo($attributeId, $body);
+        list($response) = $this->updateAttributeWithHttpInfo($attributeId, $newAttribute);
         return $response;
     }
 
@@ -27476,15 +29967,15 @@ class ManagementApi
      * Update a custom attribute
      *
      * @param  int $attributeId (required)
-     * @param  \TalonOne\Client\Model\NewAttribute $body (required)
+     * @param  \TalonOne\Client\Model\NewAttribute $newAttribute (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Attribute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAttributeWithHttpInfo($attributeId, $body)
+    public function updateAttributeWithHttpInfo($attributeId, $newAttribute)
     {
-        $request = $this->updateAttributeRequest($attributeId, $body);
+        $request = $this->updateAttributeRequest($attributeId, $newAttribute);
 
         try {
             $options = $this->createHttpClientOption();
@@ -27565,14 +30056,14 @@ class ManagementApi
      * Update a custom attribute
      *
      * @param  int $attributeId (required)
-     * @param  \TalonOne\Client\Model\NewAttribute $body (required)
+     * @param  \TalonOne\Client\Model\NewAttribute $newAttribute (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAttributeAsync($attributeId, $body)
+    public function updateAttributeAsync($attributeId, $newAttribute)
     {
-        return $this->updateAttributeAsyncWithHttpInfo($attributeId, $body)
+        return $this->updateAttributeAsyncWithHttpInfo($attributeId, $newAttribute)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -27586,15 +30077,15 @@ class ManagementApi
      * Update a custom attribute
      *
      * @param  int $attributeId (required)
-     * @param  \TalonOne\Client\Model\NewAttribute $body (required)
+     * @param  \TalonOne\Client\Model\NewAttribute $newAttribute (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAttributeAsyncWithHttpInfo($attributeId, $body)
+    public function updateAttributeAsyncWithHttpInfo($attributeId, $newAttribute)
     {
         $returnType = '\TalonOne\Client\Model\Attribute';
-        $request = $this->updateAttributeRequest($attributeId, $body);
+        $request = $this->updateAttributeRequest($attributeId, $newAttribute);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -27634,12 +30125,12 @@ class ManagementApi
      * Create request for operation 'updateAttribute'
      *
      * @param  int $attributeId (required)
-     * @param  \TalonOne\Client\Model\NewAttribute $body (required)
+     * @param  \TalonOne\Client\Model\NewAttribute $newAttribute (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateAttributeRequest($attributeId, $body)
+    protected function updateAttributeRequest($attributeId, $newAttribute)
     {
         // verify the required parameter 'attributeId' is set
         if ($attributeId === null || (is_array($attributeId) && count($attributeId) === 0)) {
@@ -27647,10 +30138,10 @@ class ManagementApi
                 'Missing the required parameter $attributeId when calling updateAttribute'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'newAttribute' is set
+        if ($newAttribute === null || (is_array($newAttribute) && count($newAttribute) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling updateAttribute'
+                'Missing the required parameter $newAttribute when calling updateAttribute'
             );
         }
 
@@ -27674,8 +30165,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($newAttribute)) {
+            $_tempBody = $newAttribute;
         }
 
         if ($multipart) {
@@ -27718,10 +30209,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -27747,38 +30237,38 @@ class ManagementApi
     /**
      * Operation updateCampaign
      *
-     * Update a Campaign
+     * Update campaign
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
-     * @param  \TalonOne\Client\Model\UpdateCampaign $body body (required)
+     * @param  \TalonOne\Client\Model\UpdateCampaign $updateCampaign updateCampaign (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Campaign
      */
-    public function updateCampaign($applicationId, $campaignId, $body)
+    public function updateCampaign($applicationId, $campaignId, $updateCampaign)
     {
-        list($response) = $this->updateCampaignWithHttpInfo($applicationId, $campaignId, $body);
+        list($response) = $this->updateCampaignWithHttpInfo($applicationId, $campaignId, $updateCampaign);
         return $response;
     }
 
     /**
      * Operation updateCampaignWithHttpInfo
      *
-     * Update a Campaign
+     * Update campaign
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\UpdateCampaign $body (required)
+     * @param  \TalonOne\Client\Model\UpdateCampaign $updateCampaign (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Campaign, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCampaignWithHttpInfo($applicationId, $campaignId, $body)
+    public function updateCampaignWithHttpInfo($applicationId, $campaignId, $updateCampaign)
     {
-        $request = $this->updateCampaignRequest($applicationId, $campaignId, $body);
+        $request = $this->updateCampaignRequest($applicationId, $campaignId, $updateCampaign);
 
         try {
             $options = $this->createHttpClientOption();
@@ -27856,18 +30346,18 @@ class ManagementApi
     /**
      * Operation updateCampaignAsync
      *
-     * Update a Campaign
+     * Update campaign
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\UpdateCampaign $body (required)
+     * @param  \TalonOne\Client\Model\UpdateCampaign $updateCampaign (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCampaignAsync($applicationId, $campaignId, $body)
+    public function updateCampaignAsync($applicationId, $campaignId, $updateCampaign)
     {
-        return $this->updateCampaignAsyncWithHttpInfo($applicationId, $campaignId, $body)
+        return $this->updateCampaignAsyncWithHttpInfo($applicationId, $campaignId, $updateCampaign)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -27878,19 +30368,19 @@ class ManagementApi
     /**
      * Operation updateCampaignAsyncWithHttpInfo
      *
-     * Update a Campaign
+     * Update campaign
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\UpdateCampaign $body (required)
+     * @param  \TalonOne\Client\Model\UpdateCampaign $updateCampaign (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCampaignAsyncWithHttpInfo($applicationId, $campaignId, $body)
+    public function updateCampaignAsyncWithHttpInfo($applicationId, $campaignId, $updateCampaign)
     {
         $returnType = '\TalonOne\Client\Model\Campaign';
-        $request = $this->updateCampaignRequest($applicationId, $campaignId, $body);
+        $request = $this->updateCampaignRequest($applicationId, $campaignId, $updateCampaign);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -27931,12 +30421,12 @@ class ManagementApi
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\UpdateCampaign $body (required)
+     * @param  \TalonOne\Client\Model\UpdateCampaign $updateCampaign (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCampaignRequest($applicationId, $campaignId, $body)
+    protected function updateCampaignRequest($applicationId, $campaignId, $updateCampaign)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -27950,10 +30440,10 @@ class ManagementApi
                 'Missing the required parameter $campaignId when calling updateCampaign'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'updateCampaign' is set
+        if ($updateCampaign === null || (is_array($updateCampaign) && count($updateCampaign) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling updateCampaign'
+                'Missing the required parameter $updateCampaign when calling updateCampaign'
             );
         }
 
@@ -27985,8 +30475,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($updateCampaign)) {
+            $_tempBody = $updateCampaign;
         }
 
         if ($multipart) {
@@ -28029,10 +30519,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -28058,40 +30547,40 @@ class ManagementApi
     /**
      * Operation updateCoupon
      *
-     * Update a Coupon
+     * Update coupon
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
      * @param  string $couponId The ID of the coupon code to update (required)
-     * @param  \TalonOne\Client\Model\UpdateCoupon $body body (required)
+     * @param  \TalonOne\Client\Model\UpdateCoupon $updateCoupon updateCoupon (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Coupon
      */
-    public function updateCoupon($applicationId, $campaignId, $couponId, $body)
+    public function updateCoupon($applicationId, $campaignId, $couponId, $updateCoupon)
     {
-        list($response) = $this->updateCouponWithHttpInfo($applicationId, $campaignId, $couponId, $body);
+        list($response) = $this->updateCouponWithHttpInfo($applicationId, $campaignId, $couponId, $updateCoupon);
         return $response;
     }
 
     /**
      * Operation updateCouponWithHttpInfo
      *
-     * Update a Coupon
+     * Update coupon
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  string $couponId The ID of the coupon code to update (required)
-     * @param  \TalonOne\Client\Model\UpdateCoupon $body (required)
+     * @param  \TalonOne\Client\Model\UpdateCoupon $updateCoupon (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Coupon, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCouponWithHttpInfo($applicationId, $campaignId, $couponId, $body)
+    public function updateCouponWithHttpInfo($applicationId, $campaignId, $couponId, $updateCoupon)
     {
-        $request = $this->updateCouponRequest($applicationId, $campaignId, $couponId, $body);
+        $request = $this->updateCouponRequest($applicationId, $campaignId, $couponId, $updateCoupon);
 
         try {
             $options = $this->createHttpClientOption();
@@ -28169,19 +30658,19 @@ class ManagementApi
     /**
      * Operation updateCouponAsync
      *
-     * Update a Coupon
+     * Update coupon
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  string $couponId The ID of the coupon code to update (required)
-     * @param  \TalonOne\Client\Model\UpdateCoupon $body (required)
+     * @param  \TalonOne\Client\Model\UpdateCoupon $updateCoupon (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCouponAsync($applicationId, $campaignId, $couponId, $body)
+    public function updateCouponAsync($applicationId, $campaignId, $couponId, $updateCoupon)
     {
-        return $this->updateCouponAsyncWithHttpInfo($applicationId, $campaignId, $couponId, $body)
+        return $this->updateCouponAsyncWithHttpInfo($applicationId, $campaignId, $couponId, $updateCoupon)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -28192,20 +30681,20 @@ class ManagementApi
     /**
      * Operation updateCouponAsyncWithHttpInfo
      *
-     * Update a Coupon
+     * Update coupon
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  string $couponId The ID of the coupon code to update (required)
-     * @param  \TalonOne\Client\Model\UpdateCoupon $body (required)
+     * @param  \TalonOne\Client\Model\UpdateCoupon $updateCoupon (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCouponAsyncWithHttpInfo($applicationId, $campaignId, $couponId, $body)
+    public function updateCouponAsyncWithHttpInfo($applicationId, $campaignId, $couponId, $updateCoupon)
     {
         $returnType = '\TalonOne\Client\Model\Coupon';
-        $request = $this->updateCouponRequest($applicationId, $campaignId, $couponId, $body);
+        $request = $this->updateCouponRequest($applicationId, $campaignId, $couponId, $updateCoupon);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -28247,12 +30736,12 @@ class ManagementApi
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  string $couponId The ID of the coupon code to update (required)
-     * @param  \TalonOne\Client\Model\UpdateCoupon $body (required)
+     * @param  \TalonOne\Client\Model\UpdateCoupon $updateCoupon (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCouponRequest($applicationId, $campaignId, $couponId, $body)
+    protected function updateCouponRequest($applicationId, $campaignId, $couponId, $updateCoupon)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -28272,10 +30761,10 @@ class ManagementApi
                 'Missing the required parameter $couponId when calling updateCoupon'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'updateCoupon' is set
+        if ($updateCoupon === null || (is_array($updateCoupon) && count($updateCoupon) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling updateCoupon'
+                'Missing the required parameter $updateCoupon when calling updateCoupon'
             );
         }
 
@@ -28315,8 +30804,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($updateCoupon)) {
+            $_tempBody = $updateCoupon;
         }
 
         if ($multipart) {
@@ -28359,10 +30848,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -28388,37 +30876,37 @@ class ManagementApi
     /**
      * Operation updateCouponBatch
      *
-     * Update a Batch of Coupons
+     * Update a batch of coupons
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
-     * @param  \TalonOne\Client\Model\UpdateCouponBatch $body body (required)
+     * @param  \TalonOne\Client\Model\UpdateCouponBatch $updateCouponBatch updateCouponBatch (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateCouponBatch($applicationId, $campaignId, $body)
+    public function updateCouponBatch($applicationId, $campaignId, $updateCouponBatch)
     {
-        $this->updateCouponBatchWithHttpInfo($applicationId, $campaignId, $body);
+        $this->updateCouponBatchWithHttpInfo($applicationId, $campaignId, $updateCouponBatch);
     }
 
     /**
      * Operation updateCouponBatchWithHttpInfo
      *
-     * Update a Batch of Coupons
+     * Update a batch of coupons
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\UpdateCouponBatch $body (required)
+     * @param  \TalonOne\Client\Model\UpdateCouponBatch $updateCouponBatch (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCouponBatchWithHttpInfo($applicationId, $campaignId, $body)
+    public function updateCouponBatchWithHttpInfo($applicationId, $campaignId, $updateCouponBatch)
     {
-        $request = $this->updateCouponBatchRequest($applicationId, $campaignId, $body);
+        $request = $this->updateCouponBatchRequest($applicationId, $campaignId, $updateCouponBatch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -28460,18 +30948,18 @@ class ManagementApi
     /**
      * Operation updateCouponBatchAsync
      *
-     * Update a Batch of Coupons
+     * Update a batch of coupons
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\UpdateCouponBatch $body (required)
+     * @param  \TalonOne\Client\Model\UpdateCouponBatch $updateCouponBatch (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCouponBatchAsync($applicationId, $campaignId, $body)
+    public function updateCouponBatchAsync($applicationId, $campaignId, $updateCouponBatch)
     {
-        return $this->updateCouponBatchAsyncWithHttpInfo($applicationId, $campaignId, $body)
+        return $this->updateCouponBatchAsyncWithHttpInfo($applicationId, $campaignId, $updateCouponBatch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -28482,19 +30970,19 @@ class ManagementApi
     /**
      * Operation updateCouponBatchAsyncWithHttpInfo
      *
-     * Update a Batch of Coupons
+     * Update a batch of coupons
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\UpdateCouponBatch $body (required)
+     * @param  \TalonOne\Client\Model\UpdateCouponBatch $updateCouponBatch (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCouponBatchAsyncWithHttpInfo($applicationId, $campaignId, $body)
+    public function updateCouponBatchAsyncWithHttpInfo($applicationId, $campaignId, $updateCouponBatch)
     {
         $returnType = '';
-        $request = $this->updateCouponBatchRequest($applicationId, $campaignId, $body);
+        $request = $this->updateCouponBatchRequest($applicationId, $campaignId, $updateCouponBatch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -28524,12 +31012,12 @@ class ManagementApi
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
-     * @param  \TalonOne\Client\Model\UpdateCouponBatch $body (required)
+     * @param  \TalonOne\Client\Model\UpdateCouponBatch $updateCouponBatch (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCouponBatchRequest($applicationId, $campaignId, $body)
+    protected function updateCouponBatchRequest($applicationId, $campaignId, $updateCouponBatch)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -28543,10 +31031,10 @@ class ManagementApi
                 'Missing the required parameter $campaignId when calling updateCouponBatch'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'updateCouponBatch' is set
+        if ($updateCouponBatch === null || (is_array($updateCouponBatch) && count($updateCouponBatch) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling updateCouponBatch'
+                'Missing the required parameter $updateCouponBatch when calling updateCouponBatch'
             );
         }
 
@@ -28578,8 +31066,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($updateCouponBatch)) {
+            $_tempBody = $updateCouponBatch;
         }
 
         if ($multipart) {
@@ -28622,11 +31110,335 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateReferral
+     *
+     * Update referral
+     *
+     * @param  int $applicationId applicationId (required)
+     * @param  int $campaignId campaignId (required)
+     * @param  string $referralId The ID of the referral code to delete (required)
+     * @param  \TalonOne\Client\Model\UpdateReferral $updateReferral updateReferral (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\Referral
+     */
+    public function updateReferral($applicationId, $campaignId, $referralId, $updateReferral)
+    {
+        list($response) = $this->updateReferralWithHttpInfo($applicationId, $campaignId, $referralId, $updateReferral);
+        return $response;
+    }
+
+    /**
+     * Operation updateReferralWithHttpInfo
+     *
+     * Update referral
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $referralId The ID of the referral code to delete (required)
+     * @param  \TalonOne\Client\Model\UpdateReferral $updateReferral (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\Referral, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateReferralWithHttpInfo($applicationId, $campaignId, $referralId, $updateReferral)
+    {
+        $request = $this->updateReferralRequest($applicationId, $campaignId, $referralId, $updateReferral);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\Referral' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\Referral', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\Referral';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\Referral',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateReferralAsync
+     *
+     * Update referral
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $referralId The ID of the referral code to delete (required)
+     * @param  \TalonOne\Client\Model\UpdateReferral $updateReferral (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateReferralAsync($applicationId, $campaignId, $referralId, $updateReferral)
+    {
+        return $this->updateReferralAsyncWithHttpInfo($applicationId, $campaignId, $referralId, $updateReferral)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateReferralAsyncWithHttpInfo
+     *
+     * Update referral
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $referralId The ID of the referral code to delete (required)
+     * @param  \TalonOne\Client\Model\UpdateReferral $updateReferral (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateReferralAsyncWithHttpInfo($applicationId, $campaignId, $referralId, $updateReferral)
+    {
+        $returnType = '\TalonOne\Client\Model\Referral';
+        $request = $this->updateReferralRequest($applicationId, $campaignId, $referralId, $updateReferral);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateReferral'
+     *
+     * @param  int $applicationId (required)
+     * @param  int $campaignId (required)
+     * @param  string $referralId The ID of the referral code to delete (required)
+     * @param  \TalonOne\Client\Model\UpdateReferral $updateReferral (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateReferralRequest($applicationId, $campaignId, $referralId, $updateReferral)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling updateReferral'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling updateReferral'
+            );
+        }
+        // verify the required parameter 'referralId' is set
+        if ($referralId === null || (is_array($referralId) && count($referralId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $referralId when calling updateReferral'
+            );
+        }
+        // verify the required parameter 'updateReferral' is set
+        if ($updateReferral === null || (is_array($updateReferral) && count($updateReferral) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $updateReferral when calling updateReferral'
+            );
+        }
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($referralId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'referralId' . '}',
+                ObjectSerializer::toPathValue($referralId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($updateReferral)) {
+            $_tempBody = $updateReferral;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -28651,40 +31463,40 @@ class ManagementApi
     /**
      * Operation updateRuleset
      *
-     * Update a Ruleset
+     * Update ruleset
      *
      * @param  int $applicationId applicationId (required)
      * @param  int $campaignId campaignId (required)
      * @param  int $rulesetId rulesetId (required)
-     * @param  \TalonOne\Client\Model\NewRuleset $body body (required)
+     * @param  \TalonOne\Client\Model\NewRuleset $newRuleset newRuleset (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Ruleset
      */
-    public function updateRuleset($applicationId, $campaignId, $rulesetId, $body)
+    public function updateRuleset($applicationId, $campaignId, $rulesetId, $newRuleset)
     {
-        list($response) = $this->updateRulesetWithHttpInfo($applicationId, $campaignId, $rulesetId, $body);
+        list($response) = $this->updateRulesetWithHttpInfo($applicationId, $campaignId, $rulesetId, $newRuleset);
         return $response;
     }
 
     /**
      * Operation updateRulesetWithHttpInfo
      *
-     * Update a Ruleset
+     * Update ruleset
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $rulesetId (required)
-     * @param  \TalonOne\Client\Model\NewRuleset $body (required)
+     * @param  \TalonOne\Client\Model\NewRuleset $newRuleset (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Ruleset, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRulesetWithHttpInfo($applicationId, $campaignId, $rulesetId, $body)
+    public function updateRulesetWithHttpInfo($applicationId, $campaignId, $rulesetId, $newRuleset)
     {
-        $request = $this->updateRulesetRequest($applicationId, $campaignId, $rulesetId, $body);
+        $request = $this->updateRulesetRequest($applicationId, $campaignId, $rulesetId, $newRuleset);
 
         try {
             $options = $this->createHttpClientOption();
@@ -28762,19 +31574,19 @@ class ManagementApi
     /**
      * Operation updateRulesetAsync
      *
-     * Update a Ruleset
+     * Update ruleset
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $rulesetId (required)
-     * @param  \TalonOne\Client\Model\NewRuleset $body (required)
+     * @param  \TalonOne\Client\Model\NewRuleset $newRuleset (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRulesetAsync($applicationId, $campaignId, $rulesetId, $body)
+    public function updateRulesetAsync($applicationId, $campaignId, $rulesetId, $newRuleset)
     {
-        return $this->updateRulesetAsyncWithHttpInfo($applicationId, $campaignId, $rulesetId, $body)
+        return $this->updateRulesetAsyncWithHttpInfo($applicationId, $campaignId, $rulesetId, $newRuleset)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -28785,20 +31597,20 @@ class ManagementApi
     /**
      * Operation updateRulesetAsyncWithHttpInfo
      *
-     * Update a Ruleset
+     * Update ruleset
      *
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $rulesetId (required)
-     * @param  \TalonOne\Client\Model\NewRuleset $body (required)
+     * @param  \TalonOne\Client\Model\NewRuleset $newRuleset (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRulesetAsyncWithHttpInfo($applicationId, $campaignId, $rulesetId, $body)
+    public function updateRulesetAsyncWithHttpInfo($applicationId, $campaignId, $rulesetId, $newRuleset)
     {
         $returnType = '\TalonOne\Client\Model\Ruleset';
-        $request = $this->updateRulesetRequest($applicationId, $campaignId, $rulesetId, $body);
+        $request = $this->updateRulesetRequest($applicationId, $campaignId, $rulesetId, $newRuleset);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -28840,12 +31652,12 @@ class ManagementApi
      * @param  int $applicationId (required)
      * @param  int $campaignId (required)
      * @param  int $rulesetId (required)
-     * @param  \TalonOne\Client\Model\NewRuleset $body (required)
+     * @param  \TalonOne\Client\Model\NewRuleset $newRuleset (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateRulesetRequest($applicationId, $campaignId, $rulesetId, $body)
+    protected function updateRulesetRequest($applicationId, $campaignId, $rulesetId, $newRuleset)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -28865,10 +31677,10 @@ class ManagementApi
                 'Missing the required parameter $rulesetId when calling updateRuleset'
             );
         }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'newRuleset' is set
+        if ($newRuleset === null || (is_array($newRuleset) && count($newRuleset) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling updateRuleset'
+                'Missing the required parameter $newRuleset when calling updateRuleset'
             );
         }
 
@@ -28908,8 +31720,8 @@ class ManagementApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($newRuleset)) {
+            $_tempBody = $newRuleset;
         }
 
         if ($multipart) {
@@ -28952,10 +31764,9 @@ class ManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ReferralTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Referral
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -93,6 +93,27 @@ class ReferralTest extends TestCase
     }
 
     /**
+     * Test attribute "startDate"
+     */
+    public function testPropertyStartDate()
+    {
+    }
+
+    /**
+     * Test attribute "expiryDate"
+     */
+    public function testPropertyExpiryDate()
+    {
+    }
+
+    /**
+     * Test attribute "usageLimit"
+     */
+    public function testPropertyUsageLimit()
+    {
+    }
+
+    /**
      * Test attribute "campaignId"
      */
     public function testPropertyCampaignId()
@@ -114,16 +135,16 @@ class ReferralTest extends TestCase
     }
 
     /**
-     * Test attribute "startDate"
+     * Test attribute "attributes"
      */
-    public function testPropertyStartDate()
+    public function testPropertyAttributes()
     {
     }
 
     /**
-     * Test attribute "expiryDate"
+     * Test attribute "importId"
      */
-    public function testPropertyExpiryDate()
+    public function testPropertyImportId()
     {
     }
 
@@ -142,9 +163,9 @@ class ReferralTest extends TestCase
     }
 
     /**
-     * Test attribute "usageLimit"
+     * Test attribute "batchId"
      */
-    public function testPropertyUsageLimit()
+    public function testPropertyBatchId()
     {
     }
 }

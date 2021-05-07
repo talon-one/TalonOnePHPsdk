@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **ruleFailureReasons** | [**\TalonOne\Client\Model\RuleFailureReason[]**](RuleFailureReason.md) |  | [optional] 
 **createdCoupons** | [**\TalonOne\Client\Model\Coupon[]**](Coupon.md) |  | 
 **createdReferrals** | [**\TalonOne\Client\Model\Referral[]**](Referral.md) |  | 
+**awardedGiveaways** | [**\TalonOne\Client\Model\Giveaway[]**](Giveaway.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

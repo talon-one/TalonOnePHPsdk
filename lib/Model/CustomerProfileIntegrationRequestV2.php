@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * CustomerProfileIntegrationRequestV2 Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -173,6 +172,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     const RESPONSE_CONTENT_TRIGGERED_CAMPAIGNS = 'triggeredCampaigns';
     const RESPONSE_CONTENT_LOYALTY = 'loyalty';
     const RESPONSE_CONTENT_EVENT = 'event';
+    const RESPONSE_CONTENT_AWARDED_GIVEAWAYS = 'awardedGiveaways';
     const RESPONSE_CONTENT_RULE_FAILURE_REASONS = 'ruleFailureReasons';
     
 
@@ -189,6 +189,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
             self::RESPONSE_CONTENT_TRIGGERED_CAMPAIGNS,
             self::RESPONSE_CONTENT_LOYALTY,
             self::RESPONSE_CONTENT_EVENT,
+            self::RESPONSE_CONTENT_AWARDED_GIVEAWAYS,
             self::RESPONSE_CONTENT_RULE_FAILURE_REASONS,
         ];
     }
@@ -299,7 +300,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     /**
      * Sets responseContent
      *
-     * @param string[]|null $responseContent Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\", \"event\" and \"ruleFailureReasons\".
+     * @param string[]|null $responseContent Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\", \"event\", \"awardedGiveaways\", \"ruleFailureReasons\".
      *
      * @return $this
      */

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * LibraryAttributeTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description LibraryAttribute
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

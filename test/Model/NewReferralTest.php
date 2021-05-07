@@ -79,6 +79,27 @@ class NewReferralTest extends TestCase
     }
 
     /**
+     * Test attribute "startDate"
+     */
+    public function testPropertyStartDate()
+    {
+    }
+
+    /**
+     * Test attribute "expiryDate"
+     */
+    public function testPropertyExpiryDate()
+    {
+    }
+
+    /**
+     * Test attribute "usageLimit"
+     */
+    public function testPropertyUsageLimit()
+    {
+    }
+
+    /**
      * Test attribute "campaignId"
      */
     public function testPropertyCampaignId()
@@ -100,16 +121,9 @@ class NewReferralTest extends TestCase
     }
 
     /**
-     * Test attribute "startDate"
+     * Test attribute "attributes"
      */
-    public function testPropertyStartDate()
-    {
-    }
-
-    /**
-     * Test attribute "expiryDate"
-     */
-    public function testPropertyExpiryDate()
+    public function testPropertyAttributes()
     {
     }
 }

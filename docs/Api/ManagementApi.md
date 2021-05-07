@@ -1,26 +1,25 @@
 # TalonOne\Client\ManagementApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://your_domain.your_region.talon.one*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addLoyaltyPoints**](ManagementApi.md#addLoyaltyPoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/add_points | Add points in a certain loyalty program for the specified customer
+[**addLoyaltyPoints**](ManagementApi.md#addLoyaltyPoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/add_points | Add points in a loyalty program for the specified customer
 [**copyCampaignToApplications**](ManagementApi.md#copyCampaignToApplications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into every specified application
 [**createAdditionalCost**](ManagementApi.md#createAdditionalCost) | **POST** /v1/additional_costs | Define a new additional cost
 [**createAttribute**](ManagementApi.md#createAttribute) | **POST** /v1/attributes | Define a new custom attribute
-[**createCampaign**](ManagementApi.md#createCampaign) | **POST** /v1/applications/{applicationId}/campaigns | Create a Campaign
-[**createCoupons**](ManagementApi.md#createCoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create Coupons
-[**createCouponsForMultipleRecipients**](ManagementApi.md#createCouponsForMultipleRecipients) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients | Create Coupons for Multiple Recipients
+[**createCampaign**](ManagementApi.md#createCampaign) | **POST** /v1/applications/{applicationId}/campaigns | Create campaign
+[**createCoupons**](ManagementApi.md#createCoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create coupons
+[**createCouponsForMultipleRecipients**](ManagementApi.md#createCouponsForMultipleRecipients) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients | Create coupons for multiple recipients
 [**createPasswordRecoveryEmail**](ManagementApi.md#createPasswordRecoveryEmail) | **POST** /v1/password_recovery_emails | Request a password reset
-[**createRuleset**](ManagementApi.md#createRuleset) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | Create a Ruleset
-[**createSession**](ManagementApi.md#createSession) | **POST** /v1/sessions | Create a Session
-[**deleteCampaign**](ManagementApi.md#deleteCampaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete a Campaign
-[**deleteCoupon**](ManagementApi.md#deleteCoupon) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Delete one Coupon
-[**deleteCoupons**](ManagementApi.md#deleteCoupons) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete Coupons
-[**deleteReferral**](ManagementApi.md#deleteReferral) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete one Referral
-[**deleteRuleset**](ManagementApi.md#deleteRuleset) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Delete a Ruleset
-[**destroySession**](ManagementApi.md#destroySession) | **DELETE** /v1/sessions | Destroy a Session
-[**exportCoupons**](ManagementApi.md#exportCoupons) | **GET** /v1/applications/{applicationId}/export_coupons | Export Coupons to a CSV file
+[**createRuleset**](ManagementApi.md#createRuleset) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | Create ruleset
+[**createSession**](ManagementApi.md#createSession) | **POST** /v1/sessions | Create session
+[**deleteCampaign**](ManagementApi.md#deleteCampaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete campaign
+[**deleteCoupon**](ManagementApi.md#deleteCoupon) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Delete coupon
+[**deleteCoupons**](ManagementApi.md#deleteCoupons) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete coupons
+[**deleteReferral**](ManagementApi.md#deleteReferral) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete referral
+[**deleteRuleset**](ManagementApi.md#deleteRuleset) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Delete ruleset
+[**exportCoupons**](ManagementApi.md#exportCoupons) | **GET** /v1/applications/{applicationId}/export_coupons | Export coupons to a CSV file
 [**exportCustomerSessions**](ManagementApi.md#exportCustomerSessions) | **GET** /v1/applications/{applicationId}/export_customer_sessions | Export Customer Sessions to a CSV file
 [**exportEffects**](ManagementApi.md#exportEffects) | **GET** /v1/applications/{applicationId}/export_effects | Export triggered Effects to a CSV file
 [**exportLoyaltyBalance**](ManagementApi.md#exportLoyaltyBalance) | **GET** /v1/loyalty_programs/{programID}/export_customer_balance | Export customer loyalty balance to a CSV file
@@ -31,8 +30,8 @@ Method | HTTP request | Description
 [**getAccountAnalytics**](ManagementApi.md#getAccountAnalytics) | **GET** /v1/accounts/{accountId}/analytics | Get Account Analytics
 [**getAdditionalCost**](ManagementApi.md#getAdditionalCost) | **GET** /v1/additional_costs/{additionalCostId} | Get an additional cost
 [**getAdditionalCosts**](ManagementApi.md#getAdditionalCosts) | **GET** /v1/additional_costs | List additional costs
-[**getAllAccessLogs**](ManagementApi.md#getAllAccessLogs) | **GET** /v1/access_logs | Get all access logs
-[**getAllRoles**](ManagementApi.md#getAllRoles) | **GET** /v1/roles | Get all roles
+[**getAllAccessLogs**](ManagementApi.md#getAllAccessLogs) | **GET** /v1/access_logs | List access logs
+[**getAllRoles**](ManagementApi.md#getAllRoles) | **GET** /v1/roles | List roles
 [**getApplication**](ManagementApi.md#getApplication) | **GET** /v1/applications/{applicationId} | Get Application
 [**getApplicationApiHealth**](ManagementApi.md#getApplicationApiHealth) | **GET** /v1/applications/{applicationId}/health_report | Get report of health of application API
 [**getApplicationCustomer**](ManagementApi.md#getApplicationCustomer) | **GET** /v1/applications/{applicationId}/customers/{customerId} | Get Application Customer
@@ -46,60 +45,65 @@ Method | HTTP request | Description
 [**getApplications**](ManagementApi.md#getApplications) | **GET** /v1/applications | List Applications
 [**getAttribute**](ManagementApi.md#getAttribute) | **GET** /v1/attributes/{attributeId} | Get a custom attribute
 [**getAttributes**](ManagementApi.md#getAttributes) | **GET** /v1/attributes | List custom attributes
-[**getAudiences**](ManagementApi.md#getAudiences) | **GET** /v1/audiences | Get all audiences
-[**getCampaign**](ManagementApi.md#getCampaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get a Campaign
+[**getAudiences**](ManagementApi.md#getAudiences) | **GET** /v1/audiences | List audiences
+[**getCampaign**](ManagementApi.md#getCampaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get campaign
 [**getCampaignAnalytics**](ManagementApi.md#getCampaignAnalytics) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/analytics | Get analytics of campaigns
-[**getCampaignByAttributes**](ManagementApi.md#getCampaignByAttributes) | **POST** /v1/applications/{applicationId}/campaigns_search | Get a list of all campaigns that match the given attributes
-[**getCampaigns**](ManagementApi.md#getCampaigns) | **GET** /v1/applications/{applicationId}/campaigns | List your Campaigns
+[**getCampaignByAttributes**](ManagementApi.md#getCampaignByAttributes) | **POST** /v1/applications/{applicationId}/campaigns_search | List campaigns that match the given attributes
+[**getCampaigns**](ManagementApi.md#getCampaigns) | **GET** /v1/applications/{applicationId}/campaigns | List campaigns
 [**getChanges**](ManagementApi.md#getChanges) | **GET** /v1/changes | Get audit log for an account
-[**getCoupons**](ManagementApi.md#getCoupons) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | List Coupons (with total count)
-[**getCouponsByAttributes**](ManagementApi.md#getCouponsByAttributes) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search | Get a list of the coupons that match the given attributes
-[**getCouponsByAttributesApplicationWide**](ManagementApi.md#getCouponsByAttributesApplicationWide) | **POST** /v1/applications/{applicationId}/coupons_search | Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-[**getCouponsWithoutTotalCount**](ManagementApi.md#getCouponsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List Coupons
+[**getCoupons**](ManagementApi.md#getCoupons) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | List coupons (with total count)
+[**getCouponsByAttributes**](ManagementApi.md#getCouponsByAttributes) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search | List coupons that match the given attributes
+[**getCouponsByAttributesApplicationWide**](ManagementApi.md#getCouponsByAttributesApplicationWide) | **POST** /v1/applications/{applicationId}/coupons_search | List coupons that match the given attributes in all active campaigns of an application (with total count)
+[**getCouponsWithoutTotalCount**](ManagementApi.md#getCouponsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List coupons
 [**getCustomerActivityReport**](ManagementApi.md#getCustomerActivityReport) | **GET** /v1/applications/{applicationId}/customer_activity_reports/{customerId} | Get Activity Report for Single Customer
 [**getCustomerActivityReports**](ManagementApi.md#getCustomerActivityReports) | **GET** /v1/applications/{applicationId}/customer_activity_reports | Get Activity Reports for Application Customers (with total count)
 [**getCustomerActivityReportsWithoutTotalCount**](ManagementApi.md#getCustomerActivityReportsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/customer_activity_reports/no_total | Get Activity Reports for Application Customers
 [**getCustomerAnalytics**](ManagementApi.md#getCustomerAnalytics) | **GET** /v1/applications/{applicationId}/customers/{customerId}/analytics | Get Analytics Report for a Customer
 [**getCustomerProfile**](ManagementApi.md#getCustomerProfile) | **GET** /v1/customers/{customerId} | Get Customer Profile
 [**getCustomerProfiles**](ManagementApi.md#getCustomerProfiles) | **GET** /v1/customers/no_total | List Customer Profiles
-[**getCustomersByAttributes**](ManagementApi.md#getCustomersByAttributes) | **POST** /v1/customer_search/no_total | Get a list of the customer profiles that match the given attributes
-[**getEventTypes**](ManagementApi.md#getEventTypes) | **GET** /v1/event_types | List Event Types
-[**getExports**](ManagementApi.md#getExports) | **GET** /v1/exports | Get Exports
-[**getLoyaltyPoints**](ManagementApi.md#getLoyaltyPoints) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | get the Loyalty Ledger for this integrationID
+[**getCustomersByAttributes**](ManagementApi.md#getCustomersByAttributes) | **POST** /v1/customer_search/no_total | List customer profiles that match the given attributes
+[**getEventTypes**](ManagementApi.md#getEventTypes) | **GET** /v1/event_types | List event types
+[**getExports**](ManagementApi.md#getExports) | **GET** /v1/exports | Get exports
+[**getLoyaltyPoints**](ManagementApi.md#getLoyaltyPoints) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | Get integration&#39;s Loyalty Ledger
 [**getLoyaltyProgram**](ManagementApi.md#getLoyaltyProgram) | **GET** /v1/loyalty_programs/{programID} | Get a loyalty program
-[**getLoyaltyPrograms**](ManagementApi.md#getLoyaltyPrograms) | **GET** /v1/loyalty_programs | List all loyalty Programs
+[**getLoyaltyPrograms**](ManagementApi.md#getLoyaltyPrograms) | **GET** /v1/loyalty_programs | List loyalty programs
 [**getLoyaltyStatistics**](ManagementApi.md#getLoyaltyStatistics) | **GET** /v1/loyalty_programs/{programID}/statistics | Get loyalty program statistics by loyalty program ID
-[**getReferrals**](ManagementApi.md#getReferrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List Referrals (with total count)
-[**getReferralsWithoutTotalCount**](ManagementApi.md#getReferralsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List Referrals
+[**getReferrals**](ManagementApi.md#getReferrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List referrals (with total count)
+[**getReferralsWithoutTotalCount**](ManagementApi.md#getReferralsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 [**getRole**](ManagementApi.md#getRole) | **GET** /v1/roles/{roleId} | Get information for the specified role
-[**getRuleset**](ManagementApi.md#getRuleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get a Ruleset
-[**getRulesets**](ManagementApi.md#getRulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List Campaign Rulesets
+[**getRuleset**](ManagementApi.md#getRuleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
+[**getRulesets**](ManagementApi.md#getRulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List rulesets
 [**getUser**](ManagementApi.md#getUser) | **GET** /v1/users/{userId} | Get a single User
-[**getUsers**](ManagementApi.md#getUsers) | **GET** /v1/users | List Users in your account
+[**getUsers**](ManagementApi.md#getUsers) | **GET** /v1/users | List users
 [**getWebhook**](ManagementApi.md#getWebhook) | **GET** /v1/webhooks/{webhookId} | Get Webhook
 [**getWebhookActivationLogs**](ManagementApi.md#getWebhookActivationLogs) | **GET** /v1/webhook_activation_logs | List Webhook activation Log Entries
 [**getWebhookLogs**](ManagementApi.md#getWebhookLogs) | **GET** /v1/webhook_logs | List Webhook Log Entries
 [**getWebhooks**](ManagementApi.md#getWebhooks) | **GET** /v1/webhooks | List Webhooks
-[**removeLoyaltyPoints**](ManagementApi.md#removeLoyaltyPoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/deduct_points | Deduct points in a certain loyalty program for the specified customer
+[**importCoupons**](ManagementApi.md#importCoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons | Import coupons via CSV file
+[**importLoyaltyPoints**](ManagementApi.md#importLoyaltyPoints) | **POST** /v1/loyalty_programs/{programID}/import_points | Import loyalty points via CSV file
+[**importPoolGiveaways**](ManagementApi.md#importPoolGiveaways) | **POST** /v1/giveaways/pools/{poolId}/import | Import giveaways codes into a giveaways pool
+[**importReferrals**](ManagementApi.md#importReferrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals via CSV file
+[**removeLoyaltyPoints**](ManagementApi.md#removeLoyaltyPoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/deduct_points | Deduct points in a loyalty program for the specified customer
 [**resetPassword**](ManagementApi.md#resetPassword) | **POST** /v1/reset_password | Reset password
-[**searchCouponsAdvanced**](ManagementApi.md#searchCouponsAdvanced) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced | Get a list of the coupons that match the given attributes (with total count)
-[**searchCouponsAdvancedApplicationWide**](ManagementApi.md#searchCouponsAdvancedApplicationWide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-[**searchCouponsAdvancedApplicationWideWithoutTotalCount**](ManagementApi.md#searchCouponsAdvancedApplicationWideWithoutTotalCount) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes in all active campaigns of an application
-[**searchCouponsAdvancedWithoutTotalCount**](ManagementApi.md#searchCouponsAdvancedWithoutTotalCount) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes
+[**searchCouponsAdvanced**](ManagementApi.md#searchCouponsAdvanced) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced | List coupons that match the given attributes (with total count)
+[**searchCouponsAdvancedApplicationWide**](ManagementApi.md#searchCouponsAdvancedApplicationWide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | List coupons that match the given attributes in all active campaigns of an application (with total count)
+[**searchCouponsAdvancedApplicationWideWithoutTotalCount**](ManagementApi.md#searchCouponsAdvancedApplicationWideWithoutTotalCount) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | List coupons that match the given attributes in all active campaigns of an application
+[**searchCouponsAdvancedWithoutTotalCount**](ManagementApi.md#searchCouponsAdvancedWithoutTotalCount) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | List coupons that match the given attributes
 [**updateAdditionalCost**](ManagementApi.md#updateAdditionalCost) | **PUT** /v1/additional_costs/{additionalCostId} | Update an additional cost
 [**updateAttribute**](ManagementApi.md#updateAttribute) | **PUT** /v1/attributes/{attributeId} | Update a custom attribute
-[**updateCampaign**](ManagementApi.md#updateCampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update a Campaign
-[**updateCoupon**](ManagementApi.md#updateCoupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update a Coupon
-[**updateCouponBatch**](ManagementApi.md#updateCouponBatch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update a Batch of Coupons
-[**updateRuleset**](ManagementApi.md#updateRuleset) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Update a Ruleset
+[**updateCampaign**](ManagementApi.md#updateCampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update campaign
+[**updateCoupon**](ManagementApi.md#updateCoupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update coupon
+[**updateCouponBatch**](ManagementApi.md#updateCouponBatch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update a batch of coupons
+[**updateReferral**](ManagementApi.md#updateReferral) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Update referral
+[**updateRuleset**](ManagementApi.md#updateRuleset) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Update ruleset
 
 
 
 ## addLoyaltyPoints
 
-> addLoyaltyPoints($programID, $integrationID, $body)
+> addLoyaltyPoints($programID, $integrationID, $loyaltyPoints)
 
-Add points in a certain loyalty program for the specified customer
+Add points in a loyalty program for the specified customer
 
 ### Example
 
@@ -108,10 +112,8 @@ Add points in a certain loyalty program for the specified customer
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -120,12 +122,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$programID = 'programID_example'; // string | 
+$programID = 56; // int | The identifier for the loyalty program, must be unique within the account.
 $integrationID = 'integrationID_example'; // string | 
-$body = new \TalonOne\Client\Model\LoyaltyPoints(); // \TalonOne\Client\Model\LoyaltyPoints | 
+$loyaltyPoints = new \TalonOne\Client\Model\LoyaltyPoints(); // \TalonOne\Client\Model\LoyaltyPoints | 
 
 try {
-    $apiInstance->addLoyaltyPoints($programID, $integrationID, $body);
+    $apiInstance->addLoyaltyPoints($programID, $integrationID, $loyaltyPoints);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->addLoyaltyPoints: ', $e->getMessage(), PHP_EOL;
 }
@@ -137,9 +139,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**|  |
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. |
  **integrationID** | **string**|  |
- **body** | [**\TalonOne\Client\Model\LoyaltyPoints**](../Model/LoyaltyPoints.md)|  |
+ **loyaltyPoints** | [**\TalonOne\Client\Model\LoyaltyPoints**](../Model/LoyaltyPoints.md)|  |
 
 ### Return type
 
@@ -161,7 +163,7 @@ void (empty response body)
 
 ## copyCampaignToApplications
 
-> \TalonOne\Client\Model\InlineResponse2002 copyCampaignToApplications($applicationId, $campaignId, $body)
+> \TalonOne\Client\Model\InlineResponse2002 copyCampaignToApplications($applicationId, $campaignId, $campaignCopy)
 
 Copy the campaign into every specified application
 
@@ -174,10 +176,8 @@ Copy the campaign into every specified application.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -188,10 +188,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | 
 $campaignId = 56; // int | 
-$body = new \TalonOne\Client\Model\CampaignCopy(); // \TalonOne\Client\Model\CampaignCopy | 
+$campaignCopy = new \TalonOne\Client\Model\CampaignCopy(); // \TalonOne\Client\Model\CampaignCopy | 
 
 try {
-    $result = $apiInstance->copyCampaignToApplications($applicationId, $campaignId, $body);
+    $result = $apiInstance->copyCampaignToApplications($applicationId, $campaignId, $campaignCopy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->copyCampaignToApplications: ', $e->getMessage(), PHP_EOL;
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  |
  **campaignId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\CampaignCopy**](../Model/CampaignCopy.md)|  |
+ **campaignCopy** | [**\TalonOne\Client\Model\CampaignCopy**](../Model/CampaignCopy.md)|  |
 
 ### Return type
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ## createAdditionalCost
 
-> \TalonOne\Client\Model\AccountAdditionalCost createAdditionalCost($body)
+> \TalonOne\Client\Model\AccountAdditionalCost createAdditionalCost($newAdditionalCost)
 
 Define a new additional cost
 
@@ -241,10 +241,8 @@ Defines a new _additional cost_ in this account.  These additional costs are sha
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -253,10 +251,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \TalonOne\Client\Model\NewAdditionalCost(); // \TalonOne\Client\Model\NewAdditionalCost | 
+$newAdditionalCost = new \TalonOne\Client\Model\NewAdditionalCost(); // \TalonOne\Client\Model\NewAdditionalCost | 
 
 try {
-    $result = $apiInstance->createAdditionalCost($body);
+    $result = $apiInstance->createAdditionalCost($newAdditionalCost);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->createAdditionalCost: ', $e->getMessage(), PHP_EOL;
@@ -269,7 +267,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\TalonOne\Client\Model\NewAdditionalCost**](../Model/NewAdditionalCost.md)|  |
+ **newAdditionalCost** | [**\TalonOne\Client\Model\NewAdditionalCost**](../Model/NewAdditionalCost.md)|  |
 
 ### Return type
 
@@ -291,7 +289,7 @@ Name | Type | Description  | Notes
 
 ## createAttribute
 
-> \TalonOne\Client\Model\Attribute createAttribute($body)
+> \TalonOne\Client\Model\Attribute createAttribute($newAttribute)
 
 Define a new custom attribute
 
@@ -304,10 +302,8 @@ Defines a new _custom attribute_ in this account. Custom attributes allow you to
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -316,10 +312,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \TalonOne\Client\Model\NewAttribute(); // \TalonOne\Client\Model\NewAttribute | 
+$newAttribute = new \TalonOne\Client\Model\NewAttribute(); // \TalonOne\Client\Model\NewAttribute | 
 
 try {
-    $result = $apiInstance->createAttribute($body);
+    $result = $apiInstance->createAttribute($newAttribute);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->createAttribute: ', $e->getMessage(), PHP_EOL;
@@ -332,7 +328,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\TalonOne\Client\Model\NewAttribute**](../Model/NewAttribute.md)|  |
+ **newAttribute** | [**\TalonOne\Client\Model\NewAttribute**](../Model/NewAttribute.md)|  |
 
 ### Return type
 
@@ -354,9 +350,9 @@ Name | Type | Description  | Notes
 
 ## createCampaign
 
-> \TalonOne\Client\Model\Campaign createCampaign($applicationId, $body)
+> \TalonOne\Client\Model\Campaign createCampaign($applicationId, $newCampaign)
 
-Create a Campaign
+Create campaign
 
 ### Example
 
@@ -365,10 +361,8 @@ Create a Campaign
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -378,10 +372,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | 
-$body = new \TalonOne\Client\Model\NewCampaign(); // \TalonOne\Client\Model\NewCampaign | 
+$newCampaign = new \TalonOne\Client\Model\NewCampaign(); // \TalonOne\Client\Model\NewCampaign | 
 
 try {
-    $result = $apiInstance->createCampaign($applicationId, $body);
+    $result = $apiInstance->createCampaign($applicationId, $newCampaign);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->createCampaign: ', $e->getMessage(), PHP_EOL;
@@ -395,7 +389,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\NewCampaign**](../Model/NewCampaign.md)|  |
+ **newCampaign** | [**\TalonOne\Client\Model\NewCampaign**](../Model/NewCampaign.md)|  |
 
 ### Return type
 
@@ -417,9 +411,9 @@ Name | Type | Description  | Notes
 
 ## createCoupons
 
-> \TalonOne\Client\Model\InlineResponse2004 createCoupons($applicationId, $campaignId, $body, $silent)
+> \TalonOne\Client\Model\InlineResponse2004 createCoupons($applicationId, $campaignId, $newCoupons, $silent)
 
-Create Coupons
+Create coupons
 
 Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupons can be created.
 
@@ -430,10 +424,8 @@ Create coupons according to some pattern. Up to 20.000 coupons can be created wi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -444,11 +436,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | 
 $campaignId = 56; // int | 
-$body = new \TalonOne\Client\Model\NewCoupons(); // \TalonOne\Client\Model\NewCoupons | 
-$silent = 'silent_example'; // string | If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000).
+$newCoupons = new \TalonOne\Client\Model\NewCoupons(); // \TalonOne\Client\Model\NewCoupons | 
+$silent = 'silent_example'; // string | If set to `yes`, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000).
 
 try {
-    $result = $apiInstance->createCoupons($applicationId, $campaignId, $body, $silent);
+    $result = $apiInstance->createCoupons($applicationId, $campaignId, $newCoupons, $silent);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->createCoupons: ', $e->getMessage(), PHP_EOL;
@@ -463,8 +455,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  |
  **campaignId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\NewCoupons**](../Model/NewCoupons.md)|  |
- **silent** | **string**| If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). | [optional]
+ **newCoupons** | [**\TalonOne\Client\Model\NewCoupons**](../Model/NewCoupons.md)|  |
+ **silent** | **string**| If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). | [optional]
 
 ### Return type
 
@@ -486,11 +478,11 @@ Name | Type | Description  | Notes
 
 ## createCouponsForMultipleRecipients
 
-> \TalonOne\Client\Model\InlineResponse2004 createCouponsForMultipleRecipients($applicationId, $campaignId, $body, $silent)
+> \TalonOne\Client\Model\InlineResponse2004 createCouponsForMultipleRecipients($applicationId, $campaignId, $newCouponsForMultipleRecipients, $silent)
 
-Create Coupons for Multiple Recipients
+Create coupons for multiple recipients
 
-Create coupons according to some pattern for up to 1000 recipients.
+Create coupons according to the specified pattern for up to 1000 recipients.
 
 ### Example
 
@@ -499,10 +491,8 @@ Create coupons according to some pattern for up to 1000 recipients.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -513,11 +503,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | 
 $campaignId = 56; // int | 
-$body = new \TalonOne\Client\Model\NewCouponsForMultipleRecipients(); // \TalonOne\Client\Model\NewCouponsForMultipleRecipients | 
-$silent = 'silent_example'; // string | If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000).
+$newCouponsForMultipleRecipients = new \TalonOne\Client\Model\NewCouponsForMultipleRecipients(); // \TalonOne\Client\Model\NewCouponsForMultipleRecipients | 
+$silent = 'silent_example'; // string | If set to `yes`, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000).
 
 try {
-    $result = $apiInstance->createCouponsForMultipleRecipients($applicationId, $campaignId, $body, $silent);
+    $result = $apiInstance->createCouponsForMultipleRecipients($applicationId, $campaignId, $newCouponsForMultipleRecipients, $silent);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->createCouponsForMultipleRecipients: ', $e->getMessage(), PHP_EOL;
@@ -532,8 +522,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  |
  **campaignId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\NewCouponsForMultipleRecipients**](../Model/NewCouponsForMultipleRecipients.md)|  |
- **silent** | **string**| If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). | [optional]
+ **newCouponsForMultipleRecipients** | [**\TalonOne\Client\Model\NewCouponsForMultipleRecipients**](../Model/NewCouponsForMultipleRecipients.md)|  |
+ **silent** | **string**| If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). | [optional]
 
 ### Return type
 
@@ -555,7 +545,7 @@ Name | Type | Description  | Notes
 
 ## createPasswordRecoveryEmail
 
-> \TalonOne\Client\Model\NewPasswordEmail createPasswordRecoveryEmail($body)
+> \TalonOne\Client\Model\NewPasswordEmail createPasswordRecoveryEmail($newPasswordEmail)
 
 Request a password reset
 
@@ -568,10 +558,8 @@ Sends an email with a password recovery link to the email of an existing account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -580,10 +568,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \TalonOne\Client\Model\NewPasswordEmail(); // \TalonOne\Client\Model\NewPasswordEmail | 
+$newPasswordEmail = new \TalonOne\Client\Model\NewPasswordEmail(); // \TalonOne\Client\Model\NewPasswordEmail | 
 
 try {
-    $result = $apiInstance->createPasswordRecoveryEmail($body);
+    $result = $apiInstance->createPasswordRecoveryEmail($newPasswordEmail);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->createPasswordRecoveryEmail: ', $e->getMessage(), PHP_EOL;
@@ -596,7 +584,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\TalonOne\Client\Model\NewPasswordEmail**](../Model/NewPasswordEmail.md)|  |
+ **newPasswordEmail** | [**\TalonOne\Client\Model\NewPasswordEmail**](../Model/NewPasswordEmail.md)|  |
 
 ### Return type
 
@@ -618,9 +606,9 @@ Name | Type | Description  | Notes
 
 ## createRuleset
 
-> \TalonOne\Client\Model\Ruleset createRuleset($applicationId, $campaignId, $body)
+> \TalonOne\Client\Model\Ruleset createRuleset($applicationId, $campaignId, $newRuleset)
 
-Create a Ruleset
+Create ruleset
 
 ### Example
 
@@ -629,10 +617,8 @@ Create a Ruleset
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -643,10 +629,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | 
 $campaignId = 56; // int | 
-$body = new \TalonOne\Client\Model\NewRuleset(); // \TalonOne\Client\Model\NewRuleset | 
+$newRuleset = new \TalonOne\Client\Model\NewRuleset(); // \TalonOne\Client\Model\NewRuleset | 
 
 try {
-    $result = $apiInstance->createRuleset($applicationId, $campaignId, $body);
+    $result = $apiInstance->createRuleset($applicationId, $campaignId, $newRuleset);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->createRuleset: ', $e->getMessage(), PHP_EOL;
@@ -661,7 +647,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  |
  **campaignId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\NewRuleset**](../Model/NewRuleset.md)|  |
+ **newRuleset** | [**\TalonOne\Client\Model\NewRuleset**](../Model/NewRuleset.md)|  |
 
 ### Return type
 
@@ -683,9 +669,11 @@ Name | Type | Description  | Notes
 
 ## createSession
 
-> \TalonOne\Client\Model\Session createSession($body)
+> \TalonOne\Client\Model\Session createSession($loginParams)
 
-Create a Session
+Create session
+
+Create a session to use the other Management API endpoints. Use the `token` property of the response as bearer token.
 
 ### Example
 
@@ -694,22 +682,15 @@ Create a Session
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$body = new \TalonOne\Client\Model\LoginParams(); // \TalonOne\Client\Model\LoginParams | 
+$loginParams = new \TalonOne\Client\Model\LoginParams(); // \TalonOne\Client\Model\LoginParams | 
 
 try {
-    $result = $apiInstance->createSession($body);
+    $result = $apiInstance->createSession($loginParams);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->createSession: ', $e->getMessage(), PHP_EOL;
@@ -722,7 +703,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\TalonOne\Client\Model\LoginParams**](../Model/LoginParams.md)|  |
+ **loginParams** | [**\TalonOne\Client\Model\LoginParams**](../Model/LoginParams.md)|  |
 
 ### Return type
 
@@ -730,7 +711,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[manager_auth](../../README.md#manager_auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -746,7 +727,7 @@ Name | Type | Description  | Notes
 
 > deleteCampaign($applicationId, $campaignId)
 
-Delete a Campaign
+Delete campaign
 
 ### Example
 
@@ -755,10 +736,8 @@ Delete a Campaign
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -808,7 +787,7 @@ void (empty response body)
 
 > deleteCoupon($applicationId, $campaignId, $couponId)
 
-Delete one Coupon
+Delete coupon
 
 ### Example
 
@@ -817,17 +796,10 @@ Delete one Coupon
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $applicationId = 56; // int | 
 $campaignId = 56; // int | 
@@ -856,7 +828,7 @@ void (empty response body)
 
 ### Authorization
 
-[manager_auth](../../README.md#manager_auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -872,7 +844,7 @@ void (empty response body)
 
 > deleteCoupons($applicationId, $campaignId, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch)
 
-Delete Coupons
+Delete coupons
 
 ### Example
 
@@ -881,10 +853,8 @@ Delete Coupons
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -960,7 +930,7 @@ void (empty response body)
 
 > deleteReferral($applicationId, $campaignId, $referralId)
 
-Delete one Referral
+Delete referral
 
 ### Example
 
@@ -969,10 +939,8 @@ Delete one Referral
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1024,7 +992,7 @@ void (empty response body)
 
 > deleteRuleset($applicationId, $campaignId, $rulesetId)
 
-Delete a Ruleset
+Delete ruleset
 
 ### Example
 
@@ -1033,10 +1001,8 @@ Delete a Ruleset
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1084,67 +1050,11 @@ void (empty response body)
 [[Back to README]](../../README.md)
 
 
-## destroySession
-
-> destroySession()
-
-Destroy a Session
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new TalonOne\Client\Api\ManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $apiInstance->destroySession();
-} catch (Exception $e) {
-    echo 'Exception when calling ManagementApi->destroySession: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[manager_auth](../../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
 ## exportCoupons
 
 > string exportCoupons($applicationId, $campaignId, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $dateFormat, $campaignState)
 
-Export Coupons to a CSV file
+Export coupons to a CSV file
 
 Download a file with the coupons that match the given attributes.
 
@@ -1155,10 +1065,8 @@ Download a file with the coupons that match the given attributes.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1169,7 +1077,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | 
 $campaignId = 3.4; // float | Filter results by campaign.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
@@ -1198,7 +1106,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  |
  **campaignId** | **float**| Filter results by campaign. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -1222,7 +1130,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/csv
+- **Accept**: text/csv
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -1244,10 +1152,8 @@ Download a file with the customer sessions that match the request.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1295,7 +1201,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/csv
+- **Accept**: text/csv
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -1317,10 +1223,8 @@ Download a file with the triggered effects that match the given attributes.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1366,7 +1270,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/csv
+- **Accept**: text/csv
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -1388,10 +1292,8 @@ Download a file with the balance of each customer in the loyalty program
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1400,7 +1302,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$programID = 'programID_example'; // string | 
+$programID = 56; // int | The identifier for the loyalty program, must be unique within the account.
 
 try {
     $result = $apiInstance->exportLoyaltyBalance($programID);
@@ -1416,7 +1318,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**|  |
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. |
 
 ### Return type
 
@@ -1429,7 +1331,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/csv
+- **Accept**: text/csv
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -1438,7 +1340,7 @@ Name | Type | Description  | Notes
 
 ## exportLoyaltyLedger
 
-> string exportLoyaltyLedger($rangeStart, $rangeEnd, $programID, $integrationID, $dateFormat)
+> string exportLoyaltyLedger($programID, $integrationID, $rangeStart, $rangeEnd, $dateFormat)
 
 Export a customer's loyalty ledger log to a CSV file
 
@@ -1451,10 +1353,8 @@ Download a file with a customer's ledger log in the loyalty program
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1463,14 +1363,14 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
+$programID = 56; // int | The identifier for the loyalty program, must be unique within the account.
+$integrationID = 'integrationID_example'; // string | 
 $rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
 $rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
-$programID = 'programID_example'; // string | 
-$integrationID = 'integrationID_example'; // string | 
 $dateFormat = 'dateFormat_example'; // string | Determines the format of dates in the export document.
 
 try {
-    $result = $apiInstance->exportLoyaltyLedger($rangeStart, $rangeEnd, $programID, $integrationID, $dateFormat);
+    $result = $apiInstance->exportLoyaltyLedger($programID, $integrationID, $rangeStart, $rangeEnd, $dateFormat);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->exportLoyaltyLedger: ', $e->getMessage(), PHP_EOL;
@@ -1483,10 +1383,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. |
+ **integrationID** | **string**|  |
  **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
  **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
- **programID** | **string**|  |
- **integrationID** | **string**|  |
  **dateFormat** | **string**| Determines the format of dates in the export document. | [optional]
 
 ### Return type
@@ -1500,7 +1400,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/csv
+- **Accept**: text/csv
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -1509,7 +1409,7 @@ Name | Type | Description  | Notes
 
 ## getAccessLogs
 
-> \TalonOne\Client\Model\InlineResponse2009 getAccessLogs($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2008 getAccessLogs($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
 
 Get access logs for application (with total count)
 
@@ -1520,10 +1420,8 @@ Get access logs for application (with total count)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1540,7 +1438,7 @@ $method = 'method_example'; // string | Only return results where the request me
 $status = 'status_example'; // string | Filter results by HTTP status codes.
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 
 try {
     $result = $apiInstance->getAccessLogs($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
@@ -1564,11 +1462,11 @@ Name | Type | Description  | Notes
  **status** | **string**| Filter results by HTTP status codes. | [optional]
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
+[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
 
 ### Authorization
 
@@ -1586,7 +1484,7 @@ Name | Type | Description  | Notes
 
 ## getAccessLogsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20010 getAccessLogsWithoutTotalCount($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2009 getAccessLogsWithoutTotalCount($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
 
 Get access logs for application
 
@@ -1597,10 +1495,8 @@ Get access logs for application
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1617,7 +1513,7 @@ $method = 'method_example'; // string | Only return results where the request me
 $status = 'status_example'; // string | Filter results by HTTP status codes.
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 
 try {
     $result = $apiInstance->getAccessLogsWithoutTotalCount($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
@@ -1641,11 +1537,11 @@ Name | Type | Description  | Notes
  **status** | **string**| Filter results by HTTP status codes. | [optional]
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
+[**\TalonOne\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
 
 ### Authorization
 
@@ -1676,10 +1572,8 @@ Return the details of your companies Talon.One account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1739,10 +1633,8 @@ Return the analytics of your companies Talon.One account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1802,10 +1694,8 @@ Returns additional cost for the account by its id.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1852,7 +1742,7 @@ Name | Type | Description  | Notes
 
 ## getAdditionalCosts
 
-> \TalonOne\Client\Model\InlineResponse20022 getAdditionalCosts($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20021 getAdditionalCosts($pageSize, $skip, $sort)
 
 List additional costs
 
@@ -1865,10 +1755,8 @@ Returns all the defined additional costs for the account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1879,7 +1767,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 
 try {
     $result = $apiInstance->getAdditionalCosts($pageSize, $skip, $sort);
@@ -1897,11 +1785,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
+[**\TalonOne\Client\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
 
 ### Authorization
 
@@ -1919,9 +1807,9 @@ Name | Type | Description  | Notes
 
 ## getAllAccessLogs
 
-> \TalonOne\Client\Model\InlineResponse2009 getAllAccessLogs($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2008 getAllAccessLogs($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
 
-Get all access logs
+List access logs
 
 Fetches the access logs for the entire account. Sensitive requests (logins) are _always_ filtered from the logs.
 
@@ -1932,10 +1820,8 @@ Fetches the access logs for the entire account. Sensitive requests (logins) are 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -1951,7 +1837,7 @@ $method = 'method_example'; // string | Only return results where the request me
 $status = 'status_example'; // string | Filter results by HTTP status codes.
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 
 try {
     $result = $apiInstance->getAllAccessLogs($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
@@ -1974,11 +1860,11 @@ Name | Type | Description  | Notes
  **status** | **string**| Filter results by HTTP status codes. | [optional]
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
+[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
 
 ### Authorization
 
@@ -1996,9 +1882,9 @@ Name | Type | Description  | Notes
 
 ## getAllRoles
 
-> \TalonOne\Client\Model\InlineResponse20030 getAllRoles()
+> \TalonOne\Client\Model\InlineResponse20029 getAllRoles()
 
-Get all roles
+List roles
 
 ### Example
 
@@ -2007,17 +1893,10 @@ Get all roles
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 
 try {
@@ -2035,11 +1914,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
+[**\TalonOne\Client\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
 
 ### Authorization
 
-[manager_auth](../../README.md#manager_auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2066,10 +1945,8 @@ Get the application specified by the ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -2127,10 +2004,8 @@ Get report of health of application API
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -2188,10 +2063,8 @@ Get Application Customer
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -2240,7 +2113,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomers
 
-> \TalonOne\Client\Model\InlineResponse20012 getApplicationCustomers($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20011 getApplicationCustomers($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize)
 
 List Application Customers
 
@@ -2251,10 +2124,8 @@ List Application Customers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -2291,7 +2162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
+[**\TalonOne\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -2309,11 +2180,11 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomersByAttributes
 
-> \TalonOne\Client\Model\InlineResponse20013 getApplicationCustomersByAttributes($body)
+> \TalonOne\Client\Model\InlineResponse20012 getApplicationCustomersByAttributes($applicationCustomerSearch)
 
 Get a list of the customer profiles that match the given attributes (with total count)
 
-Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile
+Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#/customerProfile
 
 ### Example
 
@@ -2322,10 +2193,8 @@ Gets a list of all the customer profiles for the account that exactly match a se
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: integration_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Content-Signature', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Content-Signature', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -2334,10 +2203,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \TalonOne\Client\Model\ApplicationCustomerSearch(); // \TalonOne\Client\Model\ApplicationCustomerSearch | 
+$applicationCustomerSearch = new \TalonOne\Client\Model\ApplicationCustomerSearch(); // \TalonOne\Client\Model\ApplicationCustomerSearch | 
 
 try {
-    $result = $apiInstance->getApplicationCustomersByAttributes($body);
+    $result = $apiInstance->getApplicationCustomersByAttributes($applicationCustomerSearch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationCustomersByAttributes: ', $e->getMessage(), PHP_EOL;
@@ -2350,15 +2219,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\TalonOne\Client\Model\ApplicationCustomerSearch**](../Model/ApplicationCustomerSearch.md)|  |
+ **applicationCustomerSearch** | [**\TalonOne\Client\Model\ApplicationCustomerSearch**](../Model/ApplicationCustomerSearch.md)|  |
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\TalonOne\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
-[integration_auth](../../README.md#integration_auth)
+[manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2372,7 +2241,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventTypes
 
-> \TalonOne\Client\Model\InlineResponse20019 getApplicationEventTypes($applicationId, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20018 getApplicationEventTypes($applicationId, $pageSize, $skip, $sort)
 
 List Applications Event Types
 
@@ -2385,10 +2254,8 @@ Get all of the distinct values of the Event `type` property for events recorded 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -2400,7 +2267,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $applicationId = 56; // int | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 
 try {
     $result = $apiInstance->getApplicationEventTypes($applicationId, $pageSize, $skip, $sort);
@@ -2419,11 +2286,11 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20019**](../Model/InlineResponse20019.md)
+[**\TalonOne\Client\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
 
 ### Authorization
 
@@ -2441,7 +2308,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEvents
 
-> \TalonOne\Client\Model\InlineResponse20017 getApplicationEvents($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
+> \TalonOne\Client\Model\InlineResponse20016 getApplicationEvents($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
 
 List Applications Events (with total count)
 
@@ -2454,10 +2321,8 @@ Lists all events recorded for an application.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -2469,7 +2334,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $applicationId = 56; // int | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $type = 'type_example'; // string | Comma-separated list of types by which to filter events. Must be exact match(es).
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
@@ -2499,7 +2364,96 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
+ **type** | **string**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional]
+ **createdBefore** | **\DateTime**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
+ **createdAfter** | **\DateTime**| Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
+ **session** | **string**| Session integration ID filter for events. Must be exact match. | [optional]
+ **profile** | **string**| Profile integration ID filter for events. Must be exact match. | [optional]
+ **customerName** | **string**| Customer name filter for events. Will match substrings case-insensitively. | [optional]
+ **customerEmail** | **string**| Customer e-mail address filter for events. Will match substrings case-insensitively. | [optional]
+ **couponCode** | **string**| Coupon code | [optional]
+ **referralCode** | **string**| Referral code | [optional]
+ **ruleQuery** | **string**| Rule name filter for events | [optional]
+ **campaignQuery** | **string**| Campaign name filter for events | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
+
+### Authorization
+
+[manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getApplicationEventsWithoutTotalCount
+
+> \TalonOne\Client\Model\InlineResponse20017 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
+
+List Applications Events
+
+Lists all events recorded for an application. Instead of having the total number of results in the response, this endpoint only if there are more results.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | 
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$skip = 56; // int | Skips the given number of items when paging through large result sets.
+$sort = 'sort_example'; // string | 
+$type = 'type_example'; // string | Comma-separated list of types by which to filter events. Must be exact match(es).
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
+$session = 'session_example'; // string | Session integration ID filter for events. Must be exact match.
+$profile = 'profile_example'; // string | Profile integration ID filter for events. Must be exact match.
+$customerName = 'customerName_example'; // string | Customer name filter for events. Will match substrings case-insensitively.
+$customerEmail = 'customerEmail_example'; // string | Customer e-mail address filter for events. Will match substrings case-insensitively.
+$couponCode = 'couponCode_example'; // string | Coupon code
+$referralCode = 'referralCode_example'; // string | Referral code
+$ruleQuery = 'ruleQuery_example'; // string | Rule name filter for events
+$campaignQuery = 'campaignQuery_example'; // string | Campaign name filter for events
+
+try {
+    $result = $apiInstance->getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getApplicationEventsWithoutTotalCount: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**|  |
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
+ **sort** | **string**|  | [optional]
  **type** | **string**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional]
  **createdBefore** | **\DateTime**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -2530,97 +2484,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## getApplicationEventsWithoutTotalCount
-
-> \TalonOne\Client\Model\InlineResponse20018 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
-
-List Applications Events
-
-Lists all events recorded for an application. Instead of having the total number of results in the response, this endpoint only if there are more results.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new TalonOne\Client\Api\ManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$applicationId = 56; // int | 
-$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
-$skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-$type = 'type_example'; // string | Comma-separated list of types by which to filter events. Must be exact match(es).
-$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
-$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
-$session = 'session_example'; // string | Session integration ID filter for events. Must be exact match.
-$profile = 'profile_example'; // string | Profile integration ID filter for events. Must be exact match.
-$customerName = 'customerName_example'; // string | Customer name filter for events. Will match substrings case-insensitively.
-$customerEmail = 'customerEmail_example'; // string | Customer e-mail address filter for events. Will match substrings case-insensitively.
-$couponCode = 'couponCode_example'; // string | Coupon code
-$referralCode = 'referralCode_example'; // string | Referral code
-$ruleQuery = 'ruleQuery_example'; // string | Rule name filter for events
-$campaignQuery = 'campaignQuery_example'; // string | Campaign name filter for events
-
-try {
-    $result = $apiInstance->getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ManagementApi->getApplicationEventsWithoutTotalCount: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  |
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
- **type** | **string**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional]
- **createdBefore** | **\DateTime**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
- **createdAfter** | **\DateTime**| Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
- **session** | **string**| Session integration ID filter for events. Must be exact match. | [optional]
- **profile** | **string**| Profile integration ID filter for events. Must be exact match. | [optional]
- **customerName** | **string**| Customer name filter for events. Will match substrings case-insensitively. | [optional]
- **customerEmail** | **string**| Customer e-mail address filter for events. Will match substrings case-insensitively. | [optional]
- **couponCode** | **string**| Coupon code | [optional]
- **referralCode** | **string**| Referral code | [optional]
- **ruleQuery** | **string**| Rule name filter for events | [optional]
- **campaignQuery** | **string**| Campaign name filter for events | [optional]
-
-### Return type
-
-[**\TalonOne\Client\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
-
-### Authorization
-
-[manager_auth](../../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
 ## getApplicationSession
 
 > \TalonOne\Client\Model\ApplicationSession getApplicationSession($applicationId, $sessionId)
@@ -2634,10 +2497,8 @@ Get Application Session
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -2686,7 +2547,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationSessions
 
-> \TalonOne\Client\Model\InlineResponse20016 getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId)
+> \TalonOne\Client\Model\InlineResponse20015 getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId)
 
 List Application Sessions
 
@@ -2697,10 +2558,8 @@ List Application Sessions
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -2712,7 +2571,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $applicationId = 56; // int | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $profile = 'profile_example'; // string | Profile integration ID filter for sessions. Must be exact match.
 $state = 'state_example'; // string | Filter by sessions with this state. Must be exact match.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
@@ -2738,7 +2597,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **profile** | **string**| Profile integration ID filter for sessions. Must be exact match. | [optional]
  **state** | **string**| Filter by sessions with this state. Must be exact match. | [optional]
  **createdBefore** | **\DateTime**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -2749,7 +2608,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
+[**\TalonOne\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
 
 ### Authorization
 
@@ -2780,10 +2639,8 @@ List all application in the current account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -2794,7 +2651,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 
 try {
     $result = $apiInstance->getApplications($pageSize, $skip, $sort);
@@ -2812,7 +2669,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
 
 ### Return type
 
@@ -2847,10 +2704,8 @@ Returns custom attribute for the account by its id.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -2897,7 +2752,7 @@ Name | Type | Description  | Notes
 
 ## getAttributes
 
-> \TalonOne\Client\Model\InlineResponse20021 getAttributes($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20020 getAttributes($pageSize, $skip, $sort, $entity)
 
 List custom attributes
 
@@ -2910,10 +2765,8 @@ Returns all the defined custom attributes for the account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -2924,10 +2777,11 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
+$entity = 'entity_example'; // string | 
 
 try {
-    $result = $apiInstance->getAttributes($pageSize, $skip, $sort);
+    $result = $apiInstance->getAttributes($pageSize, $skip, $sort, $entity);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getAttributes: ', $e->getMessage(), PHP_EOL;
@@ -2942,76 +2796,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
-
-### Return type
-
-[**\TalonOne\Client\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
-
-### Authorization
-
-[manager_auth](../../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
-## getAudiences
-
-> \TalonOne\Client\Model\InlineResponse20020 getAudiences($pageSize, $skip, $sort, $withTotalResultSize)
-
-Get all audiences
-
-Get All audiences created in the account.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new TalonOne\Client\Api\ManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
-$skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-$withTotalResultSize = True; // bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.
-
-try {
-    $result = $apiInstance->getAudiences($pageSize, $skip, $sort, $withTotalResultSize);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ManagementApi->getAudiences: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
- **withTotalResultSize** | **bool**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. | [optional]
+ **sort** | **string**|  | [optional]
+ **entity** | **string**|  | [optional]
 
 ### Return type
 
@@ -3031,11 +2817,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## getCampaign
+## getAudiences
 
-> \TalonOne\Client\Model\Campaign getCampaign($applicationId, $campaignId)
+> \TalonOne\Client\Model\InlineResponse20019 getAudiences($pageSize, $skip, $sort, $withTotalResultSize)
 
-Get a Campaign
+List audiences
+
+Get All audiences created in the account.
 
 ### Example
 
@@ -3044,10 +2832,73 @@ Get a Campaign
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+$skip = 56; // int | Skips the given number of items when paging through large result sets.
+$sort = 'sort_example'; // string | 
+$withTotalResultSize = True; // bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.
+
+try {
+    $result = $apiInstance->getAudiences($pageSize, $skip, $sort, $withTotalResultSize);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getAudiences: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
+ **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
+ **sort** | **string**|  | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\InlineResponse20019**](../Model/InlineResponse20019.md)
+
+### Authorization
+
+[manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getCampaign
+
+> \TalonOne\Client\Model\Campaign getCampaign($applicationId, $campaignId)
+
+Get campaign
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -3096,7 +2947,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignAnalytics
 
-> \TalonOne\Client\Model\InlineResponse20011 getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity)
+> \TalonOne\Client\Model\InlineResponse20010 getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity)
 
 Get analytics of campaigns
 
@@ -3107,10 +2958,8 @@ Get analytics of campaigns
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -3147,7 +2996,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\TalonOne\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
 
 ### Authorization
 
@@ -3165,9 +3014,9 @@ Name | Type | Description  | Notes
 
 ## getCampaignByAttributes
 
-> \TalonOne\Client\Model\InlineResponse2002 getCampaignByAttributes($applicationId, $body, $pageSize, $skip, $sort, $campaignState)
+> \TalonOne\Client\Model\InlineResponse2002 getCampaignByAttributes($applicationId, $campaignSearch, $pageSize, $skip, $sort, $campaignState)
 
-Get a list of all campaigns that match the given attributes
+List campaigns that match the given attributes
 
 Gets a list of all the campaigns that exactly match a set of attributes.
 
@@ -3178,10 +3027,8 @@ Gets a list of all the campaigns that exactly match a set of attributes.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -3191,14 +3038,14 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | 
-$body = new \TalonOne\Client\Model\CampaignSearch(); // \TalonOne\Client\Model\CampaignSearch | 
+$campaignSearch = new \TalonOne\Client\Model\CampaignSearch(); // \TalonOne\Client\Model\CampaignSearch | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $campaignState = 'campaignState_example'; // string | Filter results by the state of the campaign.
 
 try {
-    $result = $apiInstance->getCampaignByAttributes($applicationId, $body, $pageSize, $skip, $sort, $campaignState);
+    $result = $apiInstance->getCampaignByAttributes($applicationId, $campaignSearch, $pageSize, $skip, $sort, $campaignState);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCampaignByAttributes: ', $e->getMessage(), PHP_EOL;
@@ -3212,10 +3059,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\CampaignSearch**](../Model/CampaignSearch.md)|  |
+ **campaignSearch** | [**\TalonOne\Client\Model\CampaignSearch**](../Model/CampaignSearch.md)|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **campaignState** | **string**| Filter results by the state of the campaign. | [optional]
 
 ### Return type
@@ -3240,7 +3087,7 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse2002 getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $campaignGroupId)
 
-List your Campaigns
+List campaigns
 
 ### Example
 
@@ -3249,10 +3096,8 @@ List your Campaigns
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -3264,7 +3109,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $applicationId = 56; // int | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $campaignState = 'campaignState_example'; // string | Filter results by the state of the campaign.
 $name = 'name_example'; // string | Filter results performing case-insensitive matching against the name of the campaign.
 $tags = 'tags_example'; // string | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values
@@ -3289,7 +3134,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **campaignState** | **string**| Filter results by the state of the campaign. | [optional]
  **name** | **string**| Filter results performing case-insensitive matching against the name of the campaign. | [optional]
  **tags** | **string**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values | [optional]
@@ -3317,7 +3162,7 @@ Name | Type | Description  | Notes
 
 ## getChanges
 
-> \TalonOne\Client\Model\InlineResponse20028 getChanges($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $includeOld)
+> \TalonOne\Client\Model\InlineResponse20027 getChanges($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $includeOld)
 
 Get audit log for an account
 
@@ -3330,10 +3175,8 @@ Get list of changes caused by API calls for an account. Only accessible for admi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -3344,7 +3187,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $applicationId = 56; // int | 
 $entityPath = 'entityPath_example'; // string | Filter results on a case insensitive matching of the url path of the entity
 $userId = 56; // int | 
@@ -3369,7 +3212,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **applicationId** | **int**|  | [optional]
  **entityPath** | **string**| Filter results on a case insensitive matching of the url path of the entity | [optional]
  **userId** | **int**|  | [optional]
@@ -3380,7 +3223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
+[**\TalonOne\Client\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
 
 ### Authorization
 
@@ -3400,7 +3243,7 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse2004 getCoupons($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $startsAfter, $startsBefore, $expiresAfter, $expiresBefore, $valid, $batchId, $usable, $referralId, $recipientIntegrationId, $exactMatch)
 
-List Coupons (with total count)
+List coupons (with total count)
 
 ### Example
 
@@ -3409,10 +3252,8 @@ List Coupons (with total count)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -3425,7 +3266,7 @@ $applicationId = 56; // int |
 $campaignId = 56; // int | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
@@ -3458,7 +3299,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -3493,9 +3334,9 @@ Name | Type | Description  | Notes
 
 ## getCouponsByAttributes
 
-> \TalonOne\Client\Model\InlineResponse2004 getCouponsByAttributes($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
+> \TalonOne\Client\Model\InlineResponse2004 getCouponsByAttributes($applicationId, $campaignId, $couponSearch, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
 
-Get a list of the coupons that match the given attributes
+List coupons that match the given attributes
 
 Gets a list of all the coupons that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.
 
@@ -3506,10 +3347,8 @@ Gets a list of all the coupons that exactly match a set of attributes.  The matc
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -3520,10 +3359,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | 
 $campaignId = 56; // int | 
-$body = new \TalonOne\Client\Model\CouponSearch(); // \TalonOne\Client\Model\CouponSearch | 
+$couponSearch = new \TalonOne\Client\Model\CouponSearch(); // \TalonOne\Client\Model\CouponSearch | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
@@ -3535,7 +3374,7 @@ $exactMatch = false; // bool | Filter results to an exact case-insensitive match
 $batchId = 'batchId_example'; // string | Filter results by batches of coupons
 
 try {
-    $result = $apiInstance->getCouponsByAttributes($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
+    $result = $apiInstance->getCouponsByAttributes($applicationId, $campaignId, $couponSearch, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCouponsByAttributes: ', $e->getMessage(), PHP_EOL;
@@ -3550,10 +3389,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  |
  **campaignId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\CouponSearch**](../Model/CouponSearch.md)|  |
+ **couponSearch** | [**\TalonOne\Client\Model\CouponSearch**](../Model/CouponSearch.md)|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -3584,9 +3423,9 @@ Name | Type | Description  | Notes
 
 ## getCouponsByAttributesApplicationWide
 
-> \TalonOne\Client\Model\InlineResponse2004 getCouponsByAttributesApplicationWide($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
+> \TalonOne\Client\Model\InlineResponse2004 getCouponsByAttributesApplicationWide($applicationId, $couponSearch, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+List coupons that match the given attributes in all active campaigns of an application (with total count)
 
 Gets a list of all the coupons with attributes matching the query criteria Application wide
 
@@ -3597,10 +3436,8 @@ Gets a list of all the coupons with attributes matching the query criteria Appli
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -3610,10 +3447,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | 
-$body = new \TalonOne\Client\Model\CouponSearch(); // \TalonOne\Client\Model\CouponSearch | 
+$couponSearch = new \TalonOne\Client\Model\CouponSearch(); // \TalonOne\Client\Model\CouponSearch | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
@@ -3626,7 +3463,7 @@ $exactMatch = false; // bool | Filter results to an exact case-insensitive match
 $campaignState = 'campaignState_example'; // string | Filter results by the state of the campaign.
 
 try {
-    $result = $apiInstance->getCouponsByAttributesApplicationWide($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
+    $result = $apiInstance->getCouponsByAttributesApplicationWide($applicationId, $couponSearch, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCouponsByAttributesApplicationWide: ', $e->getMessage(), PHP_EOL;
@@ -3640,10 +3477,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\CouponSearch**](../Model/CouponSearch.md)|  |
+ **couponSearch** | [**\TalonOne\Client\Model\CouponSearch**](../Model/CouponSearch.md)|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -3677,7 +3514,7 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse2005 getCouponsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch)
 
-List Coupons
+List coupons
 
 ### Example
 
@@ -3686,10 +3523,8 @@ List Coupons
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -3702,7 +3537,7 @@ $applicationId = 56; // int |
 $campaignId = 56; // int | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
@@ -3731,7 +3566,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -3775,10 +3610,8 @@ Fetch summary report for single application customer based on a time range
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -3835,7 +3668,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerActivityReports
 
-> \TalonOne\Client\Model\InlineResponse20014 getCustomerActivityReports($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
+> \TalonOne\Client\Model\InlineResponse20013 getCustomerActivityReports($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
 
 Get Activity Reports for Application Customers (with total count)
 
@@ -3848,10 +3681,8 @@ Fetch summary reports for all application customers based on a time range
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -3865,7 +3696,7 @@ $rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only retu
 $applicationId = 56; // int | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $name = 'name_example'; // string | Only return reports matching the customer name
 $integrationId = 'integrationId_example'; // string | Only return reports matching the integrationId
 $campaignName = 'campaignName_example'; // string | Only return reports matching the campaignName
@@ -3890,7 +3721,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **name** | **string**| Only return reports matching the customer name | [optional]
  **integrationId** | **string**| Only return reports matching the integrationId | [optional]
  **campaignName** | **string**| Only return reports matching the campaignName | [optional]
@@ -3898,7 +3729,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
+[**\TalonOne\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
 
 ### Authorization
 
@@ -3916,7 +3747,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerActivityReportsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20015 getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
+> \TalonOne\Client\Model\InlineResponse20014 getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
 
 Get Activity Reports for Application Customers
 
@@ -3929,10 +3760,8 @@ Fetch summary reports for all application customers based on a time range. Inste
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -3946,7 +3775,7 @@ $rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only retu
 $applicationId = 56; // int | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $name = 'name_example'; // string | Only return reports matching the customer name
 $integrationId = 'integrationId_example'; // string | Only return reports matching the integrationId
 $campaignName = 'campaignName_example'; // string | Only return reports matching the campaignName
@@ -3971,7 +3800,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **name** | **string**| Only return reports matching the customer name | [optional]
  **integrationId** | **string**| Only return reports matching the integrationId | [optional]
  **campaignName** | **string**| Only return reports matching the campaignName | [optional]
@@ -3979,7 +3808,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
+[**\TalonOne\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
 
 ### Authorization
 
@@ -4010,10 +3839,8 @@ Fetch analytics for single application customer
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4026,7 +3853,7 @@ $applicationId = 56; // int |
 $customerId = 56; // int | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 
 try {
     $result = $apiInstance->getCustomerAnalytics($applicationId, $customerId, $pageSize, $skip, $sort);
@@ -4046,7 +3873,7 @@ Name | Type | Description  | Notes
  **customerId** | **int**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
 
 ### Return type
 
@@ -4079,10 +3906,8 @@ Get Customer Profile
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4129,7 +3954,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerProfiles
 
-> \TalonOne\Client\Model\InlineResponse20013 getCustomerProfiles($pageSize, $skip)
+> \TalonOne\Client\Model\InlineResponse20012 getCustomerProfiles($pageSize, $skip)
 
 List Customer Profiles
 
@@ -4140,10 +3965,8 @@ List Customer Profiles
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4174,7 +3997,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\TalonOne\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
@@ -4192,11 +4015,11 @@ Name | Type | Description  | Notes
 
 ## getCustomersByAttributes
 
-> \TalonOne\Client\Model\InlineResponse20013 getCustomersByAttributes($body, $pageSize, $skip)
+> \TalonOne\Client\Model\InlineResponse20012 getCustomersByAttributes($applicationCustomerSearch, $pageSize, $skip)
 
-Get a list of the customer profiles that match the given attributes
+List customer profiles that match the given attributes
 
-Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile
+Get a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#/customerProfile
 
 ### Example
 
@@ -4205,10 +4028,8 @@ Gets a list of all the customer profiles for the account that exactly match a se
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4217,12 +4038,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \TalonOne\Client\Model\ApplicationCustomerSearch(); // \TalonOne\Client\Model\ApplicationCustomerSearch | 
+$applicationCustomerSearch = new \TalonOne\Client\Model\ApplicationCustomerSearch(); // \TalonOne\Client\Model\ApplicationCustomerSearch | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 
 try {
-    $result = $apiInstance->getCustomersByAttributes($body, $pageSize, $skip);
+    $result = $apiInstance->getCustomersByAttributes($applicationCustomerSearch, $pageSize, $skip);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCustomersByAttributes: ', $e->getMessage(), PHP_EOL;
@@ -4235,13 +4056,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\TalonOne\Client\Model\ApplicationCustomerSearch**](../Model/ApplicationCustomerSearch.md)|  |
+ **applicationCustomerSearch** | [**\TalonOne\Client\Model\ApplicationCustomerSearch**](../Model/ApplicationCustomerSearch.md)|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\TalonOne\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
@@ -4259,11 +4080,11 @@ Name | Type | Description  | Notes
 
 ## getEventTypes
 
-> \TalonOne\Client\Model\InlineResponse20026 getEventTypes($applicationIds, $name, $includeOldVersions, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20025 getEventTypes($applicationIds, $name, $includeOldVersions, $pageSize, $skip, $sort)
 
-List Event Types
+List event types
 
-Fetch all event type definitions for your account. Each event type can be
+Fetch all event type definitions for your account.
 
 ### Example
 
@@ -4272,10 +4093,8 @@ Fetch all event type definitions for your account. Each event type can be
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4289,7 +4108,7 @@ $name = 'name_example'; // string | Filter results to event types with the given
 $includeOldVersions = false; // bool | Include all versions of every event type.
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 
 try {
     $result = $apiInstance->getEventTypes($applicationIds, $name, $includeOldVersions, $pageSize, $skip, $sort);
@@ -4310,11 +4129,11 @@ Name | Type | Description  | Notes
  **includeOldVersions** | **bool**| Include all versions of every event type. | [optional] [default to false]
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\TalonOne\Client\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
 
 ### Authorization
 
@@ -4332,9 +4151,9 @@ Name | Type | Description  | Notes
 
 ## getExports
 
-> \TalonOne\Client\Model\InlineResponse20029 getExports($pageSize, $skip, $applicationId, $campaignId, $entity)
+> \TalonOne\Client\Model\InlineResponse20028 getExports($pageSize, $skip, $applicationId, $campaignId, $entity)
 
-Get Exports
+Get exports
 
 Get a list of all past exports
 
@@ -4345,10 +4164,8 @@ Get a list of all past exports
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4385,7 +4202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
+[**\TalonOne\Client\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
 
 ### Authorization
 
@@ -4405,7 +4222,7 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\LoyaltyLedger getLoyaltyPoints($programID, $integrationID)
 
-get the Loyalty Ledger for this integrationID
+Get integration's Loyalty Ledger
 
 Get the Loyalty Ledger for this profile integration ID.
 
@@ -4416,10 +4233,8 @@ Get the Loyalty Ledger for this profile integration ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4428,7 +4243,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$programID = 'programID_example'; // string | The identifier for the application, must be unique within the account.
+$programID = 56; // int | The identifier for the loyalty program, must be unique within the account.
 $integrationID = 'integrationID_example'; // string | The identifier for the application, must be unique within the account.
 
 try {
@@ -4445,7 +4260,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**| The identifier for the application, must be unique within the account. |
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. |
  **integrationID** | **string**| The identifier for the application, must be unique within the account. |
 
 ### Return type
@@ -4472,6 +4287,8 @@ Name | Type | Description  | Notes
 
 Get a loyalty program
 
+Get a loyalty program.
+
 ### Example
 
 ```php
@@ -4479,10 +4296,8 @@ Get a loyalty program
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4491,7 +4306,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$programID = 'programID_example'; // string | 
+$programID = 56; // int | The identifier for the loyalty program, must be unique within the account.
 
 try {
     $result = $apiInstance->getLoyaltyProgram($programID);
@@ -4507,7 +4322,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**|  |
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. |
 
 ### Return type
 
@@ -4529,9 +4344,11 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyPrograms
 
-> \TalonOne\Client\Model\InlineResponse2008 getLoyaltyPrograms()
+> \TalonOne\Client\Model\InlineResponse2007 getLoyaltyPrograms()
 
-List all loyalty Programs
+List loyalty programs
+
+List all the loyalty programs.
 
 ### Example
 
@@ -4540,10 +4357,8 @@ List all loyalty Programs
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4568,7 +4383,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\TalonOne\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
 
 ### Authorization
 
@@ -4597,10 +4412,8 @@ Get loyalty program statistics by loyalty program ID
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4609,7 +4422,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$programID = 'programID_example'; // string | 
+$programID = 56; // int | The identifier for the loyalty program, must be unique within the account.
 
 try {
     $result = $apiInstance->getLoyaltyStatistics($programID);
@@ -4625,7 +4438,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**|  |
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. |
 
 ### Return type
 
@@ -4647,9 +4460,9 @@ Name | Type | Description  | Notes
 
 ## getReferrals
 
-> \TalonOne\Client\Model\InlineResponse2006 getReferrals($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
+> \TalonOne\Client\Model\InlineResponse201 getReferrals($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
 
-List Referrals (with total count)
+List referrals (with total count)
 
 ### Example
 
@@ -4658,10 +4471,8 @@ List Referrals (with total count)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4674,7 +4485,7 @@ $applicationId = 56; // int |
 $campaignId = 56; // int | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $code = 'code_example'; // string | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
@@ -4700,7 +4511,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **code** | **string**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -4710,7 +4521,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\TalonOne\Client\Model\InlineResponse201**](../Model/InlineResponse201.md)
 
 ### Authorization
 
@@ -4728,9 +4539,9 @@ Name | Type | Description  | Notes
 
 ## getReferralsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse2007 getReferralsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
+> \TalonOne\Client\Model\InlineResponse2006 getReferralsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
 
-List Referrals
+List referrals
 
 ### Example
 
@@ -4739,10 +4550,8 @@ List Referrals
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4755,7 +4564,7 @@ $applicationId = 56; // int |
 $campaignId = 56; // int | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $code = 'code_example'; // string | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
@@ -4781,7 +4590,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **code** | **string**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -4791,7 +4600,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\TalonOne\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
 
 ### Authorization
 
@@ -4820,17 +4629,10 @@ Get information for the specified role
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $roleId = 56; // int | 
 
@@ -4856,7 +4658,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[manager_auth](../../README.md#manager_auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -4872,7 +4674,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\Ruleset getRuleset($applicationId, $campaignId, $rulesetId)
 
-Get a Ruleset
+Get ruleset
+
+Retrieve the details of a ruleset.
 
 ### Example
 
@@ -4881,10 +4685,8 @@ Get a Ruleset
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4937,7 +4739,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse2003 getRulesets($applicationId, $campaignId, $pageSize, $skip, $sort)
 
-List Campaign Rulesets
+List rulesets
+
+List all rulesets in the given campaign.
 
 ### Example
 
@@ -4946,10 +4750,8 @@ List Campaign Rulesets
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -4962,7 +4764,7 @@ $applicationId = 56; // int |
 $campaignId = 56; // int | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 
 try {
     $result = $apiInstance->getRulesets($applicationId, $campaignId, $pageSize, $skip, $sort);
@@ -4982,7 +4784,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
 
 ### Return type
 
@@ -5017,10 +4819,8 @@ Retrieves the data (including an invitation code) for a user. Non-admin users ca
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5067,9 +4867,9 @@ Name | Type | Description  | Notes
 
 ## getUsers
 
-> \TalonOne\Client\Model\InlineResponse20027 getUsers($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20026 getUsers($pageSize, $skip, $sort)
 
-List Users in your account
+List users
 
 Retrieve all users in your account.
 
@@ -5080,10 +4880,8 @@ Retrieve all users in your account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5094,7 +4892,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 
 try {
     $result = $apiInstance->getUsers($pageSize, $skip, $sort);
@@ -5112,11 +4910,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
+[**\TalonOne\Client\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
 
 ### Authorization
 
@@ -5147,10 +4945,8 @@ Returns an webhook by its id.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5197,7 +4993,7 @@ Name | Type | Description  | Notes
 
 ## getWebhookActivationLogs
 
-> \TalonOne\Client\Model\InlineResponse20024 getWebhookActivationLogs($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter)
+> \TalonOne\Client\Model\InlineResponse20023 getWebhookActivationLogs($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter)
 
 List Webhook activation Log Entries
 
@@ -5210,10 +5006,8 @@ Webhook activation log entries would be created as soon as an integration reques
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5224,7 +5018,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $integrationRequestUuid = 'integrationRequestUuid_example'; // string | Filter results by integration request UUID.
 $webhookId = 3.4; // float | Filter results by Webhook.
 $applicationId = 3.4; // float | 
@@ -5248,7 +5042,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **integrationRequestUuid** | **string**| Filter results by integration request UUID. | [optional]
  **webhookId** | **float**| Filter results by Webhook. | [optional]
  **applicationId** | **float**|  | [optional]
@@ -5258,7 +5052,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
+[**\TalonOne\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
 
 ### Authorization
 
@@ -5276,7 +5070,7 @@ Name | Type | Description  | Notes
 
 ## getWebhookLogs
 
-> \TalonOne\Client\Model\InlineResponse20025 getWebhookLogs($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter)
+> \TalonOne\Client\Model\InlineResponse20024 getWebhookLogs($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter)
 
 List Webhook Log Entries
 
@@ -5287,10 +5081,8 @@ List Webhook Log Entries
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5301,7 +5093,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $status = 'status_example'; // string | Filter results by HTTP status codes.
 $webhookId = 3.4; // float | Filter results by Webhook.
 $applicationId = 3.4; // float | 
@@ -5326,7 +5118,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **status** | **string**| Filter results by HTTP status codes. | [optional]
  **webhookId** | **float**| Filter results by Webhook. | [optional]
  **applicationId** | **float**|  | [optional]
@@ -5337,7 +5129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
+[**\TalonOne\Client\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
 
 ### Authorization
 
@@ -5355,7 +5147,7 @@ Name | Type | Description  | Notes
 
 ## getWebhooks
 
-> \TalonOne\Client\Model\InlineResponse20023 getWebhooks($applicationIds, $sort, $pageSize, $skip)
+> \TalonOne\Client\Model\InlineResponse20022 getWebhooks($applicationIds, $sort, $pageSize, $skip)
 
 List Webhooks
 
@@ -5366,10 +5158,8 @@ List Webhooks
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5379,7 +5169,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationIds = 'applicationIds_example'; // string | Filter by one or more application ids separated by comma
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 
@@ -5398,13 +5188,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationIds** | **string**| Filter by one or more application ids separated by comma | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
+[**\TalonOne\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
 
 ### Authorization
 
@@ -5420,11 +5210,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## removeLoyaltyPoints
+## importCoupons
 
-> removeLoyaltyPoints($programID, $integrationID, $body)
+> \TalonOne\Client\Model\Import importCoupons($applicationId, $campaignId, $upfile)
 
-Deduct points in a certain loyalty program for the specified customer
+Import coupons via CSV file
+
+Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.
 
 ### Example
 
@@ -5433,10 +5225,242 @@ Deduct points in a certain loyalty program for the specified customer
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$upfile = 'upfile_example'; // string | The file with the information about the loyalty points that should be imported.
+
+try {
+    $result = $apiInstance->importCoupons($applicationId, $campaignId, $upfile);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->importCoupons: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **upfile** | **string**| The file with the information about the loyalty points that should be imported. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\Import**](../Model/Import.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## importLoyaltyPoints
+
+> \TalonOne\Client\Model\Import importLoyaltyPoints($programID, $upFile)
+
+Import loyalty points via CSV file
+
+Upload a CSV file containing the loyalty points that should be created. The file should be sent as multipart data.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$programID = 56; // int | The identifier for the loyalty program, must be unique within the account.
+$upFile = 'upFile_example'; // string | The file with the information about the loyalty points that should be imported.
+
+try {
+    $result = $apiInstance->importLoyaltyPoints($programID, $upFile);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->importLoyaltyPoints: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. |
+ **upFile** | **string**| The file with the information about the loyalty points that should be imported. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\Import**](../Model/Import.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## importPoolGiveaways
+
+> \TalonOne\Client\Model\Import importPoolGiveaways($poolId, $upfile)
+
+Import giveaways codes into a giveaways pool
+
+Upload a CSV file containing the giveaways codes that should be created. Send the file as multipart data.  The CSV file can contain the following columns: - `code` (required): the code of your giveaway, for instance, a gift card redemption code. - `startdate`:  the start date in RFC3339 of the code redemption period. - `enddate`: the last date in RFC3339 of the code redemption period. - `attributes`: A json object describing _custom_ giveaways attribute names and their values. Double the double-quotes in the object.   For example, if you created a custom attribute called `provider`, set it with `\"{\"\"provider\"\": \"\"myPartnerCompany\"\"}\"`.  The `startdate` and `enddate` have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not. You can use the timezone of your choice. It is converted to UTC internally by Talon.One.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$poolId = 56; // int | 
+$upfile = 'upfile_example'; // string | The file with the information about the loyalty points that should be imported.
+
+try {
+    $result = $apiInstance->importPoolGiveaways($poolId, $upfile);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->importPoolGiveaways: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **poolId** | **int**|  |
+ **upfile** | **string**| The file with the information about the loyalty points that should be imported. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\Import**](../Model/Import.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## importReferrals
+
+> \TalonOne\Client\Model\Import importReferrals($applicationId, $campaignId, $upFile)
+
+Import referrals via CSV file
+
+Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file can contain the following colums:  - `code` (required): the referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: the start date in RFC3339 of the code redemption period. - `expirydate`: the end date in RFC3339 of the code redemption period. - `limitval`: The maximum amount of redemptions of this code. Unlimited (0) when blank. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.   For example, if you created a custom attribute called `category`, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$upFile = 'upFile_example'; // string | The file with the information about the loyalty points that should be imported.
+
+try {
+    $result = $apiInstance->importReferrals($applicationId, $campaignId, $upFile);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->importReferrals: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **upFile** | **string**| The file with the information about the loyalty points that should be imported. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\Import**](../Model/Import.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## removeLoyaltyPoints
+
+> removeLoyaltyPoints($programID, $integrationID, $loyaltyPoints)
+
+Deduct points in a loyalty program for the specified customer
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5445,12 +5469,12 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$programID = 'programID_example'; // string | 
+$programID = 56; // int | The identifier for the loyalty program, must be unique within the account.
 $integrationID = 'integrationID_example'; // string | 
-$body = new \TalonOne\Client\Model\LoyaltyPoints(); // \TalonOne\Client\Model\LoyaltyPoints | 
+$loyaltyPoints = new \TalonOne\Client\Model\LoyaltyPoints(); // \TalonOne\Client\Model\LoyaltyPoints | 
 
 try {
-    $apiInstance->removeLoyaltyPoints($programID, $integrationID, $body);
+    $apiInstance->removeLoyaltyPoints($programID, $integrationID, $loyaltyPoints);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->removeLoyaltyPoints: ', $e->getMessage(), PHP_EOL;
 }
@@ -5462,9 +5486,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**|  |
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. |
  **integrationID** | **string**|  |
- **body** | [**\TalonOne\Client\Model\LoyaltyPoints**](../Model/LoyaltyPoints.md)|  |
+ **loyaltyPoints** | [**\TalonOne\Client\Model\LoyaltyPoints**](../Model/LoyaltyPoints.md)|  |
 
 ### Return type
 
@@ -5486,7 +5510,7 @@ void (empty response body)
 
 ## resetPassword
 
-> \TalonOne\Client\Model\NewPassword resetPassword($body)
+> \TalonOne\Client\Model\NewPassword resetPassword($newPassword)
 
 Reset password
 
@@ -5499,10 +5523,8 @@ Consumes the supplied password reset token and updates the password for the asso
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5511,10 +5533,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \TalonOne\Client\Model\NewPassword(); // \TalonOne\Client\Model\NewPassword | 
+$newPassword = new \TalonOne\Client\Model\NewPassword(); // \TalonOne\Client\Model\NewPassword | 
 
 try {
-    $result = $apiInstance->resetPassword($body);
+    $result = $apiInstance->resetPassword($newPassword);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->resetPassword: ', $e->getMessage(), PHP_EOL;
@@ -5527,7 +5549,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\TalonOne\Client\Model\NewPassword**](../Model/NewPassword.md)|  |
+ **newPassword** | [**\TalonOne\Client\Model\NewPassword**](../Model/NewPassword.md)|  |
 
 ### Return type
 
@@ -5551,7 +5573,7 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse2004 searchCouponsAdvanced($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
 
-Get a list of the coupons that match the given attributes (with total count)
+List coupons that match the given attributes (with total count)
 
 Gets a list of all the coupons with attributes matching the query criteria
 
@@ -5562,10 +5584,8 @@ Gets a list of all the coupons with attributes matching the query criteria
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5579,7 +5599,7 @@ $campaignId = 56; // int |
 $body = new \stdClass; // object | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
@@ -5609,7 +5629,7 @@ Name | Type | Description  | Notes
  **body** | **object**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -5642,9 +5662,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse2004 searchCouponsAdvancedApplicationWide($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+List coupons that match the given attributes in all active campaigns of an application (with total count)
 
-Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application
+Get a list of all the coupons with attributes matching the query criteria in all active campaigns of an application
 
 ### Example
 
@@ -5653,10 +5673,8 @@ Gets a list of all the coupons with attributes matching the query criteria in al
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5669,7 +5687,7 @@ $applicationId = 56; // int |
 $body = new \stdClass; // object | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
@@ -5699,7 +5717,7 @@ Name | Type | Description  | Notes
  **body** | **object**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -5733,9 +5751,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse2005 searchCouponsAdvancedApplicationWideWithoutTotalCount($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application
+List coupons that match the given attributes in all active campaigns of an application
 
-Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application
+List of all the coupons with attributes matching the query criteria in all active campaigns of an application.
 
 ### Example
 
@@ -5744,10 +5762,8 @@ Gets a list of all the coupons with attributes matching the query criteria in al
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5760,7 +5776,7 @@ $applicationId = 56; // int |
 $body = new \stdClass; // object | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
@@ -5790,7 +5806,7 @@ Name | Type | Description  | Notes
  **body** | **object**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -5824,9 +5840,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse2005 searchCouponsAdvancedWithoutTotalCount($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
 
-Get a list of the coupons that match the given attributes
+List coupons that match the given attributes
 
-Gets a list of all the coupons with attributes matching the query criteria
+List of all the coupons with attributes matching the query criteria.
 
 ### Example
 
@@ -5835,10 +5851,8 @@ Gets a list of all the coupons with attributes matching the query criteria
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5852,7 +5866,7 @@ $campaignId = 56; // int |
 $body = new \stdClass; // object | 
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+$sort = 'sort_example'; // string | 
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
@@ -5882,7 +5896,7 @@ Name | Type | Description  | Notes
  **body** | **object**|  |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
+ **sort** | **string**|  | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
@@ -5913,7 +5927,7 @@ Name | Type | Description  | Notes
 
 ## updateAdditionalCost
 
-> \TalonOne\Client\Model\AccountAdditionalCost updateAdditionalCost($additionalCostId, $body)
+> \TalonOne\Client\Model\AccountAdditionalCost updateAdditionalCost($additionalCostId, $newAdditionalCost)
 
 Update an additional cost
 
@@ -5926,10 +5940,8 @@ Updates an existing additional cost. Once created, the only property of an addit
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -5939,10 +5951,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $additionalCostId = 56; // int | 
-$body = new \TalonOne\Client\Model\NewAdditionalCost(); // \TalonOne\Client\Model\NewAdditionalCost | 
+$newAdditionalCost = new \TalonOne\Client\Model\NewAdditionalCost(); // \TalonOne\Client\Model\NewAdditionalCost | 
 
 try {
-    $result = $apiInstance->updateAdditionalCost($additionalCostId, $body);
+    $result = $apiInstance->updateAdditionalCost($additionalCostId, $newAdditionalCost);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateAdditionalCost: ', $e->getMessage(), PHP_EOL;
@@ -5956,7 +5968,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **additionalCostId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\NewAdditionalCost**](../Model/NewAdditionalCost.md)|  |
+ **newAdditionalCost** | [**\TalonOne\Client\Model\NewAdditionalCost**](../Model/NewAdditionalCost.md)|  |
 
 ### Return type
 
@@ -5978,7 +5990,7 @@ Name | Type | Description  | Notes
 
 ## updateAttribute
 
-> \TalonOne\Client\Model\Attribute updateAttribute($attributeId, $body)
+> \TalonOne\Client\Model\Attribute updateAttribute($attributeId, $newAttribute)
 
 Update a custom attribute
 
@@ -5991,10 +6003,8 @@ Updates an existing custom attribute. Once created, the only property of a custo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -6004,10 +6014,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $attributeId = 56; // int | 
-$body = new \TalonOne\Client\Model\NewAttribute(); // \TalonOne\Client\Model\NewAttribute | 
+$newAttribute = new \TalonOne\Client\Model\NewAttribute(); // \TalonOne\Client\Model\NewAttribute | 
 
 try {
-    $result = $apiInstance->updateAttribute($attributeId, $body);
+    $result = $apiInstance->updateAttribute($attributeId, $newAttribute);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateAttribute: ', $e->getMessage(), PHP_EOL;
@@ -6021,7 +6031,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributeId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\NewAttribute**](../Model/NewAttribute.md)|  |
+ **newAttribute** | [**\TalonOne\Client\Model\NewAttribute**](../Model/NewAttribute.md)|  |
 
 ### Return type
 
@@ -6043,9 +6053,9 @@ Name | Type | Description  | Notes
 
 ## updateCampaign
 
-> \TalonOne\Client\Model\Campaign updateCampaign($applicationId, $campaignId, $body)
+> \TalonOne\Client\Model\Campaign updateCampaign($applicationId, $campaignId, $updateCampaign)
 
-Update a Campaign
+Update campaign
 
 ### Example
 
@@ -6054,10 +6064,8 @@ Update a Campaign
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -6068,10 +6076,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | 
 $campaignId = 56; // int | 
-$body = new \TalonOne\Client\Model\UpdateCampaign(); // \TalonOne\Client\Model\UpdateCampaign | 
+$updateCampaign = new \TalonOne\Client\Model\UpdateCampaign(); // \TalonOne\Client\Model\UpdateCampaign | 
 
 try {
-    $result = $apiInstance->updateCampaign($applicationId, $campaignId, $body);
+    $result = $apiInstance->updateCampaign($applicationId, $campaignId, $updateCampaign);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateCampaign: ', $e->getMessage(), PHP_EOL;
@@ -6086,7 +6094,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  |
  **campaignId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\UpdateCampaign**](../Model/UpdateCampaign.md)|  |
+ **updateCampaign** | [**\TalonOne\Client\Model\UpdateCampaign**](../Model/UpdateCampaign.md)|  |
 
 ### Return type
 
@@ -6108,9 +6116,9 @@ Name | Type | Description  | Notes
 
 ## updateCoupon
 
-> \TalonOne\Client\Model\Coupon updateCoupon($applicationId, $campaignId, $couponId, $body)
+> \TalonOne\Client\Model\Coupon updateCoupon($applicationId, $campaignId, $couponId, $updateCoupon)
 
-Update a Coupon
+Update coupon
 
 ### Example
 
@@ -6119,10 +6127,8 @@ Update a Coupon
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -6134,10 +6140,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $applicationId = 56; // int | 
 $campaignId = 56; // int | 
 $couponId = 'couponId_example'; // string | The ID of the coupon code to update
-$body = new \TalonOne\Client\Model\UpdateCoupon(); // \TalonOne\Client\Model\UpdateCoupon | 
+$updateCoupon = new \TalonOne\Client\Model\UpdateCoupon(); // \TalonOne\Client\Model\UpdateCoupon | 
 
 try {
-    $result = $apiInstance->updateCoupon($applicationId, $campaignId, $couponId, $body);
+    $result = $apiInstance->updateCoupon($applicationId, $campaignId, $couponId, $updateCoupon);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateCoupon: ', $e->getMessage(), PHP_EOL;
@@ -6153,7 +6159,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  |
  **campaignId** | **int**|  |
  **couponId** | **string**| The ID of the coupon code to update |
- **body** | [**\TalonOne\Client\Model\UpdateCoupon**](../Model/UpdateCoupon.md)|  |
+ **updateCoupon** | [**\TalonOne\Client\Model\UpdateCoupon**](../Model/UpdateCoupon.md)|  |
 
 ### Return type
 
@@ -6175,9 +6181,9 @@ Name | Type | Description  | Notes
 
 ## updateCouponBatch
 
-> updateCouponBatch($applicationId, $campaignId, $body)
+> updateCouponBatch($applicationId, $campaignId, $updateCouponBatch)
 
-Update a Batch of Coupons
+Update a batch of coupons
 
 ### Example
 
@@ -6186,10 +6192,8 @@ Update a Batch of Coupons
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -6200,10 +6204,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | 
 $campaignId = 56; // int | 
-$body = new \TalonOne\Client\Model\UpdateCouponBatch(); // \TalonOne\Client\Model\UpdateCouponBatch | 
+$updateCouponBatch = new \TalonOne\Client\Model\UpdateCouponBatch(); // \TalonOne\Client\Model\UpdateCouponBatch | 
 
 try {
-    $apiInstance->updateCouponBatch($applicationId, $campaignId, $body);
+    $apiInstance->updateCouponBatch($applicationId, $campaignId, $updateCouponBatch);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateCouponBatch: ', $e->getMessage(), PHP_EOL;
 }
@@ -6217,7 +6221,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  |
  **campaignId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\UpdateCouponBatch**](../Model/UpdateCouponBatch.md)|  |
+ **updateCouponBatch** | [**\TalonOne\Client\Model\UpdateCouponBatch**](../Model/UpdateCouponBatch.md)|  |
 
 ### Return type
 
@@ -6237,11 +6241,11 @@ void (empty response body)
 [[Back to README]](../../README.md)
 
 
-## updateRuleset
+## updateReferral
 
-> \TalonOne\Client\Model\Ruleset updateRuleset($applicationId, $campaignId, $rulesetId, $body)
+> \TalonOne\Client\Model\Referral updateReferral($applicationId, $campaignId, $referralId, $updateReferral)
 
-Update a Ruleset
+Update referral
 
 ### Example
 
@@ -6250,10 +6254,70 @@ Update a Ruleset
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$applicationId = 56; // int | 
+$campaignId = 56; // int | 
+$referralId = 'referralId_example'; // string | The ID of the referral code to delete
+$updateReferral = new \TalonOne\Client\Model\UpdateReferral(); // \TalonOne\Client\Model\UpdateReferral | 
+
+try {
+    $result = $apiInstance->updateReferral($applicationId, $campaignId, $referralId, $updateReferral);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->updateReferral: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**|  |
+ **campaignId** | **int**|  |
+ **referralId** | **string**| The ID of the referral code to delete |
+ **updateReferral** | [**\TalonOne\Client\Model\UpdateReferral**](../Model/UpdateReferral.md)|  |
+
+### Return type
+
+[**\TalonOne\Client\Model\Referral**](../Model/Referral.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## updateRuleset
+
+> \TalonOne\Client\Model\Ruleset updateRuleset($applicationId, $campaignId, $rulesetId, $newRuleset)
+
+Update ruleset
+
+Update the specified ruleset.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new TalonOne\Client\Api\ManagementApi(
@@ -6265,10 +6329,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $applicationId = 56; // int | 
 $campaignId = 56; // int | 
 $rulesetId = 56; // int | 
-$body = new \TalonOne\Client\Model\NewRuleset(); // \TalonOne\Client\Model\NewRuleset | 
+$newRuleset = new \TalonOne\Client\Model\NewRuleset(); // \TalonOne\Client\Model\NewRuleset | 
 
 try {
-    $result = $apiInstance->updateRuleset($applicationId, $campaignId, $rulesetId, $body);
+    $result = $apiInstance->updateRuleset($applicationId, $campaignId, $rulesetId, $newRuleset);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->updateRuleset: ', $e->getMessage(), PHP_EOL;
@@ -6284,7 +6348,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  |
  **campaignId** | **int**|  |
  **rulesetId** | **int**|  |
- **body** | [**\TalonOne\Client\Model\NewRuleset**](../Model/NewRuleset.md)|  |
+ **newRuleset** | [**\TalonOne\Client\Model\NewRuleset**](../Model/NewRuleset.md)|  |
 
 ### Return type
 

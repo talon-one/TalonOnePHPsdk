@@ -307,7 +307,7 @@ class UpdateRole implements ModelInterface, ArrayAccess
     /**
      * Sets users
      *
-     * @param int[]|null $users an array of user identifiers
+     * @param int[]|null $users An array of user identifiers
      *
      * @return $this
      */

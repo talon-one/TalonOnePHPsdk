@@ -105,4 +105,11 @@ class CustomerInventoryTest extends TestCase
     public function testPropertyCoupons()
     {
     }
+
+    /**
+     * Test attribute "giveaways"
+     */
+    public function testPropertyGiveaways()
+    {
+    }
 }

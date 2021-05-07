@@ -60,7 +60,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'profile' => '\TalonOne\Client\Model\CustomerProfile',
         'loyalty' => '\TalonOne\Client\Model\Loyalty',
         'referrals' => '\TalonOne\Client\Model\Referral[]',
-        'coupons' => '\TalonOne\Client\Model\Coupon[]'
+        'coupons' => '\TalonOne\Client\Model\InventoryCoupon[]',
+        'giveaways' => '\TalonOne\Client\Model\Giveaway[]'
     ];
 
     /**
@@ -72,7 +73,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'profile' => null,
         'loyalty' => null,
         'referrals' => null,
-        'coupons' => null
+        'coupons' => null,
+        'giveaways' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'profile' => 'profile',
         'loyalty' => 'loyalty',
         'referrals' => 'referrals',
-        'coupons' => 'coupons'
+        'coupons' => 'coupons',
+        'giveaways' => 'giveaways'
     ];
 
     /**
@@ -117,7 +120,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'profile' => 'setProfile',
         'loyalty' => 'setLoyalty',
         'referrals' => 'setReferrals',
-        'coupons' => 'setCoupons'
+        'coupons' => 'setCoupons',
+        'giveaways' => 'setGiveaways'
     ];
 
     /**
@@ -129,7 +133,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'profile' => 'getProfile',
         'loyalty' => 'getLoyalty',
         'referrals' => 'getReferrals',
-        'coupons' => 'getCoupons'
+        'coupons' => 'getCoupons',
+        'giveaways' => 'getGiveaways'
     ];
 
     /**
@@ -196,6 +201,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
         $this->container['referrals'] = isset($data['referrals']) ? $data['referrals'] : null;
         $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
+        $this->container['giveaways'] = isset($data['giveaways']) ? $data['giveaways'] : null;
     }
 
     /**
@@ -297,7 +303,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     /**
      * Gets coupons
      *
-     * @return \TalonOne\Client\Model\Coupon[]|null
+     * @return \TalonOne\Client\Model\InventoryCoupon[]|null
      */
     public function getCoupons()
     {
@@ -307,13 +313,37 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     /**
      * Sets coupons
      *
-     * @param \TalonOne\Client\Model\Coupon[]|null $coupons coupons
+     * @param \TalonOne\Client\Model\InventoryCoupon[]|null $coupons coupons
      *
      * @return $this
      */
     public function setCoupons($coupons)
     {
         $this->container['coupons'] = $coupons;
+
+        return $this;
+    }
+
+    /**
+     * Gets giveaways
+     *
+     * @return \TalonOne\Client\Model\Giveaway[]|null
+     */
+    public function getGiveaways()
+    {
+        return $this->container['giveaways'];
+    }
+
+    /**
+     * Sets giveaways
+     *
+     * @param \TalonOne\Client\Model\Giveaway[]|null $giveaways giveaways
+     *
+     * @return $this
+     */
+    public function setGiveaways($giveaways)
+    {
+        $this->container['giveaways'] = $giveaways;
 
         return $this;
     }

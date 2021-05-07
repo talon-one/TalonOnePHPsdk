@@ -26,8 +26,11 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace TalonOne\Client\Test;
+namespace TalonOne\Client;
 
+use \TalonOne\Client\Configuration;
+use \TalonOne\Client\ApiException;
+use \TalonOne\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -42,11 +45,6 @@ class IntegrationApiTest extends TestCase
 {
 
     /**
-     * @var \TalonOne\Client\Api\IntegrationApi
-     */
-    protected $apiInstance;
-
-    /**
      * Setup before running any test cases
      */
     public static function setUpBeforeClass()
@@ -58,20 +56,6 @@ class IntegrationApiTest extends TestCase
      */
     public function setUp()
     {
-        // Configure Host, API key, & API key prefix for integration authentication
-        $config = \TalonOne\Client\Configuration::getDefaultConfiguration()
-            ->setHost('http://host.docker.internal:9000')
-            ->setApiKeyPrefix('Authorization', 'ApiKey-v1')
-            // ->setApiKey('Authorization', 'a821571383beb621dac20c6b773fc8c986ca1e2dc665fbd6ad6a4c5743526f91')
-            ->setApiKey('Authorization', 'f10e9ee8463785b1aa0f40fa64bfed336253bddf2f3b55d76cb65055e638fdc9');
-
-        $this->apiInstance = new \TalonOne\Client\Api\IntegrationApi(
-            // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-            // This is optional, `GuzzleHttp\Client` will be used as default.
-            // new GuzzleHttp\Client(),
-            null,
-            $config
-        );
     }
 
     /**
@@ -109,6 +93,16 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for createReferralsForMultipleAdvocates
+     *
+     * Create referral codes for multiple advocates.
+     *
+     */
+    public function testCreateReferralsForMultipleAdvocates()
+    {
+    }
+
+    /**
      * Test case for deleteCouponReservation
      *
      * Delete coupon reservations.
@@ -136,18 +130,6 @@ class IntegrationApiTest extends TestCase
      */
     public function testGetCustomerInventory()
     {
-        try {
-            $integration_id = 'example_prof_id'; // string | The unique identifier for this profile
-            $profile = True; // bool | optional flag to decide if you would like customer profile information in the response
-            $referrals = False; // bool | optional flag to decide if you would like referral information in the response
-            $coupons = False; // bool | optional flag to decide if you would like coupon information in the response
-            $loyalty = True; // bool | optional flag to decide if you would like loyalty information in the response
-            
-            $inventory = $this->apiInstance->getCustomerInventory($integration_id, $profile, $referrals, $coupons, $loyalty);
-            print_r($inventory);
-        } catch (Exception $e) {
-            echo 'Exception when calling IntegrationApi->getCustomerInventory: ', $e->getMessage(), PHP_EOL;
-        }
     }
 
     /**
@@ -178,20 +160,6 @@ class IntegrationApiTest extends TestCase
      */
     public function testUpdateCustomerProfile()
     {
-        try {
-            $profile_integration_id = 'any_given_integration_id'; // string | The unique identifier for this profile
-            $body = new \TalonOne\Client\Model\NewCustomerProfile([
-                'attributes' => [
-                    'Name' => 'Thomas Shelby',
-                    'Email' => 'thomas@shelby.co.uk'
-                ]
-            ]);
-            
-            $result = $this->apiInstance->updateCustomerProfile($profile_integration_id, $body);
-            print_r($result);
-        } catch (Exception $e) {
-            echo 'Exception when calling IntegrationApi->updateCustomerProfile: ', $e->getMessage(), PHP_EOL;
-        }
     }
 
     /**
@@ -212,25 +180,6 @@ class IntegrationApiTest extends TestCase
      */
     public function testUpdateCustomerProfileV2()
     {
-        try {
-            $customer_profile_id = 'customer_profile_v2_id_example';
-            $body = new \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2([
-                'attributes' => [
-                    'Name' => 'Grace Burgess',
-                ],
-                'responseContent' => [
-                    \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2::RESPONSE_CONTENT_CUSTOMER_PROFILE,
-                    \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2::RESPONSE_CONTENT_LOYALTY
-                ]
-            ]);
-            $runRuleEngine = True;
-            $dry = null;
-
-            $result = $this->apiInstance->updateCustomerProfileV2($customer_profile_id, $body, $runRuleEngine, $dry);
-            print_r($result);
-        } catch (Exception $e) {
-            echo 'Exception when calling IntegrationApi->updateCustomerProfileV2: ', $e->getMessage(), PHP_EOL;
-        }
     }
 
     /**
@@ -251,19 +200,6 @@ class IntegrationApiTest extends TestCase
      */
     public function testUpdateCustomerSession()
     {
-        $customer_session_id = 'customer_session_id_example_2'; // string | The unique identifier for this session
-        $body = new \TalonOne\Client\Model\NewCustomerSession([
-            'profileId' => 'example_prof_id',
-            'state' => \TalonOne\Client\Model\NewCustomerSession::STATE_OPEN,
-            'total' => 3.14
-        ]);
-        try {
-            
-            $result = $this->apiInstance->updateCustomerSession($customer_session_id, $body, false);
-            print_r($result);
-        } catch (Exception $e) {
-            echo 'Exception when calling IntegrationApi->updateCustomerSession: ', $e->getMessage(), PHP_EOL;
-        }
     }
 
     /**
@@ -274,59 +210,5 @@ class IntegrationApiTest extends TestCase
      */
     public function testUpdateCustomerSessionV2()
     {
-        $customer_session_id = 'customer_session_id_example'; // string | The unique identifier for this session
-        $customer_session = new \TalonOne\Client\Model\NewCustomerSessionV2([
-            'profileId' => 'example_prof_id',
-            'couponCodes' => [
-                'Cool-Summer!'
-            ],
-            'cartItems' => [
-                new \TalonOne\Client\Model\CartItem([
-                    'name' => 'Hawaiian Pizza',
-                    'sku' => 'piz-hw-001',
-                    'quantity' => 1,
-                    'price' => 5.85
-                ])
-            ]
-        ]);
-        $body = new \TalonOne\Client\Model\IntegrationRequest([
-            'customerSession' => $customer_session,
-            // Optional list of requested information to be present on the response.
-            // See lib/Model/IntegrationRequest.php#getResponseContentAllowableValues for full list 
-            'responseContent' => [
-                \TalonOne\Client\Model\IntegrationRequest::RESPONSE_CONTENT_RULE_FAILURE_REASONS,
-                \TalonOne\Client\Model\IntegrationRequest::RESPONSE_CONTENT_COUPONS
-            ]
-        ]);
-        
-        try {
-            
-            $integration_state = $this->apiInstance->updateCustomerSessionV2($customer_session_id, $body);
-            print_r($integration_state);
-
-            // Parsing the returned effects list, please consult https://developers.talon.one/Integration-API/handling-effects-v2 for the full list of effects and their corresponding properties
-            foreach ($integration_state->getEffects() as $effect) {
-                if ("addLoyaltyPoints" == $effect->getEffectType()) {
-                    // Initiating right props instance according to the effect type
-                    $props = new \TalonOne\Client\Model\AddLoyaltyPointsEffectProps((array) $effect->getProps());
-                   
-                    // Access the specific effect's properties
-                    echo $props->getName(), ':: ', $props->getRecipientIntegrationId(), ' just earned ',  $props->getValue(), ' points', PHP_EOL;
-                }
-                if ("acceptCoupon" == $effect->getEffectType()) {
-                  // Initiating right props instance according to the effect type
-                  $props = new \TalonOne\Client\Model\AcceptCouponEffectProps((array) $effect->getProps());
-                  // work with AcceptCouponEffectProps' properties
-                  // ...
-                }
-                if ("rejectCoupon" == $effect->getEffectType()) {
-                  // Initiating right props instance according to the effect type
-                  $props = new \TalonOne\Client\Model\RejectCouponEffectProps((array) $effect->getProps());
-                  echo $props->getValue(), ':: ', $props->getRejectionReason(), PHP_EOL;
-                }
-            }
-        } catch (Exception $e) {
-            echo 'Exception when calling IntegrationApi->updateCustomerSessionV2: ', $e->getMessage(), PHP_EOL;
-        }
     }
 }

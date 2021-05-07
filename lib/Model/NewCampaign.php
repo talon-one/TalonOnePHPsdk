@@ -224,6 +224,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
     const FEATURES_COUPONS = 'coupons';
     const FEATURES_REFERRALS = 'referrals';
     const FEATURES_LOYALTY = 'loyalty';
+    const FEATURES_GIVEAWAYS = 'giveaways';
     
 
     
@@ -252,6 +253,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
             self::FEATURES_COUPONS,
             self::FEATURES_REFERRALS,
             self::FEATURES_LOYALTY,
+            self::FEATURES_GIVEAWAYS,
         ];
     }
     

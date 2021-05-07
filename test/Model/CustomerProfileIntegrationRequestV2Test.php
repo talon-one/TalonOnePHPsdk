@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CustomerProfileIntegrationRequestV2Test Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description CustomerProfileIntegrationRequestV2
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * Environment Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -64,7 +63,12 @@ class Environment implements ModelInterface, ArrayAccess
         'slots' => '\TalonOne\Client\Model\SlotDef[]',
         'functions' => '\TalonOne\Client\Model\FunctionDef[]',
         'templates' => '\TalonOne\Client\Model\TemplateDef[]',
-        'variables' => 'string'
+        'giveawaysPools' => '\TalonOne\Client\Model\GiveawaysPool[]',
+        'variables' => 'string',
+        'loyaltyPrograms' => '\TalonOne\Client\Model\LoyaltyProgram[]',
+        'attributes' => '\TalonOne\Client\Model\Attribute[]',
+        'additionalCosts' => '\TalonOne\Client\Model\AccountAdditionalCost[]',
+        'audiences' => '\TalonOne\Client\Model\Audience[]'
     ];
 
     /**
@@ -79,7 +83,12 @@ class Environment implements ModelInterface, ArrayAccess
         'slots' => null,
         'functions' => null,
         'templates' => null,
-        'variables' => null
+        'giveawaysPools' => null,
+        'variables' => null,
+        'loyaltyPrograms' => null,
+        'attributes' => null,
+        'additionalCosts' => null,
+        'audiences' => null
     ];
 
     /**
@@ -115,7 +124,12 @@ class Environment implements ModelInterface, ArrayAccess
         'slots' => 'slots',
         'functions' => 'functions',
         'templates' => 'templates',
-        'variables' => 'variables'
+        'giveawaysPools' => 'giveawaysPools',
+        'variables' => 'variables',
+        'loyaltyPrograms' => 'loyaltyPrograms',
+        'attributes' => 'attributes',
+        'additionalCosts' => 'additionalCosts',
+        'audiences' => 'audiences'
     ];
 
     /**
@@ -130,7 +144,12 @@ class Environment implements ModelInterface, ArrayAccess
         'slots' => 'setSlots',
         'functions' => 'setFunctions',
         'templates' => 'setTemplates',
-        'variables' => 'setVariables'
+        'giveawaysPools' => 'setGiveawaysPools',
+        'variables' => 'setVariables',
+        'loyaltyPrograms' => 'setLoyaltyPrograms',
+        'attributes' => 'setAttributes',
+        'additionalCosts' => 'setAdditionalCosts',
+        'audiences' => 'setAudiences'
     ];
 
     /**
@@ -145,7 +164,12 @@ class Environment implements ModelInterface, ArrayAccess
         'slots' => 'getSlots',
         'functions' => 'getFunctions',
         'templates' => 'getTemplates',
-        'variables' => 'getVariables'
+        'giveawaysPools' => 'getGiveawaysPools',
+        'variables' => 'getVariables',
+        'loyaltyPrograms' => 'getLoyaltyPrograms',
+        'attributes' => 'getAttributes',
+        'additionalCosts' => 'getAdditionalCosts',
+        'audiences' => 'getAudiences'
     ];
 
     /**
@@ -214,7 +238,12 @@ class Environment implements ModelInterface, ArrayAccess
         $this->container['slots'] = isset($data['slots']) ? $data['slots'] : null;
         $this->container['functions'] = isset($data['functions']) ? $data['functions'] : null;
         $this->container['templates'] = isset($data['templates']) ? $data['templates'] : null;
+        $this->container['giveawaysPools'] = isset($data['giveawaysPools']) ? $data['giveawaysPools'] : null;
         $this->container['variables'] = isset($data['variables']) ? $data['variables'] : null;
+        $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
+        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['additionalCosts'] = isset($data['additionalCosts']) ? $data['additionalCosts'] : null;
+        $this->container['audiences'] = isset($data['audiences']) ? $data['audiences'] : null;
     }
 
     /**
@@ -407,6 +436,30 @@ class Environment implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets giveawaysPools
+     *
+     * @return \TalonOne\Client\Model\GiveawaysPool[]|null
+     */
+    public function getGiveawaysPools()
+    {
+        return $this->container['giveawaysPools'];
+    }
+
+    /**
+     * Sets giveawaysPools
+     *
+     * @param \TalonOne\Client\Model\GiveawaysPool[]|null $giveawaysPools The giveaways pools that the application is subscribed to.
+     *
+     * @return $this
+     */
+    public function setGiveawaysPools($giveawaysPools)
+    {
+        $this->container['giveawaysPools'] = $giveawaysPools;
+
+        return $this;
+    }
+
+    /**
      * Gets variables
      *
      * @return string
@@ -426,6 +479,102 @@ class Environment implements ModelInterface, ArrayAccess
     public function setVariables($variables)
     {
         $this->container['variables'] = $variables;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyaltyPrograms
+     *
+     * @return \TalonOne\Client\Model\LoyaltyProgram[]|null
+     */
+    public function getLoyaltyPrograms()
+    {
+        return $this->container['loyaltyPrograms'];
+    }
+
+    /**
+     * Sets loyaltyPrograms
+     *
+     * @param \TalonOne\Client\Model\LoyaltyProgram[]|null $loyaltyPrograms The loyalty programs that the application is subscribed to.
+     *
+     * @return $this
+     */
+    public function setLoyaltyPrograms($loyaltyPrograms)
+    {
+        $this->container['loyaltyPrograms'] = $loyaltyPrograms;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributes
+     *
+     * @return \TalonOne\Client\Model\Attribute[]|null
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \TalonOne\Client\Model\Attribute[]|null $attributes The attributes that the application is subscribed to.
+     *
+     * @return $this
+     */
+    public function setAttributes($attributes)
+    {
+        $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets additionalCosts
+     *
+     * @return \TalonOne\Client\Model\AccountAdditionalCost[]|null
+     */
+    public function getAdditionalCosts()
+    {
+        return $this->container['additionalCosts'];
+    }
+
+    /**
+     * Sets additionalCosts
+     *
+     * @param \TalonOne\Client\Model\AccountAdditionalCost[]|null $additionalCosts The additional costs that the application is subscribed to.
+     *
+     * @return $this
+     */
+    public function setAdditionalCosts($additionalCosts)
+    {
+        $this->container['additionalCosts'] = $additionalCosts;
+
+        return $this;
+    }
+
+    /**
+     * Gets audiences
+     *
+     * @return \TalonOne\Client\Model\Audience[]|null
+     */
+    public function getAudiences()
+    {
+        return $this->container['audiences'];
+    }
+
+    /**
+     * Sets audiences
+     *
+     * @param \TalonOne\Client\Model\Audience[]|null $audiences The audiences contained in the account which the application belongs to.
+     *
+     * @return $this
+     */
+    public function setAudiences($audiences)
+    {
+        $this->container['audiences'] = $audiences;
 
         return $this;
     }

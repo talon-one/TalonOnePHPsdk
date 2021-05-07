@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CampaignTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Campaign
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -236,6 +236,13 @@ class CampaignTest extends TestCase
      * Test attribute "referralCreationCount"
      */
     public function testPropertyReferralCreationCount()
+    {
+    }
+
+    /**
+     * Test attribute "awardedGiveawaysCount"
+     */
+    public function testPropertyAwardedGiveawaysCount()
     {
     }
 

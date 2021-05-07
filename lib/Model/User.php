@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * User Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -87,7 +86,7 @@ class User implements ModelInterface, ArrayAccess
         'inviteToken' => null,
         'state' => null,
         'name' => null,
-        'policy' => null,
+        'policy' => 'acl',
         'latestFeedTimestamp' => 'date-time',
         'roles' => null,
         'applicationNotificationSubscriptions' => null,
