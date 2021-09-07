@@ -199,6 +199,9 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
         if ($this->container['ledger'] === null) {
             $invalidProperties[] = "'ledger' can't be null";
         }
+        if ($this->container['subLedgers'] === null) {
+            $invalidProperties[] = "'subLedgers' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -241,7 +244,7 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
     /**
      * Gets subLedgers
      *
-     * @return map[string,\TalonOne\Client\Model\LoyaltySubLedger]|null
+     * @return map[string,\TalonOne\Client\Model\LoyaltySubLedger]
      */
     public function getSubLedgers()
     {
@@ -251,7 +254,7 @@ class LoyaltyLedger implements ModelInterface, ArrayAccess
     /**
      * Sets subLedgers
      *
-     * @param map[string,\TalonOne\Client\Model\LoyaltySubLedger]|null $subLedgers A map containing a list of all loyalty subledger balances
+     * @param map[string,\TalonOne\Client\Model\LoyaltySubLedger] $subLedgers A map containing a list of all loyalty subledger balances
      *
      * @return $this
      */

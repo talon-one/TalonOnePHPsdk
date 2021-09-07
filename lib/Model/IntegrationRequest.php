@@ -171,6 +171,7 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
     const RESPONSE_CONTENT_REFERRAL = 'referral';
     const RESPONSE_CONTENT_LOYALTY = 'loyalty';
     const RESPONSE_CONTENT_EVENT = 'event';
+    const RESPONSE_CONTENT_AWARDED_GIVEAWAYS = 'awardedGiveaways';
     const RESPONSE_CONTENT_RULE_FAILURE_REASONS = 'ruleFailureReasons';
     
 
@@ -190,6 +191,7 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
             self::RESPONSE_CONTENT_REFERRAL,
             self::RESPONSE_CONTENT_LOYALTY,
             self::RESPONSE_CONTENT_EVENT,
+            self::RESPONSE_CONTENT_AWARDED_GIVEAWAYS,
             self::RESPONSE_CONTENT_RULE_FAILURE_REASONS,
         ];
     }
@@ -278,7 +280,7 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
     /**
      * Sets responseContent
      *
-     * @param string[]|null $responseContent Optional list of requested information to be present on the response related to the customer session update. Currently supported: \"customerSession\", \"customerProfile\", \"coupons\", \"triggeredCampaigns\", \"referral\", \"loyalty\", \"event\" and \"ruleFailureReasons\".
+     * @param string[]|null $responseContent Optional list of requested information to be present on the response related to the customer session update. Currently supported: \"customerSession\", \"customerProfile\", \"coupons\", \"triggeredCampaigns\", \"referral\", \"loyalty\", \"event\", \"awardedGiveaways\" and \"ruleFailureReasons\".
      *
      * @return $this
      */

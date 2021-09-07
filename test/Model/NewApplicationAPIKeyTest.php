@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewApplicationAPIKeyTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description NewApplicationAPIKey
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

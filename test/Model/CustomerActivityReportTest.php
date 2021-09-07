@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CustomerActivityReportTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description CustomerActivityReport
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

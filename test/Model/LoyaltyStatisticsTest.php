@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * LoyaltyStatisticsTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description LoyaltyStatistics
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

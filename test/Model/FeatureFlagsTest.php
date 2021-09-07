@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * FeatureFlagsTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description FeatureFlags
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

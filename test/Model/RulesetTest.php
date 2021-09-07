@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * RulesetTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Ruleset
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

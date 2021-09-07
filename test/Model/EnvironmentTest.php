@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * EnvironmentTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Environment
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -121,9 +121,44 @@ class EnvironmentTest extends TestCase
     }
 
     /**
+     * Test attribute "giveawaysPools"
+     */
+    public function testPropertyGiveawaysPools()
+    {
+    }
+
+    /**
      * Test attribute "variables"
      */
     public function testPropertyVariables()
+    {
+    }
+
+    /**
+     * Test attribute "loyaltyPrograms"
+     */
+    public function testPropertyLoyaltyPrograms()
+    {
+    }
+
+    /**
+     * Test attribute "attributes"
+     */
+    public function testPropertyAttributes()
+    {
+    }
+
+    /**
+     * Test attribute "additionalCosts"
+     */
+    public function testPropertyAdditionalCosts()
+    {
+    }
+
+    /**
+     * Test attribute "audiences"
+     */
+    public function testPropertyAudiences()
     {
     }
 }

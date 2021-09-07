@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * RoleTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Role
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -86,9 +86,23 @@ class RoleTest extends TestCase
     }
 
     /**
-     * Test attribute "accountID"
+     * Test attribute "created"
      */
-    public function testPropertyAccountID()
+    public function testPropertyCreated()
+    {
+    }
+
+    /**
+     * Test attribute "modified"
+     */
+    public function testPropertyModified()
+    {
+    }
+
+    /**
+     * Test attribute "accountId"
+     */
+    public function testPropertyAccountId()
     {
     }
 

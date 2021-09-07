@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * NewCoupons Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

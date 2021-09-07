@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * Attribute Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -222,6 +221,8 @@ class Attribute implements ModelInterface, ArrayAccess
     const ENTITY_CART_ITEM = 'CartItem';
     const ENTITY_COUPON = 'Coupon';
     const ENTITY_EVENT = 'Event';
+    const ENTITY_GIVEAWAY = 'Giveaway';
+    const ENTITY_REFERRAL = 'Referral';
     const TYPE_STRING = 'string';
     const TYPE_NUMBER = 'number';
     const TYPE_BOOLEAN = 'boolean';
@@ -250,6 +251,8 @@ class Attribute implements ModelInterface, ArrayAccess
             self::ENTITY_CART_ITEM,
             self::ENTITY_COUPON,
             self::ENTITY_EVENT,
+            self::ENTITY_GIVEAWAY,
+            self::ENTITY_REFERRAL,
         ];
     }
     

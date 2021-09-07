@@ -58,7 +58,7 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\LoyaltyProgram[]'
+        'data' => '\TalonOne\Client\Model\AccessLogEntry[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\LoyaltyProgram[]
+     * @return \TalonOne\Client\Model\AccessLogEntry[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\LoyaltyProgram[] $data data
+     * @param \TalonOne\Client\Model\AccessLogEntry[] $data data
      *
      * @return $this
      */

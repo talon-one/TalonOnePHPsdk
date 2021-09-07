@@ -140,4 +140,11 @@ class LoyaltyProgramTest extends TestCase
     public function testPropertyAllowSubledger()
     {
     }
+
+    /**
+     * Test attribute "tiers"
+     */
+    public function testPropertyTiers()
+    {
+    }
 }

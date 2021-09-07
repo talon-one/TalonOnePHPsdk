@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * Campaign Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -81,6 +80,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountEffectCount' => 'int',
         'couponCreationCount' => 'int',
         'referralCreationCount' => 'int',
+        'awardedGiveawaysCount' => 'int',
         'createdLoyaltyPointsCount' => 'float',
         'createdLoyaltyPointsEffectCount' => 'int',
         'redeemedLoyaltyPointsCount' => 'float',
@@ -120,6 +120,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountEffectCount' => null,
         'couponCreationCount' => null,
         'referralCreationCount' => null,
+        'awardedGiveawaysCount' => null,
         'createdLoyaltyPointsCount' => null,
         'createdLoyaltyPointsEffectCount' => null,
         'redeemedLoyaltyPointsCount' => null,
@@ -180,6 +181,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountEffectCount' => 'discountEffectCount',
         'couponCreationCount' => 'couponCreationCount',
         'referralCreationCount' => 'referralCreationCount',
+        'awardedGiveawaysCount' => 'awardedGiveawaysCount',
         'createdLoyaltyPointsCount' => 'createdLoyaltyPointsCount',
         'createdLoyaltyPointsEffectCount' => 'createdLoyaltyPointsEffectCount',
         'redeemedLoyaltyPointsCount' => 'redeemedLoyaltyPointsCount',
@@ -219,6 +221,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountEffectCount' => 'setDiscountEffectCount',
         'couponCreationCount' => 'setCouponCreationCount',
         'referralCreationCount' => 'setReferralCreationCount',
+        'awardedGiveawaysCount' => 'setAwardedGiveawaysCount',
         'createdLoyaltyPointsCount' => 'setCreatedLoyaltyPointsCount',
         'createdLoyaltyPointsEffectCount' => 'setCreatedLoyaltyPointsEffectCount',
         'redeemedLoyaltyPointsCount' => 'setRedeemedLoyaltyPointsCount',
@@ -258,6 +261,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountEffectCount' => 'getDiscountEffectCount',
         'couponCreationCount' => 'getCouponCreationCount',
         'referralCreationCount' => 'getReferralCreationCount',
+        'awardedGiveawaysCount' => 'getAwardedGiveawaysCount',
         'createdLoyaltyPointsCount' => 'getCreatedLoyaltyPointsCount',
         'createdLoyaltyPointsEffectCount' => 'getCreatedLoyaltyPointsEffectCount',
         'redeemedLoyaltyPointsCount' => 'getRedeemedLoyaltyPointsCount',
@@ -315,6 +319,7 @@ class Campaign implements ModelInterface, ArrayAccess
     const FEATURES_COUPONS = 'coupons';
     const FEATURES_REFERRALS = 'referrals';
     const FEATURES_LOYALTY = 'loyalty';
+    const FEATURES_GIVEAWAYS = 'giveaways';
     
 
     
@@ -343,6 +348,7 @@ class Campaign implements ModelInterface, ArrayAccess
             self::FEATURES_COUPONS,
             self::FEATURES_REFERRALS,
             self::FEATURES_LOYALTY,
+            self::FEATURES_GIVEAWAYS,
         ];
     }
     
@@ -385,6 +391,7 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['discountEffectCount'] = isset($data['discountEffectCount']) ? $data['discountEffectCount'] : null;
         $this->container['couponCreationCount'] = isset($data['couponCreationCount']) ? $data['couponCreationCount'] : null;
         $this->container['referralCreationCount'] = isset($data['referralCreationCount']) ? $data['referralCreationCount'] : null;
+        $this->container['awardedGiveawaysCount'] = isset($data['awardedGiveawaysCount']) ? $data['awardedGiveawaysCount'] : null;
         $this->container['createdLoyaltyPointsCount'] = isset($data['createdLoyaltyPointsCount']) ? $data['createdLoyaltyPointsCount'] : null;
         $this->container['createdLoyaltyPointsEffectCount'] = isset($data['createdLoyaltyPointsEffectCount']) ? $data['createdLoyaltyPointsEffectCount'] : null;
         $this->container['redeemedLoyaltyPointsCount'] = isset($data['redeemedLoyaltyPointsCount']) ? $data['redeemedLoyaltyPointsCount'] : null;
@@ -1032,6 +1039,30 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setReferralCreationCount($referralCreationCount)
     {
         $this->container['referralCreationCount'] = $referralCreationCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets awardedGiveawaysCount
+     *
+     * @return int|null
+     */
+    public function getAwardedGiveawaysCount()
+    {
+        return $this->container['awardedGiveawaysCount'];
+    }
+
+    /**
+     * Sets awardedGiveawaysCount
+     *
+     * @param int|null $awardedGiveawaysCount Total number of giveaways awarded by rules in this campaign.
+     *
+     * @return $this
+     */
+    public function setAwardedGiveawaysCount($awardedGiveawaysCount)
+    {
+        $this->container['awardedGiveawaysCount'] = $awardedGiveawaysCount;
 
         return $this;
     }

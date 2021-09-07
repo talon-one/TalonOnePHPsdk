@@ -154,4 +154,11 @@ class IntegrationStateV2Test extends TestCase
     public function testPropertyCreatedReferrals()
     {
     }
+
+    /**
+     * Test attribute "awardedGiveaways"
+     */
+    public function testPropertyAwardedGiveaways()
+    {
+    }
 }

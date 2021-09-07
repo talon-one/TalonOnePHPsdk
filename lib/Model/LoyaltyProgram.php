@@ -66,7 +66,8 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'subscribedApplications' => 'int[]',
         'defaultValidity' => 'string',
         'defaultPending' => 'string',
-        'allowSubledger' => 'bool'
+        'allowSubledger' => 'bool',
+        'tiers' => '\TalonOne\Client\Model\LoyaltyTier[]'
     ];
 
     /**
@@ -83,7 +84,8 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'subscribedApplications' => null,
         'defaultValidity' => null,
         'defaultPending' => null,
-        'allowSubledger' => null
+        'allowSubledger' => null,
+        'tiers' => null
     ];
 
     /**
@@ -121,7 +123,8 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'subscribedApplications' => 'subscribedApplications',
         'defaultValidity' => 'defaultValidity',
         'defaultPending' => 'defaultPending',
-        'allowSubledger' => 'allowSubledger'
+        'allowSubledger' => 'allowSubledger',
+        'tiers' => 'tiers'
     ];
 
     /**
@@ -138,7 +141,8 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'subscribedApplications' => 'setSubscribedApplications',
         'defaultValidity' => 'setDefaultValidity',
         'defaultPending' => 'setDefaultPending',
-        'allowSubledger' => 'setAllowSubledger'
+        'allowSubledger' => 'setAllowSubledger',
+        'tiers' => 'setTiers'
     ];
 
     /**
@@ -155,7 +159,8 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'subscribedApplications' => 'getSubscribedApplications',
         'defaultValidity' => 'getDefaultValidity',
         'defaultPending' => 'getDefaultPending',
-        'allowSubledger' => 'getAllowSubledger'
+        'allowSubledger' => 'getAllowSubledger',
+        'tiers' => 'getTiers'
     ];
 
     /**
@@ -227,6 +232,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         $this->container['defaultValidity'] = isset($data['defaultValidity']) ? $data['defaultValidity'] : null;
         $this->container['defaultPending'] = isset($data['defaultPending']) ? $data['defaultPending'] : null;
         $this->container['allowSubledger'] = isset($data['allowSubledger']) ? $data['allowSubledger'] : null;
+        $this->container['tiers'] = isset($data['tiers']) ? $data['tiers'] : null;
     }
 
     /**
@@ -492,6 +498,30 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     public function setAllowSubledger($allowSubledger)
     {
         $this->container['allowSubledger'] = $allowSubledger;
+
+        return $this;
+    }
+
+    /**
+     * Gets tiers
+     *
+     * @return \TalonOne\Client\Model\LoyaltyTier[]|null
+     */
+    public function getTiers()
+    {
+        return $this->container['tiers'];
+    }
+
+    /**
+     * Sets tiers
+     *
+     * @param \TalonOne\Client\Model\LoyaltyTier[]|null $tiers The tiers in this loyalty program
+     *
+     * @return $this
+     */
+    public function setTiers($tiers)
+    {
+        $this->container['tiers'] = $tiers;
 
         return $this;
     }

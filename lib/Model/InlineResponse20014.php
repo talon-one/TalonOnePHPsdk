@@ -57,7 +57,7 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'totalResultSize' => 'int',
+        'hasMore' => 'bool',
         'data' => '\TalonOne\Client\Model\CustomerActivityReport[]'
     ];
 
@@ -67,7 +67,7 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'totalResultSize' => null,
+        'hasMore' => null,
         'data' => null
     ];
 
@@ -98,7 +98,7 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'totalResultSize' => 'totalResultSize',
+        'hasMore' => 'hasMore',
         'data' => 'data'
     ];
 
@@ -108,7 +108,7 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'totalResultSize' => 'setTotalResultSize',
+        'hasMore' => 'setHasMore',
         'data' => 'setData'
     ];
 
@@ -118,7 +118,7 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'totalResultSize' => 'getTotalResultSize',
+        'hasMore' => 'getHasMore',
         'data' => 'getData'
     ];
 
@@ -182,7 +182,7 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
+        $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -195,8 +195,8 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['totalResultSize'] === null) {
-            $invalidProperties[] = "'totalResultSize' can't be null";
+        if ($this->container['hasMore'] === null) {
+            $invalidProperties[] = "'hasMore' can't be null";
         }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
@@ -217,25 +217,25 @@ class InlineResponse20014 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets totalResultSize
+     * Gets hasMore
      *
-     * @return int
+     * @return bool
      */
-    public function getTotalResultSize()
+    public function getHasMore()
     {
-        return $this->container['totalResultSize'];
+        return $this->container['hasMore'];
     }
 
     /**
-     * Sets totalResultSize
+     * Sets hasMore
      *
-     * @param int $totalResultSize totalResultSize
+     * @param bool $hasMore hasMore
      *
      * @return $this
      */
-    public function setTotalResultSize($totalResultSize)
+    public function setHasMore($hasMore)
     {
-        $this->container['totalResultSize'] = $totalResultSize;
+        $this->container['hasMore'] = $hasMore;
 
         return $this;
     }

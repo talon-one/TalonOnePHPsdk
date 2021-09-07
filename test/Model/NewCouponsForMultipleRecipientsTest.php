@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewCouponsForMultipleRecipientsTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description NewCouponsForMultipleRecipients
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

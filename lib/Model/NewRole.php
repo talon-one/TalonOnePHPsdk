@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * NewRole Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -317,7 +316,7 @@ class NewRole implements ModelInterface, ArrayAccess
     /**
      * Sets users
      *
-     * @param int[] $users An array of userIDs
+     * @param int[] $users An array of user identifiers
      *
      * @return $this
      */

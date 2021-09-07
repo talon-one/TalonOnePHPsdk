@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewEventTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description NewEvent
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

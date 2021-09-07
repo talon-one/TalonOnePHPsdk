@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * Export Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -187,6 +186,8 @@ class Export implements ModelInterface, ArrayAccess
     const ENTITY_COUPON = 'Coupon';
     const ENTITY_EFFECT = 'Effect';
     const ENTITY_CUSTOMER_SESSION = 'CustomerSession';
+    const ENTITY_LOYALTY_LEDGER = 'LoyaltyLedger';
+    const ENTITY_LOYALTY_LEDGER_LOG = 'LoyaltyLedgerLog';
     
 
     
@@ -201,6 +202,8 @@ class Export implements ModelInterface, ArrayAccess
             self::ENTITY_COUPON,
             self::ENTITY_EFFECT,
             self::ENTITY_CUSTOMER_SESSION,
+            self::ENTITY_LOYALTY_LEDGER,
+            self::ENTITY_LOYALTY_LEDGER_LOG,
         ];
     }
     

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * FeaturesFeedTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description FeaturesFeed
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

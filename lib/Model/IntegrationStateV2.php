@@ -68,7 +68,8 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         'effects' => '\TalonOne\Client\Model\Effect[]',
         'ruleFailureReasons' => '\TalonOne\Client\Model\RuleFailureReason[]',
         'createdCoupons' => '\TalonOne\Client\Model\Coupon[]',
-        'createdReferrals' => '\TalonOne\Client\Model\Referral[]'
+        'createdReferrals' => '\TalonOne\Client\Model\Referral[]',
+        'awardedGiveaways' => '\TalonOne\Client\Model\Giveaway[]'
     ];
 
     /**
@@ -87,7 +88,8 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         'effects' => null,
         'ruleFailureReasons' => null,
         'createdCoupons' => null,
-        'createdReferrals' => null
+        'createdReferrals' => null,
+        'awardedGiveaways' => null
     ];
 
     /**
@@ -127,7 +129,8 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         'effects' => 'effects',
         'ruleFailureReasons' => 'ruleFailureReasons',
         'createdCoupons' => 'createdCoupons',
-        'createdReferrals' => 'createdReferrals'
+        'createdReferrals' => 'createdReferrals',
+        'awardedGiveaways' => 'awardedGiveaways'
     ];
 
     /**
@@ -146,7 +149,8 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         'effects' => 'setEffects',
         'ruleFailureReasons' => 'setRuleFailureReasons',
         'createdCoupons' => 'setCreatedCoupons',
-        'createdReferrals' => 'setCreatedReferrals'
+        'createdReferrals' => 'setCreatedReferrals',
+        'awardedGiveaways' => 'setAwardedGiveaways'
     ];
 
     /**
@@ -165,7 +169,8 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         'effects' => 'getEffects',
         'ruleFailureReasons' => 'getRuleFailureReasons',
         'createdCoupons' => 'getCreatedCoupons',
-        'createdReferrals' => 'getCreatedReferrals'
+        'createdReferrals' => 'getCreatedReferrals',
+        'awardedGiveaways' => 'getAwardedGiveaways'
     ];
 
     /**
@@ -239,6 +244,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
         $this->container['ruleFailureReasons'] = isset($data['ruleFailureReasons']) ? $data['ruleFailureReasons'] : null;
         $this->container['createdCoupons'] = isset($data['createdCoupons']) ? $data['createdCoupons'] : null;
         $this->container['createdReferrals'] = isset($data['createdReferrals']) ? $data['createdReferrals'] : null;
+        $this->container['awardedGiveaways'] = isset($data['awardedGiveaways']) ? $data['awardedGiveaways'] : null;
     }
 
     /**
@@ -534,6 +540,30 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     public function setCreatedReferrals($createdReferrals)
     {
         $this->container['createdReferrals'] = $createdReferrals;
+
+        return $this;
+    }
+
+    /**
+     * Gets awardedGiveaways
+     *
+     * @return \TalonOne\Client\Model\Giveaway[]|null
+     */
+    public function getAwardedGiveaways()
+    {
+        return $this->container['awardedGiveaways'];
+    }
+
+    /**
+     * Sets awardedGiveaways
+     *
+     * @param \TalonOne\Client\Model\Giveaway[]|null $awardedGiveaways awardedGiveaways
+     *
+     * @return $this
+     */
+    public function setAwardedGiveaways($awardedGiveaways)
+    {
+        $this->container['awardedGiveaways'] = $awardedGiveaways;
 
         return $this;
     }

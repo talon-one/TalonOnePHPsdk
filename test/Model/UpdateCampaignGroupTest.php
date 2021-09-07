@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * UpdateCampaignGroupTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description UpdateCampaignGroup
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

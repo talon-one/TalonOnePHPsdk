@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewAdditionalCostTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description NewAdditionalCost
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

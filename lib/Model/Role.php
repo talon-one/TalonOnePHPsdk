@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * Role Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,7 +58,9 @@ class Role implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'accountID' => 'int',
+        'created' => '\DateTime',
+        'modified' => '\DateTime',
+        'accountId' => 'int',
         'campaignGroupID' => 'int',
         'name' => 'string',
         'description' => 'string',
@@ -74,12 +75,14 @@ class Role implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'accountID' => null,
+        'created' => 'date-time',
+        'modified' => 'date-time',
+        'accountId' => null,
         'campaignGroupID' => null,
         'name' => null,
         'description' => null,
         'members' => null,
-        'acl' => null
+        'acl' => 'aclRole'
     ];
 
     /**
@@ -110,7 +113,9 @@ class Role implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'accountID' => 'accountID',
+        'created' => 'created',
+        'modified' => 'modified',
+        'accountId' => 'accountId',
         'campaignGroupID' => 'campaignGroupID',
         'name' => 'name',
         'description' => 'description',
@@ -125,7 +130,9 @@ class Role implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'accountID' => 'setAccountID',
+        'created' => 'setCreated',
+        'modified' => 'setModified',
+        'accountId' => 'setAccountId',
         'campaignGroupID' => 'setCampaignGroupID',
         'name' => 'setName',
         'description' => 'setDescription',
@@ -140,7 +147,9 @@ class Role implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'accountID' => 'getAccountID',
+        'created' => 'getCreated',
+        'modified' => 'getModified',
+        'accountId' => 'getAccountId',
         'campaignGroupID' => 'getCampaignGroupID',
         'name' => 'getName',
         'description' => 'getDescription',
@@ -209,7 +218,9 @@ class Role implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
         $this->container['campaignGroupID'] = isset($data['campaignGroupID']) ? $data['campaignGroupID'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -229,8 +240,20 @@ class Role implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['accountID'] === null) {
-            $invalidProperties[] = "'accountID' can't be null";
+        if ($this->container['created'] === null) {
+            $invalidProperties[] = "'created' can't be null";
+        }
+        if ($this->container['modified'] === null) {
+            $invalidProperties[] = "'modified' can't be null";
+        }
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['acl'] === null) {
+            $invalidProperties[] = "'acl' can't be null";
         }
         return $invalidProperties;
     }
@@ -260,7 +283,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id The ID of the role corresponding to the DB row
+     * @param int $id Unique ID for this entity.
      *
      * @return $this
      */
@@ -272,25 +295,73 @@ class Role implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets accountID
+     * Gets created
      *
-     * @return int
+     * @return \DateTime
      */
-    public function getAccountID()
+    public function getCreated()
     {
-        return $this->container['accountID'];
+        return $this->container['created'];
     }
 
     /**
-     * Sets accountID
+     * Sets created
      *
-     * @param int $accountID The ID of the Talon.One account that owns this role.
+     * @param \DateTime $created The exact moment this entity was created.
      *
      * @return $this
      */
-    public function setAccountID($accountID)
+    public function setCreated($created)
     {
-        $this->container['accountID'] = $accountID;
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified
+     *
+     * @return \DateTime
+     */
+    public function getModified()
+    {
+        return $this->container['modified'];
+    }
+
+    /**
+     * Sets modified
+     *
+     * @param \DateTime $modified The exact moment this entity was last modified.
+     *
+     * @return $this
+     */
+    public function setModified($modified)
+    {
+        $this->container['modified'] = $modified;
+
+        return $this;
+    }
+
+    /**
+     * Gets accountId
+     *
+     * @return int
+     */
+    public function getAccountId()
+    {
+        return $this->container['accountId'];
+    }
+
+    /**
+     * Sets accountId
+     *
+     * @param int $accountId The ID of the account that owns this entity.
+     *
+     * @return $this
+     */
+    public function setAccountId($accountId)
+    {
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }
@@ -322,7 +393,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -332,7 +403,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Name of the role
+     * @param string $name Name of the role
      *
      * @return $this
      */
@@ -394,7 +465,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Gets acl
      *
-     * @return object|null
+     * @return object
      */
     public function getAcl()
     {
@@ -404,7 +475,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets acl
      *
-     * @param object|null $acl Role ACL Policy
+     * @param object $acl Role ACL Policy
      *
      * @return $this
      */

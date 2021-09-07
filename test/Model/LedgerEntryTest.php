@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * LedgerEntryTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description LedgerEntry
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

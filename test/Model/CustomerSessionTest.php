@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CustomerSessionTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description CustomerSession
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

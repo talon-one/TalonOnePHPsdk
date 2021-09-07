@@ -291,19 +291,11 @@ class ObjectSerializer
             // what is meant. The invalid empty string is probably to
             // be interpreted as a missing field/value. Let's handle
             // this graceful.
-            if (empty($data)) {
+            if (!empty($data)) {
+                return new \DateTime($data);
+            } else {
                 return null;
             }
-            // Some server timestamps are returned with nanosecond precision
-            // PHP doesn't support it so far, this is a manipulative way to normalize
-            // such timestamps into using only microseconds (assuming nanoseconds part is not crucial)
-            preg_match('/\.\d{7,}Z/', $data, $matches);
-            if (count($matches) > 0) {
-                $search = $matches[0];
-                $replace = substr($matches[0], 0, 7) . 'Z';
-                $data = str_replace($search, $replace, $data);
-            }
-            return new \DateTime($data);
         } elseif (in_array($class, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)) {
             settype($data, $class);
             return $data;

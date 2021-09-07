@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * WebhookTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Webhook
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

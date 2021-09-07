@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AttributeTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Attribute
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

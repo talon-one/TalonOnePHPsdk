@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ApplicationEventTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description ApplicationEvent
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
