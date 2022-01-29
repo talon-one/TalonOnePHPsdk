@@ -88,7 +88,7 @@ $config = \TalonOne\Client\Configuration::getDefaultConfiguration()
     ->setApiKey('Authorization', 'dbc644d33aa74d582bd9479c59e16f970fe13bf34a208c39d6c7fa7586968468');
 
 // Initiating an integration api instance with the config
-$this->apiInstance = new \TalonOne\Client\Api\IntegrationApi(
+$apiInstance = new \TalonOne\Client\Api\IntegrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default when `null` is passed.
     null, // new YouClientImplementation(),
@@ -122,7 +122,7 @@ $body = new \TalonOne\Client\Model\IntegrationRequest([
 
 try {
     // Create/Update a customer session using `updateCustomerSessionV2` function
-    $integration_state = $this->apiInstance->updateCustomerSessionV2($customer_session_id, $body);
+    $integration_state = $apiInstance->updateCustomerSessionV2($customer_session_id, $body);
     print_r($integration_state);
 
     // Parsing the returned effects list, please consult https://developers.talon.one/Integration-API/handling-effects-v2 for the full list of effects and their corresponding properties
