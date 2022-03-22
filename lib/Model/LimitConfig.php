@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -59,6 +59,7 @@ class LimitConfig implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'action' => 'string',
         'limit' => 'float',
+        'period' => 'string',
         'entities' => 'string[]'
     ];
 
@@ -70,6 +71,7 @@ class LimitConfig implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'action' => null,
         'limit' => null,
+        'period' => null,
         'entities' => null
     ];
 
@@ -102,6 +104,7 @@ class LimitConfig implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'action' => 'action',
         'limit' => 'limit',
+        'period' => 'period',
         'entities' => 'entities'
     ];
 
@@ -113,6 +116,7 @@ class LimitConfig implements ModelInterface, ArrayAccess
     protected static $setters = [
         'action' => 'setAction',
         'limit' => 'setLimit',
+        'period' => 'setPeriod',
         'entities' => 'setEntities'
     ];
 
@@ -124,6 +128,7 @@ class LimitConfig implements ModelInterface, ArrayAccess
     protected static $getters = [
         'action' => 'getAction',
         'limit' => 'getLimit',
+        'period' => 'getPeriod',
         'entities' => 'getEntities'
     ];
 
@@ -168,12 +173,31 @@ class LimitConfig implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const PERIOD_DAILY = 'daily';
+    const PERIOD_WEEKLY = 'weekly';
+    const PERIOD_MONTHLY = 'monthly';
+    const PERIOD_YEARLY = 'yearly';
     const ENTITIES_COUPON = 'Coupon';
     const ENTITIES_REFERRAL = 'Referral';
     const ENTITIES_PROFILE = 'Profile';
     const ENTITIES_IDENTIFIER = 'Identifier';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPeriodAllowableValues()
+    {
+        return [
+            self::PERIOD_DAILY,
+            self::PERIOD_WEEKLY,
+            self::PERIOD_MONTHLY,
+            self::PERIOD_YEARLY,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -208,6 +232,7 @@ class LimitConfig implements ModelInterface, ArrayAccess
     {
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['entities'] = isset($data['entities']) ? $data['entities'] : null;
     }
 
@@ -228,6 +253,14 @@ class LimitConfig implements ModelInterface, ArrayAccess
         }
         if (($this->container['limit'] < 0)) {
             $invalidProperties[] = "invalid value for 'limit', must be bigger than or equal to 0.";
+        }
+
+        $allowedValues = $this->getPeriodAllowableValues();
+        if (!is_null($this->container['period']) && !in_array($this->container['period'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'period', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
         if ($this->container['entities'] === null) {
@@ -261,7 +294,7 @@ class LimitConfig implements ModelInterface, ArrayAccess
     /**
      * Sets action
      *
-     * @param string $action The limitable action to which this limit will be applied
+     * @param string $action The limitable action to which this limit applies. For example: - `setDiscount` - `setDiscountEffect` - `redeemCoupon` - `createCoupon`
      *
      * @return $this
      */
@@ -285,7 +318,7 @@ class LimitConfig implements ModelInterface, ArrayAccess
     /**
      * Sets limit
      *
-     * @param float $limit The value to set for the limit
+     * @param float $limit The value to set for the limit.
      *
      * @return $this
      */
@@ -297,6 +330,39 @@ class LimitConfig implements ModelInterface, ArrayAccess
         }
 
         $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets period
+     *
+     * @return string|null
+     */
+    public function getPeriod()
+    {
+        return $this->container['period'];
+    }
+
+    /**
+     * Sets period
+     *
+     * @param string|null $period The period on which the budget limit recurs.
+     *
+     * @return $this
+     */
+    public function setPeriod($period)
+    {
+        $allowedValues = $this->getPeriodAllowableValues();
+        if (!is_null($period) && !in_array($period, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'period', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['period'] = $period;
 
         return $this;
     }
@@ -314,7 +380,7 @@ class LimitConfig implements ModelInterface, ArrayAccess
     /**
      * Sets entities
      *
-     * @param string[] $entities The entities that make the address of this limit
+     * @param string[] $entities The entity that this limit applies to.
      *
      * @return $this
      */

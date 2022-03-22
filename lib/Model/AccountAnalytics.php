@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -74,7 +74,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => 'int',
         'customAttributes' => 'int',
         'webhooks' => 'int',
-        'loyaltyPrograms' => 'int'
+        'loyaltyPrograms' => 'int',
+        'liveLoyaltyPrograms' => 'int'
     ];
 
     /**
@@ -100,7 +101,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => null,
         'customAttributes' => null,
         'webhooks' => null,
-        'loyaltyPrograms' => null
+        'loyaltyPrograms' => null,
+        'liveLoyaltyPrograms' => null
     ];
 
     /**
@@ -147,7 +149,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => 'roles',
         'customAttributes' => 'customAttributes',
         'webhooks' => 'webhooks',
-        'loyaltyPrograms' => 'loyaltyPrograms'
+        'loyaltyPrograms' => 'loyaltyPrograms',
+        'liveLoyaltyPrograms' => 'liveLoyaltyPrograms'
     ];
 
     /**
@@ -173,7 +176,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => 'setRoles',
         'customAttributes' => 'setCustomAttributes',
         'webhooks' => 'setWebhooks',
-        'loyaltyPrograms' => 'setLoyaltyPrograms'
+        'loyaltyPrograms' => 'setLoyaltyPrograms',
+        'liveLoyaltyPrograms' => 'setLiveLoyaltyPrograms'
     ];
 
     /**
@@ -199,7 +203,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => 'getRoles',
         'customAttributes' => 'getCustomAttributes',
         'webhooks' => 'getWebhooks',
-        'loyaltyPrograms' => 'getLoyaltyPrograms'
+        'loyaltyPrograms' => 'getLoyaltyPrograms',
+        'liveLoyaltyPrograms' => 'getLiveLoyaltyPrograms'
     ];
 
     /**
@@ -280,6 +285,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         $this->container['customAttributes'] = isset($data['customAttributes']) ? $data['customAttributes'] : null;
         $this->container['webhooks'] = isset($data['webhooks']) ? $data['webhooks'] : null;
         $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
+        $this->container['liveLoyaltyPrograms'] = isset($data['liveLoyaltyPrograms']) ? $data['liveLoyaltyPrograms'] : null;
     }
 
     /**
@@ -344,6 +350,9 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         }
         if ($this->container['loyaltyPrograms'] === null) {
             $invalidProperties[] = "'loyaltyPrograms' can't be null";
+        }
+        if ($this->container['liveLoyaltyPrograms'] === null) {
+            $invalidProperties[] = "'liveLoyaltyPrograms' can't be null";
         }
         return $invalidProperties;
     }
@@ -781,13 +790,37 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets loyaltyPrograms
      *
-     * @param int $loyaltyPrograms Total number of loyalty programs in the account
+     * @param int $loyaltyPrograms Total number of all loyalty programs in the account
      *
      * @return $this
      */
     public function setLoyaltyPrograms($loyaltyPrograms)
     {
         $this->container['loyaltyPrograms'] = $loyaltyPrograms;
+
+        return $this;
+    }
+
+    /**
+     * Gets liveLoyaltyPrograms
+     *
+     * @return int
+     */
+    public function getLiveLoyaltyPrograms()
+    {
+        return $this->container['liveLoyaltyPrograms'];
+    }
+
+    /**
+     * Sets liveLoyaltyPrograms
+     *
+     * @param int $liveLoyaltyPrograms Total number of live loyalty programs in the account
+     *
+     * @return $this
+     */
+    public function setLiveLoyaltyPrograms($liveLoyaltyPrograms)
+    {
+        $this->container['liveLoyaltyPrograms'] = $liveLoyaltyPrograms;
 
         return $this;
     }

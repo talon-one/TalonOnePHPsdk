@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -59,7 +59,8 @@ class Binding implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'type' => 'string',
-        'expression' => 'object[]'
+        'expression' => 'object[]',
+        'valueType' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class Binding implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'type' => null,
-        'expression' => null
+        'expression' => null,
+        'valueType' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class Binding implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'type' => 'type',
-        'expression' => 'expression'
+        'expression' => 'expression',
+        'valueType' => 'valueType'
     ];
 
     /**
@@ -113,7 +116,8 @@ class Binding implements ModelInterface, ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'type' => 'setType',
-        'expression' => 'setExpression'
+        'expression' => 'setExpression',
+        'valueType' => 'setValueType'
     ];
 
     /**
@@ -124,7 +128,8 @@ class Binding implements ModelInterface, ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'type' => 'getType',
-        'expression' => 'getExpression'
+        'expression' => 'getExpression',
+        'valueType' => 'getValueType'
     ];
 
     /**
@@ -190,6 +195,7 @@ class Binding implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['expression'] = isset($data['expression']) ? $data['expression'] : null;
+        $this->container['valueType'] = isset($data['valueType']) ? $data['valueType'] : null;
     }
 
     /**
@@ -259,7 +265,7 @@ class Binding implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type The kind of binding. Possible values are cartItemFilter, subledgerBalance.
+     * @param string|null $type The kind of binding. Possible values are: - `cartItemFilter` - `subledgerBalance` - `templateParameter`
      *
      * @return $this
      */
@@ -290,6 +296,30 @@ class Binding implements ModelInterface, ArrayAccess
     public function setExpression($expression)
     {
         $this->container['expression'] = $expression;
+
+        return $this;
+    }
+
+    /**
+     * Gets valueType
+     *
+     * @return string|null
+     */
+    public function getValueType()
+    {
+        return $this->container['valueType'];
+    }
+
+    /**
+     * Sets valueType
+     *
+     * @param string|null $valueType Can be one of the following: - `string` - `number` - `boolean`
+     *
+     * @return $this
+     */
+    public function setValueType($valueType)
+    {
+        $this->container['valueType'] = $valueType;
 
         return $this;
     }

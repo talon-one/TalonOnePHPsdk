@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * LoyaltySubLedger Class Doc Comment
  *
  * @category Class
- * @description Ledger of Balance in Loyalty Program for a Customer
+ * @description Ledger of Balance in Loyalty Program for a Customer.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -67,7 +67,8 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         'expiringPoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
         'activePoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
         'pendingPoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
-        'expiredPoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]'
+        'expiredPoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
+        'currentTier' => '\TalonOne\Client\Model\Tier'
     ];
 
     /**
@@ -85,7 +86,8 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         'expiringPoints' => null,
         'activePoints' => null,
         'pendingPoints' => null,
-        'expiredPoints' => null
+        'expiredPoints' => null,
+        'currentTier' => null
     ];
 
     /**
@@ -124,7 +126,8 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         'expiringPoints' => 'expiringPoints',
         'activePoints' => 'activePoints',
         'pendingPoints' => 'pendingPoints',
-        'expiredPoints' => 'expiredPoints'
+        'expiredPoints' => 'expiredPoints',
+        'currentTier' => 'currentTier'
     ];
 
     /**
@@ -142,7 +145,8 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         'expiringPoints' => 'setExpiringPoints',
         'activePoints' => 'setActivePoints',
         'pendingPoints' => 'setPendingPoints',
-        'expiredPoints' => 'setExpiredPoints'
+        'expiredPoints' => 'setExpiredPoints',
+        'currentTier' => 'setCurrentTier'
     ];
 
     /**
@@ -160,7 +164,8 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         'expiringPoints' => 'getExpiringPoints',
         'activePoints' => 'getActivePoints',
         'pendingPoints' => 'getPendingPoints',
-        'expiredPoints' => 'getExpiredPoints'
+        'expiredPoints' => 'getExpiredPoints',
+        'currentTier' => 'getCurrentTier'
     ];
 
     /**
@@ -233,6 +238,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         $this->container['activePoints'] = isset($data['activePoints']) ? $data['activePoints'] : null;
         $this->container['pendingPoints'] = isset($data['pendingPoints']) ? $data['pendingPoints'] : null;
         $this->container['expiredPoints'] = isset($data['expiredPoints']) ? $data['expiredPoints'] : null;
+        $this->container['currentTier'] = isset($data['currentTier']) ? $data['currentTier'] : null;
     }
 
     /**
@@ -287,7 +293,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param float $total ⚠️ Deprecated: Use 'totalActivePoints' property instead. Total amount of currently active and available points in the customer's balance
+     * @param float $total ⚠️ Deprecated: Use 'totalActivePoints' property instead. Total amount of currently active and available points in the customer's balance.
      *
      * @return $this
      */
@@ -311,7 +317,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets totalActivePoints
      *
-     * @param float $totalActivePoints Total amount of currently active and available points in the customer's balance
+     * @param float $totalActivePoints Total amount of currently active and available points in the customer's balance.
      *
      * @return $this
      */
@@ -335,7 +341,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets totalPendingPoints
      *
-     * @param float $totalPendingPoints Total amount of pending points, which are not active yet but will become active in the future
+     * @param float $totalPendingPoints Total amount of pending points, which are not active yet but will become active in the future.
      *
      * @return $this
      */
@@ -359,7 +365,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets totalSpentPoints
      *
-     * @param float $totalSpentPoints Total amount of points already spent by this customer
+     * @param float $totalSpentPoints Total amount of points already spent by this customer.
      *
      * @return $this
      */
@@ -383,7 +389,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets totalExpiredPoints
      *
-     * @param float $totalExpiredPoints Total amount of points, that expired without ever being spent
+     * @param float $totalExpiredPoints Total amount of points, that expired without ever being spent.
      *
      * @return $this
      */
@@ -407,7 +413,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets transactions
      *
-     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $transactions List of all events that have happened such as additions, subtractions and expiries
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $transactions List of all events that have happened such as additions, subtractions and expiries.
      *
      * @return $this
      */
@@ -431,7 +437,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets expiringPoints
      *
-     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $expiringPoints List of all points that will expire
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $expiringPoints List of all points that will expire.
      *
      * @return $this
      */
@@ -455,7 +461,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets activePoints
      *
-     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $activePoints List of all currently active points
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $activePoints List of all currently active points.
      *
      * @return $this
      */
@@ -479,7 +485,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets pendingPoints
      *
-     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $pendingPoints List of all points pending activation
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $pendingPoints List of all points pending activation.
      *
      * @return $this
      */
@@ -503,13 +509,37 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     /**
      * Sets expiredPoints
      *
-     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $expiredPoints List of expired points
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntry[]|null $expiredPoints List of expired points.
      *
      * @return $this
      */
     public function setExpiredPoints($expiredPoints)
     {
         $this->container['expiredPoints'] = $expiredPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets currentTier
+     *
+     * @return \TalonOne\Client\Model\Tier|null
+     */
+    public function getCurrentTier()
+    {
+        return $this->container['currentTier'];
+    }
+
+    /**
+     * Sets currentTier
+     *
+     * @param \TalonOne\Client\Model\Tier|null $currentTier currentTier
+     *
+     * @return $this
+     */
+    public function setCurrentTier($currentTier)
+    {
+        $this->container['currentTier'] = $currentTier;
 
         return $this;
     }

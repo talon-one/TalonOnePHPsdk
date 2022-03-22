@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -59,8 +59,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'profile' => '\TalonOne\Client\Model\CustomerProfile',
         'loyalty' => '\TalonOne\Client\Model\Loyalty',
-        'referrals' => '\TalonOne\Client\Model\Referral[]',
-        'coupons' => '\TalonOne\Client\Model\Coupon[]'
+        'referrals' => '\TalonOne\Client\Model\InventoryReferral[]',
+        'coupons' => '\TalonOne\Client\Model\InventoryCoupon[]',
+        'giveaways' => '\TalonOne\Client\Model\Giveaway[]'
     ];
 
     /**
@@ -72,7 +73,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'profile' => null,
         'loyalty' => null,
         'referrals' => null,
-        'coupons' => null
+        'coupons' => null,
+        'giveaways' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'profile' => 'profile',
         'loyalty' => 'loyalty',
         'referrals' => 'referrals',
-        'coupons' => 'coupons'
+        'coupons' => 'coupons',
+        'giveaways' => 'giveaways'
     ];
 
     /**
@@ -117,7 +120,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'profile' => 'setProfile',
         'loyalty' => 'setLoyalty',
         'referrals' => 'setReferrals',
-        'coupons' => 'setCoupons'
+        'coupons' => 'setCoupons',
+        'giveaways' => 'setGiveaways'
     ];
 
     /**
@@ -129,7 +133,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'profile' => 'getProfile',
         'loyalty' => 'getLoyalty',
         'referrals' => 'getReferrals',
-        'coupons' => 'getCoupons'
+        'coupons' => 'getCoupons',
+        'giveaways' => 'getGiveaways'
     ];
 
     /**
@@ -196,6 +201,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
         $this->container['referrals'] = isset($data['referrals']) ? $data['referrals'] : null;
         $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
+        $this->container['giveaways'] = isset($data['giveaways']) ? $data['giveaways'] : null;
     }
 
     /**
@@ -273,7 +279,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     /**
      * Gets referrals
      *
-     * @return \TalonOne\Client\Model\Referral[]|null
+     * @return \TalonOne\Client\Model\InventoryReferral[]|null
      */
     public function getReferrals()
     {
@@ -283,7 +289,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     /**
      * Sets referrals
      *
-     * @param \TalonOne\Client\Model\Referral[]|null $referrals referrals
+     * @param \TalonOne\Client\Model\InventoryReferral[]|null $referrals referrals
      *
      * @return $this
      */
@@ -297,7 +303,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     /**
      * Gets coupons
      *
-     * @return \TalonOne\Client\Model\Coupon[]|null
+     * @return \TalonOne\Client\Model\InventoryCoupon[]|null
      */
     public function getCoupons()
     {
@@ -307,13 +313,37 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     /**
      * Sets coupons
      *
-     * @param \TalonOne\Client\Model\Coupon[]|null $coupons coupons
+     * @param \TalonOne\Client\Model\InventoryCoupon[]|null $coupons The coupons reserved by this profile. This array includes hard and soft reservations. See each coupon's `reservation` property.
      *
      * @return $this
      */
     public function setCoupons($coupons)
     {
         $this->container['coupons'] = $coupons;
+
+        return $this;
+    }
+
+    /**
+     * Gets giveaways
+     *
+     * @return \TalonOne\Client\Model\Giveaway[]|null
+     */
+    public function getGiveaways()
+    {
+        return $this->container['giveaways'];
+    }
+
+    /**
+     * Sets giveaways
+     *
+     * @param \TalonOne\Client\Model\Giveaway[]|null $giveaways giveaways
+     *
+     * @return $this
+     */
+    public function setGiveaways($giveaways)
+    {
+        $this->container['giveaways'] = $giveaways;
 
         return $this;
     }

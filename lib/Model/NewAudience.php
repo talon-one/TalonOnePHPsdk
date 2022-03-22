@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -169,6 +169,7 @@ class NewAudience implements ModelInterface, ArrayAccess
     }
 
     const INTEGRATION_MPARTICLE = 'mparticle';
+    const INTEGRATION_SEGMENT = 'segment';
     
 
     
@@ -181,6 +182,7 @@ class NewAudience implements ModelInterface, ArrayAccess
     {
         return [
             self::INTEGRATION_MPARTICLE,
+            self::INTEGRATION_SEGMENT,
         ];
     }
     
@@ -221,9 +223,6 @@ class NewAudience implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['integration'] === null) {
-            $invalidProperties[] = "'integration' can't be null";
-        }
         $allowedValues = $this->getIntegrationAllowableValues();
         if (!is_null($this->container['integration']) && !in_array($this->container['integration'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -232,10 +231,7 @@ class NewAudience implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['integrationId'] === null) {
-            $invalidProperties[] = "'integrationId' can't be null";
-        }
-        if ((mb_strlen($this->container['integrationId']) < 1)) {
+        if (!is_null($this->container['integrationId']) && (mb_strlen($this->container['integrationId']) < 1)) {
             $invalidProperties[] = "invalid value for 'integrationId', the character length must be bigger than or equal to 1.";
         }
 
@@ -267,7 +263,7 @@ class NewAudience implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The human-friendly display name for this Audience.
+     * @param string $name The human-friendly display name for this audience.
      *
      * @return $this
      */
@@ -286,7 +282,7 @@ class NewAudience implements ModelInterface, ArrayAccess
     /**
      * Gets integration
      *
-     * @return string
+     * @return string|null
      */
     public function getIntegration()
     {
@@ -296,14 +292,14 @@ class NewAudience implements ModelInterface, ArrayAccess
     /**
      * Sets integration
      *
-     * @param string $integration Integration that this audience was created in.
+     * @param string|null $integration Integration that this audience was created in. Can be used for mParticle and Segment audiences.
      *
      * @return $this
      */
     public function setIntegration($integration)
     {
         $allowedValues = $this->getIntegrationAllowableValues();
-        if (!in_array($integration, $allowedValues, true)) {
+        if (!is_null($integration) && !in_array($integration, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'integration', must be one of '%s'",
@@ -319,7 +315,7 @@ class NewAudience implements ModelInterface, ArrayAccess
     /**
      * Gets integrationId
      *
-     * @return string
+     * @return string|null
      */
     public function getIntegrationId()
     {
@@ -329,14 +325,14 @@ class NewAudience implements ModelInterface, ArrayAccess
     /**
      * Sets integrationId
      *
-     * @param string $integrationId The ID of this Audience in the third-party integration
+     * @param string|null $integrationId The ID of this audience in the third-party integration.
      *
      * @return $this
      */
     public function setIntegrationId($integrationId)
     {
 
-        if ((mb_strlen($integrationId) < 1)) {
+        if (!is_null($integrationId) && (mb_strlen($integrationId) < 1)) {
             throw new \InvalidArgumentException('invalid length for $integrationId when calling NewAudience., must be bigger than or equal to 1.');
         }
 

@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -61,8 +61,8 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         'id' => 'int',
         'title' => 'string',
         'name' => 'string',
-        'ledger' => '\TalonOne\Client\Model\LoyaltyProgramBalance',
-        'subLedgers' => 'map[string,\TalonOne\Client\Model\LoyaltyProgramBalance]'
+        'ledger' => '\TalonOne\Client\Model\LedgerInfo',
+        'subLedgers' => 'map[string,\TalonOne\Client\Model\LedgerInfo]'
     ];
 
     /**
@@ -316,7 +316,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
     /**
      * Gets ledger
      *
-     * @return \TalonOne\Client\Model\LoyaltyProgramBalance
+     * @return \TalonOne\Client\Model\LedgerInfo
      */
     public function getLedger()
     {
@@ -326,7 +326,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
     /**
      * Sets ledger
      *
-     * @param \TalonOne\Client\Model\LoyaltyProgramBalance $ledger ledger
+     * @param \TalonOne\Client\Model\LedgerInfo $ledger ledger
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
     /**
      * Gets subLedgers
      *
-     * @return map[string,\TalonOne\Client\Model\LoyaltyProgramBalance]|null
+     * @return map[string,\TalonOne\Client\Model\LedgerInfo]|null
      */
     public function getSubLedgers()
     {
@@ -350,7 +350,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
     /**
      * Sets subLedgers
      *
-     * @param map[string,\TalonOne\Client\Model\LoyaltyProgramBalance]|null $subLedgers A map containing a list of all loyalty subledger balances
+     * @param map[string,\TalonOne\Client\Model\LedgerInfo]|null $subLedgers A map containing information about each loyalty subledger
      *
      * @return $this
      */

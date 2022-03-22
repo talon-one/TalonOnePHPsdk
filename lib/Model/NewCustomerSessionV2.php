@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -61,6 +61,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
         'profileId' => 'string',
         'couponCodes' => 'string[]',
         'referralCode' => 'string',
+        'loyaltyCards' => 'string[]',
         'state' => 'string',
         'cartItems' => '\TalonOne\Client\Model\CartItem[]',
         'additionalCosts' => 'map[string,\TalonOne\Client\Model\AdditionalCost]',
@@ -77,6 +78,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
         'profileId' => null,
         'couponCodes' => null,
         'referralCode' => null,
+        'loyaltyCards' => null,
         'state' => null,
         'cartItems' => null,
         'additionalCosts' => null,
@@ -114,6 +116,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
         'profileId' => 'profileId',
         'couponCodes' => 'couponCodes',
         'referralCode' => 'referralCode',
+        'loyaltyCards' => 'loyaltyCards',
         'state' => 'state',
         'cartItems' => 'cartItems',
         'additionalCosts' => 'additionalCosts',
@@ -130,6 +133,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
         'profileId' => 'setProfileId',
         'couponCodes' => 'setCouponCodes',
         'referralCode' => 'setReferralCode',
+        'loyaltyCards' => 'setLoyaltyCards',
         'state' => 'setState',
         'cartItems' => 'setCartItems',
         'additionalCosts' => 'setAdditionalCosts',
@@ -146,6 +150,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
         'profileId' => 'getProfileId',
         'couponCodes' => 'getCouponCodes',
         'referralCode' => 'getReferralCode',
+        'loyaltyCards' => 'getLoyaltyCards',
         'state' => 'getState',
         'cartItems' => 'getCartItems',
         'additionalCosts' => 'getAdditionalCosts',
@@ -196,6 +201,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
 
     const STATE_OPEN = 'open';
     const STATE_CLOSED = 'closed';
+    const STATE_PARTIALLY_RETURNED = 'partially_returned';
     const STATE_CANCELLED = 'cancelled';
     
 
@@ -210,6 +216,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
         return [
             self::STATE_OPEN,
             self::STATE_CLOSED,
+            self::STATE_PARTIALLY_RETURNED,
             self::STATE_CANCELLED,
         ];
     }
@@ -233,6 +240,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
         $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
         $this->container['couponCodes'] = isset($data['couponCodes']) ? $data['couponCodes'] : null;
         $this->container['referralCode'] = isset($data['referralCode']) ? $data['referralCode'] : null;
+        $this->container['loyaltyCards'] = isset($data['loyaltyCards']) ? $data['loyaltyCards'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'open';
         $this->container['cartItems'] = isset($data['cartItems']) ? $data['cartItems'] : null;
         $this->container['additionalCosts'] = isset($data['additionalCosts']) ? $data['additionalCosts'] : null;
@@ -289,7 +297,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets profileId
      *
-     * @param string|null $profileId ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+     * @param string|null $profileId ID of the customers profile as used within this Talon.One account.  **Note:** If the customer does not yet have a known profileId, we recommend you use a guest profileId.
      *
      * @return $this
      */
@@ -353,6 +361,30 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets loyaltyCards
+     *
+     * @return string[]|null
+     */
+    public function getLoyaltyCards()
+    {
+        return $this->container['loyaltyCards'];
+    }
+
+    /**
+     * Sets loyaltyCards
+     *
+     * @param string[]|null $loyaltyCards Any loyalty cards used.
+     *
+     * @return $this
+     */
+    public function setLoyaltyCards($loyaltyCards)
+    {
+        $this->container['loyaltyCards'] = $loyaltyCards;
+
+        return $this;
+    }
+
+    /**
      * Gets state
      *
      * @return string|null
@@ -365,7 +397,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string|null $state Indicates the current state of the session. All sessions must start in the \"open\" state, after which valid transitions are...  1. open -> closed 2. open -> cancelled 3. closed -> cancelled
+     * @param string|null $state Indicates the current state of the session. Sessions can be created as `open` or `closed`, after which valid transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. `closed` → `cancelled`  For more information, see [Entites](/docs/dev/concepts/entities#customer-session).
      *
      * @return $this
      */
@@ -398,7 +430,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets cartItems
      *
-     * @param \TalonOne\Client\Model\CartItem[]|null $cartItems All items the customer will be purchasing in this session
+     * @param \TalonOne\Client\Model\CartItem[]|null $cartItems The items to add to this sessions. - If cart item flattening is disabled: **Do not exceed 1000 items** (regardless of their `quantity`) per request. - If cart item flattening is enabled: **Do not exceed 1000 items** and ensure the sum of all cart item's `quantity` **does not exceed 10.000** per request.
      *
      * @return $this
      */
@@ -422,7 +454,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets additionalCosts
      *
-     * @param map[string,\TalonOne\Client\Model\AdditionalCost]|null $additionalCosts Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees.
+     * @param map[string,\TalonOne\Client\Model\AdditionalCost]|null $additionalCosts Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees. [Create them in the Campaign Manager](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs/#creating-additional-costs) before setting them with this property.
      *
      * @return $this
      */
@@ -446,7 +478,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets identifiers
      *
-     * @param string[]|null $identifiers Identifiers for the customer, this can be used for limits on values such as device ID.
+     * @param string[]|null $identifiers Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts.
      *
      * @return $this
      */
@@ -470,7 +502,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings.
+     * @param object|null $attributes A key-value map of the sessions attributes. If you use custom attributes, they must be created in the Campaign Manager before you set them with this property. For more information, see [Attributes](https://docs.talon.one/docs/dev/concepts/attributes).
      *
      * @return $this
      */

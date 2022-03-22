@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -60,6 +60,8 @@ class CartItem implements ModelInterface, ArrayAccess
         'name' => 'string',
         'sku' => 'string',
         'quantity' => 'int',
+        'returnedQuantity' => 'int',
+        'remainingQuantity' => 'int',
         'price' => 'float',
         'category' => 'string',
         'weight' => 'float',
@@ -79,6 +81,8 @@ class CartItem implements ModelInterface, ArrayAccess
         'name' => null,
         'sku' => null,
         'quantity' => null,
+        'returnedQuantity' => null,
+        'remainingQuantity' => null,
         'price' => null,
         'category' => null,
         'weight' => null,
@@ -119,6 +123,8 @@ class CartItem implements ModelInterface, ArrayAccess
         'name' => 'name',
         'sku' => 'sku',
         'quantity' => 'quantity',
+        'returnedQuantity' => 'returnedQuantity',
+        'remainingQuantity' => 'remainingQuantity',
         'price' => 'price',
         'category' => 'category',
         'weight' => 'weight',
@@ -138,6 +144,8 @@ class CartItem implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'sku' => 'setSku',
         'quantity' => 'setQuantity',
+        'returnedQuantity' => 'setReturnedQuantity',
+        'remainingQuantity' => 'setRemainingQuantity',
         'price' => 'setPrice',
         'category' => 'setCategory',
         'weight' => 'setWeight',
@@ -157,6 +165,8 @@ class CartItem implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'sku' => 'getSku',
         'quantity' => 'getQuantity',
+        'returnedQuantity' => 'getReturnedQuantity',
+        'remainingQuantity' => 'getRemainingQuantity',
         'price' => 'getPrice',
         'category' => 'getCategory',
         'weight' => 'getWeight',
@@ -230,6 +240,8 @@ class CartItem implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
+        $this->container['returnedQuantity'] = isset($data['returnedQuantity']) ? $data['returnedQuantity'] : null;
+        $this->container['remainingQuantity'] = isset($data['remainingQuantity']) ? $data['remainingQuantity'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['category'] = isset($data['category']) ? $data['category'] : null;
         $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
@@ -301,7 +313,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name Name of item
      *
      * @return $this
      */
@@ -330,7 +342,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets sku
      *
-     * @param string $sku sku
+     * @param string $sku Stock keeping unit of item
      *
      * @return $this
      */
@@ -359,7 +371,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param int $quantity quantity
+     * @param int $quantity Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly.
      *
      * @return $this
      */
@@ -371,6 +383,54 @@ class CartItem implements ModelInterface, ArrayAccess
         }
 
         $this->container['quantity'] = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets returnedQuantity
+     *
+     * @return int|null
+     */
+    public function getReturnedQuantity()
+    {
+        return $this->container['returnedQuantity'];
+    }
+
+    /**
+     * Sets returnedQuantity
+     *
+     * @param int|null $returnedQuantity Number of returned items, calculated internally based on returns of this item.
+     *
+     * @return $this
+     */
+    public function setReturnedQuantity($returnedQuantity)
+    {
+        $this->container['returnedQuantity'] = $returnedQuantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets remainingQuantity
+     *
+     * @return int|null
+     */
+    public function getRemainingQuantity()
+    {
+        return $this->container['remainingQuantity'];
+    }
+
+    /**
+     * Sets remainingQuantity
+     *
+     * @param int|null $remainingQuantity Remaining quantity of the item, calculated internally based on returns of this item.
+     *
+     * @return $this
+     */
+    public function setRemainingQuantity($remainingQuantity)
+    {
+        $this->container['remainingQuantity'] = $remainingQuantity;
 
         return $this;
     }
@@ -388,7 +448,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param float $price price
+     * @param float $price Price of item
      *
      * @return $this
      */
@@ -412,7 +472,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets category
      *
-     * @param string|null $category category
+     * @param string|null $category Type, group or model of the item
      *
      * @return $this
      */
@@ -436,7 +496,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets weight
      *
-     * @param float|null $weight Weight of item in mm
+     * @param float|null $weight Weight of item in grams
      *
      * @return $this
      */
@@ -556,7 +616,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this item
+     * @param object|null $attributes Arbitrary properties associated with this item. You can use built-in attributes or create your own. See [Attributes](https://docs.talon.one/docs/dev/concepts/attributes).
      *
      * @return $this
      */

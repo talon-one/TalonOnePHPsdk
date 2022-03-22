@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -58,8 +58,9 @@ class CustomerProfile implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'integrationId' => 'string',
+        'id' => 'int',
         'created' => '\DateTime',
+        'integrationId' => 'string',
         'attributes' => 'object',
         'accountId' => 'int',
         'closedSessions' => 'int',
@@ -75,8 +76,9 @@ class CustomerProfile implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'integrationId' => 'string',
+        'id' => null,
         'created' => 'date-time',
+        'integrationId' => 'string',
         'attributes' => null,
         'accountId' => null,
         'closedSessions' => null,
@@ -113,8 +115,9 @@ class CustomerProfile implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'integrationId' => 'integrationId',
+        'id' => 'id',
         'created' => 'created',
+        'integrationId' => 'integrationId',
         'attributes' => 'attributes',
         'accountId' => 'accountId',
         'closedSessions' => 'closedSessions',
@@ -130,8 +133,9 @@ class CustomerProfile implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'integrationId' => 'setIntegrationId',
+        'id' => 'setId',
         'created' => 'setCreated',
+        'integrationId' => 'setIntegrationId',
         'attributes' => 'setAttributes',
         'accountId' => 'setAccountId',
         'closedSessions' => 'setClosedSessions',
@@ -147,8 +151,9 @@ class CustomerProfile implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'integrationId' => 'getIntegrationId',
+        'id' => 'getId',
         'created' => 'getCreated',
+        'integrationId' => 'getIntegrationId',
         'attributes' => 'getAttributes',
         'accountId' => 'getAccountId',
         'closedSessions' => 'getClosedSessions',
@@ -218,8 +223,9 @@ class CustomerProfile implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
         $this->container['closedSessions'] = isset($data['closedSessions']) ? $data['closedSessions'] : null;
@@ -238,11 +244,14 @@ class CustomerProfile implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['integrationId'] === null) {
-            $invalidProperties[] = "'integrationId' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
+        }
+        if ($this->container['integrationId'] === null) {
+            $invalidProperties[] = "'integrationId' can't be null";
         }
         if ($this->container['attributes'] === null) {
             $invalidProperties[] = "'attributes' can't be null";
@@ -275,6 +284,54 @@ class CustomerProfile implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id Unique ID for this entity.
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     *
+     * @param \DateTime $created The exact moment this entity was created. The exact moment this entity was created.
+     *
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
      * Gets integrationId
      *
      * @return string
@@ -294,30 +351,6 @@ class CustomerProfile implements ModelInterface, ArrayAccess
     public function setIntegrationId($integrationId)
     {
         $this->container['integrationId'] = $integrationId;
-
-        return $this;
-    }
-
-    /**
-     * Gets created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     *
-     * @param \DateTime $created The exact moment this entity was created.
-     *
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
 
         return $this;
     }
@@ -479,7 +512,7 @@ class CustomerProfile implements ModelInterface, ArrayAccess
     /**
      * Sets lastActivity
      *
-     * @param \DateTime $lastActivity Timestamp of the most recent event received from this customer
+     * @param \DateTime $lastActivity Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the rule-engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api/#operation/createCouponReservation) for a customer doesn't impact this field.
      *
      * @return $this
      */

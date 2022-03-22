@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -70,7 +70,8 @@ class CustomerSession implements ModelInterface, ArrayAccess
         'total' => 'float',
         'attributes' => 'object',
         'firstSession' => 'bool',
-        'discounts' => 'map[string,float]'
+        'discounts' => 'map[string,float]',
+        'updated' => '\DateTime'
     ];
 
     /**
@@ -91,7 +92,8 @@ class CustomerSession implements ModelInterface, ArrayAccess
         'total' => null,
         'attributes' => null,
         'firstSession' => null,
-        'discounts' => null
+        'discounts' => null,
+        'updated' => 'date-time'
     ];
 
     /**
@@ -133,7 +135,8 @@ class CustomerSession implements ModelInterface, ArrayAccess
         'total' => 'total',
         'attributes' => 'attributes',
         'firstSession' => 'firstSession',
-        'discounts' => 'discounts'
+        'discounts' => 'discounts',
+        'updated' => 'updated'
     ];
 
     /**
@@ -154,7 +157,8 @@ class CustomerSession implements ModelInterface, ArrayAccess
         'total' => 'setTotal',
         'attributes' => 'setAttributes',
         'firstSession' => 'setFirstSession',
-        'discounts' => 'setDiscounts'
+        'discounts' => 'setDiscounts',
+        'updated' => 'setUpdated'
     ];
 
     /**
@@ -175,7 +179,8 @@ class CustomerSession implements ModelInterface, ArrayAccess
         'total' => 'getTotal',
         'attributes' => 'getAttributes',
         'firstSession' => 'getFirstSession',
-        'discounts' => 'getDiscounts'
+        'discounts' => 'getDiscounts',
+        'updated' => 'getUpdated'
     ];
 
     /**
@@ -221,6 +226,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
 
     const STATE_OPEN = 'open';
     const STATE_CLOSED = 'closed';
+    const STATE_PARTIALLY_RETURNED = 'partially_returned';
     const STATE_CANCELLED = 'cancelled';
     
 
@@ -235,6 +241,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
         return [
             self::STATE_OPEN,
             self::STATE_CLOSED,
+            self::STATE_PARTIALLY_RETURNED,
             self::STATE_CANCELLED,
         ];
     }
@@ -268,6 +275,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['firstSession'] = isset($data['firstSession']) ? $data['firstSession'] : null;
         $this->container['discounts'] = isset($data['discounts']) ? $data['discounts'] : null;
+        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
     }
 
     /**
@@ -330,6 +338,9 @@ class CustomerSession implements ModelInterface, ArrayAccess
         }
         if ($this->container['discounts'] === null) {
             $invalidProperties[] = "'discounts' can't be null";
+        }
+        if ($this->container['updated'] === null) {
+            $invalidProperties[] = "'updated' can't be null";
         }
         return $invalidProperties;
     }
@@ -431,7 +442,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
     /**
      * Sets profileId
      *
-     * @param string $profileId ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+     * @param string $profileId ID of the customers profile as used within this Talon.One account.  **Note:** If the customer does not yet have a known profileId, we recommend you use a guest profileId.
      *
      * @return $this
      */
@@ -511,7 +522,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string $state Indicates the current state of the session. All sessions must start in the \"open\" state, after which valid transitions are...  1. open -> closed 2. open -> cancelled 3. closed -> cancelled
+     * @param string $state Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. `closed` → `cancelled` or `partially_returned` 4. `partially_returned` → `cancelled`  For more information, see [Entities](/docs/dev/concepts/entities#customer-session).
      *
      * @return $this
      */
@@ -568,7 +579,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
     /**
      * Sets identifiers
      *
-     * @param string[]|null $identifiers Identifiers for the customer, this can be used for limits on values such as device ID.
+     * @param string[]|null $identifiers Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).
      *
      * @return $this
      */
@@ -671,6 +682,30 @@ class CustomerSession implements ModelInterface, ArrayAccess
     public function setDiscounts($discounts)
     {
         $this->container['discounts'] = $discounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->container['updated'];
+    }
+
+    /**
+     * Sets updated
+     *
+     * @param \DateTime $updated Timestamp of the most recent event received on this session
+     *
+     * @return $this
+     */
+    public function setUpdated($updated)
+    {
+        $this->container['updated'] = $updated;
 
         return $this;
     }

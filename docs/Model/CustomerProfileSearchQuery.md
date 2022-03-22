@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**object**](.md) | Properties to match against a customer profile. All provided attributes will be exactly matched against profile attributes | [optional] 
+**attributes** | [**object**](.md) | Properties to match against a customer profile. All provided attributes will be exactly matched against profile attributes. | [optional] 
 **integrationIDs** | **string[]** |  | [optional] 
 **profileIDs** | **int[]** |  | [optional] 
 

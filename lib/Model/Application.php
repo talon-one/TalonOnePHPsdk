@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -76,6 +76,7 @@ class Application implements ModelInterface, ArrayAccess
         'enableFlattenedCartItems' => 'bool',
         'attributesSettings' => '\TalonOne\Client\Model\AttributesSettings',
         'sandbox' => 'bool',
+        'enablePartialDiscounts' => 'bool',
         'loyaltyPrograms' => '\TalonOne\Client\Model\LoyaltyProgram[]'
     ];
 
@@ -103,6 +104,7 @@ class Application implements ModelInterface, ArrayAccess
         'enableFlattenedCartItems' => null,
         'attributesSettings' => null,
         'sandbox' => null,
+        'enablePartialDiscounts' => null,
         'loyaltyPrograms' => null
     ];
 
@@ -151,6 +153,7 @@ class Application implements ModelInterface, ArrayAccess
         'enableFlattenedCartItems' => 'enableFlattenedCartItems',
         'attributesSettings' => 'attributesSettings',
         'sandbox' => 'sandbox',
+        'enablePartialDiscounts' => 'enablePartialDiscounts',
         'loyaltyPrograms' => 'loyaltyPrograms'
     ];
 
@@ -178,6 +181,7 @@ class Application implements ModelInterface, ArrayAccess
         'enableFlattenedCartItems' => 'setEnableFlattenedCartItems',
         'attributesSettings' => 'setAttributesSettings',
         'sandbox' => 'setSandbox',
+        'enablePartialDiscounts' => 'setEnablePartialDiscounts',
         'loyaltyPrograms' => 'setLoyaltyPrograms'
     ];
 
@@ -205,6 +209,7 @@ class Application implements ModelInterface, ArrayAccess
         'enableFlattenedCartItems' => 'getEnableFlattenedCartItems',
         'attributesSettings' => 'getAttributesSettings',
         'sandbox' => 'getSandbox',
+        'enablePartialDiscounts' => 'getEnablePartialDiscounts',
         'loyaltyPrograms' => 'getLoyaltyPrograms'
     ];
 
@@ -347,13 +352,14 @@ class Application implements ModelInterface, ArrayAccess
         $this->container['caseSensitivity'] = isset($data['caseSensitivity']) ? $data['caseSensitivity'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
-        $this->container['campaignPriority'] = isset($data['campaignPriority']) ? $data['campaignPriority'] : null;
-        $this->container['exclusiveCampaignsStrategy'] = isset($data['exclusiveCampaignsStrategy']) ? $data['exclusiveCampaignsStrategy'] : null;
+        $this->container['campaignPriority'] = isset($data['campaignPriority']) ? $data['campaignPriority'] : 'universal';
+        $this->container['exclusiveCampaignsStrategy'] = isset($data['exclusiveCampaignsStrategy']) ? $data['exclusiveCampaignsStrategy'] : 'listOrder';
         $this->container['defaultDiscountScope'] = isset($data['defaultDiscountScope']) ? $data['defaultDiscountScope'] : null;
         $this->container['enableCascadingDiscounts'] = isset($data['enableCascadingDiscounts']) ? $data['enableCascadingDiscounts'] : null;
         $this->container['enableFlattenedCartItems'] = isset($data['enableFlattenedCartItems']) ? $data['enableFlattenedCartItems'] : null;
         $this->container['attributesSettings'] = isset($data['attributesSettings']) ? $data['attributesSettings'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
+        $this->container['enablePartialDiscounts'] = isset($data['enablePartialDiscounts']) ? $data['enablePartialDiscounts'] : null;
         $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
     }
 
@@ -640,7 +646,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency A string describing a default currency for new customer sessions.
+     * @param string $currency The default currency for new customer sessions.
      *
      * @return $this
      */
@@ -669,7 +675,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets caseSensitivity
      *
-     * @param string|null $caseSensitivity A string indicating how should campaigns in this application deal with case sensitivity on coupon codes.
+     * @param string|null $caseSensitivity The case sensitivity behavior to check coupon codes in the campaigns of this Application.
      *
      * @return $this
      */
@@ -702,7 +708,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this campaign
+     * @param object|null $attributes Arbitrary properties associated with this campaign.
      *
      * @return $this
      */
@@ -726,7 +732,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets limits
      *
-     * @param \TalonOne\Client\Model\LimitConfig[]|null $limits Default limits for campaigns created in this application
+     * @param \TalonOne\Client\Model\LimitConfig[]|null $limits Default limits for campaigns created in this application.
      *
      * @return $this
      */
@@ -750,7 +756,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets campaignPriority
      *
-     * @param string|null $campaignPriority Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \"universal\"
+     * @param string|null $campaignPriority Default [priority](https://docs.talon.one/docs/product/applications/setting-up-campaign-priorities) for campaigns created in this Application.
      *
      * @return $this
      */
@@ -783,7 +789,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets exclusiveCampaignsStrategy
      *
-     * @param string|null $exclusiveCampaignsStrategy The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \"listOrder\"
+     * @param string|null $exclusiveCampaignsStrategy The strategy used when choosing exclusive campaigns for evaluation.
      *
      * @return $this
      */
@@ -816,7 +822,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets defaultDiscountScope
      *
-     * @param string|null $defaultDiscountScope The default scope to apply \"setDiscount\" effects on if no scope was provided with the effect.
+     * @param string|null $defaultDiscountScope The default scope to apply `setDiscount` effects on if no scope was provided with the effect.
      *
      * @return $this
      */
@@ -849,7 +855,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets enableCascadingDiscounts
      *
-     * @param bool|null $enableCascadingDiscounts Flag indicating if discounts should cascade for this application
+     * @param bool|null $enableCascadingDiscounts Indicates if discounts should cascade for this Application.
      *
      * @return $this
      */
@@ -873,7 +879,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets enableFlattenedCartItems
      *
-     * @param bool|null $enableFlattenedCartItems Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one
+     * @param bool|null $enableFlattenedCartItems Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See [the docs](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items).
      *
      * @return $this
      */
@@ -921,13 +927,37 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets sandbox
      *
-     * @param bool|null $sandbox Flag indicating if this is a live or sandbox application
+     * @param bool|null $sandbox Indicates if this is a live or sandbox Application.
      *
      * @return $this
      */
     public function setSandbox($sandbox)
     {
         $this->container['sandbox'] = $sandbox;
+
+        return $this;
+    }
+
+    /**
+     * Gets enablePartialDiscounts
+     *
+     * @return bool|null
+     */
+    public function getEnablePartialDiscounts()
+    {
+        return $this->container['enablePartialDiscounts'];
+    }
+
+    /**
+     * Sets enablePartialDiscounts
+     *
+     * @param bool|null $enablePartialDiscounts Indicates if this Application supports partial discounts.
+     *
+     * @return $this
+     */
+    public function setEnablePartialDiscounts($enablePartialDiscounts)
+    {
+        $this->container['enablePartialDiscounts'] = $enablePartialDiscounts;
 
         return $this;
     }

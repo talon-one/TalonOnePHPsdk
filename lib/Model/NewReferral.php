@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -36,6 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * NewReferral Class Doc Comment
  *
  * @category Class
+ * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,11 +58,13 @@ class NewReferral implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'startDate' => '\DateTime',
+        'expiryDate' => '\DateTime',
+        'usageLimit' => 'int',
         'campaignId' => 'int',
         'advocateProfileIntegrationId' => 'string',
         'friendProfileIntegrationId' => 'string',
-        'startDate' => '\DateTime',
-        'expiryDate' => '\DateTime'
+        'attributes' => 'object'
     ];
 
     /**
@@ -70,11 +73,13 @@ class NewReferral implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'startDate' => 'date-time',
+        'expiryDate' => 'date-time',
+        'usageLimit' => null,
         'campaignId' => null,
         'advocateProfileIntegrationId' => null,
         'friendProfileIntegrationId' => null,
-        'startDate' => 'date-time',
-        'expiryDate' => 'date-time'
+        'attributes' => null
     ];
 
     /**
@@ -104,11 +109,13 @@ class NewReferral implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'startDate' => 'startDate',
+        'expiryDate' => 'expiryDate',
+        'usageLimit' => 'usageLimit',
         'campaignId' => 'campaignId',
         'advocateProfileIntegrationId' => 'advocateProfileIntegrationId',
         'friendProfileIntegrationId' => 'friendProfileIntegrationId',
-        'startDate' => 'startDate',
-        'expiryDate' => 'expiryDate'
+        'attributes' => 'attributes'
     ];
 
     /**
@@ -117,11 +124,13 @@ class NewReferral implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'startDate' => 'setStartDate',
+        'expiryDate' => 'setExpiryDate',
+        'usageLimit' => 'setUsageLimit',
         'campaignId' => 'setCampaignId',
         'advocateProfileIntegrationId' => 'setAdvocateProfileIntegrationId',
         'friendProfileIntegrationId' => 'setFriendProfileIntegrationId',
-        'startDate' => 'setStartDate',
-        'expiryDate' => 'setExpiryDate'
+        'attributes' => 'setAttributes'
     ];
 
     /**
@@ -130,11 +139,13 @@ class NewReferral implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'startDate' => 'getStartDate',
+        'expiryDate' => 'getExpiryDate',
+        'usageLimit' => 'getUsageLimit',
         'campaignId' => 'getCampaignId',
         'advocateProfileIntegrationId' => 'getAdvocateProfileIntegrationId',
         'friendProfileIntegrationId' => 'getFriendProfileIntegrationId',
-        'startDate' => 'getStartDate',
-        'expiryDate' => 'getExpiryDate'
+        'attributes' => 'getAttributes'
     ];
 
     /**
@@ -197,11 +208,13 @@ class NewReferral implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
+        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['usageLimit'] = isset($data['usageLimit']) ? $data['usageLimit'] : null;
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['advocateProfileIntegrationId'] = isset($data['advocateProfileIntegrationId']) ? $data['advocateProfileIntegrationId'] : null;
         $this->container['friendProfileIntegrationId'] = isset($data['friendProfileIntegrationId']) ? $data['friendProfileIntegrationId'] : null;
-        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
-        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
     }
 
     /**
@@ -212,6 +225,14 @@ class NewReferral implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['usageLimit']) && ($this->container['usageLimit'] > 999999)) {
+            $invalidProperties[] = "invalid value for 'usageLimit', must be smaller than or equal to 999999.";
+        }
+
+        if (!is_null($this->container['usageLimit']) && ($this->container['usageLimit'] < 0)) {
+            $invalidProperties[] = "invalid value for 'usageLimit', must be bigger than or equal to 0.";
+        }
 
         if ($this->container['campaignId'] === null) {
             $invalidProperties[] = "'campaignId' can't be null";
@@ -233,78 +254,6 @@ class NewReferral implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets campaignId
-     *
-     * @return int
-     */
-    public function getCampaignId()
-    {
-        return $this->container['campaignId'];
-    }
-
-    /**
-     * Sets campaignId
-     *
-     * @param int $campaignId ID of the campaign from which the referral received the referral code.
-     *
-     * @return $this
-     */
-    public function setCampaignId($campaignId)
-    {
-        $this->container['campaignId'] = $campaignId;
-
-        return $this;
-    }
-
-    /**
-     * Gets advocateProfileIntegrationId
-     *
-     * @return string
-     */
-    public function getAdvocateProfileIntegrationId()
-    {
-        return $this->container['advocateProfileIntegrationId'];
-    }
-
-    /**
-     * Sets advocateProfileIntegrationId
-     *
-     * @param string $advocateProfileIntegrationId The Integration Id of the Advocate's Profile
-     *
-     * @return $this
-     */
-    public function setAdvocateProfileIntegrationId($advocateProfileIntegrationId)
-    {
-        $this->container['advocateProfileIntegrationId'] = $advocateProfileIntegrationId;
-
-        return $this;
-    }
-
-    /**
-     * Gets friendProfileIntegrationId
-     *
-     * @return string|null
-     */
-    public function getFriendProfileIntegrationId()
-    {
-        return $this->container['friendProfileIntegrationId'];
-    }
-
-    /**
-     * Sets friendProfileIntegrationId
-     *
-     * @param string|null $friendProfileIntegrationId An optional Integration ID of the Friend's Profile
-     *
-     * @return $this
-     */
-    public function setFriendProfileIntegrationId($friendProfileIntegrationId)
-    {
-        $this->container['friendProfileIntegrationId'] = $friendProfileIntegrationId;
-
-        return $this;
-    }
 
     /**
      * Gets startDate
@@ -350,6 +299,134 @@ class NewReferral implements ModelInterface, ArrayAccess
     public function setExpiryDate($expiryDate)
     {
         $this->container['expiryDate'] = $expiryDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets usageLimit
+     *
+     * @return int|null
+     */
+    public function getUsageLimit()
+    {
+        return $this->container['usageLimit'];
+    }
+
+    /**
+     * Sets usageLimit
+     *
+     * @param int|null $usageLimit The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     *
+     * @return $this
+     */
+    public function setUsageLimit($usageLimit)
+    {
+
+        if (!is_null($usageLimit) && ($usageLimit > 999999)) {
+            throw new \InvalidArgumentException('invalid value for $usageLimit when calling NewReferral., must be smaller than or equal to 999999.');
+        }
+        if (!is_null($usageLimit) && ($usageLimit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $usageLimit when calling NewReferral., must be bigger than or equal to 0.');
+        }
+
+        $this->container['usageLimit'] = $usageLimit;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignId
+     *
+     * @return int
+     */
+    public function getCampaignId()
+    {
+        return $this->container['campaignId'];
+    }
+
+    /**
+     * Sets campaignId
+     *
+     * @param int $campaignId ID of the campaign from which the referral received the referral code.
+     *
+     * @return $this
+     */
+    public function setCampaignId($campaignId)
+    {
+        $this->container['campaignId'] = $campaignId;
+
+        return $this;
+    }
+
+    /**
+     * Gets advocateProfileIntegrationId
+     *
+     * @return string
+     */
+    public function getAdvocateProfileIntegrationId()
+    {
+        return $this->container['advocateProfileIntegrationId'];
+    }
+
+    /**
+     * Sets advocateProfileIntegrationId
+     *
+     * @param string $advocateProfileIntegrationId The Integration ID of the Advocate's Profile.
+     *
+     * @return $this
+     */
+    public function setAdvocateProfileIntegrationId($advocateProfileIntegrationId)
+    {
+        $this->container['advocateProfileIntegrationId'] = $advocateProfileIntegrationId;
+
+        return $this;
+    }
+
+    /**
+     * Gets friendProfileIntegrationId
+     *
+     * @return string|null
+     */
+    public function getFriendProfileIntegrationId()
+    {
+        return $this->container['friendProfileIntegrationId'];
+    }
+
+    /**
+     * Sets friendProfileIntegrationId
+     *
+     * @param string|null $friendProfileIntegrationId An optional Integration ID of the Friend's Profile
+     *
+     * @return $this
+     */
+    public function setFriendProfileIntegrationId($friendProfileIntegrationId)
+    {
+        $this->container['friendProfileIntegrationId'] = $friendProfileIntegrationId;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributes
+     *
+     * @return object|null
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param object|null $attributes Arbitrary properties associated with this item.
+     *
+     * @return $this
+     */
+    public function setAttributes($attributes)
+    {
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }

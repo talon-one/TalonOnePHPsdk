@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -81,6 +81,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountEffectCount' => 'int',
         'couponCreationCount' => 'int',
         'referralCreationCount' => 'int',
+        'awardedGiveawaysCount' => 'int',
         'createdLoyaltyPointsCount' => 'float',
         'createdLoyaltyPointsEffectCount' => 'int',
         'redeemedLoyaltyPointsCount' => 'float',
@@ -88,7 +89,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'lastActivity' => '\DateTime',
         'updated' => '\DateTime',
         'createdBy' => 'string',
-        'updatedBy' => 'string'
+        'updatedBy' => 'string',
+        'templateId' => 'int'
     ];
 
     /**
@@ -120,6 +122,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountEffectCount' => null,
         'couponCreationCount' => null,
         'referralCreationCount' => null,
+        'awardedGiveawaysCount' => null,
         'createdLoyaltyPointsCount' => null,
         'createdLoyaltyPointsEffectCount' => null,
         'redeemedLoyaltyPointsCount' => null,
@@ -127,7 +130,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'lastActivity' => 'date-time',
         'updated' => 'date-time',
         'createdBy' => null,
-        'updatedBy' => null
+        'updatedBy' => null,
+        'templateId' => null
     ];
 
     /**
@@ -180,6 +184,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountEffectCount' => 'discountEffectCount',
         'couponCreationCount' => 'couponCreationCount',
         'referralCreationCount' => 'referralCreationCount',
+        'awardedGiveawaysCount' => 'awardedGiveawaysCount',
         'createdLoyaltyPointsCount' => 'createdLoyaltyPointsCount',
         'createdLoyaltyPointsEffectCount' => 'createdLoyaltyPointsEffectCount',
         'redeemedLoyaltyPointsCount' => 'redeemedLoyaltyPointsCount',
@@ -187,7 +192,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'lastActivity' => 'lastActivity',
         'updated' => 'updated',
         'createdBy' => 'createdBy',
-        'updatedBy' => 'updatedBy'
+        'updatedBy' => 'updatedBy',
+        'templateId' => 'templateId'
     ];
 
     /**
@@ -219,6 +225,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountEffectCount' => 'setDiscountEffectCount',
         'couponCreationCount' => 'setCouponCreationCount',
         'referralCreationCount' => 'setReferralCreationCount',
+        'awardedGiveawaysCount' => 'setAwardedGiveawaysCount',
         'createdLoyaltyPointsCount' => 'setCreatedLoyaltyPointsCount',
         'createdLoyaltyPointsEffectCount' => 'setCreatedLoyaltyPointsEffectCount',
         'redeemedLoyaltyPointsCount' => 'setRedeemedLoyaltyPointsCount',
@@ -226,7 +233,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'lastActivity' => 'setLastActivity',
         'updated' => 'setUpdated',
         'createdBy' => 'setCreatedBy',
-        'updatedBy' => 'setUpdatedBy'
+        'updatedBy' => 'setUpdatedBy',
+        'templateId' => 'setTemplateId'
     ];
 
     /**
@@ -258,6 +266,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountEffectCount' => 'getDiscountEffectCount',
         'couponCreationCount' => 'getCouponCreationCount',
         'referralCreationCount' => 'getReferralCreationCount',
+        'awardedGiveawaysCount' => 'getAwardedGiveawaysCount',
         'createdLoyaltyPointsCount' => 'getCreatedLoyaltyPointsCount',
         'createdLoyaltyPointsEffectCount' => 'getCreatedLoyaltyPointsEffectCount',
         'redeemedLoyaltyPointsCount' => 'getRedeemedLoyaltyPointsCount',
@@ -265,7 +274,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'lastActivity' => 'getLastActivity',
         'updated' => 'getUpdated',
         'createdBy' => 'getCreatedBy',
-        'updatedBy' => 'getUpdatedBy'
+        'updatedBy' => 'getUpdatedBy',
+        'templateId' => 'getTemplateId'
     ];
 
     /**
@@ -315,6 +325,7 @@ class Campaign implements ModelInterface, ArrayAccess
     const FEATURES_COUPONS = 'coupons';
     const FEATURES_REFERRALS = 'referrals';
     const FEATURES_LOYALTY = 'loyalty';
+    const FEATURES_GIVEAWAYS = 'giveaways';
     
 
     
@@ -343,6 +354,7 @@ class Campaign implements ModelInterface, ArrayAccess
             self::FEATURES_COUPONS,
             self::FEATURES_REFERRALS,
             self::FEATURES_LOYALTY,
+            self::FEATURES_GIVEAWAYS,
         ];
     }
     
@@ -385,6 +397,7 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['discountEffectCount'] = isset($data['discountEffectCount']) ? $data['discountEffectCount'] : null;
         $this->container['couponCreationCount'] = isset($data['couponCreationCount']) ? $data['couponCreationCount'] : null;
         $this->container['referralCreationCount'] = isset($data['referralCreationCount']) ? $data['referralCreationCount'] : null;
+        $this->container['awardedGiveawaysCount'] = isset($data['awardedGiveawaysCount']) ? $data['awardedGiveawaysCount'] : null;
         $this->container['createdLoyaltyPointsCount'] = isset($data['createdLoyaltyPointsCount']) ? $data['createdLoyaltyPointsCount'] : null;
         $this->container['createdLoyaltyPointsEffectCount'] = isset($data['createdLoyaltyPointsEffectCount']) ? $data['createdLoyaltyPointsEffectCount'] : null;
         $this->container['redeemedLoyaltyPointsCount'] = isset($data['redeemedLoyaltyPointsCount']) ? $data['redeemedLoyaltyPointsCount'] : null;
@@ -393,6 +406,7 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
         $this->container['updatedBy'] = isset($data['updatedBy']) ? $data['updatedBy'] : null;
+        $this->container['templateId'] = isset($data['templateId']) ? $data['templateId'] : null;
     }
 
     /**
@@ -570,7 +584,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name A friendly name for this campaign.
+     * @param string $name A user-facing name for this campaign.
      *
      * @return $this
      */
@@ -623,7 +637,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets startTime
      *
-     * @param \DateTime|null $startTime Datetime when the campaign will become active.
+     * @param \DateTime|null $startTime Timestamp when the campaign will become active.
      *
      * @return $this
      */
@@ -647,7 +661,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets endTime
      *
-     * @param \DateTime|null $endTime Datetime when the campaign will become in-active.
+     * @param \DateTime|null $endTime Timestamp the campaign will become inactive.
      *
      * @return $this
      */
@@ -728,7 +742,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets activeRulesetId
      *
-     * @param int|null $activeRulesetId ID of Ruleset this campaign applies on customer session evaluation.
+     * @param int|null $activeRulesetId [ID of Ruleset](https://docs.talon.one/management-api/#operation/getRulesets) this campaign applies on customer session evaluation.
      *
      * @return $this
      */
@@ -776,7 +790,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets features
      *
-     * @param string[] $features A list of features for the campaign.
+     * @param string[] $features The features enabled in this campaign.
      *
      * @return $this
      */
@@ -857,7 +871,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets limits
      *
-     * @param \TalonOne\Client\Model\LimitConfig[] $limits The set of limits that will operate for this campaign
+     * @param \TalonOne\Client\Model\LimitConfig[] $limits The set of [budget limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/) for this campaign.
      *
      * @return $this
      */
@@ -881,7 +895,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets campaignGroups
      *
-     * @param int[]|null $campaignGroups The IDs of the campaign groups that own this entity.
+     * @param int[]|null $campaignGroups The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups/) this campaign belongs to.
      *
      * @return $this
      */
@@ -1032,6 +1046,30 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setReferralCreationCount($referralCreationCount)
     {
         $this->container['referralCreationCount'] = $referralCreationCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets awardedGiveawaysCount
+     *
+     * @return int|null
+     */
+    public function getAwardedGiveawaysCount()
+    {
+        return $this->container['awardedGiveawaysCount'];
+    }
+
+    /**
+     * Sets awardedGiveawaysCount
+     *
+     * @param int|null $awardedGiveawaysCount Total number of giveaways awarded by rules in this campaign.
+     *
+     * @return $this
+     */
+    public function setAwardedGiveawaysCount($awardedGiveawaysCount)
+    {
+        $this->container['awardedGiveawaysCount'] = $awardedGiveawaysCount;
 
         return $this;
     }
@@ -1224,6 +1262,30 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setUpdatedBy($updatedBy)
     {
         $this->container['updatedBy'] = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Gets templateId
+     *
+     * @return int|null
+     */
+    public function getTemplateId()
+    {
+        return $this->container['templateId'];
+    }
+
+    /**
+     * Sets templateId
+     *
+     * @param int|null $templateId The ID of the Campaign Template this Campaign was created from.
+     *
+     * @return $this
+     */
+    public function setTemplateId($templateId)
+    {
+        $this->container['templateId'] = $templateId;
 
         return $this;
     }

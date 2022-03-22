@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -65,6 +65,8 @@ class NewAttribute implements ModelInterface, ArrayAccess
         'type' => 'string',
         'description' => 'string',
         'suggestions' => 'string[]',
+        'hasAllowedList' => 'bool',
+        'restrictedBySuggestions' => 'bool',
         'editable' => 'bool',
         'subscribedApplicationsIds' => 'int[]'
     ];
@@ -82,6 +84,8 @@ class NewAttribute implements ModelInterface, ArrayAccess
         'type' => null,
         'description' => null,
         'suggestions' => null,
+        'hasAllowedList' => null,
+        'restrictedBySuggestions' => null,
         'editable' => null,
         'subscribedApplicationsIds' => null
     ];
@@ -120,6 +124,8 @@ class NewAttribute implements ModelInterface, ArrayAccess
         'type' => 'type',
         'description' => 'description',
         'suggestions' => 'suggestions',
+        'hasAllowedList' => 'hasAllowedList',
+        'restrictedBySuggestions' => 'restrictedBySuggestions',
         'editable' => 'editable',
         'subscribedApplicationsIds' => 'subscribedApplicationsIds'
     ];
@@ -137,6 +143,8 @@ class NewAttribute implements ModelInterface, ArrayAccess
         'type' => 'setType',
         'description' => 'setDescription',
         'suggestions' => 'setSuggestions',
+        'hasAllowedList' => 'setHasAllowedList',
+        'restrictedBySuggestions' => 'setRestrictedBySuggestions',
         'editable' => 'setEditable',
         'subscribedApplicationsIds' => 'setSubscribedApplicationsIds'
     ];
@@ -154,6 +162,8 @@ class NewAttribute implements ModelInterface, ArrayAccess
         'type' => 'getType',
         'description' => 'getDescription',
         'suggestions' => 'getSuggestions',
+        'hasAllowedList' => 'getHasAllowedList',
+        'restrictedBySuggestions' => 'getRestrictedBySuggestions',
         'editable' => 'getEditable',
         'subscribedApplicationsIds' => 'getSubscribedApplicationsIds'
     ];
@@ -207,6 +217,8 @@ class NewAttribute implements ModelInterface, ArrayAccess
     const ENTITY_CART_ITEM = 'CartItem';
     const ENTITY_COUPON = 'Coupon';
     const ENTITY_EVENT = 'Event';
+    const ENTITY_GIVEAWAY = 'Giveaway';
+    const ENTITY_REFERRAL = 'Referral';
     const TYPE_STRING = 'string';
     const TYPE_NUMBER = 'number';
     const TYPE_BOOLEAN = 'boolean';
@@ -235,6 +247,8 @@ class NewAttribute implements ModelInterface, ArrayAccess
             self::ENTITY_CART_ITEM,
             self::ENTITY_COUPON,
             self::ENTITY_EVENT,
+            self::ENTITY_GIVEAWAY,
+            self::ENTITY_REFERRAL,
         ];
     }
     
@@ -281,6 +295,8 @@ class NewAttribute implements ModelInterface, ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['suggestions'] = isset($data['suggestions']) ? $data['suggestions'] : null;
+        $this->container['hasAllowedList'] = isset($data['hasAllowedList']) ? $data['hasAllowedList'] : false;
+        $this->container['restrictedBySuggestions'] = isset($data['restrictedBySuggestions']) ? $data['restrictedBySuggestions'] : false;
         $this->container['editable'] = isset($data['editable']) ? $data['editable'] : null;
         $this->container['subscribedApplicationsIds'] = isset($data['subscribedApplicationsIds']) ? $data['subscribedApplicationsIds'] : null;
     }
@@ -528,6 +544,54 @@ class NewAttribute implements ModelInterface, ArrayAccess
     public function setSuggestions($suggestions)
     {
         $this->container['suggestions'] = $suggestions;
+
+        return $this;
+    }
+
+    /**
+     * Gets hasAllowedList
+     *
+     * @return bool|null
+     */
+    public function getHasAllowedList()
+    {
+        return $this->container['hasAllowedList'];
+    }
+
+    /**
+     * Sets hasAllowedList
+     *
+     * @param bool|null $hasAllowedList Whether or not this attribute has an allowed list of values associated with it.
+     *
+     * @return $this
+     */
+    public function setHasAllowedList($hasAllowedList)
+    {
+        $this->container['hasAllowedList'] = $hasAllowedList;
+
+        return $this;
+    }
+
+    /**
+     * Gets restrictedBySuggestions
+     *
+     * @return bool|null
+     */
+    public function getRestrictedBySuggestions()
+    {
+        return $this->container['restrictedBySuggestions'];
+    }
+
+    /**
+     * Sets restrictedBySuggestions
+     *
+     * @param bool|null $restrictedBySuggestions Whether or not this attribute's value is restricted by suggestions (`suggestions` property) or by an allowed list of value (`hasAllowedList` property).
+     *
+     * @return $this
+     */
+    public function setRestrictedBySuggestions($restrictedBySuggestions)
+    {
+        $this->container['restrictedBySuggestions'] = $restrictedBySuggestions;
 
         return $this;
     }

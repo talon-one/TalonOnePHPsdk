@@ -14,8 +14,11 @@ Name | Type | Description | Notes
 **type** | **string** | The data type of the attribute, a &#x60;time&#x60; attribute must be sent as a string that conforms to the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp format. | 
 **description** | **string** | A description of this attribute. | 
 **suggestions** | **string[]** | A list of suggestions for the attribute. | 
+**hasAllowedList** | **bool** | Whether or not this attribute has an allowed list of values associated with it. | [optional] [default to false]
+**restrictedBySuggestions** | **bool** | Whether or not this attribute&#39;s value is restricted by suggestions (&#x60;suggestions&#x60; property) or by an allowed list of value (&#x60;hasAllowedList&#x60; property). | [optional] [default to false]
 **editable** | **bool** | Whether or not this attribute can be edited. | 
 **subscribedApplicationsIds** | **int[]** | A list of the IDs of the applications that are subscribed to this attribute | [optional] 
+**eventTypeId** | **int** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

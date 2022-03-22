@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -62,7 +62,9 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         'subLedgerId' => 'string',
         'value' => 'float',
         'recipientIntegrationId' => 'string',
-        'transactionUUID' => 'string'
+        'transactionUUID' => 'string',
+        'cartItemPosition' => 'float',
+        'cartItemSubPosition' => 'float'
     ];
 
     /**
@@ -75,7 +77,9 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         'subLedgerId' => null,
         'value' => null,
         'recipientIntegrationId' => null,
-        'transactionUUID' => null
+        'transactionUUID' => null,
+        'cartItemPosition' => null,
+        'cartItemSubPosition' => null
     ];
 
     /**
@@ -109,7 +113,9 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         'subLedgerId' => 'subLedgerId',
         'value' => 'value',
         'recipientIntegrationId' => 'recipientIntegrationId',
-        'transactionUUID' => 'transactionUUID'
+        'transactionUUID' => 'transactionUUID',
+        'cartItemPosition' => 'cartItemPosition',
+        'cartItemSubPosition' => 'cartItemSubPosition'
     ];
 
     /**
@@ -122,7 +128,9 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         'subLedgerId' => 'setSubLedgerId',
         'value' => 'setValue',
         'recipientIntegrationId' => 'setRecipientIntegrationId',
-        'transactionUUID' => 'setTransactionUUID'
+        'transactionUUID' => 'setTransactionUUID',
+        'cartItemPosition' => 'setCartItemPosition',
+        'cartItemSubPosition' => 'setCartItemSubPosition'
     ];
 
     /**
@@ -135,7 +143,9 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         'subLedgerId' => 'getSubLedgerId',
         'value' => 'getValue',
         'recipientIntegrationId' => 'getRecipientIntegrationId',
-        'transactionUUID' => 'getTransactionUUID'
+        'transactionUUID' => 'getTransactionUUID',
+        'cartItemPosition' => 'getCartItemPosition',
+        'cartItemSubPosition' => 'getCartItemSubPosition'
     ];
 
     /**
@@ -203,6 +213,8 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
         $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
+        $this->container['cartItemPosition'] = isset($data['cartItemPosition']) ? $data['cartItemPosition'] : null;
+        $this->container['cartItemSubPosition'] = isset($data['cartItemSubPosition']) ? $data['cartItemSubPosition'] : null;
     }
 
     /**
@@ -360,6 +372,54 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
     public function setTransactionUUID($transactionUUID)
     {
         $this->container['transactionUUID'] = $transactionUUID;
+
+        return $this;
+    }
+
+    /**
+     * Gets cartItemPosition
+     *
+     * @return float|null
+     */
+    public function getCartItemPosition()
+    {
+        return $this->container['cartItemPosition'];
+    }
+
+    /**
+     * Sets cartItemPosition
+     *
+     * @param float|null $cartItemPosition The index of the item in the cart items for which the loyalty points were rolled back.
+     *
+     * @return $this
+     */
+    public function setCartItemPosition($cartItemPosition)
+    {
+        $this->container['cartItemPosition'] = $cartItemPosition;
+
+        return $this;
+    }
+
+    /**
+     * Gets cartItemSubPosition
+     *
+     * @return float|null
+     */
+    public function getCartItemSubPosition()
+    {
+        return $this->container['cartItemSubPosition'];
+    }
+
+    /**
+     * Sets cartItemSubPosition
+     *
+     * @param float|null $cartItemSubPosition The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with `quantity` > 1.
+     *
+     * @return $this
+     */
+    public function setCartItemSubPosition($cartItemSubPosition)
+    {
+        $this->container['cartItemSubPosition'] = $cartItemSubPosition;
 
         return $this;
     }
