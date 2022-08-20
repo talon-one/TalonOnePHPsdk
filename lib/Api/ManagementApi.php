@@ -2307,7 +2307,7 @@ class ManagementApi
     }
 
     /**
-     * Operation createCouponsAsync
+     * Operation createCouponsAsynchronous
      *
      * Create coupons
      *
@@ -2319,9 +2319,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponsAsync($applicationId, $campaignId, $body, $silent = 'yes')
+    public function createCouponsAsynchronous($applicationId, $campaignId, $body, $silent = 'yes')
     {
-        return $this->createCouponsAsyncWithHttpInfo($applicationId, $campaignId, $body, $silent)
+        return $this->createCouponsAsynchronousWithHttpInfo($applicationId, $campaignId, $body, $silent)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2330,7 +2330,7 @@ class ManagementApi
     }
 
     /**
-     * Operation createCouponsAsyncWithHttpInfo
+     * Operation createCouponsAsynchronousWithHttpInfo
      *
      * Create coupons
      *
@@ -2342,7 +2342,7 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponsAsyncWithHttpInfo($applicationId, $campaignId, $body, $silent = 'yes')
+    public function createCouponsAsynchronousWithHttpInfo($applicationId, $campaignId, $body, $silent = 'yes')
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2006';
         $request = $this->createCouponsRequest($applicationId, $campaignId, $body, $silent);
