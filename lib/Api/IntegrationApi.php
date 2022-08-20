@@ -453,7 +453,7 @@ class IntegrationApi
      *
      * Create coupon reservation
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -471,7 +471,7 @@ class IntegrationApi
      *
      * Create coupon reservation
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -620,7 +620,7 @@ class IntegrationApi
      *
      * Create coupon reservation
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
@@ -641,7 +641,7 @@ class IntegrationApi
      *
      * Create coupon reservation
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
@@ -689,7 +689,7 @@ class IntegrationApi
     /**
      * Create request for operation 'createCouponReservation'
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
@@ -1943,7 +1943,7 @@ class IntegrationApi
      *
      * Delete coupon reservations
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -1960,7 +1960,7 @@ class IntegrationApi
      *
      * Delete coupon reservations
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -2037,7 +2037,7 @@ class IntegrationApi
      *
      * Delete coupon reservations
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
@@ -2058,7 +2058,7 @@ class IntegrationApi
      *
      * Delete coupon reservations
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
@@ -2095,7 +2095,7 @@ class IntegrationApi
     /**
      * Create request for operation 'deleteCouponReservation'
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body (required)
      *
      * @throws \InvalidArgumentException
@@ -2209,9 +2209,9 @@ class IntegrationApi
     /**
      * Operation deleteCustomerData
      *
-     * Delete the personal data of a customer
+     * Delete customer's personal data
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration Id with the [Update customer session endpoint](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2). - The Management API with the [List application&#39;s customers endpoint](https://docs.talon.one/management-api/#operation/getApplicationCustomers). (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2225,9 +2225,9 @@ class IntegrationApi
     /**
      * Operation deleteCustomerDataWithHttpInfo
      *
-     * Delete the personal data of a customer
+     * Delete customer's personal data
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration Id with the [Update customer session endpoint](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2). - The Management API with the [List application&#39;s customers endpoint](https://docs.talon.one/management-api/#operation/getApplicationCustomers). (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2293,9 +2293,9 @@ class IntegrationApi
     /**
      * Operation deleteCustomerDataAsync
      *
-     * Delete the personal data of a customer
+     * Delete customer's personal data
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration Id with the [Update customer session endpoint](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2). - The Management API with the [List application&#39;s customers endpoint](https://docs.talon.one/management-api/#operation/getApplicationCustomers). (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2313,9 +2313,9 @@ class IntegrationApi
     /**
      * Operation deleteCustomerDataAsyncWithHttpInfo
      *
-     * Delete the personal data of a customer
+     * Delete customer's personal data
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration Id with the [Update customer session endpoint](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2). - The Management API with the [List application&#39;s customers endpoint](https://docs.talon.one/management-api/#operation/getApplicationCustomers). (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2351,7 +2351,7 @@ class IntegrationApi
     /**
      * Create request for operation 'deleteCustomerData'
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration Id with the [Update customer session endpoint](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2). - The Management API with the [List application&#39;s customers endpoint](https://docs.talon.one/management-api/#operation/getApplicationCustomers). (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2457,7 +2457,7 @@ class IntegrationApi
      *
      * List customer data
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration Id with the [Update customer session endpoint](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2). - The Management API with the [List application&#39;s customers endpoint](https://docs.talon.one/management-api/#operation/getApplicationCustomers). (required)
      * @param  bool $profile Set to &#x60;true&#x60; to include customer profile information in the response. (optional)
      * @param  bool $referrals Set to &#x60;true&#x60; to include referral information in the response. (optional)
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
@@ -2480,7 +2480,7 @@ class IntegrationApi
      *
      * List customer data
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration Id with the [Update customer session endpoint](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2). - The Management API with the [List application&#39;s customers endpoint](https://docs.talon.one/management-api/#operation/getApplicationCustomers). (required)
      * @param  bool $profile Set to &#x60;true&#x60; to include customer profile information in the response. (optional)
      * @param  bool $referrals Set to &#x60;true&#x60; to include referral information in the response. (optional)
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
@@ -2614,7 +2614,7 @@ class IntegrationApi
      *
      * List customer data
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration Id with the [Update customer session endpoint](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2). - The Management API with the [List application&#39;s customers endpoint](https://docs.talon.one/management-api/#operation/getApplicationCustomers). (required)
      * @param  bool $profile Set to &#x60;true&#x60; to include customer profile information in the response. (optional)
      * @param  bool $referrals Set to &#x60;true&#x60; to include referral information in the response. (optional)
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
@@ -2640,7 +2640,7 @@ class IntegrationApi
      *
      * List customer data
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration Id with the [Update customer session endpoint](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2). - The Management API with the [List application&#39;s customers endpoint](https://docs.talon.one/management-api/#operation/getApplicationCustomers). (required)
      * @param  bool $profile Set to &#x60;true&#x60; to include customer profile information in the response. (optional)
      * @param  bool $referrals Set to &#x60;true&#x60; to include referral information in the response. (optional)
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
@@ -2693,7 +2693,7 @@ class IntegrationApi
     /**
      * Create request for operation 'getCustomerInventory'
      *
-     * @param  string $integrationId The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration Id with the [Update customer session endpoint](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2). - The Management API with the [List application&#39;s customers endpoint](https://docs.talon.one/management-api/#operation/getApplicationCustomers). (required)
      * @param  bool $profile Set to &#x60;true&#x60; to include customer profile information in the response. (optional)
      * @param  bool $referrals Set to &#x60;true&#x60; to include referral information in the response. (optional)
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
@@ -2847,7 +2847,7 @@ class IntegrationApi
      *
      * Get customer session
      *
-     * @param  string $customerSessionId The custom identifier for this session. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2864,7 +2864,7 @@ class IntegrationApi
      *
      * Get customer session
      *
-     * @param  string $customerSessionId The custom identifier for this session. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2992,7 +2992,7 @@ class IntegrationApi
      *
      * Get customer session
      *
-     * @param  string $customerSessionId The custom identifier for this session. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3012,7 +3012,7 @@ class IntegrationApi
      *
      * Get customer session
      *
-     * @param  string $customerSessionId The custom identifier for this session. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3059,7 +3059,7 @@ class IntegrationApi
     /**
      * Create request for operation 'getCustomerSession'
      *
-     * @param  string $customerSessionId The custom identifier for this session. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3161,11 +3161,423 @@ class IntegrationApi
     }
 
     /**
+     * Operation getLoyaltyTransactions
+     *
+     * Get loyalty ledger transaction logs
+     *
+     * @param  int $loyaltyProgramId Identifier of the loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs endpoint](https://docs.talon.one/management-api/#operation/getLoyaltyPrograms). (required)
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  \DateTime $startDate Time from which results are returned. It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Only return results older than this timestamp. It must be an RFC3339 timestamp string. (optional)
+     * @param  int $pageSize The number of items in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse2001|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     */
+    public function getLoyaltyTransactions($loyaltyProgramId, $integrationId, $startDate = null, $endDate = null, $pageSize = null, $skip = null)
+    {
+        list($response) = $this->getLoyaltyTransactionsWithHttpInfo($loyaltyProgramId, $integrationId, $startDate, $endDate, $pageSize, $skip);
+        return $response;
+    }
+
+    /**
+     * Operation getLoyaltyTransactionsWithHttpInfo
+     *
+     * Get loyalty ledger transaction logs
+     *
+     * @param  int $loyaltyProgramId Identifier of the loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs endpoint](https://docs.talon.one/management-api/#operation/getLoyaltyPrograms). (required)
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  \DateTime $startDate Time from which results are returned. It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Only return results older than this timestamp. It must be an RFC3339 timestamp string. (optional)
+     * @param  int $pageSize The number of items in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse2001|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getLoyaltyTransactionsWithHttpInfo($loyaltyProgramId, $integrationId, $startDate = null, $endDate = null, $pageSize = null, $skip = null)
+    {
+        $request = $this->getLoyaltyTransactionsRequest($loyaltyProgramId, $integrationId, $startDate, $endDate, $pageSize, $skip);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse2001',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getLoyaltyTransactionsAsync
+     *
+     * Get loyalty ledger transaction logs
+     *
+     * @param  int $loyaltyProgramId Identifier of the loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs endpoint](https://docs.talon.one/management-api/#operation/getLoyaltyPrograms). (required)
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  \DateTime $startDate Time from which results are returned. It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Only return results older than this timestamp. It must be an RFC3339 timestamp string. (optional)
+     * @param  int $pageSize The number of items in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getLoyaltyTransactionsAsync($loyaltyProgramId, $integrationId, $startDate = null, $endDate = null, $pageSize = null, $skip = null)
+    {
+        return $this->getLoyaltyTransactionsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $startDate, $endDate, $pageSize, $skip)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getLoyaltyTransactionsAsyncWithHttpInfo
+     *
+     * Get loyalty ledger transaction logs
+     *
+     * @param  int $loyaltyProgramId Identifier of the loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs endpoint](https://docs.talon.one/management-api/#operation/getLoyaltyPrograms). (required)
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  \DateTime $startDate Time from which results are returned. It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Only return results older than this timestamp. It must be an RFC3339 timestamp string. (optional)
+     * @param  int $pageSize The number of items in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getLoyaltyTransactionsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $startDate = null, $endDate = null, $pageSize = null, $skip = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+        $request = $this->getLoyaltyTransactionsRequest($loyaltyProgramId, $integrationId, $startDate, $endDate, $pageSize, $skip);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getLoyaltyTransactions'
+     *
+     * @param  int $loyaltyProgramId Identifier of the loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs endpoint](https://docs.talon.one/management-api/#operation/getLoyaltyPrograms). (required)
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  \DateTime $startDate Time from which results are returned. It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Only return results older than this timestamp. It must be an RFC3339 timestamp string. (optional)
+     * @param  int $pageSize The number of items in this response. When omitted, the maximum value of 1000 will be used. (optional)
+     * @param  int $skip Skips the given number of items when paging through large result sets. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getLoyaltyTransactionsRequest($loyaltyProgramId, $integrationId, $startDate = null, $endDate = null, $pageSize = null, $skip = null)
+    {
+        // verify the required parameter 'loyaltyProgramId' is set
+        if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $loyaltyProgramId when calling getLoyaltyTransactions'
+            );
+        }
+        // verify the required parameter 'integrationId' is set
+        if ($integrationId === null || (is_array($integrationId) && count($integrationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $integrationId when calling getLoyaltyTransactions'
+            );
+        }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getLoyaltyTransactions, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getLoyaltyTransactions, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/transactions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (is_array($startDate)) {
+            $startDate = ObjectSerializer::serializeCollection($startDate, '', true);
+        }
+        if ($startDate !== null) {
+            $queryParams['startDate'] = $startDate;
+        }
+        // query params
+        if (is_array($endDate)) {
+            $endDate = ObjectSerializer::serializeCollection($endDate, '', true);
+        }
+        if ($endDate !== null) {
+            $queryParams['endDate'] = $endDate;
+        }
+        // query params
+        if (is_array($pageSize)) {
+            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
+        }
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = $pageSize;
+        }
+        // query params
+        if (is_array($skip)) {
+            $skip = ObjectSerializer::serializeCollection($skip, '', true);
+        }
+        if ($skip !== null) {
+            $queryParams['skip'] = $skip;
+        }
+
+
+        // path params
+        if ($loyaltyProgramId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'loyaltyProgramId' . '}',
+                ObjectSerializer::toPathValue($loyaltyProgramId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($integrationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'integrationId' . '}',
+                ObjectSerializer::toPathValue($integrationId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getReservedCustomers
      *
      * List customers that have this coupon reserved
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3182,7 +3594,7 @@ class IntegrationApi
      *
      * List customers that have this coupon reserved
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3330,7 +3742,7 @@ class IntegrationApi
      *
      * List customers that have this coupon reserved
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3350,7 +3762,7 @@ class IntegrationApi
      *
      * List customers that have this coupon reserved
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3397,7 +3809,7 @@ class IntegrationApi
     /**
      * Create request for operation 'getReservedCustomers'
      *
-     * @param  string $couponValue The value of a coupon (required)
+     * @param  string $couponValue The code of the coupon. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3503,7 +3915,7 @@ class IntegrationApi
      *
      * Return cart items
      *
-     * @param  string $customerSessionId The custom identifier for the session on which the return request will be applied. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      * @param  \TalonOne\Client\Model\ReturnIntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
      *
@@ -3522,7 +3934,7 @@ class IntegrationApi
      *
      * Return cart items
      *
-     * @param  string $customerSessionId The custom identifier for the session on which the return request will be applied. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      * @param  \TalonOne\Client\Model\ReturnIntegrationRequest $body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
      *
@@ -3652,7 +4064,7 @@ class IntegrationApi
      *
      * Return cart items
      *
-     * @param  string $customerSessionId The custom identifier for the session on which the return request will be applied. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      * @param  \TalonOne\Client\Model\ReturnIntegrationRequest $body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
      *
@@ -3674,7 +4086,7 @@ class IntegrationApi
      *
      * Return cart items
      *
-     * @param  string $customerSessionId The custom identifier for the session on which the return request will be applied. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      * @param  \TalonOne\Client\Model\ReturnIntegrationRequest $body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
      *
@@ -3723,7 +4135,7 @@ class IntegrationApi
     /**
      * Create request for operation 'returnCartItems'
      *
-     * @param  string $customerSessionId The custom identifier for the session on which the return request will be applied. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      * @param  \TalonOne\Client\Model\ReturnIntegrationRequest $body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
      *
@@ -3836,6 +4248,358 @@ class IntegrationApi
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation syncCatalog
+     *
+     * Sync cart item catalog
+     *
+     * @param  int $catalogId catalogId (required)
+     * @param  \TalonOne\Client\Model\CatalogSyncRequest $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\Catalog|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     */
+    public function syncCatalog($catalogId, $body)
+    {
+        list($response) = $this->syncCatalogWithHttpInfo($catalogId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation syncCatalogWithHttpInfo
+     *
+     * Sync cart item catalog
+     *
+     * @param  int $catalogId (required)
+     * @param  \TalonOne\Client\Model\CatalogSyncRequest $body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\Catalog|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function syncCatalogWithHttpInfo($catalogId, $body)
+    {
+        $request = $this->syncCatalogRequest($catalogId, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\Catalog' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\Catalog', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\Catalog';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\Catalog',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation syncCatalogAsync
+     *
+     * Sync cart item catalog
+     *
+     * @param  int $catalogId (required)
+     * @param  \TalonOne\Client\Model\CatalogSyncRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function syncCatalogAsync($catalogId, $body)
+    {
+        return $this->syncCatalogAsyncWithHttpInfo($catalogId, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation syncCatalogAsyncWithHttpInfo
+     *
+     * Sync cart item catalog
+     *
+     * @param  int $catalogId (required)
+     * @param  \TalonOne\Client\Model\CatalogSyncRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function syncCatalogAsyncWithHttpInfo($catalogId, $body)
+    {
+        $returnType = '\TalonOne\Client\Model\Catalog';
+        $request = $this->syncCatalogRequest($catalogId, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'syncCatalog'
+     *
+     * @param  int $catalogId (required)
+     * @param  \TalonOne\Client\Model\CatalogSyncRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function syncCatalogRequest($catalogId, $body)
+    {
+        // verify the required parameter 'catalogId' is set
+        if ($catalogId === null || (is_array($catalogId) && count($catalogId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $catalogId when calling syncCatalog'
+            );
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling syncCatalog'
+            );
+        }
+
+        $resourcePath = '/v1/catalogs/{catalogId}/sync';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($catalogId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'catalogId' . '}',
+                ObjectSerializer::toPathValue($catalogId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -4188,6 +4952,343 @@ class IntegrationApi
     }
 
     /**
+     * Operation trackEventV2
+     *
+     * Track event V2
+     *
+     * @param  \TalonOne\Client\Model\IntegrationEventV2Request $body body (required)
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information. (optional, default to 'yes')
+     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\IntegrationStateV2|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     */
+    public function trackEventV2($body, $silent = 'yes', $dry = null)
+    {
+        list($response) = $this->trackEventV2WithHttpInfo($body, $silent, $dry);
+        return $response;
+    }
+
+    /**
+     * Operation trackEventV2WithHttpInfo
+     *
+     * Track event V2
+     *
+     * @param  \TalonOne\Client\Model\IntegrationEventV2Request $body (required)
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information. (optional, default to 'yes')
+     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\IntegrationStateV2|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function trackEventV2WithHttpInfo($body, $silent = 'yes', $dry = null)
+    {
+        $request = $this->trackEventV2Request($body, $silent, $dry);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\IntegrationStateV2' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\IntegrationStateV2', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\IntegrationStateV2';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\IntegrationStateV2',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation trackEventV2Async
+     *
+     * Track event V2
+     *
+     * @param  \TalonOne\Client\Model\IntegrationEventV2Request $body (required)
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information. (optional, default to 'yes')
+     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function trackEventV2Async($body, $silent = 'yes', $dry = null)
+    {
+        return $this->trackEventV2AsyncWithHttpInfo($body, $silent, $dry)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation trackEventV2AsyncWithHttpInfo
+     *
+     * Track event V2
+     *
+     * @param  \TalonOne\Client\Model\IntegrationEventV2Request $body (required)
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information. (optional, default to 'yes')
+     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function trackEventV2AsyncWithHttpInfo($body, $silent = 'yes', $dry = null)
+    {
+        $returnType = '\TalonOne\Client\Model\IntegrationStateV2';
+        $request = $this->trackEventV2Request($body, $silent, $dry);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'trackEventV2'
+     *
+     * @param  \TalonOne\Client\Model\IntegrationEventV2Request $body (required)
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information. (optional, default to 'yes')
+     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function trackEventV2Request($body, $silent = 'yes', $dry = null)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling trackEventV2'
+            );
+        }
+
+        $resourcePath = '/v2/events';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (is_array($silent)) {
+            $silent = ObjectSerializer::serializeCollection($silent, '', true);
+        }
+        if ($silent !== null) {
+            $queryParams['silent'] = $silent;
+        }
+        // query params
+        if (is_array($dry)) {
+            $dry = ObjectSerializer::serializeCollection($dry, '', true);
+        }
+        if ($dry !== null) {
+            $queryParams['dry'] = $dry;
+        }
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation updateAudienceCustomersAttributes
      *
      * Update profile attributes for all customers in audience
@@ -4450,7 +5551,7 @@ class IntegrationApi
     /**
      * Operation updateAudienceV2
      *
-     * Update audience
+     * Update audience name
      *
      * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
      * @param  \TalonOne\Client\Model\UpdateAudience $body body (required)
@@ -4468,7 +5569,7 @@ class IntegrationApi
     /**
      * Operation updateAudienceV2WithHttpInfo
      *
-     * Update audience
+     * Update audience name
      *
      * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
      * @param  \TalonOne\Client\Model\UpdateAudience $body (required)
@@ -4597,7 +5698,7 @@ class IntegrationApi
     /**
      * Operation updateAudienceV2Async
      *
-     * Update audience
+     * Update audience name
      *
      * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
      * @param  \TalonOne\Client\Model\UpdateAudience $body (required)
@@ -4618,7 +5719,7 @@ class IntegrationApi
     /**
      * Operation updateAudienceV2AsyncWithHttpInfo
      *
-     * Update audience
+     * Update audience name
      *
      * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
      * @param  \TalonOne\Client\Model\UpdateAudience $body (required)
@@ -5033,10 +6134,10 @@ class IntegrationApi
      *
      * Update customer profile
      *
-     * @param  string $integrationId The custom identifier for this profile. Must be unique within the account. (required)
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body body (required)
-     * @param  bool $runRuleEngine Indicates whether to run the rule engine. Setting this property to &#x60;false&#x60; improves response times. (optional, default to false)
-     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. Only used when &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;. (optional)
+     * @param  bool $runRuleEngine Indicates whether to run the Rule Engine.  If &#x60;true&#x60;, the response includes: - The effects generated by the triggered campaigns are returned in the &#x60;effects&#x60; property. - The created coupons and referral objects.  If &#x60;false&#x60;: - The rules are not executed and the &#x60;effects&#x60; property is always empty. - The response time improves. - You cannot use &#x60;responseContent&#x60; in the body. (optional, default to false)
+     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  This property only works when &#x60;runRuleEngine&#x3D;true&#x60;. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5053,10 +6154,10 @@ class IntegrationApi
      *
      * Update customer profile
      *
-     * @param  string $integrationId The custom identifier for this profile. Must be unique within the account. (required)
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body (required)
-     * @param  bool $runRuleEngine Indicates whether to run the rule engine. Setting this property to &#x60;false&#x60; improves response times. (optional, default to false)
-     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. Only used when &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;. (optional)
+     * @param  bool $runRuleEngine Indicates whether to run the Rule Engine.  If &#x60;true&#x60;, the response includes: - The effects generated by the triggered campaigns are returned in the &#x60;effects&#x60; property. - The created coupons and referral objects.  If &#x60;false&#x60;: - The rules are not executed and the &#x60;effects&#x60; property is always empty. - The response time improves. - You cannot use &#x60;responseContent&#x60; in the body. (optional, default to false)
+     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  This property only works when &#x60;runRuleEngine&#x3D;true&#x60;. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5204,10 +6305,10 @@ class IntegrationApi
      *
      * Update customer profile
      *
-     * @param  string $integrationId The custom identifier for this profile. Must be unique within the account. (required)
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body (required)
-     * @param  bool $runRuleEngine Indicates whether to run the rule engine. Setting this property to &#x60;false&#x60; improves response times. (optional, default to false)
-     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. Only used when &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;. (optional)
+     * @param  bool $runRuleEngine Indicates whether to run the Rule Engine.  If &#x60;true&#x60;, the response includes: - The effects generated by the triggered campaigns are returned in the &#x60;effects&#x60; property. - The created coupons and referral objects.  If &#x60;false&#x60;: - The rules are not executed and the &#x60;effects&#x60; property is always empty. - The response time improves. - You cannot use &#x60;responseContent&#x60; in the body. (optional, default to false)
+     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  This property only works when &#x60;runRuleEngine&#x3D;true&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5227,10 +6328,10 @@ class IntegrationApi
      *
      * Update customer profile
      *
-     * @param  string $integrationId The custom identifier for this profile. Must be unique within the account. (required)
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body (required)
-     * @param  bool $runRuleEngine Indicates whether to run the rule engine. Setting this property to &#x60;false&#x60; improves response times. (optional, default to false)
-     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. Only used when &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;. (optional)
+     * @param  bool $runRuleEngine Indicates whether to run the Rule Engine.  If &#x60;true&#x60;, the response includes: - The effects generated by the triggered campaigns are returned in the &#x60;effects&#x60; property. - The created coupons and referral objects.  If &#x60;false&#x60;: - The rules are not executed and the &#x60;effects&#x60; property is always empty. - The response time improves. - You cannot use &#x60;responseContent&#x60; in the body. (optional, default to false)
+     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  This property only works when &#x60;runRuleEngine&#x3D;true&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5277,10 +6378,10 @@ class IntegrationApi
     /**
      * Create request for operation 'updateCustomerProfileV2'
      *
-     * @param  string $integrationId The custom identifier for this profile. Must be unique within the account. (required)
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \TalonOne\Client\Model\CustomerProfileIntegrationRequestV2 $body (required)
-     * @param  bool $runRuleEngine Indicates whether to run the rule engine. Setting this property to &#x60;false&#x60; improves response times. (optional, default to false)
-     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. Only used when &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;. (optional)
+     * @param  bool $runRuleEngine Indicates whether to run the Rule Engine.  If &#x60;true&#x60;, the response includes: - The effects generated by the triggered campaigns are returned in the &#x60;effects&#x60; property. - The created coupons and referral objects.  If &#x60;false&#x60;: - The rules are not executed and the &#x60;effects&#x60; property is always empty. - The response time improves. - You cannot use &#x60;responseContent&#x60; in the body. (optional, default to false)
+     * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  This property only works when &#x60;runRuleEngine&#x3D;true&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5734,7 +6835,7 @@ class IntegrationApi
      *
      * Update customer session
      *
-     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
      *
@@ -5753,7 +6854,7 @@ class IntegrationApi
      *
      * Update customer session
      *
-     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
      *
@@ -5903,7 +7004,7 @@ class IntegrationApi
      *
      * Update customer session
      *
-     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
      *
@@ -5925,7 +7026,7 @@ class IntegrationApi
      *
      * Update customer session
      *
-     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
      *
@@ -5974,7 +7075,7 @@ class IntegrationApi
     /**
      * Create request for operation 'updateCustomerSessionV2'
      *
-     * @param  string $customerSessionId The custom identifier for this session, must be unique within the account. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session endpoint](https://docs.talon.one/management-api/#operation/getApplicationSessions). (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
      *

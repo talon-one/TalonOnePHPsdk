@@ -297,7 +297,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets profileId
      *
-     * @param string|null $profileId ID of the customers profile as used within this Talon.One account.  **Note:** If the customer does not yet have a known profileId, we recommend you use a guest profileId.
+     * @param string|null $profileId ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known `profileId`, we recommend you use a guest `profileId`.
      *
      * @return $this
      */
@@ -321,7 +321,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets couponCodes
      *
-     * @param string[]|null $couponCodes Any coupon codes entered.
+     * @param string[]|null $couponCodes Any coupon codes entered.  **Important**: If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it.
      *
      * @return $this
      */
@@ -345,7 +345,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets referralCode
      *
-     * @param string|null $referralCode Any referral code entered.
+     * @param string|null $referralCode Any referral code entered.  **Important**: If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it.
      *
      * @return $this
      */
@@ -397,7 +397,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string|null $state Indicates the current state of the session. Sessions can be created as `open` or `closed`, after which valid transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. `closed` → `cancelled`  For more information, see [Entites](/docs/dev/concepts/entities#customer-session).
+     * @param string|null $state Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. Either:    - `closed` → `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` → `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems)) 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](/docs/dev/concepts/entities#customer-session).
      *
      * @return $this
      */
@@ -454,7 +454,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets additionalCosts
      *
-     * @param map[string,\TalonOne\Client\Model\AdditionalCost]|null $additionalCosts Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees. [Create them in the Campaign Manager](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs/#creating-additional-costs) before setting them with this property.
+     * @param map[string,\TalonOne\Client\Model\AdditionalCost]|null $additionalCosts Use this property to set a value for the additional costs of this session, such as a shipping cost.  They must be created in the Campaign Manager before you set them with this property. See [Managing additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs/).
      *
      * @return $this
      */
@@ -478,7 +478,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets identifiers
      *
-     * @param string[]|null $identifiers Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts.
+     * @param string[]|null $identifiers Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers/).  **Important**: If you [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains an identifier by the time you close it.
      *
      * @return $this
      */
@@ -502,7 +502,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes A key-value map of the sessions attributes. If you use custom attributes, they must be created in the Campaign Manager before you set them with this property. For more information, see [Attributes](https://docs.talon.one/docs/dev/concepts/attributes).
+     * @param object|null $attributes Use this property to set a value for the attributes of your choice. Attributes represent any information to attach to your session, like the shipping city.  You can use [built-in attributes](https://docs.talon.one/docs/dev/concepts/attributes#built-in-attributes) or [custom ones](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes). Custom attributes must be created in the Campaign Manager before you set them with this property.
      *
      * @return $this
      */

@@ -221,7 +221,7 @@ class ReferralCreatedEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The referral code that was created
+     * @param string $value The referral code that was created.
      *
      * @return $this
      */

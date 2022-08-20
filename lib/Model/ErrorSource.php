@@ -308,7 +308,7 @@ class ErrorSource implements ModelInterface, ArrayAccess
     /**
      * Sets resource
      *
-     * @param string|null $resource Pointer to the resource that caused this error
+     * @param string|null $resource Pointer to the resource that caused this error.
      *
      * @return $this
      */

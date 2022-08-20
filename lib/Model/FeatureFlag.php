@@ -241,7 +241,7 @@ class FeatureFlag implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name for the featureflag
+     * @param string $name The name for the featureflag.
      *
      * @return $this
      */
@@ -265,7 +265,7 @@ class FeatureFlag implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The value for the featureflag
+     * @param string $value The value for the featureflag.
      *
      * @return $this
      */

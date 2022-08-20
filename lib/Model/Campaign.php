@@ -80,12 +80,15 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountCount' => 'float',
         'discountEffectCount' => 'int',
         'couponCreationCount' => 'int',
+        'customEffectCount' => 'int',
         'referralCreationCount' => 'int',
+        'addFreeItemEffectCount' => 'int',
         'awardedGiveawaysCount' => 'int',
         'createdLoyaltyPointsCount' => 'float',
         'createdLoyaltyPointsEffectCount' => 'int',
         'redeemedLoyaltyPointsCount' => 'float',
         'redeemedLoyaltyPointsEffectCount' => 'int',
+        'callApiEffectCount' => 'int',
         'lastActivity' => '\DateTime',
         'updated' => '\DateTime',
         'createdBy' => 'string',
@@ -121,12 +124,15 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountCount' => null,
         'discountEffectCount' => null,
         'couponCreationCount' => null,
+        'customEffectCount' => null,
         'referralCreationCount' => null,
+        'addFreeItemEffectCount' => null,
         'awardedGiveawaysCount' => null,
         'createdLoyaltyPointsCount' => null,
         'createdLoyaltyPointsEffectCount' => null,
         'redeemedLoyaltyPointsCount' => null,
         'redeemedLoyaltyPointsEffectCount' => null,
+        'callApiEffectCount' => null,
         'lastActivity' => 'date-time',
         'updated' => 'date-time',
         'createdBy' => null,
@@ -183,12 +189,15 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountCount' => 'discountCount',
         'discountEffectCount' => 'discountEffectCount',
         'couponCreationCount' => 'couponCreationCount',
+        'customEffectCount' => 'customEffectCount',
         'referralCreationCount' => 'referralCreationCount',
+        'addFreeItemEffectCount' => 'addFreeItemEffectCount',
         'awardedGiveawaysCount' => 'awardedGiveawaysCount',
         'createdLoyaltyPointsCount' => 'createdLoyaltyPointsCount',
         'createdLoyaltyPointsEffectCount' => 'createdLoyaltyPointsEffectCount',
         'redeemedLoyaltyPointsCount' => 'redeemedLoyaltyPointsCount',
         'redeemedLoyaltyPointsEffectCount' => 'redeemedLoyaltyPointsEffectCount',
+        'callApiEffectCount' => 'callApiEffectCount',
         'lastActivity' => 'lastActivity',
         'updated' => 'updated',
         'createdBy' => 'createdBy',
@@ -224,12 +233,15 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountCount' => 'setDiscountCount',
         'discountEffectCount' => 'setDiscountEffectCount',
         'couponCreationCount' => 'setCouponCreationCount',
+        'customEffectCount' => 'setCustomEffectCount',
         'referralCreationCount' => 'setReferralCreationCount',
+        'addFreeItemEffectCount' => 'setAddFreeItemEffectCount',
         'awardedGiveawaysCount' => 'setAwardedGiveawaysCount',
         'createdLoyaltyPointsCount' => 'setCreatedLoyaltyPointsCount',
         'createdLoyaltyPointsEffectCount' => 'setCreatedLoyaltyPointsEffectCount',
         'redeemedLoyaltyPointsCount' => 'setRedeemedLoyaltyPointsCount',
         'redeemedLoyaltyPointsEffectCount' => 'setRedeemedLoyaltyPointsEffectCount',
+        'callApiEffectCount' => 'setCallApiEffectCount',
         'lastActivity' => 'setLastActivity',
         'updated' => 'setUpdated',
         'createdBy' => 'setCreatedBy',
@@ -265,12 +277,15 @@ class Campaign implements ModelInterface, ArrayAccess
         'discountCount' => 'getDiscountCount',
         'discountEffectCount' => 'getDiscountEffectCount',
         'couponCreationCount' => 'getCouponCreationCount',
+        'customEffectCount' => 'getCustomEffectCount',
         'referralCreationCount' => 'getReferralCreationCount',
+        'addFreeItemEffectCount' => 'getAddFreeItemEffectCount',
         'awardedGiveawaysCount' => 'getAwardedGiveawaysCount',
         'createdLoyaltyPointsCount' => 'getCreatedLoyaltyPointsCount',
         'createdLoyaltyPointsEffectCount' => 'getCreatedLoyaltyPointsEffectCount',
         'redeemedLoyaltyPointsCount' => 'getRedeemedLoyaltyPointsCount',
         'redeemedLoyaltyPointsEffectCount' => 'getRedeemedLoyaltyPointsEffectCount',
+        'callApiEffectCount' => 'getCallApiEffectCount',
         'lastActivity' => 'getLastActivity',
         'updated' => 'getUpdated',
         'createdBy' => 'getCreatedBy',
@@ -396,12 +411,15 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['discountCount'] = isset($data['discountCount']) ? $data['discountCount'] : null;
         $this->container['discountEffectCount'] = isset($data['discountEffectCount']) ? $data['discountEffectCount'] : null;
         $this->container['couponCreationCount'] = isset($data['couponCreationCount']) ? $data['couponCreationCount'] : null;
+        $this->container['customEffectCount'] = isset($data['customEffectCount']) ? $data['customEffectCount'] : null;
         $this->container['referralCreationCount'] = isset($data['referralCreationCount']) ? $data['referralCreationCount'] : null;
+        $this->container['addFreeItemEffectCount'] = isset($data['addFreeItemEffectCount']) ? $data['addFreeItemEffectCount'] : null;
         $this->container['awardedGiveawaysCount'] = isset($data['awardedGiveawaysCount']) ? $data['awardedGiveawaysCount'] : null;
         $this->container['createdLoyaltyPointsCount'] = isset($data['createdLoyaltyPointsCount']) ? $data['createdLoyaltyPointsCount'] : null;
         $this->container['createdLoyaltyPointsEffectCount'] = isset($data['createdLoyaltyPointsEffectCount']) ? $data['createdLoyaltyPointsEffectCount'] : null;
         $this->container['redeemedLoyaltyPointsCount'] = isset($data['redeemedLoyaltyPointsCount']) ? $data['redeemedLoyaltyPointsCount'] : null;
         $this->container['redeemedLoyaltyPointsEffectCount'] = isset($data['redeemedLoyaltyPointsEffectCount']) ? $data['redeemedLoyaltyPointsEffectCount'] : null;
+        $this->container['callApiEffectCount'] = isset($data['callApiEffectCount']) ? $data['callApiEffectCount'] : null;
         $this->container['lastActivity'] = isset($data['lastActivity']) ? $data['lastActivity'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
@@ -685,7 +703,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this campaign
+     * @param object|null $attributes Arbitrary properties associated with this campaign.
      *
      * @return $this
      */
@@ -1027,6 +1045,30 @@ class Campaign implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets customEffectCount
+     *
+     * @return int|null
+     */
+    public function getCustomEffectCount()
+    {
+        return $this->container['customEffectCount'];
+    }
+
+    /**
+     * Sets customEffectCount
+     *
+     * @param int|null $customEffectCount Total number of custom effects triggered by rules in this campaign.
+     *
+     * @return $this
+     */
+    public function setCustomEffectCount($customEffectCount)
+    {
+        $this->container['customEffectCount'] = $customEffectCount;
+
+        return $this;
+    }
+
+    /**
      * Gets referralCreationCount
      *
      * @return int|null
@@ -1046,6 +1088,30 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setReferralCreationCount($referralCreationCount)
     {
         $this->container['referralCreationCount'] = $referralCreationCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets addFreeItemEffectCount
+     *
+     * @return int|null
+     */
+    public function getAddFreeItemEffectCount()
+    {
+        return $this->container['addFreeItemEffectCount'];
+    }
+
+    /**
+     * Sets addFreeItemEffectCount
+     *
+     * @param int|null $addFreeItemEffectCount Total number of times triggering add free item effext is allowed in this campaign.
+     *
+     * @return $this
+     */
+    public function setAddFreeItemEffectCount($addFreeItemEffectCount)
+    {
+        $this->container['addFreeItemEffectCount'] = $addFreeItemEffectCount;
 
         return $this;
     }
@@ -1171,6 +1237,30 @@ class Campaign implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets callApiEffectCount
+     *
+     * @return int|null
+     */
+    public function getCallApiEffectCount()
+    {
+        return $this->container['callApiEffectCount'];
+    }
+
+    /**
+     * Sets callApiEffectCount
+     *
+     * @param int|null $callApiEffectCount Total number of webhook triggered by rules in this campaign.
+     *
+     * @return $this
+     */
+    public function setCallApiEffectCount($callApiEffectCount)
+    {
+        $this->container['callApiEffectCount'] = $callApiEffectCount;
+
+        return $this;
+    }
+
+    /**
      * Gets lastActivity
      *
      * @return \DateTime|null
@@ -1207,7 +1297,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets updated
      *
-     * @param \DateTime|null $updated Timestamp of the most recent update to the campaign or any of its elements.
+     * @param \DateTime|null $updated Timestamp of the most recent update to the campaign's property. Updates to external entities used in this campaign are **not** registered by this property, such as collection or coupon updates.
      *
      * @return $this
      */

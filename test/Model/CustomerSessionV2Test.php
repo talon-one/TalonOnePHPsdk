@@ -79,9 +79,9 @@ class CustomerSessionV2Test extends TestCase
     }
 
     /**
-     * Test attribute "integrationId"
+     * Test attribute "id"
      */
-    public function testPropertyIntegrationId()
+    public function testPropertyId()
     {
     }
 
@@ -89,6 +89,13 @@ class CustomerSessionV2Test extends TestCase
      * Test attribute "created"
      */
     public function testPropertyCreated()
+    {
+    }
+
+    /**
+     * Test attribute "integrationId"
+     */
+    public function testPropertyIntegrationId()
     {
     }
 

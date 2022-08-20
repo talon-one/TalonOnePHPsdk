@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * EffectEntityTest Class Doc Comment
  *
  * @category    Class
- * @description Definition of all properties that are present on all effects, independent of their type
+ * @description Definition of all properties that are present on all effects, independent of their type.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -117,6 +117,13 @@ class EffectEntityTest extends TestCase
      * Test attribute "triggeredByCoupon"
      */
     public function testPropertyTriggeredByCoupon()
+    {
+    }
+
+    /**
+     * Test attribute "triggeredForCatalogItem"
+     */
+    public function testPropertyTriggeredForCatalogItem()
     {
     }
 }

@@ -280,9 +280,17 @@ class CustomEffect implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if (!preg_match("/^[A-Za-z](\\w|\\s)*$/", $this->container['name'])) {
+            $invalidProperties[] = "invalid value for 'name', must be conform to the pattern /^[A-Za-z](\\w|\\s)*$/.";
+        }
+
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
         }
+        if (!preg_match("/^[^[:cntrl:]\\s][^[:cntrl:]]*$/", $this->container['title'])) {
+            $invalidProperties[] = "invalid value for 'title', must be conform to the pattern /^[^[:cntrl:]\\s][^[:cntrl:]]*$/.";
+        }
+
         if ($this->container['payload'] === null) {
             $invalidProperties[] = "'payload' can't be null";
         }
@@ -320,7 +328,7 @@ class CustomEffect implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -446,6 +454,11 @@ class CustomEffect implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
+
+        if ((!preg_match("/^[A-Za-z](\\w|\\s)*$/", $name))) {
+            throw new \InvalidArgumentException("invalid value for $name when calling CustomEffect., must conform to the pattern /^[A-Za-z](\\w|\\s)*$/.");
+        }
+
         $this->container['name'] = $name;
 
         return $this;
@@ -470,6 +483,11 @@ class CustomEffect implements ModelInterface, ArrayAccess
      */
     public function setTitle($title)
     {
+
+        if ((!preg_match("/^[^[:cntrl:]\\s][^[:cntrl:]]*$/", $title))) {
+            throw new \InvalidArgumentException("invalid value for $title when calling CustomEffect., must conform to the pattern /^[^[:cntrl:]\\s][^[:cntrl:]]*$/.");
+        }
+
         $this->container['title'] = $title;
 
         return $this;
@@ -560,7 +578,7 @@ class CustomEffect implements ModelInterface, ArrayAccess
     /**
      * Sets params
      *
-     * @param \TalonOne\Client\Model\TemplateArgDef[]|null $params Array of template argument definitions
+     * @param \TalonOne\Client\Model\TemplateArgDef[]|null $params Array of template argument definitions.
      *
      * @return $this
      */

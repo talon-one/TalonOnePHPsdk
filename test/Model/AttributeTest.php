@@ -177,6 +177,20 @@ class AttributeTest extends TestCase
     }
 
     /**
+     * Test attribute "subscribedCatalogsIds"
+     */
+    public function testPropertySubscribedCatalogsIds()
+    {
+    }
+
+    /**
+     * Test attribute "allowedSubscriptions"
+     */
+    public function testPropertyAllowedSubscriptions()
+    {
+    }
+
+    /**
      * Test attribute "eventTypeId"
      */
     public function testPropertyEventTypeId()

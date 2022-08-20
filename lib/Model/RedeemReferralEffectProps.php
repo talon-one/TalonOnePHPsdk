@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * RedeemReferralEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;redeemReferral\&quot; effect. This gets triggered whenever the referral code is valid, and a rule was triggered that contains a \&quot;redeem referral\&quot; effect.
+ * @description This effect is **deprecated**. The properties specific to the \&quot;redeemReferral\&quot; effect. This gets triggered whenever the referral code is valid, and a rule was triggered that contains a \&quot;redeem referral\&quot; effect.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -230,7 +230,7 @@ class RedeemReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id The id of the referral code that was redeemed
+     * @param int $id The id of the referral code that was redeemed.
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class RedeemReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The referral code that was redeemed
+     * @param string $value The referral code that was redeemed.
      *
      * @return $this
      */

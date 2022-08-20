@@ -250,7 +250,7 @@ class CampaignSetLeafNode implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type Indicates the node type
+     * @param string $type Indicates the node type.
      *
      * @return $this
      */

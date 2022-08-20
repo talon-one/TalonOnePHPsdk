@@ -70,7 +70,9 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'limits' => '\TalonOne\Client\Model\TemplateLimitConfig[]',
         'templateParams' => '\TalonOne\Client\Model\CampaignTemplateParams[]',
-        'applicationsIds' => 'int[]'
+        'applicationsIds' => 'int[]',
+        'campaignCollections' => '\TalonOne\Client\Model\CampaignTemplateCollection[]',
+        'defaultCampaignGroupId' => 'int'
     ];
 
     /**
@@ -92,7 +94,9 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         'referralSettings' => null,
         'limits' => null,
         'templateParams' => null,
-        'applicationsIds' => null
+        'applicationsIds' => null,
+        'campaignCollections' => null,
+        'defaultCampaignGroupId' => null
     ];
 
     /**
@@ -135,7 +139,9 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         'referralSettings' => 'referralSettings',
         'limits' => 'limits',
         'templateParams' => 'templateParams',
-        'applicationsIds' => 'applicationsIds'
+        'applicationsIds' => 'applicationsIds',
+        'campaignCollections' => 'campaignCollections',
+        'defaultCampaignGroupId' => 'defaultCampaignGroupId'
     ];
 
     /**
@@ -157,7 +163,9 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         'referralSettings' => 'setReferralSettings',
         'limits' => 'setLimits',
         'templateParams' => 'setTemplateParams',
-        'applicationsIds' => 'setApplicationsIds'
+        'applicationsIds' => 'setApplicationsIds',
+        'campaignCollections' => 'setCampaignCollections',
+        'defaultCampaignGroupId' => 'setDefaultCampaignGroupId'
     ];
 
     /**
@@ -179,7 +187,9 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         'referralSettings' => 'getReferralSettings',
         'limits' => 'getLimits',
         'templateParams' => 'getTemplateParams',
-        'applicationsIds' => 'getApplicationsIds'
+        'applicationsIds' => 'getApplicationsIds',
+        'campaignCollections' => 'getCampaignCollections',
+        'defaultCampaignGroupId' => 'getDefaultCampaignGroupId'
     ];
 
     /**
@@ -292,6 +302,8 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['templateParams'] = isset($data['templateParams']) ? $data['templateParams'] : null;
         $this->container['applicationsIds'] = isset($data['applicationsIds']) ? $data['applicationsIds'] : null;
+        $this->container['campaignCollections'] = isset($data['campaignCollections']) ? $data['campaignCollections'] : null;
+        $this->container['defaultCampaignGroupId'] = isset($data['defaultCampaignGroupId']) ? $data['defaultCampaignGroupId'] : null;
     }
 
     /**
@@ -645,7 +657,7 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets limits
      *
-     * @param \TalonOne\Client\Model\TemplateLimitConfig[]|null $limits The set of limits that will operate for this campaign template
+     * @param \TalonOne\Client\Model\TemplateLimitConfig[]|null $limits The set of limits that will operate for this campaign template.
      *
      * @return $this
      */
@@ -693,13 +705,61 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets applicationsIds
      *
-     * @param int[] $applicationsIds A list of the IDs of the applications that are subscribed to this campaign template
+     * @param int[] $applicationsIds A list of the IDs of the applications that are subscribed to this campaign template.
      *
      * @return $this
      */
     public function setApplicationsIds($applicationsIds)
     {
         $this->container['applicationsIds'] = $applicationsIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignCollections
+     *
+     * @return \TalonOne\Client\Model\CampaignTemplateCollection[]|null
+     */
+    public function getCampaignCollections()
+    {
+        return $this->container['campaignCollections'];
+    }
+
+    /**
+     * Sets campaignCollections
+     *
+     * @param \TalonOne\Client\Model\CampaignTemplateCollection[]|null $campaignCollections The campaign collections from the blueprint campaign for the template.
+     *
+     * @return $this
+     */
+    public function setCampaignCollections($campaignCollections)
+    {
+        $this->container['campaignCollections'] = $campaignCollections;
+
+        return $this;
+    }
+
+    /**
+     * Gets defaultCampaignGroupId
+     *
+     * @return int|null
+     */
+    public function getDefaultCampaignGroupId()
+    {
+        return $this->container['defaultCampaignGroupId'];
+    }
+
+    /**
+     * Sets defaultCampaignGroupId
+     *
+     * @param int|null $defaultCampaignGroupId The default campaignGroupId.
+     *
+     * @return $this
+     */
+    public function setDefaultCampaignGroupId($defaultCampaignGroupId)
+    {
+        $this->container['defaultCampaignGroupId'] = $defaultCampaignGroupId;
 
         return $this;
     }

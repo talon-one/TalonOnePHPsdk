@@ -69,7 +69,9 @@ class CartItem implements ModelInterface, ArrayAccess
         'width' => 'float',
         'length' => 'float',
         'position' => 'float',
-        'attributes' => 'object'
+        'attributes' => 'object',
+        'additionalCosts' => 'map[string,\TalonOne\Client\Model\AdditionalCost]',
+        'catalogItemID' => 'int'
     ];
 
     /**
@@ -90,7 +92,9 @@ class CartItem implements ModelInterface, ArrayAccess
         'width' => null,
         'length' => null,
         'position' => null,
-        'attributes' => null
+        'attributes' => null,
+        'additionalCosts' => null,
+        'catalogItemID' => null
     ];
 
     /**
@@ -132,7 +136,9 @@ class CartItem implements ModelInterface, ArrayAccess
         'width' => 'width',
         'length' => 'length',
         'position' => 'position',
-        'attributes' => 'attributes'
+        'attributes' => 'attributes',
+        'additionalCosts' => 'additionalCosts',
+        'catalogItemID' => 'catalogItemID'
     ];
 
     /**
@@ -153,7 +159,9 @@ class CartItem implements ModelInterface, ArrayAccess
         'width' => 'setWidth',
         'length' => 'setLength',
         'position' => 'setPosition',
-        'attributes' => 'setAttributes'
+        'attributes' => 'setAttributes',
+        'additionalCosts' => 'setAdditionalCosts',
+        'catalogItemID' => 'setCatalogItemID'
     ];
 
     /**
@@ -174,7 +182,9 @@ class CartItem implements ModelInterface, ArrayAccess
         'width' => 'getWidth',
         'length' => 'getLength',
         'position' => 'getPosition',
-        'attributes' => 'getAttributes'
+        'attributes' => 'getAttributes',
+        'additionalCosts' => 'getAdditionalCosts',
+        'catalogItemID' => 'getCatalogItemID'
     ];
 
     /**
@@ -250,6 +260,8 @@ class CartItem implements ModelInterface, ArrayAccess
         $this->container['length'] = isset($data['length']) ? $data['length'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['additionalCosts'] = isset($data['additionalCosts']) ? $data['additionalCosts'] : null;
+        $this->container['catalogItemID'] = isset($data['catalogItemID']) ? $data['catalogItemID'] : null;
     }
 
     /**
@@ -313,7 +325,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Name of item
+     * @param string $name Name of item.
      *
      * @return $this
      */
@@ -342,7 +354,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets sku
      *
-     * @param string $sku Stock keeping unit of item
+     * @param string $sku Stock keeping unit of item.
      *
      * @return $this
      */
@@ -448,7 +460,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param float $price Price of item
+     * @param float $price Price of the item in the currency defined by your Application. This field is required if this item is not part of a [catalog](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/). If it is part of a catalog, setting a price here overrides the price from the catalog.
      *
      * @return $this
      */
@@ -472,7 +484,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets category
      *
-     * @param string|null $category Type, group or model of the item
+     * @param string|null $category Type, group or model of the item.
      *
      * @return $this
      */
@@ -496,7 +508,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets weight
      *
-     * @param float|null $weight Weight of item in grams
+     * @param float|null $weight Weight of item in grams.
      *
      * @return $this
      */
@@ -520,7 +532,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets height
      *
-     * @param float|null $height Height of item in mm
+     * @param float|null $height Height of item in mm.
      *
      * @return $this
      */
@@ -544,7 +556,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets width
      *
-     * @param float|null $width Width of item in mm
+     * @param float|null $width Width of item in mm.
      *
      * @return $this
      */
@@ -568,7 +580,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets length
      *
-     * @param float|null $length Length of item in mm
+     * @param float|null $length Length of item in mm.
      *
      * @return $this
      */
@@ -592,7 +604,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets position
      *
-     * @param float|null $position Position of the Cart Item in the Cart (calculated internally)
+     * @param float|null $position Position of the Cart Item in the Cart (calculated internally).
      *
      * @return $this
      */
@@ -616,13 +628,61 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this item. You can use built-in attributes or create your own. See [Attributes](https://docs.talon.one/docs/dev/concepts/attributes).
+     * @param object|null $attributes Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.
      *
      * @return $this
      */
     public function setAttributes($attributes)
     {
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets additionalCosts
+     *
+     * @return map[string,\TalonOne\Client\Model\AdditionalCost]|null
+     */
+    public function getAdditionalCosts()
+    {
+        return $this->container['additionalCosts'];
+    }
+
+    /**
+     * Sets additionalCosts
+     *
+     * @param map[string,\TalonOne\Client\Model\AdditionalCost]|null $additionalCosts Use this property to set a value for the additional costs of this item, such as a shipping cost. They must be created in the Campaign Manager before you set them with this property. See [Managing additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs/).
+     *
+     * @return $this
+     */
+    public function setAdditionalCosts($additionalCosts)
+    {
+        $this->container['additionalCosts'] = $additionalCosts;
+
+        return $this;
+    }
+
+    /**
+     * Gets catalogItemID
+     *
+     * @return int|null
+     */
+    public function getCatalogItemID()
+    {
+        return $this->container['catalogItemID'];
+    }
+
+    /**
+     * Sets catalogItemID
+     *
+     * @param int|null $catalogItemID The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-cart-item-catalogs).
+     *
+     * @return $this
+     */
+    public function setCatalogItemID($catalogItemID)
+    {
+        $this->container['catalogItemID'] = $catalogItemID;
 
         return $this;
     }

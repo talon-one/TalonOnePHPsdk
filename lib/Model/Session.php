@@ -238,7 +238,7 @@ class Session implements ModelInterface, ArrayAccess
     /**
      * Sets userId
      *
-     * @param int $userId The ID of the user of this session
+     * @param int $userId The ID of the user of this session.
      *
      * @return $this
      */

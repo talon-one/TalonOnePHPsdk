@@ -209,6 +209,10 @@ class NewCollection implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
         }
 
+        if (!preg_match("/^[^[:cntrl:]\\s][^[:cntrl:]]*$/", $this->container['name'])) {
+            $invalidProperties[] = "invalid value for 'name', must be conform to the pattern /^[^[:cntrl:]\\s][^[:cntrl:]]*$/.";
+        }
+
         return $invalidProperties;
     }
 
@@ -294,6 +298,9 @@ class NewCollection implements ModelInterface, ArrayAccess
 
         if ((mb_strlen($name) < 1)) {
             throw new \InvalidArgumentException('invalid length for $name when calling NewCollection., must be bigger than or equal to 1.');
+        }
+        if ((!preg_match("/^[^[:cntrl:]\\s][^[:cntrl:]]*$/", $name))) {
+            throw new \InvalidArgumentException("invalid value for $name when calling NewCollection., must conform to the pattern /^[^[:cntrl:]\\s][^[:cntrl:]]*$/.");
         }
 
         $this->container['name'] = $name;

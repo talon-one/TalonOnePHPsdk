@@ -175,4 +175,18 @@ class UpdateCampaignTemplateTest extends TestCase
     public function testPropertyApplicationsIds()
     {
     }
+
+    /**
+     * Test attribute "campaignCollections"
+     */
+    public function testPropertyCampaignCollections()
+    {
+    }
+
+    /**
+     * Test attribute "defaultCampaignGroupId"
+     */
+    public function testPropertyDefaultCampaignGroupId()
+    {
+    }
 }

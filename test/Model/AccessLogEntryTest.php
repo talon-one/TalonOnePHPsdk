@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AccessLogEntryTest Class Doc Comment
  *
  * @category    Class
- * @description Log of application accesses
+ * @description Log of application accesses.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

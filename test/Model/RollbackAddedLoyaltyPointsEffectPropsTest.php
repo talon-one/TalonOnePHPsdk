@@ -126,4 +126,11 @@ class RollbackAddedLoyaltyPointsEffectPropsTest extends TestCase
     public function testPropertyCartItemSubPosition()
     {
     }
+
+    /**
+     * Test attribute "cardIdentifier"
+     */
+    public function testPropertyCardIdentifier()
+    {
+    }
 }

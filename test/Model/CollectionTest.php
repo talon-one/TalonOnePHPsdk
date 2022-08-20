@@ -128,13 +128,6 @@ class CollectionTest extends TestCase
     }
 
     /**
-     * Test attribute "payload"
-     */
-    public function testPropertyPayload()
-    {
-    }
-
-    /**
      * Test attribute "modifiedBy"
      */
     public function testPropertyModifiedBy()
@@ -159,6 +152,13 @@ class CollectionTest extends TestCase
      * Test attribute "campaignId"
      */
     public function testPropertyCampaignId()
+    {
+    }
+
+    /**
+     * Test attribute "payload"
+     */
+    public function testPropertyPayload()
     {
     }
 }

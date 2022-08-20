@@ -175,6 +175,8 @@ class CreateApplicationAPIKey implements ModelInterface, ArrayAccess
     const PLATFORM_SELLIGENT = 'selligent';
     const PLATFORM_ITERABLE = 'iterable';
     const PLATFORM_CUSTOMER_ENGAGEMENT = 'customer_engagement';
+    const PLATFORM_CUSTOMER_DATA = 'customer_data';
+    const PLATFORM_SALESFORCE = 'salesforce';
     
 
     
@@ -193,6 +195,8 @@ class CreateApplicationAPIKey implements ModelInterface, ArrayAccess
             self::PLATFORM_SELLIGENT,
             self::PLATFORM_ITERABLE,
             self::PLATFORM_CUSTOMER_ENGAGEMENT,
+            self::PLATFORM_CUSTOMER_DATA,
+            self::PLATFORM_SALESFORCE,
         ];
     }
     
@@ -268,7 +272,7 @@ class CreateApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title Title for API Key
+     * @param string $title Title for API Key.
      *
      * @return $this
      */
@@ -292,7 +296,7 @@ class CreateApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets expires
      *
-     * @param \DateTime $expires The date the API key expired
+     * @param \DateTime $expires The date the API key expired.
      *
      * @return $this
      */
@@ -316,7 +320,7 @@ class CreateApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets platform
      *
-     * @param string|null $platform The third-party platform the API key is valid for. Use `none` for a generic API key to be used from your own intergration layer.
+     * @param string|null $platform The third-party platform the API key is valid for. Use `none` for a generic API key to be used from your own integration layer.
      *
      * @return $this
      */

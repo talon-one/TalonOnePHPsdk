@@ -319,7 +319,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets liveApplications
      *
-     * @param int $liveApplications Total number of allowed live applications in the account
+     * @param int $liveApplications Total number of allowed live applications in the account.
      *
      * @return $this
      */
@@ -343,7 +343,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets sandboxApplications
      *
-     * @param int $sandboxApplications Total number of allowed sandbox applications in the account
+     * @param int $sandboxApplications Total number of allowed sandbox applications in the account.
      *
      * @return $this
      */
@@ -367,7 +367,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets activeCampaigns
      *
-     * @param int $activeCampaigns Total number of allowed active campaigns in live applications in the account
+     * @param int $activeCampaigns Total number of allowed active campaigns in live applications in the account.
      *
      * @return $this
      */
@@ -391,7 +391,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets coupons
      *
-     * @param int $coupons Total number of allowed coupons in the account
+     * @param int $coupons Total number of allowed coupons in the account.
      *
      * @return $this
      */
@@ -415,7 +415,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets referralCodes
      *
-     * @param int $referralCodes Total number of allowed referral codes in the account
+     * @param int $referralCodes Total number of allowed referral codes in the account.
      *
      * @return $this
      */
@@ -439,7 +439,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets activeRules
      *
-     * @param int $activeRules Total number of allowed active rulesets in the account
+     * @param int $activeRules Total number of allowed active rulesets in the account.
      *
      * @return $this
      */
@@ -463,7 +463,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets liveLoyaltyPrograms
      *
-     * @param int $liveLoyaltyPrograms Total number of allowed live loyalty programs in the account
+     * @param int $liveLoyaltyPrograms Total number of allowed live loyalty programs in the account.
      *
      * @return $this
      */
@@ -487,7 +487,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets sandboxLoyaltyPrograms
      *
-     * @param int $sandboxLoyaltyPrograms Total number of allowed sandbox loyalty programs in the account
+     * @param int $sandboxLoyaltyPrograms Total number of allowed sandbox loyalty programs in the account.
      *
      * @return $this
      */
@@ -511,7 +511,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets webhooks
      *
-     * @param int $webhooks Total number of allowed webhooks in the account
+     * @param int $webhooks Total number of allowed webhooks in the account.
      *
      * @return $this
      */
@@ -535,7 +535,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets users
      *
-     * @param int $users Total number of allowed users in the account
+     * @param int $users Total number of allowed users in the account.
      *
      * @return $this
      */
@@ -559,7 +559,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets apiVolume
      *
-     * @param int $apiVolume Allowed volume of API requests to the account
+     * @param int $apiVolume Allowed volume of API requests to the account.
      *
      * @return $this
      */
@@ -583,7 +583,7 @@ class AccountLimits implements ModelInterface, ArrayAccess
     /**
      * Sets promotionTypes
      *
-     * @param string[] $promotionTypes Array of promotion types that are employed in the account
+     * @param string[] $promotionTypes Array of promotion types that are employed in the account.
      *
      * @return $this
      */

@@ -221,7 +221,7 @@ class AcceptCouponEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The coupon code that was accepted
+     * @param string $value The coupon code that was accepted.
      *
      * @return $this
      */

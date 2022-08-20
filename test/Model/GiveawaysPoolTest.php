@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * GiveawaysPoolTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Giveaways pools is an entity for managing multiple similar giveaways.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -380,7 +380,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -481,7 +481,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets domainName
      *
-     * @param string $domainName Subdomain Name for yourcompany.talon.one
+     * @param string $domainName Subdomain Name for yourcompany.talon.one.
      *
      * @return $this
      */
@@ -505,7 +505,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string $state State of the account (active, deactivated)
+     * @param string $state State of the account (active, deactivated).
      *
      * @return $this
      */
@@ -802,7 +802,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this campaign
+     * @param object|null $attributes Arbitrary properties associated with this campaign.
      *
      * @return $this
      */

@@ -86,13 +86,6 @@ class InlineResponse20019Test extends TestCase
     }
 
     /**
-     * Test attribute "totalResultSize"
-     */
-    public function testPropertyTotalResultSize()
-    {
-    }
-
-    /**
      * Test attribute "data"
      */
     public function testPropertyData()

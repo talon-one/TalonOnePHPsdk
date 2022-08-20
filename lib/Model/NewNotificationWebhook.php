@@ -229,7 +229,7 @@ class NewNotificationWebhook implements ModelInterface, ArrayAccess
     /**
      * Sets url
      *
-     * @param string $url API url for this notification webhook
+     * @param string $url API url for this notification webhook.
      *
      * @return $this
      */
@@ -253,7 +253,7 @@ class NewNotificationWebhook implements ModelInterface, ArrayAccess
     /**
      * Sets headers
      *
-     * @param string[] $headers List of API HTTP headers for this notification webhook
+     * @param string[] $headers List of API HTTP headers for this notification webhook.
      *
      * @return $this
      */

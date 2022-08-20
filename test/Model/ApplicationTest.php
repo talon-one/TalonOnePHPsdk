@@ -212,6 +212,13 @@ class ApplicationTest extends TestCase
     }
 
     /**
+     * Test attribute "defaultDiscountAdditionalCostPerItemScope"
+     */
+    public function testPropertyDefaultDiscountAdditionalCostPerItemScope()
+    {
+    }
+
+    /**
      * Test attribute "loyaltyPrograms"
      */
     public function testPropertyLoyaltyPrograms()

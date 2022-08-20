@@ -250,7 +250,7 @@ class CampaignCopy implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Name of the copied campaign (Defaults to \"Copy of original campaign name\")
+     * @param string|null $name Name of the copied campaign (Defaults to \"Copy of original campaign name\").
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class CampaignCopy implements ModelInterface, ArrayAccess
     /**
      * Sets applicationIds
      *
-     * @param int[] $applicationIds Application IDs of the applications to which a campaign should be copied to
+     * @param int[] $applicationIds Application IDs of the applications to which a campaign should be copied to.
      *
      * @return $this
      */

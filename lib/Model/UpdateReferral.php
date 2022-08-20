@@ -213,6 +213,10 @@ class UpdateReferral implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['friendProfileIntegrationId']) && (mb_strlen($this->container['friendProfileIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'friendProfileIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if (!is_null($this->container['usageLimit']) && ($this->container['usageLimit'] > 999999)) {
             $invalidProperties[] = "invalid value for 'usageLimit', must be smaller than or equal to 999999.";
         }
@@ -249,12 +253,16 @@ class UpdateReferral implements ModelInterface, ArrayAccess
     /**
      * Sets friendProfileIntegrationId
      *
-     * @param string|null $friendProfileIntegrationId An optional Integration ID of the Friend's Profile
+     * @param string|null $friendProfileIntegrationId An optional Integration ID of the Friend's Profile.
      *
      * @return $this
      */
     public function setFriendProfileIntegrationId($friendProfileIntegrationId)
     {
+        if (!is_null($friendProfileIntegrationId) && (mb_strlen($friendProfileIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $friendProfileIntegrationId when calling UpdateReferral., must be smaller than or equal to 1000.');
+        }
+
         $this->container['friendProfileIntegrationId'] = $friendProfileIntegrationId;
 
         return $this;
@@ -353,7 +361,7 @@ class UpdateReferral implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this item
+     * @param object|null $attributes Arbitrary properties associated with this item.
      *
      * @return $this
      */

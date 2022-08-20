@@ -71,7 +71,8 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         'enableFlattenedCartItems' => 'bool',
         'attributesSettings' => '\TalonOne\Client\Model\AttributesSettings',
         'sandbox' => 'bool',
-        'enablePartialDiscounts' => 'bool'
+        'enablePartialDiscounts' => 'bool',
+        'defaultDiscountAdditionalCostPerItemScope' => 'string'
     ];
 
     /**
@@ -94,7 +95,8 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         'enableFlattenedCartItems' => null,
         'attributesSettings' => null,
         'sandbox' => null,
-        'enablePartialDiscounts' => null
+        'enablePartialDiscounts' => null,
+        'defaultDiscountAdditionalCostPerItemScope' => null
     ];
 
     /**
@@ -138,7 +140,8 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         'enableFlattenedCartItems' => 'enableFlattenedCartItems',
         'attributesSettings' => 'attributesSettings',
         'sandbox' => 'sandbox',
-        'enablePartialDiscounts' => 'enablePartialDiscounts'
+        'enablePartialDiscounts' => 'enablePartialDiscounts',
+        'defaultDiscountAdditionalCostPerItemScope' => 'defaultDiscountAdditionalCostPerItemScope'
     ];
 
     /**
@@ -161,7 +164,8 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         'enableFlattenedCartItems' => 'setEnableFlattenedCartItems',
         'attributesSettings' => 'setAttributesSettings',
         'sandbox' => 'setSandbox',
-        'enablePartialDiscounts' => 'setEnablePartialDiscounts'
+        'enablePartialDiscounts' => 'setEnablePartialDiscounts',
+        'defaultDiscountAdditionalCostPerItemScope' => 'setDefaultDiscountAdditionalCostPerItemScope'
     ];
 
     /**
@@ -184,7 +188,8 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         'enableFlattenedCartItems' => 'getEnableFlattenedCartItems',
         'attributesSettings' => 'getAttributesSettings',
         'sandbox' => 'getSandbox',
-        'enablePartialDiscounts' => 'getEnablePartialDiscounts'
+        'enablePartialDiscounts' => 'getEnablePartialDiscounts',
+        'defaultDiscountAdditionalCostPerItemScope' => 'getDefaultDiscountAdditionalCostPerItemScope'
     ];
 
     /**
@@ -240,6 +245,9 @@ class UpdateApplication implements ModelInterface, ArrayAccess
     const DEFAULT_DISCOUNT_SCOPE_SESSION_TOTAL = 'sessionTotal';
     const DEFAULT_DISCOUNT_SCOPE_CART_ITEMS = 'cartItems';
     const DEFAULT_DISCOUNT_SCOPE_ADDITIONAL_COSTS = 'additionalCosts';
+    const DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_PRICE = 'price';
+    const DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_ITEM_TOTAL = 'itemTotal';
+    const DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_ADDITIONAL_COSTS = 'additionalCosts';
     
 
     
@@ -299,6 +307,20 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDefaultDiscountAdditionalCostPerItemScopeAllowableValues()
+    {
+        return [
+            self::DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_PRICE,
+            self::DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_ITEM_TOTAL,
+            self::DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_ADDITIONAL_COSTS,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -330,6 +352,7 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         $this->container['attributesSettings'] = isset($data['attributesSettings']) ? $data['attributesSettings'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['enablePartialDiscounts'] = isset($data['enablePartialDiscounts']) ? $data['enablePartialDiscounts'] : null;
+        $this->container['defaultDiscountAdditionalCostPerItemScope'] = isset($data['defaultDiscountAdditionalCostPerItemScope']) ? $data['defaultDiscountAdditionalCostPerItemScope'] : null;
     }
 
     /**
@@ -390,6 +413,14 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         if (!is_null($this->container['defaultDiscountScope']) && !in_array($this->container['defaultDiscountScope'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'defaultDiscountScope', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getDefaultDiscountAdditionalCostPerItemScopeAllowableValues();
+        if (!is_null($this->container['defaultDiscountAdditionalCostPerItemScope']) && !in_array($this->container['defaultDiscountAdditionalCostPerItemScope'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'defaultDiscountAdditionalCostPerItemScope', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -816,6 +847,39 @@ class UpdateApplication implements ModelInterface, ArrayAccess
     public function setEnablePartialDiscounts($enablePartialDiscounts)
     {
         $this->container['enablePartialDiscounts'] = $enablePartialDiscounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets defaultDiscountAdditionalCostPerItemScope
+     *
+     * @return string|null
+     */
+    public function getDefaultDiscountAdditionalCostPerItemScope()
+    {
+        return $this->container['defaultDiscountAdditionalCostPerItemScope'];
+    }
+
+    /**
+     * Sets defaultDiscountAdditionalCostPerItemScope
+     *
+     * @param string|null $defaultDiscountAdditionalCostPerItemScope The default scope to apply `setDiscountPerItem` effects on if no scope was provided with the effect.
+     *
+     * @return $this
+     */
+    public function setDefaultDiscountAdditionalCostPerItemScope($defaultDiscountAdditionalCostPerItemScope)
+    {
+        $allowedValues = $this->getDefaultDiscountAdditionalCostPerItemScopeAllowableValues();
+        if (!is_null($defaultDiscountAdditionalCostPerItemScope) && !in_array($defaultDiscountAdditionalCostPerItemScope, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'defaultDiscountAdditionalCostPerItemScope', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['defaultDiscountAdditionalCostPerItemScope'] = $defaultDiscountAdditionalCostPerItemScope;
 
         return $this;
     }

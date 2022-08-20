@@ -221,7 +221,7 @@ class RollbackCouponEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The coupon code whose usage has been rolled back
+     * @param string $value The coupon code whose usage has been rolled back.
      *
      * @return $this
      */

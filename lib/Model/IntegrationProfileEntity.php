@@ -217,7 +217,7 @@ class IntegrationProfileEntity implements ModelInterface, ArrayAccess
     /**
      * Sets profileId
      *
-     * @param string|null $profileId ID of the customers profile as used within this Talon.One account.  **Note:** If the customer does not yet have a known profileId, we recommend you use a guest profileId.
+     * @param string|null $profileId ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known `profileId`, we recommend you use a guest `profileId`.
      *
      * @return $this
      */

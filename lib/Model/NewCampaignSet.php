@@ -267,7 +267,7 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
     /**
      * Sets version
      *
-     * @param int $version Version of the campaign set
+     * @param int $version Version of the campaign set.
      *
      * @return $this
      */

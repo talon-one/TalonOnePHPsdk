@@ -295,7 +295,7 @@ class NewCampaignGroup implements ModelInterface, ArrayAccess
     /**
      * Sets subscribedApplicationsIds
      *
-     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that this campaign group is enabled for
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that this campaign group is enabled for.
      *
      * @return $this
      */
@@ -319,7 +319,7 @@ class NewCampaignGroup implements ModelInterface, ArrayAccess
     /**
      * Sets campaignIds
      *
-     * @param int[]|null $campaignIds A list of the IDs of the campaigns that this campaign group owns
+     * @param int[]|null $campaignIds A list of the IDs of the campaigns that this campaign group owns.
      *
      * @return $this
      */

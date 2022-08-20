@@ -291,6 +291,10 @@ class InventoryReferral implements ModelInterface, ArrayAccess
         if ($this->container['advocateProfileIntegrationId'] === null) {
             $invalidProperties[] = "'advocateProfileIntegrationId' can't be null";
         }
+        if ((mb_strlen($this->container['advocateProfileIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'advocateProfileIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['code'] === null) {
             $invalidProperties[] = "'code' can't be null";
         }
@@ -332,7 +336,7 @@ class InventoryReferral implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -428,7 +432,7 @@ class InventoryReferral implements ModelInterface, ArrayAccess
     /**
      * Sets usageLimit
      *
-     * @param int $usageLimit The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     * @param int $usageLimit The number of times a referral code can be used. `0` means no limit but any campaign usage limits will still apply.
      *
      * @return $this
      */
@@ -490,6 +494,10 @@ class InventoryReferral implements ModelInterface, ArrayAccess
      */
     public function setAdvocateProfileIntegrationId($advocateProfileIntegrationId)
     {
+        if ((mb_strlen($advocateProfileIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $advocateProfileIntegrationId when calling InventoryReferral., must be smaller than or equal to 1000.');
+        }
+
         $this->container['advocateProfileIntegrationId'] = $advocateProfileIntegrationId;
 
         return $this;
@@ -508,7 +516,7 @@ class InventoryReferral implements ModelInterface, ArrayAccess
     /**
      * Sets friendProfileIntegrationId
      *
-     * @param string|null $friendProfileIntegrationId An optional Integration ID of the Friend's Profile
+     * @param string|null $friendProfileIntegrationId An optional Integration ID of the Friend's Profile.
      *
      * @return $this
      */

@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * GiveawaysPool Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description Giveaways pools is an entity for managing multiple similar giveaways.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -281,7 +281,7 @@ class GiveawaysPool implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -401,7 +401,7 @@ class GiveawaysPool implements ModelInterface, ArrayAccess
     /**
      * Sets subscribedApplicationsIds
      *
-     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that this giveaways pool is enabled for
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that this giveaways pool is enabled for.
      *
      * @return $this
      */

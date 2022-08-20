@@ -245,7 +245,7 @@ class NewRole implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Name of the role
+     * @param string $name Name of the role.
      *
      * @return $this
      */
@@ -269,7 +269,7 @@ class NewRole implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description Description of the role
+     * @param string|null $description Description of the role.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class NewRole implements ModelInterface, ArrayAccess
     /**
      * Sets acl
      *
-     * @param string $acl Role Policy this should be a stringified blob of json
+     * @param string $acl Role Policy this should be a stringified blob of json.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class NewRole implements ModelInterface, ArrayAccess
     /**
      * Sets members
      *
-     * @param int[] $members An array of user identifiers
+     * @param int[] $members An array of user identifiers.
      *
      * @return $this
      */

@@ -242,7 +242,7 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name/description of this discount
+     * @param string $name The name/description of this discount.
      *
      * @return $this
      */
@@ -266,7 +266,7 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param float $value The total monetary value of the discount
+     * @param float $value The total monetary value of the discount.
      *
      * @return $this
      */
@@ -290,7 +290,7 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets scope
      *
-     * @param string|null $scope The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal)
+     * @param string|null $scope The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal).
      *
      * @return $this
      */
@@ -314,7 +314,7 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets desiredValue
      *
-     * @param float|null $desiredValue The original value of the discount
+     * @param float|null $desiredValue The original value of the discount.
      *
      * @return $this
      */

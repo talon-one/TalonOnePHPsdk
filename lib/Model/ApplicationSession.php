@@ -69,6 +69,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
         'state' => 'string',
         'cartItems' => '\TalonOne\Client\Model\CartItem[]',
         'discounts' => 'map[string,float]',
+        'totalDiscounts' => 'float',
         'total' => 'float',
         'attributes' => 'object'
     ];
@@ -90,6 +91,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
         'state' => null,
         'cartItems' => null,
         'discounts' => null,
+        'totalDiscounts' => null,
         'total' => null,
         'attributes' => null
     ];
@@ -132,6 +134,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
         'state' => 'state',
         'cartItems' => 'cartItems',
         'discounts' => 'discounts',
+        'totalDiscounts' => 'totalDiscounts',
         'total' => 'total',
         'attributes' => 'attributes'
     ];
@@ -153,6 +156,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
         'state' => 'setState',
         'cartItems' => 'setCartItems',
         'discounts' => 'setDiscounts',
+        'totalDiscounts' => 'setTotalDiscounts',
         'total' => 'setTotal',
         'attributes' => 'setAttributes'
     ];
@@ -174,6 +178,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
         'state' => 'getState',
         'cartItems' => 'getCartItems',
         'discounts' => 'getDiscounts',
+        'totalDiscounts' => 'getTotalDiscounts',
         'total' => 'getTotal',
         'attributes' => 'getAttributes'
     ];
@@ -268,6 +273,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['cartItems'] = isset($data['cartItems']) ? $data['cartItems'] : null;
         $this->container['discounts'] = isset($data['discounts']) ? $data['discounts'] : null;
+        $this->container['totalDiscounts'] = isset($data['totalDiscounts']) ? $data['totalDiscounts'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
     }
@@ -293,6 +299,14 @@ class ApplicationSession implements ModelInterface, ArrayAccess
         if ($this->container['integrationId'] === null) {
             $invalidProperties[] = "'integrationId' can't be null";
         }
+        if ((mb_strlen($this->container['integrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'integrationId', the character length must be smaller than or equal to 1000.";
+        }
+
+        if (!is_null($this->container['profileintegrationid']) && (mb_strlen($this->container['profileintegrationid']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'profileintegrationid', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['coupon'] === null) {
             $invalidProperties[] = "'coupon' can't be null";
         }
@@ -315,6 +329,9 @@ class ApplicationSession implements ModelInterface, ArrayAccess
         }
         if ($this->container['discounts'] === null) {
             $invalidProperties[] = "'discounts' can't be null";
+        }
+        if ($this->container['totalDiscounts'] === null) {
+            $invalidProperties[] = "'totalDiscounts' can't be null";
         }
         if ($this->container['total'] === null) {
             $invalidProperties[] = "'total' can't be null";
@@ -347,7 +364,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -443,12 +460,16 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     /**
      * Sets integrationId
      *
-     * @param string $integrationId The integration ID for this entity sent to and used in the Talon.One system.
+     * @param string $integrationId The integration ID set by your integration layer.
      *
      * @return $this
      */
     public function setIntegrationId($integrationId)
     {
+        if ((mb_strlen($integrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $integrationId when calling ApplicationSession., must be smaller than or equal to 1000.');
+        }
+
         $this->container['integrationId'] = $integrationId;
 
         return $this;
@@ -473,6 +494,10 @@ class ApplicationSession implements ModelInterface, ArrayAccess
      */
     public function setProfileintegrationid($profileintegrationid)
     {
+        if (!is_null($profileintegrationid) && (mb_strlen($profileintegrationid) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $profileintegrationid when calling ApplicationSession., must be smaller than or equal to 1000.');
+        }
+
         $this->container['profileintegrationid'] = $profileintegrationid;
 
         return $this;
@@ -539,7 +564,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string $state Indicating if the customer session is in progress (`open`), `closed`, or `cancelled`. For more information about customer sessions, see [Customer sessions](/docs/dev/concepts/entities#customer-session-states) in the docs.
+     * @param string $state Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. `closed` → `cancelled` or `partially_returned` 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](/docs/dev/concepts/entities#customer-session).
      *
      * @return $this
      */
@@ -596,13 +621,37 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     /**
      * Sets discounts
      *
-     * @param map[string,float] $discounts A map of labelled discount values, in the same currency as the session.
+     * @param map[string,float] $discounts **API V1 only.** A map of labeled discount values, in the same currency as the session.  If you are using the V2 endpoints, refer to the `totalDiscounts` property instead.
      *
      * @return $this
      */
     public function setDiscounts($discounts)
     {
         $this->container['discounts'] = $discounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalDiscounts
+     *
+     * @return float
+     */
+    public function getTotalDiscounts()
+    {
+        return $this->container['totalDiscounts'];
+    }
+
+    /**
+     * Sets totalDiscounts
+     *
+     * @param float $totalDiscounts The total sum of the discounts applied to this session.
+     *
+     * @return $this
+     */
+    public function setTotalDiscounts($totalDiscounts)
+    {
+        $this->container['totalDiscounts'] = $totalDiscounts;
 
         return $this;
     }
@@ -644,7 +693,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this item
+     * @param object|null $attributes Arbitrary properties associated with this item.
      *
      * @return $this
      */

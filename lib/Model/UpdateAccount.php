@@ -274,7 +274,7 @@ class UpdateAccount implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this campaign
+     * @param object|null $attributes Arbitrary properties associated with this campaign.
      *
      * @return $this
      */
@@ -351,7 +351,7 @@ class UpdateAccount implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string|null $state State of the account (active, deactivated)
+     * @param string|null $state State of the account (active, deactivated).
      *
      * @return $this
      */

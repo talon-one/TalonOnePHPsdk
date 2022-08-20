@@ -62,12 +62,14 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'programId' => 'int',
         'subLedgerId' => 'string',
         'value' => 'float',
+        'desiredValue' => 'float',
         'recipientIntegrationId' => 'string',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
         'transactionUUID' => 'string',
         'cartItemPosition' => 'float',
-        'cartItemSubPosition' => 'float'
+        'cartItemSubPosition' => 'float',
+        'cardIdentifier' => 'string'
     ];
 
     /**
@@ -80,12 +82,14 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'programId' => null,
         'subLedgerId' => null,
         'value' => null,
+        'desiredValue' => null,
         'recipientIntegrationId' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
         'transactionUUID' => null,
         'cartItemPosition' => null,
-        'cartItemSubPosition' => null
+        'cartItemSubPosition' => null,
+        'cardIdentifier' => null
     ];
 
     /**
@@ -119,12 +123,14 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'programId' => 'programId',
         'subLedgerId' => 'subLedgerId',
         'value' => 'value',
+        'desiredValue' => 'desiredValue',
         'recipientIntegrationId' => 'recipientIntegrationId',
         'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
         'transactionUUID' => 'transactionUUID',
         'cartItemPosition' => 'cartItemPosition',
-        'cartItemSubPosition' => 'cartItemSubPosition'
+        'cartItemSubPosition' => 'cartItemSubPosition',
+        'cardIdentifier' => 'cardIdentifier'
     ];
 
     /**
@@ -137,12 +143,14 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'programId' => 'setProgramId',
         'subLedgerId' => 'setSubLedgerId',
         'value' => 'setValue',
+        'desiredValue' => 'setDesiredValue',
         'recipientIntegrationId' => 'setRecipientIntegrationId',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
         'transactionUUID' => 'setTransactionUUID',
         'cartItemPosition' => 'setCartItemPosition',
-        'cartItemSubPosition' => 'setCartItemSubPosition'
+        'cartItemSubPosition' => 'setCartItemSubPosition',
+        'cardIdentifier' => 'setCardIdentifier'
     ];
 
     /**
@@ -155,12 +163,14 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'programId' => 'getProgramId',
         'subLedgerId' => 'getSubLedgerId',
         'value' => 'getValue',
+        'desiredValue' => 'getDesiredValue',
         'recipientIntegrationId' => 'getRecipientIntegrationId',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
         'transactionUUID' => 'getTransactionUUID',
         'cartItemPosition' => 'getCartItemPosition',
-        'cartItemSubPosition' => 'getCartItemSubPosition'
+        'cartItemSubPosition' => 'getCartItemSubPosition',
+        'cardIdentifier' => 'getCardIdentifier'
     ];
 
     /**
@@ -227,12 +237,14 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
         $this->container['subLedgerId'] = isset($data['subLedgerId']) ? $data['subLedgerId'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['desiredValue'] = isset($data['desiredValue']) ? $data['desiredValue'] : null;
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
         $this->container['cartItemPosition'] = isset($data['cartItemPosition']) ? $data['cartItemPosition'] : null;
         $this->container['cartItemSubPosition'] = isset($data['cartItemSubPosition']) ? $data['cartItemSubPosition'] : null;
+        $this->container['cardIdentifier'] = isset($data['cardIdentifier']) ? $data['cardIdentifier'] : null;
     }
 
     /**
@@ -259,6 +271,10 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         if ($this->container['recipientIntegrationId'] === null) {
             $invalidProperties[] = "'recipientIntegrationId' can't be null";
         }
+        if ((mb_strlen($this->container['recipientIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'recipientIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['transactionUUID'] === null) {
             $invalidProperties[] = "'transactionUUID' can't be null";
         }
@@ -290,7 +306,7 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name/description of this loyalty point addition.
+     * @param string $name The reason of the point addition.
      *
      * @return $this
      */
@@ -374,6 +390,30 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets desiredValue
+     *
+     * @return float|null
+     */
+    public function getDesiredValue()
+    {
+        return $this->container['desiredValue'];
+    }
+
+    /**
+     * Sets desiredValue
+     *
+     * @param float|null $desiredValue The original amount of loyalty points to be awarded.
+     *
+     * @return $this
+     */
+    public function setDesiredValue($desiredValue)
+    {
+        $this->container['desiredValue'] = $desiredValue;
+
+        return $this;
+    }
+
+    /**
      * Gets recipientIntegrationId
      *
      * @return string
@@ -392,6 +432,10 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
      */
     public function setRecipientIntegrationId($recipientIntegrationId)
     {
+        if ((mb_strlen($recipientIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $recipientIntegrationId when calling AddLoyaltyPointsEffectProps., must be smaller than or equal to 1000.');
+        }
+
         $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;
@@ -513,6 +557,30 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     public function setCartItemSubPosition($cartItemSubPosition)
     {
         $this->container['cartItemSubPosition'] = $cartItemSubPosition;
+
+        return $this;
+    }
+
+    /**
+     * Gets cardIdentifier
+     *
+     * @return string|null
+     */
+    public function getCardIdentifier()
+    {
+        return $this->container['cardIdentifier'];
+    }
+
+    /**
+     * Sets cardIdentifier
+     *
+     * @param string|null $cardIdentifier The card on which these points were added.
+     *
+     * @return $this
+     */
+    public function setCardIdentifier($cardIdentifier)
+    {
+        $this->container['cardIdentifier'] = $cardIdentifier;
 
         return $this;
     }

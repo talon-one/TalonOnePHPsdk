@@ -289,6 +289,10 @@ class LimitCounter implements ModelInterface, ArrayAccess
         if ($this->container['action'] === null) {
             $invalidProperties[] = "'action' can't be null";
         }
+        if (!is_null($this->container['profileIntegrationId']) && (mb_strlen($this->container['profileIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'profileIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['limit'] === null) {
             $invalidProperties[] = "'limit' can't be null";
         }
@@ -473,6 +477,10 @@ class LimitCounter implements ModelInterface, ArrayAccess
      */
     public function setProfileIntegrationId($profileIntegrationId)
     {
+        if (!is_null($profileIntegrationId) && (mb_strlen($profileIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $profileIntegrationId when calling LimitCounter., must be smaller than or equal to 1000.');
+        }
+
         $this->container['profileIntegrationId'] = $profileIntegrationId;
 
         return $this;

@@ -184,6 +184,13 @@ class NewApplicationTest extends TestCase
     }
 
     /**
+     * Test attribute "defaultDiscountAdditionalCostPerItemScope"
+     */
+    public function testPropertyDefaultDiscountAdditionalCostPerItemScope()
+    {
+    }
+
+    /**
      * Test attribute "key"
      */
     public function testPropertyKey()

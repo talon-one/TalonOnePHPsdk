@@ -58,7 +58,7 @@ class InlineResponse20022 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\AccountAdditionalCost[]'
+        'data' => 'string[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse20022 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\AccountAdditionalCost[]
+     * @return string[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20022 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\AccountAdditionalCost[] $data data
+     * @param string[] $data data
      *
      * @return $this
      */

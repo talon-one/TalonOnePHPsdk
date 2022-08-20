@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewAudienceTest Class Doc Comment
  *
  * @category    Class
- * @description NewAudience
+ * @description 
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -86,6 +86,20 @@ class NewAudienceTest extends TestCase
     }
 
     /**
+     * Test attribute "sandbox"
+     */
+    public function testPropertySandbox()
+    {
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+    }
+
+    /**
      * Test attribute "integration"
      */
     public function testPropertyIntegration()
@@ -96,6 +110,13 @@ class NewAudienceTest extends TestCase
      * Test attribute "integrationId"
      */
     public function testPropertyIntegrationId()
+    {
+    }
+
+    /**
+     * Test attribute "createdIn3rdParty"
+     */
+    public function testPropertyCreatedIn3rdParty()
     {
     }
 }

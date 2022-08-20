@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * SetDiscountPerItemEffectPropsTest Class Doc Comment
  *
  * @category    Class
- * @description The properties specific to the &#x60;setDiscountPerItem&#x60; effect, triggered whenever a validated rule contained a \&quot;set per item discount\&quot; effect. This is a discount that should be applied on a specific item.
+ * @description The properties specific to the &#x60;setDiscountPerItem&#x60; effect, triggered whenever a validated rule contained a \&quot;set per item discount\&quot; effect. This is a discount that will be applied either on a specific item, on a specific item + additional cost or on all additional costs per item. This depends on the chosen scope.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -114,6 +114,13 @@ class SetDiscountPerItemEffectPropsTest extends TestCase
     }
 
     /**
+     * Test attribute "scope"
+     */
+    public function testPropertyScope()
+    {
+    }
+
+    /**
      * Test attribute "totalDiscount"
      */
     public function testPropertyTotalDiscount()
@@ -124,6 +131,20 @@ class SetDiscountPerItemEffectPropsTest extends TestCase
      * Test attribute "desiredTotalDiscount"
      */
     public function testPropertyDesiredTotalDiscount()
+    {
+    }
+
+    /**
+     * Test attribute "bundleIndex"
+     */
+    public function testPropertyBundleIndex()
+    {
+    }
+
+    /**
+     * Test attribute "bundleName"
+     */
+    public function testPropertyBundleName()
     {
     }
 }

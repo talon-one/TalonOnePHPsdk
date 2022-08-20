@@ -58,7 +58,8 @@ class CreateTemplateCampaignResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'campaign' => '\TalonOne\Client\Model\Campaign',
-        'ruleset' => '\TalonOne\Client\Model\Ruleset'
+        'ruleset' => '\TalonOne\Client\Model\Ruleset',
+        'collections' => '\TalonOne\Client\Model\Collection[]'
     ];
 
     /**
@@ -68,7 +69,8 @@ class CreateTemplateCampaignResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'campaign' => null,
-        'ruleset' => null
+        'ruleset' => null,
+        'collections' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class CreateTemplateCampaignResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'campaign' => 'campaign',
-        'ruleset' => 'ruleset'
+        'ruleset' => 'ruleset',
+        'collections' => 'collections'
     ];
 
     /**
@@ -109,7 +112,8 @@ class CreateTemplateCampaignResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'campaign' => 'setCampaign',
-        'ruleset' => 'setRuleset'
+        'ruleset' => 'setRuleset',
+        'collections' => 'setCollections'
     ];
 
     /**
@@ -119,7 +123,8 @@ class CreateTemplateCampaignResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'campaign' => 'getCampaign',
-        'ruleset' => 'getRuleset'
+        'ruleset' => 'getRuleset',
+        'collections' => 'getCollections'
     ];
 
     /**
@@ -184,6 +189,7 @@ class CreateTemplateCampaignResponse implements ModelInterface, ArrayAccess
     {
         $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
         $this->container['ruleset'] = isset($data['ruleset']) ? $data['ruleset'] : null;
+        $this->container['collections'] = isset($data['collections']) ? $data['collections'] : null;
     }
 
     /**
@@ -260,6 +266,30 @@ class CreateTemplateCampaignResponse implements ModelInterface, ArrayAccess
     public function setRuleset($ruleset)
     {
         $this->container['ruleset'] = $ruleset;
+
+        return $this;
+    }
+
+    /**
+     * Gets collections
+     *
+     * @return \TalonOne\Client\Model\Collection[]|null
+     */
+    public function getCollections()
+    {
+        return $this->container['collections'];
+    }
+
+    /**
+     * Sets collections
+     *
+     * @param \TalonOne\Client\Model\Collection[]|null $collections collections
+     *
+     * @return $this
+     */
+    public function setCollections($collections)
+    {
+        $this->container['collections'] = $collections;
 
         return $this;
     }

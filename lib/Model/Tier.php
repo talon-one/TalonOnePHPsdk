@@ -229,7 +229,7 @@ class Tier implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id The internal ID of the tier
+     * @param int $id The internal ID of the tier.
      *
      * @return $this
      */
@@ -253,7 +253,7 @@ class Tier implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of the tier
+     * @param string $name The name of the tier.
      *
      * @return $this
      */

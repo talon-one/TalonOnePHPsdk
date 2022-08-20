@@ -221,7 +221,7 @@ class RollbackReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The referral code whose usage has been rolled back
+     * @param string $value The referral code whose usage has been rolled back.
      *
      * @return $this
      */

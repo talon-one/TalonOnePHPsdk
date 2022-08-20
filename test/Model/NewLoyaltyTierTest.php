@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewLoyaltyTierTest Class Doc Comment
  *
  * @category    Class
- * @description A tier in a loyalty program
+ * @description A tier in a loyalty program.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

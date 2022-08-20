@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. | 
+**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
 **created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
 **title** | **string** | The human-friendly display name for this event type. Use a short, past-tense, description of the event. | 
 **name** | **string** | The machine-friendly canonical name for this event type. This will be used in URLs, and cannot be changed after an event type has been created. | 

@@ -201,6 +201,8 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     const PLATFORM_SELLIGENT = 'selligent';
     const PLATFORM_ITERABLE = 'iterable';
     const PLATFORM_CUSTOMER_ENGAGEMENT = 'customer_engagement';
+    const PLATFORM_CUSTOMER_DATA = 'customer_data';
+    const PLATFORM_SALESFORCE = 'salesforce';
     
 
     
@@ -219,6 +221,8 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
             self::PLATFORM_SELLIGENT,
             self::PLATFORM_ITERABLE,
             self::PLATFORM_CUSTOMER_ENGAGEMENT,
+            self::PLATFORM_CUSTOMER_DATA,
+            self::PLATFORM_SALESFORCE,
         ];
     }
     
@@ -314,7 +318,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title Title for API Key
+     * @param string $title Title for API Key.
      *
      * @return $this
      */
@@ -338,7 +342,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets expires
      *
-     * @param \DateTime $expires The date the API key expired
+     * @param \DateTime $expires The date the API key expired.
      *
      * @return $this
      */
@@ -362,7 +366,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets platform
      *
-     * @param string|null $platform The third-party platform the API key is valid for. Use `none` for a generic API key to be used from your own intergration layer.
+     * @param string|null $platform The third-party platform the API key is valid for. Use `none` for a generic API key to be used from your own integration layer.
      *
      * @return $this
      */
@@ -395,7 +399,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id ID of the API Key
+     * @param int $id ID of the API Key.
      *
      * @return $this
      */
@@ -419,7 +423,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets createdBy
      *
-     * @param int $createdBy ID of user who created
+     * @param int $createdBy ID of user who created.
      *
      * @return $this
      */
@@ -443,7 +447,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets accountID
      *
-     * @param int $accountID ID of account the key is used for
+     * @param int $accountID ID of account the key is used for.
      *
      * @return $this
      */
@@ -467,7 +471,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets applicationID
      *
-     * @param int $applicationID ID of application the key is used for
+     * @param int $applicationID ID of application the key is used for.
      *
      * @return $this
      */
@@ -491,7 +495,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created The date the API key was created
+     * @param \DateTime $created The date the API key was created.
      *
      * @return $this
      */

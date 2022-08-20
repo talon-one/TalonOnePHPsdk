@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**effectId** | **int** | The ID of the custom effect that was triggered | 
+**effectId** | **int** | The ID of the custom effect that was triggered. | 
 **name** | **string** | The type of the custom effect. | 
 **payload** | [**object**](.md) | The JSON payload of the custom effect. | 
 

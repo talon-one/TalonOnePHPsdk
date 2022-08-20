@@ -221,7 +221,7 @@ class AcceptReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The referral code that was accepted
+     * @param string $value The referral code that was accepted.
      *
      * @return $this
      */

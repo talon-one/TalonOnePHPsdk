@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewInvitationTest Class Doc Comment
  *
  * @category    Class
- * @description Parameters for inviting a new user
+ * @description Parameters for inviting a new user.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

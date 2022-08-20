@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * CustomerAnalytics Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description A summary report of customer activity for a given time range.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -275,7 +275,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets acceptedCoupons
      *
-     * @param int $acceptedCoupons Total accepted coupons for this customer
+     * @param int $acceptedCoupons Total accepted coupons for this customer.
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets createdCoupons
      *
-     * @param int $createdCoupons Total created coupons for this customer
+     * @param int $createdCoupons Total created coupons for this customer.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets freeItems
      *
-     * @param int $freeItems Total free items given to this customer
+     * @param int $freeItems Total free items given to this customer.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets totalOrders
      *
-     * @param int $totalOrders Total orders made by this customer
+     * @param int $totalOrders Total orders made by this customer.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets totalDiscountedOrders
      *
-     * @param int $totalDiscountedOrders Total orders made by this customer that had a discount
+     * @param int $totalDiscountedOrders Total orders made by this customer that had a discount.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets totalRevenue
      *
-     * @param float $totalRevenue Total Revenue across all closed sessions
+     * @param float $totalRevenue Total Revenue across all closed sessions.
      *
      * @return $this
      */
@@ -419,7 +419,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets totalDiscounts
      *
-     * @param float $totalDiscounts The sum of discounts that were given across all closed sessions
+     * @param float $totalDiscounts The sum of discounts that were given across all closed sessions.
      *
      * @return $this
      */

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ApplicationCampaignStatsTest Class Doc Comment
  *
  * @category    Class
- * @description Provides statistics regarding an application&#39;s campaigns
+ * @description Provides statistics regarding an application&#39;s campaigns.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

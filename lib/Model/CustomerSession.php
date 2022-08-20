@@ -290,6 +290,10 @@ class CustomerSession implements ModelInterface, ArrayAccess
         if ($this->container['integrationId'] === null) {
             $invalidProperties[] = "'integrationId' can't be null";
         }
+        if ((mb_strlen($this->container['integrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'integrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
@@ -370,12 +374,16 @@ class CustomerSession implements ModelInterface, ArrayAccess
     /**
      * Sets integrationId
      *
-     * @param string $integrationId The integration ID for this entity sent to and used in the Talon.One system.
+     * @param string $integrationId The integration ID set by your integration layer.
      *
      * @return $this
      */
     public function setIntegrationId($integrationId)
     {
+        if ((mb_strlen($integrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $integrationId when calling CustomerSession., must be smaller than or equal to 1000.');
+        }
+
         $this->container['integrationId'] = $integrationId;
 
         return $this;
@@ -442,7 +450,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
     /**
      * Sets profileId
      *
-     * @param string $profileId ID of the customers profile as used within this Talon.One account.  **Note:** If the customer does not yet have a known profileId, we recommend you use a guest profileId.
+     * @param string $profileId ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known `profileId`, we recommend you use a guest `profileId`.
      *
      * @return $this
      */
@@ -522,7 +530,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string $state Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. `closed` → `cancelled` or `partially_returned` 4. `partially_returned` → `cancelled`  For more information, see [Entities](/docs/dev/concepts/entities#customer-session).
+     * @param string $state Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. `closed` → `cancelled` or `partially_returned` 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](/docs/dev/concepts/entities#customer-session).
      *
      * @return $this
      */
@@ -579,7 +587,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
     /**
      * Sets identifiers
      *
-     * @param string[]|null $identifiers Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).
+     * @param string[]|null $identifiers Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers/).
      *
      * @return $this
      */
@@ -699,7 +707,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
     /**
      * Sets updated
      *
-     * @param \DateTime $updated Timestamp of the most recent event received on this session
+     * @param \DateTime $updated Timestamp of the most recent event received on this session.
      *
      * @return $this
      */

@@ -299,7 +299,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets profileId
      *
-     * @param string $profileId ID of the customers profile as used within this Talon.One account.  **Note:** If the customer does not yet have a known profileId, we recommend you use a guest profileId.
+     * @param string $profileId ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known `profileId`, we recommend you use a guest `profileId`.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets loyaltyProgramId
      *
-     * @param int $loyaltyProgramId ID of the ledger
+     * @param int $loyaltyProgramId ID of the ledger.
      *
      * @return $this
      */
@@ -419,7 +419,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets eventId
      *
-     * @param int $eventId ID of the related event
+     * @param int $eventId ID of the related event.
      *
      * @return $this
      */
@@ -443,7 +443,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param int $amount Amount of loyalty points
+     * @param int $amount Amount of loyalty points.
      *
      * @return $this
      */
@@ -467,7 +467,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets reason
      *
-     * @param string $reason reason for awarding/deducting points
+     * @param string $reason reason for awarding/deducting points.
      *
      * @return $this
      */
@@ -491,7 +491,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets expiryDate
      *
-     * @param \DateTime $expiryDate Expiry date of the points
+     * @param \DateTime $expiryDate Expiry date of the points.
      *
      * @return $this
      */
@@ -515,7 +515,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets referenceId
      *
-     * @param int|null $referenceId The ID of the balancing ledgerEntry
+     * @param int|null $referenceId The ID of the balancing ledgerEntry.
      *
      * @return $this
      */

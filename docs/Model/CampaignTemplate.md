@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. | 
+**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
 **created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
 **accountId** | **int** | The ID of the account that owns this entity. | 
 **userId** | **int** | The ID of the account that owns this entity. | 
@@ -19,9 +19,11 @@ Name | Type | Description | Notes
 **features** | **string[]** | A list of features for the campaign template. | [optional] 
 **couponSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **referralSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
-**limits** | [**\TalonOne\Client\Model\TemplateLimitConfig[]**](TemplateLimitConfig.md) | The set of limits that will operate for this campaign template | [optional] 
+**limits** | [**\TalonOne\Client\Model\TemplateLimitConfig[]**](TemplateLimitConfig.md) | The set of limits that will operate for this campaign template. | [optional] 
 **templateParams** | [**\TalonOne\Client\Model\CampaignTemplateParams[]**](CampaignTemplateParams.md) | Template parameters are fields which can be used to replace values in a rule. | [optional] 
-**applicationsIds** | **int[]** | A list of the IDs of the applications that are subscribed to this campaign template A list of the IDs of the applications that are subscribed to this campaign template | 
+**applicationsIds** | **int[]** | A list of the IDs of the applications that are subscribed to this campaign template. A list of the IDs of the applications that are subscribed to this campaign template. | 
+**campaignCollections** | [**\TalonOne\Client\Model\CampaignTemplateCollection[]**](CampaignTemplateCollection.md) | The campaign collections from the blueprint campaign for the template. | [optional] 
+**defaultCampaignGroupId** | **int** | The default campaignGroupId. | [optional] 
 **updated** | [**\DateTime**](\DateTime.md) | Timestamp of the most recent update to the campaign template or any of its elements. | [optional] 
 **updatedBy** | **string** | Name of the user who last updated this campaign template if available. | [optional] 
 **validApplicationIds** | **int[]** | The IDs of the applications that are related to this entity. | 

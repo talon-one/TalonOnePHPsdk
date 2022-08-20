@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * AccessLogEntry Class Doc Comment
  *
  * @category Class
- * @description Log of application accesses
+ * @description Log of application accesses.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -275,7 +275,7 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets uuid
      *
-     * @param string $uuid UUID reference of request
+     * @param string $uuid UUID reference of request.
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param int $status HTTP status code of response
+     * @param int $status HTTP status code of response.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets method
      *
-     * @param string $method HTTP method of request
+     * @param string $method HTTP method of request.
      *
      * @return $this
      */

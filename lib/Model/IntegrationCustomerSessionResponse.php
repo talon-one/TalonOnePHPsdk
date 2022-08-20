@@ -57,7 +57,8 @@ class IntegrationCustomerSessionResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'customerSession' => '\TalonOne\Client\Model\CustomerSessionV2'
+        'customerSession' => '\TalonOne\Client\Model\CustomerSessionV2',
+        'effects' => '\TalonOne\Client\Model\Effect[]'
     ];
 
     /**
@@ -66,7 +67,8 @@ class IntegrationCustomerSessionResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'customerSession' => null
+        'customerSession' => null,
+        'effects' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class IntegrationCustomerSessionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'customerSession' => 'customerSession'
+        'customerSession' => 'customerSession',
+        'effects' => 'effects'
     ];
 
     /**
@@ -105,7 +108,8 @@ class IntegrationCustomerSessionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'customerSession' => 'setCustomerSession'
+        'customerSession' => 'setCustomerSession',
+        'effects' => 'setEffects'
     ];
 
     /**
@@ -114,7 +118,8 @@ class IntegrationCustomerSessionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'customerSession' => 'getCustomerSession'
+        'customerSession' => 'getCustomerSession',
+        'effects' => 'getEffects'
     ];
 
     /**
@@ -178,6 +183,7 @@ class IntegrationCustomerSessionResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['customerSession'] = isset($data['customerSession']) ? $data['customerSession'] : null;
+        $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
     }
 
     /**
@@ -224,6 +230,30 @@ class IntegrationCustomerSessionResponse implements ModelInterface, ArrayAccess
     public function setCustomerSession($customerSession)
     {
         $this->container['customerSession'] = $customerSession;
+
+        return $this;
+    }
+
+    /**
+     * Gets effects
+     *
+     * @return \TalonOne\Client\Model\Effect[]|null
+     */
+    public function getEffects()
+    {
+        return $this->container['effects'];
+    }
+
+    /**
+     * Sets effects
+     *
+     * @param \TalonOne\Client\Model\Effect[]|null $effects effects
+     *
+     * @return $this
+     */
+    public function setEffects($effects)
+    {
+        $this->container['effects'] = $effects;
 
         return $this;
     }

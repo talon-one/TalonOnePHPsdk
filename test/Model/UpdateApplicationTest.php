@@ -182,4 +182,11 @@ class UpdateApplicationTest extends TestCase
     public function testPropertyEnablePartialDiscounts()
     {
     }
+
+    /**
+     * Test attribute "defaultDiscountAdditionalCostPerItemScope"
+     */
+    public function testPropertyDefaultDiscountAdditionalCostPerItemScope()
+    {
+    }
 }

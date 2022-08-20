@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **attributesSettings** | [**\TalonOne\Client\Model\AttributesSettings**](AttributesSettings.md) |  | [optional] 
 **sandbox** | **bool** | Indicates if this is a live or sandbox Application. | [optional] 
 **enablePartialDiscounts** | **bool** | Indicates if this Application supports partial discounts. | [optional] 
+**defaultDiscountAdditionalCostPerItemScope** | **string** | The default scope to apply &#x60;setDiscountPerItem&#x60; effects on if no scope was provided with the effect. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

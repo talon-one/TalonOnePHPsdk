@@ -57,9 +57,9 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'totalResultSize' => 'int',
         'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\ApplicationCustomer[]'
+        'totalResultSize' => 'int',
+        'data' => '\TalonOne\Client\Model\Collection[]'
     ];
 
     /**
@@ -68,8 +68,8 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'totalResultSize' => null,
         'hasMore' => null,
+        'totalResultSize' => null,
         'data' => null
     ];
 
@@ -100,8 +100,8 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'totalResultSize' => 'totalResultSize',
         'hasMore' => 'hasMore',
+        'totalResultSize' => 'totalResultSize',
         'data' => 'data'
     ];
 
@@ -111,8 +111,8 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'totalResultSize' => 'setTotalResultSize',
         'hasMore' => 'setHasMore',
+        'totalResultSize' => 'setTotalResultSize',
         'data' => 'setData'
     ];
 
@@ -122,8 +122,8 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'totalResultSize' => 'getTotalResultSize',
         'hasMore' => 'getHasMore',
+        'totalResultSize' => 'getTotalResultSize',
         'data' => 'getData'
     ];
 
@@ -187,8 +187,8 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
         $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
+        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -220,30 +220,6 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets totalResultSize
-     *
-     * @return int|null
-     */
-    public function getTotalResultSize()
-    {
-        return $this->container['totalResultSize'];
-    }
-
-    /**
-     * Sets totalResultSize
-     *
-     * @param int|null $totalResultSize totalResultSize
-     *
-     * @return $this
-     */
-    public function setTotalResultSize($totalResultSize)
-    {
-        $this->container['totalResultSize'] = $totalResultSize;
-
-        return $this;
-    }
-
-    /**
      * Gets hasMore
      *
      * @return bool|null
@@ -268,9 +244,33 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets totalResultSize
+     *
+     * @return int|null
+     */
+    public function getTotalResultSize()
+    {
+        return $this->container['totalResultSize'];
+    }
+
+    /**
+     * Sets totalResultSize
+     *
+     * @param int|null $totalResultSize totalResultSize
+     *
+     * @return $this
+     */
+    public function setTotalResultSize($totalResultSize)
+    {
+        $this->container['totalResultSize'] = $totalResultSize;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\ApplicationCustomer[]
+     * @return \TalonOne\Client\Model\Collection[]
      */
     public function getData()
     {
@@ -280,7 +280,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\ApplicationCustomer[] $data data
+     * @param \TalonOne\Client\Model\Collection[] $data data
      *
      * @return $this
      */

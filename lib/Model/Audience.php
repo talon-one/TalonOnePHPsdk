@@ -62,8 +62,11 @@ class Audience implements ModelInterface, ArrayAccess
         'id' => 'int',
         'created' => '\DateTime',
         'name' => 'string',
+        'sandbox' => 'bool',
+        'description' => 'string',
         'integration' => 'string',
-        'integrationId' => 'string'
+        'integrationId' => 'string',
+        'createdIn3rdParty' => 'bool'
     ];
 
     /**
@@ -76,8 +79,11 @@ class Audience implements ModelInterface, ArrayAccess
         'id' => null,
         'created' => 'date-time',
         'name' => null,
+        'sandbox' => null,
+        'description' => null,
         'integration' => null,
-        'integrationId' => null
+        'integrationId' => null,
+        'createdIn3rdParty' => null
     ];
 
     /**
@@ -111,8 +117,11 @@ class Audience implements ModelInterface, ArrayAccess
         'id' => 'id',
         'created' => 'created',
         'name' => 'name',
+        'sandbox' => 'sandbox',
+        'description' => 'description',
         'integration' => 'integration',
-        'integrationId' => 'integrationId'
+        'integrationId' => 'integrationId',
+        'createdIn3rdParty' => 'createdIn3rdParty'
     ];
 
     /**
@@ -125,8 +134,11 @@ class Audience implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'created' => 'setCreated',
         'name' => 'setName',
+        'sandbox' => 'setSandbox',
+        'description' => 'setDescription',
         'integration' => 'setIntegration',
-        'integrationId' => 'setIntegrationId'
+        'integrationId' => 'setIntegrationId',
+        'createdIn3rdParty' => 'setCreatedIn3rdParty'
     ];
 
     /**
@@ -139,8 +151,11 @@ class Audience implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'created' => 'getCreated',
         'name' => 'getName',
+        'sandbox' => 'getSandbox',
+        'description' => 'getDescription',
         'integration' => 'getIntegration',
-        'integrationId' => 'getIntegrationId'
+        'integrationId' => 'getIntegrationId',
+        'createdIn3rdParty' => 'getCreatedIn3rdParty'
     ];
 
     /**
@@ -184,23 +199,8 @@ class Audience implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const INTEGRATION_MPARTICLE = 'mparticle';
-    const INTEGRATION_SEGMENT = 'segment';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getIntegrationAllowableValues()
-    {
-        return [
-            self::INTEGRATION_MPARTICLE,
-            self::INTEGRATION_SEGMENT,
-        ];
-    }
     
 
     /**
@@ -222,8 +222,11 @@ class Audience implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['integration'] = isset($data['integration']) ? $data['integration'] : null;
         $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
+        $this->container['createdIn3rdParty'] = isset($data['createdIn3rdParty']) ? $data['createdIn3rdParty'] : null;
     }
 
     /**
@@ -251,12 +254,8 @@ class Audience implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
         }
 
-        $allowedValues = $this->getIntegrationAllowableValues();
-        if (!is_null($this->container['integration']) && !in_array($this->container['integration'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'integration', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if (!is_null($this->container['integrationId']) && (mb_strlen($this->container['integrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'integrationId', the character length must be smaller than or equal to 1000.";
         }
 
         if (!is_null($this->container['integrationId']) && (mb_strlen($this->container['integrationId']) < 1)) {
@@ -315,7 +314,7 @@ class Audience implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -380,6 +379,54 @@ class Audience implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets sandbox
+     *
+     * @return bool|null
+     */
+    public function getSandbox()
+    {
+        return $this->container['sandbox'];
+    }
+
+    /**
+     * Sets sandbox
+     *
+     * @param bool|null $sandbox Indicates if this is a live or sandbox Application.
+     *
+     * @return $this
+     */
+    public function setSandbox($sandbox)
+    {
+        $this->container['sandbox'] = $sandbox;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description A description of the audience.
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
      * Gets integration
      *
      * @return string|null
@@ -392,21 +439,12 @@ class Audience implements ModelInterface, ArrayAccess
     /**
      * Sets integration
      *
-     * @param string|null $integration Integration that this audience was created in. Can be used for mParticle and Segment audiences.
+     * @param string|null $integration The Talon.One-supported [3rd-party platform](https://docs.talon.one/docs/dev/technology-partners/overview) that this audience was created in.  For example, `mParticle`, `Segment`, `Selligent`, `Braze`, or `Iterable`.  **Note:** If you do not integrate with any of these platforms, do not use this property.
      *
      * @return $this
      */
     public function setIntegration($integration)
     {
-        $allowedValues = $this->getIntegrationAllowableValues();
-        if (!is_null($integration) && !in_array($integration, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'integration', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['integration'] = $integration;
 
         return $this;
@@ -425,18 +463,44 @@ class Audience implements ModelInterface, ArrayAccess
     /**
      * Sets integrationId
      *
-     * @param string|null $integrationId The ID of this audience in the third-party integration.
+     * @param string|null $integrationId The ID of this audience in the third-party integration.  **Note:** To create an audience that doesn't come from a 3rd party platform, do not use this property.
      *
      * @return $this
      */
     public function setIntegrationId($integrationId)
     {
-
+        if (!is_null($integrationId) && (mb_strlen($integrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $integrationId when calling Audience., must be smaller than or equal to 1000.');
+        }
         if (!is_null($integrationId) && (mb_strlen($integrationId) < 1)) {
             throw new \InvalidArgumentException('invalid length for $integrationId when calling Audience., must be bigger than or equal to 1.');
         }
 
         $this->container['integrationId'] = $integrationId;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdIn3rdParty
+     *
+     * @return bool|null
+     */
+    public function getCreatedIn3rdParty()
+    {
+        return $this->container['createdIn3rdParty'];
+    }
+
+    /**
+     * Sets createdIn3rdParty
+     *
+     * @param bool|null $createdIn3rdParty Determines if this audience is a 3rd party audience or not.
+     *
+     * @return $this
+     */
+    public function setCreatedIn3rdParty($createdIn3rdParty)
+    {
+        $this->container['createdIn3rdParty'] = $createdIn3rdParty;
 
         return $this;
     }

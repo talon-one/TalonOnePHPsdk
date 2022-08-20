@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**object**](.md) | Arbitrary properties associated with this item | [optional] 
+**attributes** | [**object**](.md) | Arbitrary properties associated with this item. | [optional] 
 **batchID** | **string** | The id of the batch the referral belongs to. | 
 **startDate** | [**\DateTime**](\DateTime.md) | Timestamp at which point the referral code becomes valid. | [optional] 
 **expiryDate** | [**\DateTime**](\DateTime.md) | Expiry date of the referral code. Referral never expires if this is omitted, zero, or negative. | [optional] 

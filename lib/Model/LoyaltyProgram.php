@@ -340,7 +340,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id The ID of loyalty program. Unique ID for this entity.
+     * @param int $id The ID of loyalty program. Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -508,7 +508,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     /**
      * Sets allowSubledger
      *
-     * @param bool $allowSubledger Indicates if this program supports subledgers inside the program
+     * @param bool $allowSubledger Indicates if this program supports subledgers inside the program.
      *
      * @return $this
      */

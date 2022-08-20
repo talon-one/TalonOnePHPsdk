@@ -254,7 +254,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id The internal ID of loyalty program
+     * @param int $id The internal ID of loyalty program.
      *
      * @return $this
      */
@@ -278,7 +278,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title Visible name of loyalty program
+     * @param string $title Visible name of loyalty program.
      *
      * @return $this
      */
@@ -302,7 +302,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Internal name of loyalty program
+     * @param string $name Internal name of loyalty program.
      *
      * @return $this
      */
@@ -350,7 +350,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
     /**
      * Sets subLedgers
      *
-     * @param map[string,\TalonOne\Client\Model\LedgerInfo]|null $subLedgers A map containing information about each loyalty subledger
+     * @param map[string,\TalonOne\Client\Model\LedgerInfo]|null $subLedgers A map containing information about each loyalty subledger.
      *
      * @return $this
      */

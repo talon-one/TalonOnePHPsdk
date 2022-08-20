@@ -230,6 +230,10 @@ class CustomerProfileAudienceRequestItem implements ModelInterface, ArrayAccess
         if ($this->container['profileIntegrationId'] === null) {
             $invalidProperties[] = "'profileIntegrationId' can't be null";
         }
+        if ((mb_strlen($this->container['profileIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'profileIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['audienceId'] === null) {
             $invalidProperties[] = "'audienceId' can't be null";
         }
@@ -261,7 +265,7 @@ class CustomerProfileAudienceRequestItem implements ModelInterface, ArrayAccess
     /**
      * Sets action
      *
-     * @param string $action action
+     * @param string $action Defines the action to perform: - `add`: Adds the customer profile to the audience. - `delete`: Removes the customer profile from the audience.
      *
      * @return $this
      */
@@ -300,6 +304,10 @@ class CustomerProfileAudienceRequestItem implements ModelInterface, ArrayAccess
      */
     public function setProfileIntegrationId($profileIntegrationId)
     {
+        if ((mb_strlen($profileIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $profileIntegrationId when calling CustomerProfileAudienceRequestItem., must be smaller than or equal to 1000.');
+        }
+
         $this->container['profileIntegrationId'] = $profileIntegrationId;
 
         return $this;

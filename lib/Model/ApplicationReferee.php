@@ -229,9 +229,17 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
         if ($this->container['advocateIntegrationId'] === null) {
             $invalidProperties[] = "'advocateIntegrationId' can't be null";
         }
+        if ((mb_strlen($this->container['advocateIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'advocateIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['friendIntegrationId'] === null) {
             $invalidProperties[] = "'friendIntegrationId' can't be null";
         }
+        if ((mb_strlen($this->container['friendIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'friendIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['code'] === null) {
             $invalidProperties[] = "'code' can't be null";
         }
@@ -290,7 +298,7 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
     /**
      * Sets sessionId
      *
-     * @param string $sessionId Integration ID of the session in which the customer redeemed the referral
+     * @param string $sessionId Integration ID of the session in which the customer redeemed the referral.
      *
      * @return $this
      */
@@ -314,12 +322,16 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
     /**
      * Sets advocateIntegrationId
      *
-     * @param string $advocateIntegrationId Integration ID of the Advocate's Profile
+     * @param string $advocateIntegrationId Integration ID of the Advocate's Profile.
      *
      * @return $this
      */
     public function setAdvocateIntegrationId($advocateIntegrationId)
     {
+        if ((mb_strlen($advocateIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $advocateIntegrationId when calling ApplicationReferee., must be smaller than or equal to 1000.');
+        }
+
         $this->container['advocateIntegrationId'] = $advocateIntegrationId;
 
         return $this;
@@ -338,12 +350,16 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
     /**
      * Sets friendIntegrationId
      *
-     * @param string $friendIntegrationId Integration ID of the Friend's Profile
+     * @param string $friendIntegrationId Integration ID of the Friend's Profile.
      *
      * @return $this
      */
     public function setFriendIntegrationId($friendIntegrationId)
     {
+        if ((mb_strlen($friendIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $friendIntegrationId when calling ApplicationReferee., must be smaller than or equal to 1000.');
+        }
+
         $this->container['friendIntegrationId'] = $friendIntegrationId;
 
         return $this;
@@ -386,7 +402,7 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created Timestamp of the moment the customer redeemed the referral
+     * @param \DateTime $created Timestamp of the moment the customer redeemed the referral.
      *
      * @return $this
      */

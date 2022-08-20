@@ -257,7 +257,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
     /**
      * Sets currentBalance
      *
-     * @param float $currentBalance Sum of currently active points
+     * @param float $currentBalance Sum of currently active points.
      *
      * @return $this
      */
@@ -281,7 +281,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
     /**
      * Sets pendingBalance
      *
-     * @param float $pendingBalance Sum of pending points
+     * @param float $pendingBalance Sum of pending points.
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
     /**
      * Sets expiredBalance
      *
-     * @param float $expiredBalance Sum of expired points
+     * @param float $expiredBalance Sum of expired points.
      *
      * @return $this
      */
@@ -329,7 +329,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
     /**
      * Sets spentBalance
      *
-     * @param float $spentBalance Sum of spent points
+     * @param float $spentBalance Sum of spent points.
      *
      * @return $this
      */
@@ -353,7 +353,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
     /**
      * Sets tentativeCurrentBalance
      *
-     * @param float $tentativeCurrentBalance Sum of currently active points, including points added and deducted in open sessions
+     * @param float $tentativeCurrentBalance Sum of currently active points, including points added and deducted in open sessions.
      *
      * @return $this
      */

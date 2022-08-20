@@ -105,4 +105,11 @@ class NewAdditionalCostTest extends TestCase
     public function testPropertySubscribedApplicationsIds()
     {
     }
+
+    /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+    }
 }

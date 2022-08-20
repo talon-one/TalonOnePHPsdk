@@ -198,6 +198,10 @@ class LoyaltyCardProfileRegistration implements ModelInterface, ArrayAccess
         if ($this->container['integrationId'] === null) {
             $invalidProperties[] = "'integrationId' can't be null";
         }
+        if ((mb_strlen($this->container['integrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'integrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['timestamp'] === null) {
             $invalidProperties[] = "'timestamp' can't be null";
         }
@@ -235,6 +239,10 @@ class LoyaltyCardProfileRegistration implements ModelInterface, ArrayAccess
      */
     public function setIntegrationId($integrationId)
     {
+        if ((mb_strlen($integrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $integrationId when calling LoyaltyCardProfileRegistration., must be smaller than or equal to 1000.');
+        }
+
         $this->container['integrationId'] = $integrationId;
 
         return $this;
@@ -253,7 +261,7 @@ class LoyaltyCardProfileRegistration implements ModelInterface, ArrayAccess
     /**
      * Sets timestamp
      *
-     * @param \DateTime $timestamp Timestamp of the registration to the card
+     * @param \DateTime $timestamp Timestamp of the registration to the card.
      *
      * @return $this
      */

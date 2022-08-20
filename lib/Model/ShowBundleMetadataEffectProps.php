@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * ShowBundleMetadataEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;ShowBundleMetadata\&quot; effect. This effect contains information that allows you to associate the discounts from a rule in a bundle campaign with specific cart items. This way you can distinguish from \&quot;normal\&quot; discounts that were not the result of a product bundle.
+ * @description This effect is **deprecated**. The properties specific to the \&quot;ShowBundleMetadata\&quot; effect. This effect contains information that allows you to associate the discounts from a rule in a bundle campaign with specific cart items. This way you can distinguish from \&quot;normal\&quot; discounts that were not the result of a product bundle.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -239,7 +239,7 @@ class ShowBundleMetadataEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string $description Description of the product bundle
+     * @param string $description Description of the product bundle.
      *
      * @return $this
      */
@@ -263,7 +263,7 @@ class ShowBundleMetadataEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets bundleAttributes
      *
-     * @param string[] $bundleAttributes The cart item attributes that determined which items are being bundled together
+     * @param string[] $bundleAttributes The cart item attributes that determined which items are being bundled together.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class ShowBundleMetadataEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets itemsIndices
      *
-     * @param float[] $itemsIndices The indices in the cart items array of the bundled items
+     * @param float[] $itemsIndices The indices in the cart items array of the bundled items.
      *
      * @return $this
      */

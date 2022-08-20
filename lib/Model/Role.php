@@ -284,7 +284,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -404,7 +404,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Name of the role
+     * @param string $name Name of the role.
      *
      * @return $this
      */
@@ -428,7 +428,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description Description of the role
+     * @param string|null $description Description of the role.
      *
      * @return $this
      */
@@ -452,7 +452,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets members
      *
-     * @param int[]|null $members A list of user identifiers assigned to this role
+     * @param int[]|null $members A list of user identifiers assigned to this role.
      *
      * @return $this
      */
@@ -476,7 +476,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets acl
      *
-     * @param object $acl Role ACL Policy
+     * @param object $acl Role ACL Policy.
      *
      * @return $this
      */

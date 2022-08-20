@@ -283,7 +283,7 @@ class NewCouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets usageLimit
      *
-     * @param int $usageLimit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     * @param int $usageLimit The number of times the coupon code can be redeemed. `0` means unlimited redemptions but any campaign usage limits will still apply.
      *
      * @return $this
      */
@@ -448,7 +448,7 @@ class NewCouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object $attributes Arbitrary properties associated with coupons
+     * @param object $attributes Arbitrary properties associated with coupons.
      *
      * @return $this
      */

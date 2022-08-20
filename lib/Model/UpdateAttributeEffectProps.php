@@ -230,7 +230,7 @@ class UpdateAttributeEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets path
      *
-     * @param string $path The exact path of the attribute that was updated
+     * @param string $path The exact path of the attribute that was updated.
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class UpdateAttributeEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param object $value The new value of this attribute. Value can be any of the following types (time, string, number, location, boolean) or a list of any of those types
+     * @param object $value The new value of this attribute. The value can be of the following types: - boolean - location - number - string - time - list of any of those types
      *
      * @return $this
      */

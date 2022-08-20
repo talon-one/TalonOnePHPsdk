@@ -220,7 +220,7 @@ class CouponReservations implements ModelInterface, ArrayAccess
     /**
      * Sets integrationIDs
      *
-     * @param string[] $integrationIDs List of Integration IDs
+     * @param string[] $integrationIDs List of customer integration IDs.
      *
      * @return $this
      */

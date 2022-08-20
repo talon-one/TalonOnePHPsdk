@@ -145,7 +145,7 @@ class IntegrationApiTest extends TestCase
     /**
      * Test case for deleteCustomerData
      *
-     * Delete the personal data of a customer.
+     * Delete customer's personal data.
      *
      */
     public function testDeleteCustomerData()
@@ -173,6 +173,16 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for getLoyaltyTransactions
+     *
+     * Get loyalty ledger transaction logs.
+     *
+     */
+    public function testGetLoyaltyTransactions()
+    {
+    }
+
+    /**
      * Test case for getReservedCustomers
      *
      * List customers that have this coupon reserved.
@@ -193,12 +203,32 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for syncCatalog
+     *
+     * Sync cart item catalog.
+     *
+     */
+    public function testSyncCatalog()
+    {
+    }
+
+    /**
      * Test case for trackEvent
      *
      * Track event.
      *
      */
     public function testTrackEvent()
+    {
+    }
+
+    /**
+     * Test case for trackEventV2
+     *
+     * Track event V2.
+     *
+     */
+    public function testTrackEventV2()
     {
     }
 
@@ -215,7 +245,7 @@ class IntegrationApiTest extends TestCase
     /**
      * Test case for updateAudienceV2
      *
-     * Update audience.
+     * Update audience name.
      *
      */
     public function testUpdateAudienceV2()

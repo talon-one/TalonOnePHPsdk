@@ -199,6 +199,10 @@ class MultipleCustomerProfileIntegrationRequestItem implements ModelInterface, A
         if ($this->container['integrationId'] === null) {
             $invalidProperties[] = "'integrationId' can't be null";
         }
+        if ((mb_strlen($this->container['integrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'integrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         return $invalidProperties;
     }
 
@@ -227,7 +231,7 @@ class MultipleCustomerProfileIntegrationRequestItem implements ModelInterface, A
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this item
+     * @param object|null $attributes Arbitrary properties associated with this item.
      *
      * @return $this
      */
@@ -251,12 +255,16 @@ class MultipleCustomerProfileIntegrationRequestItem implements ModelInterface, A
     /**
      * Sets integrationId
      *
-     * @param string $integrationId The custom identifier for this profile, must be unique within the account.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2).
+     * @param string $integrationId The identifier of this profile, set by your integration layer. It must be unique within the account.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2).
      *
      * @return $this
      */
     public function setIntegrationId($integrationId)
     {
+        if ((mb_strlen($integrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $integrationId when calling MultipleCustomerProfileIntegrationRequestItem., must be smaller than or equal to 1000.');
+        }
+
         $this->container['integrationId'] = $integrationId;
 
         return $this;

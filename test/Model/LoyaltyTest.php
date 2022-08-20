@@ -79,6 +79,13 @@ class LoyaltyTest extends TestCase
     }
 
     /**
+     * Test attribute "cards"
+     */
+    public function testPropertyCards()
+    {
+    }
+
+    /**
      * Test attribute "programs"
      */
     public function testPropertyPrograms()

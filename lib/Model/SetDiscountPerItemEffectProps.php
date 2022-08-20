@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * SetDiscountPerItemEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the &#x60;setDiscountPerItem&#x60; effect, triggered whenever a validated rule contained a \&quot;set per item discount\&quot; effect. This is a discount that should be applied on a specific item.
+ * @description The properties specific to the &#x60;setDiscountPerItem&#x60; effect, triggered whenever a validated rule contained a \&quot;set per item discount\&quot; effect. This is a discount that will be applied either on a specific item, on a specific item + additional cost or on all additional costs per item. This depends on the chosen scope.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,8 +63,11 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'position' => 'float',
         'subPosition' => 'float',
         'desiredValue' => 'float',
+        'scope' => 'string',
         'totalDiscount' => 'float',
-        'desiredTotalDiscount' => 'float'
+        'desiredTotalDiscount' => 'float',
+        'bundleIndex' => 'int',
+        'bundleName' => 'string'
     ];
 
     /**
@@ -78,8 +81,11 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'position' => null,
         'subPosition' => null,
         'desiredValue' => null,
+        'scope' => null,
         'totalDiscount' => null,
-        'desiredTotalDiscount' => null
+        'desiredTotalDiscount' => null,
+        'bundleIndex' => null,
+        'bundleName' => null
     ];
 
     /**
@@ -114,8 +120,11 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'position' => 'position',
         'subPosition' => 'subPosition',
         'desiredValue' => 'desiredValue',
+        'scope' => 'scope',
         'totalDiscount' => 'totalDiscount',
-        'desiredTotalDiscount' => 'desiredTotalDiscount'
+        'desiredTotalDiscount' => 'desiredTotalDiscount',
+        'bundleIndex' => 'bundleIndex',
+        'bundleName' => 'bundleName'
     ];
 
     /**
@@ -129,8 +138,11 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'position' => 'setPosition',
         'subPosition' => 'setSubPosition',
         'desiredValue' => 'setDesiredValue',
+        'scope' => 'setScope',
         'totalDiscount' => 'setTotalDiscount',
-        'desiredTotalDiscount' => 'setDesiredTotalDiscount'
+        'desiredTotalDiscount' => 'setDesiredTotalDiscount',
+        'bundleIndex' => 'setBundleIndex',
+        'bundleName' => 'setBundleName'
     ];
 
     /**
@@ -144,8 +156,11 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'position' => 'getPosition',
         'subPosition' => 'getSubPosition',
         'desiredValue' => 'getDesiredValue',
+        'scope' => 'getScope',
         'totalDiscount' => 'getTotalDiscount',
-        'desiredTotalDiscount' => 'getDesiredTotalDiscount'
+        'desiredTotalDiscount' => 'getDesiredTotalDiscount',
+        'bundleIndex' => 'getBundleIndex',
+        'bundleName' => 'getBundleName'
     ];
 
     /**
@@ -213,8 +228,11 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['subPosition'] = isset($data['subPosition']) ? $data['subPosition'] : null;
         $this->container['desiredValue'] = isset($data['desiredValue']) ? $data['desiredValue'] : null;
+        $this->container['scope'] = isset($data['scope']) ? $data['scope'] : null;
         $this->container['totalDiscount'] = isset($data['totalDiscount']) ? $data['totalDiscount'] : null;
         $this->container['desiredTotalDiscount'] = isset($data['desiredTotalDiscount']) ? $data['desiredTotalDiscount'] : null;
+        $this->container['bundleIndex'] = isset($data['bundleIndex']) ? $data['bundleIndex'] : null;
+        $this->container['bundleName'] = isset($data['bundleName']) ? $data['bundleName'] : null;
     }
 
     /**
@@ -359,13 +377,37 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets desiredValue
      *
-     * @param float|null $desiredValue The original value of the discount
+     * @param float|null $desiredValue The original value of the discount.
      *
      * @return $this
      */
     public function setDesiredValue($desiredValue)
     {
         $this->container['desiredValue'] = $desiredValue;
+
+        return $this;
+    }
+
+    /**
+     * Gets scope
+     *
+     * @return string|null
+     */
+    public function getScope()
+    {
+        return $this->container['scope'];
+    }
+
+    /**
+     * Sets scope
+     *
+     * @param string|null $scope The scope of the discount: - `additionalCosts`: The discount applies to all the additional costs of the item. - `itemTotal`: The discount applies to the price of the item + the additional costs of the item. - `price`: The discount applies to the price of the item.
+     *
+     * @return $this
+     */
+    public function setScope($scope)
+    {
+        $this->container['scope'] = $scope;
 
         return $this;
     }
@@ -383,7 +425,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets totalDiscount
      *
-     * @param float|null $totalDiscount The total discount given if this effect is a result of a prorated discount
+     * @param float|null $totalDiscount The total discount given if this effect is a result of a prorated discount.
      *
      * @return $this
      */
@@ -407,13 +449,61 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets desiredTotalDiscount
      *
-     * @param float|null $desiredTotalDiscount The original total discount to give if this effect is a result of a prorated discount
+     * @param float|null $desiredTotalDiscount The original total discount to give if this effect is a result of a prorated discount.
      *
      * @return $this
      */
     public function setDesiredTotalDiscount($desiredTotalDiscount)
     {
         $this->container['desiredTotalDiscount'] = $desiredTotalDiscount;
+
+        return $this;
+    }
+
+    /**
+     * Gets bundleIndex
+     *
+     * @return int|null
+     */
+    public function getBundleIndex()
+    {
+        return $this->container['bundleIndex'];
+    }
+
+    /**
+     * Sets bundleIndex
+     *
+     * @param int|null $bundleIndex The position of the bundle in a list of item bundles created from the same bundle definition.
+     *
+     * @return $this
+     */
+    public function setBundleIndex($bundleIndex)
+    {
+        $this->container['bundleIndex'] = $bundleIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets bundleName
+     *
+     * @return string|null
+     */
+    public function getBundleName()
+    {
+        return $this->container['bundleName'];
+    }
+
+    /**
+     * Sets bundleName
+     *
+     * @param string|null $bundleName The name of the bundle binding.
+     *
+     * @return $this
+     */
+    public function setBundleName($bundleName)
+    {
+        $this->container['bundleName'] = $bundleName;
 
         return $this;
     }

@@ -254,7 +254,7 @@ class SetDiscountPerAdditionalCostEffectProps implements ModelInterface, ArrayAc
     /**
      * Sets name
      *
-     * @param string $name The name/description of this discount
+     * @param string $name The name/description of this discount.
      *
      * @return $this
      */
@@ -278,7 +278,7 @@ class SetDiscountPerAdditionalCostEffectProps implements ModelInterface, ArrayAc
     /**
      * Sets additionalCostId
      *
-     * @param int $additionalCostId The ID of the additional cost
+     * @param int $additionalCostId The ID of the additional cost.
      *
      * @return $this
      */
@@ -302,7 +302,7 @@ class SetDiscountPerAdditionalCostEffectProps implements ModelInterface, ArrayAc
     /**
      * Sets additionalCost
      *
-     * @param string $additionalCost The name of the additional cost
+     * @param string $additionalCost The name of the additional cost.
      *
      * @return $this
      */
@@ -326,7 +326,7 @@ class SetDiscountPerAdditionalCostEffectProps implements ModelInterface, ArrayAc
     /**
      * Sets value
      *
-     * @param float $value The total monetary value of the discount
+     * @param float $value The total monetary value of the discount.
      *
      * @return $this
      */
@@ -350,7 +350,7 @@ class SetDiscountPerAdditionalCostEffectProps implements ModelInterface, ArrayAc
     /**
      * Sets desiredValue
      *
-     * @param float|null $desiredValue The original value of the discount
+     * @param float|null $desiredValue The original value of the discount.
      *
      * @return $this
      */

@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * ApplicationCampaignStats Class Doc Comment
  *
  * @category Class
- * @description Provides statistics regarding an application&#39;s campaigns
+ * @description Provides statistics regarding an application&#39;s campaigns.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -266,7 +266,7 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
     /**
      * Sets draft
      *
-     * @param int $draft Number of draft campaigns
+     * @param int $draft Number of draft campaigns.
      *
      * @return $this
      */
@@ -290,7 +290,7 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
     /**
      * Sets disabled
      *
-     * @param int $disabled Number of disabled campaigns
+     * @param int $disabled Number of disabled campaigns.
      *
      * @return $this
      */
@@ -314,7 +314,7 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
     /**
      * Sets scheduled
      *
-     * @param int $scheduled Number of scheduled campaigns
+     * @param int $scheduled Number of scheduled campaigns.
      *
      * @return $this
      */
@@ -338,7 +338,7 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
     /**
      * Sets running
      *
-     * @param int $running Number of running campaigns
+     * @param int $running Number of running campaigns.
      *
      * @return $this
      */
@@ -362,7 +362,7 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
     /**
      * Sets expired
      *
-     * @param int $expired Number of expired campaigns
+     * @param int $expired Number of expired campaigns.
      *
      * @return $this
      */
@@ -386,7 +386,7 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
     /**
      * Sets archived
      *
-     * @param int $archived Number of archived campaigns
+     * @param int $archived Number of archived campaigns.
      *
      * @return $this
      */

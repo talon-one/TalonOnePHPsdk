@@ -291,7 +291,7 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type Indicates the node type
+     * @param string $type Indicates the node type.
      *
      * @return $this
      */
@@ -348,7 +348,7 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
     /**
      * Sets operator
      *
-     * @param string $operator How does the set operates on its elements
+     * @param string $operator How does the set operates on its elements.
      *
      * @return $this
      */
@@ -381,7 +381,7 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
     /**
      * Sets elements
      *
-     * @param \TalonOne\Client\Model\CampaignSetNode[] $elements Child elements of this set
+     * @param \TalonOne\Client\Model\CampaignSetNode[] $elements Child elements of this set.
      *
      * @return $this
      */

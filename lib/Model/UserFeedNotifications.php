@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * UserFeedNotifications Class Doc Comment
  *
  * @category Class
- * @description notifications to notify CAMA user about
+ * @description Notifications to notify CAMA user about.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -230,7 +230,7 @@ class UserFeedNotifications implements ModelInterface, ArrayAccess
     /**
      * Sets lastUpdate
      *
-     * @param \DateTime $lastUpdate Timestamp of the last request for this list
+     * @param \DateTime $lastUpdate Timestamp of the last request for this list.
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class UserFeedNotifications implements ModelInterface, ArrayAccess
     /**
      * Sets notifications
      *
-     * @param \TalonOne\Client\Model\FeedNotification[] $notifications List of all notifications to notify the user about
+     * @param \TalonOne\Client\Model\FeedNotification[] $notifications List of all notifications to notify the user about.
      *
      * @return $this
      */

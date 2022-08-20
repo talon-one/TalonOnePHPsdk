@@ -406,7 +406,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -526,7 +526,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets usageLimit
      *
-     * @param int $usageLimit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     * @param int $usageLimit The number of times the coupon code can be redeemed. `0` means unlimited redemptions but any campaign usage limits will still apply.
      *
      * @return $this
      */
@@ -691,7 +691,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object $attributes Arbitrary properties associated with coupons
+     * @param object $attributes Arbitrary properties associated with coupons.
      *
      * @return $this
      */
@@ -715,7 +715,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets batchId
      *
-     * @param string $batchId The batch ID coupons created by this job will bear
+     * @param string $batchId The batch ID coupons created by this job will bear.
      *
      * @return $this
      */
@@ -739,7 +739,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status The current status of this request. The value should be either 'pending', 'completed', 'failed' or 'coupon pattern full'
+     * @param string $status The current status of this request. Possible values: - `pending` - `completed` - `failed` - `coupon pattern full`
      *
      * @return $this
      */
@@ -763,7 +763,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets createdAmount
      *
-     * @param int $createdAmount The number of coupon codes that were already created for this request
+     * @param int $createdAmount The number of coupon codes that were already created for this request.
      *
      * @return $this
      */
@@ -787,7 +787,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets failCount
      *
-     * @param int $failCount The number of times this job failed
+     * @param int $failCount The number of times this job failed.
      *
      * @return $this
      */
@@ -859,7 +859,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets communicated
      *
-     * @param bool $communicated Whether or not the user that created this job was notified of its final state
+     * @param bool $communicated Whether or not the user that created this job was notified of its final state.
      *
      * @return $this
      */
@@ -883,7 +883,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets chunkExecutionCount
      *
-     * @param int $chunkExecutionCount The number of times an attempt to create a chunk of coupons was made during the processing of the job
+     * @param int $chunkExecutionCount The number of times an attempt to create a chunk of coupons was made during the processing of the job.
      *
      * @return $this
      */

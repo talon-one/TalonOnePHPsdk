@@ -230,7 +230,7 @@ class CouponCreatedEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The coupon code that was created
+     * @param string $value The coupon code that was created.
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class CouponCreatedEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets profileId
      *
-     * @param string $profileId The integration identifier of the customer for whom this coupon was created
+     * @param string $profileId The integration identifier of the customer for whom this coupon was created.
      *
      * @return $this
      */

@@ -274,6 +274,14 @@ class ModelReturn implements ModelInterface, ArrayAccess
         if ($this->container['sessionIntegrationId'] === null) {
             $invalidProperties[] = "'sessionIntegrationId' can't be null";
         }
+        if ((mb_strlen($this->container['sessionIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'sessionIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
+        if (!is_null($this->container['profileIntegrationId']) && (mb_strlen($this->container['profileIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'profileIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         return $invalidProperties;
     }
 
@@ -302,7 +310,7 @@ class ModelReturn implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -398,7 +406,7 @@ class ModelReturn implements ModelInterface, ArrayAccess
     /**
      * Sets returnedCartItems
      *
-     * @param \TalonOne\Client\Model\ReturnedCartItem[] $returnedCartItems List of cart items to be returned
+     * @param \TalonOne\Client\Model\ReturnedCartItem[] $returnedCartItems List of cart items to be returned.
      *
      * @return $this
      */
@@ -476,6 +484,10 @@ class ModelReturn implements ModelInterface, ArrayAccess
      */
     public function setSessionIntegrationId($sessionIntegrationId)
     {
+        if ((mb_strlen($sessionIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $sessionIntegrationId when calling ModelReturn., must be smaller than or equal to 1000.');
+        }
+
         $this->container['sessionIntegrationId'] = $sessionIntegrationId;
 
         return $this;
@@ -524,6 +536,10 @@ class ModelReturn implements ModelInterface, ArrayAccess
      */
     public function setProfileIntegrationId($profileIntegrationId)
     {
+        if (!is_null($profileIntegrationId) && (mb_strlen($profileIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $profileIntegrationId when calling ModelReturn., must be smaller than or equal to 1000.');
+        }
+
         $this->container['profileIntegrationId'] = $profileIntegrationId;
 
         return $this;

@@ -107,6 +107,20 @@ class AudienceTest extends TestCase
     }
 
     /**
+     * Test attribute "sandbox"
+     */
+    public function testPropertySandbox()
+    {
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+    }
+
+    /**
      * Test attribute "integration"
      */
     public function testPropertyIntegration()
@@ -117,6 +131,13 @@ class AudienceTest extends TestCase
      * Test attribute "integrationId"
      */
     public function testPropertyIntegrationId()
+    {
+    }
+
+    /**
+     * Test attribute "createdIn3rdParty"
+     */
+    public function testPropertyCreatedIn3rdParty()
     {
     }
 }

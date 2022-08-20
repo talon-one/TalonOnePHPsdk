@@ -121,6 +121,13 @@ class EffectTest extends TestCase
     }
 
     /**
+     * Test attribute "triggeredForCatalogItem"
+     */
+    public function testPropertyTriggeredForCatalogItem()
+    {
+    }
+
+    /**
      * Test attribute "props"
      */
     public function testPropertyProps()

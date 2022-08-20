@@ -58,7 +58,7 @@ class InlineResponse20013 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\ApplicationCustomer[]'
+        'data' => '\TalonOne\Client\Model\AccessLogEntry[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse20013 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\ApplicationCustomer[]
+     * @return \TalonOne\Client\Model\AccessLogEntry[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20013 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\ApplicationCustomer[] $data data
+     * @param \TalonOne\Client\Model\AccessLogEntry[] $data data
      *
      * @return $this
      */

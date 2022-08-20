@@ -154,4 +154,18 @@ class NewAttributeTest extends TestCase
     public function testPropertySubscribedApplicationsIds()
     {
     }
+
+    /**
+     * Test attribute "subscribedCatalogsIds"
+     */
+    public function testPropertySubscribedCatalogsIds()
+    {
+    }
+
+    /**
+     * Test attribute "allowedSubscriptions"
+     */
+    public function testPropertyAllowedSubscriptions()
+    {
+    }
 }

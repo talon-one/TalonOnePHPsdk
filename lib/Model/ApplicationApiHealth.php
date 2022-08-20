@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * ApplicationApiHealth Class Doc Comment
  *
  * @category Class
- * @description Report of health of the API connection of an application
+ * @description Report of health of the API connection of an application.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -259,7 +259,7 @@ class ApplicationApiHealth implements ModelInterface, ArrayAccess
     /**
      * Sets summary
      *
-     * @param string $summary One-word summary of the health of the API connection of an application
+     * @param string $summary One-word summary of the health of the API connection of an application.
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class ApplicationApiHealth implements ModelInterface, ArrayAccess
     /**
      * Sets lastUsed
      *
-     * @param \DateTime $lastUsed time of last request relevant to the API health test
+     * @param \DateTime $lastUsed time of last request relevant to the API health test.
      *
      * @return $this
      */

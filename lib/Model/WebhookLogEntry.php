@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * WebhookLogEntry Class Doc Comment
  *
  * @category Class
- * @description Log of webhook api calls
+ * @description Log of webhook api calls.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -290,7 +290,7 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id UUID reference of the webhook request
+     * @param string $id UUID reference of the webhook request.
      *
      * @return $this
      */
@@ -314,7 +314,7 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets integrationRequestUuid
      *
-     * @param string $integrationRequestUuid UUID reference of the integration request linked to this webhook request
+     * @param string $integrationRequestUuid UUID reference of the integration request linked to this webhook request.
      *
      * @return $this
      */
@@ -338,7 +338,7 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets webhookId
      *
-     * @param int $webhookId ID of the webhook that triggered the request
+     * @param int $webhookId ID of the webhook that triggered the request.
      *
      * @return $this
      */
@@ -362,7 +362,7 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets applicationId
      *
-     * @param int|null $applicationId ID of the application that triggered the webhook
+     * @param int|null $applicationId ID of the application that triggered the webhook.
      *
      * @return $this
      */
@@ -458,7 +458,7 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param int|null $status HTTP status code of response
+     * @param int|null $status HTTP status code of response.
      *
      * @return $this
      */

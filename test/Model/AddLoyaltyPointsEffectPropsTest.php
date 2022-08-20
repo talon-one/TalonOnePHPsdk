@@ -107,6 +107,13 @@ class AddLoyaltyPointsEffectPropsTest extends TestCase
     }
 
     /**
+     * Test attribute "desiredValue"
+     */
+    public function testPropertyDesiredValue()
+    {
+    }
+
+    /**
      * Test attribute "recipientIntegrationId"
      */
     public function testPropertyRecipientIntegrationId()
@@ -145,6 +152,13 @@ class AddLoyaltyPointsEffectPropsTest extends TestCase
      * Test attribute "cartItemSubPosition"
      */
     public function testPropertyCartItemSubPosition()
+    {
+    }
+
+    /**
+     * Test attribute "cardIdentifier"
+     */
+    public function testPropertyCardIdentifier()
     {
     }
 }

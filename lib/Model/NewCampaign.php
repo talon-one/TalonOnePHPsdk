@@ -453,7 +453,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this campaign
+     * @param object|null $attributes Arbitrary properties associated with this campaign.
      *
      * @return $this
      */

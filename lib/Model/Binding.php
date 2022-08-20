@@ -265,7 +265,7 @@ class Binding implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type The kind of binding. Possible values are: - `cartItemFilter` - `subledgerBalance` - `templateParameter`
+     * @param string|null $type The kind of binding. Possible values are: - `bundle` - `cartItemFilter` - `subledgerBalance` - `templateParameter`
      *
      * @return $this
      */

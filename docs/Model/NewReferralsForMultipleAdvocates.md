@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **startDate** | [**\DateTime**](\DateTime.md) | Timestamp at which point the referral code becomes valid. | [optional] 
 **expiryDate** | [**\DateTime**](\DateTime.md) | Expiry date of the referral code. Referral never expires if this is omitted, zero, or negative. | [optional] 
-**usageLimit** | **int** | The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply. | 
+**usageLimit** | **int** | The number of times a referral code can be used. &#x60;0&#x60; means no limit but any campaign usage limits will still apply. | 
 **campaignId** | **int** | The ID of the campaign from which the referral received the referral code. | 
 **advocateProfileIntegrationIds** | **string[]** | An array containing all the respective advocate profiles. | 
 **attributes** | [**object**](.md) | Arbitrary properties associated with this item. | [optional] 

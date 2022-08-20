@@ -450,7 +450,7 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this campaign
+     * @param object|null $attributes Arbitrary properties associated with this campaign.
      *
      * @return $this
      */
@@ -636,7 +636,7 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
     /**
      * Sets limits
      *
-     * @param \TalonOne\Client\Model\LimitConfig[] $limits The set of limits that will operate for this campaign
+     * @param \TalonOne\Client\Model\LimitConfig[] $limits The set of limits that will operate for this campaign.
      *
      * @return $this
      */

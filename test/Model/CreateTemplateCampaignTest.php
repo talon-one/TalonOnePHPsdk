@@ -121,6 +121,13 @@ class CreateTemplateCampaignTest extends TestCase
     }
 
     /**
+     * Test attribute "campaignGroups"
+     */
+    public function testPropertyCampaignGroups()
+    {
+    }
+
+    /**
      * Test attribute "tags"
      */
     public function testPropertyTags()

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * UserFeedNotificationsTest Class Doc Comment
  *
  * @category    Class
- * @description notifications to notify CAMA user about
+ * @description Notifications to notify CAMA user about.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

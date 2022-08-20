@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **description** | **string** | A detailed description of the campaign. | [optional] 
 **startTime** | [**\DateTime**](\DateTime.md) | Timestamp when the campaign will become active. | [optional] 
 **endTime** | [**\DateTime**](\DateTime.md) | Timestamp the campaign will become inactive. | [optional] 
-**attributes** | [**object**](.md) | Arbitrary properties associated with this campaign | [optional] 
+**attributes** | [**object**](.md) | Arbitrary properties associated with this campaign. | [optional] 
 **state** | **string** | A disabled or archived campaign is not evaluated for rules or coupons. | [default to 'enabled']
 **activeRulesetId** | **int** | [ID of Ruleset](https://docs.talon.one/management-api/#operation/getRulesets) this campaign applies on customer session evaluation. | [optional] 
 **tags** | **string[]** | A list of tags for the campaign. | 

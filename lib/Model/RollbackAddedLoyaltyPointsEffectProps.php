@@ -64,7 +64,8 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         'recipientIntegrationId' => 'string',
         'transactionUUID' => 'string',
         'cartItemPosition' => 'float',
-        'cartItemSubPosition' => 'float'
+        'cartItemSubPosition' => 'float',
+        'cardIdentifier' => 'string'
     ];
 
     /**
@@ -79,7 +80,8 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         'recipientIntegrationId' => null,
         'transactionUUID' => null,
         'cartItemPosition' => null,
-        'cartItemSubPosition' => null
+        'cartItemSubPosition' => null,
+        'cardIdentifier' => null
     ];
 
     /**
@@ -115,7 +117,8 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         'recipientIntegrationId' => 'recipientIntegrationId',
         'transactionUUID' => 'transactionUUID',
         'cartItemPosition' => 'cartItemPosition',
-        'cartItemSubPosition' => 'cartItemSubPosition'
+        'cartItemSubPosition' => 'cartItemSubPosition',
+        'cardIdentifier' => 'cardIdentifier'
     ];
 
     /**
@@ -130,7 +133,8 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         'recipientIntegrationId' => 'setRecipientIntegrationId',
         'transactionUUID' => 'setTransactionUUID',
         'cartItemPosition' => 'setCartItemPosition',
-        'cartItemSubPosition' => 'setCartItemSubPosition'
+        'cartItemSubPosition' => 'setCartItemSubPosition',
+        'cardIdentifier' => 'setCardIdentifier'
     ];
 
     /**
@@ -145,7 +149,8 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         'recipientIntegrationId' => 'getRecipientIntegrationId',
         'transactionUUID' => 'getTransactionUUID',
         'cartItemPosition' => 'getCartItemPosition',
-        'cartItemSubPosition' => 'getCartItemSubPosition'
+        'cartItemSubPosition' => 'getCartItemSubPosition',
+        'cardIdentifier' => 'getCardIdentifier'
     ];
 
     /**
@@ -215,6 +220,7 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
         $this->container['cartItemPosition'] = isset($data['cartItemPosition']) ? $data['cartItemPosition'] : null;
         $this->container['cartItemSubPosition'] = isset($data['cartItemSubPosition']) ? $data['cartItemSubPosition'] : null;
+        $this->container['cardIdentifier'] = isset($data['cardIdentifier']) ? $data['cardIdentifier'] : null;
     }
 
     /**
@@ -238,6 +244,10 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
         if ($this->container['recipientIntegrationId'] === null) {
             $invalidProperties[] = "'recipientIntegrationId' can't be null";
         }
+        if ((mb_strlen($this->container['recipientIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'recipientIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['transactionUUID'] === null) {
             $invalidProperties[] = "'transactionUUID' can't be null";
         }
@@ -269,7 +279,7 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
     /**
      * Sets programId
      *
-     * @param int $programId The ID of the loyalty program where the points were originally added
+     * @param int $programId The ID of the loyalty program where the points were originally added.
      *
      * @return $this
      */
@@ -293,7 +303,7 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
     /**
      * Sets subLedgerId
      *
-     * @param string $subLedgerId The ID of the subledger within the loyalty program where these points were originally added
+     * @param string $subLedgerId The ID of the subledger within the loyalty program where these points were originally added.
      *
      * @return $this
      */
@@ -317,7 +327,7 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
     /**
      * Sets value
      *
-     * @param float $value The amount of points that were rolled back
+     * @param float $value The amount of points that were rolled back.
      *
      * @return $this
      */
@@ -341,12 +351,16 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
     /**
      * Sets recipientIntegrationId
      *
-     * @param string $recipientIntegrationId The user for whom these points were originally added
+     * @param string $recipientIntegrationId The user for whom these points were originally added.
      *
      * @return $this
      */
     public function setRecipientIntegrationId($recipientIntegrationId)
     {
+        if ((mb_strlen($recipientIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $recipientIntegrationId when calling RollbackAddedLoyaltyPointsEffectProps., must be smaller than or equal to 1000.');
+        }
+
         $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;
@@ -420,6 +434,30 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
     public function setCartItemSubPosition($cartItemSubPosition)
     {
         $this->container['cartItemSubPosition'] = $cartItemSubPosition;
+
+        return $this;
+    }
+
+    /**
+     * Gets cardIdentifier
+     *
+     * @return string|null
+     */
+    public function getCardIdentifier()
+    {
+        return $this->container['cardIdentifier'];
+    }
+
+    /**
+     * Sets cardIdentifier
+     *
+     * @param string|null $cardIdentifier The card on which these points were originally added.
+     *
+     * @return $this
+     */
+    public function setCardIdentifier($cardIdentifier)
+    {
+        $this->container['cardIdentifier'] = $cardIdentifier;
 
         return $this;
     }

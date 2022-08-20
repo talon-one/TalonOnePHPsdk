@@ -161,4 +161,18 @@ class NewCampaignTemplateTest extends TestCase
     public function testPropertyTemplateParams()
     {
     }
+
+    /**
+     * Test attribute "campaignCollections"
+     */
+    public function testPropertyCampaignCollections()
+    {
+    }
+
+    /**
+     * Test attribute "defaultCampaignGroupId"
+     */
+    public function testPropertyDefaultCampaignGroupId()
+    {
+    }
 }

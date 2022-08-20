@@ -238,7 +238,7 @@ class Notification implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id of the notification
+     * @param int $id id of the notification.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class Notification implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name of the notification
+     * @param string $name name of the notification.
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class Notification implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string $description description of the notification
+     * @param string $description description of the notification.
      *
      * @return $this
      */

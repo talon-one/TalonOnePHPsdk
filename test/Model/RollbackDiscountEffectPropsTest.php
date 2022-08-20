@@ -105,4 +105,25 @@ class RollbackDiscountEffectPropsTest extends TestCase
     public function testPropertyCartItemSubPosition()
     {
     }
+
+    /**
+     * Test attribute "additionalCostId"
+     */
+    public function testPropertyAdditionalCostId()
+    {
+    }
+
+    /**
+     * Test attribute "additionalCost"
+     */
+    public function testPropertyAdditionalCost()
+    {
+    }
+
+    /**
+     * Test attribute "scope"
+     */
+    public function testPropertyScope()
+    {
+    }
 }

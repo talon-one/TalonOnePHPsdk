@@ -279,7 +279,7 @@ class CampaignGroup implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -428,7 +428,7 @@ class CampaignGroup implements ModelInterface, ArrayAccess
     /**
      * Sets subscribedApplicationsIds
      *
-     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that this campaign group is enabled for
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that this campaign group is enabled for.
      *
      * @return $this
      */
@@ -452,7 +452,7 @@ class CampaignGroup implements ModelInterface, ArrayAccess
     /**
      * Sets campaignIds
      *
-     * @param int[]|null $campaignIds A list of the IDs of the campaigns that this campaign group owns
+     * @param int[]|null $campaignIds A list of the IDs of the campaigns that this campaign group owns.
      *
      * @return $this
      */

@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * NewInvitation Class Doc Comment
  *
  * @category Class
- * @description Parameters for inviting a new user
+ * @description Parameters for inviting a new user.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -290,7 +290,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
     /**
      * Sets acl
      *
-     * @param string $acl a blob of acl json
+     * @param string $acl The `Access Control List` json defining the role of the user. This represents the actual access control on the user level. Use one of the following: - normal user: `{\"Role\": 0}` - admin: `{\"Role\": 127}`
      *
      * @return $this
      */
@@ -314,7 +314,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
     /**
      * Sets roles
      *
-     * @param int[]|null $roles An array of roleIDs to assign the new user to
+     * @param int[]|null $roles An array of roleIDs to assign the new user to.
      *
      * @return $this
      */

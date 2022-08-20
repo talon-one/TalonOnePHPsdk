@@ -14,7 +14,9 @@ Name | Type | Description | Notes
 **hasAllowedList** | **bool** | Whether or not this attribute has an allowed list of values associated with it. | [optional] [default to false]
 **restrictedBySuggestions** | **bool** | Whether or not this attribute&#39;s value is restricted by suggestions (&#x60;suggestions&#x60; property) or by an allowed list of value (&#x60;hasAllowedList&#x60; property). | [optional] [default to false]
 **editable** | **bool** | Whether or not this attribute can be edited. | 
-**subscribedApplicationsIds** | **int[]** | A list of the IDs of the applications that are subscribed to this attribute | [optional] 
+**subscribedApplicationsIds** | **int[]** | A list of the IDs of the applications where this attribute is available. | [optional] 
+**subscribedCatalogsIds** | **int[]** | A list of the IDs of the catalogs where this attribute is available. | [optional] 
+**allowedSubscriptions** | **string[]** | A list of allowed subscription types for this attribute.  **Note:** This only applies to attributes associated with the &#x60;CartItem&#x60; entity. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

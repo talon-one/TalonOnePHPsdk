@@ -211,6 +211,10 @@ class WillAwardGiveawayEffectProps implements ModelInterface, ArrayAccess
         if ($this->container['recipientIntegrationId'] === null) {
             $invalidProperties[] = "'recipientIntegrationId' can't be null";
         }
+        if ((mb_strlen($this->container['recipientIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'recipientIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         return $invalidProperties;
     }
 
@@ -293,6 +297,10 @@ class WillAwardGiveawayEffectProps implements ModelInterface, ArrayAccess
      */
     public function setRecipientIntegrationId($recipientIntegrationId)
     {
+        if ((mb_strlen($recipientIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $recipientIntegrationId when calling WillAwardGiveawayEffectProps., must be smaller than or equal to 1000.');
+        }
+
         $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;

@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * UpdateUserLatestFeedTimestamp Class Doc Comment
  *
  * @category Class
- * @description Updates current user&#39;s latest seen notifications timestamp
+ * @description Updates current user&#39;s latest seen notifications timestamp.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -221,7 +221,7 @@ class UpdateUserLatestFeedTimestamp implements ModelInterface, ArrayAccess
     /**
      * Sets newLatestFeedTimestamp
      *
-     * @param \DateTime $newLatestFeedTimestamp New timestamp to update for the current user
+     * @param \DateTime $newLatestFeedTimestamp New timestamp to update for the current user.
      *
      * @return $this
      */

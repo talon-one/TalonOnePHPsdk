@@ -235,7 +235,7 @@ class UpdateRole implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Name of the role
+     * @param string|null $name Name of the role.
      *
      * @return $this
      */
@@ -259,7 +259,7 @@ class UpdateRole implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description Description of the role
+     * @param string|null $description Description of the role.
      *
      * @return $this
      */
@@ -283,7 +283,7 @@ class UpdateRole implements ModelInterface, ArrayAccess
     /**
      * Sets acl
      *
-     * @param string|null $acl Role Policy this should be a stringified blob of json
+     * @param string|null $acl Role Policy this should be a stringified blob of json.
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class UpdateRole implements ModelInterface, ArrayAccess
     /**
      * Sets members
      *
-     * @param int[]|null $members An array of user identifiers
+     * @param int[]|null $members An array of user identifiers.
      *
      * @return $this
      */

@@ -285,7 +285,7 @@ class ReferralConstraints implements ModelInterface, ArrayAccess
     /**
      * Sets usageLimit
      *
-     * @param int|null $usageLimit The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     * @param int|null $usageLimit The number of times a referral code can be used. `0` means no limit but any campaign usage limits will still apply.
      *
      * @return $this
      */

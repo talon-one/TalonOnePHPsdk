@@ -168,4 +168,18 @@ class CartItemTest extends TestCase
     public function testPropertyAttributes()
     {
     }
+
+    /**
+     * Test attribute "additionalCosts"
+     */
+    public function testPropertyAdditionalCosts()
+    {
+    }
+
+    /**
+     * Test attribute "catalogItemID"
+     */
+    public function testPropertyCatalogItemID()
+    {
+    }
 }

@@ -239,7 +239,7 @@ class ShowNotificationEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets notificationType
      *
-     * @param string $notificationType The type of notification that should be shown (e.g. error/warning/info)
+     * @param string $notificationType The type of notification that should be shown (e.g. error/warning/info).
      *
      * @return $this
      */
@@ -263,7 +263,7 @@ class ShowNotificationEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title Title of the notification
+     * @param string $title Title of the notification.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class ShowNotificationEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets body
      *
-     * @param string $body Body of the notification
+     * @param string $body Body of the notification.
      *
      * @return $this
      */

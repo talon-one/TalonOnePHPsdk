@@ -156,6 +156,13 @@ class ApplicationSessionTest extends TestCase
     }
 
     /**
+     * Test attribute "totalDiscounts"
+     */
+    public function testPropertyTotalDiscounts()
+    {
+    }
+
+    /**
      * Test attribute "total"
      */
     public function testPropertyTotal()

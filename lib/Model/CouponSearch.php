@@ -220,7 +220,7 @@ class CouponSearch implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object $attributes Properties to match against a coupon. All provided attributes will be exactly matched against attributes
+     * @param object $attributes Properties to match against a coupon. All provided attributes will be exactly matched against attributes.
      *
      * @return $this
      */

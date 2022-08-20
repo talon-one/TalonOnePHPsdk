@@ -382,7 +382,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets applications
      *
-     * @param int $applications Total number of applications in the account
+     * @param int $applications Total number of applications in the account.
      *
      * @return $this
      */
@@ -406,7 +406,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets liveApplications
      *
-     * @param int $liveApplications Total number of live applications in the account
+     * @param int $liveApplications Total number of live applications in the account.
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets sandboxApplications
      *
-     * @param int $sandboxApplications Total number of sandbox applications in the account
+     * @param int $sandboxApplications Total number of sandbox applications in the account.
      *
      * @return $this
      */
@@ -454,7 +454,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets campaigns
      *
-     * @param int $campaigns Total number of campaigns in the account
+     * @param int $campaigns Total number of campaigns in the account.
      *
      * @return $this
      */
@@ -478,7 +478,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets activeCampaigns
      *
-     * @param int $activeCampaigns Total number of active campaigns in the account
+     * @param int $activeCampaigns Total number of active campaigns in the account.
      *
      * @return $this
      */
@@ -502,7 +502,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets liveActiveCampaigns
      *
-     * @param int $liveActiveCampaigns Total number of active campaigns in live applications in the account
+     * @param int $liveActiveCampaigns Total number of active campaigns in live applications in the account.
      *
      * @return $this
      */
@@ -526,7 +526,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets coupons
      *
-     * @param int $coupons Total number of coupons in the account
+     * @param int $coupons Total number of coupons in the account.
      *
      * @return $this
      */
@@ -550,7 +550,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets activeCoupons
      *
-     * @param int $activeCoupons Total number of active coupons in the account
+     * @param int $activeCoupons Total number of active coupons in the account.
      *
      * @return $this
      */
@@ -574,7 +574,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets expiredCoupons
      *
-     * @param int $expiredCoupons Total number of expired coupons in the account
+     * @param int $expiredCoupons Total number of expired coupons in the account.
      *
      * @return $this
      */
@@ -598,7 +598,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets referralCodes
      *
-     * @param int $referralCodes Total number of referral codes in the account
+     * @param int $referralCodes Total number of referral codes in the account.
      *
      * @return $this
      */
@@ -622,7 +622,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets activeReferralCodes
      *
-     * @param int $activeReferralCodes Total number of active referral codes in the account
+     * @param int $activeReferralCodes Total number of active referral codes in the account.
      *
      * @return $this
      */
@@ -646,7 +646,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets expiredReferralCodes
      *
-     * @param int $expiredReferralCodes Total number of expired referral codes in the account
+     * @param int $expiredReferralCodes Total number of expired referral codes in the account.
      *
      * @return $this
      */
@@ -670,7 +670,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets activeRules
      *
-     * @param int $activeRules Total number of active rules in the account
+     * @param int $activeRules Total number of active rules in the account.
      *
      * @return $this
      */
@@ -694,7 +694,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets users
      *
-     * @param int $users Total number of users in the account
+     * @param int $users Total number of users in the account.
      *
      * @return $this
      */
@@ -718,7 +718,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets roles
      *
-     * @param int $roles Total number of roles in the account
+     * @param int $roles Total number of roles in the account.
      *
      * @return $this
      */
@@ -742,7 +742,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets customAttributes
      *
-     * @param int $customAttributes Total number of custom attributes in the account
+     * @param int $customAttributes Total number of custom attributes in the account.
      *
      * @return $this
      */
@@ -766,7 +766,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets webhooks
      *
-     * @param int $webhooks Total number of webhooks in the account
+     * @param int $webhooks Total number of webhooks in the account.
      *
      * @return $this
      */
@@ -790,7 +790,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets loyaltyPrograms
      *
-     * @param int $loyaltyPrograms Total number of all loyalty programs in the account
+     * @param int $loyaltyPrograms Total number of all loyalty programs in the account.
      *
      * @return $this
      */
@@ -814,7 +814,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets liveLoyaltyPrograms
      *
-     * @param int $liveLoyaltyPrograms Total number of live loyalty programs in the account
+     * @param int $liveLoyaltyPrograms Total number of live loyalty programs in the account.
      *
      * @return $this
      */

@@ -57,8 +57,9 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'hasMore' => 'bool',
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\WebhookActivationLogEntry[]'
+        'data' => '\TalonOne\Client\Model\ApplicationReferee[]'
     ];
 
     /**
@@ -67,6 +68,7 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'hasMore' => null,
         'totalResultSize' => null,
         'data' => null
     ];
@@ -98,6 +100,7 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'hasMore' => 'hasMore',
         'totalResultSize' => 'totalResultSize',
         'data' => 'data'
     ];
@@ -108,6 +111,7 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'hasMore' => 'setHasMore',
         'totalResultSize' => 'setTotalResultSize',
         'data' => 'setData'
     ];
@@ -118,6 +122,7 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'hasMore' => 'getHasMore',
         'totalResultSize' => 'getTotalResultSize',
         'data' => 'getData'
     ];
@@ -182,6 +187,7 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
         $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
@@ -195,6 +201,9 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['hasMore'] === null) {
+            $invalidProperties[] = "'hasMore' can't be null";
+        }
         if ($this->container['totalResultSize'] === null) {
             $invalidProperties[] = "'totalResultSize' can't be null";
         }
@@ -215,6 +224,30 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets hasMore
+     *
+     * @return bool
+     */
+    public function getHasMore()
+    {
+        return $this->container['hasMore'];
+    }
+
+    /**
+     * Sets hasMore
+     *
+     * @param bool $hasMore hasMore
+     *
+     * @return $this
+     */
+    public function setHasMore($hasMore)
+    {
+        $this->container['hasMore'] = $hasMore;
+
+        return $this;
+    }
 
     /**
      * Gets totalResultSize
@@ -243,7 +276,7 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\WebhookActivationLogEntry[]
+     * @return \TalonOne\Client\Model\ApplicationReferee[]
      */
     public function getData()
     {
@@ -253,7 +286,7 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\WebhookActivationLogEntry[] $data data
+     * @param \TalonOne\Client\Model\ApplicationReferee[] $data data
      *
      * @return $this
      */

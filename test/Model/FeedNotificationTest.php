@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * FeedNotificationTest Class Doc Comment
  *
  * @category    Class
- * @description A feed notification for CAMA users
+ * @description A feed notification for CAMA users.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

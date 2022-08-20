@@ -59,7 +59,8 @@ class CampaignTemplateParams implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'type' => 'string',
-        'description' => 'string'
+        'description' => 'string',
+        'attributeId' => 'int'
     ];
 
     /**
@@ -70,7 +71,8 @@ class CampaignTemplateParams implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'type' => null,
-        'description' => null
+        'description' => null,
+        'attributeId' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class CampaignTemplateParams implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'type' => 'type',
-        'description' => 'description'
+        'description' => 'description',
+        'attributeId' => 'attributeId'
     ];
 
     /**
@@ -113,7 +116,8 @@ class CampaignTemplateParams implements ModelInterface, ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'type' => 'setType',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'attributeId' => 'setAttributeId'
     ];
 
     /**
@@ -124,7 +128,8 @@ class CampaignTemplateParams implements ModelInterface, ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'type' => 'getType',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'attributeId' => 'getAttributeId'
     ];
 
     /**
@@ -173,6 +178,7 @@ class CampaignTemplateParams implements ModelInterface, ArrayAccess
     const TYPE_BOOLEAN = 'boolean';
     const TYPE_PERCENT = 'percent';
     const TYPE_LIST_STRING = '(list string)';
+    const TYPE_TIME = 'time';
     
 
     
@@ -189,6 +195,7 @@ class CampaignTemplateParams implements ModelInterface, ArrayAccess
             self::TYPE_BOOLEAN,
             self::TYPE_PERCENT,
             self::TYPE_LIST_STRING,
+            self::TYPE_TIME,
         ];
     }
     
@@ -211,6 +218,7 @@ class CampaignTemplateParams implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['attributeId'] = isset($data['attributeId']) ? $data['attributeId'] : null;
     }
 
     /**
@@ -340,6 +348,30 @@ class CampaignTemplateParams implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributeId
+     *
+     * @return int|null
+     */
+    public function getAttributeId()
+    {
+        return $this->container['attributeId'];
+    }
+
+    /**
+     * Sets attributeId
+     *
+     * @param int|null $attributeId ID of the corresponding attribute.
+     *
+     * @return $this
+     */
+    public function setAttributeId($attributeId)
+    {
+        $this->container['attributeId'] = $attributeId;
 
         return $this;
     }

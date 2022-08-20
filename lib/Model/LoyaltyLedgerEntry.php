@@ -61,6 +61,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'created' => '\DateTime',
         'programID' => 'int',
         'customerProfileID' => 'string',
+        'cardID' => 'int',
         'customerSessionID' => 'string',
         'eventID' => 'int',
         'type' => 'string',
@@ -81,6 +82,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'created' => 'date-time',
         'programID' => null,
         'customerProfileID' => null,
+        'cardID' => null,
         'customerSessionID' => null,
         'eventID' => null,
         'type' => null,
@@ -122,6 +124,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'created' => 'created',
         'programID' => 'programID',
         'customerProfileID' => 'customerProfileID',
+        'cardID' => 'cardID',
         'customerSessionID' => 'customerSessionID',
         'eventID' => 'eventID',
         'type' => 'type',
@@ -142,6 +145,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'created' => 'setCreated',
         'programID' => 'setProgramID',
         'customerProfileID' => 'setCustomerProfileID',
+        'cardID' => 'setCardID',
         'customerSessionID' => 'setCustomerSessionID',
         'eventID' => 'setEventID',
         'type' => 'setType',
@@ -162,6 +166,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'created' => 'getCreated',
         'programID' => 'getProgramID',
         'customerProfileID' => 'getCustomerProfileID',
+        'cardID' => 'getCardID',
         'customerSessionID' => 'getCustomerSessionID',
         'eventID' => 'getEventID',
         'type' => 'getType',
@@ -236,6 +241,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['programID'] = isset($data['programID']) ? $data['programID'] : null;
         $this->container['customerProfileID'] = isset($data['customerProfileID']) ? $data['customerProfileID'] : null;
+        $this->container['cardID'] = isset($data['cardID']) ? $data['cardID'] : null;
         $this->container['customerSessionID'] = isset($data['customerSessionID']) ? $data['customerSessionID'] : null;
         $this->container['eventID'] = isset($data['eventID']) ? $data['eventID'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -261,9 +267,6 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         }
         if ($this->container['programID'] === null) {
             $invalidProperties[] = "'programID' can't be null";
-        }
-        if ($this->container['customerProfileID'] === null) {
-            $invalidProperties[] = "'customerProfileID' can't be null";
         }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
@@ -343,7 +346,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Gets customerProfileID
      *
-     * @return string
+     * @return string|null
      */
     public function getCustomerProfileID()
     {
@@ -353,13 +356,37 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets customerProfileID
      *
-     * @param string $customerProfileID customerProfileID
+     * @param string|null $customerProfileID customerProfileID
      *
      * @return $this
      */
     public function setCustomerProfileID($customerProfileID)
     {
         $this->container['customerProfileID'] = $customerProfileID;
+
+        return $this;
+    }
+
+    /**
+     * Gets cardID
+     *
+     * @return int|null
+     */
+    public function getCardID()
+    {
+        return $this->container['cardID'];
+    }
+
+    /**
+     * Sets cardID
+     *
+     * @param int|null $cardID cardID
+     *
+     * @return $this
+     */
+    public function setCardID($cardID)
+    {
+        $this->container['cardID'] = $cardID;
 
         return $this;
     }
@@ -545,7 +572,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets subLedgerID
      *
-     * @param string $subLedgerID This specifies if we are adding loyalty points to the main ledger or a subledger
+     * @param string $subLedgerID This specifies if we are adding loyalty points to the main ledger or a subledger.
      *
      * @return $this
      */

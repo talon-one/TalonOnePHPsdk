@@ -280,7 +280,7 @@ class NewGiveawaysPool implements ModelInterface, ArrayAccess
     /**
      * Sets subscribedApplicationsIds
      *
-     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that this giveaways pool is enabled for
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that this giveaways pool is enabled for.
      *
      * @return $this
      */

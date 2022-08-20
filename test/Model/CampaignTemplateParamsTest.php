@@ -98,4 +98,11 @@ class CampaignTemplateParamsTest extends TestCase
     public function testPropertyDescription()
     {
     }
+
+    /**
+     * Test attribute "attributeId"
+     */
+    public function testPropertyAttributeId()
+    {
+    }
 }

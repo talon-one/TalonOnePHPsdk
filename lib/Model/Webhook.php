@@ -286,6 +286,10 @@ class Webhook implements ModelInterface, ArrayAccess
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
         }
+        if (!preg_match("/^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/", $this->container['title'])) {
+            $invalidProperties[] = "invalid value for 'title', must be conform to the pattern /^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/.";
+        }
+
         if ($this->container['verb'] === null) {
             $invalidProperties[] = "'verb' can't be null";
         }
@@ -337,7 +341,7 @@ class Webhook implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -433,12 +437,17 @@ class Webhook implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title Friendly title for this webhook
+     * @param string $title Friendly title for this webhook.
      *
      * @return $this
      */
     public function setTitle($title)
     {
+
+        if ((!preg_match("/^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/", $title))) {
+            throw new \InvalidArgumentException("invalid value for $title when calling Webhook., must conform to the pattern /^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/.");
+        }
+
         $this->container['title'] = $title;
 
         return $this;
@@ -457,7 +466,7 @@ class Webhook implements ModelInterface, ArrayAccess
     /**
      * Sets verb
      *
-     * @param string $verb API method for this webhook
+     * @param string $verb API method for this webhook.
      *
      * @return $this
      */
@@ -490,7 +499,7 @@ class Webhook implements ModelInterface, ArrayAccess
     /**
      * Sets url
      *
-     * @param string $url API url (supports templating using parameters) for this webhook
+     * @param string $url API url (supports templating using parameters) for this webhook.
      *
      * @return $this
      */
@@ -514,7 +523,7 @@ class Webhook implements ModelInterface, ArrayAccess
     /**
      * Sets headers
      *
-     * @param string[] $headers List of API HTTP headers for this webhook
+     * @param string[] $headers List of API HTTP headers for this webhook.
      *
      * @return $this
      */
@@ -538,7 +547,7 @@ class Webhook implements ModelInterface, ArrayAccess
     /**
      * Sets payload
      *
-     * @param string|null $payload API payload (supports templating using parameters) for this webhook
+     * @param string|null $payload API payload (supports templating using parameters) for this webhook.
      *
      * @return $this
      */
@@ -562,7 +571,7 @@ class Webhook implements ModelInterface, ArrayAccess
     /**
      * Sets params
      *
-     * @param \TalonOne\Client\Model\TemplateArgDef[] $params Array of template argument definitions
+     * @param \TalonOne\Client\Model\TemplateArgDef[] $params Array of template argument definitions.
      *
      * @return $this
      */
@@ -586,7 +595,7 @@ class Webhook implements ModelInterface, ArrayAccess
     /**
      * Sets enabled
      *
-     * @param bool $enabled Enables or disables webhook from showing in rule builder
+     * @param bool $enabled Enables or disables webhook from showing in rule builder.
      *
      * @return $this
      */

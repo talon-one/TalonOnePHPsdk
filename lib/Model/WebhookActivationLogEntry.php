@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * WebhookActivationLogEntry Class Doc Comment
  *
  * @category Class
- * @description Log of activated webhooks
+ * @description Log of activated webhooks.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -257,7 +257,7 @@ class WebhookActivationLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets integrationRequestUuid
      *
-     * @param string $integrationRequestUuid UUID reference of the integration request that triggered the effect with the webhook
+     * @param string $integrationRequestUuid UUID reference of the integration request that triggered the effect with the webhook.
      *
      * @return $this
      */
@@ -281,7 +281,7 @@ class WebhookActivationLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets webhookId
      *
-     * @param int $webhookId ID of the webhook that triggered the request
+     * @param int $webhookId ID of the webhook that triggered the request.
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class WebhookActivationLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets applicationId
      *
-     * @param int $applicationId ID of the application that triggered the webhook
+     * @param int $applicationId ID of the application that triggered the webhook.
      *
      * @return $this
      */
@@ -329,7 +329,7 @@ class WebhookActivationLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets campaignId
      *
-     * @param int $campaignId ID of the campaign that triggered the webhook
+     * @param int $campaignId ID of the campaign that triggered the webhook.
      *
      * @return $this
      */

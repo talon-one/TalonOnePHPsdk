@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * LoyaltyPoints Class Doc Comment
  *
  * @category Class
- * @description Points to add or deduct
+ * @description Points to add or deduct.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -253,7 +253,7 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     /**
      * Sets points
      *
-     * @param float $points Amount of loyalty points
+     * @param float $points Amount of loyalty points.
      *
      * @return $this
      */
@@ -285,7 +285,7 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Allows to specify a name for the addition or deduction
+     * @param string|null $name Allows to specify a name/reason for the point addition or deduction.
      *
      * @return $this
      */
@@ -357,7 +357,7 @@ class LoyaltyPoints implements ModelInterface, ArrayAccess
     /**
      * Sets subLedgerID
      *
-     * @param string|null $subLedgerID This specifies if we are adding loyalty points to the main ledger or a subledger
+     * @param string|null $subLedgerID This specifies if we are adding loyalty points to the main ledger or a subledger.
      *
      * @return $this
      */

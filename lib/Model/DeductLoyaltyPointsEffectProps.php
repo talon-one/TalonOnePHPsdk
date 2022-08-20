@@ -63,7 +63,8 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'subLedgerId' => 'string',
         'value' => 'float',
         'transactionUUID' => 'string',
-        'name' => 'string'
+        'name' => 'string',
+        'cardIdentifier' => 'string'
     ];
 
     /**
@@ -77,7 +78,8 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'subLedgerId' => null,
         'value' => null,
         'transactionUUID' => null,
-        'name' => null
+        'name' => null,
+        'cardIdentifier' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'subLedgerId' => 'subLedgerId',
         'value' => 'value',
         'transactionUUID' => 'transactionUUID',
-        'name' => 'name'
+        'name' => 'name',
+        'cardIdentifier' => 'cardIdentifier'
     ];
 
     /**
@@ -126,7 +129,8 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'subLedgerId' => 'setSubLedgerId',
         'value' => 'setValue',
         'transactionUUID' => 'setTransactionUUID',
-        'name' => 'setName'
+        'name' => 'setName',
+        'cardIdentifier' => 'setCardIdentifier'
     ];
 
     /**
@@ -140,7 +144,8 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'subLedgerId' => 'getSubLedgerId',
         'value' => 'getValue',
         'transactionUUID' => 'getTransactionUUID',
-        'name' => 'getName'
+        'name' => 'getName',
+        'cardIdentifier' => 'getCardIdentifier'
     ];
 
     /**
@@ -209,6 +214,7 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['cardIdentifier'] = isset($data['cardIdentifier']) ? $data['cardIdentifier'] : null;
     }
 
     /**
@@ -266,7 +272,7 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets ruleTitle
      *
-     * @param string $ruleTitle The title of the rule that contained triggered this points deduction
+     * @param string $ruleTitle The title of the rule that contained triggered this points deduction.
      *
      * @return $this
      */
@@ -290,7 +296,7 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets programId
      *
-     * @param int $programId The ID of the loyalty program where these points were added
+     * @param int $programId The ID of the loyalty program where these points were added.
      *
      * @return $this
      */
@@ -314,7 +320,7 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets subLedgerId
      *
-     * @param string $subLedgerId The ID of the subledger within the loyalty program where these points were added
+     * @param string $subLedgerId The ID of the subledger within the loyalty program where these points were added.
      *
      * @return $this
      */
@@ -338,7 +344,7 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param float $value The amount of points that were deducted
+     * @param float $value The amount of points that were deducted.
      *
      * @return $this
      */
@@ -362,7 +368,7 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets transactionUUID
      *
-     * @param string $transactionUUID The identifier of this deduction in the loyalty ledger
+     * @param string $transactionUUID The identifier of this deduction in the loyalty ledger.
      *
      * @return $this
      */
@@ -393,6 +399,30 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets cardIdentifier
+     *
+     * @return string|null
+     */
+    public function getCardIdentifier()
+    {
+        return $this->container['cardIdentifier'];
+    }
+
+    /**
+     * Sets cardIdentifier
+     *
+     * @param string|null $cardIdentifier The card on which these points were added.
+     *
+     * @return $this
+     */
+    public function setCardIdentifier($cardIdentifier)
+    {
+        $this->container['cardIdentifier'] = $cardIdentifier;
 
         return $this;
     }

@@ -220,7 +220,7 @@ class CampaignSearch implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object $attributes Properties to match against a campaign. All provided attributes will be exactly matched against campaign attributes
+     * @param object $attributes Properties to match against a campaign. All provided attributes will be exactly matched against campaign attributes.
      *
      * @return $this
      */

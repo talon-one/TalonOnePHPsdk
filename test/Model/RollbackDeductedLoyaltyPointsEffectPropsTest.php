@@ -126,4 +126,11 @@ class RollbackDeductedLoyaltyPointsEffectPropsTest extends TestCase
     public function testPropertyTransactionUUID()
     {
     }
+
+    /**
+     * Test attribute "cardIdentifier"
+     */
+    public function testPropertyCardIdentifier()
+    {
+    }
 }

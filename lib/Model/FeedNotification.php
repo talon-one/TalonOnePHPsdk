@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * FeedNotification Class Doc Comment
  *
  * @category Class
- * @description A feed notification for CAMA users
+ * @description A feed notification for CAMA users.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -295,7 +295,7 @@ class FeedNotification implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title Title of the feed notification
+     * @param string $title Title of the feed notification.
      *
      * @return $this
      */
@@ -319,7 +319,7 @@ class FeedNotification implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created Timestamp of the moment this feed notification was created
+     * @param \DateTime $created Timestamp of the moment this feed notification was created.
      *
      * @return $this
      */
@@ -343,7 +343,7 @@ class FeedNotification implements ModelInterface, ArrayAccess
     /**
      * Sets updated
      *
-     * @param \DateTime $updated Timestamp of the moment this feed notification was last updated
+     * @param \DateTime $updated Timestamp of the moment this feed notification was last updated.
      *
      * @return $this
      */
@@ -367,7 +367,7 @@ class FeedNotification implements ModelInterface, ArrayAccess
     /**
      * Sets articleUrl
      *
-     * @param string $articleUrl URL to the feed notification in the help center
+     * @param string $articleUrl URL to the feed notification in the help center.
      *
      * @return $this
      */
@@ -391,7 +391,7 @@ class FeedNotification implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type The type of the feed notification
+     * @param string $type The type of the feed notification.
      *
      * @return $this
      */
@@ -424,7 +424,7 @@ class FeedNotification implements ModelInterface, ArrayAccess
     /**
      * Sets body
      *
-     * @param string $body Body of the feed notification
+     * @param string $body Body of the feed notification.
      *
      * @return $this
      */

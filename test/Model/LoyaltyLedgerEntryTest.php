@@ -100,6 +100,13 @@ class LoyaltyLedgerEntryTest extends TestCase
     }
 
     /**
+     * Test attribute "cardID"
+     */
+    public function testPropertyCardID()
+    {
+    }
+
+    /**
      * Test attribute "customerSessionID"
      */
     public function testPropertyCustomerSessionID()

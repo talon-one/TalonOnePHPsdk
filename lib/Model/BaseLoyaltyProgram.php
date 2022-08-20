@@ -377,7 +377,7 @@ class BaseLoyaltyProgram implements ModelInterface, ArrayAccess
     /**
      * Sets allowSubledger
      *
-     * @param bool|null $allowSubledger Indicates if this program supports subledgers inside the program
+     * @param bool|null $allowSubledger Indicates if this program supports subledgers inside the program.
      *
      * @return $this
      */

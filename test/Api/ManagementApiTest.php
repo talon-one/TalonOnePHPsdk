@@ -173,6 +173,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for createNotificationWebhook
+     *
+     * Create notification webhook.
+     *
+     */
+    public function testCreateNotificationWebhook()
+    {
+    }
+
+    /**
      * Test case for createPasswordRecoveryEmail
      *
      * Request a password reset.
@@ -243,12 +253,12 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for deleteLoyaltyCard
+     * Test case for deleteNotificationWebhook
      *
-     * Delete loyalty card.
+     * Delete notification webhook.
      *
      */
-    public function testDeleteLoyaltyCard()
+    public function testDeleteNotificationWebhook()
     {
     }
 
@@ -275,7 +285,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for exportAccountCollectionItems
      *
-     * Export account-level collection items to CSV file.
+     * Export account-level collection's items.
      *
      */
     public function testExportAccountCollectionItems()
@@ -285,7 +295,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for exportCollectionItems
      *
-     * Export a collection's items to CSV file.
+     * Export a collection's items.
      *
      */
     public function testExportCollectionItems()
@@ -295,7 +305,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for exportCoupons
      *
-     * Export coupons to CSV file.
+     * Export coupons.
      *
      */
     public function testExportCoupons()
@@ -305,7 +315,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for exportCustomerSessions
      *
-     * Export customer sessions to CSV file.
+     * Export customer sessions.
      *
      */
     public function testExportCustomerSessions()
@@ -315,7 +325,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for exportEffects
      *
-     * Export triggered effects to CSV file.
+     * Export triggered effects.
      *
      */
     public function testExportEffects()
@@ -333,19 +343,9 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for exportLoyaltyCardLedger
-     *
-     * Export a loyalty card's ledger log to CSV file.
-     *
-     */
-    public function testExportLoyaltyCardLedger()
-    {
-    }
-
-    /**
      * Test case for exportLoyaltyLedger
      *
-     * Export a customer's loyalty ledger log to CSV file.
+     * Export a customer's loyalty ledger log.
      *
      */
     public function testExportLoyaltyLedger()
@@ -355,7 +355,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for exportReferrals
      *
-     * Export referrals to CSV file.
+     * Export referrals.
      *
      */
     public function testExportReferrals()
@@ -625,7 +625,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getChanges
      *
-     * Get audit log for an account.
+     * Get audit logs for an account.
      *
      */
     public function testGetChanges()
@@ -643,12 +643,12 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for getCouponsByAttributes
+     * Test case for getCollectionItems
      *
-     * List coupons that match the given attributes.
+     * Get collection items.
      *
      */
-    public function testGetCouponsByAttributes()
+    public function testGetCollectionItems()
     {
     }
 
@@ -783,6 +783,26 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for getNotificationWebhook
+     *
+     * Get notification webhook.
+     *
+     */
+    public function testGetNotificationWebhook()
+    {
+    }
+
+    /**
+     * Test case for getNotificationWebhooks
+     *
+     * List notification webhooks.
+     *
+     */
+    public function testGetNotificationWebhooks()
+    {
+    }
+
+    /**
      * Test case for getReferralsWithoutTotalCount
      *
      * List referrals.
@@ -885,7 +905,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for importAccountCollection
      *
-     * Import data in existing account-level collection via CSV file.
+     * Import data in existing account-level collection.
      *
      */
     public function testImportAccountCollection()
@@ -905,7 +925,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for importCollection
      *
-     * Import data in existing collection via CSV file.
+     * Import data in existing collection.
      *
      */
     public function testImportCollection()
@@ -915,7 +935,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for importCoupons
      *
-     * Import coupons via CSV file.
+     * Import coupons.
      *
      */
     public function testImportCoupons()
@@ -925,7 +945,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for importLoyaltyPoints
      *
-     * Import loyalty points via CSV file.
+     * Import loyalty points.
      *
      */
     public function testImportLoyaltyPoints()
@@ -945,7 +965,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for importReferrals
      *
-     * Import referrals via CSV file.
+     * Import referrals.
      *
      */
     public function testImportReferrals()
@@ -1005,7 +1025,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for searchCouponsAdvancedApplicationWideWithoutTotalCount
      *
-     * List coupons that match the given attributes in all active campaigns of an application.
+     * List coupons that match the given attributes (without total count).
      *
      */
     public function testSearchCouponsAdvancedApplicationWideWithoutTotalCount()
@@ -1015,7 +1035,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for searchCouponsAdvancedWithoutTotalCount
      *
-     * List coupons that match the given attributes.
+     * List coupons that match the given attributes in campaign (without total count).
      *
      */
     public function testSearchCouponsAdvancedWithoutTotalCount()
@@ -1065,7 +1085,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for updateCollection
      *
-     * Update collection.
+     * Update collection description.
      *
      */
     public function testUpdateCollection()
@@ -1089,6 +1109,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testUpdateCouponBatch()
+    {
+    }
+
+    /**
+     * Test case for updateNotificationWebhook
+     *
+     * Update notification webhook.
+     *
+     */
+    public function testUpdateNotificationWebhook()
     {
     }
 

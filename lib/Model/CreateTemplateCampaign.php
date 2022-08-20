@@ -63,6 +63,7 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
         'campaignAttributesOverrides' => 'object',
         'templateParamValues' => '\TalonOne\Client\Model\Binding[]',
         'limitOverrides' => '\TalonOne\Client\Model\LimitConfig[]',
+        'campaignGroups' => 'int[]',
         'tags' => 'string[]'
     ];
 
@@ -78,6 +79,7 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
         'campaignAttributesOverrides' => null,
         'templateParamValues' => null,
         'limitOverrides' => null,
+        'campaignGroups' => null,
         'tags' => null
     ];
 
@@ -114,6 +116,7 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
         'campaignAttributesOverrides' => 'campaignAttributesOverrides',
         'templateParamValues' => 'templateParamValues',
         'limitOverrides' => 'limitOverrides',
+        'campaignGroups' => 'campaignGroups',
         'tags' => 'tags'
     ];
 
@@ -129,6 +132,7 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
         'campaignAttributesOverrides' => 'setCampaignAttributesOverrides',
         'templateParamValues' => 'setTemplateParamValues',
         'limitOverrides' => 'setLimitOverrides',
+        'campaignGroups' => 'setCampaignGroups',
         'tags' => 'setTags'
     ];
 
@@ -144,6 +148,7 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
         'campaignAttributesOverrides' => 'getCampaignAttributesOverrides',
         'templateParamValues' => 'getTemplateParamValues',
         'limitOverrides' => 'getLimitOverrides',
+        'campaignGroups' => 'getCampaignGroups',
         'tags' => 'getTags'
     ];
 
@@ -213,6 +218,7 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
         $this->container['campaignAttributesOverrides'] = isset($data['campaignAttributesOverrides']) ? $data['campaignAttributesOverrides'] : null;
         $this->container['templateParamValues'] = isset($data['templateParamValues']) ? $data['templateParamValues'] : null;
         $this->container['limitOverrides'] = isset($data['limitOverrides']) ? $data['limitOverrides'] : null;
+        $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
@@ -395,6 +401,30 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
     public function setLimitOverrides($limitOverrides)
     {
         $this->container['limitOverrides'] = $limitOverrides;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignGroups
+     *
+     * @return int[]|null
+     */
+    public function getCampaignGroups()
+    {
+        return $this->container['campaignGroups'];
+    }
+
+    /**
+     * Sets campaignGroups
+     *
+     * @param int[]|null $campaignGroups The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups/) this campaign belongs to.
+     *
+     * @return $this
+     */
+    public function setCampaignGroups($campaignGroups)
+    {
+        $this->container['campaignGroups'] = $campaignGroups;
 
         return $this;
     }

@@ -73,6 +73,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         'attributesSettings' => '\TalonOne\Client\Model\AttributesSettings',
         'sandbox' => 'bool',
         'enablePartialDiscounts' => 'bool',
+        'defaultDiscountAdditionalCostPerItemScope' => 'string',
         'key' => 'string'
     ];
 
@@ -97,6 +98,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         'attributesSettings' => null,
         'sandbox' => null,
         'enablePartialDiscounts' => null,
+        'defaultDiscountAdditionalCostPerItemScope' => null,
         'key' => null
     ];
 
@@ -142,6 +144,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         'attributesSettings' => 'attributesSettings',
         'sandbox' => 'sandbox',
         'enablePartialDiscounts' => 'enablePartialDiscounts',
+        'defaultDiscountAdditionalCostPerItemScope' => 'defaultDiscountAdditionalCostPerItemScope',
         'key' => 'key'
     ];
 
@@ -166,6 +169,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         'attributesSettings' => 'setAttributesSettings',
         'sandbox' => 'setSandbox',
         'enablePartialDiscounts' => 'setEnablePartialDiscounts',
+        'defaultDiscountAdditionalCostPerItemScope' => 'setDefaultDiscountAdditionalCostPerItemScope',
         'key' => 'setKey'
     ];
 
@@ -190,6 +194,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         'attributesSettings' => 'getAttributesSettings',
         'sandbox' => 'getSandbox',
         'enablePartialDiscounts' => 'getEnablePartialDiscounts',
+        'defaultDiscountAdditionalCostPerItemScope' => 'getDefaultDiscountAdditionalCostPerItemScope',
         'key' => 'getKey'
     ];
 
@@ -246,6 +251,9 @@ class NewApplication implements ModelInterface, ArrayAccess
     const DEFAULT_DISCOUNT_SCOPE_SESSION_TOTAL = 'sessionTotal';
     const DEFAULT_DISCOUNT_SCOPE_CART_ITEMS = 'cartItems';
     const DEFAULT_DISCOUNT_SCOPE_ADDITIONAL_COSTS = 'additionalCosts';
+    const DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_PRICE = 'price';
+    const DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_ITEM_TOTAL = 'itemTotal';
+    const DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_ADDITIONAL_COSTS = 'additionalCosts';
     
 
     
@@ -305,6 +313,20 @@ class NewApplication implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDefaultDiscountAdditionalCostPerItemScopeAllowableValues()
+    {
+        return [
+            self::DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_PRICE,
+            self::DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_ITEM_TOTAL,
+            self::DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_ADDITIONAL_COSTS,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -336,6 +358,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         $this->container['attributesSettings'] = isset($data['attributesSettings']) ? $data['attributesSettings'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['enablePartialDiscounts'] = isset($data['enablePartialDiscounts']) ? $data['enablePartialDiscounts'] : null;
+        $this->container['defaultDiscountAdditionalCostPerItemScope'] = isset($data['defaultDiscountAdditionalCostPerItemScope']) ? $data['defaultDiscountAdditionalCostPerItemScope'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
     }
 
@@ -397,6 +420,14 @@ class NewApplication implements ModelInterface, ArrayAccess
         if (!is_null($this->container['defaultDiscountScope']) && !in_array($this->container['defaultDiscountScope'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'defaultDiscountScope', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getDefaultDiscountAdditionalCostPerItemScopeAllowableValues();
+        if (!is_null($this->container['defaultDiscountAdditionalCostPerItemScope']) && !in_array($this->container['defaultDiscountAdditionalCostPerItemScope'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'defaultDiscountAdditionalCostPerItemScope', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -832,6 +863,39 @@ class NewApplication implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets defaultDiscountAdditionalCostPerItemScope
+     *
+     * @return string|null
+     */
+    public function getDefaultDiscountAdditionalCostPerItemScope()
+    {
+        return $this->container['defaultDiscountAdditionalCostPerItemScope'];
+    }
+
+    /**
+     * Sets defaultDiscountAdditionalCostPerItemScope
+     *
+     * @param string|null $defaultDiscountAdditionalCostPerItemScope The default scope to apply `setDiscountPerItem` effects on if no scope was provided with the effect.
+     *
+     * @return $this
+     */
+    public function setDefaultDiscountAdditionalCostPerItemScope($defaultDiscountAdditionalCostPerItemScope)
+    {
+        $allowedValues = $this->getDefaultDiscountAdditionalCostPerItemScopeAllowableValues();
+        if (!is_null($defaultDiscountAdditionalCostPerItemScope) && !in_array($defaultDiscountAdditionalCostPerItemScope, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'defaultDiscountAdditionalCostPerItemScope', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['defaultDiscountAdditionalCostPerItemScope'] = $defaultDiscountAdditionalCostPerItemScope;
+
+        return $this;
+    }
+
+    /**
      * Gets key
      *
      * @return string|null
@@ -844,7 +908,7 @@ class NewApplication implements ModelInterface, ArrayAccess
     /**
      * Sets key
      *
-     * @param string|null $key Hex key for HMAC-signing API calls as coming from this application (16 hex digits)
+     * @param string|null $key Hex key for HMAC-signing API calls as coming from this application (16 hex digits).
      *
      * @return $this
      */

@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * EffectEntity Class Doc Comment
  *
  * @category Class
- * @description Definition of all properties that are present on all effects, independent of their type
+ * @description Definition of all properties that are present on all effects, independent of their type.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,7 +63,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'ruleIndex' => 'int',
         'ruleName' => 'string',
         'effectType' => 'string',
-        'triggeredByCoupon' => 'int'
+        'triggeredByCoupon' => 'int',
+        'triggeredForCatalogItem' => 'int'
     ];
 
     /**
@@ -77,7 +78,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'ruleIndex' => null,
         'ruleName' => null,
         'effectType' => null,
-        'triggeredByCoupon' => null
+        'triggeredByCoupon' => null,
+        'triggeredForCatalogItem' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'ruleIndex' => 'ruleIndex',
         'ruleName' => 'ruleName',
         'effectType' => 'effectType',
-        'triggeredByCoupon' => 'triggeredByCoupon'
+        'triggeredByCoupon' => 'triggeredByCoupon',
+        'triggeredForCatalogItem' => 'triggeredForCatalogItem'
     ];
 
     /**
@@ -126,7 +129,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'ruleIndex' => 'setRuleIndex',
         'ruleName' => 'setRuleName',
         'effectType' => 'setEffectType',
-        'triggeredByCoupon' => 'setTriggeredByCoupon'
+        'triggeredByCoupon' => 'setTriggeredByCoupon',
+        'triggeredForCatalogItem' => 'setTriggeredForCatalogItem'
     ];
 
     /**
@@ -140,7 +144,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'ruleIndex' => 'getRuleIndex',
         'ruleName' => 'getRuleName',
         'effectType' => 'getEffectType',
-        'triggeredByCoupon' => 'getTriggeredByCoupon'
+        'triggeredByCoupon' => 'getTriggeredByCoupon',
+        'triggeredForCatalogItem' => 'getTriggeredForCatalogItem'
     ];
 
     /**
@@ -209,6 +214,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
         $this->container['ruleName'] = isset($data['ruleName']) ? $data['ruleName'] : null;
         $this->container['effectType'] = isset($data['effectType']) ? $data['effectType'] : null;
         $this->container['triggeredByCoupon'] = isset($data['triggeredByCoupon']) ? $data['triggeredByCoupon'] : null;
+        $this->container['triggeredForCatalogItem'] = isset($data['triggeredForCatalogItem']) ? $data['triggeredForCatalogItem'] : null;
     }
 
     /**
@@ -263,7 +269,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
     /**
      * Sets campaignId
      *
-     * @param int $campaignId The ID of the campaign that triggered this effect
+     * @param int $campaignId The ID of the campaign that triggered this effect.
      *
      * @return $this
      */
@@ -287,7 +293,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
     /**
      * Sets rulesetId
      *
-     * @param int $rulesetId The ID of the ruleset that was active in the campaign when this effect was triggered
+     * @param int $rulesetId The ID of the ruleset that was active in the campaign when this effect was triggered.
      *
      * @return $this
      */
@@ -311,7 +317,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
     /**
      * Sets ruleIndex
      *
-     * @param int $ruleIndex The position of the rule that triggered this effect within the ruleset
+     * @param int $ruleIndex The position of the rule that triggered this effect within the ruleset.
      *
      * @return $this
      */
@@ -335,7 +341,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
     /**
      * Sets ruleName
      *
-     * @param string $ruleName The name of the rule that triggered this effect
+     * @param string $ruleName The name of the rule that triggered this effect.
      *
      * @return $this
      */
@@ -359,7 +365,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
     /**
      * Sets effectType
      *
-     * @param string $effectType The type of effect that was triggered
+     * @param string $effectType The type of effect that was triggered.
      *
      * @return $this
      */
@@ -383,13 +389,37 @@ class EffectEntity implements ModelInterface, ArrayAccess
     /**
      * Sets triggeredByCoupon
      *
-     * @param int|null $triggeredByCoupon The ID of the coupon that was being evaluated when this effect was triggered
+     * @param int|null $triggeredByCoupon The ID of the coupon that was being evaluated when this effect was triggered.
      *
      * @return $this
      */
     public function setTriggeredByCoupon($triggeredByCoupon)
     {
         $this->container['triggeredByCoupon'] = $triggeredByCoupon;
+
+        return $this;
+    }
+
+    /**
+     * Gets triggeredForCatalogItem
+     *
+     * @return int|null
+     */
+    public function getTriggeredForCatalogItem()
+    {
+        return $this->container['triggeredForCatalogItem'];
+    }
+
+    /**
+     * Sets triggeredForCatalogItem
+     *
+     * @param int|null $triggeredForCatalogItem The ID of the catalog item that was being evaluated when this effect was triggered.
+     *
+     * @return $this
+     */
+    public function setTriggeredForCatalogItem($triggeredForCatalogItem)
+    {
+        $this->container['triggeredForCatalogItem'] = $triggeredForCatalogItem;
 
         return $this;
     }

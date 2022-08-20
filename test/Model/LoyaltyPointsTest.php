@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * LoyaltyPointsTest Class Doc Comment
  *
  * @category    Class
- * @description Points to add or deduct
+ * @description Points to add or deduct.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

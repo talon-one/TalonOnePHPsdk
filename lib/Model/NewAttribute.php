@@ -68,7 +68,9 @@ class NewAttribute implements ModelInterface, ArrayAccess
         'hasAllowedList' => 'bool',
         'restrictedBySuggestions' => 'bool',
         'editable' => 'bool',
-        'subscribedApplicationsIds' => 'int[]'
+        'subscribedApplicationsIds' => 'int[]',
+        'subscribedCatalogsIds' => 'int[]',
+        'allowedSubscriptions' => 'string[]'
     ];
 
     /**
@@ -87,7 +89,9 @@ class NewAttribute implements ModelInterface, ArrayAccess
         'hasAllowedList' => null,
         'restrictedBySuggestions' => null,
         'editable' => null,
-        'subscribedApplicationsIds' => null
+        'subscribedApplicationsIds' => null,
+        'subscribedCatalogsIds' => null,
+        'allowedSubscriptions' => null
     ];
 
     /**
@@ -127,7 +131,9 @@ class NewAttribute implements ModelInterface, ArrayAccess
         'hasAllowedList' => 'hasAllowedList',
         'restrictedBySuggestions' => 'restrictedBySuggestions',
         'editable' => 'editable',
-        'subscribedApplicationsIds' => 'subscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'subscribedApplicationsIds',
+        'subscribedCatalogsIds' => 'subscribedCatalogsIds',
+        'allowedSubscriptions' => 'allowedSubscriptions'
     ];
 
     /**
@@ -146,7 +152,9 @@ class NewAttribute implements ModelInterface, ArrayAccess
         'hasAllowedList' => 'setHasAllowedList',
         'restrictedBySuggestions' => 'setRestrictedBySuggestions',
         'editable' => 'setEditable',
-        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds',
+        'subscribedCatalogsIds' => 'setSubscribedCatalogsIds',
+        'allowedSubscriptions' => 'setAllowedSubscriptions'
     ];
 
     /**
@@ -165,7 +173,9 @@ class NewAttribute implements ModelInterface, ArrayAccess
         'hasAllowedList' => 'getHasAllowedList',
         'restrictedBySuggestions' => 'getRestrictedBySuggestions',
         'editable' => 'getEditable',
-        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds',
+        'subscribedCatalogsIds' => 'getSubscribedCatalogsIds',
+        'allowedSubscriptions' => 'getAllowedSubscriptions'
     ];
 
     /**
@@ -228,6 +238,8 @@ class NewAttribute implements ModelInterface, ArrayAccess
     const TYPE_LIST_TIME = '(list time)';
     const TYPE_LOCATION = 'location';
     const TYPE_LIST_LOCATION = '(list location)';
+    const ALLOWED_SUBSCRIPTIONS_APPLICATION = 'application';
+    const ALLOWED_SUBSCRIPTIONS_CATALOG = 'catalog';
     
 
     
@@ -272,6 +284,19 @@ class NewAttribute implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAllowedSubscriptionsAllowableValues()
+    {
+        return [
+            self::ALLOWED_SUBSCRIPTIONS_APPLICATION,
+            self::ALLOWED_SUBSCRIPTIONS_CATALOG,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -299,6 +324,8 @@ class NewAttribute implements ModelInterface, ArrayAccess
         $this->container['restrictedBySuggestions'] = isset($data['restrictedBySuggestions']) ? $data['restrictedBySuggestions'] : false;
         $this->container['editable'] = isset($data['editable']) ? $data['editable'] : null;
         $this->container['subscribedApplicationsIds'] = isset($data['subscribedApplicationsIds']) ? $data['subscribedApplicationsIds'] : null;
+        $this->container['subscribedCatalogsIds'] = isset($data['subscribedCatalogsIds']) ? $data['subscribedCatalogsIds'] : null;
+        $this->container['allowedSubscriptions'] = isset($data['allowedSubscriptions']) ? $data['allowedSubscriptions'] : null;
     }
 
     /**
@@ -324,9 +351,17 @@ class NewAttribute implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if (!preg_match("/^[A-Za-z]\\w*$/", $this->container['name'])) {
+            $invalidProperties[] = "invalid value for 'name', must be conform to the pattern /^[A-Za-z]\\w*$/.";
+        }
+
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
         }
+        if (!preg_match("/^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/", $this->container['title'])) {
+            $invalidProperties[] = "invalid value for 'title', must be conform to the pattern /^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/.";
+        }
+
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -438,6 +473,11 @@ class NewAttribute implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
+
+        if ((!preg_match("/^[A-Za-z]\\w*$/", $name))) {
+            throw new \InvalidArgumentException("invalid value for $name when calling NewAttribute., must conform to the pattern /^[A-Za-z]\\w*$/.");
+        }
+
         $this->container['name'] = $name;
 
         return $this;
@@ -462,6 +502,11 @@ class NewAttribute implements ModelInterface, ArrayAccess
      */
     public function setTitle($title)
     {
+
+        if ((!preg_match("/^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/", $title))) {
+            throw new \InvalidArgumentException("invalid value for $title when calling NewAttribute., must conform to the pattern /^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/.");
+        }
+
         $this->container['title'] = $title;
 
         return $this;
@@ -633,13 +678,70 @@ class NewAttribute implements ModelInterface, ArrayAccess
     /**
      * Sets subscribedApplicationsIds
      *
-     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that are subscribed to this attribute
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications where this attribute is available.
      *
      * @return $this
      */
     public function setSubscribedApplicationsIds($subscribedApplicationsIds)
     {
         $this->container['subscribedApplicationsIds'] = $subscribedApplicationsIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscribedCatalogsIds
+     *
+     * @return int[]|null
+     */
+    public function getSubscribedCatalogsIds()
+    {
+        return $this->container['subscribedCatalogsIds'];
+    }
+
+    /**
+     * Sets subscribedCatalogsIds
+     *
+     * @param int[]|null $subscribedCatalogsIds A list of the IDs of the catalogs where this attribute is available.
+     *
+     * @return $this
+     */
+    public function setSubscribedCatalogsIds($subscribedCatalogsIds)
+    {
+        $this->container['subscribedCatalogsIds'] = $subscribedCatalogsIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets allowedSubscriptions
+     *
+     * @return string[]|null
+     */
+    public function getAllowedSubscriptions()
+    {
+        return $this->container['allowedSubscriptions'];
+    }
+
+    /**
+     * Sets allowedSubscriptions
+     *
+     * @param string[]|null $allowedSubscriptions A list of allowed subscription types for this attribute.  **Note:** This only applies to attributes associated with the `CartItem` entity.
+     *
+     * @return $this
+     */
+    public function setAllowedSubscriptions($allowedSubscriptions)
+    {
+        $allowedValues = $this->getAllowedSubscriptionsAllowableValues();
+        if (!is_null($allowedSubscriptions) && array_diff($allowedSubscriptions, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'allowedSubscriptions', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['allowedSubscriptions'] = $allowedSubscriptions;
 
         return $this;
     }

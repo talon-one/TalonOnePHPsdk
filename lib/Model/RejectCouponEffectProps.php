@@ -248,7 +248,7 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The coupon code that was rejected
+     * @param string $value The coupon code that was rejected.
      *
      * @return $this
      */
@@ -272,7 +272,7 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets rejectionReason
      *
-     * @param string $rejectionReason The reason why this coupon was rejected
+     * @param string $rejectionReason The reason why this coupon was rejected.
      *
      * @return $this
      */
@@ -296,7 +296,7 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets conditionIndex
      *
-     * @param int|null $conditionIndex The index of the condition that caused the rejection of the coupon
+     * @param int|null $conditionIndex The index of the condition that caused the rejection of the coupon.
      *
      * @return $this
      */
@@ -320,7 +320,7 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets effectIndex
      *
-     * @param int|null $effectIndex The index of the effect that caused the rejection of the coupon
+     * @param int|null $effectIndex The index of the effect that caused the rejection of the coupon.
      *
      * @return $this
      */
@@ -344,7 +344,7 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets details
      *
-     * @param string|null $details More details about the failure
+     * @param string|null $details More details about the failure.
      *
      * @return $this
      */

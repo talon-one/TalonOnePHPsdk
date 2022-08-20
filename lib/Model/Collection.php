@@ -65,11 +65,11 @@ class Collection implements ModelInterface, ArrayAccess
         'description' => 'string',
         'subscribedApplicationsIds' => 'int[]',
         'name' => 'string',
-        'payload' => 'string[]',
         'modifiedBy' => 'int',
         'createdBy' => 'int',
         'applicationId' => 'int',
-        'campaignId' => 'int'
+        'campaignId' => 'int',
+        'payload' => 'string[]'
     ];
 
     /**
@@ -85,11 +85,11 @@ class Collection implements ModelInterface, ArrayAccess
         'description' => null,
         'subscribedApplicationsIds' => null,
         'name' => null,
-        'payload' => null,
         'modifiedBy' => null,
         'createdBy' => null,
         'applicationId' => null,
-        'campaignId' => null
+        'campaignId' => null,
+        'payload' => null
     ];
 
     /**
@@ -126,11 +126,11 @@ class Collection implements ModelInterface, ArrayAccess
         'description' => 'description',
         'subscribedApplicationsIds' => 'subscribedApplicationsIds',
         'name' => 'name',
-        'payload' => 'payload',
         'modifiedBy' => 'modifiedBy',
         'createdBy' => 'createdBy',
         'applicationId' => 'applicationId',
-        'campaignId' => 'campaignId'
+        'campaignId' => 'campaignId',
+        'payload' => 'payload'
     ];
 
     /**
@@ -146,11 +146,11 @@ class Collection implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'subscribedApplicationsIds' => 'setSubscribedApplicationsIds',
         'name' => 'setName',
-        'payload' => 'setPayload',
         'modifiedBy' => 'setModifiedBy',
         'createdBy' => 'setCreatedBy',
         'applicationId' => 'setApplicationId',
-        'campaignId' => 'setCampaignId'
+        'campaignId' => 'setCampaignId',
+        'payload' => 'setPayload'
     ];
 
     /**
@@ -166,11 +166,11 @@ class Collection implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'subscribedApplicationsIds' => 'getSubscribedApplicationsIds',
         'name' => 'getName',
-        'payload' => 'getPayload',
         'modifiedBy' => 'getModifiedBy',
         'createdBy' => 'getCreatedBy',
         'applicationId' => 'getApplicationId',
-        'campaignId' => 'getCampaignId'
+        'campaignId' => 'getCampaignId',
+        'payload' => 'getPayload'
     ];
 
     /**
@@ -240,11 +240,11 @@ class Collection implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['subscribedApplicationsIds'] = isset($data['subscribedApplicationsIds']) ? $data['subscribedApplicationsIds'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
         $this->container['modifiedBy'] = isset($data['modifiedBy']) ? $data['modifiedBy'] : null;
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
+        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
     }
 
     /**
@@ -273,6 +273,10 @@ class Collection implements ModelInterface, ArrayAccess
         }
         if ((mb_strlen($this->container['name']) < 1)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!preg_match("/^[^[:cntrl:]\\s][^[:cntrl:]]*$/", $this->container['name'])) {
+            $invalidProperties[] = "invalid value for 'name', must be conform to the pattern /^[^[:cntrl:]\\s][^[:cntrl:]]*$/.";
         }
 
         if ($this->container['createdBy'] === null) {
@@ -306,7 +310,7 @@ class Collection implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -460,32 +464,11 @@ class Collection implements ModelInterface, ArrayAccess
         if ((mb_strlen($name) < 1)) {
             throw new \InvalidArgumentException('invalid length for $name when calling Collection., must be bigger than or equal to 1.');
         }
+        if ((!preg_match("/^[^[:cntrl:]\\s][^[:cntrl:]]*$/", $name))) {
+            throw new \InvalidArgumentException("invalid value for $name when calling Collection., must conform to the pattern /^[^[:cntrl:]\\s][^[:cntrl:]]*$/.");
+        }
 
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets payload
-     *
-     * @return string[]|null
-     */
-    public function getPayload()
-    {
-        return $this->container['payload'];
-    }
-
-    /**
-     * Sets payload
-     *
-     * @param string[]|null $payload The content of the collection. If this property's value is `null`, the collection's content is too large to be returned in this property.  Instead, use the [export collection endpoint](https://docs.talon.one/management-api/#operation/exportCollectionItems) to get the content of the collection.
-     *
-     * @return $this
-     */
-    public function setPayload($payload)
-    {
-        $this->container['payload'] = $payload;
 
         return $this;
     }
@@ -551,7 +534,7 @@ class Collection implements ModelInterface, ArrayAccess
     /**
      * Sets applicationId
      *
-     * @param int|null $applicationId The ID of the application that owns this entity.
+     * @param int|null $applicationId The ID of the Application that owns this entity.
      *
      * @return $this
      */
@@ -582,6 +565,30 @@ class Collection implements ModelInterface, ArrayAccess
     public function setCampaignId($campaignId)
     {
         $this->container['campaignId'] = $campaignId;
+
+        return $this;
+    }
+
+    /**
+     * Gets payload
+     *
+     * @return string[]|null
+     */
+    public function getPayload()
+    {
+        return $this->container['payload'];
+    }
+
+    /**
+     * Sets payload
+     *
+     * @param string[]|null $payload The content of the collection.
+     *
+     * @return $this
+     */
+    public function setPayload($payload)
+    {
+        $this->container['payload'] = $payload;
 
         return $this;
     }

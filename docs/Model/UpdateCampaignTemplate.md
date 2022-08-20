@@ -15,9 +15,11 @@ Name | Type | Description | Notes
 **features** | **string[]** | A list of features for the campaign template. | [optional] 
 **couponSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **referralSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
-**limits** | [**\TalonOne\Client\Model\TemplateLimitConfig[]**](TemplateLimitConfig.md) | The set of limits that will operate for this campaign template | [optional] 
+**limits** | [**\TalonOne\Client\Model\TemplateLimitConfig[]**](TemplateLimitConfig.md) | The set of limits that will operate for this campaign template. | [optional] 
 **templateParams** | [**\TalonOne\Client\Model\CampaignTemplateParams[]**](CampaignTemplateParams.md) | Template parameters are fields which can be used to replace values in a rule. | [optional] 
-**applicationsIds** | **int[]** | A list of the IDs of the applications that are subscribed to this campaign template | 
+**applicationsIds** | **int[]** | A list of the IDs of the applications that are subscribed to this campaign template. | 
+**campaignCollections** | [**\TalonOne\Client\Model\CampaignTemplateCollection[]**](CampaignTemplateCollection.md) | The campaign collections from the blueprint campaign for the template. | [optional] 
+**defaultCampaignGroupId** | **int** | The default campaignGroupId. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

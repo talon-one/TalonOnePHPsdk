@@ -299,7 +299,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets campaignID
      *
-     * @param int $campaignID The ID of the campaign that contains the rule that failed
+     * @param int $campaignID The ID of the campaign that contains the rule that failed.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets campaignName
      *
-     * @param string $campaignName The name of the campaign that contains the rule that failed
+     * @param string $campaignName The name of the campaign that contains the rule that failed.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets rulesetID
      *
-     * @param int $rulesetID The ID of the ruleset that contains the rule that failed
+     * @param int $rulesetID The ID of the ruleset that contains the rule that failed.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets couponID
      *
-     * @param int|null $couponID The ID of the coupon that was being evaluated at the time of the rule failure
+     * @param int|null $couponID The ID of the coupon that was being evaluated at the time of the rule failure.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets couponValue
      *
-     * @param string|null $couponValue The value of the coupon that was being evaluated at the time of the rule failure
+     * @param string|null $couponValue The code of the coupon that was being evaluated at the time of the rule failure.
      *
      * @return $this
      */
@@ -419,7 +419,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets referralID
      *
-     * @param int|null $referralID The ID of the referral that was being evaluated at the time of the rule failure
+     * @param int|null $referralID The ID of the referral that was being evaluated at the time of the rule failure.
      *
      * @return $this
      */
@@ -443,7 +443,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets referralValue
      *
-     * @param string|null $referralValue The value of the referral that was being evaluated at the time of the rule failure
+     * @param string|null $referralValue The code of the referral that was being evaluated at the time of the rule failure.
      *
      * @return $this
      */
@@ -467,7 +467,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets ruleIndex
      *
-     * @param int $ruleIndex The index of the rule that failed within the ruleset
+     * @param int $ruleIndex The index of the rule that failed within the ruleset.
      *
      * @return $this
      */
@@ -491,7 +491,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets ruleName
      *
-     * @param string $ruleName The name of the rule that failed within the ruleset
+     * @param string $ruleName The name of the rule that failed within the ruleset.
      *
      * @return $this
      */
@@ -515,7 +515,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets conditionIndex
      *
-     * @param int|null $conditionIndex The index of the condition that failed
+     * @param int|null $conditionIndex The index of the condition that failed.
      *
      * @return $this
      */
@@ -539,7 +539,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets effectIndex
      *
-     * @param int|null $effectIndex The index of the effect that failed
+     * @param int|null $effectIndex The index of the effect that failed.
      *
      * @return $this
      */
@@ -563,7 +563,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets details
      *
-     * @param string|null $details More details about the failure
+     * @param string|null $details More details about the failure.
      *
      * @return $this
      */

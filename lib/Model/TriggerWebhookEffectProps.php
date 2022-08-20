@@ -230,7 +230,7 @@ class TriggerWebhookEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets webhookId
      *
-     * @param float $webhookId The ID of the webhook that was triggered
+     * @param float $webhookId The ID of the webhook that was triggered.
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class TriggerWebhookEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets webhookName
      *
-     * @param string $webhookName The name of the webhook that was triggered
+     * @param string $webhookName The name of the webhook that was triggered.
      *
      * @return $this
      */

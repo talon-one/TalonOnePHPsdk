@@ -84,4 +84,11 @@ class IntegrationCustomerSessionResponseTest extends TestCase
     public function testPropertyCustomerSession()
     {
     }
+
+    /**
+     * Test attribute "effects"
+     */
+    public function testPropertyEffects()
+    {
+    }
 }

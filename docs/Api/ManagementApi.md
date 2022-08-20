@@ -1,6 +1,6 @@
 # TalonOne\Client\ManagementApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://yourbaseurl.talon.one*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**createCoupons**](ManagementApi.md#createCoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create coupons
 [**createCouponsAsync**](ManagementApi.md#createCouponsAsync) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_async | Create coupons asynchronously
 [**createCouponsForMultipleRecipients**](ManagementApi.md#createCouponsForMultipleRecipients) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients | Create coupons for multiple recipients
+[**createNotificationWebhook**](ManagementApi.md#createNotificationWebhook) | **POST** /v1/applications/{applicationId}/notification_webhooks | Create notification webhook
 [**createPasswordRecoveryEmail**](ManagementApi.md#createPasswordRecoveryEmail) | **POST** /v1/password_recovery_emails | Request a password reset
 [**createSession**](ManagementApi.md#createSession) | **POST** /v1/sessions | Create session
 [**deleteAccountCollection**](ManagementApi.md#deleteAccountCollection) | **DELETE** /v1/collections/{collectionId} | Delete account-level collection
@@ -21,18 +22,17 @@ Method | HTTP request | Description
 [**deleteCollection**](ManagementApi.md#deleteCollection) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Delete collection
 [**deleteCoupon**](ManagementApi.md#deleteCoupon) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Delete coupon
 [**deleteCoupons**](ManagementApi.md#deleteCoupons) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete coupons
-[**deleteLoyaltyCard**](ManagementApi.md#deleteLoyaltyCard) | **DELETE** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardIdentifier} | Delete loyalty card
+[**deleteNotificationWebhook**](ManagementApi.md#deleteNotificationWebhook) | **DELETE** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Delete notification webhook
 [**deleteReferral**](ManagementApi.md#deleteReferral) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete referral
 [**destroySession**](ManagementApi.md#destroySession) | **DELETE** /v1/sessions | Destroy session
-[**exportAccountCollectionItems**](ManagementApi.md#exportAccountCollectionItems) | **GET** /v1/collections/{collectionId}/export | Export account-level collection items to CSV file
-[**exportCollectionItems**](ManagementApi.md#exportCollectionItems) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/export | Export a collection&#39;s items to CSV file
-[**exportCoupons**](ManagementApi.md#exportCoupons) | **GET** /v1/applications/{applicationId}/export_coupons | Export coupons to CSV file
-[**exportCustomerSessions**](ManagementApi.md#exportCustomerSessions) | **GET** /v1/applications/{applicationId}/export_customer_sessions | Export customer sessions to CSV file
-[**exportEffects**](ManagementApi.md#exportEffects) | **GET** /v1/applications/{applicationId}/export_effects | Export triggered effects to CSV file
+[**exportAccountCollectionItems**](ManagementApi.md#exportAccountCollectionItems) | **GET** /v1/collections/{collectionId}/export | Export account-level collection&#39;s items
+[**exportCollectionItems**](ManagementApi.md#exportCollectionItems) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/export | Export a collection&#39;s items
+[**exportCoupons**](ManagementApi.md#exportCoupons) | **GET** /v1/applications/{applicationId}/export_coupons | Export coupons
+[**exportCustomerSessions**](ManagementApi.md#exportCustomerSessions) | **GET** /v1/applications/{applicationId}/export_customer_sessions | Export customer sessions
+[**exportEffects**](ManagementApi.md#exportEffects) | **GET** /v1/applications/{applicationId}/export_effects | Export triggered effects
 [**exportLoyaltyBalance**](ManagementApi.md#exportLoyaltyBalance) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/export_customer_balance | Export customer loyalty balance to a CSV file
-[**exportLoyaltyCardLedger**](ManagementApi.md#exportLoyaltyCardLedger) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardIdentifier}/export | Export a loyalty card&#39;s ledger log to CSV file
-[**exportLoyaltyLedger**](ManagementApi.md#exportLoyaltyLedger) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/export_log | Export a customer&#39;s loyalty ledger log to CSV file
-[**exportReferrals**](ManagementApi.md#exportReferrals) | **GET** /v1/applications/{applicationId}/export_referrals | Export referrals to CSV file
+[**exportLoyaltyLedger**](ManagementApi.md#exportLoyaltyLedger) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/export_log | Export a customer&#39;s loyalty ledger log
+[**exportReferrals**](ManagementApi.md#exportReferrals) | **GET** /v1/applications/{applicationId}/export_referrals | Export referrals
 [**getAccessLogsWithoutTotalCount**](ManagementApi.md#getAccessLogsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/access_logs/no_total | Get access logs for Application
 [**getAccount**](ManagementApi.md#getAccount) | **GET** /v1/accounts/{accountId} | Get account details
 [**getAccountAnalytics**](ManagementApi.md#getAccountAnalytics) | **GET** /v1/accounts/{accountId}/analytics | Get account analytics
@@ -59,9 +59,9 @@ Method | HTTP request | Description
 [**getCampaignAnalytics**](ManagementApi.md#getCampaignAnalytics) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/analytics | Get analytics of campaigns
 [**getCampaignByAttributes**](ManagementApi.md#getCampaignByAttributes) | **POST** /v1/applications/{applicationId}/campaigns_search | List campaigns that match the given attributes
 [**getCampaigns**](ManagementApi.md#getCampaigns) | **GET** /v1/applications/{applicationId}/campaigns | List campaigns
-[**getChanges**](ManagementApi.md#getChanges) | **GET** /v1/changes | Get audit log for an account
+[**getChanges**](ManagementApi.md#getChanges) | **GET** /v1/changes | Get audit logs for an account
 [**getCollection**](ManagementApi.md#getCollection) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Get collection
-[**getCouponsByAttributes**](ManagementApi.md#getCouponsByAttributes) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search | List coupons that match the given attributes
+[**getCollectionItems**](ManagementApi.md#getCollectionItems) | **GET** /v1/collections/{collectionId}/items | Get collection items
 [**getCouponsWithoutTotalCount**](ManagementApi.md#getCouponsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List coupons
 [**getCustomerActivityReport**](ManagementApi.md#getCustomerActivityReport) | **GET** /v1/applications/{applicationId}/customer_activity_reports/{customerId} | Get customer&#39;s activity report
 [**getCustomerActivityReportsWithoutTotalCount**](ManagementApi.md#getCustomerActivityReportsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/customer_activity_reports/no_total | Get Activity Reports for Application Customers
@@ -75,6 +75,8 @@ Method | HTTP request | Description
 [**getLoyaltyProgram**](ManagementApi.md#getLoyaltyProgram) | **GET** /v1/loyalty_programs/{loyaltyProgramId} | Get loyalty program
 [**getLoyaltyPrograms**](ManagementApi.md#getLoyaltyPrograms) | **GET** /v1/loyalty_programs | List loyalty programs
 [**getLoyaltyStatistics**](ManagementApi.md#getLoyaltyStatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics by loyalty program ID
+[**getNotificationWebhook**](ManagementApi.md#getNotificationWebhook) | **GET** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Get notification webhook
+[**getNotificationWebhooks**](ManagementApi.md#getNotificationWebhooks) | **GET** /v1/applications/{applicationId}/notification_webhooks | List notification webhooks
 [**getReferralsWithoutTotalCount**](ManagementApi.md#getReferralsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 [**getRole**](ManagementApi.md#getRole) | **GET** /v1/roles/{roleId} | Get role
 [**getRuleset**](ManagementApi.md#getRuleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
@@ -85,27 +87,28 @@ Method | HTTP request | Description
 [**getWebhookActivationLogs**](ManagementApi.md#getWebhookActivationLogs) | **GET** /v1/webhook_activation_logs | List webhook activation log entries
 [**getWebhookLogs**](ManagementApi.md#getWebhookLogs) | **GET** /v1/webhook_logs | List webhook log entries
 [**getWebhooks**](ManagementApi.md#getWebhooks) | **GET** /v1/webhooks | List webhooks
-[**importAccountCollection**](ManagementApi.md#importAccountCollection) | **POST** /v1/collections/{collectionId}/import | Import data in existing account-level collection via CSV file
+[**importAccountCollection**](ManagementApi.md#importAccountCollection) | **POST** /v1/collections/{collectionId}/import | Import data in existing account-level collection
 [**importAllowedList**](ManagementApi.md#importAllowedList) | **POST** /v1/attributes/{attributeId}/allowed_list/import | Import allowed values for attribute
-[**importCollection**](ManagementApi.md#importCollection) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/import | Import data in existing collection via CSV file
-[**importCoupons**](ManagementApi.md#importCoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons | Import coupons via CSV file
-[**importLoyaltyPoints**](ManagementApi.md#importLoyaltyPoints) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_points | Import loyalty points via CSV file
+[**importCollection**](ManagementApi.md#importCollection) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/import | Import data in existing collection
+[**importCoupons**](ManagementApi.md#importCoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons | Import coupons
+[**importLoyaltyPoints**](ManagementApi.md#importLoyaltyPoints) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_points | Import loyalty points
 [**importPoolGiveaways**](ManagementApi.md#importPoolGiveaways) | **POST** /v1/giveaways/pools/{poolId}/import | Import giveaway codes into a giveaway pool
-[**importReferrals**](ManagementApi.md#importReferrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals via CSV file
+[**importReferrals**](ManagementApi.md#importReferrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals
 [**listAccountCollections**](ManagementApi.md#listAccountCollections) | **GET** /v1/collections | List collections in account
 [**listCollections**](ManagementApi.md#listCollections) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | List collections
 [**listCollectionsInApplication**](ManagementApi.md#listCollectionsInApplication) | **GET** /v1/applications/{applicationId}/collections | List collections in application
 [**removeLoyaltyPoints**](ManagementApi.md#removeLoyaltyPoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/deduct_points | Deduct points in loyalty program for given customer
 [**resetPassword**](ManagementApi.md#resetPassword) | **POST** /v1/reset_password | Reset password
-[**searchCouponsAdvancedApplicationWideWithoutTotalCount**](ManagementApi.md#searchCouponsAdvancedApplicationWideWithoutTotalCount) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | List coupons that match the given attributes in all active campaigns of an application
-[**searchCouponsAdvancedWithoutTotalCount**](ManagementApi.md#searchCouponsAdvancedWithoutTotalCount) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | List coupons that match the given attributes
+[**searchCouponsAdvancedApplicationWideWithoutTotalCount**](ManagementApi.md#searchCouponsAdvancedApplicationWideWithoutTotalCount) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | List coupons that match the given attributes (without total count)
+[**searchCouponsAdvancedWithoutTotalCount**](ManagementApi.md#searchCouponsAdvancedWithoutTotalCount) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | List coupons that match the given attributes in campaign (without total count)
 [**updateAccountCollection**](ManagementApi.md#updateAccountCollection) | **PUT** /v1/collections/{collectionId} | Update account-level collection
 [**updateAdditionalCost**](ManagementApi.md#updateAdditionalCost) | **PUT** /v1/additional_costs/{additionalCostId} | Update additional cost
 [**updateAttribute**](ManagementApi.md#updateAttribute) | **PUT** /v1/attributes/{attributeId} | Update custom attribute
 [**updateCampaign**](ManagementApi.md#updateCampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update campaign
-[**updateCollection**](ManagementApi.md#updateCollection) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Update collection
+[**updateCollection**](ManagementApi.md#updateCollection) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Update collection description
 [**updateCoupon**](ManagementApi.md#updateCoupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update coupon
 [**updateCouponBatch**](ManagementApi.md#updateCouponBatch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update coupons
+[**updateNotificationWebhook**](ManagementApi.md#updateNotificationWebhook) | **PUT** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Update notification webhook
 [**updateReferral**](ManagementApi.md#updateReferral) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Update referral
 
 
@@ -169,7 +172,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -178,7 +181,7 @@ void (empty response body)
 
 ## copyCampaignToApplications
 
-> \TalonOne\Client\Model\InlineResponse2002 copyCampaignToApplications($applicationId, $campaignId, $body)
+> \TalonOne\Client\Model\InlineResponse2003 copyCampaignToApplications($applicationId, $campaignId, $body)
 
 Copy the campaign into the specified application
 
@@ -227,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -438,7 +441,7 @@ Name | Type | Description  | Notes
 
 Create campaign from campaign template
 
-Use the campaign template referenced in the request body to create a new Campaign in one of the connected Applications.
+Use the campaign template referenced in the request body to create a new campaign in one of the connected Applications.  If the template was created from a campaign with rules referencing [campaign collections](https://docs.talon.one/docs/product/campaigns/managing-collections), the corresponding collections for the new campaign are created automatically.
 
 ### Example
 
@@ -526,7 +529,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-$body = new \TalonOne\Client\Model\NewCollection(); // \TalonOne\Client\Model\NewCollection | 
+$body = new \TalonOne\Client\Model\NewCampaignCollection(); // \TalonOne\Client\Model\NewCampaignCollection | 
 
 try {
     $result = $apiInstance->createCollection($applicationId, $campaignId, $body);
@@ -544,7 +547,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
- **body** | [**\TalonOne\Client\Model\NewCollection**](../Model/NewCollection.md)|  |
+ **body** | [**\TalonOne\Client\Model\NewCampaignCollection**](../Model/NewCampaignCollection.md)|  |
 
 ### Return type
 
@@ -566,7 +569,7 @@ Name | Type | Description  | Notes
 
 ## createCoupons
 
-> \TalonOne\Client\Model\InlineResponse2004 createCoupons($applicationId, $campaignId, $body, $silent)
+> \TalonOne\Client\Model\InlineResponse2006 createCoupons($applicationId, $campaignId, $body, $silent)
 
 Create coupons
 
@@ -617,7 +620,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\TalonOne\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
 
 ### Authorization
 
@@ -702,7 +705,7 @@ Name | Type | Description  | Notes
 
 ## createCouponsForMultipleRecipients
 
-> \TalonOne\Client\Model\InlineResponse2004 createCouponsForMultipleRecipients($applicationId, $campaignId, $body, $silent)
+> \TalonOne\Client\Model\InlineResponse2006 createCouponsForMultipleRecipients($applicationId, $campaignId, $body, $silent)
 
 Create coupons for multiple recipients
 
@@ -753,7 +756,72 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\TalonOne\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+
+### Authorization
+
+[manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## createNotificationWebhook
+
+> \TalonOne\Client\Model\NotificationWebhook createNotificationWebhook($applicationId, $body)
+
+Create notification webhook
+
+Create an outbound notification webhook. An outbound notification webhook is different from regular webhooks in that it is application-scoped and has a predefined payload (regular webhooks have user-definable payloads).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$body = new \TalonOne\Client\Model\NewNotificationWebhook(); // \TalonOne\Client\Model\NewNotificationWebhook | 
+
+try {
+    $result = $apiInstance->createNotificationWebhook($applicationId, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->createNotificationWebhook: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **body** | [**\TalonOne\Client\Model\NewNotificationWebhook**](../Model/NewNotificationWebhook.md)|  |
+
+### Return type
+
+[**\TalonOne\Client\Model\NotificationWebhook**](../Model/NotificationWebhook.md)
 
 ### Authorization
 
@@ -838,7 +906,7 @@ Name | Type | Description  | Notes
 
 Create session
 
-Create a session to use the Management API endpoints. Use the value of the `token` property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup.  **Note:** You can also use your browser's developer's console to [display your token](https://docs.talon.one/docs/dev/tutorials/receiving-loyalty-ledger-braze/#extracting-the-session-token) when you log into the Campaign Manager.  In this case, keep in mind that logging out destroys the token.
+Create a session to use the Management API endpoints. Use the value of the `token` property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup.  **Note:** You can also use your browser's developer's console when you log into the Campaign Manager. Keep in mind that logging out destroys the token displayed in the console.
 
 ### Example
 
@@ -901,7 +969,7 @@ Name | Type | Description  | Notes
 
 Delete account-level collection
 
-Delete the given account-level collection
+Delete the given account-level collection.
 
 ### Example
 
@@ -1243,13 +1311,13 @@ void (empty response body)
 [[Back to README]](../../README.md)
 
 
-## deleteLoyaltyCard
+## deleteNotificationWebhook
 
-> deleteLoyaltyCard($loyaltyProgramId, $loyaltyCardIdentifier)
+> deleteNotificationWebhook($applicationId, $notificationWebhookId)
 
-Delete loyalty card
+Delete notification webhook
 
-Delete the specified loyalty card.
+Remove the given existing outbound notification webhook.
 
 ### Example
 
@@ -1270,13 +1338,13 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$loyaltyProgramId = 56; // int | 
-$loyaltyCardIdentifier = 'loyaltyCardIdentifier_example'; // string | Identifier of the loyalty card.
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$notificationWebhookId = 56; // int | 
 
 try {
-    $apiInstance->deleteLoyaltyCard($loyaltyProgramId, $loyaltyCardIdentifier);
+    $apiInstance->deleteNotificationWebhook($applicationId, $notificationWebhookId);
 } catch (Exception $e) {
-    echo 'Exception when calling ManagementApi->deleteLoyaltyCard: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ManagementApi->deleteNotificationWebhook: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1286,8 +1354,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**|  |
- **loyaltyCardIdentifier** | **string**| Identifier of the loyalty card. |
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **notificationWebhookId** | **int**|  |
 
 ### Return type
 
@@ -1300,7 +1368,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -1435,9 +1503,9 @@ void (empty response body)
 
 > string exportAccountCollectionItems($collectionId)
 
-Export account-level collection items to CSV file
+Export account-level collection's items
 
-Download a file containing an account-level collection's items.
+Download a CSV file containing items from an account-level collection.
 
 ### Example
 
@@ -1498,9 +1566,9 @@ Name | Type | Description  | Notes
 
 > string exportCollectionItems($applicationId, $campaignId, $collectionId)
 
-Export a collection's items to CSV file
+Export a collection's items
 
-Download a file containing a collection's items.
+Download a CSV file containing a collection's items.
 
 ### Example
 
@@ -1565,9 +1633,9 @@ Name | Type | Description  | Notes
 
 > string exportCoupons($applicationId, $campaignId, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $dateFormat, $campaignState)
 
-Export coupons to CSV file
+Export coupons
 
-Download a file containing the coupons that match the given properties.
+Download a CSV file containing the coupons that match the given properties.
 
 ### Example
 
@@ -1654,9 +1722,9 @@ Name | Type | Description  | Notes
 
 > string exportCustomerSessions($applicationId, $createdBefore, $createdAfter, $profileIntegrationId, $dateFormat, $customerSessionState)
 
-Export customer sessions to CSV file
+Export customer sessions
 
-Download a file containing the customer sessions that match the request.
+Download a CSV file containing the customer sessions that match the request.  **Important:** Archived sessions cannot be exported. See the [retention policy](https://docs.talon.one/docs/product/server-infrastructure-and-data-retention#data-retention-policy).
 
 ### Example
 
@@ -1727,9 +1795,9 @@ Name | Type | Description  | Notes
 
 > string exportEffects($applicationId, $campaignId, $createdBefore, $createdAfter, $dateFormat)
 
-Export triggered effects to CSV file
+Export triggered effects
 
-Download a file containing the triggered effects that match the given attributes.
+Download a CSV file containing the triggered effects that match the given attributes.
 
 ### Example
 
@@ -1800,7 +1868,7 @@ Name | Type | Description  | Notes
 
 Export customer loyalty balance to a CSV file
 
-Download a file with the balance of each customer in the loyalty program.
+Download a CSV file containing the balance of each customer in the loyalty program.
 
 ### Example
 
@@ -1857,84 +1925,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## exportLoyaltyCardLedger
-
-> string exportLoyaltyCardLedger($loyaltyProgramId, $loyaltyCardIdentifier, $rangeStart, $rangeEnd, $dateFormat)
-
-Export a loyalty card's ledger log to CSV file
-
-Download a file with a loyalty card ledger log in the loyalty program.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new TalonOne\Client\Api\ManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$loyaltyProgramId = 56; // int | 
-$loyaltyCardIdentifier = 'loyaltyCardIdentifier_example'; // string | Identifier of the loyalty card.
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
-$dateFormat = 'dateFormat_example'; // string | Determines the format of dates in the export document.
-
-try {
-    $result = $apiInstance->exportLoyaltyCardLedger($loyaltyProgramId, $loyaltyCardIdentifier, $rangeStart, $rangeEnd, $dateFormat);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ManagementApi->exportLoyaltyCardLedger: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**|  |
- **loyaltyCardIdentifier** | **string**| Identifier of the loyalty card. |
- **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
- **dateFormat** | **string**| Determines the format of dates in the export document. | [optional]
-
-### Return type
-
-**string**
-
-### Authorization
-
-[manager_auth](../../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/csv
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
 ## exportLoyaltyLedger
 
 > string exportLoyaltyLedger($rangeStart, $rangeEnd, $loyaltyProgramId, $integrationId, $dateFormat)
 
-Export a customer's loyalty ledger log to CSV file
+Export a customer's loyalty ledger log
 
-Download a file with a customer's ledger log in the loyalty program
+Download a CSV file containing a customer's ledger log in the loyalty program
 
 ### Example
 
@@ -1955,8 +1952,8 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string.
 $loyaltyProgramId = 'loyaltyProgramId_example'; // string | The identifier for the loyalty program.
 $integrationId = 'integrationId_example'; // string | The identifier of the profile.
 $dateFormat = 'dateFormat_example'; // string | Determines the format of dates in the export document.
@@ -1975,8 +1972,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string. |
  **loyaltyProgramId** | **string**| The identifier for the loyalty program. |
  **integrationId** | **string**| The identifier of the profile. |
  **dateFormat** | **string**| Determines the format of dates in the export document. | [optional]
@@ -2003,9 +2000,9 @@ Name | Type | Description  | Notes
 
 > string exportReferrals($applicationId, $campaignId, $createdBefore, $createdAfter, $valid, $usable, $batchId, $dateFormat)
 
-Export referrals to CSV file
+Export referrals
 
-Download a file containing the referrals that match the given parameters.
+Download a CSV file containing the referrals that match the given parameters.
 
 ### Example
 
@@ -2078,7 +2075,7 @@ Name | Type | Description  | Notes
 
 ## getAccessLogsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse2009 getAccessLogsWithoutTotalCount($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20013 getAccessLogsWithoutTotalCount($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
 
 Get access logs for Application
 
@@ -2104,8 +2101,8 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string.
 $path = 'path_example'; // string | Only return results where the request path matches the given regular expression.
 $method = 'method_example'; // string | Only return results where the request method matches the given regular expression.
 $status = 'status_example'; // string | Filter results by HTTP status codes.
@@ -2128,8 +2125,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string. |
  **path** | **string**| Only return results where the request path matches the given regular expression. | [optional]
  **method** | **string**| Only return results where the request method matches the given regular expression. | [optional]
  **status** | **string**| Filter results by HTTP status codes. | [optional]
@@ -2139,7 +2136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
+[**\TalonOne\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
 
 ### Authorization
 
@@ -2287,7 +2284,7 @@ Name | Type | Description  | Notes
 
 Get account-level collection
 
-Retrieve the given account-level collection
+Retrieve a given account-level collection.
 
 ### Example
 
@@ -2409,7 +2406,7 @@ Name | Type | Description  | Notes
 
 ## getAdditionalCosts
 
-> \TalonOne\Client\Model\InlineResponse20022 getAdditionalCosts($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20026 getAdditionalCosts($pageSize, $skip, $sort)
 
 List additional costs
 
@@ -2458,7 +2455,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
+[**\TalonOne\Client\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
 
 ### Authorization
 
@@ -2476,7 +2473,7 @@ Name | Type | Description  | Notes
 
 ## getAllAccessLogs
 
-> \TalonOne\Client\Model\InlineResponse20010 getAllAccessLogs($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20014 getAllAccessLogs($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
 
 List access logs
 
@@ -2501,8 +2498,8 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string.
 $path = 'path_example'; // string | Only return results where the request path matches the given regular expression.
 $method = 'method_example'; // string | Only return results where the request method matches the given regular expression.
 $status = 'status_example'; // string | Filter results by HTTP status codes.
@@ -2524,8 +2521,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string. |
  **path** | **string**| Only return results where the request path matches the given regular expression. | [optional]
  **method** | **string**| Only return results where the request method matches the given regular expression. | [optional]
  **status** | **string**| Filter results by HTTP status codes. | [optional]
@@ -2535,7 +2532,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
+[**\TalonOne\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
 
 ### Authorization
 
@@ -2553,7 +2550,7 @@ Name | Type | Description  | Notes
 
 ## getAllRoles
 
-> \TalonOne\Client\Model\InlineResponse20030 getAllRoles()
+> \TalonOne\Client\Model\InlineResponse20034 getAllRoles()
 
 List roles
 
@@ -2594,7 +2591,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
+[**\TalonOne\Client\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
 
 ### Authorization
 
@@ -2764,7 +2761,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List application's customers](#operation/getApplicationCustomers) endpoint.
+$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](/#tag/Customer-data/operation/getApplicationCustomers) endpoint.
 
 try {
     $result = $apiInstance->getApplicationCustomer($applicationId, $customerId);
@@ -2781,7 +2778,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List application&#39;s customers](#operation/getApplicationCustomers) endpoint. |
+ **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](/#tag/Customer-data/operation/getApplicationCustomers) endpoint. |
 
 ### Return type
 
@@ -2803,7 +2800,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomerFriends
 
-> \TalonOne\Client\Model\InlineResponse20020 getApplicationCustomerFriends($applicationId, $integrationId, $pageSize, $skip, $sort, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20024 getApplicationCustomerFriends($applicationId, $integrationId, $pageSize, $skip, $sort, $withTotalResultSize)
 
 List friends referred by customer profile
 
@@ -2858,7 +2855,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
+[**\TalonOne\Client\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
 
 ### Authorization
 
@@ -2876,7 +2873,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomers
 
-> \TalonOne\Client\Model\InlineResponse20012 getApplicationCustomers($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20016 getApplicationCustomers($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize)
 
 List application's customers
 
@@ -2929,7 +2926,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
+[**\TalonOne\Client\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
 
 ### Authorization
 
@@ -2947,7 +2944,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomersByAttributes
 
-> \TalonOne\Client\Model\InlineResponse20013 getApplicationCustomersByAttributes($applicationId, $body, $pageSize, $skip, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20017 getApplicationCustomersByAttributes($applicationId, $body, $pageSize, $skip, $withTotalResultSize)
 
 List application customers matching the given attributes
 
@@ -3000,7 +2997,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\TalonOne\Client\Model\InlineResponse20017**](../Model/InlineResponse20017.md)
 
 ### Authorization
 
@@ -3018,7 +3015,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventTypes
 
-> \TalonOne\Client\Model\InlineResponse20018 getApplicationEventTypes($applicationId, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20022 getApplicationEventTypes($applicationId, $pageSize, $skip, $sort)
 
 List Applications event types
 
@@ -3069,7 +3066,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
+[**\TalonOne\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
 
 ### Authorization
 
@@ -3087,11 +3084,11 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20017 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
+> \TalonOne\Client\Model\InlineResponse20021 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
 
 List Applications events
 
-Lists all events recorded for an application. Instead of having the total number of results in the response, this endpoint only if there are more results.
+Lists all events recorded for an application. Instead of having the total number of results in the response, this endpoint only mentions whether there are more results.
 
 ### Example
 
@@ -3160,7 +3157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20017**](../Model/InlineResponse20017.md)
+[**\TalonOne\Client\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
 
 ### Authorization
 
@@ -3182,7 +3179,7 @@ Name | Type | Description  | Notes
 
 Get Application session
 
-Get the details of the given session. You can list the sessions with the [List application sessions](#operation/getApplicationSessions) endpoint.
+Get the details of the given session. You can list the sessions with the [List Application sessions](/#tag/Customer-data/operation/getApplicationSession) endpoint.
 
 ### Example
 
@@ -3204,7 +3201,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$sessionId = 56; // int | The ID of the session.
+$sessionId = 56; // int | The **internal** ID of the session. You can get the ID with the [List Application sessions endpoint](/#tag/Customer-data/operation/getApplicationSession).
 
 try {
     $result = $apiInstance->getApplicationSession($applicationId, $sessionId);
@@ -3221,7 +3218,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **sessionId** | **int**| The ID of the session. |
+ **sessionId** | **int**| The **internal** ID of the session. You can get the ID with the [List Application sessions endpoint](/#tag/Customer-data/operation/getApplicationSession). |
 
 ### Return type
 
@@ -3243,7 +3240,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationSessions
 
-> \TalonOne\Client\Model\InlineResponse20016 getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId)
+> \TalonOne\Client\Model\InlineResponse20020 getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId)
 
 List Application sessions
 
@@ -3308,7 +3305,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
+[**\TalonOne\Client\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
 
 ### Authorization
 
@@ -3326,7 +3323,7 @@ Name | Type | Description  | Notes
 
 ## getApplications
 
-> \TalonOne\Client\Model\InlineResponse2001 getApplications($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2002 getApplications($pageSize, $skip, $sort)
 
 List applications
 
@@ -3375,7 +3372,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
@@ -3456,7 +3453,7 @@ Name | Type | Description  | Notes
 
 ## getAttributes
 
-> \TalonOne\Client\Model\InlineResponse20021 getAttributes($pageSize, $skip, $sort, $entity)
+> \TalonOne\Client\Model\InlineResponse20025 getAttributes($pageSize, $skip, $sort, $entity)
 
 List custom attributes
 
@@ -3484,7 +3481,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-$entity = 'entity_example'; // string | Returned attributes will be filtered by supplied entity
+$entity = 'entity_example'; // string | Returned attributes will be filtered by supplied entity.
 
 try {
     $result = $apiInstance->getAttributes($pageSize, $skip, $sort, $entity);
@@ -3503,11 +3500,11 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
- **entity** | **string**| Returned attributes will be filtered by supplied entity | [optional]
+ **entity** | **string**| Returned attributes will be filtered by supplied entity. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
+[**\TalonOne\Client\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
 
 ### Authorization
 
@@ -3525,11 +3522,11 @@ Name | Type | Description  | Notes
 
 ## getAudiences
 
-> \TalonOne\Client\Model\InlineResponse20019 getAudiences($pageSize, $skip, $sort, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20023 getAudiences($pageSize, $skip, $sort, $withTotalResultSize)
 
 List audiences
 
-Get All audiences created in the account.
+Get all audiences created in the account. To create an audience, use [Create audience](https://docs.talon.one/integration-api#tag/Audiences/operation/createAudienceV2).
 
 ### Example
 
@@ -3576,7 +3573,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20019**](../Model/InlineResponse20019.md)
+[**\TalonOne\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
 
 ### Authorization
 
@@ -3659,7 +3656,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignAnalytics
 
-> \TalonOne\Client\Model\InlineResponse20011 getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity)
+> \TalonOne\Client\Model\InlineResponse20015 getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity)
 
 Get analytics of campaigns
 
@@ -3686,8 +3683,8 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string.
 $granularity = 'granularity_example'; // string | The time interval between the results in the returned time-series.
 
 try {
@@ -3706,13 +3703,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
- **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string. |
  **granularity** | **string**| The time interval between the results in the returned time-series. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\TalonOne\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
 
 ### Authorization
 
@@ -3730,7 +3727,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignByAttributes
 
-> \TalonOne\Client\Model\InlineResponse2002 getCampaignByAttributes($applicationId, $body, $pageSize, $skip, $sort, $campaignState)
+> \TalonOne\Client\Model\InlineResponse2003 getCampaignByAttributes($applicationId, $body, $pageSize, $skip, $sort, $campaignState)
 
 List campaigns that match the given attributes
 
@@ -3785,7 +3782,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -3803,7 +3800,7 @@ Name | Type | Description  | Notes
 
 ## getCampaigns
 
-> \TalonOne\Client\Model\InlineResponse2002 getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $campaignGroupId, $templateId)
+> \TalonOne\Client\Model\InlineResponse2003 getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $campaignGroupId, $templateId)
 
 List campaigns
 
@@ -3868,7 +3865,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -3886,11 +3883,11 @@ Name | Type | Description  | Notes
 
 ## getChanges
 
-> \TalonOne\Client\Model\InlineResponse20028 getChanges($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $includeOld)
+> \TalonOne\Client\Model\InlineResponse20032 getChanges($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $includeOld)
 
-Get audit log for an account
+Get audit logs for an account
 
-Get list of changes caused by API calls for an account. Only accessible for admins.
+Export the audit logs displayed in **Accounts > Audit logs**.
 
 ### Example
 
@@ -3949,7 +3946,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
+[**\TalonOne\Client\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
 
 ### Authorization
 
@@ -3971,7 +3968,7 @@ Name | Type | Description  | Notes
 
 Get collection
 
-Retrieve the given collection.
+Retrieve a given collection.
 
 ### Example
 
@@ -4032,13 +4029,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## getCouponsByAttributes
+## getCollectionItems
 
-> \TalonOne\Client\Model\InlineResponse2004 getCouponsByAttributes($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
+> \TalonOne\Client\Model\InlineResponse20011 getCollectionItems($collectionId, $pageSize, $skip)
 
-List coupons that match the given attributes
+Get collection items
 
-Get a list of all the coupons that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.
+Retrieve the items from the given collection.
 
 ### Example
 
@@ -4059,27 +4056,15 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-$body = new \TalonOne\Client\Model\CouponSearch(); // \TalonOne\Client\Model\CouponSearch | 
+$collectionId = 56; // int | The ID of the collection. You can get it with the [List collection in account endpoint](#operation/listCollectionsInApplication).
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-$value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-$valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.
-$usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
-$referralId = 56; // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
-$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
-$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
-$batchId = 'batchId_example'; // string | Filter results by batches of coupons
 
 try {
-    $result = $apiInstance->getCouponsByAttributes($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId);
+    $result = $apiInstance->getCollectionItems($collectionId, $pageSize, $skip);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ManagementApi->getCouponsByAttributes: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ManagementApi->getCollectionItems: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -4089,25 +4074,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
- **body** | [**\TalonOne\Client\Model\CouponSearch**](../Model/CouponSearch.md)|  |
+ **collectionId** | **int**| The ID of the collection. You can get it with the [List collection in account endpoint](#operation/listCollectionsInApplication). |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
- **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
- **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
- **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional]
- **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. | [optional]
- **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
- **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional]
- **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
- **batchId** | **string**| Filter results by batches of coupons | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\TalonOne\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -4115,7 +4088,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
@@ -4125,7 +4098,7 @@ Name | Type | Description  | Notes
 
 ## getCouponsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse2005 getCouponsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch)
+> \TalonOne\Client\Model\InlineResponse2007 getCouponsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch)
 
 List coupons
 
@@ -4196,7 +4169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\TalonOne\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
 
 ### Authorization
 
@@ -4239,10 +4212,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string.
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List application's customers](#operation/getApplicationCustomers) endpoint.
+$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](/#tag/Customer-data/operation/getApplicationCustomers) endpoint.
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 
@@ -4260,10 +4233,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string. |
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List application&#39;s customers](#operation/getApplicationCustomers) endpoint. |
+ **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](/#tag/Customer-data/operation/getApplicationCustomers) endpoint. |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
 
@@ -4287,11 +4260,11 @@ Name | Type | Description  | Notes
 
 ## getCustomerActivityReportsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20015 getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
+> \TalonOne\Client\Model\InlineResponse20019 getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
 
 Get Activity Reports for Application Customers
 
-Fetch summary reports for all application customers based on a time range. Instead of having the total number of results in the response, this endpoint only if there are more results.
+Fetch summary reports for all application customers based on a time range. Instead of having the total number of results in the response, this endpoint only mentions whether there are more results.
 
 ### Example
 
@@ -4312,8 +4285,8 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string.
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
@@ -4337,8 +4310,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string. |
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
@@ -4350,7 +4323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
+[**\TalonOne\Client\Model\InlineResponse20019**](../Model/InlineResponse20019.md)
 
 ### Authorization
 
@@ -4394,7 +4367,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List application's customers](#operation/getApplicationCustomers) endpoint.
+$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](/#tag/Customer-data/operation/getApplicationCustomers) endpoint.
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
@@ -4414,7 +4387,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List application&#39;s customers](#operation/getApplicationCustomers) endpoint. |
+ **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](/#tag/Customer-data/operation/getApplicationCustomers) endpoint. |
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
@@ -4443,7 +4416,7 @@ Name | Type | Description  | Notes
 
 Get customer profile
 
-Return the details of the specified customer profile.  **Performance tip:** You can retrieve the same information via the Integration API, which can save you extra API requests. Consider these options: - Request the customer profile to be part of the response content using   [Update Customer Session](/integration-api/operation#updateCustomerSessionV2). - Send an empty update with the [Update Customer Profile](/integration-api/#operation/updateCustomerProfileV2) endpoint with `runRuleEngine=false`.
+Return the details of the specified customer profile.  <div class=\"redoc-section\">   <p class=\"title\">Performance tips</p>    You can retrieve the same information via the Integration API, which can save you extra API requests. consider these options:    - Request the customer profile to be part of the response content using     [Update Customer Session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2).   - Send an empty update with the [Update Customer Profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint with `runRuleEngine=false`. </div>
 
 ### Example
 
@@ -4464,7 +4437,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List application's customers](#operation/getApplicationCustomers) endpoint.
+$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](/#tag/Customer-data/operation/getApplicationCustomers) endpoint.
 
 try {
     $result = $apiInstance->getCustomerProfile($customerId);
@@ -4480,7 +4453,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List application&#39;s customers](#operation/getApplicationCustomers) endpoint. |
+ **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](/#tag/Customer-data/operation/getApplicationCustomers) endpoint. |
 
 ### Return type
 
@@ -4502,7 +4475,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerProfiles
 
-> \TalonOne\Client\Model\InlineResponse20014 getCustomerProfiles($pageSize, $skip)
+> \TalonOne\Client\Model\InlineResponse20018 getCustomerProfiles($pageSize, $skip)
 
 List customer profiles
 
@@ -4549,7 +4522,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
+[**\TalonOne\Client\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
 
 ### Authorization
 
@@ -4567,7 +4540,7 @@ Name | Type | Description  | Notes
 
 ## getCustomersByAttributes
 
-> \TalonOne\Client\Model\InlineResponse20014 getCustomersByAttributes($body, $pageSize, $skip)
+> \TalonOne\Client\Model\InlineResponse20018 getCustomersByAttributes($body, $pageSize, $skip)
 
 List customer profiles matching the given attributes
 
@@ -4616,7 +4589,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
+[**\TalonOne\Client\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
 
 ### Authorization
 
@@ -4634,7 +4607,7 @@ Name | Type | Description  | Notes
 
 ## getEventTypes
 
-> \TalonOne\Client\Model\InlineResponse20026 getEventTypes($name, $includeOldVersions, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20030 getEventTypes($name, $includeOldVersions, $pageSize, $skip, $sort)
 
 List event types
 
@@ -4687,7 +4660,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\TalonOne\Client\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
 
 ### Authorization
 
@@ -4705,7 +4678,7 @@ Name | Type | Description  | Notes
 
 ## getExports
 
-> \TalonOne\Client\Model\InlineResponse20029 getExports($pageSize, $skip, $applicationId, $campaignId, $entity)
+> \TalonOne\Client\Model\InlineResponse20033 getExports($pageSize, $skip, $applicationId, $campaignId, $entity)
 
 Get exports
 
@@ -4758,7 +4731,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
+[**\TalonOne\Client\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
 
 ### Authorization
 
@@ -4845,7 +4818,7 @@ Name | Type | Description  | Notes
 
 Get loyalty program
 
-Get the specified [loyalty program](https://www.talon.one/glossary/loyalty). To list all loyalty programs in your Application, use [List loyalty programs](#operation/getLoyaltyPrograms).  To list the loyalty programs that a customer profile is part of, use the [List customer profile data](/integration-api/#operation/getCustomerInventory)
+Get the specified [loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview). To list all loyalty programs in your Application, use [List loyalty programs](#operation/getLoyaltyPrograms).  To list the loyalty programs that a customer profile is part of, use the [List customer data](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/getCustomerInventory)
 
 ### Example
 
@@ -4866,7 +4839,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$loyaltyProgramId = 56; // int | 
+$loyaltyProgramId = 56; // int | Identifier of the loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs endpoint](https://docs.talon.one/management-api/#operation/getLoyaltyPrograms).
 
 try {
     $result = $apiInstance->getLoyaltyProgram($loyaltyProgramId);
@@ -4882,7 +4855,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**|  |
+ **loyaltyProgramId** | **int**| Identifier of the loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs endpoint](https://docs.talon.one/management-api/#operation/getLoyaltyPrograms). |
 
 ### Return type
 
@@ -4904,7 +4877,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyPrograms
 
-> \TalonOne\Client\Model\InlineResponse2007 getLoyaltyPrograms()
+> \TalonOne\Client\Model\InlineResponse2009 getLoyaltyPrograms()
 
 List loyalty programs
 
@@ -4945,7 +4918,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\TalonOne\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
 
 ### Authorization
 
@@ -4988,7 +4961,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$loyaltyProgramId = 56; // int | 
+$loyaltyProgramId = 56; // int | Identifier of the loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs endpoint](https://docs.talon.one/management-api/#operation/getLoyaltyPrograms).
 
 try {
     $result = $apiInstance->getLoyaltyStatistics($loyaltyProgramId);
@@ -5004,7 +4977,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**|  |
+ **loyaltyProgramId** | **int**| Identifier of the loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs endpoint](https://docs.talon.one/management-api/#operation/getLoyaltyPrograms). |
 
 ### Return type
 
@@ -5024,9 +4997,137 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## getNotificationWebhook
+
+> \TalonOne\Client\Model\NotificationWebhook getNotificationWebhook($applicationId, $notificationWebhookId)
+
+Get notification webhook
+
+Return the given outbound notification webhook.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$notificationWebhookId = 56; // int | 
+
+try {
+    $result = $apiInstance->getNotificationWebhook($applicationId, $notificationWebhookId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getNotificationWebhook: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **notificationWebhookId** | **int**|  |
+
+### Return type
+
+[**\TalonOne\Client\Model\NotificationWebhook**](../Model/NotificationWebhook.md)
+
+### Authorization
+
+[manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getNotificationWebhooks
+
+> \TalonOne\Client\Model\InlineResponse2004 getNotificationWebhooks($applicationId)
+
+List notification webhooks
+
+List all outbound notification webhooks for this application.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+
+try {
+    $result = $apiInstance->getNotificationWebhooks($applicationId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getNotificationWebhooks: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+
+### Return type
+
+[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+
+### Authorization
+
+[manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## getReferralsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse2006 getReferralsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
+> \TalonOne\Client\Model\InlineResponse2008 getReferralsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
 
 List referrals
 
@@ -5091,7 +5192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
 
 ### Authorization
 
@@ -5239,7 +5340,7 @@ Name | Type | Description  | Notes
 
 ## getRulesets
 
-> \TalonOne\Client\Model\InlineResponse2003 getRulesets($applicationId, $campaignId, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2005 getRulesets($applicationId, $campaignId, $pageSize, $skip, $sort)
 
 List campaign rulesets
 
@@ -5292,7 +5393,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\TalonOne\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
 
 ### Authorization
 
@@ -5373,7 +5474,7 @@ Name | Type | Description  | Notes
 
 ## getUsers
 
-> \TalonOne\Client\Model\InlineResponse20027 getUsers($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20031 getUsers($pageSize, $skip, $sort)
 
 List users in account
 
@@ -5422,7 +5523,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
+[**\TalonOne\Client\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
 
 ### Authorization
 
@@ -5503,11 +5604,11 @@ Name | Type | Description  | Notes
 
 ## getWebhookActivationLogs
 
-> \TalonOne\Client\Model\InlineResponse20024 getWebhookActivationLogs($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter)
+> \TalonOne\Client\Model\InlineResponse20028 getWebhookActivationLogs($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter)
 
 List webhook activation log entries
 
-Webhook activation log entries would be created as soon as an integration request triggered an effect with a webhook
+Webhook activation log entries would be created as soon as an integration request triggered an effect with a webhook.
 
 ### Example
 
@@ -5564,7 +5665,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
+[**\TalonOne\Client\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
 
 ### Authorization
 
@@ -5582,7 +5683,7 @@ Name | Type | Description  | Notes
 
 ## getWebhookLogs
 
-> \TalonOne\Client\Model\InlineResponse20025 getWebhookLogs($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter)
+> \TalonOne\Client\Model\InlineResponse20029 getWebhookLogs($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter)
 
 List webhook log entries
 
@@ -5645,7 +5746,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
+[**\TalonOne\Client\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
 
 ### Authorization
 
@@ -5663,7 +5764,7 @@ Name | Type | Description  | Notes
 
 ## getWebhooks
 
-> \TalonOne\Client\Model\InlineResponse20023 getWebhooks($applicationIds, $sort, $pageSize, $skip)
+> \TalonOne\Client\Model\InlineResponse20027 getWebhooks($applicationIds, $sort, $pageSize, $skip)
 
 List webhooks
 
@@ -5688,7 +5789,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$applicationIds = 'applicationIds_example'; // string | Filter by one or more application ids separated by comma
+$applicationIds = 'applicationIds_example'; // string | Filter by one or more application ids separated by comma.
 $sort = 'sort_example'; // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
 $pageSize = 56; // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
 $skip = 56; // int | Skips the given number of items when paging through large result sets.
@@ -5707,14 +5808,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicationIds** | **string**| Filter by one or more application ids separated by comma | [optional]
+ **applicationIds** | **string**| Filter by one or more application ids separated by comma. | [optional]
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional]
  **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional]
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
+[**\TalonOne\Client\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
 
 ### Authorization
 
@@ -5734,9 +5835,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\Import importAccountCollection($collectionId, $upFile)
 
-Import data in existing account-level collection via CSV file
+Import data in existing account-level collection
 
-Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  Example:  ``` item Addidas Nike Asics ```
+Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  Example:  ``` item Addidas Nike Asics ```  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection.
 
 ### Example
 
@@ -5864,9 +5965,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\Import importCollection($applicationId, $campaignId, $collectionId, $upFile)
 
-Import data in existing collection via CSV file
+Import data in existing collection
 
-Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  Example:  ``` item Addidas Nike Asics ```
+Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  Example:  ``` item Addidas Nike Asics ```  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection.
 
 ### Example
 
@@ -5933,9 +6034,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\Import importCoupons($applicationId, $campaignId, $upFile)
 
-Import coupons via CSV file
+Import coupons
 
-Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file can contain the following columns:  - `value` (required): The coupon code. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `limitval`: The maximum amount of redemptions of this code. Defaults to `1` when not provided. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object. - `discountlimit`: The amount of discounts that can be given with this coupon code.   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated to the coupon entity, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  **Important:** Do not leave empty columns in the file.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  **Example:**  ```text \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\",\"discountlimit\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\",2.4 ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#operation/getReservedCustomers).
+Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file can contain the following columns:  - `value` (required): The coupon code. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `limitval`: The maximum amount of redemptions of this code. For unlimited redemptions, use `0`. Defaults to `1` when not provided. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object. - `discountlimit`: The amount of discounts that can be given with this coupon code.   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated to the coupon entity, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  **Important:** Do not leave empty columns in the file.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  **Example:**  ```text \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\",\"discountlimit\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\",2.4 ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount).
 
 ### Example
 
@@ -6000,9 +6101,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\Import importLoyaltyPoints($loyaltyProgramId, $upFile)
 
-Import loyalty points via CSV file
+Import loyalty points
 
-Upload a CSV file containing the [loyalty](https://www.talon.one/pillar-pages/loyalty) points that should be created. The file should be sent as multipart data.  **Important**: Importing points does **not** overwrite existing points for any customer.  The CSV file can contain the following columns:  - `customerprofileid`: The integration ID of the customer profile that should receive the loyalty points. - `amount`: The amount of points to award to the customer profile. - `startdate`: The earliest date when the points can be redeemed. On this date and until the expiry date, the points are `active`. - `expirydate`: The latest date when the points can be redeemed. After this date, the points are `expired`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): A reason why these points were awarded.  **Important:** Do not leave empty columns in the file.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  **Example:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```
+Upload a CSV file containing the [loyalty](https://www.talon.one/pillar-pages/loyalty) points that should be created. The file should be sent as multipart data.  **Important**: For existing customer profiles, the imported points are _added_ to their active points. Learn more about [Loyalty programs](https://docs.talon.one/docs/product/loyalty-programs/overview).  The CSV file can contain the following columns:  - `customerprofileid`: The integration ID of the customer profile that should receive the loyalty points. - `amount`: The amount of points to award to the customer profile. - `startdate`: The earliest date when the points can be redeemed. On this date and until the expiry date, the points are `active`. - `expirydate`: The latest date when the points can be redeemed. After this date, the points are `expired`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): A reason why these points were awarded.  **Important:** Do not leave empty columns in the file.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  **Example:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```
 
 ### Example
 
@@ -6023,7 +6124,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$loyaltyProgramId = 56; // int | 
+$loyaltyProgramId = 56; // int | Identifier of the loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs endpoint](https://docs.talon.one/management-api/#operation/getLoyaltyPrograms).
 $upFile = 'upFile_example'; // string | The file with the information about the data that should be imported.
 
 try {
@@ -6040,7 +6141,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**|  |
+ **loyaltyProgramId** | **int**| Identifier of the loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs endpoint](https://docs.talon.one/management-api/#operation/getLoyaltyPrograms). |
  **upFile** | **string**| The file with the information about the data that should be imported. | [optional]
 
 ### Return type
@@ -6130,7 +6231,7 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\Import importReferrals($applicationId, $campaignId, $upFile)
 
-Import referrals via CSV file
+Import referrals
 
 Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file can contain the following columns:  - `code` (required): The referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: The start date in RFC3339 of the code redemption period. - `expirydate`: The end date in RFC3339 of the code redemption period. - `limitval`: The maximum amount of redemptions of this code. Defaults to `1` when left blank. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.    For example, if you [created a custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated to the referral entity, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  **Example:**  ```text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\"{\"\"my_attribute\"\": \"\"10_off\"\"}\" REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\"{\"\"my_attribute\"\": \"\"20_off\"\"}\" ```
 
@@ -6195,7 +6296,7 @@ Name | Type | Description  | Notes
 
 ## listAccountCollections
 
-> \TalonOne\Client\Model\InlineResponse2008 listAccountCollections($pageSize, $skip, $sort, $withTotalResultSize, $name)
+> \TalonOne\Client\Model\InlineResponse20010 listAccountCollections($pageSize, $skip, $sort, $withTotalResultSize, $name)
 
 List collections in account
 
@@ -6248,7 +6349,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\TalonOne\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
 
 ### Authorization
 
@@ -6266,7 +6367,7 @@ Name | Type | Description  | Notes
 
 ## listCollections
 
-> \TalonOne\Client\Model\InlineResponse2008 listCollections($applicationId, $campaignId, $pageSize, $skip, $sort, $withTotalResultSize, $name)
+> \TalonOne\Client\Model\InlineResponse20012 listCollections($applicationId, $campaignId, $pageSize, $skip, $sort, $withTotalResultSize, $name)
 
 List collections
 
@@ -6323,7 +6424,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\TalonOne\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
@@ -6341,7 +6442,7 @@ Name | Type | Description  | Notes
 
 ## listCollectionsInApplication
 
-> \TalonOne\Client\Model\InlineResponse2008 listCollectionsInApplication($applicationId, $pageSize, $skip, $sort, $withTotalResultSize, $name)
+> \TalonOne\Client\Model\InlineResponse20012 listCollectionsInApplication($applicationId, $pageSize, $skip, $sort, $withTotalResultSize, $name)
 
 List collections in application
 
@@ -6396,7 +6497,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\TalonOne\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
@@ -6471,7 +6572,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -6543,11 +6644,11 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvancedApplicationWideWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse2005 searchCouponsAdvancedApplicationWideWithoutTotalCount($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
+> \TalonOne\Client\Model\InlineResponse2007 searchCouponsAdvancedApplicationWideWithoutTotalCount($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
 
-List coupons that match the given attributes in all active campaigns of an application
+List coupons that match the given attributes (without total count)
 
-Lists all the coupons with attributes matching the query criteria in all active campaigns of the specified application.
+List the coupons whose attributes match the query criteria in all **active** campaigns of the given Application.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response.
 
 ### Example
 
@@ -6616,7 +6717,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\TalonOne\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
 
 ### Authorization
 
@@ -6634,11 +6735,11 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvancedWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse2005 searchCouponsAdvancedWithoutTotalCount($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
+> \TalonOne\Client\Model\InlineResponse2007 searchCouponsAdvancedWithoutTotalCount($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
 
-List coupons that match the given attributes
+List coupons that match the given attributes in campaign (without total count)
 
-Lists all the coupons with attributes matching the query criteria.
+List the coupons whose attributes match the query criteria in the given campaign.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response.
 
 ### Example
 
@@ -6707,7 +6808,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\TalonOne\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
 
 ### Authorization
 
@@ -6729,7 +6830,7 @@ Name | Type | Description  | Notes
 
 Update account-level collection
 
-Update account-level collection.
+Edit the description of the account-level collection and enable or disable the collection in the specified Applications.
 
 ### Example
 
@@ -6989,9 +7090,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\Collection updateCollection($applicationId, $campaignId, $collectionId, $body)
 
-Update collection
+Update collection description
 
-Upate the specified collection.
+Edit the description of the collection.
 
 ### Example
 
@@ -7015,7 +7116,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 $collectionId = 56; // int | The ID of the collection. You can get it with the [List collection in account endpoint](#operation/listCollectionsInApplication).
-$body = new \TalonOne\Client\Model\UpdateCollection(); // \TalonOne\Client\Model\UpdateCollection | 
+$body = new \TalonOne\Client\Model\UpdateCampaignCollection(); // \TalonOne\Client\Model\UpdateCampaignCollection | 
 
 try {
     $result = $apiInstance->updateCollection($applicationId, $campaignId, $collectionId, $body);
@@ -7034,7 +7135,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
  **collectionId** | **int**| The ID of the collection. You can get it with the [List collection in account endpoint](#operation/listCollectionsInApplication). |
- **body** | [**\TalonOne\Client\Model\UpdateCollection**](../Model/UpdateCollection.md)|  |
+ **body** | [**\TalonOne\Client\Model\UpdateCampaignCollection**](../Model/UpdateCampaignCollection.md)|  |
 
 ### Return type
 
@@ -7183,6 +7284,73 @@ void (empty response body)
 
 - **Content-Type**: application/json
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## updateNotificationWebhook
+
+> \TalonOne\Client\Model\NotificationWebhook updateNotificationWebhook($applicationId, $notificationWebhookId, $body)
+
+Update notification webhook
+
+Update the given outbound notification webhook.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$notificationWebhookId = 56; // int | 
+$body = new \TalonOne\Client\Model\NewNotificationWebhook(); // \TalonOne\Client\Model\NewNotificationWebhook | 
+
+try {
+    $result = $apiInstance->updateNotificationWebhook($applicationId, $notificationWebhookId, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->updateNotificationWebhook: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **notificationWebhookId** | **int**|  |
+ **body** | [**\TalonOne\Client\Model\NewNotificationWebhook**](../Model/NewNotificationWebhook.md)|  |
+
+### Return type
+
+[**\TalonOne\Client\Model\NotificationWebhook**](../Model/NotificationWebhook.md)
+
+### Authorization
+
+[manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

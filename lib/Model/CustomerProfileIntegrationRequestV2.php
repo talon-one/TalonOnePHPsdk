@@ -253,7 +253,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this item
+     * @param object|null $attributes Arbitrary properties associated with this item.
      *
      * @return $this
      */
@@ -301,7 +301,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     /**
      * Sets responseContent
      *
-     * @param string[]|null $responseContent Optional list of requested information to be present on the response related to the customer profile update.  Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\", \"event\", \"awardedGiveaways\", \"ruleFailureReasons\".  **Note:** `ruleFailureReasons` is always part of the response when the Application type is `sandbox`.
+     * @param string[]|null $responseContent Optional list of extra data that you want to get in the response. Use this property to get as much data as you need in one request instead of sending extra requests to other endpoints.  **Note:** `ruleFailureReasons` is always part of the response when the [Application type](https://docs.talon.one/docs/product/applications/overview#application-types) is `sandbox`.
      *
      * @return $this
      */

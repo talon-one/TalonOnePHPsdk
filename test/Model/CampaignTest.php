@@ -233,9 +233,23 @@ class CampaignTest extends TestCase
     }
 
     /**
+     * Test attribute "customEffectCount"
+     */
+    public function testPropertyCustomEffectCount()
+    {
+    }
+
+    /**
      * Test attribute "referralCreationCount"
      */
     public function testPropertyReferralCreationCount()
+    {
+    }
+
+    /**
+     * Test attribute "addFreeItemEffectCount"
+     */
+    public function testPropertyAddFreeItemEffectCount()
     {
     }
 
@@ -271,6 +285,13 @@ class CampaignTest extends TestCase
      * Test attribute "redeemedLoyaltyPointsEffectCount"
      */
     public function testPropertyRedeemedLoyaltyPointsEffectCount()
+    {
+    }
+
+    /**
+     * Test attribute "callApiEffectCount"
+     */
+    public function testPropertyCallApiEffectCount()
     {
     }
 

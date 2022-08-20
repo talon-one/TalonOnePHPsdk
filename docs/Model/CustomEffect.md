@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. | 
+**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
 **created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
 **accountId** | **int** | The ID of the account that owns this entity. | 
 **modified** | [**\DateTime**](\DateTime.md) | The exact moment this entity was last modified. | 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **payload** | **string** | The JSON payload of this effect. | 
 **description** | **string** | The description of this effect. | [optional] 
 **enabled** | **bool** | Determines if this effect is active. | 
-**params** | [**\TalonOne\Client\Model\TemplateArgDef[]**](TemplateArgDef.md) | Array of template argument definitions | [optional] 
+**params** | [**\TalonOne\Client\Model\TemplateArgDef[]**](TemplateArgDef.md) | Array of template argument definitions. | [optional] 
 **modifiedBy** | **int** | ID of the user who last updated this effect if available. | [optional] 
 **createdBy** | **int** | ID of the user who created this effect. | 
 

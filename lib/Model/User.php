@@ -342,7 +342,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -591,7 +591,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets roles
      *
-     * @param int[]|null $roles Contains a list of all roles the user is a member of
+     * @param int[]|null $roles Contains a list of all roles the user is a member of.
      *
      * @return $this
      */
@@ -639,7 +639,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets authMethod
      *
-     * @param string|null $authMethod The Authentication method for this user
+     * @param string|null $authMethod The Authentication method for this user.
      *
      * @return $this
      */

@@ -266,7 +266,7 @@ class Change implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -338,7 +338,7 @@ class Change implements ModelInterface, ArrayAccess
     /**
      * Sets applicationId
      *
-     * @param int|null $applicationId ID of application associated with change
+     * @param int|null $applicationId ID of application associated with change.
      *
      * @return $this
      */

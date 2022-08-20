@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ApplicationApiHealthTest Class Doc Comment
  *
  * @category    Class
- * @description Report of health of the API connection of an application
+ * @description Report of health of the API connection of an application.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

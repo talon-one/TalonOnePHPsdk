@@ -239,7 +239,7 @@ class CustomEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets effectId
      *
-     * @param int $effectId The ID of the custom effect that was triggered
+     * @param int $effectId The ID of the custom effect that was triggered.
      *
      * @return $this
      */

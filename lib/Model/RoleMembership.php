@@ -229,7 +229,7 @@ class RoleMembership implements ModelInterface, ArrayAccess
     /**
      * Sets roleID
      *
-     * @param int $roleID ID of role
+     * @param int $roleID ID of role.
      *
      * @return $this
      */
@@ -253,7 +253,7 @@ class RoleMembership implements ModelInterface, ArrayAccess
     /**
      * Sets userID
      *
-     * @param int $userID ID of User
+     * @param int $userID ID of User.
      *
      * @return $this
      */

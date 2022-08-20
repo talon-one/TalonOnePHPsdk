@@ -58,6 +58,7 @@ class Loyalty implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'cards' => '\TalonOne\Client\Model\LoyaltyCard[]',
         'programs' => 'map[string,\TalonOne\Client\Model\LoyaltyProgramLedgers]'
     ];
 
@@ -67,6 +68,7 @@ class Loyalty implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'cards' => null,
         'programs' => null
     ];
 
@@ -97,6 +99,7 @@ class Loyalty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'cards' => 'cards',
         'programs' => 'programs'
     ];
 
@@ -106,6 +109,7 @@ class Loyalty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'cards' => 'setCards',
         'programs' => 'setPrograms'
     ];
 
@@ -115,6 +119,7 @@ class Loyalty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'cards' => 'getCards',
         'programs' => 'getPrograms'
     ];
 
@@ -178,6 +183,7 @@ class Loyalty implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['cards'] = isset($data['cards']) ? $data['cards'] : null;
         $this->container['programs'] = isset($data['programs']) ? $data['programs'] : null;
     }
 
@@ -209,6 +215,30 @@ class Loyalty implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets cards
+     *
+     * @return \TalonOne\Client\Model\LoyaltyCard[]|null
+     */
+    public function getCards()
+    {
+        return $this->container['cards'];
+    }
+
+    /**
+     * Sets cards
+     *
+     * @param \TalonOne\Client\Model\LoyaltyCard[]|null $cards Displays information about the balances of the loyalty cards.
+     *
+     * @return $this
+     */
+    public function setCards($cards)
+    {
+        $this->container['cards'] = $cards;
+
+        return $this;
+    }
+
+    /**
      * Gets programs
      *
      * @return map[string,\TalonOne\Client\Model\LoyaltyProgramLedgers]
@@ -221,7 +251,7 @@ class Loyalty implements ModelInterface, ArrayAccess
     /**
      * Sets programs
      *
-     * @param map[string,\TalonOne\Client\Model\LoyaltyProgramLedgers] $programs A map holding information about the loyalty programs balance
+     * @param map[string,\TalonOne\Client\Model\LoyaltyProgramLedgers] $programs Displays information about point balances in profile-based programs.
      *
      * @return $this
      */

@@ -248,7 +248,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The referral code that was rejected
+     * @param string $value The referral code that was rejected.
      *
      * @return $this
      */
@@ -272,7 +272,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets rejectionReason
      *
-     * @param string $rejectionReason The reason why this referral code was rejected
+     * @param string $rejectionReason The reason why this referral code was rejected.
      *
      * @return $this
      */
@@ -296,7 +296,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets conditionIndex
      *
-     * @param int|null $conditionIndex The index of the condition that caused the rejection of the referral
+     * @param int|null $conditionIndex The index of the condition that caused the rejection of the referral.
      *
      * @return $this
      */
@@ -320,7 +320,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets effectIndex
      *
-     * @param int|null $effectIndex The index of the effect that caused the rejection of the referral
+     * @param int|null $effectIndex The index of the effect that caused the rejection of the referral.
      *
      * @return $this
      */
@@ -344,7 +344,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets details
      *
-     * @param string|null $details More details about the failure
+     * @param string|null $details More details about the failure.
      *
      * @return $this
      */

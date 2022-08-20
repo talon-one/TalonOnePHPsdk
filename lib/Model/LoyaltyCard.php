@@ -60,20 +60,14 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'modified' => '\DateTime',
         'programID' => 'int',
-        'currentBalance' => 'float',
-        'pendingBalance' => 'float',
-        'expiredBalance' => 'float',
-        'spentBalance' => 'float',
-        'tentativeCurrentBalance' => 'float',
-        'currentTier' => '\TalonOne\Client\Model\Tier',
-        'pointsToNextTier' => 'float',
-        'projection' => '\TalonOne\Client\Model\LoyaltyProjection',
         'status' => 'string',
         'identifier' => 'string',
         'usersPerCardLimit' => 'int',
-        'profiles' => '\TalonOne\Client\Model\LoyaltyCardProfileRegistration[]'
+        'profiles' => '\TalonOne\Client\Model\LoyaltyCardProfileRegistration[]',
+        'ledger' => '\TalonOne\Client\Model\LedgerInfo',
+        'subledgers' => 'map[string,\TalonOne\Client\Model\LedgerInfo]',
+        'modified' => '\DateTime'
     ];
 
     /**
@@ -84,20 +78,14 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'modified' => 'date-time',
         'programID' => null,
-        'currentBalance' => null,
-        'pendingBalance' => null,
-        'expiredBalance' => null,
-        'spentBalance' => null,
-        'tentativeCurrentBalance' => null,
-        'currentTier' => null,
-        'pointsToNextTier' => null,
-        'projection' => null,
         'status' => null,
         'identifier' => null,
         'usersPerCardLimit' => null,
-        'profiles' => null
+        'profiles' => null,
+        'ledger' => null,
+        'subledgers' => null,
+        'modified' => 'date-time'
     ];
 
     /**
@@ -129,20 +117,14 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'modified' => 'modified',
         'programID' => 'programID',
-        'currentBalance' => 'currentBalance',
-        'pendingBalance' => 'pendingBalance',
-        'expiredBalance' => 'expiredBalance',
-        'spentBalance' => 'spentBalance',
-        'tentativeCurrentBalance' => 'tentativeCurrentBalance',
-        'currentTier' => 'currentTier',
-        'pointsToNextTier' => 'pointsToNextTier',
-        'projection' => 'projection',
         'status' => 'status',
         'identifier' => 'identifier',
         'usersPerCardLimit' => 'usersPerCardLimit',
-        'profiles' => 'profiles'
+        'profiles' => 'profiles',
+        'ledger' => 'ledger',
+        'subledgers' => 'subledgers',
+        'modified' => 'modified'
     ];
 
     /**
@@ -153,20 +135,14 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'modified' => 'setModified',
         'programID' => 'setProgramID',
-        'currentBalance' => 'setCurrentBalance',
-        'pendingBalance' => 'setPendingBalance',
-        'expiredBalance' => 'setExpiredBalance',
-        'spentBalance' => 'setSpentBalance',
-        'tentativeCurrentBalance' => 'setTentativeCurrentBalance',
-        'currentTier' => 'setCurrentTier',
-        'pointsToNextTier' => 'setPointsToNextTier',
-        'projection' => 'setProjection',
         'status' => 'setStatus',
         'identifier' => 'setIdentifier',
         'usersPerCardLimit' => 'setUsersPerCardLimit',
-        'profiles' => 'setProfiles'
+        'profiles' => 'setProfiles',
+        'ledger' => 'setLedger',
+        'subledgers' => 'setSubledgers',
+        'modified' => 'setModified'
     ];
 
     /**
@@ -177,20 +153,14 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'modified' => 'getModified',
         'programID' => 'getProgramID',
-        'currentBalance' => 'getCurrentBalance',
-        'pendingBalance' => 'getPendingBalance',
-        'expiredBalance' => 'getExpiredBalance',
-        'spentBalance' => 'getSpentBalance',
-        'tentativeCurrentBalance' => 'getTentativeCurrentBalance',
-        'currentTier' => 'getCurrentTier',
-        'pointsToNextTier' => 'getPointsToNextTier',
-        'projection' => 'getProjection',
         'status' => 'getStatus',
         'identifier' => 'getIdentifier',
         'usersPerCardLimit' => 'getUsersPerCardLimit',
-        'profiles' => 'getProfiles'
+        'profiles' => 'getProfiles',
+        'ledger' => 'getLedger',
+        'subledgers' => 'getSubledgers',
+        'modified' => 'getModified'
     ];
 
     /**
@@ -255,20 +225,14 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
         $this->container['programID'] = isset($data['programID']) ? $data['programID'] : null;
-        $this->container['currentBalance'] = isset($data['currentBalance']) ? $data['currentBalance'] : null;
-        $this->container['pendingBalance'] = isset($data['pendingBalance']) ? $data['pendingBalance'] : null;
-        $this->container['expiredBalance'] = isset($data['expiredBalance']) ? $data['expiredBalance'] : null;
-        $this->container['spentBalance'] = isset($data['spentBalance']) ? $data['spentBalance'] : null;
-        $this->container['tentativeCurrentBalance'] = isset($data['tentativeCurrentBalance']) ? $data['tentativeCurrentBalance'] : null;
-        $this->container['currentTier'] = isset($data['currentTier']) ? $data['currentTier'] : null;
-        $this->container['pointsToNextTier'] = isset($data['pointsToNextTier']) ? $data['pointsToNextTier'] : null;
-        $this->container['projection'] = isset($data['projection']) ? $data['projection'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['identifier'] = isset($data['identifier']) ? $data['identifier'] : null;
         $this->container['usersPerCardLimit'] = isset($data['usersPerCardLimit']) ? $data['usersPerCardLimit'] : null;
         $this->container['profiles'] = isset($data['profiles']) ? $data['profiles'] : null;
+        $this->container['ledger'] = isset($data['ledger']) ? $data['ledger'] : null;
+        $this->container['subledgers'] = isset($data['subledgers']) ? $data['subledgers'] : null;
+        $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
     }
 
     /**
@@ -286,26 +250,8 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['modified'] === null) {
-            $invalidProperties[] = "'modified' can't be null";
-        }
         if ($this->container['programID'] === null) {
             $invalidProperties[] = "'programID' can't be null";
-        }
-        if ($this->container['currentBalance'] === null) {
-            $invalidProperties[] = "'currentBalance' can't be null";
-        }
-        if ($this->container['pendingBalance'] === null) {
-            $invalidProperties[] = "'pendingBalance' can't be null";
-        }
-        if ($this->container['expiredBalance'] === null) {
-            $invalidProperties[] = "'expiredBalance' can't be null";
-        }
-        if ($this->container['spentBalance'] === null) {
-            $invalidProperties[] = "'spentBalance' can't be null";
-        }
-        if ($this->container['tentativeCurrentBalance'] === null) {
-            $invalidProperties[] = "'tentativeCurrentBalance' can't be null";
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
@@ -348,7 +294,7 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -384,30 +330,6 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets modified
-     *
-     * @return \DateTime
-     */
-    public function getModified()
-    {
-        return $this->container['modified'];
-    }
-
-    /**
-     * Sets modified
-     *
-     * @param \DateTime $modified The exact moment this entity was last modified.
-     *
-     * @return $this
-     */
-    public function setModified($modified)
-    {
-        $this->container['modified'] = $modified;
-
-        return $this;
-    }
-
-    /**
      * Gets programID
      *
      * @return int
@@ -427,198 +349,6 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     public function setProgramID($programID)
     {
         $this->container['programID'] = $programID;
-
-        return $this;
-    }
-
-    /**
-     * Gets currentBalance
-     *
-     * @return float
-     */
-    public function getCurrentBalance()
-    {
-        return $this->container['currentBalance'];
-    }
-
-    /**
-     * Sets currentBalance
-     *
-     * @param float $currentBalance Sum of currently active points
-     *
-     * @return $this
-     */
-    public function setCurrentBalance($currentBalance)
-    {
-        $this->container['currentBalance'] = $currentBalance;
-
-        return $this;
-    }
-
-    /**
-     * Gets pendingBalance
-     *
-     * @return float
-     */
-    public function getPendingBalance()
-    {
-        return $this->container['pendingBalance'];
-    }
-
-    /**
-     * Sets pendingBalance
-     *
-     * @param float $pendingBalance Sum of pending points
-     *
-     * @return $this
-     */
-    public function setPendingBalance($pendingBalance)
-    {
-        $this->container['pendingBalance'] = $pendingBalance;
-
-        return $this;
-    }
-
-    /**
-     * Gets expiredBalance
-     *
-     * @return float
-     */
-    public function getExpiredBalance()
-    {
-        return $this->container['expiredBalance'];
-    }
-
-    /**
-     * Sets expiredBalance
-     *
-     * @param float $expiredBalance Sum of expired points
-     *
-     * @return $this
-     */
-    public function setExpiredBalance($expiredBalance)
-    {
-        $this->container['expiredBalance'] = $expiredBalance;
-
-        return $this;
-    }
-
-    /**
-     * Gets spentBalance
-     *
-     * @return float
-     */
-    public function getSpentBalance()
-    {
-        return $this->container['spentBalance'];
-    }
-
-    /**
-     * Sets spentBalance
-     *
-     * @param float $spentBalance Sum of spent points
-     *
-     * @return $this
-     */
-    public function setSpentBalance($spentBalance)
-    {
-        $this->container['spentBalance'] = $spentBalance;
-
-        return $this;
-    }
-
-    /**
-     * Gets tentativeCurrentBalance
-     *
-     * @return float
-     */
-    public function getTentativeCurrentBalance()
-    {
-        return $this->container['tentativeCurrentBalance'];
-    }
-
-    /**
-     * Sets tentativeCurrentBalance
-     *
-     * @param float $tentativeCurrentBalance Sum of currently active points, including points added and deducted in open sessions
-     *
-     * @return $this
-     */
-    public function setTentativeCurrentBalance($tentativeCurrentBalance)
-    {
-        $this->container['tentativeCurrentBalance'] = $tentativeCurrentBalance;
-
-        return $this;
-    }
-
-    /**
-     * Gets currentTier
-     *
-     * @return \TalonOne\Client\Model\Tier|null
-     */
-    public function getCurrentTier()
-    {
-        return $this->container['currentTier'];
-    }
-
-    /**
-     * Sets currentTier
-     *
-     * @param \TalonOne\Client\Model\Tier|null $currentTier currentTier
-     *
-     * @return $this
-     */
-    public function setCurrentTier($currentTier)
-    {
-        $this->container['currentTier'] = $currentTier;
-
-        return $this;
-    }
-
-    /**
-     * Gets pointsToNextTier
-     *
-     * @return float|null
-     */
-    public function getPointsToNextTier()
-    {
-        return $this->container['pointsToNextTier'];
-    }
-
-    /**
-     * Sets pointsToNextTier
-     *
-     * @param float|null $pointsToNextTier Points required to move up a tier.
-     *
-     * @return $this
-     */
-    public function setPointsToNextTier($pointsToNextTier)
-    {
-        $this->container['pointsToNextTier'] = $pointsToNextTier;
-
-        return $this;
-    }
-
-    /**
-     * Gets projection
-     *
-     * @return \TalonOne\Client\Model\LoyaltyProjection|null
-     */
-    public function getProjection()
-    {
-        return $this->container['projection'];
-    }
-
-    /**
-     * Sets projection
-     *
-     * @param \TalonOne\Client\Model\LoyaltyProjection|null $projection projection
-     *
-     * @return $this
-     */
-    public function setProjection($projection)
-    {
-        $this->container['projection'] = $projection;
 
         return $this;
     }
@@ -660,7 +390,7 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     /**
      * Sets identifier
      *
-     * @param string $identifier Identifier of the loyalty card.
+     * @param string $identifier The alphanumeric identifier of the loyalty card.
      *
      * @return $this
      */
@@ -720,6 +450,78 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     public function setProfiles($profiles)
     {
         $this->container['profiles'] = $profiles;
+
+        return $this;
+    }
+
+    /**
+     * Gets ledger
+     *
+     * @return \TalonOne\Client\Model\LedgerInfo|null
+     */
+    public function getLedger()
+    {
+        return $this->container['ledger'];
+    }
+
+    /**
+     * Sets ledger
+     *
+     * @param \TalonOne\Client\Model\LedgerInfo|null $ledger ledger
+     *
+     * @return $this
+     */
+    public function setLedger($ledger)
+    {
+        $this->container['ledger'] = $ledger;
+
+        return $this;
+    }
+
+    /**
+     * Gets subledgers
+     *
+     * @return map[string,\TalonOne\Client\Model\LedgerInfo]|null
+     */
+    public function getSubledgers()
+    {
+        return $this->container['subledgers'];
+    }
+
+    /**
+     * Sets subledgers
+     *
+     * @param map[string,\TalonOne\Client\Model\LedgerInfo]|null $subledgers Displays point balances of the card in the subledgers of the loyalty program.
+     *
+     * @return $this
+     */
+    public function setSubledgers($subledgers)
+    {
+        $this->container['subledgers'] = $subledgers;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified
+     *
+     * @return \DateTime|null
+     */
+    public function getModified()
+    {
+        return $this->container['modified'];
+    }
+
+    /**
+     * Sets modified
+     *
+     * @param \DateTime|null $modified Timestamp of the most recent update of the loyalty card.
+     *
+     * @return $this
+     */
+    public function setModified($modified)
+    {
+        $this->container['modified'] = $modified;
 
         return $this;
     }

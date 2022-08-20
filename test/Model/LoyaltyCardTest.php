@@ -93,72 +93,9 @@ class LoyaltyCardTest extends TestCase
     }
 
     /**
-     * Test attribute "modified"
-     */
-    public function testPropertyModified()
-    {
-    }
-
-    /**
      * Test attribute "programID"
      */
     public function testPropertyProgramID()
-    {
-    }
-
-    /**
-     * Test attribute "currentBalance"
-     */
-    public function testPropertyCurrentBalance()
-    {
-    }
-
-    /**
-     * Test attribute "pendingBalance"
-     */
-    public function testPropertyPendingBalance()
-    {
-    }
-
-    /**
-     * Test attribute "expiredBalance"
-     */
-    public function testPropertyExpiredBalance()
-    {
-    }
-
-    /**
-     * Test attribute "spentBalance"
-     */
-    public function testPropertySpentBalance()
-    {
-    }
-
-    /**
-     * Test attribute "tentativeCurrentBalance"
-     */
-    public function testPropertyTentativeCurrentBalance()
-    {
-    }
-
-    /**
-     * Test attribute "currentTier"
-     */
-    public function testPropertyCurrentTier()
-    {
-    }
-
-    /**
-     * Test attribute "pointsToNextTier"
-     */
-    public function testPropertyPointsToNextTier()
-    {
-    }
-
-    /**
-     * Test attribute "projection"
-     */
-    public function testPropertyProjection()
     {
     }
 
@@ -187,6 +124,27 @@ class LoyaltyCardTest extends TestCase
      * Test attribute "profiles"
      */
     public function testPropertyProfiles()
+    {
+    }
+
+    /**
+     * Test attribute "ledger"
+     */
+    public function testPropertyLedger()
+    {
+    }
+
+    /**
+     * Test attribute "subledgers"
+     */
+    public function testPropertySubledgers()
+    {
+    }
+
+    /**
+     * Test attribute "modified"
+     */
+    public function testPropertyModified()
     {
     }
 }

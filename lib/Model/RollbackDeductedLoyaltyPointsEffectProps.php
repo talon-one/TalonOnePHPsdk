@@ -64,7 +64,8 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
         'recipientIntegrationId' => 'string',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
-        'transactionUUID' => 'string'
+        'transactionUUID' => 'string',
+        'cardIdentifier' => 'string'
     ];
 
     /**
@@ -79,7 +80,8 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
         'recipientIntegrationId' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'transactionUUID' => null
+        'transactionUUID' => null,
+        'cardIdentifier' => null
     ];
 
     /**
@@ -115,7 +117,8 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
         'recipientIntegrationId' => 'recipientIntegrationId',
         'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
-        'transactionUUID' => 'transactionUUID'
+        'transactionUUID' => 'transactionUUID',
+        'cardIdentifier' => 'cardIdentifier'
     ];
 
     /**
@@ -130,7 +133,8 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
         'recipientIntegrationId' => 'setRecipientIntegrationId',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
-        'transactionUUID' => 'setTransactionUUID'
+        'transactionUUID' => 'setTransactionUUID',
+        'cardIdentifier' => 'setCardIdentifier'
     ];
 
     /**
@@ -145,7 +149,8 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
         'recipientIntegrationId' => 'getRecipientIntegrationId',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
-        'transactionUUID' => 'getTransactionUUID'
+        'transactionUUID' => 'getTransactionUUID',
+        'cardIdentifier' => 'getCardIdentifier'
     ];
 
     /**
@@ -215,6 +220,7 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
+        $this->container['cardIdentifier'] = isset($data['cardIdentifier']) ? $data['cardIdentifier'] : null;
     }
 
     /**
@@ -238,6 +244,10 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
         if ($this->container['recipientIntegrationId'] === null) {
             $invalidProperties[] = "'recipientIntegrationId' can't be null";
         }
+        if ((mb_strlen($this->container['recipientIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'recipientIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['transactionUUID'] === null) {
             $invalidProperties[] = "'transactionUUID' can't be null";
         }
@@ -269,7 +279,7 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
     /**
      * Sets programId
      *
-     * @param int $programId The ID of the loyalty program where these points were reimbursed
+     * @param int $programId The ID of the loyalty program where these points were reimbursed.
      *
      * @return $this
      */
@@ -293,7 +303,7 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
     /**
      * Sets subLedgerId
      *
-     * @param string $subLedgerId The ID of the subledger within the loyalty program where these points were reimbursed
+     * @param string $subLedgerId The ID of the subledger within the loyalty program where these points were reimbursed.
      *
      * @return $this
      */
@@ -317,7 +327,7 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
     /**
      * Sets value
      *
-     * @param float $value The amount of reimbursed points that were added
+     * @param float $value The amount of reimbursed points that were added.
      *
      * @return $this
      */
@@ -341,12 +351,16 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
     /**
      * Sets recipientIntegrationId
      *
-     * @param string $recipientIntegrationId The user for whom these points were reimbursed
+     * @param string $recipientIntegrationId The user for whom these points were reimbursed.
      *
      * @return $this
      */
     public function setRecipientIntegrationId($recipientIntegrationId)
     {
+        if ((mb_strlen($recipientIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $recipientIntegrationId when calling RollbackDeductedLoyaltyPointsEffectProps., must be smaller than or equal to 1000.');
+        }
+
         $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;
@@ -365,7 +379,7 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
     /**
      * Sets startDate
      *
-     * @param \DateTime|null $startDate Date after which the reimbursed points will be valid
+     * @param \DateTime|null $startDate Date after which the reimbursed points will be valid.
      *
      * @return $this
      */
@@ -389,7 +403,7 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
     /**
      * Sets expiryDate
      *
-     * @param \DateTime|null $expiryDate Date after which the reimbursed points will expire
+     * @param \DateTime|null $expiryDate Date after which the reimbursed points will expire.
      *
      * @return $this
      */
@@ -413,13 +427,37 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
     /**
      * Sets transactionUUID
      *
-     * @param string $transactionUUID The identifier of 'addition' entries added to the ledger as the `deductLoyaltyPoints` effect is rolled back
+     * @param string $transactionUUID The identifier of 'addition' entries added to the ledger as the `deductLoyaltyPoints` effect is rolled back.
      *
      * @return $this
      */
     public function setTransactionUUID($transactionUUID)
     {
         $this->container['transactionUUID'] = $transactionUUID;
+
+        return $this;
+    }
+
+    /**
+     * Gets cardIdentifier
+     *
+     * @return string|null
+     */
+    public function getCardIdentifier()
+    {
+        return $this->container['cardIdentifier'];
+    }
+
+    /**
+     * Sets cardIdentifier
+     *
+     * @param string|null $cardIdentifier The card on which these points were added.
+     *
+     * @return $this
+     */
+    public function setCardIdentifier($cardIdentifier)
+    {
+        $this->container['cardIdentifier'] = $cardIdentifier;
 
         return $this;
     }

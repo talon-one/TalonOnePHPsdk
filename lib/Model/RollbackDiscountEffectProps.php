@@ -61,7 +61,10 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
         'name' => 'string',
         'value' => 'float',
         'cartItemPosition' => 'float',
-        'cartItemSubPosition' => 'float'
+        'cartItemSubPosition' => 'float',
+        'additionalCostId' => 'int',
+        'additionalCost' => 'string',
+        'scope' => 'string'
     ];
 
     /**
@@ -73,7 +76,10 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
         'name' => null,
         'value' => null,
         'cartItemPosition' => null,
-        'cartItemSubPosition' => null
+        'cartItemSubPosition' => null,
+        'additionalCostId' => null,
+        'additionalCost' => null,
+        'scope' => null
     ];
 
     /**
@@ -106,7 +112,10 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
         'name' => 'name',
         'value' => 'value',
         'cartItemPosition' => 'cartItemPosition',
-        'cartItemSubPosition' => 'cartItemSubPosition'
+        'cartItemSubPosition' => 'cartItemSubPosition',
+        'additionalCostId' => 'additionalCostId',
+        'additionalCost' => 'additionalCost',
+        'scope' => 'scope'
     ];
 
     /**
@@ -118,7 +127,10 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'value' => 'setValue',
         'cartItemPosition' => 'setCartItemPosition',
-        'cartItemSubPosition' => 'setCartItemSubPosition'
+        'cartItemSubPosition' => 'setCartItemSubPosition',
+        'additionalCostId' => 'setAdditionalCostId',
+        'additionalCost' => 'setAdditionalCost',
+        'scope' => 'setScope'
     ];
 
     /**
@@ -130,7 +142,10 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'value' => 'getValue',
         'cartItemPosition' => 'getCartItemPosition',
-        'cartItemSubPosition' => 'getCartItemSubPosition'
+        'cartItemSubPosition' => 'getCartItemSubPosition',
+        'additionalCostId' => 'getAdditionalCostId',
+        'additionalCost' => 'getAdditionalCost',
+        'scope' => 'getScope'
     ];
 
     /**
@@ -197,6 +212,9 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['cartItemPosition'] = isset($data['cartItemPosition']) ? $data['cartItemPosition'] : null;
         $this->container['cartItemSubPosition'] = isset($data['cartItemSubPosition']) ? $data['cartItemSubPosition'] : null;
+        $this->container['additionalCostId'] = isset($data['additionalCostId']) ? $data['additionalCostId'] : null;
+        $this->container['additionalCost'] = isset($data['additionalCost']) ? $data['additionalCost'] : null;
+        $this->container['scope'] = isset($data['scope']) ? $data['scope'] : null;
     }
 
     /**
@@ -242,7 +260,7 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of the \"setDiscount\" effect that was rolled back
+     * @param string $name The name of the \"setDiscount\" effect that was rolled back.
      *
      * @return $this
      */
@@ -321,6 +339,78 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     public function setCartItemSubPosition($cartItemSubPosition)
     {
         $this->container['cartItemSubPosition'] = $cartItemSubPosition;
+
+        return $this;
+    }
+
+    /**
+     * Gets additionalCostId
+     *
+     * @return int|null
+     */
+    public function getAdditionalCostId()
+    {
+        return $this->container['additionalCostId'];
+    }
+
+    /**
+     * Sets additionalCostId
+     *
+     * @param int|null $additionalCostId The ID of the additional cost that was rolled back.
+     *
+     * @return $this
+     */
+    public function setAdditionalCostId($additionalCostId)
+    {
+        $this->container['additionalCostId'] = $additionalCostId;
+
+        return $this;
+    }
+
+    /**
+     * Gets additionalCost
+     *
+     * @return string|null
+     */
+    public function getAdditionalCost()
+    {
+        return $this->container['additionalCost'];
+    }
+
+    /**
+     * Sets additionalCost
+     *
+     * @param string|null $additionalCost The name of the additional cost that was rolled back.
+     *
+     * @return $this
+     */
+    public function setAdditionalCost($additionalCost)
+    {
+        $this->container['additionalCost'] = $additionalCost;
+
+        return $this;
+    }
+
+    /**
+     * Gets scope
+     *
+     * @return string|null
+     */
+    public function getScope()
+    {
+        return $this->container['scope'];
+    }
+
+    /**
+     * Sets scope
+     *
+     * @param string|null $scope The scope of the rolled back discount - For a discount per session, it can be one of `cartItems`, `additionalCosts` or `sessionTotal` - For a discount per item, it can be one of `price`, `additionalCosts` or `itemTotal`
+     *
+     * @return $this
+     */
+    public function setScope($scope)
+    {
+        $this->container['scope'] = $scope;
 
         return $this;
     }

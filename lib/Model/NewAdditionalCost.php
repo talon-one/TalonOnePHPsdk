@@ -61,7 +61,8 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         'name' => 'string',
         'title' => 'string',
         'description' => 'string',
-        'subscribedApplicationsIds' => 'int[]'
+        'subscribedApplicationsIds' => 'int[]',
+        'type' => 'string'
     ];
 
     /**
@@ -73,7 +74,8 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         'name' => null,
         'title' => null,
         'description' => null,
-        'subscribedApplicationsIds' => null
+        'subscribedApplicationsIds' => null,
+        'type' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         'name' => 'name',
         'title' => 'title',
         'description' => 'description',
-        'subscribedApplicationsIds' => 'subscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'subscribedApplicationsIds',
+        'type' => 'type'
     ];
 
     /**
@@ -118,7 +121,8 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'title' => 'setTitle',
         'description' => 'setDescription',
-        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds',
+        'type' => 'setType'
     ];
 
     /**
@@ -130,7 +134,8 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'title' => 'getTitle',
         'description' => 'getDescription',
-        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds',
+        'type' => 'getType'
     ];
 
     /**
@@ -174,8 +179,25 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TYPE_SESSION = 'session';
+    const TYPE_ITEM = 'item';
+    const TYPE_BOTH = 'both';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_SESSION,
+            self::TYPE_ITEM,
+            self::TYPE_BOTH,
+        ];
+    }
     
 
     /**
@@ -197,6 +219,7 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['subscribedApplicationsIds'] = isset($data['subscribedApplicationsIds']) ? $data['subscribedApplicationsIds'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : 'session';
     }
 
     /**
@@ -211,12 +234,28 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if (!preg_match("/^[A-Za-z](\\w|\\s)*$/", $this->container['name'])) {
+            $invalidProperties[] = "invalid value for 'name', must be conform to the pattern /^[A-Za-z](\\w|\\s)*$/.";
+        }
+
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
         }
+        if (!preg_match("/^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/", $this->container['title'])) {
+            $invalidProperties[] = "invalid value for 'title', must be conform to the pattern /^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/.";
+        }
+
         if ($this->container['description'] === null) {
             $invalidProperties[] = "'description' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -251,6 +290,11 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
+
+        if ((!preg_match("/^[A-Za-z](\\w|\\s)*$/", $name))) {
+            throw new \InvalidArgumentException("invalid value for $name when calling NewAdditionalCost., must conform to the pattern /^[A-Za-z](\\w|\\s)*$/.");
+        }
+
         $this->container['name'] = $name;
 
         return $this;
@@ -275,6 +319,11 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
      */
     public function setTitle($title)
     {
+
+        if ((!preg_match("/^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/", $title))) {
+            throw new \InvalidArgumentException("invalid value for $title when calling NewAdditionalCost., must conform to the pattern /^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/.");
+        }
+
         $this->container['title'] = $title;
 
         return $this;
@@ -317,13 +366,46 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
     /**
      * Sets subscribedApplicationsIds
      *
-     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that are subscribed to this additional cost
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that are subscribed to this additional cost.
      *
      * @return $this
      */
     public function setSubscribedApplicationsIds($subscribedApplicationsIds)
     {
         $this->container['subscribedApplicationsIds'] = $subscribedApplicationsIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type The type of additional cost. The following options can be chosen: - `session`: Additional cost will be added per session, - `item`: Additional cost will be added per item, - `both`: Additional cost will be added per item and session.
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

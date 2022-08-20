@@ -91,4 +91,11 @@ class CreateTemplateCampaignResponseTest extends TestCase
     public function testPropertyRuleset()
     {
     }
+
+    /**
+     * Test attribute "collections"
+     */
+    public function testPropertyCollections()
+    {
+    }
 }

@@ -264,7 +264,7 @@ class UpdateUser implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Your name.
+     * @param string|null $name The user name.
      *
      * @return $this
      */
@@ -288,7 +288,7 @@ class UpdateUser implements ModelInterface, ArrayAccess
     /**
      * Sets policy
      *
-     * @param string|null $policy a blob of acl json
+     * @param string|null $policy ACL Json.
      *
      * @return $this
      */
@@ -345,7 +345,7 @@ class UpdateUser implements ModelInterface, ArrayAccess
     /**
      * Sets roles
      *
-     * @param int[]|null $roles Update
+     * @param int[]|null $roles List of roles to assign to the user.
      *
      * @return $this
      */

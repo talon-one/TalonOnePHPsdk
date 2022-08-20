@@ -272,6 +272,10 @@ class NewCoupons implements ModelInterface, ArrayAccess
         if ($this->container['numberOfCoupons'] === null) {
             $invalidProperties[] = "'numberOfCoupons' can't be null";
         }
+        if (!is_null($this->container['recipientIntegrationId']) && (mb_strlen($this->container['recipientIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'recipientIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if (!is_null($this->container['couponPattern']) && (mb_strlen($this->container['couponPattern']) > 100)) {
             $invalidProperties[] = "invalid value for 'couponPattern', the character length must be smaller than or equal to 100.";
         }
@@ -308,7 +312,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
     /**
      * Sets usageLimit
      *
-     * @param int $usageLimit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     * @param int $usageLimit The number of times the coupon code can be redeemed. `0` means unlimited redemptions but any campaign usage limits will still apply.
      *
      * @return $this
      */
@@ -468,7 +472,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
     /**
      * Sets uniquePrefix
      *
-     * @param string|null $uniquePrefix A unique prefix to prepend to all generated coupons.
+     * @param string|null $uniquePrefix **DEPRECATED** To create more than 20,000 coupons in one request, use [Create coupons asynchronously endpoint](https://docs.talon.one/management-api/#operation/createCouponsAsync).
      *
      * @return $this
      */
@@ -492,7 +496,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this item
+     * @param object|null $attributes Arbitrary properties associated with this item.
      *
      * @return $this
      */
@@ -516,12 +520,16 @@ class NewCoupons implements ModelInterface, ArrayAccess
     /**
      * Sets recipientIntegrationId
      *
-     * @param string|null $recipientIntegrationId The integration ID for this coupon's beneficiary's profile
+     * @param string|null $recipientIntegrationId The integration ID for this coupon's beneficiary's profile.
      *
      * @return $this
      */
     public function setRecipientIntegrationId($recipientIntegrationId)
     {
+        if (!is_null($recipientIntegrationId) && (mb_strlen($recipientIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $recipientIntegrationId when calling NewCoupons., must be smaller than or equal to 1000.');
+        }
+
         $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;
@@ -564,7 +572,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
     /**
      * Sets couponPattern
      *
-     * @param string|null $couponPattern The pattern used to generate coupon codes. The character `#` is a placeholder and is replaced by a random character from the `validCharacters` set.  If you use a `uniquePrefix`, include it in the pattern.
+     * @param string|null $couponPattern The pattern used to generate coupon codes. The character `#` is a placeholder and is replaced by a random character from the `validCharacters` set.
      *
      * @return $this
      */

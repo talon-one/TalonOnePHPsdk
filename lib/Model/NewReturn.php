@@ -220,7 +220,7 @@ class NewReturn implements ModelInterface, ArrayAccess
     /**
      * Sets returnedCartItems
      *
-     * @param \TalonOne\Client\Model\ReturnedCartItem[] $returnedCartItems List of cart items to be returned
+     * @param \TalonOne\Client\Model\ReturnedCartItem[] $returnedCartItems List of cart items to be returned.
      *
      * @return $this
      */

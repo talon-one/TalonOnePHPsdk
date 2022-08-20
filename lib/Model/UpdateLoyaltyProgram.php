@@ -384,7 +384,7 @@ class UpdateLoyaltyProgram implements ModelInterface, ArrayAccess
     /**
      * Sets allowSubledger
      *
-     * @param bool|null $allowSubledger Indicates if this program supports subledgers inside the program
+     * @param bool|null $allowSubledger Indicates if this program supports subledgers inside the program.
      *
      * @return $this
      */
@@ -437,7 +437,7 @@ class UpdateLoyaltyProgram implements ModelInterface, ArrayAccess
     /**
      * Sets tiers
      *
-     * @param \TalonOne\Client\Model\NewLoyaltyTier[]|null $tiers The tiers in this loyalty program
+     * @param \TalonOne\Client\Model\NewLoyaltyTier[]|null $tiers The tiers in this loyalty program.
      *
      * @return $this
      */

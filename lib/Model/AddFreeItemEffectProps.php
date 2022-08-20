@@ -230,7 +230,7 @@ class AddFreeItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets sku
      *
-     * @param string $sku SKU of the item that needs to be added
+     * @param string $sku SKU of the item that needs to be added.
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class AddFreeItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name/description of the effect
+     * @param string $name The name/description of the effect.
      *
      * @return $this
      */

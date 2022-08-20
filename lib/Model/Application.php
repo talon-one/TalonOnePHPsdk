@@ -77,6 +77,7 @@ class Application implements ModelInterface, ArrayAccess
         'attributesSettings' => '\TalonOne\Client\Model\AttributesSettings',
         'sandbox' => 'bool',
         'enablePartialDiscounts' => 'bool',
+        'defaultDiscountAdditionalCostPerItemScope' => 'string',
         'loyaltyPrograms' => '\TalonOne\Client\Model\LoyaltyProgram[]'
     ];
 
@@ -105,6 +106,7 @@ class Application implements ModelInterface, ArrayAccess
         'attributesSettings' => null,
         'sandbox' => null,
         'enablePartialDiscounts' => null,
+        'defaultDiscountAdditionalCostPerItemScope' => null,
         'loyaltyPrograms' => null
     ];
 
@@ -154,6 +156,7 @@ class Application implements ModelInterface, ArrayAccess
         'attributesSettings' => 'attributesSettings',
         'sandbox' => 'sandbox',
         'enablePartialDiscounts' => 'enablePartialDiscounts',
+        'defaultDiscountAdditionalCostPerItemScope' => 'defaultDiscountAdditionalCostPerItemScope',
         'loyaltyPrograms' => 'loyaltyPrograms'
     ];
 
@@ -182,6 +185,7 @@ class Application implements ModelInterface, ArrayAccess
         'attributesSettings' => 'setAttributesSettings',
         'sandbox' => 'setSandbox',
         'enablePartialDiscounts' => 'setEnablePartialDiscounts',
+        'defaultDiscountAdditionalCostPerItemScope' => 'setDefaultDiscountAdditionalCostPerItemScope',
         'loyaltyPrograms' => 'setLoyaltyPrograms'
     ];
 
@@ -210,6 +214,7 @@ class Application implements ModelInterface, ArrayAccess
         'attributesSettings' => 'getAttributesSettings',
         'sandbox' => 'getSandbox',
         'enablePartialDiscounts' => 'getEnablePartialDiscounts',
+        'defaultDiscountAdditionalCostPerItemScope' => 'getDefaultDiscountAdditionalCostPerItemScope',
         'loyaltyPrograms' => 'getLoyaltyPrograms'
     ];
 
@@ -266,6 +271,9 @@ class Application implements ModelInterface, ArrayAccess
     const DEFAULT_DISCOUNT_SCOPE_SESSION_TOTAL = 'sessionTotal';
     const DEFAULT_DISCOUNT_SCOPE_CART_ITEMS = 'cartItems';
     const DEFAULT_DISCOUNT_SCOPE_ADDITIONAL_COSTS = 'additionalCosts';
+    const DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_PRICE = 'price';
+    const DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_ITEM_TOTAL = 'itemTotal';
+    const DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_ADDITIONAL_COSTS = 'additionalCosts';
     
 
     
@@ -325,6 +333,20 @@ class Application implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDefaultDiscountAdditionalCostPerItemScopeAllowableValues()
+    {
+        return [
+            self::DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_PRICE,
+            self::DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_ITEM_TOTAL,
+            self::DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE_ADDITIONAL_COSTS,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -360,6 +382,7 @@ class Application implements ModelInterface, ArrayAccess
         $this->container['attributesSettings'] = isset($data['attributesSettings']) ? $data['attributesSettings'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['enablePartialDiscounts'] = isset($data['enablePartialDiscounts']) ? $data['enablePartialDiscounts'] : null;
+        $this->container['defaultDiscountAdditionalCostPerItemScope'] = isset($data['defaultDiscountAdditionalCostPerItemScope']) ? $data['defaultDiscountAdditionalCostPerItemScope'] : null;
         $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
     }
 
@@ -437,6 +460,14 @@ class Application implements ModelInterface, ArrayAccess
             );
         }
 
+        $allowedValues = $this->getDefaultDiscountAdditionalCostPerItemScopeAllowableValues();
+        if (!is_null($this->container['defaultDiscountAdditionalCostPerItemScope']) && !in_array($this->container['defaultDiscountAdditionalCostPerItemScope'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'defaultDiscountAdditionalCostPerItemScope', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['loyaltyPrograms'] === null) {
             $invalidProperties[] = "'loyaltyPrograms' can't be null";
         }
@@ -468,7 +499,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -963,6 +994,39 @@ class Application implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets defaultDiscountAdditionalCostPerItemScope
+     *
+     * @return string|null
+     */
+    public function getDefaultDiscountAdditionalCostPerItemScope()
+    {
+        return $this->container['defaultDiscountAdditionalCostPerItemScope'];
+    }
+
+    /**
+     * Sets defaultDiscountAdditionalCostPerItemScope
+     *
+     * @param string|null $defaultDiscountAdditionalCostPerItemScope The default scope to apply `setDiscountPerItem` effects on if no scope was provided with the effect.
+     *
+     * @return $this
+     */
+    public function setDefaultDiscountAdditionalCostPerItemScope($defaultDiscountAdditionalCostPerItemScope)
+    {
+        $allowedValues = $this->getDefaultDiscountAdditionalCostPerItemScopeAllowableValues();
+        if (!is_null($defaultDiscountAdditionalCostPerItemScope) && !in_array($defaultDiscountAdditionalCostPerItemScope, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'defaultDiscountAdditionalCostPerItemScope', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['defaultDiscountAdditionalCostPerItemScope'] = $defaultDiscountAdditionalCostPerItemScope;
+
+        return $this;
+    }
+
+    /**
      * Gets loyaltyPrograms
      *
      * @return \TalonOne\Client\Model\LoyaltyProgram[]
@@ -975,7 +1039,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets loyaltyPrograms
      *
-     * @param \TalonOne\Client\Model\LoyaltyProgram[] $loyaltyPrograms An array containing all the loyalty programs to which this application is subscribed
+     * @param \TalonOne\Client\Model\LoyaltyProgram[] $loyaltyPrograms An array containing all the loyalty programs to which this application is subscribed.
      *
      * @return $this
      */

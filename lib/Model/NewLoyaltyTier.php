@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * NewLoyaltyTier Class Doc Comment
  *
  * @category Class
- * @description A tier in a loyalty program
+ * @description A tier in a loyalty program.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -262,7 +262,7 @@ class NewLoyaltyTier implements ModelInterface, ArrayAccess
     /**
      * Sets minPoints
      *
-     * @param float $minPoints The minimum amount of points required to be eligible for the tier
+     * @param float $minPoints The minimum amount of points required to be eligible for the tier.
      *
      * @return $this
      */

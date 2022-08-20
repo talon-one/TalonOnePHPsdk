@@ -119,4 +119,11 @@ class DeductLoyaltyPointsEffectPropsTest extends TestCase
     public function testPropertyName()
     {
     }
+
+    /**
+     * Test attribute "cardIdentifier"
+     */
+    public function testPropertyCardIdentifier()
+    {
+    }
 }
