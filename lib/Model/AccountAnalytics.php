@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -74,7 +74,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => 'int',
         'customAttributes' => 'int',
         'webhooks' => 'int',
-        'loyaltyPrograms' => 'int'
+        'loyaltyPrograms' => 'int',
+        'liveLoyaltyPrograms' => 'int'
     ];
 
     /**
@@ -100,7 +101,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => null,
         'customAttributes' => null,
         'webhooks' => null,
-        'loyaltyPrograms' => null
+        'loyaltyPrograms' => null,
+        'liveLoyaltyPrograms' => null
     ];
 
     /**
@@ -147,7 +149,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => 'roles',
         'customAttributes' => 'customAttributes',
         'webhooks' => 'webhooks',
-        'loyaltyPrograms' => 'loyaltyPrograms'
+        'loyaltyPrograms' => 'loyaltyPrograms',
+        'liveLoyaltyPrograms' => 'liveLoyaltyPrograms'
     ];
 
     /**
@@ -173,7 +176,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => 'setRoles',
         'customAttributes' => 'setCustomAttributes',
         'webhooks' => 'setWebhooks',
-        'loyaltyPrograms' => 'setLoyaltyPrograms'
+        'loyaltyPrograms' => 'setLoyaltyPrograms',
+        'liveLoyaltyPrograms' => 'setLiveLoyaltyPrograms'
     ];
 
     /**
@@ -199,7 +203,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'roles' => 'getRoles',
         'customAttributes' => 'getCustomAttributes',
         'webhooks' => 'getWebhooks',
-        'loyaltyPrograms' => 'getLoyaltyPrograms'
+        'loyaltyPrograms' => 'getLoyaltyPrograms',
+        'liveLoyaltyPrograms' => 'getLiveLoyaltyPrograms'
     ];
 
     /**
@@ -280,6 +285,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         $this->container['customAttributes'] = isset($data['customAttributes']) ? $data['customAttributes'] : null;
         $this->container['webhooks'] = isset($data['webhooks']) ? $data['webhooks'] : null;
         $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
+        $this->container['liveLoyaltyPrograms'] = isset($data['liveLoyaltyPrograms']) ? $data['liveLoyaltyPrograms'] : null;
     }
 
     /**
@@ -345,6 +351,9 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         if ($this->container['loyaltyPrograms'] === null) {
             $invalidProperties[] = "'loyaltyPrograms' can't be null";
         }
+        if ($this->container['liveLoyaltyPrograms'] === null) {
+            $invalidProperties[] = "'liveLoyaltyPrograms' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -373,7 +382,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets applications
      *
-     * @param int $applications Total number of applications in the account
+     * @param int $applications Total number of applications in the account.
      *
      * @return $this
      */
@@ -397,7 +406,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets liveApplications
      *
-     * @param int $liveApplications Total number of live applications in the account
+     * @param int $liveApplications Total number of live applications in the account.
      *
      * @return $this
      */
@@ -421,7 +430,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets sandboxApplications
      *
-     * @param int $sandboxApplications Total number of sandbox applications in the account
+     * @param int $sandboxApplications Total number of sandbox applications in the account.
      *
      * @return $this
      */
@@ -445,7 +454,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets campaigns
      *
-     * @param int $campaigns Total number of campaigns in the account
+     * @param int $campaigns Total number of campaigns in the account.
      *
      * @return $this
      */
@@ -469,7 +478,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets activeCampaigns
      *
-     * @param int $activeCampaigns Total number of active campaigns in the account
+     * @param int $activeCampaigns Total number of active campaigns in the account.
      *
      * @return $this
      */
@@ -493,7 +502,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets liveActiveCampaigns
      *
-     * @param int $liveActiveCampaigns Total number of active campaigns in live applications in the account
+     * @param int $liveActiveCampaigns Total number of active campaigns in live applications in the account.
      *
      * @return $this
      */
@@ -517,7 +526,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets coupons
      *
-     * @param int $coupons Total number of coupons in the account
+     * @param int $coupons Total number of coupons in the account.
      *
      * @return $this
      */
@@ -541,7 +550,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets activeCoupons
      *
-     * @param int $activeCoupons Total number of active coupons in the account
+     * @param int $activeCoupons Total number of active coupons in the account.
      *
      * @return $this
      */
@@ -565,7 +574,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets expiredCoupons
      *
-     * @param int $expiredCoupons Total number of expired coupons in the account
+     * @param int $expiredCoupons Total number of expired coupons in the account.
      *
      * @return $this
      */
@@ -589,7 +598,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets referralCodes
      *
-     * @param int $referralCodes Total number of referral codes in the account
+     * @param int $referralCodes Total number of referral codes in the account.
      *
      * @return $this
      */
@@ -613,7 +622,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets activeReferralCodes
      *
-     * @param int $activeReferralCodes Total number of active referral codes in the account
+     * @param int $activeReferralCodes Total number of active referral codes in the account.
      *
      * @return $this
      */
@@ -637,7 +646,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets expiredReferralCodes
      *
-     * @param int $expiredReferralCodes Total number of expired referral codes in the account
+     * @param int $expiredReferralCodes Total number of expired referral codes in the account.
      *
      * @return $this
      */
@@ -661,7 +670,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets activeRules
      *
-     * @param int $activeRules Total number of active rules in the account
+     * @param int $activeRules Total number of active rules in the account.
      *
      * @return $this
      */
@@ -685,7 +694,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets users
      *
-     * @param int $users Total number of users in the account
+     * @param int $users Total number of users in the account.
      *
      * @return $this
      */
@@ -709,7 +718,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets roles
      *
-     * @param int $roles Total number of roles in the account
+     * @param int $roles Total number of roles in the account.
      *
      * @return $this
      */
@@ -733,7 +742,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets customAttributes
      *
-     * @param int $customAttributes Total number of custom attributes in the account
+     * @param int $customAttributes Total number of custom attributes in the account.
      *
      * @return $this
      */
@@ -757,7 +766,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets webhooks
      *
-     * @param int $webhooks Total number of webhooks in the account
+     * @param int $webhooks Total number of webhooks in the account.
      *
      * @return $this
      */
@@ -781,13 +790,37 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets loyaltyPrograms
      *
-     * @param int $loyaltyPrograms Total number of loyalty programs in the account
+     * @param int $loyaltyPrograms Total number of all loyalty programs in the account.
      *
      * @return $this
      */
     public function setLoyaltyPrograms($loyaltyPrograms)
     {
         $this->container['loyaltyPrograms'] = $loyaltyPrograms;
+
+        return $this;
+    }
+
+    /**
+     * Gets liveLoyaltyPrograms
+     *
+     * @return int
+     */
+    public function getLiveLoyaltyPrograms()
+    {
+        return $this->container['liveLoyaltyPrograms'];
+    }
+
+    /**
+     * Sets liveLoyaltyPrograms
+     *
+     * @param int $liveLoyaltyPrograms Total number of live loyalty programs in the account.
+     *
+     * @return $this
+     */
+    public function setLiveLoyaltyPrograms($liveLoyaltyPrograms)
+    {
+        $this->container['liveLoyaltyPrograms'] = $liveLoyaltyPrograms;
 
         return $this;
     }

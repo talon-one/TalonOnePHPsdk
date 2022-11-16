@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -299,7 +299,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets profileId
      *
-     * @param string $profileId ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+     * @param string $profileId ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known `profileId`, we recommend you use a guest `profileId`.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets loyaltyProgramId
      *
-     * @param int $loyaltyProgramId ID of the ledger
+     * @param int $loyaltyProgramId ID of the ledger.
      *
      * @return $this
      */
@@ -419,7 +419,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets eventId
      *
-     * @param int $eventId ID of the related event
+     * @param int $eventId ID of the related event.
      *
      * @return $this
      */
@@ -443,7 +443,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param int $amount Amount of loyalty points
+     * @param int $amount Amount of loyalty points.
      *
      * @return $this
      */
@@ -467,7 +467,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets reason
      *
-     * @param string $reason reason for awarding/deducting points
+     * @param string $reason reason for awarding/deducting points.
      *
      * @return $this
      */
@@ -491,7 +491,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets expiryDate
      *
-     * @param \DateTime $expiryDate Expiry date of the points
+     * @param \DateTime $expiryDate Expiry date of the points.
      *
      * @return $this
      */
@@ -515,7 +515,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets referenceId
      *
-     * @param int|null $referenceId The ID of the balancing ledgerEntry
+     * @param int|null $referenceId The ID of the balancing ledgerEntry.
      *
      * @return $this
      */

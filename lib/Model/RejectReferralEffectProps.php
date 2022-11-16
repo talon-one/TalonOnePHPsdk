@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -248,7 +248,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The referral code that was rejected
+     * @param string $value The referral code that was rejected.
      *
      * @return $this
      */
@@ -272,7 +272,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets rejectionReason
      *
-     * @param string $rejectionReason The reason why this referral code was rejected
+     * @param string $rejectionReason The reason why this referral code was rejected.
      *
      * @return $this
      */
@@ -296,7 +296,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets conditionIndex
      *
-     * @param int|null $conditionIndex The index of the condition that caused the rejection of the referral
+     * @param int|null $conditionIndex The index of the condition that caused the rejection of the referral.
      *
      * @return $this
      */
@@ -320,7 +320,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets effectIndex
      *
-     * @param int|null $effectIndex The index of the effect that caused the rejection of the referral
+     * @param int|null $effectIndex The index of the effect that caused the rejection of the referral.
      *
      * @return $this
      */
@@ -344,7 +344,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets details
      *
-     * @param string|null $details More details about the failure
+     * @param string|null $details More details about the failure.
      *
      * @return $this
      */

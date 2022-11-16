@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -67,7 +67,8 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         'totalSales' => 'float',
         'loyaltyMemberships' => '\TalonOne\Client\Model\LoyaltyMembership[]',
         'audienceMemberships' => '\TalonOne\Client\Model\AudienceMembership[]',
-        'lastActivity' => '\DateTime'
+        'lastActivity' => '\DateTime',
+        'advocateIntegrationId' => 'string'
     ];
 
     /**
@@ -85,7 +86,8 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         'totalSales' => null,
         'loyaltyMemberships' => null,
         'audienceMemberships' => null,
-        'lastActivity' => 'date-time'
+        'lastActivity' => 'date-time',
+        'advocateIntegrationId' => null
     ];
 
     /**
@@ -124,7 +126,8 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         'totalSales' => 'totalSales',
         'loyaltyMemberships' => 'loyaltyMemberships',
         'audienceMemberships' => 'audienceMemberships',
-        'lastActivity' => 'lastActivity'
+        'lastActivity' => 'lastActivity',
+        'advocateIntegrationId' => 'advocateIntegrationId'
     ];
 
     /**
@@ -142,7 +145,8 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         'totalSales' => 'setTotalSales',
         'loyaltyMemberships' => 'setLoyaltyMemberships',
         'audienceMemberships' => 'setAudienceMemberships',
-        'lastActivity' => 'setLastActivity'
+        'lastActivity' => 'setLastActivity',
+        'advocateIntegrationId' => 'setAdvocateIntegrationId'
     ];
 
     /**
@@ -160,7 +164,8 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         'totalSales' => 'getTotalSales',
         'loyaltyMemberships' => 'getLoyaltyMemberships',
         'audienceMemberships' => 'getAudienceMemberships',
-        'lastActivity' => 'getLastActivity'
+        'lastActivity' => 'getLastActivity',
+        'advocateIntegrationId' => 'getAdvocateIntegrationId'
     ];
 
     /**
@@ -233,6 +238,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         $this->container['loyaltyMemberships'] = isset($data['loyaltyMemberships']) ? $data['loyaltyMemberships'] : null;
         $this->container['audienceMemberships'] = isset($data['audienceMemberships']) ? $data['audienceMemberships'] : null;
         $this->container['lastActivity'] = isset($data['lastActivity']) ? $data['lastActivity'] : null;
+        $this->container['advocateIntegrationId'] = isset($data['advocateIntegrationId']) ? $data['advocateIntegrationId'] : null;
     }
 
     /**
@@ -253,6 +259,10 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         if ($this->container['integrationId'] === null) {
             $invalidProperties[] = "'integrationId' can't be null";
         }
+        if ((mb_strlen($this->container['integrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'integrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['attributes'] === null) {
             $invalidProperties[] = "'attributes' can't be null";
         }
@@ -268,6 +278,10 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         if ($this->container['lastActivity'] === null) {
             $invalidProperties[] = "'lastActivity' can't be null";
         }
+        if (!is_null($this->container['advocateIntegrationId']) && (mb_strlen($this->container['advocateIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'advocateIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         return $invalidProperties;
     }
 
@@ -296,7 +310,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -320,7 +334,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created The exact moment this entity was created. The exact moment this entity was created. The exact moment this entity was created.
+     * @param \DateTime $created The exact moment this entity was created. The exact moment this entity was created. The exact moment this entity was created. The exact moment this entity was created.
      *
      * @return $this
      */
@@ -344,12 +358,16 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets integrationId
      *
-     * @param string $integrationId The integration ID for this entity sent to and used in the Talon.One system. The integration ID for this entity sent to and used in the Talon.One system.
+     * @param string $integrationId The integration ID set by your integration layer. The integration ID set by your integration layer.
      *
      * @return $this
      */
     public function setIntegrationId($integrationId)
     {
+        if ((mb_strlen($integrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $integrationId when calling ApplicationCustomer., must be smaller than or equal to 1000.');
+        }
+
         $this->container['integrationId'] = $integrationId;
 
         return $this;
@@ -368,7 +386,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object $attributes Arbitrary properties associated with this item
+     * @param object $attributes Arbitrary properties associated with this item.
      *
      * @return $this
      */
@@ -440,7 +458,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets totalSales
      *
-     * @param float $totalSales Sum of all purchases made by this customer
+     * @param float $totalSales Sum of all purchases made by this customer.
      *
      * @return $this
      */
@@ -464,7 +482,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets loyaltyMemberships
      *
-     * @param \TalonOne\Client\Model\LoyaltyMembership[]|null $loyaltyMemberships A list of loyalty programs joined by the customer
+     * @param \TalonOne\Client\Model\LoyaltyMembership[]|null $loyaltyMemberships **DEPRECATED** A list of loyalty programs joined by the customer.
      *
      * @return $this
      */
@@ -488,7 +506,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets audienceMemberships
      *
-     * @param \TalonOne\Client\Model\AudienceMembership[]|null $audienceMemberships A list of audiences the customer belongs to
+     * @param \TalonOne\Client\Model\AudienceMembership[]|null $audienceMemberships A list of audiences the customer belongs to.
      *
      * @return $this
      */
@@ -512,13 +530,41 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets lastActivity
      *
-     * @param \DateTime $lastActivity Timestamp of the most recent event received from this customer
+     * @param \DateTime $lastActivity Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the rule-engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api/#operation/createCouponReservation) for a customer doesn't impact this field.
      *
      * @return $this
      */
     public function setLastActivity($lastActivity)
     {
         $this->container['lastActivity'] = $lastActivity;
+
+        return $this;
+    }
+
+    /**
+     * Gets advocateIntegrationId
+     *
+     * @return string|null
+     */
+    public function getAdvocateIntegrationId()
+    {
+        return $this->container['advocateIntegrationId'];
+    }
+
+    /**
+     * Sets advocateIntegrationId
+     *
+     * @param string|null $advocateIntegrationId The Integration ID of the Customer Profile that referred this Customer in the Application.
+     *
+     * @return $this
+     */
+    public function setAdvocateIntegrationId($advocateIntegrationId)
+    {
+        if (!is_null($advocateIntegrationId) && (mb_strlen($advocateIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $advocateIntegrationId when calling ApplicationCustomer., must be smaller than or equal to 1000.');
+        }
+
+        $this->container['advocateIntegrationId'] = $advocateIntegrationId;
 
         return $this;
     }

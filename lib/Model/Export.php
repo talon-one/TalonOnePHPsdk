@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -185,8 +185,12 @@ class Export implements ModelInterface, ArrayAccess
     }
 
     const ENTITY_COUPON = 'Coupon';
+    const ENTITY_REFERRAL = 'Referral';
     const ENTITY_EFFECT = 'Effect';
     const ENTITY_CUSTOMER_SESSION = 'CustomerSession';
+    const ENTITY_LOYALTY_LEDGER = 'LoyaltyLedger';
+    const ENTITY_LOYALTY_LEDGER_LOG = 'LoyaltyLedgerLog';
+    const ENTITY_COLLECTION = 'Collection';
     
 
     
@@ -199,8 +203,12 @@ class Export implements ModelInterface, ArrayAccess
     {
         return [
             self::ENTITY_COUPON,
+            self::ENTITY_REFERRAL,
             self::ENTITY_EFFECT,
             self::ENTITY_CUSTOMER_SESSION,
+            self::ENTITY_LOYALTY_LEDGER,
+            self::ENTITY_LOYALTY_LEDGER_LOG,
+            self::ENTITY_COLLECTION,
         ];
     }
     
@@ -291,7 +299,7 @@ class Export implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -420,7 +428,7 @@ class Export implements ModelInterface, ArrayAccess
     /**
      * Sets filter
      *
-     * @param object $filter Map of keys and values that were used to filter the exported rows
+     * @param object $filter Map of keys and values that were used to filter the exported rows.
      *
      * @return $this
      */

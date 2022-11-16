@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -199,6 +199,10 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     const PLATFORM_BRAZE = 'braze';
     const PLATFORM_MPARTICLE = 'mparticle';
     const PLATFORM_SELLIGENT = 'selligent';
+    const PLATFORM_ITERABLE = 'iterable';
+    const PLATFORM_CUSTOMER_ENGAGEMENT = 'customer_engagement';
+    const PLATFORM_CUSTOMER_DATA = 'customer_data';
+    const PLATFORM_SALESFORCE = 'salesforce';
     
 
     
@@ -215,6 +219,10 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
             self::PLATFORM_BRAZE,
             self::PLATFORM_MPARTICLE,
             self::PLATFORM_SELLIGENT,
+            self::PLATFORM_ITERABLE,
+            self::PLATFORM_CUSTOMER_ENGAGEMENT,
+            self::PLATFORM_CUSTOMER_DATA,
+            self::PLATFORM_SALESFORCE,
         ];
     }
     
@@ -310,7 +318,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title Title for API Key
+     * @param string $title Title for API Key.
      *
      * @return $this
      */
@@ -334,7 +342,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets expires
      *
-     * @param \DateTime $expires The date the API key expired
+     * @param \DateTime $expires The date the API key expired.
      *
      * @return $this
      */
@@ -358,7 +366,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets platform
      *
-     * @param string|null $platform Platform the API key is valid for.
+     * @param string|null $platform The third-party platform the API key is valid for. Use `none` for a generic API key to be used from your own integration layer.
      *
      * @return $this
      */
@@ -391,7 +399,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id ID of the API Key
+     * @param int $id ID of the API Key.
      *
      * @return $this
      */
@@ -415,7 +423,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets createdBy
      *
-     * @param int $createdBy ID of user who created
+     * @param int $createdBy ID of user who created.
      *
      * @return $this
      */
@@ -439,7 +447,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets accountID
      *
-     * @param int $accountID ID of account the key is used for
+     * @param int $accountID ID of account the key is used for.
      *
      * @return $this
      */
@@ -463,7 +471,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets applicationID
      *
-     * @param int $applicationID ID of application the key is used for
+     * @param int $applicationID ID of application the key is used for.
      *
      * @return $this
      */
@@ -487,7 +495,7 @@ class ApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created The date the API key was created
+     * @param \DateTime $created The date the API key was created.
      *
      * @return $this
      */

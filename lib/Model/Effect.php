@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -64,6 +64,7 @@ class Effect implements ModelInterface, ArrayAccess
         'ruleName' => 'string',
         'effectType' => 'string',
         'triggeredByCoupon' => 'int',
+        'triggeredForCatalogItem' => 'int',
         'props' => 'object'
     ];
 
@@ -79,6 +80,7 @@ class Effect implements ModelInterface, ArrayAccess
         'ruleName' => null,
         'effectType' => null,
         'triggeredByCoupon' => null,
+        'triggeredForCatalogItem' => null,
         'props' => null
     ];
 
@@ -115,6 +117,7 @@ class Effect implements ModelInterface, ArrayAccess
         'ruleName' => 'ruleName',
         'effectType' => 'effectType',
         'triggeredByCoupon' => 'triggeredByCoupon',
+        'triggeredForCatalogItem' => 'triggeredForCatalogItem',
         'props' => 'props'
     ];
 
@@ -130,6 +133,7 @@ class Effect implements ModelInterface, ArrayAccess
         'ruleName' => 'setRuleName',
         'effectType' => 'setEffectType',
         'triggeredByCoupon' => 'setTriggeredByCoupon',
+        'triggeredForCatalogItem' => 'setTriggeredForCatalogItem',
         'props' => 'setProps'
     ];
 
@@ -145,6 +149,7 @@ class Effect implements ModelInterface, ArrayAccess
         'ruleName' => 'getRuleName',
         'effectType' => 'getEffectType',
         'triggeredByCoupon' => 'getTriggeredByCoupon',
+        'triggeredForCatalogItem' => 'getTriggeredForCatalogItem',
         'props' => 'getProps'
     ];
 
@@ -214,6 +219,7 @@ class Effect implements ModelInterface, ArrayAccess
         $this->container['ruleName'] = isset($data['ruleName']) ? $data['ruleName'] : null;
         $this->container['effectType'] = isset($data['effectType']) ? $data['effectType'] : null;
         $this->container['triggeredByCoupon'] = isset($data['triggeredByCoupon']) ? $data['triggeredByCoupon'] : null;
+        $this->container['triggeredForCatalogItem'] = isset($data['triggeredForCatalogItem']) ? $data['triggeredForCatalogItem'] : null;
         $this->container['props'] = isset($data['props']) ? $data['props'] : null;
     }
 
@@ -272,7 +278,7 @@ class Effect implements ModelInterface, ArrayAccess
     /**
      * Sets campaignId
      *
-     * @param int $campaignId The ID of the campaign that triggered this effect
+     * @param int $campaignId The ID of the campaign that triggered this effect.
      *
      * @return $this
      */
@@ -296,7 +302,7 @@ class Effect implements ModelInterface, ArrayAccess
     /**
      * Sets rulesetId
      *
-     * @param int $rulesetId The ID of the ruleset that was active in the campaign when this effect was triggered
+     * @param int $rulesetId The ID of the ruleset that was active in the campaign when this effect was triggered.
      *
      * @return $this
      */
@@ -320,7 +326,7 @@ class Effect implements ModelInterface, ArrayAccess
     /**
      * Sets ruleIndex
      *
-     * @param int $ruleIndex The position of the rule that triggered this effect within the ruleset
+     * @param int $ruleIndex The position of the rule that triggered this effect within the ruleset.
      *
      * @return $this
      */
@@ -344,7 +350,7 @@ class Effect implements ModelInterface, ArrayAccess
     /**
      * Sets ruleName
      *
-     * @param string $ruleName The name of the rule that triggered this effect
+     * @param string $ruleName The name of the rule that triggered this effect.
      *
      * @return $this
      */
@@ -368,7 +374,7 @@ class Effect implements ModelInterface, ArrayAccess
     /**
      * Sets effectType
      *
-     * @param string $effectType The type of effect that was triggered
+     * @param string $effectType The type of effect that was triggered.
      *
      * @return $this
      */
@@ -392,13 +398,37 @@ class Effect implements ModelInterface, ArrayAccess
     /**
      * Sets triggeredByCoupon
      *
-     * @param int|null $triggeredByCoupon The ID of the coupon that was being evaluated when this effect was triggered
+     * @param int|null $triggeredByCoupon The ID of the coupon that was being evaluated when this effect was triggered.
      *
      * @return $this
      */
     public function setTriggeredByCoupon($triggeredByCoupon)
     {
         $this->container['triggeredByCoupon'] = $triggeredByCoupon;
+
+        return $this;
+    }
+
+    /**
+     * Gets triggeredForCatalogItem
+     *
+     * @return int|null
+     */
+    public function getTriggeredForCatalogItem()
+    {
+        return $this->container['triggeredForCatalogItem'];
+    }
+
+    /**
+     * Sets triggeredForCatalogItem
+     *
+     * @param int|null $triggeredForCatalogItem The ID of the catalog item that was being evaluated when this effect was triggered.
+     *
+     * @return $this
+     */
+    public function setTriggeredForCatalogItem($triggeredForCatalogItem)
+    {
+        $this->container['triggeredForCatalogItem'] = $triggeredForCatalogItem;
 
         return $this;
     }

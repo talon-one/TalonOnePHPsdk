@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * SetDiscountPerItemEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;setDiscountPerItem\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set per item discount\&quot; effect. This is a discount that should be applied on a specific item.
+ * @description The properties specific to the &#x60;setDiscountPerItem&#x60; effect, triggered whenever a validated rule contained a \&quot;set per item discount\&quot; effect. This is a discount that will be applied either on a specific item, on a specific item + additional cost or on all additional costs per item. This depends on the chosen scope.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,7 +61,13 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'name' => 'string',
         'value' => 'float',
         'position' => 'float',
-        'subPosition' => 'float'
+        'subPosition' => 'float',
+        'desiredValue' => 'float',
+        'scope' => 'string',
+        'totalDiscount' => 'float',
+        'desiredTotalDiscount' => 'float',
+        'bundleIndex' => 'int',
+        'bundleName' => 'string'
     ];
 
     /**
@@ -73,7 +79,13 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'name' => null,
         'value' => null,
         'position' => null,
-        'subPosition' => null
+        'subPosition' => null,
+        'desiredValue' => null,
+        'scope' => null,
+        'totalDiscount' => null,
+        'desiredTotalDiscount' => null,
+        'bundleIndex' => null,
+        'bundleName' => null
     ];
 
     /**
@@ -106,7 +118,13 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'name' => 'name',
         'value' => 'value',
         'position' => 'position',
-        'subPosition' => 'subPosition'
+        'subPosition' => 'subPosition',
+        'desiredValue' => 'desiredValue',
+        'scope' => 'scope',
+        'totalDiscount' => 'totalDiscount',
+        'desiredTotalDiscount' => 'desiredTotalDiscount',
+        'bundleIndex' => 'bundleIndex',
+        'bundleName' => 'bundleName'
     ];
 
     /**
@@ -118,7 +136,13 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'value' => 'setValue',
         'position' => 'setPosition',
-        'subPosition' => 'setSubPosition'
+        'subPosition' => 'setSubPosition',
+        'desiredValue' => 'setDesiredValue',
+        'scope' => 'setScope',
+        'totalDiscount' => 'setTotalDiscount',
+        'desiredTotalDiscount' => 'setDesiredTotalDiscount',
+        'bundleIndex' => 'setBundleIndex',
+        'bundleName' => 'setBundleName'
     ];
 
     /**
@@ -130,7 +154,13 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'value' => 'getValue',
         'position' => 'getPosition',
-        'subPosition' => 'getSubPosition'
+        'subPosition' => 'getSubPosition',
+        'desiredValue' => 'getDesiredValue',
+        'scope' => 'getScope',
+        'totalDiscount' => 'getTotalDiscount',
+        'desiredTotalDiscount' => 'getDesiredTotalDiscount',
+        'bundleIndex' => 'getBundleIndex',
+        'bundleName' => 'getBundleName'
     ];
 
     /**
@@ -197,6 +227,12 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['subPosition'] = isset($data['subPosition']) ? $data['subPosition'] : null;
+        $this->container['desiredValue'] = isset($data['desiredValue']) ? $data['desiredValue'] : null;
+        $this->container['scope'] = isset($data['scope']) ? $data['scope'] : null;
+        $this->container['totalDiscount'] = isset($data['totalDiscount']) ? $data['totalDiscount'] : null;
+        $this->container['desiredTotalDiscount'] = isset($data['desiredTotalDiscount']) ? $data['desiredTotalDiscount'] : null;
+        $this->container['bundleIndex'] = isset($data['bundleIndex']) ? $data['bundleIndex'] : null;
+        $this->container['bundleName'] = isset($data['bundleName']) ? $data['bundleName'] : null;
     }
 
     /**
@@ -245,7 +281,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name/description of this discount
+     * @param string $name The name of the discount. Contains a hashtag character indicating the index of the position of the item the discount applies to. It is identical to the value of the `position` property.
      *
      * @return $this
      */
@@ -269,7 +305,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param float $value The total monetary value of the discount
+     * @param float $value The total monetary value of the discount.
      *
      * @return $this
      */
@@ -293,7 +329,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets position
      *
-     * @param float $position The index of the item in the cart items list on which this discount should be applied
+     * @param float $position The index of the item in the cart items list on which this discount should be applied.
      *
      * @return $this
      */
@@ -317,13 +353,157 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets subPosition
      *
-     * @param float|null $subPosition The sub-index of the item in an item stack on which this discount should be applied
+     * @param float|null $subPosition Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items) is enabled. Indicates which item the discount applies to for cart items with `quantity` > 1.
      *
      * @return $this
      */
     public function setSubPosition($subPosition)
     {
         $this->container['subPosition'] = $subPosition;
+
+        return $this;
+    }
+
+    /**
+     * Gets desiredValue
+     *
+     * @return float|null
+     */
+    public function getDesiredValue()
+    {
+        return $this->container['desiredValue'];
+    }
+
+    /**
+     * Sets desiredValue
+     *
+     * @param float|null $desiredValue The original value of the discount.
+     *
+     * @return $this
+     */
+    public function setDesiredValue($desiredValue)
+    {
+        $this->container['desiredValue'] = $desiredValue;
+
+        return $this;
+    }
+
+    /**
+     * Gets scope
+     *
+     * @return string|null
+     */
+    public function getScope()
+    {
+        return $this->container['scope'];
+    }
+
+    /**
+     * Sets scope
+     *
+     * @param string|null $scope The scope of the discount: - `additionalCosts`: The discount applies to all the additional costs of the item. - `itemTotal`: The discount applies to the price of the item + the additional costs of the item. - `price`: The discount applies to the price of the item.
+     *
+     * @return $this
+     */
+    public function setScope($scope)
+    {
+        $this->container['scope'] = $scope;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalDiscount
+     *
+     * @return float|null
+     */
+    public function getTotalDiscount()
+    {
+        return $this->container['totalDiscount'];
+    }
+
+    /**
+     * Sets totalDiscount
+     *
+     * @param float|null $totalDiscount The total discount given if this effect is a result of a prorated discount.
+     *
+     * @return $this
+     */
+    public function setTotalDiscount($totalDiscount)
+    {
+        $this->container['totalDiscount'] = $totalDiscount;
+
+        return $this;
+    }
+
+    /**
+     * Gets desiredTotalDiscount
+     *
+     * @return float|null
+     */
+    public function getDesiredTotalDiscount()
+    {
+        return $this->container['desiredTotalDiscount'];
+    }
+
+    /**
+     * Sets desiredTotalDiscount
+     *
+     * @param float|null $desiredTotalDiscount The original total discount to give if this effect is a result of a prorated discount.
+     *
+     * @return $this
+     */
+    public function setDesiredTotalDiscount($desiredTotalDiscount)
+    {
+        $this->container['desiredTotalDiscount'] = $desiredTotalDiscount;
+
+        return $this;
+    }
+
+    /**
+     * Gets bundleIndex
+     *
+     * @return int|null
+     */
+    public function getBundleIndex()
+    {
+        return $this->container['bundleIndex'];
+    }
+
+    /**
+     * Sets bundleIndex
+     *
+     * @param int|null $bundleIndex The position of the bundle in a list of item bundles created from the same bundle definition.
+     *
+     * @return $this
+     */
+    public function setBundleIndex($bundleIndex)
+    {
+        $this->container['bundleIndex'] = $bundleIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets bundleName
+     *
+     * @return string|null
+     */
+    public function getBundleName()
+    {
+        return $this->container['bundleName'];
+    }
+
+    /**
+     * Sets bundleName
+     *
+     * @param string|null $bundleName The name of the bundle binding.
+     *
+     * @return $this
+     */
+    public function setBundleName($bundleName)
+    {
+        $this->container['bundleName'] = $bundleName;
 
         return $this;
     }

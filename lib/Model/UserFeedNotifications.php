@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * UserFeedNotifications Class Doc Comment
  *
  * @category Class
- * @description notifications to notify CAMA user about
+ * @description Notifications to notify CAMA user about.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -230,7 +230,7 @@ class UserFeedNotifications implements ModelInterface, ArrayAccess
     /**
      * Sets lastUpdate
      *
-     * @param \DateTime $lastUpdate Timestamp of the last request for this list
+     * @param \DateTime $lastUpdate Timestamp of the last request for this list.
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class UserFeedNotifications implements ModelInterface, ArrayAccess
     /**
      * Sets notifications
      *
-     * @param \TalonOne\Client\Model\FeedNotification[] $notifications List of all notifications to notify the user about
+     * @param \TalonOne\Client\Model\FeedNotification[] $notifications List of all notifications to notify the user about.
      *
      * @return $this
      */

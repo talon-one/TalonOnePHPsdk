@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -60,12 +60,13 @@ class Ruleset implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'campaignId' => 'int',
         'userId' => 'int',
         'rules' => '\TalonOne\Client\Model\Rule[]',
         'bindings' => '\TalonOne\Client\Model\Binding[]',
         'rbVersion' => 'string',
         'activate' => 'bool',
+        'campaignId' => 'int',
+        'templateId' => 'int',
         'activatedAt' => '\DateTime'
     ];
 
@@ -77,12 +78,13 @@ class Ruleset implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'campaignId' => null,
         'userId' => null,
         'rules' => null,
         'bindings' => null,
         'rbVersion' => null,
         'activate' => null,
+        'campaignId' => null,
+        'templateId' => null,
         'activatedAt' => 'date-time'
     ];
 
@@ -115,12 +117,13 @@ class Ruleset implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'campaignId' => 'campaignId',
         'userId' => 'userId',
         'rules' => 'rules',
         'bindings' => 'bindings',
         'rbVersion' => 'rbVersion',
         'activate' => 'activate',
+        'campaignId' => 'campaignId',
+        'templateId' => 'templateId',
         'activatedAt' => 'activatedAt'
     ];
 
@@ -132,12 +135,13 @@ class Ruleset implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'campaignId' => 'setCampaignId',
         'userId' => 'setUserId',
         'rules' => 'setRules',
         'bindings' => 'setBindings',
         'rbVersion' => 'setRbVersion',
         'activate' => 'setActivate',
+        'campaignId' => 'setCampaignId',
+        'templateId' => 'setTemplateId',
         'activatedAt' => 'setActivatedAt'
     ];
 
@@ -149,12 +153,13 @@ class Ruleset implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'campaignId' => 'getCampaignId',
         'userId' => 'getUserId',
         'rules' => 'getRules',
         'bindings' => 'getBindings',
         'rbVersion' => 'getRbVersion',
         'activate' => 'getActivate',
+        'campaignId' => 'getCampaignId',
+        'templateId' => 'getTemplateId',
         'activatedAt' => 'getActivatedAt'
     ];
 
@@ -220,12 +225,13 @@ class Ruleset implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
         $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
         $this->container['bindings'] = isset($data['bindings']) ? $data['bindings'] : null;
         $this->container['rbVersion'] = isset($data['rbVersion']) ? $data['rbVersion'] : null;
         $this->container['activate'] = isset($data['activate']) ? $data['activate'] : null;
+        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
+        $this->container['templateId'] = isset($data['templateId']) ? $data['templateId'] : null;
         $this->container['activatedAt'] = isset($data['activatedAt']) ? $data['activatedAt'] : null;
     }
 
@@ -243,9 +249,6 @@ class Ruleset implements ModelInterface, ArrayAccess
         }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
-        }
-        if ($this->container['campaignId'] === null) {
-            $invalidProperties[] = "'campaignId' can't be null";
         }
         if ($this->container['userId'] === null) {
             $invalidProperties[] = "'userId' can't be null";
@@ -284,7 +287,7 @@ class Ruleset implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -315,30 +318,6 @@ class Ruleset implements ModelInterface, ArrayAccess
     public function setCreated($created)
     {
         $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaignId
-     *
-     * @return int
-     */
-    public function getCampaignId()
-    {
-        return $this->container['campaignId'];
-    }
-
-    /**
-     * Sets campaignId
-     *
-     * @param int $campaignId The ID of the campaign that owns this entity.
-     *
-     * @return $this
-     */
-    public function setCampaignId($campaignId)
-    {
-        $this->container['campaignId'] = $campaignId;
 
         return $this;
     }
@@ -428,7 +407,7 @@ class Ruleset implements ModelInterface, ArrayAccess
     /**
      * Sets rbVersion
      *
-     * @param string|null $rbVersion A string indicating which version of the rulebuilder was used to create this ruleset.
+     * @param string|null $rbVersion The version of the rulebuilder used to create this ruleset.
      *
      * @return $this
      */
@@ -452,13 +431,61 @@ class Ruleset implements ModelInterface, ArrayAccess
     /**
      * Sets activate
      *
-     * @param bool|null $activate A boolean indicating whether this newly created ruleset should also be activated for the campaign owns it
+     * @param bool|null $activate Indicates whether this created ruleset should be activated for the campaign that owns it.
      *
      * @return $this
      */
     public function setActivate($activate)
     {
         $this->container['activate'] = $activate;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignId
+     *
+     * @return int|null
+     */
+    public function getCampaignId()
+    {
+        return $this->container['campaignId'];
+    }
+
+    /**
+     * Sets campaignId
+     *
+     * @param int|null $campaignId The ID of the campaign that owns this entity.
+     *
+     * @return $this
+     */
+    public function setCampaignId($campaignId)
+    {
+        $this->container['campaignId'] = $campaignId;
+
+        return $this;
+    }
+
+    /**
+     * Gets templateId
+     *
+     * @return int|null
+     */
+    public function getTemplateId()
+    {
+        return $this->container['templateId'];
+    }
+
+    /**
+     * Sets templateId
+     *
+     * @param int|null $templateId The ID of the campaign template that owns this entity.
+     *
+     * @return $this
+     */
+    public function setTemplateId($templateId)
+    {
+        $this->container['templateId'] = $templateId;
 
         return $this;
     }

@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -62,10 +62,14 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'programId' => 'int',
         'subLedgerId' => 'string',
         'value' => 'float',
+        'desiredValue' => 'float',
         'recipientIntegrationId' => 'string',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
-        'transactionUUID' => 'string'
+        'transactionUUID' => 'string',
+        'cartItemPosition' => 'float',
+        'cartItemSubPosition' => 'float',
+        'cardIdentifier' => 'string'
     ];
 
     /**
@@ -78,10 +82,14 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'programId' => null,
         'subLedgerId' => null,
         'value' => null,
+        'desiredValue' => null,
         'recipientIntegrationId' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'transactionUUID' => null
+        'transactionUUID' => null,
+        'cartItemPosition' => null,
+        'cartItemSubPosition' => null,
+        'cardIdentifier' => null
     ];
 
     /**
@@ -115,10 +123,14 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'programId' => 'programId',
         'subLedgerId' => 'subLedgerId',
         'value' => 'value',
+        'desiredValue' => 'desiredValue',
         'recipientIntegrationId' => 'recipientIntegrationId',
         'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
-        'transactionUUID' => 'transactionUUID'
+        'transactionUUID' => 'transactionUUID',
+        'cartItemPosition' => 'cartItemPosition',
+        'cartItemSubPosition' => 'cartItemSubPosition',
+        'cardIdentifier' => 'cardIdentifier'
     ];
 
     /**
@@ -131,10 +143,14 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'programId' => 'setProgramId',
         'subLedgerId' => 'setSubLedgerId',
         'value' => 'setValue',
+        'desiredValue' => 'setDesiredValue',
         'recipientIntegrationId' => 'setRecipientIntegrationId',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
-        'transactionUUID' => 'setTransactionUUID'
+        'transactionUUID' => 'setTransactionUUID',
+        'cartItemPosition' => 'setCartItemPosition',
+        'cartItemSubPosition' => 'setCartItemSubPosition',
+        'cardIdentifier' => 'setCardIdentifier'
     ];
 
     /**
@@ -147,10 +163,14 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'programId' => 'getProgramId',
         'subLedgerId' => 'getSubLedgerId',
         'value' => 'getValue',
+        'desiredValue' => 'getDesiredValue',
         'recipientIntegrationId' => 'getRecipientIntegrationId',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
-        'transactionUUID' => 'getTransactionUUID'
+        'transactionUUID' => 'getTransactionUUID',
+        'cartItemPosition' => 'getCartItemPosition',
+        'cartItemSubPosition' => 'getCartItemSubPosition',
+        'cardIdentifier' => 'getCardIdentifier'
     ];
 
     /**
@@ -217,10 +237,14 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
         $this->container['subLedgerId'] = isset($data['subLedgerId']) ? $data['subLedgerId'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['desiredValue'] = isset($data['desiredValue']) ? $data['desiredValue'] : null;
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
+        $this->container['cartItemPosition'] = isset($data['cartItemPosition']) ? $data['cartItemPosition'] : null;
+        $this->container['cartItemSubPosition'] = isset($data['cartItemSubPosition']) ? $data['cartItemSubPosition'] : null;
+        $this->container['cardIdentifier'] = isset($data['cardIdentifier']) ? $data['cardIdentifier'] : null;
     }
 
     /**
@@ -247,6 +271,10 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         if ($this->container['recipientIntegrationId'] === null) {
             $invalidProperties[] = "'recipientIntegrationId' can't be null";
         }
+        if ((mb_strlen($this->container['recipientIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'recipientIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['transactionUUID'] === null) {
             $invalidProperties[] = "'transactionUUID' can't be null";
         }
@@ -278,7 +306,7 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name/description of this loyalty point addition
+     * @param string $name The reason of the point addition.
      *
      * @return $this
      */
@@ -302,7 +330,7 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets programId
      *
-     * @param int $programId The ID of the loyalty program where these points were added
+     * @param int $programId The ID of the loyalty program where these points were added.
      *
      * @return $this
      */
@@ -326,7 +354,7 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets subLedgerId
      *
-     * @param string $subLedgerId The ID of the subledger within the loyalty program where these points were added
+     * @param string $subLedgerId The ID of the subledger within the loyalty program where these points were added.
      *
      * @return $this
      */
@@ -350,13 +378,37 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param float $value The amount of points that were added
+     * @param float $value The amount of points that were added.
      *
      * @return $this
      */
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets desiredValue
+     *
+     * @return float|null
+     */
+    public function getDesiredValue()
+    {
+        return $this->container['desiredValue'];
+    }
+
+    /**
+     * Sets desiredValue
+     *
+     * @param float|null $desiredValue The original amount of loyalty points to be awarded.
+     *
+     * @return $this
+     */
+    public function setDesiredValue($desiredValue)
+    {
+        $this->container['desiredValue'] = $desiredValue;
 
         return $this;
     }
@@ -374,12 +426,16 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets recipientIntegrationId
      *
-     * @param string $recipientIntegrationId The user for whom these points were added
+     * @param string $recipientIntegrationId The user for whom these points were added.
      *
      * @return $this
      */
     public function setRecipientIntegrationId($recipientIntegrationId)
     {
+        if ((mb_strlen($recipientIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $recipientIntegrationId when calling AddLoyaltyPointsEffectProps., must be smaller than or equal to 1000.');
+        }
+
         $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;
@@ -398,7 +454,7 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets startDate
      *
-     * @param \DateTime|null $startDate Date after which points will be valid
+     * @param \DateTime|null $startDate Date after which points will be valid.
      *
      * @return $this
      */
@@ -422,7 +478,7 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets expiryDate
      *
-     * @param \DateTime|null $expiryDate Date after which points will expire
+     * @param \DateTime|null $expiryDate Date after which points will expire.
      *
      * @return $this
      */
@@ -446,13 +502,85 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets transactionUUID
      *
-     * @param string $transactionUUID The identifier of this addition in the loyalty ledger
+     * @param string $transactionUUID The identifier of this addition in the loyalty ledger.
      *
      * @return $this
      */
     public function setTransactionUUID($transactionUUID)
     {
         $this->container['transactionUUID'] = $transactionUUID;
+
+        return $this;
+    }
+
+    /**
+     * Gets cartItemPosition
+     *
+     * @return float|null
+     */
+    public function getCartItemPosition()
+    {
+        return $this->container['cartItemPosition'];
+    }
+
+    /**
+     * Sets cartItemPosition
+     *
+     * @param float|null $cartItemPosition The index of the item in the cart items list on which the loyal points addition should be applied.
+     *
+     * @return $this
+     */
+    public function setCartItemPosition($cartItemPosition)
+    {
+        $this->container['cartItemPosition'] = $cartItemPosition;
+
+        return $this;
+    }
+
+    /**
+     * Gets cartItemSubPosition
+     *
+     * @return float|null
+     */
+    public function getCartItemSubPosition()
+    {
+        return $this->container['cartItemSubPosition'];
+    }
+
+    /**
+     * Sets cartItemSubPosition
+     *
+     * @param float|null $cartItemSubPosition The sub position is triggered when application flattening is enabled. It indicates to which item the loyalty points addition applies, for cart items with `quantity` > 1.
+     *
+     * @return $this
+     */
+    public function setCartItemSubPosition($cartItemSubPosition)
+    {
+        $this->container['cartItemSubPosition'] = $cartItemSubPosition;
+
+        return $this;
+    }
+
+    /**
+     * Gets cardIdentifier
+     *
+     * @return string|null
+     */
+    public function getCardIdentifier()
+    {
+        return $this->container['cardIdentifier'];
+    }
+
+    /**
+     * Sets cardIdentifier
+     *
+     * @param string|null $cardIdentifier The card on which these points were added.
+     *
+     * @return $this
+     */
+    public function setCardIdentifier($cardIdentifier)
+    {
+        $this->container['cardIdentifier'] = $cardIdentifier;
 
         return $this;
     }

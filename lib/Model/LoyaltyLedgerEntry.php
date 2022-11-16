@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -61,6 +61,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'created' => '\DateTime',
         'programID' => 'int',
         'customerProfileID' => 'string',
+        'cardID' => 'int',
         'customerSessionID' => 'string',
         'eventID' => 'int',
         'type' => 'string',
@@ -81,6 +82,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'created' => 'date-time',
         'programID' => null,
         'customerProfileID' => null,
+        'cardID' => null,
         'customerSessionID' => null,
         'eventID' => null,
         'type' => null,
@@ -122,6 +124,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'created' => 'created',
         'programID' => 'programID',
         'customerProfileID' => 'customerProfileID',
+        'cardID' => 'cardID',
         'customerSessionID' => 'customerSessionID',
         'eventID' => 'eventID',
         'type' => 'type',
@@ -142,6 +145,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'created' => 'setCreated',
         'programID' => 'setProgramID',
         'customerProfileID' => 'setCustomerProfileID',
+        'cardID' => 'setCardID',
         'customerSessionID' => 'setCustomerSessionID',
         'eventID' => 'setEventID',
         'type' => 'setType',
@@ -162,6 +166,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'created' => 'getCreated',
         'programID' => 'getProgramID',
         'customerProfileID' => 'getCustomerProfileID',
+        'cardID' => 'getCardID',
         'customerSessionID' => 'getCustomerSessionID',
         'eventID' => 'getEventID',
         'type' => 'getType',
@@ -236,6 +241,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['programID'] = isset($data['programID']) ? $data['programID'] : null;
         $this->container['customerProfileID'] = isset($data['customerProfileID']) ? $data['customerProfileID'] : null;
+        $this->container['cardID'] = isset($data['cardID']) ? $data['cardID'] : null;
         $this->container['customerSessionID'] = isset($data['customerSessionID']) ? $data['customerSessionID'] : null;
         $this->container['eventID'] = isset($data['eventID']) ? $data['eventID'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -261,9 +267,6 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         }
         if ($this->container['programID'] === null) {
             $invalidProperties[] = "'programID' can't be null";
-        }
-        if ($this->container['customerProfileID'] === null) {
-            $invalidProperties[] = "'customerProfileID' can't be null";
         }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
@@ -343,7 +346,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Gets customerProfileID
      *
-     * @return string
+     * @return string|null
      */
     public function getCustomerProfileID()
     {
@@ -353,13 +356,37 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets customerProfileID
      *
-     * @param string $customerProfileID customerProfileID
+     * @param string|null $customerProfileID customerProfileID
      *
      * @return $this
      */
     public function setCustomerProfileID($customerProfileID)
     {
         $this->container['customerProfileID'] = $customerProfileID;
+
+        return $this;
+    }
+
+    /**
+     * Gets cardID
+     *
+     * @return int|null
+     */
+    public function getCardID()
+    {
+        return $this->container['cardID'];
+    }
+
+    /**
+     * Sets cardID
+     *
+     * @param int|null $cardID cardID
+     *
+     * @return $this
+     */
+    public function setCardID($cardID)
+    {
+        $this->container['cardID'] = $cardID;
 
         return $this;
     }
@@ -545,7 +572,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets subLedgerID
      *
-     * @param string $subLedgerID This specifies if we are adding loyalty points to the main ledger or a subledger
+     * @param string $subLedgerID This specifies if we are adding loyalty points to the main ledger or a subledger.
      *
      * @return $this
      */

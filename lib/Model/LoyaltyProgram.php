@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * LoyaltyProgram Class Doc Comment
  *
  * @category Class
- * @description A Loyalty Program
+ * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,14 +59,19 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'accountID' => 'int',
-        'name' => 'string',
+        'created' => '\DateTime',
         'title' => 'string',
         'description' => 'string',
         'subscribedApplications' => 'int[]',
         'defaultValidity' => 'string',
         'defaultPending' => 'string',
-        'allowSubledger' => 'bool'
+        'allowSubledger' => 'bool',
+        'usersPerCardLimit' => 'int',
+        'accountID' => 'int',
+        'name' => 'string',
+        'tiers' => '\TalonOne\Client\Model\LoyaltyTier[]',
+        'timezone' => 'string',
+        'cardBased' => 'bool'
     ];
 
     /**
@@ -76,14 +81,19 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'accountID' => null,
-        'name' => null,
+        'created' => 'date-time',
         'title' => null,
         'description' => null,
         'subscribedApplications' => null,
         'defaultValidity' => null,
         'defaultPending' => null,
-        'allowSubledger' => null
+        'allowSubledger' => null,
+        'usersPerCardLimit' => null,
+        'accountID' => null,
+        'name' => null,
+        'tiers' => null,
+        'timezone' => null,
+        'cardBased' => null
     ];
 
     /**
@@ -114,14 +124,19 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'accountID' => 'accountID',
-        'name' => 'name',
+        'created' => 'created',
         'title' => 'title',
         'description' => 'description',
         'subscribedApplications' => 'subscribedApplications',
         'defaultValidity' => 'defaultValidity',
         'defaultPending' => 'defaultPending',
-        'allowSubledger' => 'allowSubledger'
+        'allowSubledger' => 'allowSubledger',
+        'usersPerCardLimit' => 'usersPerCardLimit',
+        'accountID' => 'accountID',
+        'name' => 'name',
+        'tiers' => 'tiers',
+        'timezone' => 'timezone',
+        'cardBased' => 'cardBased'
     ];
 
     /**
@@ -131,14 +146,19 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'accountID' => 'setAccountID',
-        'name' => 'setName',
+        'created' => 'setCreated',
         'title' => 'setTitle',
         'description' => 'setDescription',
         'subscribedApplications' => 'setSubscribedApplications',
         'defaultValidity' => 'setDefaultValidity',
         'defaultPending' => 'setDefaultPending',
-        'allowSubledger' => 'setAllowSubledger'
+        'allowSubledger' => 'setAllowSubledger',
+        'usersPerCardLimit' => 'setUsersPerCardLimit',
+        'accountID' => 'setAccountID',
+        'name' => 'setName',
+        'tiers' => 'setTiers',
+        'timezone' => 'setTimezone',
+        'cardBased' => 'setCardBased'
     ];
 
     /**
@@ -148,14 +168,19 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'accountID' => 'getAccountID',
-        'name' => 'getName',
+        'created' => 'getCreated',
         'title' => 'getTitle',
         'description' => 'getDescription',
         'subscribedApplications' => 'getSubscribedApplications',
         'defaultValidity' => 'getDefaultValidity',
         'defaultPending' => 'getDefaultPending',
-        'allowSubledger' => 'getAllowSubledger'
+        'allowSubledger' => 'getAllowSubledger',
+        'usersPerCardLimit' => 'getUsersPerCardLimit',
+        'accountID' => 'getAccountID',
+        'name' => 'getName',
+        'tiers' => 'getTiers',
+        'timezone' => 'getTimezone',
+        'cardBased' => 'getCardBased'
     ];
 
     /**
@@ -219,14 +244,19 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['subscribedApplications'] = isset($data['subscribedApplications']) ? $data['subscribedApplications'] : null;
         $this->container['defaultValidity'] = isset($data['defaultValidity']) ? $data['defaultValidity'] : null;
         $this->container['defaultPending'] = isset($data['defaultPending']) ? $data['defaultPending'] : null;
         $this->container['allowSubledger'] = isset($data['allowSubledger']) ? $data['allowSubledger'] : null;
+        $this->container['usersPerCardLimit'] = isset($data['usersPerCardLimit']) ? $data['usersPerCardLimit'] : null;
+        $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['tiers'] = isset($data['tiers']) ? $data['tiers'] : null;
+        $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
+        $this->container['cardBased'] = isset($data['cardBased']) ? $data['cardBased'] : false;
     }
 
     /**
@@ -241,11 +271,8 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['accountID'] === null) {
-            $invalidProperties[] = "'accountID' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['created'] === null) {
+            $invalidProperties[] = "'created' can't be null";
         }
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
@@ -264,6 +291,26 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         }
         if ($this->container['allowSubledger'] === null) {
             $invalidProperties[] = "'allowSubledger' can't be null";
+        }
+        if (!is_null($this->container['usersPerCardLimit']) && ($this->container['usersPerCardLimit'] < 0)) {
+            $invalidProperties[] = "invalid value for 'usersPerCardLimit', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['accountID'] === null) {
+            $invalidProperties[] = "'accountID' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['timezone'] === null) {
+            $invalidProperties[] = "'timezone' can't be null";
+        }
+        if ((mb_strlen($this->container['timezone']) < 1)) {
+            $invalidProperties[] = "invalid value for 'timezone', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['cardBased'] === null) {
+            $invalidProperties[] = "'cardBased' can't be null";
         }
         return $invalidProperties;
     }
@@ -293,7 +340,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id The ID of loyalty program.
+     * @param int $id The ID of loyalty program. Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -305,49 +352,25 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets accountID
+     * Gets created
      *
-     * @return int
+     * @return \DateTime
      */
-    public function getAccountID()
+    public function getCreated()
     {
-        return $this->container['accountID'];
+        return $this->container['created'];
     }
 
     /**
-     * Sets accountID
+     * Sets created
      *
-     * @param int $accountID The ID of the Talon.One account that owns this program.
+     * @param \DateTime $created The exact moment this entity was created.
      *
      * @return $this
      */
-    public function setAccountID($accountID)
+    public function setCreated($created)
     {
-        $this->container['accountID'] = $accountID;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The internal name for the Loyalty Program.
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
+        $this->container['created'] = $created;
 
         return $this;
     }
@@ -485,13 +508,167 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     /**
      * Sets allowSubledger
      *
-     * @param bool $allowSubledger Indicates if this program supports subledgers inside the program
+     * @param bool $allowSubledger Indicates if this program supports subledgers inside the program.
      *
      * @return $this
      */
     public function setAllowSubledger($allowSubledger)
     {
         $this->container['allowSubledger'] = $allowSubledger;
+
+        return $this;
+    }
+
+    /**
+     * Gets usersPerCardLimit
+     *
+     * @return int|null
+     */
+    public function getUsersPerCardLimit()
+    {
+        return $this->container['usersPerCardLimit'];
+    }
+
+    /**
+     * Sets usersPerCardLimit
+     *
+     * @param int|null $usersPerCardLimit The max amount of user profiles with whom a card can be shared. This can be set to 0 for no limit. This property is only used when `cardBased` is `true`.
+     *
+     * @return $this
+     */
+    public function setUsersPerCardLimit($usersPerCardLimit)
+    {
+
+        if (!is_null($usersPerCardLimit) && ($usersPerCardLimit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $usersPerCardLimit when calling LoyaltyProgram., must be bigger than or equal to 0.');
+        }
+
+        $this->container['usersPerCardLimit'] = $usersPerCardLimit;
+
+        return $this;
+    }
+
+    /**
+     * Gets accountID
+     *
+     * @return int
+     */
+    public function getAccountID()
+    {
+        return $this->container['accountID'];
+    }
+
+    /**
+     * Sets accountID
+     *
+     * @param int $accountID The ID of the Talon.One account that owns this program.
+     *
+     * @return $this
+     */
+    public function setAccountID($accountID)
+    {
+        $this->container['accountID'] = $accountID;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name The internal name for the Loyalty Program. This is an immutable value.
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tiers
+     *
+     * @return \TalonOne\Client\Model\LoyaltyTier[]|null
+     */
+    public function getTiers()
+    {
+        return $this->container['tiers'];
+    }
+
+    /**
+     * Sets tiers
+     *
+     * @param \TalonOne\Client\Model\LoyaltyTier[]|null $tiers The tiers in this loyalty program.
+     *
+     * @return $this
+     */
+    public function setTiers($tiers)
+    {
+        $this->container['tiers'] = $tiers;
+
+        return $this;
+    }
+
+    /**
+     * Gets timezone
+     *
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->container['timezone'];
+    }
+
+    /**
+     * Sets timezone
+     *
+     * @param string $timezone A string containing an IANA timezone descriptor.
+     *
+     * @return $this
+     */
+    public function setTimezone($timezone)
+    {
+
+        if ((mb_strlen($timezone) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $timezone when calling LoyaltyProgram., must be bigger than or equal to 1.');
+        }
+
+        $this->container['timezone'] = $timezone;
+
+        return $this;
+    }
+
+    /**
+     * Gets cardBased
+     *
+     * @return bool
+     */
+    public function getCardBased()
+    {
+        return $this->container['cardBased'];
+    }
+
+    /**
+     * Sets cardBased
+     *
+     * @param bool $cardBased Defines the type of loyalty program: - `true`: the program is a card-based. - `false`: the program is profile-based.
+     *
+     * @return $this
+     */
+    public function setCardBased($cardBased)
+    {
+        $this->container['cardBased'] = $cardBased;
 
         return $this;
     }

@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -66,6 +66,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'discountLimit' => 'float',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
+        'limits' => '\TalonOne\Client\Model\LimitConfig[]',
         'usageCounter' => 'int',
         'discountCounter' => 'float',
         'discountRemainder' => 'float',
@@ -91,6 +92,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'discountLimit' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
+        'limits' => null,
         'usageCounter' => null,
         'discountCounter' => null,
         'discountRemainder' => null,
@@ -137,6 +139,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'discountLimit' => 'discountLimit',
         'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
+        'limits' => 'limits',
         'usageCounter' => 'usageCounter',
         'discountCounter' => 'discountCounter',
         'discountRemainder' => 'discountRemainder',
@@ -162,6 +165,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'discountLimit' => 'setDiscountLimit',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
+        'limits' => 'setLimits',
         'usageCounter' => 'setUsageCounter',
         'discountCounter' => 'setDiscountCounter',
         'discountRemainder' => 'setDiscountRemainder',
@@ -187,6 +191,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'discountLimit' => 'getDiscountLimit',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
+        'limits' => 'getLimits',
         'usageCounter' => 'getUsageCounter',
         'discountCounter' => 'getDiscountCounter',
         'discountRemainder' => 'getDiscountRemainder',
@@ -266,6 +271,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['discountLimit'] = isset($data['discountLimit']) ? $data['discountLimit'] : null;
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['usageCounter'] = isset($data['usageCounter']) ? $data['usageCounter'] : null;
         $this->container['discountCounter'] = isset($data['discountCounter']) ? $data['discountCounter'] : null;
         $this->container['discountRemainder'] = isset($data['discountRemainder']) ? $data['discountRemainder'] : null;
@@ -273,7 +279,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['referralId'] = isset($data['referralId']) ? $data['referralId'] : null;
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
         $this->container['importId'] = isset($data['importId']) ? $data['importId'] : null;
-        $this->container['reservation'] = isset($data['reservation']) ? $data['reservation'] : null;
+        $this->container['reservation'] = isset($data['reservation']) ? $data['reservation'] : true;
         $this->container['batchId'] = isset($data['batchId']) ? $data['batchId'] : null;
     }
 
@@ -324,6 +330,10 @@ class Coupon implements ModelInterface, ArrayAccess
         if ($this->container['usageCounter'] === null) {
             $invalidProperties[] = "'usageCounter' can't be null";
         }
+        if (!is_null($this->container['recipientIntegrationId']) && (mb_strlen($this->container['recipientIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'recipientIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         return $invalidProperties;
     }
 
@@ -352,7 +362,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -424,7 +434,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The actual coupon code.
+     * @param string $value The coupon code.
      *
      * @return $this
      */
@@ -453,7 +463,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets usageLimit
      *
-     * @param int $usageLimit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     * @param int $usageLimit The number of times the coupon code can be redeemed. `0` means unlimited redemptions but any campaign usage limits will still apply.
      *
      * @return $this
      */
@@ -553,6 +563,30 @@ class Coupon implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets limits
+     *
+     * @return \TalonOne\Client\Model\LimitConfig[]|null
+     */
+    public function getLimits()
+    {
+        return $this->container['limits'];
+    }
+
+    /**
+     * Sets limits
+     *
+     * @param \TalonOne\Client\Model\LimitConfig[]|null $limits Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured.
+     *
+     * @return $this
+     */
+    public function setLimits($limits)
+    {
+        $this->container['limits'] = $limits;
+
+        return $this;
+    }
+
+    /**
      * Gets usageCounter
      *
      * @return int
@@ -637,7 +671,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this item
+     * @param object|null $attributes Custom attributes associated with this coupon.
      *
      * @return $this
      */
@@ -691,6 +725,10 @@ class Coupon implements ModelInterface, ArrayAccess
      */
     public function setRecipientIntegrationId($recipientIntegrationId)
     {
+        if (!is_null($recipientIntegrationId) && (mb_strlen($recipientIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $recipientIntegrationId when calling Coupon., must be smaller than or equal to 1000.');
+        }
+
         $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;
@@ -733,7 +771,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets reservation
      *
-     * @param bool|null $reservation This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favourite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified.
+     * @param bool|null $reservation Defines the type of reservation: - `true`: The reservation is a soft reservation. Any customer can use the coupon. This is done via the [Create coupon reservation endpoint](/integration-api/#operation/createCouponReservation). - `false`: The reservation is a hard reservation. Only the associated customer (`recipientIntegrationId`) can use the coupon. This is done via the Campaign Manager when you create a coupon for a given `recipientIntegrationId`, the [Create coupons endpoint](/management-api/#operation/createCoupons) or [Create coupons for multiple recipients endpoint](/management-api/#operation/createCouponsForMultipleRecipients).
      *
      * @return $this
      */

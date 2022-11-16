@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -58,10 +58,15 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'date' => '\DateTime',
         'totalActivePoints' => 'float',
         'totalPendingPoints' => 'float',
         'totalSpentPoints' => 'float',
-        'totalExpiredPoints' => 'float'
+        'totalExpiredPoints' => 'float',
+        'totalMembers' => 'float',
+        'newMembers' => 'float',
+        'spentPoints' => '\TalonOne\Client\Model\LoyaltyDashboardPointsBreakdown',
+        'earnedPoints' => '\TalonOne\Client\Model\LoyaltyDashboardPointsBreakdown'
     ];
 
     /**
@@ -70,10 +75,15 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'date' => 'date-time',
         'totalActivePoints' => null,
         'totalPendingPoints' => null,
         'totalSpentPoints' => null,
-        'totalExpiredPoints' => null
+        'totalExpiredPoints' => null,
+        'totalMembers' => null,
+        'newMembers' => null,
+        'spentPoints' => null,
+        'earnedPoints' => null
     ];
 
     /**
@@ -103,10 +113,15 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'date' => 'date',
         'totalActivePoints' => 'totalActivePoints',
         'totalPendingPoints' => 'totalPendingPoints',
         'totalSpentPoints' => 'totalSpentPoints',
-        'totalExpiredPoints' => 'totalExpiredPoints'
+        'totalExpiredPoints' => 'totalExpiredPoints',
+        'totalMembers' => 'totalMembers',
+        'newMembers' => 'newMembers',
+        'spentPoints' => 'spentPoints',
+        'earnedPoints' => 'earnedPoints'
     ];
 
     /**
@@ -115,10 +130,15 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'date' => 'setDate',
         'totalActivePoints' => 'setTotalActivePoints',
         'totalPendingPoints' => 'setTotalPendingPoints',
         'totalSpentPoints' => 'setTotalSpentPoints',
-        'totalExpiredPoints' => 'setTotalExpiredPoints'
+        'totalExpiredPoints' => 'setTotalExpiredPoints',
+        'totalMembers' => 'setTotalMembers',
+        'newMembers' => 'setNewMembers',
+        'spentPoints' => 'setSpentPoints',
+        'earnedPoints' => 'setEarnedPoints'
     ];
 
     /**
@@ -127,10 +147,15 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'date' => 'getDate',
         'totalActivePoints' => 'getTotalActivePoints',
         'totalPendingPoints' => 'getTotalPendingPoints',
         'totalSpentPoints' => 'getTotalSpentPoints',
-        'totalExpiredPoints' => 'getTotalExpiredPoints'
+        'totalExpiredPoints' => 'getTotalExpiredPoints',
+        'totalMembers' => 'getTotalMembers',
+        'newMembers' => 'getNewMembers',
+        'spentPoints' => 'getSpentPoints',
+        'earnedPoints' => 'getEarnedPoints'
     ];
 
     /**
@@ -193,10 +218,15 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
         $this->container['totalActivePoints'] = isset($data['totalActivePoints']) ? $data['totalActivePoints'] : null;
         $this->container['totalPendingPoints'] = isset($data['totalPendingPoints']) ? $data['totalPendingPoints'] : null;
         $this->container['totalSpentPoints'] = isset($data['totalSpentPoints']) ? $data['totalSpentPoints'] : null;
         $this->container['totalExpiredPoints'] = isset($data['totalExpiredPoints']) ? $data['totalExpiredPoints'] : null;
+        $this->container['totalMembers'] = isset($data['totalMembers']) ? $data['totalMembers'] : null;
+        $this->container['newMembers'] = isset($data['newMembers']) ? $data['newMembers'] : null;
+        $this->container['spentPoints'] = isset($data['spentPoints']) ? $data['spentPoints'] : null;
+        $this->container['earnedPoints'] = isset($data['earnedPoints']) ? $data['earnedPoints'] : null;
     }
 
     /**
@@ -208,6 +238,9 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['date'] === null) {
+            $invalidProperties[] = "'date' can't be null";
+        }
         if ($this->container['totalActivePoints'] === null) {
             $invalidProperties[] = "'totalActivePoints' can't be null";
         }
@@ -219,6 +252,18 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
         }
         if ($this->container['totalExpiredPoints'] === null) {
             $invalidProperties[] = "'totalExpiredPoints' can't be null";
+        }
+        if ($this->container['totalMembers'] === null) {
+            $invalidProperties[] = "'totalMembers' can't be null";
+        }
+        if ($this->container['newMembers'] === null) {
+            $invalidProperties[] = "'newMembers' can't be null";
+        }
+        if ($this->container['spentPoints'] === null) {
+            $invalidProperties[] = "'spentPoints' can't be null";
+        }
+        if ($this->container['earnedPoints'] === null) {
+            $invalidProperties[] = "'earnedPoints' can't be null";
         }
         return $invalidProperties;
     }
@@ -236,6 +281,30 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->container['date'];
+    }
+
+    /**
+     * Sets date
+     *
+     * @param \DateTime $date Date at which data point was collected.
+     *
+     * @return $this
+     */
+    public function setDate($date)
+    {
+        $this->container['date'] = $date;
+
+        return $this;
+    }
+
+    /**
      * Gets totalActivePoints
      *
      * @return float
@@ -248,7 +317,7 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
     /**
      * Sets totalActivePoints
      *
-     * @param float $totalActivePoints Total of active points for this loyalty program
+     * @param float $totalActivePoints Total of active points for this loyalty program.
      *
      * @return $this
      */
@@ -272,7 +341,7 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
     /**
      * Sets totalPendingPoints
      *
-     * @param float $totalPendingPoints Total of pending points for this loyalty program
+     * @param float $totalPendingPoints Total of pending points for this loyalty program.
      *
      * @return $this
      */
@@ -296,7 +365,7 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
     /**
      * Sets totalSpentPoints
      *
-     * @param float $totalSpentPoints Total of spent points for this loyalty program
+     * @param float $totalSpentPoints Total of spent points for this loyalty program.
      *
      * @return $this
      */
@@ -320,13 +389,109 @@ class LoyaltyStatistics implements ModelInterface, ArrayAccess
     /**
      * Sets totalExpiredPoints
      *
-     * @param float $totalExpiredPoints Total of expired points for this loyalty program
+     * @param float $totalExpiredPoints Total of expired points for this loyalty program.
      *
      * @return $this
      */
     public function setTotalExpiredPoints($totalExpiredPoints)
     {
         $this->container['totalExpiredPoints'] = $totalExpiredPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalMembers
+     *
+     * @return float
+     */
+    public function getTotalMembers()
+    {
+        return $this->container['totalMembers'];
+    }
+
+    /**
+     * Sets totalMembers
+     *
+     * @param float $totalMembers Number of loyalty program members.
+     *
+     * @return $this
+     */
+    public function setTotalMembers($totalMembers)
+    {
+        $this->container['totalMembers'] = $totalMembers;
+
+        return $this;
+    }
+
+    /**
+     * Gets newMembers
+     *
+     * @return float
+     */
+    public function getNewMembers()
+    {
+        return $this->container['newMembers'];
+    }
+
+    /**
+     * Sets newMembers
+     *
+     * @param float $newMembers Number of members who joined on this day.
+     *
+     * @return $this
+     */
+    public function setNewMembers($newMembers)
+    {
+        $this->container['newMembers'] = $newMembers;
+
+        return $this;
+    }
+
+    /**
+     * Gets spentPoints
+     *
+     * @return \TalonOne\Client\Model\LoyaltyDashboardPointsBreakdown
+     */
+    public function getSpentPoints()
+    {
+        return $this->container['spentPoints'];
+    }
+
+    /**
+     * Sets spentPoints
+     *
+     * @param \TalonOne\Client\Model\LoyaltyDashboardPointsBreakdown $spentPoints spentPoints
+     *
+     * @return $this
+     */
+    public function setSpentPoints($spentPoints)
+    {
+        $this->container['spentPoints'] = $spentPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets earnedPoints
+     *
+     * @return \TalonOne\Client\Model\LoyaltyDashboardPointsBreakdown
+     */
+    public function getEarnedPoints()
+    {
+        return $this->container['earnedPoints'];
+    }
+
+    /**
+     * Sets earnedPoints
+     *
+     * @param \TalonOne\Client\Model\LoyaltyDashboardPointsBreakdown $earnedPoints earnedPoints
+     *
+     * @return $this
+     */
+    public function setEarnedPoints($earnedPoints)
+    {
+        $this->container['earnedPoints'] = $earnedPoints;
 
         return $this;
     }

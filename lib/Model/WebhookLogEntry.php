@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * WebhookLogEntry Class Doc Comment
  *
  * @category Class
- * @description Log of webhook api calls
+ * @description Log of webhook api calls.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -290,7 +290,7 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id UUID reference of the webhook request
+     * @param string $id UUID reference of the webhook request.
      *
      * @return $this
      */
@@ -314,7 +314,7 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets integrationRequestUuid
      *
-     * @param string $integrationRequestUuid UUID reference of the integration request linked to this webhook request
+     * @param string $integrationRequestUuid UUID reference of the integration request linked to this webhook request.
      *
      * @return $this
      */
@@ -338,7 +338,7 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets webhookId
      *
-     * @param int $webhookId ID of the webhook that triggered the request
+     * @param int $webhookId ID of the webhook that triggered the request.
      *
      * @return $this
      */
@@ -362,7 +362,7 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets applicationId
      *
-     * @param int|null $applicationId ID of the application that triggered the webhook
+     * @param int|null $applicationId ID of the application that triggered the webhook.
      *
      * @return $this
      */
@@ -458,7 +458,7 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param int|null $status HTTP status code of response
+     * @param int|null $status HTTP status code of response.
      *
      * @return $this
      */

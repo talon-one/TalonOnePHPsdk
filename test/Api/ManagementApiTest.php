@@ -12,7 +12,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -75,7 +75,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for addLoyaltyPoints
      *
-     * Add points in a certain loyalty program for the specified customer.
+     * Add points in loyalty program for given customer.
      *
      */
     public function testAddLoyaltyPoints()
@@ -85,7 +85,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for copyCampaignToApplications
      *
-     * Copy the campaign into every specified application.
+     * Copy the campaign into the specified application.
      *
      */
     public function testCopyCampaignToApplications()
@@ -93,9 +93,19 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for createAccountCollection
+     *
+     * Create account-level collection.
+     *
+     */
+    public function testCreateAccountCollection()
+    {
+    }
+
+    /**
      * Test case for createAdditionalCost
      *
-     * Define a new additional cost.
+     * Create additional cost.
      *
      */
     public function testCreateAdditionalCost()
@@ -105,7 +115,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for createAttribute
      *
-     * Define a new custom attribute.
+     * Create custom attribute.
      *
      */
     public function testCreateAttribute()
@@ -113,19 +123,29 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for createCampaign
+     * Test case for createCampaignFromTemplate
      *
-     * Create a Campaign.
+     * Create campaign from campaign template.
      *
      */
-    public function testCreateCampaign()
+    public function testCreateCampaignFromTemplate()
+    {
+    }
+
+    /**
+     * Test case for createCollection
+     *
+     * Create collection.
+     *
+     */
+    public function testCreateCollection()
     {
     }
 
     /**
      * Test case for createCoupons
      *
-     * Create Coupons.
+     * Create coupons.
      *
      */
     public function testCreateCoupons()
@@ -133,12 +153,32 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for createCouponsAsync
+     *
+     * Create coupons asynchronously.
+     *
+     */
+    public function testCreateCouponsAsync()
+    {
+    }
+
+    /**
      * Test case for createCouponsForMultipleRecipients
      *
-     * Create Coupons for Multiple Recipients.
+     * Create coupons for multiple recipients.
      *
      */
     public function testCreateCouponsForMultipleRecipients()
+    {
+    }
+
+    /**
+     * Test case for createNotificationWebhook
+     *
+     * Create notification webhook.
+     *
+     */
+    public function testCreateNotificationWebhook()
     {
     }
 
@@ -153,19 +193,9 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for createRuleset
-     *
-     * Create a Ruleset.
-     *
-     */
-    public function testCreateRuleset()
-    {
-    }
-
-    /**
      * Test case for createSession
      *
-     * Create a Session.
+     * Create session.
      *
      */
     public function testCreateSession()
@@ -173,9 +203,19 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for deleteAccountCollection
+     *
+     * Delete account-level collection.
+     *
+     */
+    public function testDeleteAccountCollection()
+    {
+    }
+
+    /**
      * Test case for deleteCampaign
      *
-     * Delete a Campaign.
+     * Delete campaign.
      *
      */
     public function testDeleteCampaign()
@@ -183,9 +223,19 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for deleteCollection
+     *
+     * Delete collection.
+     *
+     */
+    public function testDeleteCollection()
+    {
+    }
+
+    /**
      * Test case for deleteCoupon
      *
-     * Delete one Coupon.
+     * Delete coupon.
      *
      */
     public function testDeleteCoupon()
@@ -195,7 +245,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for deleteCoupons
      *
-     * Delete Coupons.
+     * Delete coupons.
      *
      */
     public function testDeleteCoupons()
@@ -203,9 +253,19 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for deleteNotificationWebhook
+     *
+     * Delete notification webhook.
+     *
+     */
+    public function testDeleteNotificationWebhook()
+    {
+    }
+
+    /**
      * Test case for deleteReferral
      *
-     * Delete one Referral.
+     * Delete referral.
      *
      */
     public function testDeleteReferral()
@@ -213,19 +273,9 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for deleteRuleset
-     *
-     * Delete a Ruleset.
-     *
-     */
-    public function testDeleteRuleset()
-    {
-    }
-
-    /**
      * Test case for destroySession
      *
-     * Destroy a Session.
+     * Destroy session.
      *
      */
     public function testDestroySession()
@@ -233,9 +283,29 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for exportAccountCollectionItems
+     *
+     * Export account-level collection's items.
+     *
+     */
+    public function testExportAccountCollectionItems()
+    {
+    }
+
+    /**
+     * Test case for exportCollectionItems
+     *
+     * Export a collection's items.
+     *
+     */
+    public function testExportCollectionItems()
+    {
+    }
+
+    /**
      * Test case for exportCoupons
      *
-     * Export Coupons to a CSV file.
+     * Export coupons.
      *
      */
     public function testExportCoupons()
@@ -245,7 +315,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for exportCustomerSessions
      *
-     * Export Customer Sessions to a CSV file.
+     * Export customer sessions.
      *
      */
     public function testExportCustomerSessions()
@@ -255,7 +325,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for exportEffects
      *
-     * Export triggered Effects to a CSV file.
+     * Export triggered effects.
      *
      */
     public function testExportEffects()
@@ -275,7 +345,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for exportLoyaltyLedger
      *
-     * Export a customer's loyalty ledger log to a CSV file.
+     * Export a customer's loyalty ledger log.
      *
      */
     public function testExportLoyaltyLedger()
@@ -283,19 +353,19 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for getAccessLogs
+     * Test case for exportReferrals
      *
-     * Get access logs for application (with total count).
+     * Export referrals.
      *
      */
-    public function testGetAccessLogs()
+    public function testExportReferrals()
     {
     }
 
     /**
      * Test case for getAccessLogsWithoutTotalCount
      *
-     * Get access logs for application.
+     * Get access logs for Application.
      *
      */
     public function testGetAccessLogsWithoutTotalCount()
@@ -305,7 +375,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getAccount
      *
-     * Get Account Details.
+     * Get account details.
      *
      */
     public function testGetAccount()
@@ -315,7 +385,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getAccountAnalytics
      *
-     * Get Account Analytics.
+     * Get account analytics.
      *
      */
     public function testGetAccountAnalytics()
@@ -323,9 +393,19 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for getAccountCollection
+     *
+     * Get account-level collection.
+     *
+     */
+    public function testGetAccountCollection()
+    {
+    }
+
+    /**
      * Test case for getAdditionalCost
      *
-     * Get an additional cost.
+     * Get additional cost.
      *
      */
     public function testGetAdditionalCost()
@@ -345,7 +425,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getAllAccessLogs
      *
-     * Get all access logs.
+     * List access logs.
      *
      */
     public function testGetAllAccessLogs()
@@ -355,7 +435,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getAllRoles
      *
-     * Get all roles.
+     * List roles.
      *
      */
     public function testGetAllRoles()
@@ -365,7 +445,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getApplication
      *
-     * Get Application.
+     * Get application.
      *
      */
     public function testGetApplication()
@@ -385,7 +465,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getApplicationCustomer
      *
-     * Get Application Customer.
+     * Get application's customer.
      *
      */
     public function testGetApplicationCustomer()
@@ -393,9 +473,19 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for getApplicationCustomerFriends
+     *
+     * List friends referred by customer profile.
+     *
+     */
+    public function testGetApplicationCustomerFriends()
+    {
+    }
+
+    /**
      * Test case for getApplicationCustomers
      *
-     * List Application Customers.
+     * List application's customers.
      *
      */
     public function testGetApplicationCustomers()
@@ -405,7 +495,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getApplicationCustomersByAttributes
      *
-     * Get a list of the customer profiles that match the given attributes (with total count).
+     * List application customers matching the given attributes.
      *
      */
     public function testGetApplicationCustomersByAttributes()
@@ -415,7 +505,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getApplicationEventTypes
      *
-     * List Applications Event Types.
+     * List Applications event types.
      *
      */
     public function testGetApplicationEventTypes()
@@ -423,19 +513,9 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for getApplicationEvents
-     *
-     * List Applications Events (with total count).
-     *
-     */
-    public function testGetApplicationEvents()
-    {
-    }
-
-    /**
      * Test case for getApplicationEventsWithoutTotalCount
      *
-     * List Applications Events.
+     * List Applications events.
      *
      */
     public function testGetApplicationEventsWithoutTotalCount()
@@ -445,7 +525,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getApplicationSession
      *
-     * Get Application Session.
+     * Get Application session.
      *
      */
     public function testGetApplicationSession()
@@ -455,7 +535,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getApplicationSessions
      *
-     * List Application Sessions.
+     * List Application sessions.
      *
      */
     public function testGetApplicationSessions()
@@ -465,7 +545,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getApplications
      *
-     * List Applications.
+     * List applications.
      *
      */
     public function testGetApplications()
@@ -475,7 +555,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getAttribute
      *
-     * Get a custom attribute.
+     * Get custom attribute.
      *
      */
     public function testGetAttribute()
@@ -495,7 +575,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getAudiences
      *
-     * Get all audiences.
+     * List audiences.
      *
      */
     public function testGetAudiences()
@@ -505,7 +585,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getCampaign
      *
-     * Get a Campaign.
+     * Get campaign.
      *
      */
     public function testGetCampaign()
@@ -525,7 +605,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getCampaignByAttributes
      *
-     * Get a list of all campaigns that match the given attributes.
+     * List campaigns that match the given attributes.
      *
      */
     public function testGetCampaignByAttributes()
@@ -535,7 +615,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getCampaigns
      *
-     * List your Campaigns.
+     * List campaigns.
      *
      */
     public function testGetCampaigns()
@@ -545,7 +625,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getChanges
      *
-     * Get audit log for an account.
+     * Get audit logs for an account.
      *
      */
     public function testGetChanges()
@@ -553,39 +633,29 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for getCoupons
+     * Test case for getCollection
      *
-     * List Coupons (with total count).
+     * Get collection.
      *
      */
-    public function testGetCoupons()
+    public function testGetCollection()
     {
     }
 
     /**
-     * Test case for getCouponsByAttributes
+     * Test case for getCollectionItems
      *
-     * Get a list of the coupons that match the given attributes.
-     *
-     */
-    public function testGetCouponsByAttributes()
-    {
-    }
-
-    /**
-     * Test case for getCouponsByAttributesApplicationWide
-     *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count).
+     * Get collection items.
      *
      */
-    public function testGetCouponsByAttributesApplicationWide()
+    public function testGetCollectionItems()
     {
     }
 
     /**
      * Test case for getCouponsWithoutTotalCount
      *
-     * List Coupons.
+     * List coupons.
      *
      */
     public function testGetCouponsWithoutTotalCount()
@@ -595,20 +665,10 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getCustomerActivityReport
      *
-     * Get Activity Report for Single Customer.
+     * Get customer's activity report.
      *
      */
     public function testGetCustomerActivityReport()
-    {
-    }
-
-    /**
-     * Test case for getCustomerActivityReports
-     *
-     * Get Activity Reports for Application Customers (with total count).
-     *
-     */
-    public function testGetCustomerActivityReports()
     {
     }
 
@@ -625,7 +685,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getCustomerAnalytics
      *
-     * Get Analytics Report for a Customer.
+     * Get customer's analytics report.
      *
      */
     public function testGetCustomerAnalytics()
@@ -635,7 +695,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getCustomerProfile
      *
-     * Get Customer Profile.
+     * Get customer profile.
      *
      */
     public function testGetCustomerProfile()
@@ -645,7 +705,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getCustomerProfiles
      *
-     * List Customer Profiles.
+     * List customer profiles.
      *
      */
     public function testGetCustomerProfiles()
@@ -655,7 +715,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getCustomersByAttributes
      *
-     * Get a list of the customer profiles that match the given attributes.
+     * List customer profiles matching the given attributes.
      *
      */
     public function testGetCustomersByAttributes()
@@ -665,7 +725,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getEventTypes
      *
-     * List Event Types.
+     * List event types.
      *
      */
     public function testGetEventTypes()
@@ -675,7 +735,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getExports
      *
-     * Get Exports.
+     * Get exports.
      *
      */
     public function testGetExports()
@@ -685,7 +745,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getLoyaltyPoints
      *
-     * get the Loyalty Ledger for this integrationID.
+     * Get the Loyalty Ledger for this integrationID.
      *
      */
     public function testGetLoyaltyPoints()
@@ -695,7 +755,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getLoyaltyProgram
      *
-     * Get a loyalty program.
+     * Get loyalty program.
      *
      */
     public function testGetLoyaltyProgram()
@@ -705,7 +765,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getLoyaltyPrograms
      *
-     * List all loyalty Programs.
+     * List loyalty programs.
      *
      */
     public function testGetLoyaltyPrograms()
@@ -723,19 +783,29 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for getReferrals
+     * Test case for getNotificationWebhook
      *
-     * List Referrals (with total count).
+     * Get notification webhook.
      *
      */
-    public function testGetReferrals()
+    public function testGetNotificationWebhook()
+    {
+    }
+
+    /**
+     * Test case for getNotificationWebhooks
+     *
+     * List notification webhooks.
+     *
+     */
+    public function testGetNotificationWebhooks()
     {
     }
 
     /**
      * Test case for getReferralsWithoutTotalCount
      *
-     * List Referrals.
+     * List referrals.
      *
      */
     public function testGetReferralsWithoutTotalCount()
@@ -745,7 +815,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getRole
      *
-     * Get information for the specified role.
+     * Get role.
      *
      */
     public function testGetRole()
@@ -755,7 +825,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getRuleset
      *
-     * Get a Ruleset.
+     * Get ruleset.
      *
      */
     public function testGetRuleset()
@@ -765,7 +835,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getRulesets
      *
-     * List Campaign Rulesets.
+     * List campaign rulesets.
      *
      */
     public function testGetRulesets()
@@ -775,7 +845,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getUser
      *
-     * Get a single User.
+     * Get user.
      *
      */
     public function testGetUser()
@@ -785,7 +855,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getUsers
      *
-     * List Users in your account.
+     * List users in account.
      *
      */
     public function testGetUsers()
@@ -795,7 +865,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getWebhook
      *
-     * Get Webhook.
+     * Get webhook.
      *
      */
     public function testGetWebhook()
@@ -805,7 +875,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getWebhookActivationLogs
      *
-     * List Webhook activation Log Entries.
+     * List webhook activation log entries.
      *
      */
     public function testGetWebhookActivationLogs()
@@ -815,7 +885,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getWebhookLogs
      *
-     * List Webhook Log Entries.
+     * List webhook log entries.
      *
      */
     public function testGetWebhookLogs()
@@ -825,7 +895,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getWebhooks
      *
-     * List Webhooks.
+     * List webhooks.
      *
      */
     public function testGetWebhooks()
@@ -833,9 +903,109 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for importAccountCollection
+     *
+     * Import data in existing account-level collection.
+     *
+     */
+    public function testImportAccountCollection()
+    {
+    }
+
+    /**
+     * Test case for importAllowedList
+     *
+     * Import allowed values for attribute.
+     *
+     */
+    public function testImportAllowedList()
+    {
+    }
+
+    /**
+     * Test case for importCollection
+     *
+     * Import data in existing collection.
+     *
+     */
+    public function testImportCollection()
+    {
+    }
+
+    /**
+     * Test case for importCoupons
+     *
+     * Import coupons.
+     *
+     */
+    public function testImportCoupons()
+    {
+    }
+
+    /**
+     * Test case for importLoyaltyPoints
+     *
+     * Import loyalty points.
+     *
+     */
+    public function testImportLoyaltyPoints()
+    {
+    }
+
+    /**
+     * Test case for importPoolGiveaways
+     *
+     * Import giveaway codes into a giveaway pool.
+     *
+     */
+    public function testImportPoolGiveaways()
+    {
+    }
+
+    /**
+     * Test case for importReferrals
+     *
+     * Import referrals.
+     *
+     */
+    public function testImportReferrals()
+    {
+    }
+
+    /**
+     * Test case for listAccountCollections
+     *
+     * List collections in account.
+     *
+     */
+    public function testListAccountCollections()
+    {
+    }
+
+    /**
+     * Test case for listCollections
+     *
+     * List collections.
+     *
+     */
+    public function testListCollections()
+    {
+    }
+
+    /**
+     * Test case for listCollectionsInApplication
+     *
+     * List collections in application.
+     *
+     */
+    public function testListCollectionsInApplication()
+    {
+    }
+
+    /**
      * Test case for removeLoyaltyPoints
      *
-     * Deduct points in a certain loyalty program for the specified customer.
+     * Deduct points in loyalty program for given customer.
      *
      */
     public function testRemoveLoyaltyPoints()
@@ -853,29 +1023,9 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for searchCouponsAdvanced
-     *
-     * Get a list of the coupons that match the given attributes (with total count).
-     *
-     */
-    public function testSearchCouponsAdvanced()
-    {
-    }
-
-    /**
-     * Test case for searchCouponsAdvancedApplicationWide
-     *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count).
-     *
-     */
-    public function testSearchCouponsAdvancedApplicationWide()
-    {
-    }
-
-    /**
      * Test case for searchCouponsAdvancedApplicationWideWithoutTotalCount
      *
-     * Get a list of the coupons that match the given attributes in all active campaigns of an application.
+     * List coupons that match the given attributes (without total count).
      *
      */
     public function testSearchCouponsAdvancedApplicationWideWithoutTotalCount()
@@ -885,7 +1035,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for searchCouponsAdvancedWithoutTotalCount
      *
-     * Get a list of the coupons that match the given attributes.
+     * List coupons that match the given attributes in campaign (without total count).
      *
      */
     public function testSearchCouponsAdvancedWithoutTotalCount()
@@ -893,9 +1043,19 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for updateAccountCollection
+     *
+     * Update account-level collection.
+     *
+     */
+    public function testUpdateAccountCollection()
+    {
+    }
+
+    /**
      * Test case for updateAdditionalCost
      *
-     * Update an additional cost.
+     * Update additional cost.
      *
      */
     public function testUpdateAdditionalCost()
@@ -905,7 +1065,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for updateAttribute
      *
-     * Update a custom attribute.
+     * Update custom attribute.
      *
      */
     public function testUpdateAttribute()
@@ -915,7 +1075,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for updateCampaign
      *
-     * Update a Campaign.
+     * Update campaign.
      *
      */
     public function testUpdateCampaign()
@@ -923,9 +1083,19 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for updateCollection
+     *
+     * Update collection description.
+     *
+     */
+    public function testUpdateCollection()
+    {
+    }
+
+    /**
      * Test case for updateCoupon
      *
-     * Update a Coupon.
+     * Update coupon.
      *
      */
     public function testUpdateCoupon()
@@ -935,7 +1105,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for updateCouponBatch
      *
-     * Update a Batch of Coupons.
+     * Update coupons.
      *
      */
     public function testUpdateCouponBatch()
@@ -943,12 +1113,22 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for updateRuleset
+     * Test case for updateNotificationWebhook
      *
-     * Update a Ruleset.
+     * Update notification webhook.
      *
      */
-    public function testUpdateRuleset()
+    public function testUpdateNotificationWebhook()
+    {
+    }
+
+    /**
+     * Test case for updateReferral
+     *
+     * Update referral.
+     *
+     */
+    public function testUpdateReferral()
     {
     }
 }

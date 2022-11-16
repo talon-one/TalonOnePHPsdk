@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * RollbackDiscountEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;rollbackDiscount\&quot; effect. This gets triggered whenever previously closed session is now cancelled and a setDiscount effect was cancelled on our internal discount limit counters.
+ * @description The properties specific to the \&quot;rollbackDiscount\&quot; effect. This gets triggered whenever previously closed session is now cancelled or partially returned and a setDiscount effect was cancelled on our internal discount limit counters.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,7 +59,12 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'value' => 'float'
+        'value' => 'float',
+        'cartItemPosition' => 'float',
+        'cartItemSubPosition' => 'float',
+        'additionalCostId' => 'int',
+        'additionalCost' => 'string',
+        'scope' => 'string'
     ];
 
     /**
@@ -69,7 +74,12 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'value' => null
+        'value' => null,
+        'cartItemPosition' => null,
+        'cartItemSubPosition' => null,
+        'additionalCostId' => null,
+        'additionalCost' => null,
+        'scope' => null
     ];
 
     /**
@@ -100,7 +110,12 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'value' => 'value'
+        'value' => 'value',
+        'cartItemPosition' => 'cartItemPosition',
+        'cartItemSubPosition' => 'cartItemSubPosition',
+        'additionalCostId' => 'additionalCostId',
+        'additionalCost' => 'additionalCost',
+        'scope' => 'scope'
     ];
 
     /**
@@ -110,7 +125,12 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'cartItemPosition' => 'setCartItemPosition',
+        'cartItemSubPosition' => 'setCartItemSubPosition',
+        'additionalCostId' => 'setAdditionalCostId',
+        'additionalCost' => 'setAdditionalCost',
+        'scope' => 'setScope'
     ];
 
     /**
@@ -120,7 +140,12 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'cartItemPosition' => 'getCartItemPosition',
+        'cartItemSubPosition' => 'getCartItemSubPosition',
+        'additionalCostId' => 'getAdditionalCostId',
+        'additionalCost' => 'getAdditionalCost',
+        'scope' => 'getScope'
     ];
 
     /**
@@ -185,6 +210,11 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['cartItemPosition'] = isset($data['cartItemPosition']) ? $data['cartItemPosition'] : null;
+        $this->container['cartItemSubPosition'] = isset($data['cartItemSubPosition']) ? $data['cartItemSubPosition'] : null;
+        $this->container['additionalCostId'] = isset($data['additionalCostId']) ? $data['additionalCostId'] : null;
+        $this->container['additionalCost'] = isset($data['additionalCost']) ? $data['additionalCost'] : null;
+        $this->container['scope'] = isset($data['scope']) ? $data['scope'] : null;
     }
 
     /**
@@ -230,7 +260,7 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of the \"setDiscount\" effect that was rolled back
+     * @param string $name The name of the \"setDiscount\" effect that was rolled back.
      *
      * @return $this
      */
@@ -254,13 +284,133 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param float $value The value of the discount that was rolled back
+     * @param float $value The value of the discount that was rolled back.
      *
      * @return $this
      */
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets cartItemPosition
+     *
+     * @return float|null
+     */
+    public function getCartItemPosition()
+    {
+        return $this->container['cartItemPosition'];
+    }
+
+    /**
+     * Sets cartItemPosition
+     *
+     * @param float|null $cartItemPosition The index of the item in the cart items for which the discount was rolled back.
+     *
+     * @return $this
+     */
+    public function setCartItemPosition($cartItemPosition)
+    {
+        $this->container['cartItemPosition'] = $cartItemPosition;
+
+        return $this;
+    }
+
+    /**
+     * Gets cartItemSubPosition
+     *
+     * @return float|null
+     */
+    public function getCartItemSubPosition()
+    {
+        return $this->container['cartItemSubPosition'];
+    }
+
+    /**
+     * Sets cartItemSubPosition
+     *
+     * @param float|null $cartItemSubPosition The index of the item unit in its line item. It is only used for cart items with `quantity` > 1 and is only returned when cart item flattening is enabled.
+     *
+     * @return $this
+     */
+    public function setCartItemSubPosition($cartItemSubPosition)
+    {
+        $this->container['cartItemSubPosition'] = $cartItemSubPosition;
+
+        return $this;
+    }
+
+    /**
+     * Gets additionalCostId
+     *
+     * @return int|null
+     */
+    public function getAdditionalCostId()
+    {
+        return $this->container['additionalCostId'];
+    }
+
+    /**
+     * Sets additionalCostId
+     *
+     * @param int|null $additionalCostId The ID of the additional cost that was rolled back.
+     *
+     * @return $this
+     */
+    public function setAdditionalCostId($additionalCostId)
+    {
+        $this->container['additionalCostId'] = $additionalCostId;
+
+        return $this;
+    }
+
+    /**
+     * Gets additionalCost
+     *
+     * @return string|null
+     */
+    public function getAdditionalCost()
+    {
+        return $this->container['additionalCost'];
+    }
+
+    /**
+     * Sets additionalCost
+     *
+     * @param string|null $additionalCost The name of the additional cost that was rolled back.
+     *
+     * @return $this
+     */
+    public function setAdditionalCost($additionalCost)
+    {
+        $this->container['additionalCost'] = $additionalCost;
+
+        return $this;
+    }
+
+    /**
+     * Gets scope
+     *
+     * @return string|null
+     */
+    public function getScope()
+    {
+        return $this->container['scope'];
+    }
+
+    /**
+     * Sets scope
+     *
+     * @param string|null $scope The scope of the rolled back discount - For a discount per session, it can be one of `cartItems`, `additionalCosts` or `sessionTotal` - For a discount per item, it can be one of `price`, `additionalCosts` or `itemTotal`
+     *
+     * @return $this
+     */
+    public function setScope($scope)
+    {
+        $this->container['scope'] = $scope;
 
         return $this;
     }

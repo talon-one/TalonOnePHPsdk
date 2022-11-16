@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -61,7 +61,7 @@ class NewRole implements ModelInterface, ArrayAccess
         'name' => 'string',
         'description' => 'string',
         'acl' => 'string',
-        'users' => 'int[]'
+        'members' => 'int[]'
     ];
 
     /**
@@ -73,7 +73,7 @@ class NewRole implements ModelInterface, ArrayAccess
         'name' => null,
         'description' => null,
         'acl' => null,
-        'users' => null
+        'members' => null
     ];
 
     /**
@@ -106,7 +106,7 @@ class NewRole implements ModelInterface, ArrayAccess
         'name' => 'name',
         'description' => 'description',
         'acl' => 'acl',
-        'users' => 'users'
+        'members' => 'members'
     ];
 
     /**
@@ -118,7 +118,7 @@ class NewRole implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'description' => 'setDescription',
         'acl' => 'setAcl',
-        'users' => 'setUsers'
+        'members' => 'setMembers'
     ];
 
     /**
@@ -130,7 +130,7 @@ class NewRole implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'description' => 'getDescription',
         'acl' => 'getAcl',
-        'users' => 'getUsers'
+        'members' => 'getMembers'
     ];
 
     /**
@@ -196,7 +196,7 @@ class NewRole implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['acl'] = isset($data['acl']) ? $data['acl'] : null;
-        $this->container['users'] = isset($data['users']) ? $data['users'] : null;
+        $this->container['members'] = isset($data['members']) ? $data['members'] : null;
     }
 
     /**
@@ -214,8 +214,8 @@ class NewRole implements ModelInterface, ArrayAccess
         if ($this->container['acl'] === null) {
             $invalidProperties[] = "'acl' can't be null";
         }
-        if ($this->container['users'] === null) {
-            $invalidProperties[] = "'users' can't be null";
+        if ($this->container['members'] === null) {
+            $invalidProperties[] = "'members' can't be null";
         }
         return $invalidProperties;
     }
@@ -245,7 +245,7 @@ class NewRole implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Name of the role
+     * @param string $name Name of the role.
      *
      * @return $this
      */
@@ -269,7 +269,7 @@ class NewRole implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description Description of the role
+     * @param string|null $description Description of the role.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class NewRole implements ModelInterface, ArrayAccess
     /**
      * Sets acl
      *
-     * @param string $acl Role Policy this should be a stringified blob of json
+     * @param string $acl Role Policy this should be a stringified blob of json.
      *
      * @return $this
      */
@@ -305,25 +305,25 @@ class NewRole implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets users
+     * Gets members
      *
      * @return int[]
      */
-    public function getUsers()
+    public function getMembers()
     {
-        return $this->container['users'];
+        return $this->container['members'];
     }
 
     /**
-     * Sets users
+     * Sets members
      *
-     * @param int[] $users An array of userIDs
+     * @param int[] $members An array of user identifiers.
      *
      * @return $this
      */
-    public function setUsers($users)
+    public function setMembers($members)
     {
-        $this->container['users'] = $users;
+        $this->container['members'] = $members;
 
         return $this;
     }

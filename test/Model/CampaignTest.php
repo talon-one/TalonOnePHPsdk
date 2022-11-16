@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -233,9 +233,30 @@ class CampaignTest extends TestCase
     }
 
     /**
+     * Test attribute "customEffectCount"
+     */
+    public function testPropertyCustomEffectCount()
+    {
+    }
+
+    /**
      * Test attribute "referralCreationCount"
      */
     public function testPropertyReferralCreationCount()
+    {
+    }
+
+    /**
+     * Test attribute "addFreeItemEffectCount"
+     */
+    public function testPropertyAddFreeItemEffectCount()
+    {
+    }
+
+    /**
+     * Test attribute "awardedGiveawaysCount"
+     */
+    public function testPropertyAwardedGiveawaysCount()
     {
     }
 
@@ -268,6 +289,13 @@ class CampaignTest extends TestCase
     }
 
     /**
+     * Test attribute "callApiEffectCount"
+     */
+    public function testPropertyCallApiEffectCount()
+    {
+    }
+
+    /**
      * Test attribute "lastActivity"
      */
     public function testPropertyLastActivity()
@@ -292,6 +320,13 @@ class CampaignTest extends TestCase
      * Test attribute "updatedBy"
      */
     public function testPropertyUpdatedBy()
+    {
+    }
+
+    /**
+     * Test attribute "templateId"
+     */
+    public function testPropertyTemplateId()
     {
     }
 }

@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -62,6 +62,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'discountLimit' => 'float',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
+        'limits' => '\TalonOne\Client\Model\LimitConfig[]',
         'numberOfCoupons' => 'int',
         'uniquePrefix' => 'string',
         'attributes' => 'object',
@@ -80,6 +81,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'discountLimit' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
+        'limits' => null,
         'numberOfCoupons' => null,
         'uniquePrefix' => null,
         'attributes' => null,
@@ -119,6 +121,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'discountLimit' => 'discountLimit',
         'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
+        'limits' => 'limits',
         'numberOfCoupons' => 'numberOfCoupons',
         'uniquePrefix' => 'uniquePrefix',
         'attributes' => 'attributes',
@@ -137,6 +140,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'discountLimit' => 'setDiscountLimit',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
+        'limits' => 'setLimits',
         'numberOfCoupons' => 'setNumberOfCoupons',
         'uniquePrefix' => 'setUniquePrefix',
         'attributes' => 'setAttributes',
@@ -155,6 +159,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'discountLimit' => 'getDiscountLimit',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
+        'limits' => 'getLimits',
         'numberOfCoupons' => 'getNumberOfCoupons',
         'uniquePrefix' => 'getUniquePrefix',
         'attributes' => 'getAttributes',
@@ -227,6 +232,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
         $this->container['discountLimit'] = isset($data['discountLimit']) ? $data['discountLimit'] : null;
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['numberOfCoupons'] = isset($data['numberOfCoupons']) ? $data['numberOfCoupons'] : null;
         $this->container['uniquePrefix'] = isset($data['uniquePrefix']) ? $data['uniquePrefix'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
@@ -266,6 +272,10 @@ class NewCoupons implements ModelInterface, ArrayAccess
         if ($this->container['numberOfCoupons'] === null) {
             $invalidProperties[] = "'numberOfCoupons' can't be null";
         }
+        if (!is_null($this->container['recipientIntegrationId']) && (mb_strlen($this->container['recipientIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'recipientIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if (!is_null($this->container['couponPattern']) && (mb_strlen($this->container['couponPattern']) > 100)) {
             $invalidProperties[] = "invalid value for 'couponPattern', the character length must be smaller than or equal to 100.";
         }
@@ -302,7 +312,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
     /**
      * Sets usageLimit
      *
-     * @param int $usageLimit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     * @param int $usageLimit The number of times the coupon code can be redeemed. `0` means unlimited redemptions but any campaign usage limits will still apply.
      *
      * @return $this
      */
@@ -402,6 +412,30 @@ class NewCoupons implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets limits
+     *
+     * @return \TalonOne\Client\Model\LimitConfig[]|null
+     */
+    public function getLimits()
+    {
+        return $this->container['limits'];
+    }
+
+    /**
+     * Sets limits
+     *
+     * @param \TalonOne\Client\Model\LimitConfig[]|null $limits Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured.
+     *
+     * @return $this
+     */
+    public function setLimits($limits)
+    {
+        $this->container['limits'] = $limits;
+
+        return $this;
+    }
+
+    /**
      * Gets numberOfCoupons
      *
      * @return int
@@ -438,7 +472,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
     /**
      * Sets uniquePrefix
      *
-     * @param string|null $uniquePrefix A unique prefix to prepend to all generated coupons.
+     * @param string|null $uniquePrefix **DEPRECATED** To create more than 20,000 coupons in one request, use [Create coupons asynchronously endpoint](https://docs.talon.one/management-api/#operation/createCouponsAsync).
      *
      * @return $this
      */
@@ -462,7 +496,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this item
+     * @param object|null $attributes Arbitrary properties associated with this item.
      *
      * @return $this
      */
@@ -486,12 +520,16 @@ class NewCoupons implements ModelInterface, ArrayAccess
     /**
      * Sets recipientIntegrationId
      *
-     * @param string|null $recipientIntegrationId The integration ID for this coupon's beneficiary's profile
+     * @param string|null $recipientIntegrationId The integration ID for this coupon's beneficiary's profile.
      *
      * @return $this
      */
     public function setRecipientIntegrationId($recipientIntegrationId)
     {
+        if (!is_null($recipientIntegrationId) && (mb_strlen($recipientIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $recipientIntegrationId when calling NewCoupons., must be smaller than or equal to 1000.');
+        }
+
         $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;
@@ -510,7 +548,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
     /**
      * Sets validCharacters
      *
-     * @param string[]|null $validCharacters Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
+     * @param string[]|null $validCharacters List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the `[A-Z, 0-9]` regular expression.
      *
      * @return $this
      */
@@ -534,7 +572,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
     /**
      * Sets couponPattern
      *
-     * @param string|null $couponPattern The pattern that will be used to generate coupon codes. The character `#` acts as a placeholder and will be replaced by a random character from the `validCharacters` set.
+     * @param string|null $couponPattern The pattern used to generate coupon codes. The character `#` is a placeholder and is replaced by a random character from the `validCharacters` set.
      *
      * @return $this
      */

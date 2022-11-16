@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -236,9 +236,6 @@ class UpdateCouponBatch implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'discountLimit', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['batchID'] === null) {
-            $invalidProperties[] = "'batchID' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -267,7 +264,7 @@ class UpdateCouponBatch implements ModelInterface, ArrayAccess
     /**
      * Sets usageLimit
      *
-     * @param int|null $usageLimit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     * @param int|null $usageLimit The number of times the coupon code can be redeemed. `0` means unlimited redemptions but any campaign usage limits will still apply.
      *
      * @return $this
      */
@@ -379,7 +376,7 @@ class UpdateCouponBatch implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this item
+     * @param object|null $attributes Arbitrary properties associated with this item.
      *
      * @return $this
      */
@@ -393,7 +390,7 @@ class UpdateCouponBatch implements ModelInterface, ArrayAccess
     /**
      * Gets batchID
      *
-     * @return string
+     * @return string|null
      */
     public function getBatchID()
     {
@@ -403,7 +400,7 @@ class UpdateCouponBatch implements ModelInterface, ArrayAccess
     /**
      * Sets batchID
      *
-     * @param string $batchID The id of the batch the coupon belongs to.
+     * @param string|null $batchID The id of the batch the coupon belongs to.
      *
      * @return $this
      */

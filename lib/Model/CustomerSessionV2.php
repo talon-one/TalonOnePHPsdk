@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -58,12 +58,14 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'integrationId' => 'string',
+        'id' => 'int',
         'created' => '\DateTime',
+        'integrationId' => 'string',
         'applicationId' => 'int',
         'profileId' => 'string',
         'couponCodes' => 'string[]',
         'referralCode' => 'string',
+        'loyaltyCards' => 'string[]',
         'state' => 'string',
         'cartItems' => '\TalonOne\Client\Model\CartItem[]',
         'additionalCosts' => 'map[string,\TalonOne\Client\Model\AdditionalCost]',
@@ -72,7 +74,8 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'firstSession' => 'bool',
         'total' => 'float',
         'cartItemTotal' => 'float',
-        'additionalCostTotal' => 'float'
+        'additionalCostTotal' => 'float',
+        'updated' => '\DateTime'
     ];
 
     /**
@@ -81,12 +84,14 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'integrationId' => 'string',
+        'id' => null,
         'created' => 'date-time',
+        'integrationId' => 'string',
         'applicationId' => null,
         'profileId' => null,
         'couponCodes' => null,
         'referralCode' => null,
+        'loyaltyCards' => null,
         'state' => null,
         'cartItems' => null,
         'additionalCosts' => null,
@@ -95,7 +100,8 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'firstSession' => null,
         'total' => null,
         'cartItemTotal' => null,
-        'additionalCostTotal' => null
+        'additionalCostTotal' => null,
+        'updated' => 'date-time'
     ];
 
     /**
@@ -125,12 +131,14 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'integrationId' => 'integrationId',
+        'id' => 'id',
         'created' => 'created',
+        'integrationId' => 'integrationId',
         'applicationId' => 'applicationId',
         'profileId' => 'profileId',
         'couponCodes' => 'couponCodes',
         'referralCode' => 'referralCode',
+        'loyaltyCards' => 'loyaltyCards',
         'state' => 'state',
         'cartItems' => 'cartItems',
         'additionalCosts' => 'additionalCosts',
@@ -139,7 +147,8 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'firstSession' => 'firstSession',
         'total' => 'total',
         'cartItemTotal' => 'cartItemTotal',
-        'additionalCostTotal' => 'additionalCostTotal'
+        'additionalCostTotal' => 'additionalCostTotal',
+        'updated' => 'updated'
     ];
 
     /**
@@ -148,12 +157,14 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'integrationId' => 'setIntegrationId',
+        'id' => 'setId',
         'created' => 'setCreated',
+        'integrationId' => 'setIntegrationId',
         'applicationId' => 'setApplicationId',
         'profileId' => 'setProfileId',
         'couponCodes' => 'setCouponCodes',
         'referralCode' => 'setReferralCode',
+        'loyaltyCards' => 'setLoyaltyCards',
         'state' => 'setState',
         'cartItems' => 'setCartItems',
         'additionalCosts' => 'setAdditionalCosts',
@@ -162,7 +173,8 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'firstSession' => 'setFirstSession',
         'total' => 'setTotal',
         'cartItemTotal' => 'setCartItemTotal',
-        'additionalCostTotal' => 'setAdditionalCostTotal'
+        'additionalCostTotal' => 'setAdditionalCostTotal',
+        'updated' => 'setUpdated'
     ];
 
     /**
@@ -171,12 +183,14 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'integrationId' => 'getIntegrationId',
+        'id' => 'getId',
         'created' => 'getCreated',
+        'integrationId' => 'getIntegrationId',
         'applicationId' => 'getApplicationId',
         'profileId' => 'getProfileId',
         'couponCodes' => 'getCouponCodes',
         'referralCode' => 'getReferralCode',
+        'loyaltyCards' => 'getLoyaltyCards',
         'state' => 'getState',
         'cartItems' => 'getCartItems',
         'additionalCosts' => 'getAdditionalCosts',
@@ -185,7 +199,8 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'firstSession' => 'getFirstSession',
         'total' => 'getTotal',
         'cartItemTotal' => 'getCartItemTotal',
-        'additionalCostTotal' => 'getAdditionalCostTotal'
+        'additionalCostTotal' => 'getAdditionalCostTotal',
+        'updated' => 'getUpdated'
     ];
 
     /**
@@ -231,6 +246,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
 
     const STATE_OPEN = 'open';
     const STATE_CLOSED = 'closed';
+    const STATE_PARTIALLY_RETURNED = 'partially_returned';
     const STATE_CANCELLED = 'cancelled';
     
 
@@ -245,6 +261,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         return [
             self::STATE_OPEN,
             self::STATE_CLOSED,
+            self::STATE_PARTIALLY_RETURNED,
             self::STATE_CANCELLED,
         ];
     }
@@ -265,12 +282,14 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
         $this->container['couponCodes'] = isset($data['couponCodes']) ? $data['couponCodes'] : null;
         $this->container['referralCode'] = isset($data['referralCode']) ? $data['referralCode'] : null;
+        $this->container['loyaltyCards'] = isset($data['loyaltyCards']) ? $data['loyaltyCards'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'open';
         $this->container['cartItems'] = isset($data['cartItems']) ? $data['cartItems'] : null;
         $this->container['additionalCosts'] = isset($data['additionalCosts']) ? $data['additionalCosts'] : null;
@@ -280,6 +299,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['cartItemTotal'] = isset($data['cartItemTotal']) ? $data['cartItemTotal'] : null;
         $this->container['additionalCostTotal'] = isset($data['additionalCostTotal']) ? $data['additionalCostTotal'] : null;
+        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
     }
 
     /**
@@ -291,12 +311,19 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['integrationId'] === null) {
-            $invalidProperties[] = "'integrationId' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
+        if ($this->container['integrationId'] === null) {
+            $invalidProperties[] = "'integrationId' can't be null";
+        }
+        if ((mb_strlen($this->container['integrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'integrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['applicationId'] === null) {
             $invalidProperties[] = "'applicationId' can't be null";
         }
@@ -336,6 +363,9 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         if ($this->container['additionalCostTotal'] === null) {
             $invalidProperties[] = "'additionalCostTotal' can't be null";
         }
+        if ($this->container['updated'] === null) {
+            $invalidProperties[] = "'updated' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -352,25 +382,25 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets integrationId
+     * Gets id
      *
-     * @return string
+     * @return int
      */
-    public function getIntegrationId()
+    public function getId()
     {
-        return $this->container['integrationId'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets integrationId
+     * Sets id
      *
-     * @param string $integrationId The integration ID for this entity sent to and used in the Talon.One system.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
-    public function setIntegrationId($integrationId)
+    public function setId($id)
     {
-        $this->container['integrationId'] = $integrationId;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -388,13 +418,41 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created The exact moment this entity was created.
+     * @param \DateTime $created The exact moment this entity was created. The exact moment this entity was created.
      *
      * @return $this
      */
     public function setCreated($created)
     {
         $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets integrationId
+     *
+     * @return string
+     */
+    public function getIntegrationId()
+    {
+        return $this->container['integrationId'];
+    }
+
+    /**
+     * Sets integrationId
+     *
+     * @param string $integrationId The integration ID set by your integration layer.
+     *
+     * @return $this
+     */
+    public function setIntegrationId($integrationId)
+    {
+        if ((mb_strlen($integrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $integrationId when calling CustomerSessionV2., must be smaller than or equal to 1000.');
+        }
+
+        $this->container['integrationId'] = $integrationId;
 
         return $this;
     }
@@ -436,7 +494,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets profileId
      *
-     * @param string $profileId ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+     * @param string $profileId ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known `profileId`, we recommend you use a guest `profileId`.
      *
      * @return $this
      */
@@ -460,7 +518,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets couponCodes
      *
-     * @param string[]|null $couponCodes Any coupon codes entered.
+     * @param string[]|null $couponCodes Any coupon codes entered.  **Important**: If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it.
      *
      * @return $this
      */
@@ -484,7 +542,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets referralCode
      *
-     * @param string|null $referralCode Any referral code entered.
+     * @param string|null $referralCode Any referral code entered.  **Important**: If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it.
      *
      * @return $this
      */
@@ -495,6 +553,30 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         }
 
         $this->container['referralCode'] = $referralCode;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyaltyCards
+     *
+     * @return string[]|null
+     */
+    public function getLoyaltyCards()
+    {
+        return $this->container['loyaltyCards'];
+    }
+
+    /**
+     * Sets loyaltyCards
+     *
+     * @param string[]|null $loyaltyCards Any loyalty cards used.
+     *
+     * @return $this
+     */
+    public function setLoyaltyCards($loyaltyCards)
+    {
+        $this->container['loyaltyCards'] = $loyaltyCards;
 
         return $this;
     }
@@ -512,7 +594,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string $state Indicates the current state of the session. All sessions must start in the \"open\" state, after which valid transitions are...  1. open -> closed 2. open -> cancelled 3. closed -> cancelled
+     * @param string $state Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. Either:    - `closed` → `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` → `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems)) 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](/docs/dev/concepts/entities#customer-session).
      *
      * @return $this
      */
@@ -545,7 +627,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets cartItems
      *
-     * @param \TalonOne\Client\Model\CartItem[] $cartItems All items the customer will be purchasing in this session
+     * @param \TalonOne\Client\Model\CartItem[] $cartItems The items to add to this sessions. - If cart item flattening is disabled: **Do not exceed 1000 items** (regardless of their `quantity`) per request. - If cart item flattening is enabled: **Do not exceed 1000 items** and ensure the sum of all cart item's `quantity` **does not exceed 10.000** per request.
      *
      * @return $this
      */
@@ -569,7 +651,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets additionalCosts
      *
-     * @param map[string,\TalonOne\Client\Model\AdditionalCost]|null $additionalCosts Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees.
+     * @param map[string,\TalonOne\Client\Model\AdditionalCost]|null $additionalCosts Use this property to set a value for the additional costs of this session, such as a shipping cost.  They must be created in the Campaign Manager before you set them with this property. See [Managing additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs/).
      *
      * @return $this
      */
@@ -593,7 +675,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets identifiers
      *
-     * @param string[]|null $identifiers Identifiers for the customer, this can be used for limits on values such as device ID.
+     * @param string[]|null $identifiers Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers/).  **Important**: If you [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains an identifier by the time you close it.
      *
      * @return $this
      */
@@ -617,7 +699,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object $attributes A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings.
+     * @param object $attributes Use this property to set a value for the attributes of your choice. Attributes represent any information to attach to your session, like the shipping city.  You can use [built-in attributes](https://docs.talon.one/docs/dev/concepts/attributes#built-in-attributes) or [custom ones](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes). Custom attributes must be created in the Campaign Manager before you set them with this property.
      *
      * @return $this
      */
@@ -665,7 +747,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param float $total The total sum of cart-items, as well as additional costs, before any discounts applied
+     * @param float $total The total sum of cart-items, as well as additional costs, before any discounts applied.
      *
      * @return $this
      */
@@ -689,7 +771,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets cartItemTotal
      *
-     * @param float $cartItemTotal The total sum of cart-items before any discounts applied
+     * @param float $cartItemTotal The total sum of cart-items before any discounts applied.
      *
      * @return $this
      */
@@ -713,13 +795,37 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets additionalCostTotal
      *
-     * @param float $additionalCostTotal The total sum of additional costs before any discounts applied
+     * @param float $additionalCostTotal The total sum of additional costs before any discounts applied.
      *
      * @return $this
      */
     public function setAdditionalCostTotal($additionalCostTotal)
     {
         $this->container['additionalCostTotal'] = $additionalCostTotal;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->container['updated'];
+    }
+
+    /**
+     * Sets updated
+     *
+     * @param \DateTime $updated Timestamp of the most recent event received on this session.
+     *
+     * @return $this
+     */
+    public function setUpdated($updated)
+    {
+        $this->container['updated'] = $updated;
 
         return $this;
     }

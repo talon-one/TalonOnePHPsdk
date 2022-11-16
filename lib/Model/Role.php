@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -59,7 +59,9 @@ class Role implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'accountID' => 'int',
+        'created' => '\DateTime',
+        'modified' => '\DateTime',
+        'accountId' => 'int',
         'campaignGroupID' => 'int',
         'name' => 'string',
         'description' => 'string',
@@ -74,7 +76,9 @@ class Role implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'accountID' => null,
+        'created' => 'date-time',
+        'modified' => 'date-time',
+        'accountId' => null,
         'campaignGroupID' => null,
         'name' => null,
         'description' => null,
@@ -110,7 +114,9 @@ class Role implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'accountID' => 'accountID',
+        'created' => 'created',
+        'modified' => 'modified',
+        'accountId' => 'accountId',
         'campaignGroupID' => 'campaignGroupID',
         'name' => 'name',
         'description' => 'description',
@@ -125,7 +131,9 @@ class Role implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'accountID' => 'setAccountID',
+        'created' => 'setCreated',
+        'modified' => 'setModified',
+        'accountId' => 'setAccountId',
         'campaignGroupID' => 'setCampaignGroupID',
         'name' => 'setName',
         'description' => 'setDescription',
@@ -140,7 +148,9 @@ class Role implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'accountID' => 'getAccountID',
+        'created' => 'getCreated',
+        'modified' => 'getModified',
+        'accountId' => 'getAccountId',
         'campaignGroupID' => 'getCampaignGroupID',
         'name' => 'getName',
         'description' => 'getDescription',
@@ -209,7 +219,9 @@ class Role implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
         $this->container['campaignGroupID'] = isset($data['campaignGroupID']) ? $data['campaignGroupID'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -229,8 +241,20 @@ class Role implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['accountID'] === null) {
-            $invalidProperties[] = "'accountID' can't be null";
+        if ($this->container['created'] === null) {
+            $invalidProperties[] = "'created' can't be null";
+        }
+        if ($this->container['modified'] === null) {
+            $invalidProperties[] = "'modified' can't be null";
+        }
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['acl'] === null) {
+            $invalidProperties[] = "'acl' can't be null";
         }
         return $invalidProperties;
     }
@@ -260,7 +284,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id The ID of the role corresponding to the DB row
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -272,25 +296,73 @@ class Role implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets accountID
+     * Gets created
      *
-     * @return int
+     * @return \DateTime
      */
-    public function getAccountID()
+    public function getCreated()
     {
-        return $this->container['accountID'];
+        return $this->container['created'];
     }
 
     /**
-     * Sets accountID
+     * Sets created
      *
-     * @param int $accountID The ID of the Talon.One account that owns this role.
+     * @param \DateTime $created The exact moment this entity was created.
      *
      * @return $this
      */
-    public function setAccountID($accountID)
+    public function setCreated($created)
     {
-        $this->container['accountID'] = $accountID;
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified
+     *
+     * @return \DateTime
+     */
+    public function getModified()
+    {
+        return $this->container['modified'];
+    }
+
+    /**
+     * Sets modified
+     *
+     * @param \DateTime $modified The exact moment this entity was last modified.
+     *
+     * @return $this
+     */
+    public function setModified($modified)
+    {
+        $this->container['modified'] = $modified;
+
+        return $this;
+    }
+
+    /**
+     * Gets accountId
+     *
+     * @return int
+     */
+    public function getAccountId()
+    {
+        return $this->container['accountId'];
+    }
+
+    /**
+     * Sets accountId
+     *
+     * @param int $accountId The ID of the account that owns this entity.
+     *
+     * @return $this
+     */
+    public function setAccountId($accountId)
+    {
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }
@@ -308,7 +380,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets campaignGroupID
      *
-     * @param int|null $campaignGroupID The ID of the Campaign Group this role was created for.
+     * @param int|null $campaignGroupID The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/managing-campaign-groups/) this role was created for.
      *
      * @return $this
      */
@@ -322,7 +394,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -332,7 +404,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Name of the role
+     * @param string $name Name of the role.
      *
      * @return $this
      */
@@ -356,7 +428,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description Description of the role
+     * @param string|null $description Description of the role.
      *
      * @return $this
      */
@@ -380,7 +452,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets members
      *
-     * @param int[]|null $members A list of user identifiers assigned to this role
+     * @param int[]|null $members A list of user identifiers assigned to this role.
      *
      * @return $this
      */
@@ -394,7 +466,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Gets acl
      *
-     * @return object|null
+     * @return object
      */
     public function getAcl()
     {
@@ -404,7 +476,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets acl
      *
-     * @param object|null $acl Role ACL Policy
+     * @param object $acl Role ACL Policy.
      *
      * @return $this
      */

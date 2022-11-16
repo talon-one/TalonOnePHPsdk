@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -60,16 +60,9 @@ class EventType implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
-        'applicationIds' => 'int[]',
         'title' => 'string',
         'name' => 'string',
-        'description' => 'string',
-        'mimeType' => 'string',
-        'examplePayload' => 'string',
-        'schema' => 'object',
-        'handlerLanguage' => 'string',
-        'handler' => 'string',
-        'version' => 'int'
+        'description' => 'string'
     ];
 
     /**
@@ -80,16 +73,9 @@ class EventType implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
-        'applicationIds' => null,
         'title' => null,
         'name' => null,
-        'description' => null,
-        'mimeType' => null,
-        'examplePayload' => null,
-        'schema' => null,
-        'handlerLanguage' => null,
-        'handler' => null,
-        'version' => null
+        'description' => null
     ];
 
     /**
@@ -121,16 +107,9 @@ class EventType implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
-        'applicationIds' => 'applicationIds',
         'title' => 'title',
         'name' => 'name',
-        'description' => 'description',
-        'mimeType' => 'mimeType',
-        'examplePayload' => 'examplePayload',
-        'schema' => 'schema',
-        'handlerLanguage' => 'handlerLanguage',
-        'handler' => 'handler',
-        'version' => 'version'
+        'description' => 'description'
     ];
 
     /**
@@ -141,16 +120,9 @@ class EventType implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
-        'applicationIds' => 'setApplicationIds',
         'title' => 'setTitle',
         'name' => 'setName',
-        'description' => 'setDescription',
-        'mimeType' => 'setMimeType',
-        'examplePayload' => 'setExamplePayload',
-        'schema' => 'setSchema',
-        'handlerLanguage' => 'setHandlerLanguage',
-        'handler' => 'setHandler',
-        'version' => 'setVersion'
+        'description' => 'setDescription'
     ];
 
     /**
@@ -161,16 +133,9 @@ class EventType implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
-        'applicationIds' => 'getApplicationIds',
         'title' => 'getTitle',
         'name' => 'getName',
-        'description' => 'getDescription',
-        'mimeType' => 'getMimeType',
-        'examplePayload' => 'getExamplePayload',
-        'schema' => 'getSchema',
-        'handlerLanguage' => 'getHandlerLanguage',
-        'handler' => 'getHandler',
-        'version' => 'getVersion'
+        'description' => 'getDescription'
     ];
 
     /**
@@ -214,38 +179,8 @@ class EventType implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const MIME_TYPE_APPLICATION_JSON = 'application/json';
-    const MIME_TYPE_APPLICATION_X_WWW_FORM_URLENCODED = 'application/x-www-form-urlencoded';
-    const MIME_TYPE_NONE = 'none';
-    const HANDLER_LANGUAGE_TALANG = 'talang';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMimeTypeAllowableValues()
-    {
-        return [
-            self::MIME_TYPE_APPLICATION_JSON,
-            self::MIME_TYPE_APPLICATION_X_WWW_FORM_URLENCODED,
-            self::MIME_TYPE_NONE,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getHandlerLanguageAllowableValues()
-    {
-        return [
-            self::HANDLER_LANGUAGE_TALANG,
-        ];
-    }
     
 
     /**
@@ -265,16 +200,9 @@ class EventType implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['mimeType'] = isset($data['mimeType']) ? $data['mimeType'] : null;
-        $this->container['examplePayload'] = isset($data['examplePayload']) ? $data['examplePayload'] : null;
-        $this->container['schema'] = isset($data['schema']) ? $data['schema'] : null;
-        $this->container['handlerLanguage'] = isset($data['handlerLanguage']) ? $data['handlerLanguage'] : null;
-        $this->container['handler'] = isset($data['handler']) ? $data['handler'] : null;
-        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -292,9 +220,6 @@ class EventType implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['applicationIds'] === null) {
-            $invalidProperties[] = "'applicationIds' can't be null";
-        }
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
         }
@@ -309,34 +234,6 @@ class EventType implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
-        if ($this->container['mimeType'] === null) {
-            $invalidProperties[] = "'mimeType' can't be null";
-        }
-        $allowedValues = $this->getMimeTypeAllowableValues();
-        if (!is_null($this->container['mimeType']) && !in_array($this->container['mimeType'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'mimeType', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getHandlerLanguageAllowableValues();
-        if (!is_null($this->container['handlerLanguage']) && !in_array($this->container['handlerLanguage'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'handlerLanguage', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['handler'] === null) {
-            $invalidProperties[] = "'handler' can't be null";
-        }
-        if ($this->container['version'] === null) {
-            $invalidProperties[] = "'version' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -365,7 +262,7 @@ class EventType implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -396,30 +293,6 @@ class EventType implements ModelInterface, ArrayAccess
     public function setCreated($created)
     {
         $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
-     * Gets applicationIds
-     *
-     * @return int[]
-     */
-    public function getApplicationIds()
-    {
-        return $this->container['applicationIds'];
-    }
-
-    /**
-     * Sets applicationIds
-     *
-     * @param int[] $applicationIds The IDs of the applications that are related to this entity.
-     *
-     * @return $this
-     */
-    public function setApplicationIds($applicationIds)
-    {
-        $this->container['applicationIds'] = $applicationIds;
 
         return $this;
     }
@@ -485,7 +358,7 @@ class EventType implements ModelInterface, ArrayAccess
     /**
      * Gets description
      *
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -495,175 +368,13 @@ class EventType implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string $description An explanation of when the event type is triggered. Write this with a campaign manager in mind. For example:  > The \"Payment Accepted\" event is triggered after successful processing of a payment by our payment gateway.
+     * @param string|null $description An explanation of when the event type is triggered. Write this with a campaign manager in mind. For example:  > The \"Payment Accepted\" event is triggered after successful processing of a payment by our payment gateway.
      *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets mimeType
-     *
-     * @return string
-     */
-    public function getMimeType()
-    {
-        return $this->container['mimeType'];
-    }
-
-    /**
-     * Sets mimeType
-     *
-     * @param string $mimeType This defines how the request payload will be parsed before your handler code is run.
-     *
-     * @return $this
-     */
-    public function setMimeType($mimeType)
-    {
-        $allowedValues = $this->getMimeTypeAllowableValues();
-        if (!in_array($mimeType, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'mimeType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['mimeType'] = $mimeType;
-
-        return $this;
-    }
-
-    /**
-     * Gets examplePayload
-     *
-     * @return string|null
-     */
-    public function getExamplePayload()
-    {
-        return $this->container['examplePayload'];
-    }
-
-    /**
-     * Sets examplePayload
-     *
-     * @param string|null $examplePayload It is often helpful to include an example payload with the event type definition for documentation purposes.
-     *
-     * @return $this
-     */
-    public function setExamplePayload($examplePayload)
-    {
-        $this->container['examplePayload'] = $examplePayload;
-
-        return $this;
-    }
-
-    /**
-     * Gets schema
-     *
-     * @return object|null
-     */
-    public function getSchema()
-    {
-        return $this->container['schema'];
-    }
-
-    /**
-     * Sets schema
-     *
-     * @param object|null $schema It is strongly recommended to define a JSON schema that will be used to perform structural validation of request payloads after parsing.
-     *
-     * @return $this
-     */
-    public function setSchema($schema)
-    {
-        $this->container['schema'] = $schema;
-
-        return $this;
-    }
-
-    /**
-     * Gets handlerLanguage
-     *
-     * @return string|null
-     */
-    public function getHandlerLanguage()
-    {
-        return $this->container['handlerLanguage'];
-    }
-
-    /**
-     * Sets handlerLanguage
-     *
-     * @param string|null $handlerLanguage The language of the handler code. Currently only `\"talang\"` is supported.
-     *
-     * @return $this
-     */
-    public function setHandlerLanguage($handlerLanguage)
-    {
-        $allowedValues = $this->getHandlerLanguageAllowableValues();
-        if (!is_null($handlerLanguage) && !in_array($handlerLanguage, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'handlerLanguage', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['handlerLanguage'] = $handlerLanguage;
-
-        return $this;
-    }
-
-    /**
-     * Gets handler
-     *
-     * @return string
-     */
-    public function getHandler()
-    {
-        return $this->container['handler'];
-    }
-
-    /**
-     * Sets handler
-     *
-     * @param string $handler Code that will be run after successful parsing & validation of the payload for this event. This code _may_ choose to evaluate campaign rules.
-     *
-     * @return $this
-     */
-    public function setHandler($handler)
-    {
-        $this->container['handler'] = $handler;
-
-        return $this;
-    }
-
-    /**
-     * Gets version
-     *
-     * @return int
-     */
-    public function getVersion()
-    {
-        return $this->container['version'];
-    }
-
-    /**
-     * Sets version
-     *
-     * @param int $version The version of this event type. When updating an existing event type this must be **exactly** `currentVersion + 1`.
-     *
-     * @return $this
-     */
-    public function setVersion($version)
-    {
-        $this->container['version'] = $version;
 
         return $this;
     }

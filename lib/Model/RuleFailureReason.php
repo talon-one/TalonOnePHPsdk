@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * RuleFailureReason Class Doc Comment
  *
  * @category Class
- * @description Details about why a rule failed
+ * @description Details about why a rule failed.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -299,7 +299,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets campaignID
      *
-     * @param int $campaignID The ID of the campaign that contains the rule that failed
+     * @param int $campaignID The ID of the campaign that contains the rule that failed.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets campaignName
      *
-     * @param string $campaignName The name of the campaign that contains the rule that failed
+     * @param string $campaignName The name of the campaign that contains the rule that failed.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets rulesetID
      *
-     * @param int $rulesetID The ID of the ruleset that contains the rule that failed
+     * @param int $rulesetID The ID of the ruleset that contains the rule that failed.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets couponID
      *
-     * @param int|null $couponID The ID of the coupon that was being evaluated at the time of the rule failure
+     * @param int|null $couponID The ID of the coupon that was being evaluated at the time of the rule failure.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets couponValue
      *
-     * @param string|null $couponValue The value of the coupon that was being evaluated at the time of the rule failure
+     * @param string|null $couponValue The code of the coupon that was being evaluated at the time of the rule failure.
      *
      * @return $this
      */
@@ -419,7 +419,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets referralID
      *
-     * @param int|null $referralID The ID of the referral that was being evaluated at the time of the rule failure
+     * @param int|null $referralID The ID of the referral that was being evaluated at the time of the rule failure.
      *
      * @return $this
      */
@@ -443,7 +443,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets referralValue
      *
-     * @param string|null $referralValue The value of the referral that was being evaluated at the time of the rule failure
+     * @param string|null $referralValue The code of the referral that was being evaluated at the time of the rule failure.
      *
      * @return $this
      */
@@ -467,7 +467,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets ruleIndex
      *
-     * @param int $ruleIndex The index of the rule that failed within the ruleset
+     * @param int $ruleIndex The index of the rule that failed within the ruleset.
      *
      * @return $this
      */
@@ -491,7 +491,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets ruleName
      *
-     * @param string $ruleName The name of the rule that failed within the ruleset
+     * @param string $ruleName The name of the rule that failed within the ruleset.
      *
      * @return $this
      */
@@ -515,7 +515,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets conditionIndex
      *
-     * @param int|null $conditionIndex The index of the condition that failed
+     * @param int|null $conditionIndex The index of the condition that failed.
      *
      * @return $this
      */
@@ -539,7 +539,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets effectIndex
      *
-     * @param int|null $effectIndex The index of the effect that failed
+     * @param int|null $effectIndex The index of the effect that failed.
      *
      * @return $this
      */
@@ -563,7 +563,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets details
      *
-     * @param string|null $details More details about the failure
+     * @param string|null $details More details about the failure.
      *
      * @return $this
      */

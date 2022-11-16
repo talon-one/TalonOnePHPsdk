@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -68,8 +68,13 @@ class Attribute implements ModelInterface, ArrayAccess
         'type' => 'string',
         'description' => 'string',
         'suggestions' => 'string[]',
+        'hasAllowedList' => 'bool',
+        'restrictedBySuggestions' => 'bool',
         'editable' => 'bool',
-        'subscribedApplicationsIds' => 'int[]'
+        'subscribedApplicationsIds' => 'int[]',
+        'subscribedCatalogsIds' => 'int[]',
+        'allowedSubscriptions' => 'string[]',
+        'eventTypeId' => 'int'
     ];
 
     /**
@@ -88,8 +93,13 @@ class Attribute implements ModelInterface, ArrayAccess
         'type' => null,
         'description' => null,
         'suggestions' => null,
+        'hasAllowedList' => null,
+        'restrictedBySuggestions' => null,
         'editable' => null,
-        'subscribedApplicationsIds' => null
+        'subscribedApplicationsIds' => null,
+        'subscribedCatalogsIds' => null,
+        'allowedSubscriptions' => null,
+        'eventTypeId' => null
     ];
 
     /**
@@ -129,8 +139,13 @@ class Attribute implements ModelInterface, ArrayAccess
         'type' => 'type',
         'description' => 'description',
         'suggestions' => 'suggestions',
+        'hasAllowedList' => 'hasAllowedList',
+        'restrictedBySuggestions' => 'restrictedBySuggestions',
         'editable' => 'editable',
-        'subscribedApplicationsIds' => 'subscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'subscribedApplicationsIds',
+        'subscribedCatalogsIds' => 'subscribedCatalogsIds',
+        'allowedSubscriptions' => 'allowedSubscriptions',
+        'eventTypeId' => 'eventTypeId'
     ];
 
     /**
@@ -149,8 +164,13 @@ class Attribute implements ModelInterface, ArrayAccess
         'type' => 'setType',
         'description' => 'setDescription',
         'suggestions' => 'setSuggestions',
+        'hasAllowedList' => 'setHasAllowedList',
+        'restrictedBySuggestions' => 'setRestrictedBySuggestions',
         'editable' => 'setEditable',
-        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds',
+        'subscribedCatalogsIds' => 'setSubscribedCatalogsIds',
+        'allowedSubscriptions' => 'setAllowedSubscriptions',
+        'eventTypeId' => 'setEventTypeId'
     ];
 
     /**
@@ -169,8 +189,13 @@ class Attribute implements ModelInterface, ArrayAccess
         'type' => 'getType',
         'description' => 'getDescription',
         'suggestions' => 'getSuggestions',
+        'hasAllowedList' => 'getHasAllowedList',
+        'restrictedBySuggestions' => 'getRestrictedBySuggestions',
         'editable' => 'getEditable',
-        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds'
+        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds',
+        'subscribedCatalogsIds' => 'getSubscribedCatalogsIds',
+        'allowedSubscriptions' => 'getAllowedSubscriptions',
+        'eventTypeId' => 'getEventTypeId'
     ];
 
     /**
@@ -222,6 +247,8 @@ class Attribute implements ModelInterface, ArrayAccess
     const ENTITY_CART_ITEM = 'CartItem';
     const ENTITY_COUPON = 'Coupon';
     const ENTITY_EVENT = 'Event';
+    const ENTITY_GIVEAWAY = 'Giveaway';
+    const ENTITY_REFERRAL = 'Referral';
     const TYPE_STRING = 'string';
     const TYPE_NUMBER = 'number';
     const TYPE_BOOLEAN = 'boolean';
@@ -231,6 +258,8 @@ class Attribute implements ModelInterface, ArrayAccess
     const TYPE_LIST_TIME = '(list time)';
     const TYPE_LOCATION = 'location';
     const TYPE_LIST_LOCATION = '(list location)';
+    const ALLOWED_SUBSCRIPTIONS_APPLICATION = 'application';
+    const ALLOWED_SUBSCRIPTIONS_CATALOG = 'catalog';
     
 
     
@@ -250,6 +279,8 @@ class Attribute implements ModelInterface, ArrayAccess
             self::ENTITY_CART_ITEM,
             self::ENTITY_COUPON,
             self::ENTITY_EVENT,
+            self::ENTITY_GIVEAWAY,
+            self::ENTITY_REFERRAL,
         ];
     }
     
@@ -270,6 +301,19 @@ class Attribute implements ModelInterface, ArrayAccess
             self::TYPE_LIST_TIME,
             self::TYPE_LOCATION,
             self::TYPE_LIST_LOCATION,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAllowedSubscriptionsAllowableValues()
+    {
+        return [
+            self::ALLOWED_SUBSCRIPTIONS_APPLICATION,
+            self::ALLOWED_SUBSCRIPTIONS_CATALOG,
         ];
     }
     
@@ -299,8 +343,13 @@ class Attribute implements ModelInterface, ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['suggestions'] = isset($data['suggestions']) ? $data['suggestions'] : null;
+        $this->container['hasAllowedList'] = isset($data['hasAllowedList']) ? $data['hasAllowedList'] : false;
+        $this->container['restrictedBySuggestions'] = isset($data['restrictedBySuggestions']) ? $data['restrictedBySuggestions'] : false;
         $this->container['editable'] = isset($data['editable']) ? $data['editable'] : null;
         $this->container['subscribedApplicationsIds'] = isset($data['subscribedApplicationsIds']) ? $data['subscribedApplicationsIds'] : null;
+        $this->container['subscribedCatalogsIds'] = isset($data['subscribedCatalogsIds']) ? $data['subscribedCatalogsIds'] : null;
+        $this->container['allowedSubscriptions'] = isset($data['allowedSubscriptions']) ? $data['allowedSubscriptions'] : null;
+        $this->container['eventTypeId'] = isset($data['eventTypeId']) ? $data['eventTypeId'] : null;
     }
 
     /**
@@ -335,9 +384,17 @@ class Attribute implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if (!preg_match("/^[A-Za-z]\\w*$/", $this->container['name'])) {
+            $invalidProperties[] = "invalid value for 'name', must be conform to the pattern /^[A-Za-z]\\w*$/.";
+        }
+
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
         }
+        if (!preg_match("/^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/", $this->container['title'])) {
+            $invalidProperties[] = "invalid value for 'title', must be conform to the pattern /^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/.";
+        }
+
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -386,7 +443,7 @@ class Attribute implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Unique ID for this entity.
+     * @param int $id Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.
      *
      * @return $this
      */
@@ -521,6 +578,11 @@ class Attribute implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
+
+        if ((!preg_match("/^[A-Za-z]\\w*$/", $name))) {
+            throw new \InvalidArgumentException("invalid value for $name when calling Attribute., must conform to the pattern /^[A-Za-z]\\w*$/.");
+        }
+
         $this->container['name'] = $name;
 
         return $this;
@@ -545,6 +607,11 @@ class Attribute implements ModelInterface, ArrayAccess
      */
     public function setTitle($title)
     {
+
+        if ((!preg_match("/^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/", $title))) {
+            throw new \InvalidArgumentException("invalid value for $title when calling Attribute., must conform to the pattern /^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/.");
+        }
+
         $this->container['title'] = $title;
 
         return $this;
@@ -632,6 +699,54 @@ class Attribute implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets hasAllowedList
+     *
+     * @return bool|null
+     */
+    public function getHasAllowedList()
+    {
+        return $this->container['hasAllowedList'];
+    }
+
+    /**
+     * Sets hasAllowedList
+     *
+     * @param bool|null $hasAllowedList Whether or not this attribute has an allowed list of values associated with it.
+     *
+     * @return $this
+     */
+    public function setHasAllowedList($hasAllowedList)
+    {
+        $this->container['hasAllowedList'] = $hasAllowedList;
+
+        return $this;
+    }
+
+    /**
+     * Gets restrictedBySuggestions
+     *
+     * @return bool|null
+     */
+    public function getRestrictedBySuggestions()
+    {
+        return $this->container['restrictedBySuggestions'];
+    }
+
+    /**
+     * Sets restrictedBySuggestions
+     *
+     * @param bool|null $restrictedBySuggestions Whether or not this attribute's value is restricted by suggestions (`suggestions` property) or by an allowed list of value (`hasAllowedList` property).
+     *
+     * @return $this
+     */
+    public function setRestrictedBySuggestions($restrictedBySuggestions)
+    {
+        $this->container['restrictedBySuggestions'] = $restrictedBySuggestions;
+
+        return $this;
+    }
+
+    /**
      * Gets editable
      *
      * @return bool
@@ -668,13 +783,94 @@ class Attribute implements ModelInterface, ArrayAccess
     /**
      * Sets subscribedApplicationsIds
      *
-     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that are subscribed to this attribute
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications where this attribute is available.
      *
      * @return $this
      */
     public function setSubscribedApplicationsIds($subscribedApplicationsIds)
     {
         $this->container['subscribedApplicationsIds'] = $subscribedApplicationsIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscribedCatalogsIds
+     *
+     * @return int[]|null
+     */
+    public function getSubscribedCatalogsIds()
+    {
+        return $this->container['subscribedCatalogsIds'];
+    }
+
+    /**
+     * Sets subscribedCatalogsIds
+     *
+     * @param int[]|null $subscribedCatalogsIds A list of the IDs of the catalogs where this attribute is available.
+     *
+     * @return $this
+     */
+    public function setSubscribedCatalogsIds($subscribedCatalogsIds)
+    {
+        $this->container['subscribedCatalogsIds'] = $subscribedCatalogsIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets allowedSubscriptions
+     *
+     * @return string[]|null
+     */
+    public function getAllowedSubscriptions()
+    {
+        return $this->container['allowedSubscriptions'];
+    }
+
+    /**
+     * Sets allowedSubscriptions
+     *
+     * @param string[]|null $allowedSubscriptions A list of allowed subscription types for this attribute.  **Note:** This only applies to attributes associated with the `CartItem` entity.
+     *
+     * @return $this
+     */
+    public function setAllowedSubscriptions($allowedSubscriptions)
+    {
+        $allowedValues = $this->getAllowedSubscriptionsAllowableValues();
+        if (!is_null($allowedSubscriptions) && array_diff($allowedSubscriptions, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'allowedSubscriptions', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['allowedSubscriptions'] = $allowedSubscriptions;
+
+        return $this;
+    }
+
+    /**
+     * Gets eventTypeId
+     *
+     * @return int|null
+     */
+    public function getEventTypeId()
+    {
+        return $this->container['eventTypeId'];
+    }
+
+    /**
+     * Sets eventTypeId
+     *
+     * @param int|null $eventTypeId eventTypeId
+     *
+     * @return $this
+     */
+    public function setEventTypeId($eventTypeId)
+    {
+        $this->container['eventTypeId'] = $eventTypeId;
 
         return $this;
     }

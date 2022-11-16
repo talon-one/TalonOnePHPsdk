@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -62,6 +62,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         'discountLimit' => 'float',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
+        'limits' => '\TalonOne\Client\Model\LimitConfig[]',
         'recipientIntegrationId' => 'string',
         'attributes' => 'object'
     ];
@@ -76,6 +77,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         'discountLimit' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
+        'limits' => null,
         'recipientIntegrationId' => null,
         'attributes' => null
     ];
@@ -111,6 +113,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         'discountLimit' => 'discountLimit',
         'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
+        'limits' => 'limits',
         'recipientIntegrationId' => 'recipientIntegrationId',
         'attributes' => 'attributes'
     ];
@@ -125,6 +128,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         'discountLimit' => 'setDiscountLimit',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
+        'limits' => 'setLimits',
         'recipientIntegrationId' => 'setRecipientIntegrationId',
         'attributes' => 'setAttributes'
     ];
@@ -139,6 +143,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         'discountLimit' => 'getDiscountLimit',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
+        'limits' => 'getLimits',
         'recipientIntegrationId' => 'getRecipientIntegrationId',
         'attributes' => 'getAttributes'
     ];
@@ -207,6 +212,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         $this->container['discountLimit'] = isset($data['discountLimit']) ? $data['discountLimit'] : null;
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
     }
@@ -234,6 +240,10 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] < 0)) {
             $invalidProperties[] = "invalid value for 'discountLimit', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['recipientIntegrationId']) && (mb_strlen($this->container['recipientIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'recipientIntegrationId', the character length must be smaller than or equal to 1000.";
         }
 
         return $invalidProperties;
@@ -264,7 +274,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
     /**
      * Sets usageLimit
      *
-     * @param int|null $usageLimit The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.
+     * @param int|null $usageLimit The number of times the coupon code can be redeemed. `0` means unlimited redemptions but any campaign usage limits will still apply.
      *
      * @return $this
      */
@@ -364,6 +374,30 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets limits
+     *
+     * @return \TalonOne\Client\Model\LimitConfig[]|null
+     */
+    public function getLimits()
+    {
+        return $this->container['limits'];
+    }
+
+    /**
+     * Sets limits
+     *
+     * @param \TalonOne\Client\Model\LimitConfig[]|null $limits Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured.
+     *
+     * @return $this
+     */
+    public function setLimits($limits)
+    {
+        $this->container['limits'] = $limits;
+
+        return $this;
+    }
+
+    /**
      * Gets recipientIntegrationId
      *
      * @return string|null
@@ -376,12 +410,16 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
     /**
      * Sets recipientIntegrationId
      *
-     * @param string|null $recipientIntegrationId The integration ID for this coupon's beneficiary's profile
+     * @param string|null $recipientIntegrationId The integration ID for this coupon's beneficiary's profile.
      *
      * @return $this
      */
     public function setRecipientIntegrationId($recipientIntegrationId)
     {
+        if (!is_null($recipientIntegrationId) && (mb_strlen($recipientIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $recipientIntegrationId when calling UpdateCoupon., must be smaller than or equal to 1000.');
+        }
+
         $this->container['recipientIntegrationId'] = $recipientIntegrationId;
 
         return $this;
@@ -400,7 +438,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this item
+     * @param object|null $attributes Arbitrary properties associated with this item.
      *
      * @return $this
      */

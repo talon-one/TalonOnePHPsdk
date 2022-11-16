@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -291,7 +291,7 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type Indicates the node type
+     * @param string $type Indicates the node type.
      *
      * @return $this
      */
@@ -348,7 +348,7 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
     /**
      * Sets operator
      *
-     * @param string $operator How does the set operates on its elements
+     * @param string $operator How does the set operates on its elements.
      *
      * @return $this
      */
@@ -381,7 +381,7 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
     /**
      * Sets elements
      *
-     * @param \TalonOne\Client\Model\CampaignSetNode[] $elements Child elements of this set
+     * @param \TalonOne\Client\Model\CampaignSetNode[] $elements Child elements of this set.
      *
      * @return $this
      */

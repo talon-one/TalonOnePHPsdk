@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}`
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * CustomerAnalytics Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description A summary report of customer activity for a given time range.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -275,7 +275,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets acceptedCoupons
      *
-     * @param int $acceptedCoupons Total accepted coupons for this customer
+     * @param int $acceptedCoupons Total accepted coupons for this customer.
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets createdCoupons
      *
-     * @param int $createdCoupons Total created coupons for this customer
+     * @param int $createdCoupons Total created coupons for this customer.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets freeItems
      *
-     * @param int $freeItems Total free items given to this customer
+     * @param int $freeItems Total free items given to this customer.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets totalOrders
      *
-     * @param int $totalOrders Total orders made by this customer
+     * @param int $totalOrders Total orders made by this customer.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets totalDiscountedOrders
      *
-     * @param int $totalDiscountedOrders Total orders made by this customer that had a discount
+     * @param int $totalDiscountedOrders Total orders made by this customer that had a discount.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets totalRevenue
      *
-     * @param float $totalRevenue Total Revenue across all closed sessions
+     * @param float $totalRevenue Total Revenue across all closed sessions.
      *
      * @return $this
      */
@@ -419,7 +419,7 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets totalDiscounts
      *
-     * @param float $totalDiscounts The sum of discounts that were given across all closed sessions
+     * @param float $totalDiscounts The sum of discounts that were given across all closed sessions.
      *
      * @return $this
      */
