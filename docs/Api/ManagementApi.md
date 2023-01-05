@@ -6519,7 +6519,7 @@ Name | Type | Description  | Notes
 
 Deduct points in loyalty program for given customer
 
-Remove points from the specified loyalty program and specified customer profile.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2).
+Deduct points from the specified loyalty program and specified customer profile.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2).
 
 ### Example
 
