@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **exclusiveCampaignsStrategy** | **string** | The strategy used when choosing exclusive campaigns for evaluation. | [optional] [default to 'listOrder']
 **defaultDiscountScope** | **string** | The default scope to apply &#x60;setDiscount&#x60; effects on if no scope was provided with the effect. | [optional] 
 **enableCascadingDiscounts** | **bool** | Indicates if discounts should cascade for this Application. | [optional] 
-**enableFlattenedCartItems** | **bool** | Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See [the docs](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items). | [optional] 
+**enableFlattenedCartItems** | **bool** | Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening). | [optional] 
 **attributesSettings** | [**\TalonOne\Client\Model\AttributesSettings**](AttributesSettings.md) |  | [optional] 
 **sandbox** | **bool** | Indicates if this is a live or sandbox Application. | [optional] 
 **enablePartialDiscounts** | **bool** | Indicates if this Application supports partial discounts. | [optional] 

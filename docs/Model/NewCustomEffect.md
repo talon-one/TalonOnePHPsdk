@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**applicationIds** | **int[]** | The IDs of the applications that are related to this entity. | 
+**applicationIds** | **int[]** | The IDs of the Applications that are related to this entity. | 
+**isPerItem** | **bool** | Indicates if this effect is per item or not. | [optional] 
 **name** | **string** | The name of this effect. | 
 **title** | **string** | The title of this effect. | 
 **payload** | **string** | The JSON payload of this effect. | 

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
-**created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
+**id** | **int** | Internal ID of this entity. | 
+**created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
 **accountId** | **int** | The ID of the account that owns this entity. | 
-**modified** | [**\DateTime**](\DateTime.md) | The exact moment this entity was last modified. | 
+**modified** | [**\DateTime**](\DateTime.md) | The time this entity was last modified. | 
 **description** | **string** | A short description of the purpose of this collection. | [optional] 
 **name** | **string** | The name of this collection. | 
 **modifiedBy** | **int** | ID of the user who last updated this effect if available. | [optional] 

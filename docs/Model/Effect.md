@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **rulesetId** | **int** | The ID of the ruleset that was active in the campaign when this effect was triggered. | 
 **ruleIndex** | **int** | The position of the rule that triggered this effect within the ruleset. | 
 **ruleName** | **string** | The name of the rule that triggered this effect. | 
-**effectType** | **string** | The type of effect that was triggered. | 
+**effectType** | **string** | The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). | 
 **triggeredByCoupon** | **int** | The ID of the coupon that was being evaluated when this effect was triggered. | [optional] 
 **triggeredForCatalogItem** | **int** | The ID of the catalog item that was being evaluated when this effect was triggered. | [optional] 
-**props** | [**object**](.md) |  | 
+**props** | [**object**](.md) | The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

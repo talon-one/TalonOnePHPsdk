@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
-**created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
-**modified** | [**\DateTime**](\DateTime.md) | The exact moment this entity was last modified. | 
+**id** | **int** | Internal ID of this entity. | 
+**created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
+**modified** | [**\DateTime**](\DateTime.md) | The time this entity was last modified. | 
 **email** | **string** | The email address associated with your account. | 
 **accountId** | **int** | The ID of the account that owns this entity. | 
 **inviteToken** | **string** | Invite token, empty if the user as already accepted their invite. | 
