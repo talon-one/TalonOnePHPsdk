@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | The name/description of this discount. | 
+**name** | **string** | The name / description of this discount | 
 **additionalCostId** | **int** | The ID of the additional cost. | 
 **value** | **float** | The total monetary value of the discount. | 
 **position** | **float** | The index of the item in the cart item list containing the additional cost to be discounted. | 
-**subPosition** | **float** | Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. | [optional] 
+**subPosition** | **float** | Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. | [optional] 
 **additionalCost** | **string** | The name of the additional cost. | 
 **desiredValue** | **float** | Only with [partial discounts enabled](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#partial-discounts). Represents the monetary value of the discount to be applied to additional discount without considering budget limitations. | [optional] 
 

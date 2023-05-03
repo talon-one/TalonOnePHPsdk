@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | The name/description of this discount. | 
+**name** | **string** | The name / description of this discount | 
 **additionalCostId** | **int** | The ID of the additional cost. | 
 **additionalCost** | **string** | The name of the additional cost. | 
 **value** | **float** | The total monetary value of the discount. | 

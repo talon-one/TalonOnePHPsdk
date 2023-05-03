@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **integrationId** | **string** | The integration ID set by your integration layer. | 
-**created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
+**created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
 **name** | **string** | The name for this customer profile. | 
 **customerId** | **int** | The internal Talon.One ID of the customer. | 
 **lastActivity** | [**\DateTime**](\DateTime.md) | The last activity of the customer. | [optional] 

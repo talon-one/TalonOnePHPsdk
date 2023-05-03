@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
-**created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
-**modified** | [**\DateTime**](\DateTime.md) | The exact moment this entity was last modified. | 
+**id** | **int** | Internal ID of this entity. | 
+**created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
+**modified** | [**\DateTime**](\DateTime.md) | The time this entity was last modified. | 
 **accountId** | **int** | The ID of the account that owns this entity. | 
 **name** | **string** | The name of this application. | 
 **description** | **string** | A longer description of the application. | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **exclusiveCampaignsStrategy** | **string** | The strategy used when choosing exclusive campaigns for evaluation. | [optional] [default to 'listOrder']
 **defaultDiscountScope** | **string** | The default scope to apply &#x60;setDiscount&#x60; effects on if no scope was provided with the effect. | [optional] 
 **enableCascadingDiscounts** | **bool** | Indicates if discounts should cascade for this Application. | [optional] 
-**enableFlattenedCartItems** | **bool** | Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See [the docs](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items). | [optional] 
+**enableFlattenedCartItems** | **bool** | Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening). | [optional] 
 **attributesSettings** | [**\TalonOne\Client\Model\AttributesSettings**](AttributesSettings.md) |  | [optional] 
 **sandbox** | **bool** | Indicates if this is a live or sandbox Application. | [optional] 
 **enablePartialDiscounts** | **bool** | Indicates if this Application supports partial discounts. | [optional] 

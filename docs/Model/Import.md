@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
-**created** | [**\DateTime**](\DateTime.md) | The exact moment this entity was created. | 
+**id** | **int** | Internal ID of this entity. | 
+**created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
 **accountId** | **int** | The ID of the account that owns this entity. | 
-**userId** | **int** | The ID of the account that owns this entity. | 
+**userId** | **int** | The ID of the user associated with this entity. | 
 **entity** | **string** | The name of the entity that was imported. | 
 **amount** | **int** | The number of values that were imported. | 
 

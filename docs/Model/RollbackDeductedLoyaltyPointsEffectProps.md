@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **startDate** | [**\DateTime**](\DateTime.md) | Date after which the reimbursed points will be valid. | [optional] 
 **expiryDate** | [**\DateTime**](\DateTime.md) | Date after which the reimbursed points will expire. | [optional] 
 **transactionUUID** | **string** | The identifier of &#39;addition&#39; entries added to the ledger as the &#x60;deductLoyaltyPoints&#x60; effect is rolled back. | 
-**cardIdentifier** | **string** | The card on which these points were added. | [optional] 
+**cardIdentifier** | **string** | The alphanumeric identifier of the loyalty card. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
