@@ -87,7 +87,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure Host, API key, & API key prefix for integration authentication
 $config = \TalonOne\Client\Configuration::getDefaultConfiguration()
-    ->setHost('https://mycompany.talon.one')
+    ->setHost('https://yourbaseurl.talon.one')
     ->setApiKeyPrefix('Authorization', 'ApiKey-v1')
     ->setApiKey('Authorization', 'dbc644d33aa74d582bd9479c59e16f970fe13bf34a208c39d6c7fa7586968468');
 
@@ -159,10 +159,11 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Host & API key prefix for management authentication
+// Configure Host, API key, & API key prefix for management authentication
 $config = \TalonOne\Client\Configuration::getDefaultConfiguration()
-    ->setHost('https://mycompany.talon.one')
-    ->setApiKeyPrefix('Authorization', 'Bearer');
+    ->setHost('https://yourbaseurl.talon.one')
+    ->setApiKeyPrefix('Authorization', 'ManagementKey-v1')
+    ->setApiKey('Authorization', '2f0dce055da01ae595005d7d79154bae7448d319d5fc7c5b2951fadd6ba1ea07');
 
 // Initiating a management api instance with the config
 $apiInstance = new \TalonOne\Client\Api\ManagementApi(
@@ -173,17 +174,6 @@ $apiInstance = new \TalonOne\Client\Api\ManagementApi(
 );
 
 try {
-    $loginParams = new \TalonOne\Client\Model\LoginParams([
-        'email' => 'admin@talon.one',
-        'password' => 'VerySecurePa$$word!'
-    ]);
-
-    // create a session (login) in order to get a token
-    $session = $apiInstance->createSession($loginParams);
-
-    // Save token in the configuration as API key
-    $config->setApiKey('Authorization', $session->getToken());
-
     $application_id = 7; // int | desired application identifier
     // Calling `getApplication` function
     $application = $apiInstance->getApplication($application_id);
