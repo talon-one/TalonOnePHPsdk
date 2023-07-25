@@ -380,7 +380,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets campaignGroupID
      *
-     * @param int|null $campaignGroupID The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/managing-campaign-groups) this role was created for.
+     * @param int|null $campaignGroupID The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups/) this role was created for.
      *
      * @return $this
      */
@@ -493,7 +493,7 @@ class Role implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -505,6 +505,7 @@ class Role implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -518,7 +519,7 @@ class Role implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -534,7 +535,7 @@ class Role implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
