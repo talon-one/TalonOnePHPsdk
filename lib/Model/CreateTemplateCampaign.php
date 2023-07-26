@@ -418,7 +418,7 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
     /**
      * Sets campaignGroups
      *
-     * @param int[]|null $campaignGroups The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups/) this campaign belongs to.
+     * @param int[]|null $campaignGroups The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to.
      *
      * @return $this
      */

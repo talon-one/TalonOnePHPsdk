@@ -380,7 +380,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets campaignGroupID
      *
-     * @param int|null $campaignGroupID The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups/) this role was created for.
+     * @param int|null $campaignGroupID The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/managing-campaign-groups) this role was created for.
      *
      * @return $this
      */
