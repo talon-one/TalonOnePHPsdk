@@ -2888,7 +2888,7 @@ class ManagementApi
      */
     public function createCouponsAsynchronouslyWithHttpInfo($applicationId, $campaignId, $body)
     {
-        $request = $this->createCouponsAsynchronouslyRequest($applicationId, $campaignId, $body);
+        $request = $this->createCouponsAsyncRequest($applicationId, $campaignId, $body);
 
         try {
             $options = $this->createHttpClientOption();
