@@ -59,8 +59,10 @@ class BaseNotification implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'policy' => 'object',
+        'enabled' => 'bool',
         'webhook' => '\TalonOne\Client\Model\BaseNotificationWebhook',
-        'id' => 'int'
+        'id' => 'int',
+        'type' => 'string'
     ];
 
     /**
@@ -70,8 +72,10 @@ class BaseNotification implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'policy' => null,
+        'enabled' => null,
         'webhook' => null,
-        'id' => null
+        'id' => null,
+        'type' => null
     ];
 
     /**
@@ -102,8 +106,10 @@ class BaseNotification implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'policy' => 'policy',
+        'enabled' => 'enabled',
         'webhook' => 'webhook',
-        'id' => 'id'
+        'id' => 'id',
+        'type' => 'type'
     ];
 
     /**
@@ -113,8 +119,10 @@ class BaseNotification implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'policy' => 'setPolicy',
+        'enabled' => 'setEnabled',
         'webhook' => 'setWebhook',
-        'id' => 'setId'
+        'id' => 'setId',
+        'type' => 'setType'
     ];
 
     /**
@@ -124,8 +132,10 @@ class BaseNotification implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'policy' => 'getPolicy',
+        'enabled' => 'getEnabled',
         'webhook' => 'getWebhook',
-        'id' => 'getId'
+        'id' => 'getId',
+        'type' => 'getType'
     ];
 
     /**
@@ -169,8 +179,37 @@ class BaseNotification implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TYPE_CAMPAIGN = 'campaign';
+    const TYPE_LOYALTY_ADDED_DEDUCTED_POINTS = 'loyalty_added_deducted_points';
+    const TYPE_COUPON = 'coupon';
+    const TYPE_EXPIRING_POINTS = 'expiring_points';
+    const TYPE_PENDING_TO_ACTIVE_POINTS = 'pending_to_active_points';
+    const TYPE_STRIKETHROUGH_PRICING = 'strikethrough_pricing';
+    const TYPE_TIER_DOWNGRADE = 'tier_downgrade';
+    const TYPE_TIER_UPGRADE = 'tier_upgrade';
+    const TYPE_TIER_WILL_DOWNGRADE = 'tier_will_downgrade';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_CAMPAIGN,
+            self::TYPE_LOYALTY_ADDED_DEDUCTED_POINTS,
+            self::TYPE_COUPON,
+            self::TYPE_EXPIRING_POINTS,
+            self::TYPE_PENDING_TO_ACTIVE_POINTS,
+            self::TYPE_STRIKETHROUGH_PRICING,
+            self::TYPE_TIER_DOWNGRADE,
+            self::TYPE_TIER_UPGRADE,
+            self::TYPE_TIER_WILL_DOWNGRADE,
+        ];
+    }
     
 
     /**
@@ -189,8 +228,10 @@ class BaseNotification implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : true;
         $this->container['webhook'] = isset($data['webhook']) ? $data['webhook'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -213,6 +254,17 @@ class BaseNotification implements ModelInterface, ArrayAccess
         }
         if (($this->container['id'] < 1)) {
             $invalidProperties[] = "invalid value for 'id', must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
         return $invalidProperties;
@@ -250,6 +302,30 @@ class BaseNotification implements ModelInterface, ArrayAccess
     public function setPolicy($policy)
     {
         $this->container['policy'] = $policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool|null
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool|null $enabled Indicates whether the notification is activated.
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }
@@ -303,6 +379,39 @@ class BaseNotification implements ModelInterface, ArrayAccess
         }
 
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type The notification type.
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

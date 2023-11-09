@@ -79,6 +79,7 @@ class InventoryCoupon implements ModelInterface, ArrayAccess
         'reservation' => 'bool',
         'batchId' => 'string',
         'isReservationMandatory' => 'bool',
+        'implicitlyReserved' => 'bool',
         'profileRedemptionCount' => 'int',
         'state' => 'string'
     ];
@@ -110,6 +111,7 @@ class InventoryCoupon implements ModelInterface, ArrayAccess
         'reservation' => null,
         'batchId' => null,
         'isReservationMandatory' => null,
+        'implicitlyReserved' => null,
         'profileRedemptionCount' => null,
         'state' => null
     ];
@@ -162,6 +164,7 @@ class InventoryCoupon implements ModelInterface, ArrayAccess
         'reservation' => 'reservation',
         'batchId' => 'batchId',
         'isReservationMandatory' => 'isReservationMandatory',
+        'implicitlyReserved' => 'implicitlyReserved',
         'profileRedemptionCount' => 'profileRedemptionCount',
         'state' => 'state'
     ];
@@ -193,6 +196,7 @@ class InventoryCoupon implements ModelInterface, ArrayAccess
         'reservation' => 'setReservation',
         'batchId' => 'setBatchId',
         'isReservationMandatory' => 'setIsReservationMandatory',
+        'implicitlyReserved' => 'setImplicitlyReserved',
         'profileRedemptionCount' => 'setProfileRedemptionCount',
         'state' => 'setState'
     ];
@@ -224,6 +228,7 @@ class InventoryCoupon implements ModelInterface, ArrayAccess
         'reservation' => 'getReservation',
         'batchId' => 'getBatchId',
         'isReservationMandatory' => 'getIsReservationMandatory',
+        'implicitlyReserved' => 'getImplicitlyReserved',
         'profileRedemptionCount' => 'getProfileRedemptionCount',
         'state' => 'getState'
     ];
@@ -309,6 +314,7 @@ class InventoryCoupon implements ModelInterface, ArrayAccess
         $this->container['reservation'] = isset($data['reservation']) ? $data['reservation'] : true;
         $this->container['batchId'] = isset($data['batchId']) ? $data['batchId'] : null;
         $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : true;
+        $this->container['implicitlyReserved'] = isset($data['implicitlyReserved']) ? $data['implicitlyReserved'] : null;
         $this->container['profileRedemptionCount'] = isset($data['profileRedemptionCount']) ? $data['profileRedemptionCount'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
     }
@@ -926,6 +932,30 @@ class InventoryCoupon implements ModelInterface, ArrayAccess
     public function setIsReservationMandatory($isReservationMandatory)
     {
         $this->container['isReservationMandatory'] = $isReservationMandatory;
+
+        return $this;
+    }
+
+    /**
+     * Gets implicitlyReserved
+     *
+     * @return bool|null
+     */
+    public function getImplicitlyReserved()
+    {
+        return $this->container['implicitlyReserved'];
+    }
+
+    /**
+     * Sets implicitlyReserved
+     *
+     * @param bool|null $implicitlyReserved An indication of whether the coupon is implicitly reserved for all customers.
+     *
+     * @return $this
+     */
+    public function setImplicitlyReserved($implicitlyReserved)
+    {
+        $this->container['implicitlyReserved'] = $implicitlyReserved;
 
         return $this;
     }

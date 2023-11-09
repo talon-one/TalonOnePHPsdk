@@ -58,7 +58,8 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\AccessLogEntry[]'
+        'totalResultSize' => 'int',
+        'data' => '\TalonOne\Client\Model\Collection[]'
     ];
 
     /**
@@ -68,6 +69,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'hasMore' => null,
+        'totalResultSize' => null,
         'data' => null
     ];
 
@@ -99,6 +101,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'hasMore' => 'hasMore',
+        'totalResultSize' => 'totalResultSize',
         'data' => 'data'
     ];
 
@@ -109,6 +112,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'hasMore' => 'setHasMore',
+        'totalResultSize' => 'setTotalResultSize',
         'data' => 'setData'
     ];
 
@@ -119,6 +123,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'hasMore' => 'getHasMore',
+        'totalResultSize' => 'getTotalResultSize',
         'data' => 'getData'
     ];
 
@@ -183,6 +188,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
+        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -195,9 +201,6 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['hasMore'] === null) {
-            $invalidProperties[] = "'hasMore' can't be null";
-        }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
@@ -219,7 +222,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
     /**
      * Gets hasMore
      *
-     * @return bool
+     * @return bool|null
      */
     public function getHasMore()
     {
@@ -229,7 +232,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
     /**
      * Sets hasMore
      *
-     * @param bool $hasMore hasMore
+     * @param bool|null $hasMore hasMore
      *
      * @return $this
      */
@@ -241,9 +244,33 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets totalResultSize
+     *
+     * @return int|null
+     */
+    public function getTotalResultSize()
+    {
+        return $this->container['totalResultSize'];
+    }
+
+    /**
+     * Sets totalResultSize
+     *
+     * @param int|null $totalResultSize totalResultSize
+     *
+     * @return $this
+     */
+    public function setTotalResultSize($totalResultSize)
+    {
+        $this->container['totalResultSize'] = $totalResultSize;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\AccessLogEntry[]
+     * @return \TalonOne\Client\Model\Collection[]
      */
     public function getData()
     {
@@ -253,7 +280,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\AccessLogEntry[] $data data
+     * @param \TalonOne\Client\Model\Collection[] $data data
      *
      * @return $this
      */

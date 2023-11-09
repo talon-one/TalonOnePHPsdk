@@ -72,7 +72,8 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         'templateParams' => '\TalonOne\Client\Model\CampaignTemplateParams[]',
         'applicationsIds' => 'int[]',
         'campaignCollections' => '\TalonOne\Client\Model\CampaignTemplateCollection[]',
-        'defaultCampaignGroupId' => 'int'
+        'defaultCampaignGroupId' => 'int',
+        'campaignType' => 'string'
     ];
 
     /**
@@ -96,7 +97,8 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         'templateParams' => null,
         'applicationsIds' => null,
         'campaignCollections' => null,
-        'defaultCampaignGroupId' => null
+        'defaultCampaignGroupId' => null,
+        'campaignType' => null
     ];
 
     /**
@@ -141,7 +143,8 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         'templateParams' => 'templateParams',
         'applicationsIds' => 'applicationsIds',
         'campaignCollections' => 'campaignCollections',
-        'defaultCampaignGroupId' => 'defaultCampaignGroupId'
+        'defaultCampaignGroupId' => 'defaultCampaignGroupId',
+        'campaignType' => 'campaignType'
     ];
 
     /**
@@ -165,7 +168,8 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         'templateParams' => 'setTemplateParams',
         'applicationsIds' => 'setApplicationsIds',
         'campaignCollections' => 'setCampaignCollections',
-        'defaultCampaignGroupId' => 'setDefaultCampaignGroupId'
+        'defaultCampaignGroupId' => 'setDefaultCampaignGroupId',
+        'campaignType' => 'setCampaignType'
     ];
 
     /**
@@ -189,7 +193,8 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         'templateParams' => 'getTemplateParams',
         'applicationsIds' => 'getApplicationsIds',
         'campaignCollections' => 'getCampaignCollections',
-        'defaultCampaignGroupId' => 'getDefaultCampaignGroupId'
+        'defaultCampaignGroupId' => 'getDefaultCampaignGroupId',
+        'campaignType' => 'getCampaignType'
     ];
 
     /**
@@ -241,6 +246,8 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
     const FEATURES_LOYALTY = 'loyalty';
     const FEATURES_GIVEAWAYS = 'giveaways';
     const FEATURES_STRIKETHROUGH = 'strikethrough';
+    const CAMPAIGN_TYPE_CART_ITEM = 'cartItem';
+    const CAMPAIGN_TYPE_ADVANCED = 'advanced';
     
 
     
@@ -271,6 +278,19 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
             self::FEATURES_LOYALTY,
             self::FEATURES_GIVEAWAYS,
             self::FEATURES_STRIKETHROUGH,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCampaignTypeAllowableValues()
+    {
+        return [
+            self::CAMPAIGN_TYPE_CART_ITEM,
+            self::CAMPAIGN_TYPE_ADVANCED,
         ];
     }
     
@@ -306,6 +326,7 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         $this->container['applicationsIds'] = isset($data['applicationsIds']) ? $data['applicationsIds'] : null;
         $this->container['campaignCollections'] = isset($data['campaignCollections']) ? $data['campaignCollections'] : null;
         $this->container['defaultCampaignGroupId'] = isset($data['defaultCampaignGroupId']) ? $data['defaultCampaignGroupId'] : null;
+        $this->container['campaignType'] = isset($data['campaignType']) ? $data['campaignType'] : 'advanced';
     }
 
     /**
@@ -344,6 +365,14 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         if ($this->container['applicationsIds'] === null) {
             $invalidProperties[] = "'applicationsIds' can't be null";
         }
+        $allowedValues = $this->getCampaignTypeAllowableValues();
+        if (!is_null($this->container['campaignType']) && !in_array($this->container['campaignType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'campaignType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -762,6 +791,39 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
     public function setDefaultCampaignGroupId($defaultCampaignGroupId)
     {
         $this->container['defaultCampaignGroupId'] = $defaultCampaignGroupId;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignType
+     *
+     * @return string|null
+     */
+    public function getCampaignType()
+    {
+        return $this->container['campaignType'];
+    }
+
+    /**
+     * Sets campaignType
+     *
+     * @param string|null $campaignType The campaign type. Possible type values:   - `cartItem`: Type of campaign that can apply effects only to cart items.   - `advanced`: Type of campaign that can apply effects to customer sessions and cart items.
+     *
+     * @return $this
+     */
+    public function setCampaignType($campaignType)
+    {
+        $allowedValues = $this->getCampaignTypeAllowableValues();
+        if (!is_null($campaignType) && !in_array($campaignType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'campaignType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['campaignType'] = $campaignType;
 
         return $this;
     }

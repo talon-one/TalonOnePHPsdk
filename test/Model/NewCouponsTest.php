@@ -168,4 +168,11 @@ class NewCouponsTest extends TestCase
     public function testPropertyIsReservationMandatory()
     {
     }
+
+    /**
+     * Test attribute "implicitlyReserved"
+     */
+    public function testPropertyImplicitlyReserved()
+    {
+    }
 }

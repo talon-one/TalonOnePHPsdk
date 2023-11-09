@@ -67,7 +67,9 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'totalDiscount' => 'float',
         'desiredTotalDiscount' => 'float',
         'bundleIndex' => 'int',
-        'bundleName' => 'string'
+        'bundleName' => 'string',
+        'targetedItemPosition' => 'float',
+        'targetedItemSubPosition' => 'float'
     ];
 
     /**
@@ -85,7 +87,9 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'totalDiscount' => null,
         'desiredTotalDiscount' => null,
         'bundleIndex' => null,
-        'bundleName' => null
+        'bundleName' => null,
+        'targetedItemPosition' => null,
+        'targetedItemSubPosition' => null
     ];
 
     /**
@@ -124,7 +128,9 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'totalDiscount' => 'totalDiscount',
         'desiredTotalDiscount' => 'desiredTotalDiscount',
         'bundleIndex' => 'bundleIndex',
-        'bundleName' => 'bundleName'
+        'bundleName' => 'bundleName',
+        'targetedItemPosition' => 'targetedItemPosition',
+        'targetedItemSubPosition' => 'targetedItemSubPosition'
     ];
 
     /**
@@ -142,7 +148,9 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'totalDiscount' => 'setTotalDiscount',
         'desiredTotalDiscount' => 'setDesiredTotalDiscount',
         'bundleIndex' => 'setBundleIndex',
-        'bundleName' => 'setBundleName'
+        'bundleName' => 'setBundleName',
+        'targetedItemPosition' => 'setTargetedItemPosition',
+        'targetedItemSubPosition' => 'setTargetedItemSubPosition'
     ];
 
     /**
@@ -160,7 +168,9 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'totalDiscount' => 'getTotalDiscount',
         'desiredTotalDiscount' => 'getDesiredTotalDiscount',
         'bundleIndex' => 'getBundleIndex',
-        'bundleName' => 'getBundleName'
+        'bundleName' => 'getBundleName',
+        'targetedItemPosition' => 'getTargetedItemPosition',
+        'targetedItemSubPosition' => 'getTargetedItemSubPosition'
     ];
 
     /**
@@ -233,6 +243,8 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         $this->container['desiredTotalDiscount'] = isset($data['desiredTotalDiscount']) ? $data['desiredTotalDiscount'] : null;
         $this->container['bundleIndex'] = isset($data['bundleIndex']) ? $data['bundleIndex'] : null;
         $this->container['bundleName'] = isset($data['bundleName']) ? $data['bundleName'] : null;
+        $this->container['targetedItemPosition'] = isset($data['targetedItemPosition']) ? $data['targetedItemPosition'] : null;
+        $this->container['targetedItemSubPosition'] = isset($data['targetedItemSubPosition']) ? $data['targetedItemSubPosition'] : null;
     }
 
     /**
@@ -353,7 +365,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets subPosition
      *
-     * @param float|null $subPosition Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. Indicates which item the discount applies to for cart items with `quantity` > 1.
+     * @param float|null $subPosition For cart items with `quantity` > 1, the sub position indicates which item the discount applies to.
      *
      * @return $this
      */
@@ -504,6 +516,54 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     public function setBundleName($bundleName)
     {
         $this->container['bundleName'] = $bundleName;
+
+        return $this;
+    }
+
+    /**
+     * Gets targetedItemPosition
+     *
+     * @return float|null
+     */
+    public function getTargetedItemPosition()
+    {
+        return $this->container['targetedItemPosition'];
+    }
+
+    /**
+     * Sets targetedItemPosition
+     *
+     * @param float|null $targetedItemPosition The index of the targeted bundle item on which the applied discount is based.
+     *
+     * @return $this
+     */
+    public function setTargetedItemPosition($targetedItemPosition)
+    {
+        $this->container['targetedItemPosition'] = $targetedItemPosition;
+
+        return $this;
+    }
+
+    /**
+     * Gets targetedItemSubPosition
+     *
+     * @return float|null
+     */
+    public function getTargetedItemSubPosition()
+    {
+        return $this->container['targetedItemSubPosition'];
+    }
+
+    /**
+     * Sets targetedItemSubPosition
+     *
+     * @param float|null $targetedItemSubPosition The sub-position of the targeted bundle item on which the applied discount is based.
+     *
+     * @return $this
+     */
+    public function setTargetedItemSubPosition($targetedItemSubPosition)
+    {
+        $this->container['targetedItemSubPosition'] = $targetedItemSubPosition;
 
         return $this;
     }

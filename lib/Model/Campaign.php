@@ -75,6 +75,10 @@ class Campaign implements ModelInterface, ArrayAccess
         'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
         'campaignGroups' => 'int[]',
+        'evaluationGroupId' => 'int',
+        'type' => 'string',
+        'linkedStoreIds' => 'int[]',
+        'budgets' => '\TalonOne\Client\Model\CampaignBudget[]',
         'couponRedemptionCount' => 'int',
         'referralRedemptionCount' => 'int',
         'discountCount' => 'float',
@@ -120,6 +124,10 @@ class Campaign implements ModelInterface, ArrayAccess
         'referralSettings' => null,
         'limits' => null,
         'campaignGroups' => null,
+        'evaluationGroupId' => null,
+        'type' => null,
+        'linkedStoreIds' => null,
+        'budgets' => null,
         'couponRedemptionCount' => null,
         'referralRedemptionCount' => null,
         'discountCount' => null,
@@ -186,6 +194,10 @@ class Campaign implements ModelInterface, ArrayAccess
         'referralSettings' => 'referralSettings',
         'limits' => 'limits',
         'campaignGroups' => 'campaignGroups',
+        'evaluationGroupId' => 'evaluationGroupId',
+        'type' => 'type',
+        'linkedStoreIds' => 'linkedStoreIds',
+        'budgets' => 'budgets',
         'couponRedemptionCount' => 'couponRedemptionCount',
         'referralRedemptionCount' => 'referralRedemptionCount',
         'discountCount' => 'discountCount',
@@ -231,6 +243,10 @@ class Campaign implements ModelInterface, ArrayAccess
         'referralSettings' => 'setReferralSettings',
         'limits' => 'setLimits',
         'campaignGroups' => 'setCampaignGroups',
+        'evaluationGroupId' => 'setEvaluationGroupId',
+        'type' => 'setType',
+        'linkedStoreIds' => 'setLinkedStoreIds',
+        'budgets' => 'setBudgets',
         'couponRedemptionCount' => 'setCouponRedemptionCount',
         'referralRedemptionCount' => 'setReferralRedemptionCount',
         'discountCount' => 'setDiscountCount',
@@ -276,6 +292,10 @@ class Campaign implements ModelInterface, ArrayAccess
         'referralSettings' => 'getReferralSettings',
         'limits' => 'getLimits',
         'campaignGroups' => 'getCampaignGroups',
+        'evaluationGroupId' => 'getEvaluationGroupId',
+        'type' => 'getType',
+        'linkedStoreIds' => 'getLinkedStoreIds',
+        'budgets' => 'getBudgets',
         'couponRedemptionCount' => 'getCouponRedemptionCount',
         'referralRedemptionCount' => 'getReferralRedemptionCount',
         'discountCount' => 'getDiscountCount',
@@ -347,6 +367,8 @@ class Campaign implements ModelInterface, ArrayAccess
     const FEATURES_LOYALTY = 'loyalty';
     const FEATURES_GIVEAWAYS = 'giveaways';
     const FEATURES_STRIKETHROUGH = 'strikethrough';
+    const TYPE_CART_ITEM = 'cartItem';
+    const TYPE_ADVANCED = 'advanced';
     
 
     
@@ -377,6 +399,19 @@ class Campaign implements ModelInterface, ArrayAccess
             self::FEATURES_LOYALTY,
             self::FEATURES_GIVEAWAYS,
             self::FEATURES_STRIKETHROUGH,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_CART_ITEM,
+            self::TYPE_ADVANCED,
         ];
     }
     
@@ -413,6 +448,10 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
+        $this->container['evaluationGroupId'] = isset($data['evaluationGroupId']) ? $data['evaluationGroupId'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : 'advanced';
+        $this->container['linkedStoreIds'] = isset($data['linkedStoreIds']) ? $data['linkedStoreIds'] : null;
+        $this->container['budgets'] = isset($data['budgets']) ? $data['budgets'] : null;
         $this->container['couponRedemptionCount'] = isset($data['couponRedemptionCount']) ? $data['couponRedemptionCount'] : null;
         $this->container['referralRedemptionCount'] = isset($data['referralRedemptionCount']) ? $data['referralRedemptionCount'] : null;
         $this->container['discountCount'] = isset($data['discountCount']) ? $data['discountCount'] : null;
@@ -485,6 +524,20 @@ class Campaign implements ModelInterface, ArrayAccess
         }
         if ($this->container['limits'] === null) {
             $invalidProperties[] = "'limits' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['budgets'] === null) {
+            $invalidProperties[] = "'budgets' can't be null";
         }
         return $invalidProperties;
     }
@@ -687,7 +740,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets endTime
      *
-     * @param \DateTime|null $endTime Timestamp the campaign will become inactive.
+     * @param \DateTime|null $endTime Timestamp when the campaign will become inactive.
      *
      * @return $this
      */
@@ -933,6 +986,111 @@ class Campaign implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets evaluationGroupId
+     *
+     * @return int|null
+     */
+    public function getEvaluationGroupId()
+    {
+        return $this->container['evaluationGroupId'];
+    }
+
+    /**
+     * Sets evaluationGroupId
+     *
+     * @param int|null $evaluationGroupId The ID of the campaign evaluation group the campaign belongs to.
+     *
+     * @return $this
+     */
+    public function setEvaluationGroupId($evaluationGroupId)
+    {
+        $this->container['evaluationGroupId'] = $evaluationGroupId;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type The campaign type. Possible type values:   - `cartItem`: Type of campaign that can apply effects only to cart items.   - `advanced`: Type of campaign that can apply effects to customer sessions and cart items.
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets linkedStoreIds
+     *
+     * @return int[]|null
+     */
+    public function getLinkedStoreIds()
+    {
+        return $this->container['linkedStoreIds'];
+    }
+
+    /**
+     * Sets linkedStoreIds
+     *
+     * @param int[]|null $linkedStoreIds A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.
+     *
+     * @return $this
+     */
+    public function setLinkedStoreIds($linkedStoreIds)
+    {
+        $this->container['linkedStoreIds'] = $linkedStoreIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets budgets
+     *
+     * @return \TalonOne\Client\Model\CampaignBudget[]
+     */
+    public function getBudgets()
+    {
+        return $this->container['budgets'];
+    }
+
+    /**
+     * Sets budgets
+     *
+     * @param \TalonOne\Client\Model\CampaignBudget[] $budgets A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined.
+     *
+     * @return $this
+     */
+    public function setBudgets($budgets)
+    {
+        $this->container['budgets'] = $budgets;
+
+        return $this;
+    }
+
+    /**
      * Gets couponRedemptionCount
      *
      * @return int|null
@@ -945,7 +1103,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets couponRedemptionCount
      *
-     * @param int|null $couponRedemptionCount Number of coupons redeemed in the campaign.
+     * @param int|null $couponRedemptionCount This property is **deprecated**. The count should be available under *budgets* property. Number of coupons redeemed in the campaign.
      *
      * @return $this
      */
@@ -969,7 +1127,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets referralRedemptionCount
      *
-     * @param int|null $referralRedemptionCount Number of referral codes redeemed in the campaign.
+     * @param int|null $referralRedemptionCount This property is **deprecated**. The count should be available under *budgets* property. Number of referral codes redeemed in the campaign.
      *
      * @return $this
      */
@@ -993,7 +1151,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets discountCount
      *
-     * @param float|null $discountCount Total amount of discounts redeemed in the campaign.
+     * @param float|null $discountCount This property is **deprecated**. The count should be available under *budgets* property. Total amount of discounts redeemed in the campaign.
      *
      * @return $this
      */
@@ -1017,7 +1175,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets discountEffectCount
      *
-     * @param int|null $discountEffectCount Total number of times discounts were redeemed in this campaign.
+     * @param int|null $discountEffectCount This property is **deprecated**. The count should be available under *budgets* property. Total number of times discounts were redeemed in this campaign.
      *
      * @return $this
      */
@@ -1041,7 +1199,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets couponCreationCount
      *
-     * @param int|null $couponCreationCount Total number of coupons created by rules in this campaign.
+     * @param int|null $couponCreationCount This property is **deprecated**. The count should be available under *budgets* property. Total number of coupons created by rules in this campaign.
      *
      * @return $this
      */
@@ -1065,7 +1223,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets customEffectCount
      *
-     * @param int|null $customEffectCount Total number of custom effects triggered by rules in this campaign.
+     * @param int|null $customEffectCount This property is **deprecated**. The count should be available under *budgets* property. Total number of custom effects triggered by rules in this campaign.
      *
      * @return $this
      */
@@ -1089,7 +1247,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets referralCreationCount
      *
-     * @param int|null $referralCreationCount Total number of referrals created by rules in this campaign.
+     * @param int|null $referralCreationCount This property is **deprecated**. The count should be available under *budgets* property. Total number of referrals created by rules in this campaign.
      *
      * @return $this
      */
@@ -1113,7 +1271,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets addFreeItemEffectCount
      *
-     * @param int|null $addFreeItemEffectCount Total number of times triggering add free item effext is allowed in this campaign.
+     * @param int|null $addFreeItemEffectCount This property is **deprecated**. The count should be available under *budgets* property. Total number of times the [add free item effect](https://docs.talon.one/docs/dev/integration-api/api-effects#addfreeitem) can be triggered in this campaign.
      *
      * @return $this
      */
@@ -1137,7 +1295,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets awardedGiveawaysCount
      *
-     * @param int|null $awardedGiveawaysCount Total number of giveaways awarded by rules in this campaign.
+     * @param int|null $awardedGiveawaysCount This property is **deprecated**. The count should be available under *budgets* property. Total number of giveaways awarded by rules in this campaign.
      *
      * @return $this
      */
@@ -1161,7 +1319,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets createdLoyaltyPointsCount
      *
-     * @param float|null $createdLoyaltyPointsCount Total number of loyalty points created by rules in this campaign.
+     * @param float|null $createdLoyaltyPointsCount This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points created by rules in this campaign.
      *
      * @return $this
      */
@@ -1185,7 +1343,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets createdLoyaltyPointsEffectCount
      *
-     * @param int|null $createdLoyaltyPointsEffectCount Total number of loyalty point creation effects triggered by rules in this campaign.
+     * @param int|null $createdLoyaltyPointsEffectCount This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point creation effects triggered by rules in this campaign.
      *
      * @return $this
      */
@@ -1209,7 +1367,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets redeemedLoyaltyPointsCount
      *
-     * @param float|null $redeemedLoyaltyPointsCount Total number of loyalty points redeemed by rules in this campaign.
+     * @param float|null $redeemedLoyaltyPointsCount This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points redeemed by rules in this campaign.
      *
      * @return $this
      */
@@ -1233,7 +1391,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets redeemedLoyaltyPointsEffectCount
      *
-     * @param int|null $redeemedLoyaltyPointsEffectCount Total number of loyalty point redemption effects triggered by rules in this campaign.
+     * @param int|null $redeemedLoyaltyPointsEffectCount This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point redemption effects triggered by rules in this campaign.
      *
      * @return $this
      */
@@ -1257,7 +1415,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets callApiEffectCount
      *
-     * @param int|null $callApiEffectCount Total number of webhook triggered by rules in this campaign.
+     * @param int|null $callApiEffectCount This property is **deprecated**. The count should be available under *budgets* property. Total number of webhooks triggered by rules in this campaign.
      *
      * @return $this
      */
@@ -1281,7 +1439,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets reservecouponEffectCount
      *
-     * @param int|null $reservecouponEffectCount Total number of reserve coupon effects triggered by rules in this campaign.
+     * @param int|null $reservecouponEffectCount This property is **deprecated**. The count should be available under *budgets* property. Total number of reserve coupon effects triggered by rules in this campaign.
      *
      * @return $this
      */

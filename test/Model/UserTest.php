@@ -168,4 +168,25 @@ class UserTest extends TestCase
     public function testPropertyAuthMethod()
     {
     }
+
+    /**
+     * Test attribute "isAdmin"
+     */
+    public function testPropertyIsAdmin()
+    {
+    }
+
+    /**
+     * Test attribute "lastSignedIn"
+     */
+    public function testPropertyLastSignedIn()
+    {
+    }
+
+    /**
+     * Test attribute "lastAccessed"
+     */
+    public function testPropertyLastAccessed()
+    {
+    }
 }

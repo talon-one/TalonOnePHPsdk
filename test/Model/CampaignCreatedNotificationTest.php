@@ -93,9 +93,9 @@ class CampaignCreatedNotificationTest extends TestCase
     }
 
     /**
-     * Test attribute "priority"
+     * Test attribute "evaluationPosition"
      */
-    public function testPropertyPriority()
+    public function testPropertyEvaluationPosition()
     {
     }
 }

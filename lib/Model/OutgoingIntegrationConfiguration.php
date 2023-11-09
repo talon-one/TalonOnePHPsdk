@@ -319,7 +319,7 @@ class OutgoingIntegrationConfiguration implements ModelInterface, ArrayAccess
     /**
      * Sets policy
      *
-     * @param object $policy policy
+     * @param object $policy The outgoing integration policy specific to each integration type.
      *
      * @return $this
      */

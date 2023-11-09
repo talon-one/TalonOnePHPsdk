@@ -114,6 +114,13 @@ class CustomerSessionV2Test extends TestCase
     }
 
     /**
+     * Test attribute "storeIntegrationId"
+     */
+    public function testPropertyStoreIntegrationId()
+    {
+    }
+
+    /**
      * Test attribute "evaluableCampaignIds"
      */
     public function testPropertyEvaluableCampaignIds()

@@ -431,7 +431,7 @@ class RollbackAddedLoyaltyPointsEffectProps implements ModelInterface, ArrayAcce
     /**
      * Sets cartItemSubPosition
      *
-     * @param float|null $cartItemSubPosition The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with `quantity` > 1.
+     * @param float|null $cartItemSubPosition For cart items with `quantity` > 1, the sub-position indicates to which item the loyalty points were rolled back.
      *
      * @return $this
      */

@@ -226,6 +226,13 @@ class InventoryCouponTest extends TestCase
     }
 
     /**
+     * Test attribute "implicitlyReserved"
+     */
+    public function testPropertyImplicitlyReserved()
+    {
+    }
+
+    /**
      * Test attribute "profileRedemptionCount"
      */
     public function testPropertyProfileRedemptionCount()

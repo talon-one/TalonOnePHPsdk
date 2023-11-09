@@ -249,6 +249,7 @@ class Attribute implements ModelInterface, ArrayAccess
     const ENTITY_EVENT = 'Event';
     const ENTITY_GIVEAWAY = 'Giveaway';
     const ENTITY_REFERRAL = 'Referral';
+    const ENTITY_STORE = 'Store';
     const TYPE_STRING = 'string';
     const TYPE_NUMBER = 'number';
     const TYPE_BOOLEAN = 'boolean';
@@ -281,6 +282,7 @@ class Attribute implements ModelInterface, ArrayAccess
             self::ENTITY_EVENT,
             self::ENTITY_GIVEAWAY,
             self::ENTITY_REFERRAL,
+            self::ENTITY_STORE,
         ];
     }
     

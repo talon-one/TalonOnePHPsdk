@@ -64,7 +64,9 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
         'templateParamValues' => '\TalonOne\Client\Model\Binding[]',
         'limitOverrides' => '\TalonOne\Client\Model\LimitConfig[]',
         'campaignGroups' => 'int[]',
-        'tags' => 'string[]'
+        'tags' => 'string[]',
+        'evaluationGroupId' => 'int',
+        'linkedStoreIds' => 'int[]'
     ];
 
     /**
@@ -80,7 +82,9 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
         'templateParamValues' => null,
         'limitOverrides' => null,
         'campaignGroups' => null,
-        'tags' => null
+        'tags' => null,
+        'evaluationGroupId' => null,
+        'linkedStoreIds' => null
     ];
 
     /**
@@ -117,7 +121,9 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
         'templateParamValues' => 'templateParamValues',
         'limitOverrides' => 'limitOverrides',
         'campaignGroups' => 'campaignGroups',
-        'tags' => 'tags'
+        'tags' => 'tags',
+        'evaluationGroupId' => 'evaluationGroupId',
+        'linkedStoreIds' => 'linkedStoreIds'
     ];
 
     /**
@@ -133,7 +139,9 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
         'templateParamValues' => 'setTemplateParamValues',
         'limitOverrides' => 'setLimitOverrides',
         'campaignGroups' => 'setCampaignGroups',
-        'tags' => 'setTags'
+        'tags' => 'setTags',
+        'evaluationGroupId' => 'setEvaluationGroupId',
+        'linkedStoreIds' => 'setLinkedStoreIds'
     ];
 
     /**
@@ -149,7 +157,9 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
         'templateParamValues' => 'getTemplateParamValues',
         'limitOverrides' => 'getLimitOverrides',
         'campaignGroups' => 'getCampaignGroups',
-        'tags' => 'getTags'
+        'tags' => 'getTags',
+        'evaluationGroupId' => 'getEvaluationGroupId',
+        'linkedStoreIds' => 'getLinkedStoreIds'
     ];
 
     /**
@@ -220,6 +230,8 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
         $this->container['limitOverrides'] = isset($data['limitOverrides']) ? $data['limitOverrides'] : null;
         $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['evaluationGroupId'] = isset($data['evaluationGroupId']) ? $data['evaluationGroupId'] : null;
+        $this->container['linkedStoreIds'] = isset($data['linkedStoreIds']) ? $data['linkedStoreIds'] : null;
     }
 
     /**
@@ -418,7 +430,7 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
     /**
      * Sets campaignGroups
      *
-     * @param int[]|null $campaignGroups The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to.
+     * @param int[]|null $campaignGroups The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to.
      *
      * @return $this
      */
@@ -449,6 +461,54 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationGroupId
+     *
+     * @return int|null
+     */
+    public function getEvaluationGroupId()
+    {
+        return $this->container['evaluationGroupId'];
+    }
+
+    /**
+     * Sets evaluationGroupId
+     *
+     * @param int|null $evaluationGroupId The ID of the campaign evaluation group the campaign belongs to.
+     *
+     * @return $this
+     */
+    public function setEvaluationGroupId($evaluationGroupId)
+    {
+        $this->container['evaluationGroupId'] = $evaluationGroupId;
+
+        return $this;
+    }
+
+    /**
+     * Gets linkedStoreIds
+     *
+     * @return int[]|null
+     */
+    public function getLinkedStoreIds()
+    {
+        return $this->container['linkedStoreIds'];
+    }
+
+    /**
+     * Sets linkedStoreIds
+     *
+     * @param int[]|null $linkedStoreIds A list of store IDs that are linked to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.
+     *
+     * @return $this
+     */
+    public function setLinkedStoreIds($linkedStoreIds)
+    {
+        $this->container['linkedStoreIds'] = $linkedStoreIds;
 
         return $this;
     }

@@ -147,4 +147,18 @@ class SetDiscountPerItemEffectPropsTest extends TestCase
     public function testPropertyBundleName()
     {
     }
+
+    /**
+     * Test attribute "targetedItemPosition"
+     */
+    public function testPropertyTargetedItemPosition()
+    {
+    }
+
+    /**
+     * Test attribute "targetedItemSubPosition"
+     */
+    public function testPropertyTargetedItemSubPosition()
+    {
+    }
 }

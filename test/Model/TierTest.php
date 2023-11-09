@@ -91,4 +91,18 @@ class TierTest extends TestCase
     public function testPropertyName()
     {
     }
+
+    /**
+     * Test attribute "expiryDate"
+     */
+    public function testPropertyExpiryDate()
+    {
+    }
+
+    /**
+     * Test attribute "downgradePolicy"
+     */
+    public function testPropertyDowngradePolicy()
+    {
+    }
 }

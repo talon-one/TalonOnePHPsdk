@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * RoleV2Test Class Doc Comment
  *
  * @category    Class
- * @description RoleV2
+ * @description 
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -79,6 +79,34 @@ class RoleV2Test extends TestCase
     }
 
     /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+    }
+
+    /**
+     * Test attribute "created"
+     */
+    public function testPropertyCreated()
+    {
+    }
+
+    /**
+     * Test attribute "modified"
+     */
+    public function testPropertyModified()
+    {
+    }
+
+    /**
+     * Test attribute "accountId"
+     */
+    public function testPropertyAccountId()
+    {
+    }
+
+    /**
      * Test attribute "name"
      */
     public function testPropertyName()
@@ -89,13 +117,6 @@ class RoleV2Test extends TestCase
      * Test attribute "description"
      */
     public function testPropertyDescription()
-    {
-    }
-
-    /**
-     * Test attribute "isAdmin"
-     */
-    public function testPropertyIsAdmin()
     {
     }
 

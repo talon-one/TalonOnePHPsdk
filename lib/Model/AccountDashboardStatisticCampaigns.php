@@ -58,7 +58,8 @@ class AccountDashboardStatisticCampaigns implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'live' => 'int',
-        'endingSoon' => 'int'
+        'endingSoon' => 'int',
+        'lowOnBudget' => 'int'
     ];
 
     /**
@@ -68,7 +69,8 @@ class AccountDashboardStatisticCampaigns implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'live' => null,
-        'endingSoon' => null
+        'endingSoon' => null,
+        'lowOnBudget' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class AccountDashboardStatisticCampaigns implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'live' => 'live',
-        'endingSoon' => 'endingSoon'
+        'endingSoon' => 'endingSoon',
+        'lowOnBudget' => 'lowOnBudget'
     ];
 
     /**
@@ -109,7 +112,8 @@ class AccountDashboardStatisticCampaigns implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'live' => 'setLive',
-        'endingSoon' => 'setEndingSoon'
+        'endingSoon' => 'setEndingSoon',
+        'lowOnBudget' => 'setLowOnBudget'
     ];
 
     /**
@@ -119,7 +123,8 @@ class AccountDashboardStatisticCampaigns implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'live' => 'getLive',
-        'endingSoon' => 'getEndingSoon'
+        'endingSoon' => 'getEndingSoon',
+        'lowOnBudget' => 'getLowOnBudget'
     ];
 
     /**
@@ -184,6 +189,7 @@ class AccountDashboardStatisticCampaigns implements ModelInterface, ArrayAccess
     {
         $this->container['live'] = isset($data['live']) ? $data['live'] : null;
         $this->container['endingSoon'] = isset($data['endingSoon']) ? $data['endingSoon'] : null;
+        $this->container['lowOnBudget'] = isset($data['lowOnBudget']) ? $data['lowOnBudget'] : null;
     }
 
     /**
@@ -200,6 +206,9 @@ class AccountDashboardStatisticCampaigns implements ModelInterface, ArrayAccess
         }
         if ($this->container['endingSoon'] === null) {
             $invalidProperties[] = "'endingSoon' can't be null";
+        }
+        if ($this->container['lowOnBudget'] === null) {
+            $invalidProperties[] = "'lowOnBudget' can't be null";
         }
         return $invalidProperties;
     }
@@ -253,13 +262,37 @@ class AccountDashboardStatisticCampaigns implements ModelInterface, ArrayAccess
     /**
      * Sets endingSoon
      *
-     * @param int $endingSoon Campaigns with a schedule ending in 7 days or with only 10% of budget left.
+     * @param int $endingSoon Campaigns scheduled to expire sometime in the next 7 days.
      *
      * @return $this
      */
     public function setEndingSoon($endingSoon)
     {
         $this->container['endingSoon'] = $endingSoon;
+
+        return $this;
+    }
+
+    /**
+     * Gets lowOnBudget
+     *
+     * @return int
+     */
+    public function getLowOnBudget()
+    {
+        return $this->container['lowOnBudget'];
+    }
+
+    /**
+     * Sets lowOnBudget
+     *
+     * @param int $lowOnBudget Campaigns with less than 10% of budget left.
+     *
+     * @return $this
+     */
+    public function setLowOnBudget($lowOnBudget)
+    {
+        $this->container['lowOnBudget'] = $lowOnBudget;
 
         return $this;
     }

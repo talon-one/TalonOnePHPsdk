@@ -36,6 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * NewCampaign Class Doc Comment
  *
  * @category Class
+ * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -69,7 +70,10 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
-        'campaignGroups' => 'int[]'
+        'campaignGroups' => 'int[]',
+        'evaluationGroupId' => 'int',
+        'type' => 'string',
+        'linkedStoreIds' => 'int[]'
     ];
 
     /**
@@ -90,7 +94,10 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'couponSettings' => null,
         'referralSettings' => null,
         'limits' => null,
-        'campaignGroups' => null
+        'campaignGroups' => null,
+        'evaluationGroupId' => null,
+        'type' => null,
+        'linkedStoreIds' => null
     ];
 
     /**
@@ -132,7 +139,10 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'couponSettings' => 'couponSettings',
         'referralSettings' => 'referralSettings',
         'limits' => 'limits',
-        'campaignGroups' => 'campaignGroups'
+        'campaignGroups' => 'campaignGroups',
+        'evaluationGroupId' => 'evaluationGroupId',
+        'type' => 'type',
+        'linkedStoreIds' => 'linkedStoreIds'
     ];
 
     /**
@@ -153,7 +163,10 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'couponSettings' => 'setCouponSettings',
         'referralSettings' => 'setReferralSettings',
         'limits' => 'setLimits',
-        'campaignGroups' => 'setCampaignGroups'
+        'campaignGroups' => 'setCampaignGroups',
+        'evaluationGroupId' => 'setEvaluationGroupId',
+        'type' => 'setType',
+        'linkedStoreIds' => 'setLinkedStoreIds'
     ];
 
     /**
@@ -174,7 +187,10 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'couponSettings' => 'getCouponSettings',
         'referralSettings' => 'getReferralSettings',
         'limits' => 'getLimits',
-        'campaignGroups' => 'getCampaignGroups'
+        'campaignGroups' => 'getCampaignGroups',
+        'evaluationGroupId' => 'getEvaluationGroupId',
+        'type' => 'getType',
+        'linkedStoreIds' => 'getLinkedStoreIds'
     ];
 
     /**
@@ -226,6 +242,8 @@ class NewCampaign implements ModelInterface, ArrayAccess
     const FEATURES_LOYALTY = 'loyalty';
     const FEATURES_GIVEAWAYS = 'giveaways';
     const FEATURES_STRIKETHROUGH = 'strikethrough';
+    const TYPE_CART_ITEM = 'cartItem';
+    const TYPE_ADVANCED = 'advanced';
     
 
     
@@ -259,6 +277,19 @@ class NewCampaign implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_CART_ITEM,
+            self::TYPE_ADVANCED,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -288,6 +319,9 @@ class NewCampaign implements ModelInterface, ArrayAccess
         $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
+        $this->container['evaluationGroupId'] = isset($data['evaluationGroupId']) ? $data['evaluationGroupId'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : 'advanced';
+        $this->container['linkedStoreIds'] = isset($data['linkedStoreIds']) ? $data['linkedStoreIds'] : null;
     }
 
     /**
@@ -326,6 +360,14 @@ class NewCampaign implements ModelInterface, ArrayAccess
         if ($this->container['limits'] === null) {
             $invalidProperties[] = "'limits' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -431,7 +473,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
     /**
      * Sets endTime
      *
-     * @param \DateTime|null $endTime Timestamp the campaign will become inactive.
+     * @param \DateTime|null $endTime Timestamp when the campaign will become inactive.
      *
      * @return $this
      */
@@ -672,6 +714,87 @@ class NewCampaign implements ModelInterface, ArrayAccess
     public function setCampaignGroups($campaignGroups)
     {
         $this->container['campaignGroups'] = $campaignGroups;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationGroupId
+     *
+     * @return int|null
+     */
+    public function getEvaluationGroupId()
+    {
+        return $this->container['evaluationGroupId'];
+    }
+
+    /**
+     * Sets evaluationGroupId
+     *
+     * @param int|null $evaluationGroupId The ID of the campaign evaluation group the campaign belongs to.
+     *
+     * @return $this
+     */
+    public function setEvaluationGroupId($evaluationGroupId)
+    {
+        $this->container['evaluationGroupId'] = $evaluationGroupId;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type The campaign type. Possible type values:   - `cartItem`: Type of campaign that can apply effects only to cart items.   - `advanced`: Type of campaign that can apply effects to customer sessions and cart items.
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets linkedStoreIds
+     *
+     * @return int[]|null
+     */
+    public function getLinkedStoreIds()
+    {
+        return $this->container['linkedStoreIds'];
+    }
+
+    /**
+     * Sets linkedStoreIds
+     *
+     * @param int[]|null $linkedStoreIds A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.
+     *
+     * @return $this
+     */
+    public function setLinkedStoreIds($linkedStoreIds)
+    {
+        $this->container['linkedStoreIds'] = $linkedStoreIds;
 
         return $this;
     }

@@ -219,6 +219,13 @@ class CampaignTemplateTest extends TestCase
     }
 
     /**
+     * Test attribute "campaignType"
+     */
+    public function testPropertyCampaignType()
+    {
+    }
+
+    /**
      * Test attribute "updated"
      */
     public function testPropertyUpdated()

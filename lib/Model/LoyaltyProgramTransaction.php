@@ -740,7 +740,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets userId
      *
-     * @param int|null $userId ID of the user who manually added or deducted points. Applies only for manual transactions.
+     * @param int|null $userId ID of the user who manually added or deducted points. Applies only to manual transactions.
      *
      * @return $this
      */
@@ -764,7 +764,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets userEmail
      *
-     * @param string|null $userEmail The email of the user who manually added or deducted points. Applies only for manual transactions.
+     * @param string|null $userEmail The email of the Campaign Manager account that manually added or deducted points. Applies only to manual transactions.
      *
      * @return $this
      */

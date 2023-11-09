@@ -93,6 +93,20 @@ class ApplicationSessionTest extends TestCase
     }
 
     /**
+     * Test attribute "integrationId"
+     */
+    public function testPropertyIntegrationId()
+    {
+    }
+
+    /**
+     * Test attribute "storeIntegrationId"
+     */
+    public function testPropertyStoreIntegrationId()
+    {
+    }
+
+    /**
      * Test attribute "applicationId"
      */
     public function testPropertyApplicationId()
@@ -103,13 +117,6 @@ class ApplicationSessionTest extends TestCase
      * Test attribute "profileId"
      */
     public function testPropertyProfileId()
-    {
-    }
-
-    /**
-     * Test attribute "integrationId"
-     */
-    public function testPropertyIntegrationId()
     {
     }
 

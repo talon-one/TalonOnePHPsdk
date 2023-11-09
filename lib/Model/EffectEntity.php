@@ -64,7 +64,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'ruleName' => 'string',
         'effectType' => 'string',
         'triggeredByCoupon' => 'int',
-        'triggeredForCatalogItem' => 'int'
+        'triggeredForCatalogItem' => 'int',
+        'conditionIndex' => 'int'
     ];
 
     /**
@@ -79,7 +80,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'ruleName' => null,
         'effectType' => null,
         'triggeredByCoupon' => null,
-        'triggeredForCatalogItem' => null
+        'triggeredForCatalogItem' => null,
+        'conditionIndex' => null
     ];
 
     /**
@@ -115,7 +117,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'ruleName' => 'ruleName',
         'effectType' => 'effectType',
         'triggeredByCoupon' => 'triggeredByCoupon',
-        'triggeredForCatalogItem' => 'triggeredForCatalogItem'
+        'triggeredForCatalogItem' => 'triggeredForCatalogItem',
+        'conditionIndex' => 'conditionIndex'
     ];
 
     /**
@@ -130,7 +133,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'ruleName' => 'setRuleName',
         'effectType' => 'setEffectType',
         'triggeredByCoupon' => 'setTriggeredByCoupon',
-        'triggeredForCatalogItem' => 'setTriggeredForCatalogItem'
+        'triggeredForCatalogItem' => 'setTriggeredForCatalogItem',
+        'conditionIndex' => 'setConditionIndex'
     ];
 
     /**
@@ -145,7 +149,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'ruleName' => 'getRuleName',
         'effectType' => 'getEffectType',
         'triggeredByCoupon' => 'getTriggeredByCoupon',
-        'triggeredForCatalogItem' => 'getTriggeredForCatalogItem'
+        'triggeredForCatalogItem' => 'getTriggeredForCatalogItem',
+        'conditionIndex' => 'getConditionIndex'
     ];
 
     /**
@@ -215,6 +220,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
         $this->container['effectType'] = isset($data['effectType']) ? $data['effectType'] : null;
         $this->container['triggeredByCoupon'] = isset($data['triggeredByCoupon']) ? $data['triggeredByCoupon'] : null;
         $this->container['triggeredForCatalogItem'] = isset($data['triggeredForCatalogItem']) ? $data['triggeredForCatalogItem'] : null;
+        $this->container['conditionIndex'] = isset($data['conditionIndex']) ? $data['conditionIndex'] : null;
     }
 
     /**
@@ -420,6 +426,30 @@ class EffectEntity implements ModelInterface, ArrayAccess
     public function setTriggeredForCatalogItem($triggeredForCatalogItem)
     {
         $this->container['triggeredForCatalogItem'] = $triggeredForCatalogItem;
+
+        return $this;
+    }
+
+    /**
+     * Gets conditionIndex
+     *
+     * @return int|null
+     */
+    public function getConditionIndex()
+    {
+        return $this->container['conditionIndex'];
+    }
+
+    /**
+     * Sets conditionIndex
+     *
+     * @param int|null $conditionIndex The index of the condition that was triggered.
+     *
+     * @return $this
+     */
+    public function setConditionIndex($conditionIndex)
+    {
+        $this->container['conditionIndex'] = $conditionIndex;
 
         return $this;
     }

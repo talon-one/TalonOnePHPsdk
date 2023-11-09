@@ -335,7 +335,7 @@ class CustomEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets cartItemSubPosition
      *
-     * @param float|null $cartItemSubPosition When cart item flattening is enabled, the sub position indicates to which item unit the custom effect is applied, for cart items with quantity > 1.
+     * @param float|null $cartItemSubPosition For cart items with quantity > 1, the sub position indicates to which item unit the custom effect is applied.
      *
      * @return $this
      */

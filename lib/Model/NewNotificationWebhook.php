@@ -58,7 +58,8 @@ class NewNotificationWebhook implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'url' => 'string',
-        'headers' => 'string[]'
+        'headers' => 'string[]',
+        'enabled' => 'bool'
     ];
 
     /**
@@ -68,7 +69,8 @@ class NewNotificationWebhook implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'url' => null,
-        'headers' => null
+        'headers' => null,
+        'enabled' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class NewNotificationWebhook implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'url' => 'url',
-        'headers' => 'headers'
+        'headers' => 'headers',
+        'enabled' => 'enabled'
     ];
 
     /**
@@ -109,7 +112,8 @@ class NewNotificationWebhook implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'url' => 'setUrl',
-        'headers' => 'setHeaders'
+        'headers' => 'setHeaders',
+        'enabled' => 'setEnabled'
     ];
 
     /**
@@ -119,7 +123,8 @@ class NewNotificationWebhook implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'url' => 'getUrl',
-        'headers' => 'getHeaders'
+        'headers' => 'getHeaders',
+        'enabled' => 'getEnabled'
     ];
 
     /**
@@ -184,6 +189,7 @@ class NewNotificationWebhook implements ModelInterface, ArrayAccess
     {
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['headers'] = isset($data['headers']) ? $data['headers'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : true;
     }
 
     /**
@@ -260,6 +266,30 @@ class NewNotificationWebhook implements ModelInterface, ArrayAccess
     public function setHeaders($headers)
     {
         $this->container['headers'] = $headers;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool|null
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool|null $enabled Indicates whether the notification is activated.
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }

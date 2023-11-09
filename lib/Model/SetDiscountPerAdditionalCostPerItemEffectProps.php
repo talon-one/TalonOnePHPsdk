@@ -365,7 +365,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps implements ModelInterface, 
     /**
      * Sets subPosition
      *
-     * @param float|null $subPosition Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. Indicates which item the discount applies to for cart items with `quantity` > 1.
+     * @param float|null $subPosition For cart items with `quantity` > 1, the sub position indicates which item the discount applies to.
      *
      * @return $this
      */

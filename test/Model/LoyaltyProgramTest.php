@@ -149,6 +149,20 @@ class LoyaltyProgramTest extends TestCase
     }
 
     /**
+     * Test attribute "tiersExpireIn"
+     */
+    public function testPropertyTiersExpireIn()
+    {
+    }
+
+    /**
+     * Test attribute "tiersDowngradePolicy"
+     */
+    public function testPropertyTiersDowngradePolicy()
+    {
+    }
+
+    /**
      * Test attribute "accountID"
      */
     public function testPropertyAccountID()
@@ -180,6 +194,20 @@ class LoyaltyProgramTest extends TestCase
      * Test attribute "cardBased"
      */
     public function testPropertyCardBased()
+    {
+    }
+
+    /**
+     * Test attribute "canUpdateTiers"
+     */
+    public function testPropertyCanUpdateTiers()
+    {
+    }
+
+    /**
+     * Test attribute "canUpgradeToAdvancedTiers"
+     */
+    public function testPropertyCanUpgradeToAdvancedTiers()
     {
     }
 }

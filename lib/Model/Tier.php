@@ -58,7 +58,9 @@ class Tier implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'name' => 'string'
+        'name' => 'string',
+        'expiryDate' => '\DateTime',
+        'downgradePolicy' => 'string'
     ];
 
     /**
@@ -68,7 +70,9 @@ class Tier implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'name' => null
+        'name' => null,
+        'expiryDate' => 'date-time',
+        'downgradePolicy' => null
     ];
 
     /**
@@ -99,7 +103,9 @@ class Tier implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name'
+        'name' => 'name',
+        'expiryDate' => 'expiryDate',
+        'downgradePolicy' => 'downgradePolicy'
     ];
 
     /**
@@ -109,7 +115,9 @@ class Tier implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName'
+        'name' => 'setName',
+        'expiryDate' => 'setExpiryDate',
+        'downgradePolicy' => 'setDowngradePolicy'
     ];
 
     /**
@@ -119,7 +127,9 @@ class Tier implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName'
+        'name' => 'getName',
+        'expiryDate' => 'getExpiryDate',
+        'downgradePolicy' => 'getDowngradePolicy'
     ];
 
     /**
@@ -163,8 +173,23 @@ class Tier implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const DOWNGRADE_POLICY_ONE_DOWN = 'one_down';
+    const DOWNGRADE_POLICY_BALANCE_BASED = 'balance_based';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDowngradePolicyAllowableValues()
+    {
+        return [
+            self::DOWNGRADE_POLICY_ONE_DOWN,
+            self::DOWNGRADE_POLICY_BALANCE_BASED,
+        ];
+    }
     
 
     /**
@@ -184,6 +209,8 @@ class Tier implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['downgradePolicy'] = isset($data['downgradePolicy']) ? $data['downgradePolicy'] : null;
     }
 
     /**
@@ -201,6 +228,14 @@ class Tier implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        $allowedValues = $this->getDowngradePolicyAllowableValues();
+        if (!is_null($this->container['downgradePolicy']) && !in_array($this->container['downgradePolicy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'downgradePolicy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -260,6 +295,63 @@ class Tier implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiryDate
+     *
+     * @return \DateTime|null
+     */
+    public function getExpiryDate()
+    {
+        return $this->container['expiryDate'];
+    }
+
+    /**
+     * Sets expiryDate
+     *
+     * @param \DateTime|null $expiryDate Date when tier level expires in the RFC3339 format (in the Loyalty Program's timezone).
+     *
+     * @return $this
+     */
+    public function setExpiryDate($expiryDate)
+    {
+        $this->container['expiryDate'] = $expiryDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets downgradePolicy
+     *
+     * @return string|null
+     */
+    public function getDowngradePolicy()
+    {
+        return $this->container['downgradePolicy'];
+    }
+
+    /**
+     * Sets downgradePolicy
+     *
+     * @param string|null $downgradePolicy Customers's tier downgrade policy. - `one_down`: Once the tier expires and if the user doesn't have enough points to stay in the tier, the user is downgraded one tier down. - `balance_based`: Once the tier expires, the user's tier is evaluated based on the amount of active points the user has at this instant.
+     *
+     * @return $this
+     */
+    public function setDowngradePolicy($downgradePolicy)
+    {
+        $allowedValues = $this->getDowngradePolicyAllowableValues();
+        if (!is_null($downgradePolicy) && !in_array($downgradePolicy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'downgradePolicy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['downgradePolicy'] = $downgradePolicy;
 
         return $this;
     }

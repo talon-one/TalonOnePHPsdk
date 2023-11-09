@@ -58,9 +58,8 @@ class CampaignSet implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'created' => '\DateTime',
         'applicationId' => 'int',
+        'id' => 'int',
         'version' => 'int',
         'set' => '\TalonOne\Client\Model\CampaignSetBranchNode',
         'updatedBy' => 'string'
@@ -72,9 +71,8 @@ class CampaignSet implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'created' => 'date-time',
         'applicationId' => null,
+        'id' => null,
         'version' => null,
         'set' => null,
         'updatedBy' => null
@@ -107,9 +105,8 @@ class CampaignSet implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'created' => 'created',
         'applicationId' => 'applicationId',
+        'id' => 'id',
         'version' => 'version',
         'set' => 'set',
         'updatedBy' => 'updatedBy'
@@ -121,9 +118,8 @@ class CampaignSet implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'created' => 'setCreated',
         'applicationId' => 'setApplicationId',
+        'id' => 'setId',
         'version' => 'setVersion',
         'set' => 'setSet',
         'updatedBy' => 'setUpdatedBy'
@@ -135,9 +131,8 @@ class CampaignSet implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'created' => 'getCreated',
         'applicationId' => 'getApplicationId',
+        'id' => 'getId',
         'version' => 'getVersion',
         'set' => 'getSet',
         'updatedBy' => 'getUpdatedBy'
@@ -203,9 +198,8 @@ class CampaignSet implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
         $this->container['set'] = isset($data['set']) ? $data['set'] : null;
         $this->container['updatedBy'] = isset($data['updatedBy']) ? $data['updatedBy'] : null;
@@ -220,14 +214,11 @@ class CampaignSet implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['created'] === null) {
-            $invalidProperties[] = "'created' can't be null";
-        }
         if ($this->container['applicationId'] === null) {
             $invalidProperties[] = "'applicationId' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['version'] === null) {
             $invalidProperties[] = "'version' can't be null";
@@ -255,54 +246,6 @@ class CampaignSet implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id Internal ID of this entity.
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     *
-     * @param \DateTime $created The time this entity was created.
-     *
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
      * Gets applicationId
      *
      * @return int
@@ -322,6 +265,30 @@ class CampaignSet implements ModelInterface, ArrayAccess
     public function setApplicationId($applicationId)
     {
         $this->container['applicationId'] = $applicationId;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id Internal ID of this entity.
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
 
         return $this;
     }

@@ -119,4 +119,11 @@ class CampaignCopyTest extends TestCase
     public function testPropertyTags()
     {
     }
+
+    /**
+     * Test attribute "evaluationGroupId"
+     */
+    public function testPropertyEvaluationGroupId()
+    {
+    }
 }

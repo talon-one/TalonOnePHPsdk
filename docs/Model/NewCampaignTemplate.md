@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **templateParams** | [**\TalonOne\Client\Model\CampaignTemplateParams[]**](CampaignTemplateParams.md) | Fields which can be used to replace values in a rule. | [optional] 
 **campaignCollections** | [**\TalonOne\Client\Model\CampaignTemplateCollection[]**](CampaignTemplateCollection.md) | The campaign collections from the blueprint campaign for the template. | [optional] 
 **defaultCampaignGroupId** | **int** | The default campaign group ID. | [optional] 
+**campaignType** | **string** | The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. | [default to 'advanced']
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

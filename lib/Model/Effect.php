@@ -65,6 +65,7 @@ class Effect implements ModelInterface, ArrayAccess
         'effectType' => 'string',
         'triggeredByCoupon' => 'int',
         'triggeredForCatalogItem' => 'int',
+        'conditionIndex' => 'int',
         'props' => 'object'
     ];
 
@@ -81,6 +82,7 @@ class Effect implements ModelInterface, ArrayAccess
         'effectType' => null,
         'triggeredByCoupon' => null,
         'triggeredForCatalogItem' => null,
+        'conditionIndex' => null,
         'props' => null
     ];
 
@@ -118,6 +120,7 @@ class Effect implements ModelInterface, ArrayAccess
         'effectType' => 'effectType',
         'triggeredByCoupon' => 'triggeredByCoupon',
         'triggeredForCatalogItem' => 'triggeredForCatalogItem',
+        'conditionIndex' => 'conditionIndex',
         'props' => 'props'
     ];
 
@@ -134,6 +137,7 @@ class Effect implements ModelInterface, ArrayAccess
         'effectType' => 'setEffectType',
         'triggeredByCoupon' => 'setTriggeredByCoupon',
         'triggeredForCatalogItem' => 'setTriggeredForCatalogItem',
+        'conditionIndex' => 'setConditionIndex',
         'props' => 'setProps'
     ];
 
@@ -150,6 +154,7 @@ class Effect implements ModelInterface, ArrayAccess
         'effectType' => 'getEffectType',
         'triggeredByCoupon' => 'getTriggeredByCoupon',
         'triggeredForCatalogItem' => 'getTriggeredForCatalogItem',
+        'conditionIndex' => 'getConditionIndex',
         'props' => 'getProps'
     ];
 
@@ -220,6 +225,7 @@ class Effect implements ModelInterface, ArrayAccess
         $this->container['effectType'] = isset($data['effectType']) ? $data['effectType'] : null;
         $this->container['triggeredByCoupon'] = isset($data['triggeredByCoupon']) ? $data['triggeredByCoupon'] : null;
         $this->container['triggeredForCatalogItem'] = isset($data['triggeredForCatalogItem']) ? $data['triggeredForCatalogItem'] : null;
+        $this->container['conditionIndex'] = isset($data['conditionIndex']) ? $data['conditionIndex'] : null;
         $this->container['props'] = isset($data['props']) ? $data['props'] : null;
     }
 
@@ -429,6 +435,30 @@ class Effect implements ModelInterface, ArrayAccess
     public function setTriggeredForCatalogItem($triggeredForCatalogItem)
     {
         $this->container['triggeredForCatalogItem'] = $triggeredForCatalogItem;
+
+        return $this;
+    }
+
+    /**
+     * Gets conditionIndex
+     *
+     * @return int|null
+     */
+    public function getConditionIndex()
+    {
+        return $this->container['conditionIndex'];
+    }
+
+    /**
+     * Sets conditionIndex
+     *
+     * @param int|null $conditionIndex The index of the condition that was triggered.
+     *
+     * @return $this
+     */
+    public function setConditionIndex($conditionIndex)
+    {
+        $this->container['conditionIndex'] = $conditionIndex;
 
         return $this;
     }

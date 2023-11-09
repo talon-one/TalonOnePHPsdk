@@ -1,0 +1,19 @@
+# # Store
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **int** | Internal ID of this entity. | 
+**created** | [**\DateTime**](\DateTime.md) | The time this entity was created. The time this entity was created. | 
+**name** | **string** | The name of the store. | 
+**description** | **string** | The description of the store. | 
+**attributes** | [**object**](.md) | The attributes of the store. | [optional] 
+**integrationId** | **string** | The integration ID of the store. You choose this ID when you create a store. | 
+**applicationId** | **int** | The ID of the application that owns this entity. | 
+**updated** | [**\DateTime**](\DateTime.md) | Timestamp of the most recent update on this entity. | 
+**linkedCampaignIds** | **int[]** | A list of IDs of the campaigns that are linked with current store. | [optional] 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+
+

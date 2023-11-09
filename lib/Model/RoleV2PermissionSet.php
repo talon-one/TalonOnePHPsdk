@@ -58,7 +58,7 @@ class RoleV2PermissionSet implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'operationIds' => 'string[]'
+        'logicalOperations' => 'string[]'
     ];
 
     /**
@@ -68,7 +68,7 @@ class RoleV2PermissionSet implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'operationIds' => null
+        'logicalOperations' => null
     ];
 
     /**
@@ -99,7 +99,7 @@ class RoleV2PermissionSet implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'operationIds' => 'operationIds'
+        'logicalOperations' => 'logicalOperations'
     ];
 
     /**
@@ -109,7 +109,7 @@ class RoleV2PermissionSet implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'operationIds' => 'setOperationIds'
+        'logicalOperations' => 'setLogicalOperations'
     ];
 
     /**
@@ -119,7 +119,7 @@ class RoleV2PermissionSet implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'operationIds' => 'getOperationIds'
+        'logicalOperations' => 'getLogicalOperations'
     ];
 
     /**
@@ -183,7 +183,7 @@ class RoleV2PermissionSet implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['operationIds'] = isset($data['operationIds']) ? $data['operationIds'] : null;
+        $this->container['logicalOperations'] = isset($data['logicalOperations']) ? $data['logicalOperations'] : null;
     }
 
     /**
@@ -198,8 +198,8 @@ class RoleV2PermissionSet implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['operationIds'] === null) {
-            $invalidProperties[] = "'operationIds' can't be null";
+        if ($this->container['logicalOperations'] === null) {
+            $invalidProperties[] = "'logicalOperations' can't be null";
         }
         return $invalidProperties;
     }
@@ -241,25 +241,25 @@ class RoleV2PermissionSet implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets operationIds
+     * Gets logicalOperations
      *
      * @return string[]
      */
-    public function getOperationIds()
+    public function getLogicalOperations()
     {
-        return $this->container['operationIds'];
+        return $this->container['logicalOperations'];
     }
 
     /**
-     * Sets operationIds
+     * Sets logicalOperations
      *
-     * @param string[] $operationIds operationIds
+     * @param string[] $logicalOperations List of logical operations in the permission set. Each logical operation must be shown under the `x-permission` tag on an endpoint level.
      *
      * @return $this
      */
-    public function setOperationIds($operationIds)
+    public function setLogicalOperations($logicalOperations)
     {
-        $this->container['operationIds'] = $operationIds;
+        $this->container['logicalOperations'] = $logicalOperations;
 
         return $this;
     }

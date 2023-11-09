@@ -126,4 +126,11 @@ class EffectEntityTest extends TestCase
     public function testPropertyTriggeredForCatalogItem()
     {
     }
+
+    /**
+     * Test attribute "conditionIndex"
+     */
+    public function testPropertyConditionIndex()
+    {
+    }
 }

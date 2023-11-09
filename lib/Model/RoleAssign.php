@@ -230,7 +230,7 @@ class RoleAssign implements ModelInterface, ArrayAccess
     /**
      * Sets users
      *
-     * @param int[] $users An array of userIDs.
+     * @param int[] $users An array of user IDs.
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class RoleAssign implements ModelInterface, ArrayAccess
     /**
      * Sets roles
      *
-     * @param int[] $roles An array of roleIDs.
+     * @param int[] $roles An array of role IDs.
      *
      * @return $this
      */

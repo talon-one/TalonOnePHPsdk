@@ -10,8 +10,10 @@ Name | Type | Description | Notes
 **campaignAttributesOverrides** | [**object**](.md) | Custom Campaign Attributes. If the Campaign Template defines the same values, they will be overridden. | [optional] 
 **templateParamValues** | [**\TalonOne\Client\Model\Binding[]**](Binding.md) | Actual values to replace the template placeholder values in the Ruleset bindings. Values for all Template Parameters must be provided. | [optional] 
 **limitOverrides** | [**\TalonOne\Client\Model\LimitConfig[]**](LimitConfig.md) | Limits for this Campaign. If the Campaign Template or Application define default values for the same limits, they will be overridden. | [optional] 
-**campaignGroups** | **int[]** | The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to. | [optional] 
+**campaignGroups** | **int[]** | The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to. | [optional] 
 **tags** | **string[]** | A list of tags for the campaign. If the campaign template has tags, they will be overridden by this list. | [optional] 
+**evaluationGroupId** | **int** | The ID of the campaign evaluation group the campaign belongs to. | [optional] 
+**linkedStoreIds** | **int[]** | A list of store IDs that are linked to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

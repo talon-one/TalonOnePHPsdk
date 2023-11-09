@@ -112,4 +112,11 @@ class BaseNotificationWebhookTest extends TestCase
     public function testPropertyHeaders()
     {
     }
+
+    /**
+     * Test attribute "enabled"
+     */
+    public function testPropertyEnabled()
+    {
+    }
 }

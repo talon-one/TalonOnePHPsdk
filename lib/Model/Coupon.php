@@ -78,7 +78,8 @@ class Coupon implements ModelInterface, ArrayAccess
         'importId' => 'int',
         'reservation' => 'bool',
         'batchId' => 'string',
-        'isReservationMandatory' => 'bool'
+        'isReservationMandatory' => 'bool',
+        'implicitlyReserved' => 'bool'
     ];
 
     /**
@@ -107,7 +108,8 @@ class Coupon implements ModelInterface, ArrayAccess
         'importId' => null,
         'reservation' => null,
         'batchId' => null,
-        'isReservationMandatory' => null
+        'isReservationMandatory' => null,
+        'implicitlyReserved' => null
     ];
 
     /**
@@ -157,7 +159,8 @@ class Coupon implements ModelInterface, ArrayAccess
         'importId' => 'importId',
         'reservation' => 'reservation',
         'batchId' => 'batchId',
-        'isReservationMandatory' => 'isReservationMandatory'
+        'isReservationMandatory' => 'isReservationMandatory',
+        'implicitlyReserved' => 'implicitlyReserved'
     ];
 
     /**
@@ -186,7 +189,8 @@ class Coupon implements ModelInterface, ArrayAccess
         'importId' => 'setImportId',
         'reservation' => 'setReservation',
         'batchId' => 'setBatchId',
-        'isReservationMandatory' => 'setIsReservationMandatory'
+        'isReservationMandatory' => 'setIsReservationMandatory',
+        'implicitlyReserved' => 'setImplicitlyReserved'
     ];
 
     /**
@@ -215,7 +219,8 @@ class Coupon implements ModelInterface, ArrayAccess
         'importId' => 'getImportId',
         'reservation' => 'getReservation',
         'batchId' => 'getBatchId',
-        'isReservationMandatory' => 'getIsReservationMandatory'
+        'isReservationMandatory' => 'getIsReservationMandatory',
+        'implicitlyReserved' => 'getImplicitlyReserved'
     ];
 
     /**
@@ -299,6 +304,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['reservation'] = isset($data['reservation']) ? $data['reservation'] : true;
         $this->container['batchId'] = isset($data['batchId']) ? $data['batchId'] : null;
         $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : true;
+        $this->container['implicitlyReserved'] = isset($data['implicitlyReserved']) ? $data['implicitlyReserved'] : null;
     }
 
     /**
@@ -908,6 +914,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setIsReservationMandatory($isReservationMandatory)
     {
         $this->container['isReservationMandatory'] = $isReservationMandatory;
+
+        return $this;
+    }
+
+    /**
+     * Gets implicitlyReserved
+     *
+     * @return bool|null
+     */
+    public function getImplicitlyReserved()
+    {
+        return $this->container['implicitlyReserved'];
+    }
+
+    /**
+     * Sets implicitlyReserved
+     *
+     * @param bool|null $implicitlyReserved An indication of whether the coupon is implicitly reserved for all customers.
+     *
+     * @return $this
+     */
+    public function setImplicitlyReserved($implicitlyReserved)
+    {
+        $this->container['implicitlyReserved'] = $implicitlyReserved;
 
         return $this;
     }

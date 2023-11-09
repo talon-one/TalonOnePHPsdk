@@ -62,7 +62,8 @@ class CampaignCopy implements ModelInterface, ArrayAccess
         'description' => 'string',
         'startTime' => '\DateTime',
         'endTime' => '\DateTime',
-        'tags' => 'string[]'
+        'tags' => 'string[]',
+        'evaluationGroupId' => 'int'
     ];
 
     /**
@@ -76,7 +77,8 @@ class CampaignCopy implements ModelInterface, ArrayAccess
         'description' => null,
         'startTime' => 'date-time',
         'endTime' => 'date-time',
-        'tags' => null
+        'tags' => null,
+        'evaluationGroupId' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class CampaignCopy implements ModelInterface, ArrayAccess
         'description' => 'description',
         'startTime' => 'startTime',
         'endTime' => 'endTime',
-        'tags' => 'tags'
+        'tags' => 'tags',
+        'evaluationGroupId' => 'evaluationGroupId'
     ];
 
     /**
@@ -125,7 +128,8 @@ class CampaignCopy implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'startTime' => 'setStartTime',
         'endTime' => 'setEndTime',
-        'tags' => 'setTags'
+        'tags' => 'setTags',
+        'evaluationGroupId' => 'setEvaluationGroupId'
     ];
 
     /**
@@ -139,7 +143,8 @@ class CampaignCopy implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'startTime' => 'getStartTime',
         'endTime' => 'getEndTime',
-        'tags' => 'getTags'
+        'tags' => 'getTags',
+        'evaluationGroupId' => 'getEvaluationGroupId'
     ];
 
     /**
@@ -208,6 +213,7 @@ class CampaignCopy implements ModelInterface, ArrayAccess
         $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
         $this->container['endTime'] = isset($data['endTime']) ? $data['endTime'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['evaluationGroupId'] = isset($data['evaluationGroupId']) ? $data['evaluationGroupId'] : null;
     }
 
     /**
@@ -377,6 +383,30 @@ class CampaignCopy implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationGroupId
+     *
+     * @return int|null
+     */
+    public function getEvaluationGroupId()
+    {
+        return $this->container['evaluationGroupId'];
+    }
+
+    /**
+     * Sets evaluationGroupId
+     *
+     * @param int|null $evaluationGroupId The ID of the campaign evaluation group the campaign belongs to.
+     *
+     * @return $this
+     */
+    public function setEvaluationGroupId($evaluationGroupId)
+    {
+        $this->container['evaluationGroupId'] = $evaluationGroupId;
 
         return $this;
     }

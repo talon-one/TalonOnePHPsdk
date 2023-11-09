@@ -566,7 +566,7 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets cartItemSubPosition
      *
-     * @param float|null $cartItemSubPosition The sub position is triggered when application flattening is enabled. It indicates to which item the loyalty points addition applies, for cart items with `quantity` > 1.
+     * @param float|null $cartItemSubPosition For cart items with `quantity` > 1, the sub position indicates to which item the loyalty points addition is applied.
      *
      * @return $this
      */

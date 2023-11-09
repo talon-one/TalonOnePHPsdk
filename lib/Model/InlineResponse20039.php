@@ -58,7 +58,7 @@ class InlineResponse20039 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\Export[]'
+        'data' => '\TalonOne\Client\Model\User[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse20039 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\Export[]
+     * @return \TalonOne\Client\Model\User[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20039 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\Export[] $data data
+     * @param \TalonOne\Client\Model\User[] $data data
      *
      * @return $this
      */

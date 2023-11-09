@@ -61,6 +61,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
         'name' => 'string',
         'email' => 'string',
         'acl' => 'string',
+        'isAdmin' => 'bool',
         'roles' => 'int[]'
     ];
 
@@ -73,6 +74,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
         'name' => null,
         'email' => 'email',
         'acl' => null,
+        'isAdmin' => null,
         'roles' => null
     ];
 
@@ -106,6 +108,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
         'name' => 'name',
         'email' => 'email',
         'acl' => 'acl',
+        'isAdmin' => 'isAdmin',
         'roles' => 'roles'
     ];
 
@@ -118,6 +121,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'email' => 'setEmail',
         'acl' => 'setAcl',
+        'isAdmin' => 'setIsAdmin',
         'roles' => 'setRoles'
     ];
 
@@ -130,6 +134,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'email' => 'getEmail',
         'acl' => 'getAcl',
+        'isAdmin' => 'getIsAdmin',
         'roles' => 'getRoles'
     ];
 
@@ -196,6 +201,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['acl'] = isset($data['acl']) ? $data['acl'] : null;
+        $this->container['isAdmin'] = isset($data['isAdmin']) ? $data['isAdmin'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
     }
 
@@ -210,9 +216,6 @@ class NewInvitation implements ModelInterface, ArrayAccess
 
         if ($this->container['email'] === null) {
             $invalidProperties[] = "'email' can't be null";
-        }
-        if ($this->container['acl'] === null) {
-            $invalidProperties[] = "'acl' can't be null";
         }
         return $invalidProperties;
     }
@@ -280,7 +283,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
     /**
      * Gets acl
      *
-     * @return string
+     * @return string|null
      */
     public function getAcl()
     {
@@ -290,13 +293,37 @@ class NewInvitation implements ModelInterface, ArrayAccess
     /**
      * Sets acl
      *
-     * @param string $acl The `Access Control List` json defining the role of the user.  This represents the access control on the user level. Use one of the following: - normal user: `{\"Role\": 0}` - admin: `{\"Role\": 127}`
+     * @param string|null $acl The `Access Control List` json defining the role of the user.  This represents the access control on the user level. Use one of the following: - normal user: `{\"Role\": 0}` - admin: `{\"Role\": 127}`
      *
      * @return $this
      */
     public function setAcl($acl)
     {
         $this->container['acl'] = $acl;
+
+        return $this;
+    }
+
+    /**
+     * Gets isAdmin
+     *
+     * @return bool|null
+     */
+    public function getIsAdmin()
+    {
+        return $this->container['isAdmin'];
+    }
+
+    /**
+     * Sets isAdmin
+     *
+     * @param bool|null $isAdmin An indication of whether the user has admin permissions. We recommend using this flag over using the `acl` with value `{\"Role\": 127}`.
+     *
+     * @return $this
+     */
+    public function setIsAdmin($isAdmin)
+    {
+        $this->container['isAdmin'] = $isAdmin;
 
         return $this;
     }
@@ -314,7 +341,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
     /**
      * Sets roles
      *
-     * @param int[]|null $roles An array of roleIDs to assign the new user to.
+     * @param int[]|null $roles An array of role IDs to assign to the new user.
      *
      * @return $this
      */
