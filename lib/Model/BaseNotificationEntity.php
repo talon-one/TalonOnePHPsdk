@@ -57,7 +57,8 @@ class BaseNotificationEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'policy' => 'object'
+        'policy' => 'object',
+        'enabled' => 'bool'
     ];
 
     /**
@@ -66,7 +67,8 @@ class BaseNotificationEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'policy' => null
+        'policy' => null,
+        'enabled' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class BaseNotificationEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'policy' => 'policy'
+        'policy' => 'policy',
+        'enabled' => 'enabled'
     ];
 
     /**
@@ -105,7 +108,8 @@ class BaseNotificationEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'policy' => 'setPolicy'
+        'policy' => 'setPolicy',
+        'enabled' => 'setEnabled'
     ];
 
     /**
@@ -114,7 +118,8 @@ class BaseNotificationEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'policy' => 'getPolicy'
+        'policy' => 'getPolicy',
+        'enabled' => 'getEnabled'
     ];
 
     /**
@@ -178,6 +183,7 @@ class BaseNotificationEntity implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : true;
     }
 
     /**
@@ -227,6 +233,30 @@ class BaseNotificationEntity implements ModelInterface, ArrayAccess
     public function setPolicy($policy)
     {
         $this->container['policy'] = $policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool|null
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool|null $enabled Indicates whether the notification is activated.
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }

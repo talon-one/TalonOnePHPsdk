@@ -98,4 +98,11 @@ class RoleV2ApplicationDetailsTest extends TestCase
     public function testPropertyDraftCampaign()
     {
     }
+
+    /**
+     * Test attribute "tools"
+     */
+    public function testPropertyTools()
+    {
+    }
 }

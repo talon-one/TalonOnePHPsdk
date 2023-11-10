@@ -145,7 +145,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for createCollection
      *
-     * Create collection.
+     * Create campaign-level collection.
      *
      */
     public function testCreateCollection()
@@ -183,16 +183,6 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for createNotificationWebhook
-     *
-     * Create notification about campaign-related changes.
-     *
-     */
-    public function testCreateNotificationWebhook()
-    {
-    }
-
-    /**
      * Test case for createPasswordRecoveryEmail
      *
      * Request a password reset.
@@ -209,6 +199,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testCreateSession()
+    {
+    }
+
+    /**
+     * Test case for createStore
+     *
+     * Create store.
+     *
+     */
+    public function testCreateStore()
     {
     }
 
@@ -245,7 +245,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for deleteCollection
      *
-     * Delete collection.
+     * Delete campaign-level collection.
      *
      */
     public function testDeleteCollection()
@@ -283,22 +283,22 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for deleteNotificationWebhook
-     *
-     * Delete notification about campaign-related changes.
-     *
-     */
-    public function testDeleteNotificationWebhook()
-    {
-    }
-
-    /**
      * Test case for deleteReferral
      *
      * Delete referral.
      *
      */
     public function testDeleteReferral()
+    {
+    }
+
+    /**
+     * Test case for deleteStore
+     *
+     * Delete store.
+     *
+     */
+    public function testDeleteStore()
     {
     }
 
@@ -325,7 +325,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for exportCollectionItems
      *
-     * Export a collection's items.
+     * Export campaign-level collection's items.
      *
      */
     public function testExportCollectionItems()
@@ -349,6 +349,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testExportCustomerSessions()
+    {
+    }
+
+    /**
+     * Test case for exportCustomersTiers
+     *
+     * Export customers' tier data.
+     *
+     */
+    public function testExportCustomersTiers()
     {
     }
 
@@ -409,6 +419,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testExportLoyaltyLedger()
+    {
+    }
+
+    /**
+     * Test case for exportPoolGiveaways
+     *
+     * Export giveaway codes of a giveaway pool.
+     *
+     */
+    public function testExportPoolGiveaways()
     {
     }
 
@@ -705,7 +725,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getCollection
      *
-     * Get collection.
+     * Get campaign-level collection.
      *
      */
     public function testGetCollection()
@@ -893,26 +913,6 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for getNotificationWebhook
-     *
-     * Get notification about campaign-related changes.
-     *
-     */
-    public function testGetNotificationWebhook()
-    {
-    }
-
-    /**
-     * Test case for getNotificationWebhooks
-     *
-     * List notifications about campaign-related changes.
-     *
-     */
-    public function testGetNotificationWebhooks()
-    {
-    }
-
-    /**
      * Test case for getReferralsWithoutTotalCount
      *
      * List referrals.
@@ -949,6 +949,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testGetRulesets()
+    {
+    }
+
+    /**
+     * Test case for getStore
+     *
+     * Get store.
+     *
+     */
+    public function testGetStore()
     {
     }
 
@@ -1015,7 +1025,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for importAccountCollection
      *
-     * Import data in existing account-level collection.
+     * Import data into existing account-level collection.
      *
      */
     public function testImportAccountCollection()
@@ -1035,7 +1045,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for importCollection
      *
-     * Import data in existing collection.
+     * Import data into existing campaign-level collection.
      *
      */
     public function testImportCollection()
@@ -1059,6 +1069,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testImportLoyaltyCards()
+    {
+    }
+
+    /**
+     * Test case for importLoyaltyCustomersTiers
+     *
+     * Import customers into loyalty tiers.
+     *
+     */
+    public function testImportLoyaltyCustomersTiers()
     {
     }
 
@@ -1103,9 +1123,19 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for listCatalogItems
+     *
+     * List items in a catalog.
+     *
+     */
+    public function testListCatalogItems()
+    {
+    }
+
+    /**
      * Test case for listCollections
      *
-     * List collections.
+     * List collections in campaign.
      *
      */
     public function testListCollections()
@@ -1115,10 +1145,30 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for listCollectionsInApplication
      *
-     * List collections in application.
+     * List collections in Application.
      *
      */
     public function testListCollectionsInApplication()
+    {
+    }
+
+    /**
+     * Test case for listStores
+     *
+     * List stores.
+     *
+     */
+    public function testListStores()
+    {
+    }
+
+    /**
+     * Test case for notificationActivation
+     *
+     * Activate or deactivate notification.
+     *
+     */
+    public function testNotificationActivation()
     {
     }
 
@@ -1139,6 +1189,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testPostCatalogsStrikethroughNotification()
+    {
+    }
+
+    /**
+     * Test case for postPendingPointsNotification
+     *
+     * Create notification about pending loyalty points.
+     *
+     */
+    public function testPostPendingPointsNotification()
     {
     }
 
@@ -1235,7 +1295,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for updateCollection
      *
-     * Update collection description.
+     * Update campaign-level collection's description.
      *
      */
     public function testUpdateCollection()
@@ -1273,22 +1333,22 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for updateNotificationWebhook
-     *
-     * Update notification about campaign-related changes.
-     *
-     */
-    public function testUpdateNotificationWebhook()
-    {
-    }
-
-    /**
      * Test case for updateReferral
      *
      * Update referral.
      *
      */
     public function testUpdateReferral()
+    {
+    }
+
+    /**
+     * Test case for updateStore
+     *
+     * Update store.
+     *
+     */
+    public function testUpdateStore()
     {
     }
 }

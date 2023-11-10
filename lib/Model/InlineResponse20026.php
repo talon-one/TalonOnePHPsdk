@@ -58,7 +58,7 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\ApplicationSession[]'
+        'data' => '\TalonOne\Client\Model\CustomerActivityReport[]'
     ];
 
     /**
@@ -195,6 +195,9 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['hasMore'] === null) {
+            $invalidProperties[] = "'hasMore' can't be null";
+        }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
@@ -216,7 +219,7 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
     /**
      * Gets hasMore
      *
-     * @return bool|null
+     * @return bool
      */
     public function getHasMore()
     {
@@ -226,7 +229,7 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
     /**
      * Sets hasMore
      *
-     * @param bool|null $hasMore hasMore
+     * @param bool $hasMore hasMore
      *
      * @return $this
      */
@@ -240,7 +243,7 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\ApplicationSession[]
+     * @return \TalonOne\Client\Model\CustomerActivityReport[]
      */
     public function getData()
     {
@@ -250,7 +253,7 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\ApplicationSession[] $data data
+     * @param \TalonOne\Client\Model\CustomerActivityReport[] $data data
      *
      * @return $this
      */

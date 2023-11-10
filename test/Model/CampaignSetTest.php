@@ -79,23 +79,16 @@ class CampaignSetTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-    }
-
-    /**
-     * Test attribute "created"
-     */
-    public function testPropertyCreated()
-    {
-    }
-
-    /**
      * Test attribute "applicationId"
      */
     public function testPropertyApplicationId()
+    {
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
     {
     }
 

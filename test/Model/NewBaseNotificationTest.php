@@ -86,6 +86,13 @@ class NewBaseNotificationTest extends TestCase
     }
 
     /**
+     * Test attribute "enabled"
+     */
+    public function testPropertyEnabled()
+    {
+    }
+
+    /**
      * Test attribute "webhook"
      */
     public function testPropertyWebhook()

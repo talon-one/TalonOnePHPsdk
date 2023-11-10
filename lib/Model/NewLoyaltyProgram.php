@@ -66,6 +66,8 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         'allowSubledger' => 'bool',
         'usersPerCardLimit' => 'int',
         'sandbox' => 'bool',
+        'tiersExpireIn' => 'string',
+        'tiersDowngradePolicy' => 'string',
         'name' => 'string',
         'tiers' => '\TalonOne\Client\Model\NewLoyaltyTier[]',
         'timezone' => 'string',
@@ -86,6 +88,8 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         'allowSubledger' => null,
         'usersPerCardLimit' => null,
         'sandbox' => null,
+        'tiersExpireIn' => null,
+        'tiersDowngradePolicy' => null,
         'name' => null,
         'tiers' => null,
         'timezone' => null,
@@ -127,6 +131,8 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         'allowSubledger' => 'allowSubledger',
         'usersPerCardLimit' => 'usersPerCardLimit',
         'sandbox' => 'sandbox',
+        'tiersExpireIn' => 'tiersExpireIn',
+        'tiersDowngradePolicy' => 'tiersDowngradePolicy',
         'name' => 'name',
         'tiers' => 'tiers',
         'timezone' => 'timezone',
@@ -147,6 +153,8 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         'allowSubledger' => 'setAllowSubledger',
         'usersPerCardLimit' => 'setUsersPerCardLimit',
         'sandbox' => 'setSandbox',
+        'tiersExpireIn' => 'setTiersExpireIn',
+        'tiersDowngradePolicy' => 'setTiersDowngradePolicy',
         'name' => 'setName',
         'tiers' => 'setTiers',
         'timezone' => 'setTimezone',
@@ -167,6 +175,8 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         'allowSubledger' => 'getAllowSubledger',
         'usersPerCardLimit' => 'getUsersPerCardLimit',
         'sandbox' => 'getSandbox',
+        'tiersExpireIn' => 'getTiersExpireIn',
+        'tiersDowngradePolicy' => 'getTiersDowngradePolicy',
         'name' => 'getName',
         'tiers' => 'getTiers',
         'timezone' => 'getTimezone',
@@ -214,8 +224,23 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TIERS_DOWNGRADE_POLICY_ONE_DOWN = 'one_down';
+    const TIERS_DOWNGRADE_POLICY_BALANCE_BASED = 'balance_based';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTiersDowngradePolicyAllowableValues()
+    {
+        return [
+            self::TIERS_DOWNGRADE_POLICY_ONE_DOWN,
+            self::TIERS_DOWNGRADE_POLICY_BALANCE_BASED,
+        ];
+    }
     
 
     /**
@@ -241,6 +266,8 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         $this->container['allowSubledger'] = isset($data['allowSubledger']) ? $data['allowSubledger'] : null;
         $this->container['usersPerCardLimit'] = isset($data['usersPerCardLimit']) ? $data['usersPerCardLimit'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
+        $this->container['tiersExpireIn'] = isset($data['tiersExpireIn']) ? $data['tiersExpireIn'] : null;
+        $this->container['tiersDowngradePolicy'] = isset($data['tiersDowngradePolicy']) ? $data['tiersDowngradePolicy'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['tiers'] = isset($data['tiers']) ? $data['tiers'] : null;
         $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
@@ -275,6 +302,14 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
         if ($this->container['sandbox'] === null) {
             $invalidProperties[] = "'sandbox' can't be null";
         }
+        $allowedValues = $this->getTiersDowngradePolicyAllowableValues();
+        if (!is_null($this->container['tiersDowngradePolicy']) && !in_array($this->container['tiersDowngradePolicy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'tiersDowngradePolicy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -496,6 +531,63 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
     public function setSandbox($sandbox)
     {
         $this->container['sandbox'] = $sandbox;
+
+        return $this;
+    }
+
+    /**
+     * Gets tiersExpireIn
+     *
+     * @return string|null
+     */
+    public function getTiersExpireIn()
+    {
+        return $this->container['tiersExpireIn'];
+    }
+
+    /**
+     * Sets tiersExpireIn
+     *
+     * @param string|null $tiersExpireIn The amount of time until the expiration of every tier, starting from the date when the customer joined the considered tier for the first time.  The time format is an **integer** followed by one letter indicating the time unit. Examples: `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can round certain units up or down: - `_D` for rounding down days only. Signifies the start of the day. - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.
+     *
+     * @return $this
+     */
+    public function setTiersExpireIn($tiersExpireIn)
+    {
+        $this->container['tiersExpireIn'] = $tiersExpireIn;
+
+        return $this;
+    }
+
+    /**
+     * Gets tiersDowngradePolicy
+     *
+     * @return string|null
+     */
+    public function getTiersDowngradePolicy()
+    {
+        return $this->container['tiersDowngradePolicy'];
+    }
+
+    /**
+     * Sets tiersDowngradePolicy
+     *
+     * @param string|null $tiersDowngradePolicy Customers's tier downgrade policy.  - `one_down`: Once the tier expires and if the user doesn't have enough points to stay in the tier, the user is downgraded one tier down.  - `balance_based`: Once the tier expires, the user's tier is evaluated based on the amount of active points the user has at this instant.
+     *
+     * @return $this
+     */
+    public function setTiersDowngradePolicy($tiersDowngradePolicy)
+    {
+        $allowedValues = $this->getTiersDowngradePolicyAllowableValues();
+        if (!is_null($tiersDowngradePolicy) && !in_array($tiersDowngradePolicy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'tiersDowngradePolicy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tiersDowngradePolicy'] = $tiersDowngradePolicy;
 
         return $this;
     }

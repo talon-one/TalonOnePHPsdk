@@ -135,6 +135,20 @@ class UpdateLoyaltyProgramTest extends TestCase
     }
 
     /**
+     * Test attribute "tiersExpireIn"
+     */
+    public function testPropertyTiersExpireIn()
+    {
+    }
+
+    /**
+     * Test attribute "tiersDowngradePolicy"
+     */
+    public function testPropertyTiersDowngradePolicy()
+    {
+    }
+
+    /**
      * Test attribute "tiers"
      */
     public function testPropertyTiers()

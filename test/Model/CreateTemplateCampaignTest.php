@@ -133,4 +133,18 @@ class CreateTemplateCampaignTest extends TestCase
     public function testPropertyTags()
     {
     }
+
+    /**
+     * Test attribute "evaluationGroupId"
+     */
+    public function testPropertyEvaluationGroupId()
+    {
+    }
+
+    /**
+     * Test attribute "linkedStoreIds"
+     */
+    public function testPropertyLinkedStoreIds()
+    {
+    }
 }

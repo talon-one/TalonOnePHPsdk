@@ -91,4 +91,11 @@ class AccountDashboardStatisticCampaignsTest extends TestCase
     public function testPropertyEndingSoon()
     {
     }
+
+    /**
+     * Test attribute "lowOnBudget"
+     */
+    public function testPropertyLowOnBudget()
+    {
+    }
 }

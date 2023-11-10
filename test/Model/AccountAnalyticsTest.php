@@ -210,4 +210,11 @@ class AccountAnalyticsTest extends TestCase
     public function testPropertyLiveLoyaltyPrograms()
     {
     }
+
+    /**
+     * Test attribute "lastUpdatedAt"
+     */
+    public function testPropertyLastUpdatedAt()
+    {
+    }
 }

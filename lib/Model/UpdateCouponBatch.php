@@ -422,7 +422,7 @@ class UpdateCouponBatch implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary properties associated with this item.
+     * @param object|null $attributes Optional property to set the value of custom coupon attributes. They are defined in the Campaign Manager, see [Managing attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes).  Coupon attributes can also be set to _mandatory_ in your Application [settings](https://docs.talon.one/docs/product/applications/using-attributes#making-attributes-mandatory). If your Application uses mandatory attributes, you must use this property to set their value.
      *
      * @return $this
      */
@@ -446,7 +446,7 @@ class UpdateCouponBatch implements ModelInterface, ArrayAccess
     /**
      * Sets batchID
      *
-     * @param string|null $batchID The id of the batch the coupon belongs to.
+     * @param string|null $batchID The ID of the batch the coupon(s) belong to.
      *
      * @return $this
      */

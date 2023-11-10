@@ -332,7 +332,7 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets cartItemSubPosition
      *
-     * @param float|null $cartItemSubPosition The index of the item unit in its line item. It is only used for cart items with `quantity` > 1 and is only returned when cart item flattening is enabled.
+     * @param float|null $cartItemSubPosition For cart items with `quantity` > 1, the subposition returns the index of the item unit in its line item.
      *
      * @return $this
      */

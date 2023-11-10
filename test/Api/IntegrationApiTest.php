@@ -193,12 +193,32 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for getLoyaltyCardPoints
+     *
+     * List card's unused loyalty points.
+     *
+     */
+    public function testGetLoyaltyCardPoints()
+    {
+    }
+
+    /**
      * Test case for getLoyaltyCardTransactions
      *
      * List card's transactions.
      *
      */
     public function testGetLoyaltyCardTransactions()
+    {
+    }
+
+    /**
+     * Test case for getLoyaltyProgramProfilePoints
+     *
+     * List customer's unused loyalty points.
+     *
+     */
+    public function testGetLoyaltyProgramProfilePoints()
     {
     }
 
@@ -263,19 +283,9 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
-     * Test case for trackEvent
-     *
-     * Track event.
-     *
-     */
-    public function testTrackEvent()
-    {
-    }
-
-    /**
      * Test case for trackEventV2
      *
-     * Track event V2.
+     * Track event.
      *
      */
     public function testTrackEventV2()

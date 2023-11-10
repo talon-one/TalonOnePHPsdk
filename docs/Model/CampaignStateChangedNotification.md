@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**campaign** | [**\TalonOne\Client\Model\Campaign**](Campaign.md) |  | 
+**campaign** | [**\TalonOne\Client\Model\CampaignForNotification**](CampaignForNotification.md) |  | 
 **oldState** | **string** | The campaign&#39;s old state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;draft&#39;, &#39;archived&#39;] | 
 **newState** | **string** | The campaign&#39;s new state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;draft&#39;, &#39;archived&#39;] | 
 **ruleset** | [**\TalonOne\Client\Model\Ruleset**](Ruleset.md) |  | [optional] 

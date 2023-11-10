@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **validCharacters** | **string[]** | List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression. | [optional] 
 **couponPattern** | **string** | The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set. | [optional] 
 **isReservationMandatory** | **bool** | Whether the reservation effect actually created a new reservation. | [optional] [default to true]
+**implicitlyReserved** | **bool** | An indication of whether the coupon is implicitly reserved for all customers. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

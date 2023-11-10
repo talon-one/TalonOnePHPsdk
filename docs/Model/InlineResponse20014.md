@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hasMore** | **bool** | true means there is more data in the source collection to request.. | 
-**data** | [**\TalonOne\Client\Model\CardLedgerTransactionLogEntry[]**](CardLedgerTransactionLogEntry.md) | List of loyalty card transaction logs. | 
+**hasMore** | **bool** |  | 
+**data** | [**\TalonOne\Client\Model\LoyaltyCard[]**](LoyaltyCard.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

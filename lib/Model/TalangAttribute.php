@@ -216,6 +216,7 @@ class TalangAttribute implements ModelInterface, ArrayAccess
     const ENTITY_GIVEAWAY = 'Giveaway';
     const ENTITY_REFERRAL = 'Referral';
     const ENTITY_SESSION = 'Session';
+    const ENTITY_STORE = 'Store';
     const KIND_BUILT_IN = 'built-in';
     const KIND_CUSTOM = 'custom';
     
@@ -246,6 +247,7 @@ class TalangAttribute implements ModelInterface, ArrayAccess
             self::ENTITY_GIVEAWAY,
             self::ENTITY_REFERRAL,
             self::ENTITY_SESSION,
+            self::ENTITY_STORE,
         ];
     }
     

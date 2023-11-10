@@ -250,7 +250,7 @@ class ReturnedCartItem implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param int|null $quantity Number of cart items to return. It is only available when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. If cart item flattening is disabled, the cart item can only be returned in its entirety.
+     * @param int|null $quantity Number of cart items to return.
      *
      * @return $this
      */

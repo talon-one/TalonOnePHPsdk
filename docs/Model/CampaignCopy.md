@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **startTime** | [**\DateTime**](\DateTime.md) | Timestamp when the campaign will become active. | [optional] 
 **endTime** | [**\DateTime**](\DateTime.md) | Timestamp when the campaign will become inactive. | [optional] 
 **tags** | **string[]** | A list of tags for the campaign. | [optional] 
+**evaluationGroupId** | **int** | The ID of the campaign evaluation group the campaign belongs to. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

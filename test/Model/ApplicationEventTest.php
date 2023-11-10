@@ -107,6 +107,20 @@ class ApplicationEventTest extends TestCase
     }
 
     /**
+     * Test attribute "storeId"
+     */
+    public function testPropertyStoreId()
+    {
+    }
+
+    /**
+     * Test attribute "storeIntegrationId"
+     */
+    public function testPropertyStoreIntegrationId()
+    {
+    }
+
+    /**
      * Test attribute "sessionId"
      */
     public function testPropertySessionId()

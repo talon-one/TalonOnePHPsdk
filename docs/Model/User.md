@@ -17,6 +17,9 @@ Name | Type | Description | Notes
 **roles** | **int[]** | Contains a list of all roles the user is a member of. | [optional] 
 **applicationNotificationSubscriptions** | [**object**](.md) |  | [optional] 
 **authMethod** | **string** | The Authentication method for this user. | [optional] 
+**isAdmin** | **bool** | An indication of whether the user has admin permissions. | [optional] 
+**lastSignedIn** | [**\DateTime**](\DateTime.md) | Date and time when the user last signed in to Talon.One. | [optional] 
+**lastAccessed** | [**\DateTime**](\DateTime.md) | Date and time of the user&#39;s last activity after signing in to Talon.One. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

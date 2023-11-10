@@ -128,6 +128,13 @@ class EffectTest extends TestCase
     }
 
     /**
+     * Test attribute "conditionIndex"
+     */
+    public function testPropertyConditionIndex()
+    {
+    }
+
+    /**
      * Test attribute "props"
      */
     public function testPropertyProps()

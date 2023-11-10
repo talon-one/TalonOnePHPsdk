@@ -105,4 +105,39 @@ class CampaignSetBranchNodeTest extends TestCase
     public function testPropertyElements()
     {
     }
+
+    /**
+     * Test attribute "groupId"
+     */
+    public function testPropertyGroupId()
+    {
+    }
+
+    /**
+     * Test attribute "locked"
+     */
+    public function testPropertyLocked()
+    {
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+    }
+
+    /**
+     * Test attribute "evaluationMode"
+     */
+    public function testPropertyEvaluationMode()
+    {
+    }
+
+    /**
+     * Test attribute "evaluationScope"
+     */
+    public function testPropertyEvaluationScope()
+    {
+    }
 }

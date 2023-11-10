@@ -36,6 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * RoleV2 Class Doc Comment
  *
  * @category Class
+ * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,9 +58,12 @@ class RoleV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'int',
+        'created' => '\DateTime',
+        'modified' => '\DateTime',
+        'accountId' => 'int',
         'name' => 'string',
         'description' => 'string',
-        'isAdmin' => 'bool',
         'permissions' => '\TalonOne\Client\Model\RoleV2Permissions',
         'members' => 'int[]'
     ];
@@ -70,9 +74,12 @@ class RoleV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'id' => null,
+        'created' => 'date-time',
+        'modified' => 'date-time',
+        'accountId' => null,
         'name' => null,
         'description' => null,
-        'isAdmin' => null,
         'permissions' => null,
         'members' => null
     ];
@@ -104,9 +111,12 @@ class RoleV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'created' => 'created',
+        'modified' => 'modified',
+        'accountId' => 'accountId',
         'name' => 'name',
         'description' => 'description',
-        'isAdmin' => 'isAdmin',
         'permissions' => 'permissions',
         'members' => 'members'
     ];
@@ -117,9 +127,12 @@ class RoleV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'created' => 'setCreated',
+        'modified' => 'setModified',
+        'accountId' => 'setAccountId',
         'name' => 'setName',
         'description' => 'setDescription',
-        'isAdmin' => 'setIsAdmin',
         'permissions' => 'setPermissions',
         'members' => 'setMembers'
     ];
@@ -130,9 +143,12 @@ class RoleV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'created' => 'getCreated',
+        'modified' => 'getModified',
+        'accountId' => 'getAccountId',
         'name' => 'getName',
         'description' => 'getDescription',
-        'isAdmin' => 'getIsAdmin',
         'permissions' => 'getPermissions',
         'members' => 'getMembers'
     ];
@@ -197,9 +213,12 @@ class RoleV2 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['isAdmin'] = isset($data['isAdmin']) ? $data['isAdmin'] : null;
         $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
         $this->container['members'] = isset($data['members']) ? $data['members'] : null;
     }
@@ -213,6 +232,18 @@ class RoleV2 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['created'] === null) {
+            $invalidProperties[] = "'created' can't be null";
+        }
+        if ($this->container['modified'] === null) {
+            $invalidProperties[] = "'modified' can't be null";
+        }
+        if ($this->container['accountId'] === null) {
+            $invalidProperties[] = "'accountId' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -227,6 +258,102 @@ class RoleV2 implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id Internal ID of this entity.
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     *
+     * @param \DateTime $created The time this entity was created.
+     *
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified
+     *
+     * @return \DateTime
+     */
+    public function getModified()
+    {
+        return $this->container['modified'];
+    }
+
+    /**
+     * Sets modified
+     *
+     * @param \DateTime $modified The time this entity was last modified.
+     *
+     * @return $this
+     */
+    public function setModified($modified)
+    {
+        $this->container['modified'] = $modified;
+
+        return $this;
+    }
+
+    /**
+     * Gets accountId
+     *
+     * @return int
+     */
+    public function getAccountId()
+    {
+        return $this->container['accountId'];
+    }
+
+    /**
+     * Sets accountId
+     *
+     * @param int $accountId The ID of the account that owns this entity.
+     *
+     * @return $this
+     */
+    public function setAccountId($accountId)
+    {
+        $this->container['accountId'] = $accountId;
+
+        return $this;
+    }
 
     /**
      * Gets name
@@ -277,30 +404,6 @@ class RoleV2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets isAdmin
-     *
-     * @return bool|null
-     */
-    public function getIsAdmin()
-    {
-        return $this->container['isAdmin'];
-    }
-
-    /**
-     * Sets isAdmin
-     *
-     * @param bool|null $isAdmin Indicates whether the role grants admin permissions.
-     *
-     * @return $this
-     */
-    public function setIsAdmin($isAdmin)
-    {
-        $this->container['isAdmin'] = $isAdmin;
-
-        return $this;
-    }
-
-    /**
      * Gets permissions
      *
      * @return \TalonOne\Client\Model\RoleV2Permissions|null
@@ -337,7 +440,7 @@ class RoleV2 implements ModelInterface, ArrayAccess
     /**
      * Sets members
      *
-     * @param int[]|null $members An array of user identifiers.
+     * @param int[]|null $members A list of user identifiers the role is assigned to.
      *
      * @return $this
      */

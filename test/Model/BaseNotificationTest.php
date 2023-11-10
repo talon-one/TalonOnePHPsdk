@@ -86,6 +86,13 @@ class BaseNotificationTest extends TestCase
     }
 
     /**
+     * Test attribute "enabled"
+     */
+    public function testPropertyEnabled()
+    {
+    }
+
+    /**
      * Test attribute "webhook"
      */
     public function testPropertyWebhook()
@@ -96,6 +103,13 @@ class BaseNotificationTest extends TestCase
      * Test attribute "id"
      */
     public function testPropertyId()
+    {
+    }
+
+    /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
     {
     }
 }

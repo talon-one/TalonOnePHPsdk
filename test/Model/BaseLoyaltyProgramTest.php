@@ -133,4 +133,18 @@ class BaseLoyaltyProgramTest extends TestCase
     public function testPropertySandbox()
     {
     }
+
+    /**
+     * Test attribute "tiersExpireIn"
+     */
+    public function testPropertyTiersExpireIn()
+    {
+    }
+
+    /**
+     * Test attribute "tiersDowngradePolicy"
+     */
+    public function testPropertyTiersDowngradePolicy()
+    {
+    }
 }

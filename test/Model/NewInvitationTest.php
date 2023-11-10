@@ -100,6 +100,13 @@ class NewInvitationTest extends TestCase
     }
 
     /**
+     * Test attribute "isAdmin"
+     */
+    public function testPropertyIsAdmin()
+    {
+    }
+
+    /**
      * Test attribute "roles"
      */
     public function testPropertyRoles()

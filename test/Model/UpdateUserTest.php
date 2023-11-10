@@ -112,4 +112,11 @@ class UpdateUserTest extends TestCase
     public function testPropertyApplicationNotificationSubscriptions()
     {
     }
+
+    /**
+     * Test attribute "isAdmin"
+     */
+    public function testPropertyIsAdmin()
+    {
+    }
 }

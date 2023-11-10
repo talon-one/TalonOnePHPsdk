@@ -175,4 +175,11 @@ class NewCampaignTemplateTest extends TestCase
     public function testPropertyDefaultCampaignGroupId()
     {
     }
+
+    /**
+     * Test attribute "campaignType"
+     */
+    public function testPropertyCampaignType()
+    {
+    }
 }

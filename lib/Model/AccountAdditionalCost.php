@@ -261,8 +261,8 @@ class AccountAdditionalCost implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if (!preg_match("/^[A-Za-z](\\w|\\s)*$/", $this->container['name'])) {
-            $invalidProperties[] = "invalid value for 'name', must be conform to the pattern /^[A-Za-z](\\w|\\s)*$/.";
+        if (!preg_match("/^[A-Za-z]\\w*$/", $this->container['name'])) {
+            $invalidProperties[] = "invalid value for 'name', must be conform to the pattern /^[A-Za-z]\\w*$/.";
         }
 
         if ($this->container['title'] === null) {
@@ -390,8 +390,8 @@ class AccountAdditionalCost implements ModelInterface, ArrayAccess
     public function setName($name)
     {
 
-        if ((!preg_match("/^[A-Za-z](\\w|\\s)*$/", $name))) {
-            throw new \InvalidArgumentException("invalid value for $name when calling AccountAdditionalCost., must conform to the pattern /^[A-Za-z](\\w|\\s)*$/.");
+        if ((!preg_match("/^[A-Za-z]\\w*$/", $name))) {
+            throw new \InvalidArgumentException("invalid value for $name when calling AccountAdditionalCost., must conform to the pattern /^[A-Za-z]\\w*$/.");
         }
 
         $this->container['name'] = $name;

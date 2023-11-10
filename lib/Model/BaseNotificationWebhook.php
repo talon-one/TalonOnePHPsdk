@@ -62,7 +62,8 @@ class BaseNotificationWebhook implements ModelInterface, ArrayAccess
         'created' => '\DateTime',
         'modified' => '\DateTime',
         'url' => 'string',
-        'headers' => 'string[]'
+        'headers' => 'string[]',
+        'enabled' => 'bool'
     ];
 
     /**
@@ -75,7 +76,8 @@ class BaseNotificationWebhook implements ModelInterface, ArrayAccess
         'created' => 'date-time',
         'modified' => 'date-time',
         'url' => null,
-        'headers' => null
+        'headers' => null,
+        'enabled' => null
     ];
 
     /**
@@ -109,7 +111,8 @@ class BaseNotificationWebhook implements ModelInterface, ArrayAccess
         'created' => 'created',
         'modified' => 'modified',
         'url' => 'url',
-        'headers' => 'headers'
+        'headers' => 'headers',
+        'enabled' => 'enabled'
     ];
 
     /**
@@ -122,7 +125,8 @@ class BaseNotificationWebhook implements ModelInterface, ArrayAccess
         'created' => 'setCreated',
         'modified' => 'setModified',
         'url' => 'setUrl',
-        'headers' => 'setHeaders'
+        'headers' => 'setHeaders',
+        'enabled' => 'setEnabled'
     ];
 
     /**
@@ -135,7 +139,8 @@ class BaseNotificationWebhook implements ModelInterface, ArrayAccess
         'created' => 'getCreated',
         'modified' => 'getModified',
         'url' => 'getUrl',
-        'headers' => 'getHeaders'
+        'headers' => 'getHeaders',
+        'enabled' => 'getEnabled'
     ];
 
     /**
@@ -203,6 +208,7 @@ class BaseNotificationWebhook implements ModelInterface, ArrayAccess
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['headers'] = isset($data['headers']) ? $data['headers'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : true;
     }
 
     /**
@@ -360,6 +366,30 @@ class BaseNotificationWebhook implements ModelInterface, ArrayAccess
     public function setHeaders($headers)
     {
         $this->container['headers'] = $headers;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool|null
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool|null $enabled Indicates whether the notification is activated.
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }

@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **webhooks** | **int** | Total number of webhooks in the account. | 
 **loyaltyPrograms** | **int** | Total number of all loyalty programs in the account. | 
 **liveLoyaltyPrograms** | **int** | Total number of live loyalty programs in the account. | 
+**lastUpdatedAt** | [**\DateTime**](\DateTime.md) | The point in time when the analytics numbers were updated last. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -57,8 +57,8 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\LoyaltyProgramTransaction[]'
+        'totalResultSize' => 'int',
+        'data' => '\TalonOne\Client\Model\LoyaltyProgram[]'
     ];
 
     /**
@@ -67,7 +67,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'hasMore' => null,
+        'totalResultSize' => null,
         'data' => null
     ];
 
@@ -98,7 +98,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'hasMore' => 'hasMore',
+        'totalResultSize' => 'totalResultSize',
         'data' => 'data'
     ];
 
@@ -108,7 +108,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'hasMore' => 'setHasMore',
+        'totalResultSize' => 'setTotalResultSize',
         'data' => 'setData'
     ];
 
@@ -118,7 +118,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'hasMore' => 'getHasMore',
+        'totalResultSize' => 'getTotalResultSize',
         'data' => 'getData'
     ];
 
@@ -182,7 +182,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
+        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -195,8 +195,8 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['hasMore'] === null) {
-            $invalidProperties[] = "'hasMore' can't be null";
+        if ($this->container['totalResultSize'] === null) {
+            $invalidProperties[] = "'totalResultSize' can't be null";
         }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
@@ -217,25 +217,25 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets hasMore
+     * Gets totalResultSize
      *
-     * @return bool
+     * @return int
      */
-    public function getHasMore()
+    public function getTotalResultSize()
     {
-        return $this->container['hasMore'];
+        return $this->container['totalResultSize'];
     }
 
     /**
-     * Sets hasMore
+     * Sets totalResultSize
      *
-     * @param bool $hasMore hasMore
+     * @param int $totalResultSize totalResultSize
      *
      * @return $this
      */
-    public function setHasMore($hasMore)
+    public function setTotalResultSize($totalResultSize)
     {
-        $this->container['hasMore'] = $hasMore;
+        $this->container['totalResultSize'] = $totalResultSize;
 
         return $this;
     }
@@ -243,7 +243,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\LoyaltyProgramTransaction[]
+     * @return \TalonOne\Client\Model\LoyaltyProgram[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\LoyaltyProgramTransaction[] $data data
+     * @param \TalonOne\Client\Model\LoyaltyProgram[] $data data
      *
      * @return $this
      */

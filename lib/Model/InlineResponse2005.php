@@ -58,7 +58,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\NotificationWebhook[]'
+        'data' => '\TalonOne\Client\Model\Application[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\NotificationWebhook[]
+     * @return \TalonOne\Client\Model\Application[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\NotificationWebhook[] $data data
+     * @param \TalonOne\Client\Model\Application[] $data data
      *
      * @return $this
      */

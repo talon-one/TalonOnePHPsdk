@@ -75,7 +75,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'customAttributes' => 'int',
         'webhooks' => 'int',
         'loyaltyPrograms' => 'int',
-        'liveLoyaltyPrograms' => 'int'
+        'liveLoyaltyPrograms' => 'int',
+        'lastUpdatedAt' => '\DateTime'
     ];
 
     /**
@@ -102,7 +103,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'customAttributes' => null,
         'webhooks' => null,
         'loyaltyPrograms' => null,
-        'liveLoyaltyPrograms' => null
+        'liveLoyaltyPrograms' => null,
+        'lastUpdatedAt' => 'date-time'
     ];
 
     /**
@@ -150,7 +152,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'customAttributes' => 'customAttributes',
         'webhooks' => 'webhooks',
         'loyaltyPrograms' => 'loyaltyPrograms',
-        'liveLoyaltyPrograms' => 'liveLoyaltyPrograms'
+        'liveLoyaltyPrograms' => 'liveLoyaltyPrograms',
+        'lastUpdatedAt' => 'lastUpdatedAt'
     ];
 
     /**
@@ -177,7 +180,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'customAttributes' => 'setCustomAttributes',
         'webhooks' => 'setWebhooks',
         'loyaltyPrograms' => 'setLoyaltyPrograms',
-        'liveLoyaltyPrograms' => 'setLiveLoyaltyPrograms'
+        'liveLoyaltyPrograms' => 'setLiveLoyaltyPrograms',
+        'lastUpdatedAt' => 'setLastUpdatedAt'
     ];
 
     /**
@@ -204,7 +208,8 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         'customAttributes' => 'getCustomAttributes',
         'webhooks' => 'getWebhooks',
         'loyaltyPrograms' => 'getLoyaltyPrograms',
-        'liveLoyaltyPrograms' => 'getLiveLoyaltyPrograms'
+        'liveLoyaltyPrograms' => 'getLiveLoyaltyPrograms',
+        'lastUpdatedAt' => 'getLastUpdatedAt'
     ];
 
     /**
@@ -286,6 +291,7 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         $this->container['webhooks'] = isset($data['webhooks']) ? $data['webhooks'] : null;
         $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
         $this->container['liveLoyaltyPrograms'] = isset($data['liveLoyaltyPrograms']) ? $data['liveLoyaltyPrograms'] : null;
+        $this->container['lastUpdatedAt'] = isset($data['lastUpdatedAt']) ? $data['lastUpdatedAt'] : null;
     }
 
     /**
@@ -353,6 +359,9 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
         }
         if ($this->container['liveLoyaltyPrograms'] === null) {
             $invalidProperties[] = "'liveLoyaltyPrograms' can't be null";
+        }
+        if ($this->container['lastUpdatedAt'] === null) {
+            $invalidProperties[] = "'lastUpdatedAt' can't be null";
         }
         return $invalidProperties;
     }
@@ -821,6 +830,30 @@ class AccountAnalytics implements ModelInterface, ArrayAccess
     public function setLiveLoyaltyPrograms($liveLoyaltyPrograms)
     {
         $this->container['liveLoyaltyPrograms'] = $liveLoyaltyPrograms;
+
+        return $this;
+    }
+
+    /**
+     * Gets lastUpdatedAt
+     *
+     * @return \DateTime
+     */
+    public function getLastUpdatedAt()
+    {
+        return $this->container['lastUpdatedAt'];
+    }
+
+    /**
+     * Sets lastUpdatedAt
+     *
+     * @param \DateTime $lastUpdatedAt The point in time when the analytics numbers were updated last.
+     *
+     * @return $this
+     */
+    public function setLastUpdatedAt($lastUpdatedAt)
+    {
+        $this->container['lastUpdatedAt'] = $lastUpdatedAt;
 
         return $this;
     }

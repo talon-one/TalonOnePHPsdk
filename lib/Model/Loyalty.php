@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * Loyalty Class Doc Comment
  *
  * @category Class
- * @description Customer specific information about loyalty points.
+ * @description Customer-specific information about loyalty points.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

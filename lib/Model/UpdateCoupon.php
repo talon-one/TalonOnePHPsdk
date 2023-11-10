@@ -66,7 +66,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
         'recipientIntegrationId' => 'string',
         'attributes' => 'object',
-        'isReservationMandatory' => 'bool'
+        'isReservationMandatory' => 'bool',
+        'implicitlyReserved' => 'bool'
     ];
 
     /**
@@ -83,7 +84,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         'limits' => null,
         'recipientIntegrationId' => null,
         'attributes' => null,
-        'isReservationMandatory' => null
+        'isReservationMandatory' => null,
+        'implicitlyReserved' => null
     ];
 
     /**
@@ -121,7 +123,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         'limits' => 'limits',
         'recipientIntegrationId' => 'recipientIntegrationId',
         'attributes' => 'attributes',
-        'isReservationMandatory' => 'isReservationMandatory'
+        'isReservationMandatory' => 'isReservationMandatory',
+        'implicitlyReserved' => 'implicitlyReserved'
     ];
 
     /**
@@ -138,7 +141,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         'limits' => 'setLimits',
         'recipientIntegrationId' => 'setRecipientIntegrationId',
         'attributes' => 'setAttributes',
-        'isReservationMandatory' => 'setIsReservationMandatory'
+        'isReservationMandatory' => 'setIsReservationMandatory',
+        'implicitlyReserved' => 'setImplicitlyReserved'
     ];
 
     /**
@@ -155,7 +159,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         'limits' => 'getLimits',
         'recipientIntegrationId' => 'getRecipientIntegrationId',
         'attributes' => 'getAttributes',
-        'isReservationMandatory' => 'getIsReservationMandatory'
+        'isReservationMandatory' => 'getIsReservationMandatory',
+        'implicitlyReserved' => 'getImplicitlyReserved'
     ];
 
     /**
@@ -227,6 +232,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : true;
+        $this->container['implicitlyReserved'] = isset($data['implicitlyReserved']) ? $data['implicitlyReserved'] : null;
     }
 
     /**
@@ -521,6 +527,30 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
     public function setIsReservationMandatory($isReservationMandatory)
     {
         $this->container['isReservationMandatory'] = $isReservationMandatory;
+
+        return $this;
+    }
+
+    /**
+     * Gets implicitlyReserved
+     *
+     * @return bool|null
+     */
+    public function getImplicitlyReserved()
+    {
+        return $this->container['implicitlyReserved'];
+    }
+
+    /**
+     * Sets implicitlyReserved
+     *
+     * @param bool|null $implicitlyReserved An indication of whether the coupon is implicitly reserved for all customers.
+     *
+     * @return $this
+     */
+    public function setImplicitlyReserved($implicitlyReserved)
+    {
+        $this->container['implicitlyReserved'] = $implicitlyReserved;
 
         return $this;
     }

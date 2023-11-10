@@ -107,6 +107,13 @@ class EventTest extends TestCase
     }
 
     /**
+     * Test attribute "storeIntegrationId"
+     */
+    public function testPropertyStoreIntegrationId()
+    {
+    }
+
+    /**
      * Test attribute "type"
      */
     public function testPropertyType()

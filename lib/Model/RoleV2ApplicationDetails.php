@@ -59,7 +59,8 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'application' => 'string',
         'campaign' => 'string',
-        'draftCampaign' => 'string'
+        'draftCampaign' => 'string',
+        'tools' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'application' => null,
         'campaign' => null,
-        'draftCampaign' => null
+        'draftCampaign' => null,
+        'tools' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'application' => 'application',
         'campaign' => 'campaign',
-        'draftCampaign' => 'draftCampaign'
+        'draftCampaign' => 'draftCampaign',
+        'tools' => 'tools'
     ];
 
     /**
@@ -113,7 +116,8 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
     protected static $setters = [
         'application' => 'setApplication',
         'campaign' => 'setCampaign',
-        'draftCampaign' => 'setDraftCampaign'
+        'draftCampaign' => 'setDraftCampaign',
+        'tools' => 'setTools'
     ];
 
     /**
@@ -124,7 +128,8 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
     protected static $getters = [
         'application' => 'getApplication',
         'campaign' => 'getCampaign',
-        'draftCampaign' => 'getDraftCampaign'
+        'draftCampaign' => 'getDraftCampaign',
+        'tools' => 'getTools'
     ];
 
     /**
@@ -190,6 +195,7 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         $this->container['application'] = isset($data['application']) ? $data['application'] : null;
         $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
         $this->container['draftCampaign'] = isset($data['draftCampaign']) ? $data['draftCampaign'] : null;
+        $this->container['tools'] = isset($data['tools']) ? $data['tools'] : null;
     }
 
     /**
@@ -229,7 +235,7 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
     /**
      * Sets application
      *
-     * @param string|null $application Name of the Application-level permission set.
+     * @param string|null $application Name of the Application-related permission set for the given Application.
      *
      * @return $this
      */
@@ -253,7 +259,7 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
     /**
      * Sets campaign
      *
-     * @param string|null $campaign Name of the campaign-level permission set.
+     * @param string|null $campaign Name of the campaign-related permission set for the given Application.
      *
      * @return $this
      */
@@ -277,13 +283,37 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
     /**
      * Sets draftCampaign
      *
-     * @param string|null $draftCampaign Name of the draft campaign-level permission set.
+     * @param string|null $draftCampaign Name of the draft campaign-related permission set for the given Application.
      *
      * @return $this
      */
     public function setDraftCampaign($draftCampaign)
     {
         $this->container['draftCampaign'] = $draftCampaign;
+
+        return $this;
+    }
+
+    /**
+     * Gets tools
+     *
+     * @return string|null
+     */
+    public function getTools()
+    {
+        return $this->container['tools'];
+    }
+
+    /**
+     * Sets tools
+     *
+     * @param string|null $tools Name of the tools-related permission set.
+     *
+     * @return $this
+     */
+    public function setTools($tools)
+    {
+        $this->container['tools'] = $tools;
 
         return $this;
     }

@@ -59,6 +59,7 @@ class NewBaseNotification implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'policy' => 'object',
+        'enabled' => 'bool',
         'webhook' => '\TalonOne\Client\Model\NewNotificationWebhook'
     ];
 
@@ -69,6 +70,7 @@ class NewBaseNotification implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'policy' => null,
+        'enabled' => null,
         'webhook' => null
     ];
 
@@ -100,6 +102,7 @@ class NewBaseNotification implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'policy' => 'policy',
+        'enabled' => 'enabled',
         'webhook' => 'webhook'
     ];
 
@@ -110,6 +113,7 @@ class NewBaseNotification implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'policy' => 'setPolicy',
+        'enabled' => 'setEnabled',
         'webhook' => 'setWebhook'
     ];
 
@@ -120,6 +124,7 @@ class NewBaseNotification implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'policy' => 'getPolicy',
+        'enabled' => 'getEnabled',
         'webhook' => 'getWebhook'
     ];
 
@@ -184,6 +189,7 @@ class NewBaseNotification implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : true;
         $this->container['webhook'] = isset($data['webhook']) ? $data['webhook'] : null;
     }
 
@@ -237,6 +243,30 @@ class NewBaseNotification implements ModelInterface, ArrayAccess
     public function setPolicy($policy)
     {
         $this->container['policy'] = $policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool|null
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool|null $enabled Indicates whether the notification is activated.
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }

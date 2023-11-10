@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**campaign** | [**Campaign**](Campaign.md) |  | 
+**campaign** | [**\TalonOne\Client\Model\CampaignStateNotification**](CampaignStateNotification.md) |  | 
 **oldRuleset** | [**\TalonOne\Client\Model\Ruleset**](Ruleset.md) |  | [optional] 
 **ruleset** | [**\TalonOne\Client\Model\Ruleset**](Ruleset.md) |  | [optional] 
 

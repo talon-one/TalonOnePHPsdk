@@ -168,4 +168,25 @@ class UpdateCampaignTest extends TestCase
     public function testPropertyCampaignGroups()
     {
     }
+
+    /**
+     * Test attribute "evaluationGroupId"
+     */
+    public function testPropertyEvaluationGroupId()
+    {
+    }
+
+    /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+    }
+
+    /**
+     * Test attribute "linkedStoreIds"
+     */
+    public function testPropertyLinkedStoreIds()
+    {
+    }
 }

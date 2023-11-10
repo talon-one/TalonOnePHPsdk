@@ -198,6 +198,34 @@ class CampaignTest extends TestCase
     }
 
     /**
+     * Test attribute "evaluationGroupId"
+     */
+    public function testPropertyEvaluationGroupId()
+    {
+    }
+
+    /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+    }
+
+    /**
+     * Test attribute "linkedStoreIds"
+     */
+    public function testPropertyLinkedStoreIds()
+    {
+    }
+
+    /**
+     * Test attribute "budgets"
+     */
+    public function testPropertyBudgets()
+    {
+    }
+
+    /**
      * Test attribute "couponRedemptionCount"
      */
     public function testPropertyCouponRedemptionCount()

@@ -70,7 +70,10 @@ class User implements ModelInterface, ArrayAccess
         'latestFeedTimestamp' => '\DateTime',
         'roles' => 'int[]',
         'applicationNotificationSubscriptions' => 'object',
-        'authMethod' => 'string'
+        'authMethod' => 'string',
+        'isAdmin' => 'bool',
+        'lastSignedIn' => '\DateTime',
+        'lastAccessed' => '\DateTime'
     ];
 
     /**
@@ -91,7 +94,10 @@ class User implements ModelInterface, ArrayAccess
         'latestFeedTimestamp' => 'date-time',
         'roles' => null,
         'applicationNotificationSubscriptions' => null,
-        'authMethod' => null
+        'authMethod' => null,
+        'isAdmin' => null,
+        'lastSignedIn' => 'date-time',
+        'lastAccessed' => 'date-time'
     ];
 
     /**
@@ -133,7 +139,10 @@ class User implements ModelInterface, ArrayAccess
         'latestFeedTimestamp' => 'latestFeedTimestamp',
         'roles' => 'roles',
         'applicationNotificationSubscriptions' => 'applicationNotificationSubscriptions',
-        'authMethod' => 'authMethod'
+        'authMethod' => 'authMethod',
+        'isAdmin' => 'isAdmin',
+        'lastSignedIn' => 'lastSignedIn',
+        'lastAccessed' => 'lastAccessed'
     ];
 
     /**
@@ -154,7 +163,10 @@ class User implements ModelInterface, ArrayAccess
         'latestFeedTimestamp' => 'setLatestFeedTimestamp',
         'roles' => 'setRoles',
         'applicationNotificationSubscriptions' => 'setApplicationNotificationSubscriptions',
-        'authMethod' => 'setAuthMethod'
+        'authMethod' => 'setAuthMethod',
+        'isAdmin' => 'setIsAdmin',
+        'lastSignedIn' => 'setLastSignedIn',
+        'lastAccessed' => 'setLastAccessed'
     ];
 
     /**
@@ -175,7 +187,10 @@ class User implements ModelInterface, ArrayAccess
         'latestFeedTimestamp' => 'getLatestFeedTimestamp',
         'roles' => 'getRoles',
         'applicationNotificationSubscriptions' => 'getApplicationNotificationSubscriptions',
-        'authMethod' => 'getAuthMethod'
+        'authMethod' => 'getAuthMethod',
+        'isAdmin' => 'getIsAdmin',
+        'lastSignedIn' => 'getLastSignedIn',
+        'lastAccessed' => 'getLastAccessed'
     ];
 
     /**
@@ -268,6 +283,9 @@ class User implements ModelInterface, ArrayAccess
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
         $this->container['applicationNotificationSubscriptions'] = isset($data['applicationNotificationSubscriptions']) ? $data['applicationNotificationSubscriptions'] : null;
         $this->container['authMethod'] = isset($data['authMethod']) ? $data['authMethod'] : null;
+        $this->container['isAdmin'] = isset($data['isAdmin']) ? $data['isAdmin'] : null;
+        $this->container['lastSignedIn'] = isset($data['lastSignedIn']) ? $data['lastSignedIn'] : null;
+        $this->container['lastAccessed'] = isset($data['lastAccessed']) ? $data['lastAccessed'] : null;
     }
 
     /**
@@ -646,6 +664,78 @@ class User implements ModelInterface, ArrayAccess
     public function setAuthMethod($authMethod)
     {
         $this->container['authMethod'] = $authMethod;
+
+        return $this;
+    }
+
+    /**
+     * Gets isAdmin
+     *
+     * @return bool|null
+     */
+    public function getIsAdmin()
+    {
+        return $this->container['isAdmin'];
+    }
+
+    /**
+     * Sets isAdmin
+     *
+     * @param bool|null $isAdmin An indication of whether the user has admin permissions.
+     *
+     * @return $this
+     */
+    public function setIsAdmin($isAdmin)
+    {
+        $this->container['isAdmin'] = $isAdmin;
+
+        return $this;
+    }
+
+    /**
+     * Gets lastSignedIn
+     *
+     * @return \DateTime|null
+     */
+    public function getLastSignedIn()
+    {
+        return $this->container['lastSignedIn'];
+    }
+
+    /**
+     * Sets lastSignedIn
+     *
+     * @param \DateTime|null $lastSignedIn Date and time when the user last signed in to Talon.One.
+     *
+     * @return $this
+     */
+    public function setLastSignedIn($lastSignedIn)
+    {
+        $this->container['lastSignedIn'] = $lastSignedIn;
+
+        return $this;
+    }
+
+    /**
+     * Gets lastAccessed
+     *
+     * @return \DateTime|null
+     */
+    public function getLastAccessed()
+    {
+        return $this->container['lastAccessed'];
+    }
+
+    /**
+     * Sets lastAccessed
+     *
+     * @param \DateTime|null $lastAccessed Date and time of the user's last activity after signing in to Talon.One.
+     *
+     * @return $this
+     */
+    public function setLastAccessed($lastAccessed)
+    {
+        $this->container['lastAccessed'] = $lastAccessed;
 
         return $this;
     }

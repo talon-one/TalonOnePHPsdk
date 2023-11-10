@@ -60,7 +60,12 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
         'type' => 'string',
         'name' => 'string',
         'operator' => 'string',
-        'elements' => '\TalonOne\Client\Model\CampaignSetNode[]'
+        'elements' => '\TalonOne\Client\Model\CampaignSetNode[]',
+        'groupId' => 'int',
+        'locked' => 'bool',
+        'description' => 'string',
+        'evaluationMode' => 'string',
+        'evaluationScope' => 'string'
     ];
 
     /**
@@ -72,7 +77,12 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
         'type' => null,
         'name' => null,
         'operator' => null,
-        'elements' => null
+        'elements' => null,
+        'groupId' => null,
+        'locked' => null,
+        'description' => null,
+        'evaluationMode' => null,
+        'evaluationScope' => null
     ];
 
     /**
@@ -105,7 +115,12 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
         'type' => 'type',
         'name' => 'name',
         'operator' => 'operator',
-        'elements' => 'elements'
+        'elements' => 'elements',
+        'groupId' => 'groupId',
+        'locked' => 'locked',
+        'description' => 'description',
+        'evaluationMode' => 'evaluationMode',
+        'evaluationScope' => 'evaluationScope'
     ];
 
     /**
@@ -117,7 +132,12 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
         'type' => 'setType',
         'name' => 'setName',
         'operator' => 'setOperator',
-        'elements' => 'setElements'
+        'elements' => 'setElements',
+        'groupId' => 'setGroupId',
+        'locked' => 'setLocked',
+        'description' => 'setDescription',
+        'evaluationMode' => 'setEvaluationMode',
+        'evaluationScope' => 'setEvaluationScope'
     ];
 
     /**
@@ -129,7 +149,12 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
         'type' => 'getType',
         'name' => 'getName',
         'operator' => 'getOperator',
-        'elements' => 'getElements'
+        'elements' => 'getElements',
+        'groupId' => 'getGroupId',
+        'locked' => 'getLocked',
+        'description' => 'getDescription',
+        'evaluationMode' => 'getEvaluationMode',
+        'evaluationScope' => 'getEvaluationScope'
     ];
 
     /**
@@ -176,6 +201,12 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
     const TYPE_SET = 'SET';
     const OPERATOR_ALL = 'ALL';
     const OPERATOR_FIRST = 'FIRST';
+    const EVALUATION_MODE_STACKABLE = 'stackable';
+    const EVALUATION_MODE_LIST_ORDER = 'listOrder';
+    const EVALUATION_MODE_LOWEST_DISCOUNT = 'lowestDiscount';
+    const EVALUATION_MODE_HIGHEST_DISCOUNT = 'highestDiscount';
+    const EVALUATION_SCOPE_CART_ITEM = 'cartItem';
+    const EVALUATION_SCOPE_SESSION = 'session';
     
 
     
@@ -204,6 +235,34 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEvaluationModeAllowableValues()
+    {
+        return [
+            self::EVALUATION_MODE_STACKABLE,
+            self::EVALUATION_MODE_LIST_ORDER,
+            self::EVALUATION_MODE_LOWEST_DISCOUNT,
+            self::EVALUATION_MODE_HIGHEST_DISCOUNT,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEvaluationScopeAllowableValues()
+    {
+        return [
+            self::EVALUATION_SCOPE_CART_ITEM,
+            self::EVALUATION_SCOPE_SESSION,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -224,6 +283,11 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
         $this->container['elements'] = isset($data['elements']) ? $data['elements'] : null;
+        $this->container['groupId'] = isset($data['groupId']) ? $data['groupId'] : null;
+        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['evaluationMode'] = isset($data['evaluationMode']) ? $data['evaluationMode'] : null;
+        $this->container['evaluationScope'] = isset($data['evaluationScope']) ? $data['evaluationScope'] : null;
     }
 
     /**
@@ -263,6 +327,34 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
         if ($this->container['elements'] === null) {
             $invalidProperties[] = "'elements' can't be null";
         }
+        if ($this->container['groupId'] === null) {
+            $invalidProperties[] = "'groupId' can't be null";
+        }
+        if ($this->container['locked'] === null) {
+            $invalidProperties[] = "'locked' can't be null";
+        }
+        if ($this->container['evaluationMode'] === null) {
+            $invalidProperties[] = "'evaluationMode' can't be null";
+        }
+        $allowedValues = $this->getEvaluationModeAllowableValues();
+        if (!is_null($this->container['evaluationMode']) && !in_array($this->container['evaluationMode'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'evaluationMode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['evaluationScope'] === null) {
+            $invalidProperties[] = "'evaluationScope' can't be null";
+        }
+        $allowedValues = $this->getEvaluationScopeAllowableValues();
+        if (!is_null($this->container['evaluationScope']) && !in_array($this->container['evaluationScope'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'evaluationScope', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -324,7 +416,7 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Name of the set
+     * @param string $name Name of the set.
      *
      * @return $this
      */
@@ -348,7 +440,7 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
     /**
      * Sets operator
      *
-     * @param string $operator How does the set operates on its elements.
+     * @param string $operator An indicator of how the set operates on its elements.
      *
      * @return $this
      */
@@ -388,6 +480,144 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
     public function setElements($elements)
     {
         $this->container['elements'] = $elements;
+
+        return $this;
+    }
+
+    /**
+     * Gets groupId
+     *
+     * @return int
+     */
+    public function getGroupId()
+    {
+        return $this->container['groupId'];
+    }
+
+    /**
+     * Sets groupId
+     *
+     * @param int $groupId The ID of the campaign set.
+     *
+     * @return $this
+     */
+    public function setGroupId($groupId)
+    {
+        $this->container['groupId'] = $groupId;
+
+        return $this;
+    }
+
+    /**
+     * Gets locked
+     *
+     * @return bool
+     */
+    public function getLocked()
+    {
+        return $this->container['locked'];
+    }
+
+    /**
+     * Sets locked
+     *
+     * @param bool $locked An indicator of whether the campaign set is locked for modification.
+     *
+     * @return $this
+     */
+    public function setLocked($locked)
+    {
+        $this->container['locked'] = $locked;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description A description of the campaign set.
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationMode
+     *
+     * @return string
+     */
+    public function getEvaluationMode()
+    {
+        return $this->container['evaluationMode'];
+    }
+
+    /**
+     * Sets evaluationMode
+     *
+     * @param string $evaluationMode The mode by which campaigns in the campaign evaluation group are evaluated.
+     *
+     * @return $this
+     */
+    public function setEvaluationMode($evaluationMode)
+    {
+        $allowedValues = $this->getEvaluationModeAllowableValues();
+        if (!in_array($evaluationMode, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'evaluationMode', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['evaluationMode'] = $evaluationMode;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationScope
+     *
+     * @return string
+     */
+    public function getEvaluationScope()
+    {
+        return $this->container['evaluationScope'];
+    }
+
+    /**
+     * Sets evaluationScope
+     *
+     * @param string $evaluationScope The evaluation scope of the campaign evaluation group.
+     *
+     * @return $this
+     */
+    public function setEvaluationScope($evaluationScope)
+    {
+        $allowedValues = $this->getEvaluationScopeAllowableValues();
+        if (!in_array($evaluationScope, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'evaluationScope', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['evaluationScope'] = $evaluationScope;
 
         return $this;
     }

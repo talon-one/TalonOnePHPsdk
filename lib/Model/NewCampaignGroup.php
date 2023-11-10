@@ -242,7 +242,7 @@ class NewCampaignGroup implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of this campaign group.
+     * @param string $name The name of this campaign access group.
      *
      * @return $this
      */
@@ -271,7 +271,7 @@ class NewCampaignGroup implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description A longer description of the campaign group.
+     * @param string|null $description A longer description of the campaign access group.
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class NewCampaignGroup implements ModelInterface, ArrayAccess
     /**
      * Sets subscribedApplicationsIds
      *
-     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the applications that this campaign group is enabled for.
+     * @param int[]|null $subscribedApplicationsIds A list of IDs of the Applications that this campaign access group is enabled for.
      *
      * @return $this
      */
@@ -319,7 +319,7 @@ class NewCampaignGroup implements ModelInterface, ArrayAccess
     /**
      * Sets campaignIds
      *
-     * @param int[]|null $campaignIds A list of the IDs of the campaigns that this campaign group owns.
+     * @param int[]|null $campaignIds A list of IDs of the campaigns that are part of the campaign access group.
      *
      * @return $this
      */

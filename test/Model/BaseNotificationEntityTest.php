@@ -84,4 +84,11 @@ class BaseNotificationEntityTest extends TestCase
     public function testPropertyPolicy()
     {
     }
+
+    /**
+     * Test attribute "enabled"
+     */
+    public function testPropertyEnabled()
+    {
+    }
 }

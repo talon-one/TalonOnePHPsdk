@@ -62,6 +62,7 @@ class Event implements ModelInterface, ArrayAccess
         'created' => '\DateTime',
         'applicationId' => 'int',
         'profileId' => 'string',
+        'storeIntegrationId' => 'string',
         'type' => 'string',
         'attributes' => 'object',
         'sessionId' => 'string',
@@ -80,6 +81,7 @@ class Event implements ModelInterface, ArrayAccess
         'created' => 'date-time',
         'applicationId' => null,
         'profileId' => null,
+        'storeIntegrationId' => null,
         'type' => null,
         'attributes' => null,
         'sessionId' => null,
@@ -119,6 +121,7 @@ class Event implements ModelInterface, ArrayAccess
         'created' => 'created',
         'applicationId' => 'applicationId',
         'profileId' => 'profileId',
+        'storeIntegrationId' => 'storeIntegrationId',
         'type' => 'type',
         'attributes' => 'attributes',
         'sessionId' => 'sessionId',
@@ -137,6 +140,7 @@ class Event implements ModelInterface, ArrayAccess
         'created' => 'setCreated',
         'applicationId' => 'setApplicationId',
         'profileId' => 'setProfileId',
+        'storeIntegrationId' => 'setStoreIntegrationId',
         'type' => 'setType',
         'attributes' => 'setAttributes',
         'sessionId' => 'setSessionId',
@@ -155,6 +159,7 @@ class Event implements ModelInterface, ArrayAccess
         'created' => 'getCreated',
         'applicationId' => 'getApplicationId',
         'profileId' => 'getProfileId',
+        'storeIntegrationId' => 'getStoreIntegrationId',
         'type' => 'getType',
         'attributes' => 'getAttributes',
         'sessionId' => 'getSessionId',
@@ -227,6 +232,7 @@ class Event implements ModelInterface, ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
+        $this->container['storeIntegrationId'] = isset($data['storeIntegrationId']) ? $data['storeIntegrationId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['sessionId'] = isset($data['sessionId']) ? $data['sessionId'] : null;
@@ -253,6 +259,14 @@ class Event implements ModelInterface, ArrayAccess
         if ($this->container['applicationId'] === null) {
             $invalidProperties[] = "'applicationId' can't be null";
         }
+        if (!is_null($this->container['storeIntegrationId']) && (mb_strlen($this->container['storeIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'storeIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
+        if (!is_null($this->container['storeIntegrationId']) && (mb_strlen($this->container['storeIntegrationId']) < 1)) {
+            $invalidProperties[] = "invalid value for 'storeIntegrationId', the character length must be bigger than or equal to 1.";
+        }
+
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -376,6 +390,37 @@ class Event implements ModelInterface, ArrayAccess
     public function setProfileId($profileId)
     {
         $this->container['profileId'] = $profileId;
+
+        return $this;
+    }
+
+    /**
+     * Gets storeIntegrationId
+     *
+     * @return string|null
+     */
+    public function getStoreIntegrationId()
+    {
+        return $this->container['storeIntegrationId'];
+    }
+
+    /**
+     * Sets storeIntegrationId
+     *
+     * @param string|null $storeIntegrationId The integration ID of the store. You choose this ID when you create a store.
+     *
+     * @return $this
+     */
+    public function setStoreIntegrationId($storeIntegrationId)
+    {
+        if (!is_null($storeIntegrationId) && (mb_strlen($storeIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $storeIntegrationId when calling Event., must be smaller than or equal to 1000.');
+        }
+        if (!is_null($storeIntegrationId) && (mb_strlen($storeIntegrationId) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $storeIntegrationId when calling Event., must be bigger than or equal to 1.');
+        }
+
+        $this->container['storeIntegrationId'] = $storeIntegrationId;
 
         return $this;
     }

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewApplicationTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description NewApplication
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -124,20 +124,6 @@ class NewApplicationTest extends TestCase
      * Test attribute "limits"
      */
     public function testPropertyLimits()
-    {
-    }
-
-    /**
-     * Test attribute "campaignPriority"
-     */
-    public function testPropertyCampaignPriority()
-    {
-    }
-
-    /**
-     * Test attribute "exclusiveCampaignsStrategy"
-     */
-    public function testPropertyExclusiveCampaignsStrategy()
     {
     }
 

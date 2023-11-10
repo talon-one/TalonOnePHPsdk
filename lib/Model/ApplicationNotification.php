@@ -220,7 +220,7 @@ class ApplicationNotification implements ModelInterface, ArrayAccess
     /**
      * Sets event
      *
-     * @param string $event Event type. It can be one of the following: ['campaign_priorities_changed']
+     * @param string $event Event type. It can be one of the following: ['campaign_evaluation_tree_changed']
      *
      * @return $this
      */

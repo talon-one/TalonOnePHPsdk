@@ -60,9 +60,10 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'created' => '\DateTime',
+        'integrationId' => 'string',
+        'storeIntegrationId' => 'string',
         'applicationId' => 'int',
         'profileId' => 'int',
-        'integrationId' => 'string',
         'profileintegrationid' => 'string',
         'coupon' => 'string',
         'referral' => 'string',
@@ -82,9 +83,10 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created' => 'date-time',
+        'integrationId' => 'string',
+        'storeIntegrationId' => null,
         'applicationId' => null,
         'profileId' => null,
-        'integrationId' => 'string',
         'profileintegrationid' => null,
         'coupon' => null,
         'referral' => null,
@@ -125,9 +127,10 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created' => 'created',
+        'integrationId' => 'integrationId',
+        'storeIntegrationId' => 'storeIntegrationId',
         'applicationId' => 'applicationId',
         'profileId' => 'profileId',
-        'integrationId' => 'integrationId',
         'profileintegrationid' => 'profileintegrationid',
         'coupon' => 'coupon',
         'referral' => 'referral',
@@ -147,9 +150,10 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created' => 'setCreated',
+        'integrationId' => 'setIntegrationId',
+        'storeIntegrationId' => 'setStoreIntegrationId',
         'applicationId' => 'setApplicationId',
         'profileId' => 'setProfileId',
-        'integrationId' => 'setIntegrationId',
         'profileintegrationid' => 'setProfileintegrationid',
         'coupon' => 'setCoupon',
         'referral' => 'setReferral',
@@ -169,9 +173,10 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created' => 'getCreated',
+        'integrationId' => 'getIntegrationId',
+        'storeIntegrationId' => 'getStoreIntegrationId',
         'applicationId' => 'getApplicationId',
         'profileId' => 'getProfileId',
-        'integrationId' => 'getIntegrationId',
         'profileintegrationid' => 'getProfileintegrationid',
         'coupon' => 'getCoupon',
         'referral' => 'getReferral',
@@ -264,9 +269,10 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
+        $this->container['storeIntegrationId'] = isset($data['storeIntegrationId']) ? $data['storeIntegrationId'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
-        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['profileintegrationid'] = isset($data['profileintegrationid']) ? $data['profileintegrationid'] : null;
         $this->container['coupon'] = isset($data['coupon']) ? $data['coupon'] : null;
         $this->container['referral'] = isset($data['referral']) ? $data['referral'] : null;
@@ -293,9 +299,6 @@ class ApplicationSession implements ModelInterface, ArrayAccess
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
-        if ($this->container['applicationId'] === null) {
-            $invalidProperties[] = "'applicationId' can't be null";
-        }
         if ($this->container['integrationId'] === null) {
             $invalidProperties[] = "'integrationId' can't be null";
         }
@@ -303,6 +306,17 @@ class ApplicationSession implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'integrationId', the character length must be smaller than or equal to 1000.";
         }
 
+        if (!is_null($this->container['storeIntegrationId']) && (mb_strlen($this->container['storeIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'storeIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
+        if (!is_null($this->container['storeIntegrationId']) && (mb_strlen($this->container['storeIntegrationId']) < 1)) {
+            $invalidProperties[] = "invalid value for 'storeIntegrationId', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['applicationId'] === null) {
+            $invalidProperties[] = "'applicationId' can't be null";
+        }
         if (!is_null($this->container['profileintegrationid']) && (mb_strlen($this->container['profileintegrationid']) > 1000)) {
             $invalidProperties[] = "invalid value for 'profileintegrationid', the character length must be smaller than or equal to 1000.";
         }
@@ -400,6 +414,65 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets integrationId
+     *
+     * @return string
+     */
+    public function getIntegrationId()
+    {
+        return $this->container['integrationId'];
+    }
+
+    /**
+     * Sets integrationId
+     *
+     * @param string $integrationId The integration ID set by your integration layer.
+     *
+     * @return $this
+     */
+    public function setIntegrationId($integrationId)
+    {
+        if ((mb_strlen($integrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $integrationId when calling ApplicationSession., must be smaller than or equal to 1000.');
+        }
+
+        $this->container['integrationId'] = $integrationId;
+
+        return $this;
+    }
+
+    /**
+     * Gets storeIntegrationId
+     *
+     * @return string|null
+     */
+    public function getStoreIntegrationId()
+    {
+        return $this->container['storeIntegrationId'];
+    }
+
+    /**
+     * Sets storeIntegrationId
+     *
+     * @param string|null $storeIntegrationId The integration ID of the store. You choose this ID when you create a store.
+     *
+     * @return $this
+     */
+    public function setStoreIntegrationId($storeIntegrationId)
+    {
+        if (!is_null($storeIntegrationId) && (mb_strlen($storeIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $storeIntegrationId when calling ApplicationSession., must be smaller than or equal to 1000.');
+        }
+        if (!is_null($storeIntegrationId) && (mb_strlen($storeIntegrationId) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $storeIntegrationId when calling ApplicationSession., must be bigger than or equal to 1.');
+        }
+
+        $this->container['storeIntegrationId'] = $storeIntegrationId;
+
+        return $this;
+    }
+
+    /**
      * Gets applicationId
      *
      * @return int
@@ -443,34 +516,6 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     public function setProfileId($profileId)
     {
         $this->container['profileId'] = $profileId;
-
-        return $this;
-    }
-
-    /**
-     * Gets integrationId
-     *
-     * @return string
-     */
-    public function getIntegrationId()
-    {
-        return $this->container['integrationId'];
-    }
-
-    /**
-     * Sets integrationId
-     *
-     * @param string $integrationId The integration ID set by your integration layer.
-     *
-     * @return $this
-     */
-    public function setIntegrationId($integrationId)
-    {
-        if ((mb_strlen($integrationId) > 1000)) {
-            throw new \InvalidArgumentException('invalid length for $integrationId when calling ApplicationSession., must be smaller than or equal to 1000.');
-        }
-
-        $this->container['integrationId'] = $integrationId;
 
         return $this;
     }
@@ -564,7 +609,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string $state Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. `closed` → `cancelled` or `partially_returned` 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities#customer-session).
+     * @param string $state Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. `closed` → `cancelled` or `partially_returned` 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).
      *
      * @return $this
      */

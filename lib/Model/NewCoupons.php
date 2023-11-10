@@ -70,7 +70,8 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'recipientIntegrationId' => 'string',
         'validCharacters' => 'string[]',
         'couponPattern' => 'string',
-        'isReservationMandatory' => 'bool'
+        'isReservationMandatory' => 'bool',
+        'implicitlyReserved' => 'bool'
     ];
 
     /**
@@ -91,7 +92,8 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'recipientIntegrationId' => null,
         'validCharacters' => null,
         'couponPattern' => null,
-        'isReservationMandatory' => null
+        'isReservationMandatory' => null,
+        'implicitlyReserved' => null
     ];
 
     /**
@@ -133,7 +135,8 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'recipientIntegrationId' => 'recipientIntegrationId',
         'validCharacters' => 'validCharacters',
         'couponPattern' => 'couponPattern',
-        'isReservationMandatory' => 'isReservationMandatory'
+        'isReservationMandatory' => 'isReservationMandatory',
+        'implicitlyReserved' => 'implicitlyReserved'
     ];
 
     /**
@@ -154,7 +157,8 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'recipientIntegrationId' => 'setRecipientIntegrationId',
         'validCharacters' => 'setValidCharacters',
         'couponPattern' => 'setCouponPattern',
-        'isReservationMandatory' => 'setIsReservationMandatory'
+        'isReservationMandatory' => 'setIsReservationMandatory',
+        'implicitlyReserved' => 'setImplicitlyReserved'
     ];
 
     /**
@@ -175,7 +179,8 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'recipientIntegrationId' => 'getRecipientIntegrationId',
         'validCharacters' => 'getValidCharacters',
         'couponPattern' => 'getCouponPattern',
-        'isReservationMandatory' => 'getIsReservationMandatory'
+        'isReservationMandatory' => 'getIsReservationMandatory',
+        'implicitlyReserved' => 'getImplicitlyReserved'
     ];
 
     /**
@@ -251,6 +256,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
         $this->container['validCharacters'] = isset($data['validCharacters']) ? $data['validCharacters'] : null;
         $this->container['couponPattern'] = isset($data['couponPattern']) ? $data['couponPattern'] : null;
         $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : true;
+        $this->container['implicitlyReserved'] = isset($data['implicitlyReserved']) ? $data['implicitlyReserved'] : null;
     }
 
     /**
@@ -662,6 +668,30 @@ class NewCoupons implements ModelInterface, ArrayAccess
     public function setIsReservationMandatory($isReservationMandatory)
     {
         $this->container['isReservationMandatory'] = $isReservationMandatory;
+
+        return $this;
+    }
+
+    /**
+     * Gets implicitlyReserved
+     *
+     * @return bool|null
+     */
+    public function getImplicitlyReserved()
+    {
+        return $this->container['implicitlyReserved'];
+    }
+
+    /**
+     * Sets implicitlyReserved
+     *
+     * @param bool|null $implicitlyReserved An indication of whether the coupon is implicitly reserved for all customers.
+     *
+     * @return $this
+     */
+    public function setImplicitlyReserved($implicitlyReserved)
+    {
+        $this->container['implicitlyReserved'] = $implicitlyReserved;
 
         return $this;
     }

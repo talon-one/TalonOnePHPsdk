@@ -368,7 +368,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param int $quantity Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly.
+     * @param int $quantity Number of units of this item. Due to [cart item flattening](https://docs.talon.one/docs/product/rules/understanding-cart-item-flattening), if you provide a quantity greater than 1, the item will be split in as many items as the provided quantity. This will impact the number of **per-item** effects triggered from your campaigns.
      *
      * @return $this
      */
@@ -661,7 +661,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets catalogItemID
      *
-     * @param int|null $catalogItemID The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-cart-item-catalogs).
+     * @param int|null $catalogItemID The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog).
      *
      * @return $this
      */

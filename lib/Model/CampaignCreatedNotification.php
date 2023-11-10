@@ -58,9 +58,9 @@ class CampaignCreatedNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'campaign' => 'Campaign',
+        'campaign' => '\TalonOne\Client\Model\CampaignStateNotification',
         'ruleset' => '\TalonOne\Client\Model\Ruleset',
-        'priority' => '\TalonOne\Client\Model\PriorityPosition'
+        'evaluationPosition' => '\TalonOne\Client\Model\CampaignEvaluationPosition'
     ];
 
     /**
@@ -71,7 +71,7 @@ class CampaignCreatedNotification implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'campaign' => null,
         'ruleset' => null,
-        'priority' => null
+        'evaluationPosition' => null
     ];
 
     /**
@@ -103,7 +103,7 @@ class CampaignCreatedNotification implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'campaign' => 'campaign',
         'ruleset' => 'ruleset',
-        'priority' => 'priority'
+        'evaluationPosition' => 'evaluationPosition'
     ];
 
     /**
@@ -114,7 +114,7 @@ class CampaignCreatedNotification implements ModelInterface, ArrayAccess
     protected static $setters = [
         'campaign' => 'setCampaign',
         'ruleset' => 'setRuleset',
-        'priority' => 'setPriority'
+        'evaluationPosition' => 'setEvaluationPosition'
     ];
 
     /**
@@ -125,7 +125,7 @@ class CampaignCreatedNotification implements ModelInterface, ArrayAccess
     protected static $getters = [
         'campaign' => 'getCampaign',
         'ruleset' => 'getRuleset',
-        'priority' => 'getPriority'
+        'evaluationPosition' => 'getEvaluationPosition'
     ];
 
     /**
@@ -190,7 +190,7 @@ class CampaignCreatedNotification implements ModelInterface, ArrayAccess
     {
         $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
         $this->container['ruleset'] = isset($data['ruleset']) ? $data['ruleset'] : null;
-        $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
+        $this->container['evaluationPosition'] = isset($data['evaluationPosition']) ? $data['evaluationPosition'] : null;
     }
 
     /**
@@ -205,8 +205,8 @@ class CampaignCreatedNotification implements ModelInterface, ArrayAccess
         if ($this->container['campaign'] === null) {
             $invalidProperties[] = "'campaign' can't be null";
         }
-        if ($this->container['priority'] === null) {
-            $invalidProperties[] = "'priority' can't be null";
+        if ($this->container['evaluationPosition'] === null) {
+            $invalidProperties[] = "'evaluationPosition' can't be null";
         }
         return $invalidProperties;
     }
@@ -226,7 +226,7 @@ class CampaignCreatedNotification implements ModelInterface, ArrayAccess
     /**
      * Gets campaign
      *
-     * @return Campaign
+     * @return \TalonOne\Client\Model\CampaignStateNotification
      */
     public function getCampaign()
     {
@@ -236,7 +236,7 @@ class CampaignCreatedNotification implements ModelInterface, ArrayAccess
     /**
      * Sets campaign
      *
-     * @param Campaign $campaign campaign
+     * @param \TalonOne\Client\Model\CampaignStateNotification $campaign campaign
      *
      * @return $this
      */
@@ -272,25 +272,25 @@ class CampaignCreatedNotification implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets priority
+     * Gets evaluationPosition
      *
-     * @return \TalonOne\Client\Model\PriorityPosition
+     * @return \TalonOne\Client\Model\CampaignEvaluationPosition
      */
-    public function getPriority()
+    public function getEvaluationPosition()
     {
-        return $this->container['priority'];
+        return $this->container['evaluationPosition'];
     }
 
     /**
-     * Sets priority
+     * Sets evaluationPosition
      *
-     * @param \TalonOne\Client\Model\PriorityPosition $priority priority
+     * @param \TalonOne\Client\Model\CampaignEvaluationPosition $evaluationPosition evaluationPosition
      *
      * @return $this
      */
-    public function setPriority($priority)
+    public function setEvaluationPosition($evaluationPosition)
     {
-        $this->container['priority'] = $priority;
+        $this->container['evaluationPosition'] = $evaluationPosition;
 
         return $this;
     }

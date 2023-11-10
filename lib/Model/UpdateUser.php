@@ -61,7 +61,8 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'policy' => 'string',
         'state' => 'string',
         'roles' => 'int[]',
-        'applicationNotificationSubscriptions' => 'object'
+        'applicationNotificationSubscriptions' => 'object',
+        'isAdmin' => 'bool'
     ];
 
     /**
@@ -74,7 +75,8 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'policy' => null,
         'state' => null,
         'roles' => null,
-        'applicationNotificationSubscriptions' => null
+        'applicationNotificationSubscriptions' => null,
+        'isAdmin' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'policy' => 'policy',
         'state' => 'state',
         'roles' => 'roles',
-        'applicationNotificationSubscriptions' => 'applicationNotificationSubscriptions'
+        'applicationNotificationSubscriptions' => 'applicationNotificationSubscriptions',
+        'isAdmin' => 'isAdmin'
     ];
 
     /**
@@ -121,7 +124,8 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'policy' => 'setPolicy',
         'state' => 'setState',
         'roles' => 'setRoles',
-        'applicationNotificationSubscriptions' => 'setApplicationNotificationSubscriptions'
+        'applicationNotificationSubscriptions' => 'setApplicationNotificationSubscriptions',
+        'isAdmin' => 'setIsAdmin'
     ];
 
     /**
@@ -134,7 +138,8 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'policy' => 'getPolicy',
         'state' => 'getState',
         'roles' => 'getRoles',
-        'applicationNotificationSubscriptions' => 'getApplicationNotificationSubscriptions'
+        'applicationNotificationSubscriptions' => 'getApplicationNotificationSubscriptions',
+        'isAdmin' => 'getIsAdmin'
     ];
 
     /**
@@ -217,6 +222,7 @@ class UpdateUser implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
         $this->container['applicationNotificationSubscriptions'] = isset($data['applicationNotificationSubscriptions']) ? $data['applicationNotificationSubscriptions'] : null;
+        $this->container['isAdmin'] = isset($data['isAdmin']) ? $data['isAdmin'] : null;
     }
 
     /**
@@ -376,6 +382,30 @@ class UpdateUser implements ModelInterface, ArrayAccess
     public function setApplicationNotificationSubscriptions($applicationNotificationSubscriptions)
     {
         $this->container['applicationNotificationSubscriptions'] = $applicationNotificationSubscriptions;
+
+        return $this;
+    }
+
+    /**
+     * Gets isAdmin
+     *
+     * @return bool|null
+     */
+    public function getIsAdmin()
+    {
+        return $this->container['isAdmin'];
+    }
+
+    /**
+     * Sets isAdmin
+     *
+     * @param bool|null $isAdmin An indication of whether the user has admin permissions.
+     *
+     * @return $this
+     */
+    public function setIsAdmin($isAdmin)
+    {
+        $this->container['isAdmin'] = $isAdmin;
 
         return $this;
     }

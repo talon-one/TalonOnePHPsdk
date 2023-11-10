@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * NewApplication Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -65,8 +64,6 @@ class NewApplication implements ModelInterface, ArrayAccess
         'caseSensitivity' => 'string',
         'attributes' => 'object',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
-        'campaignPriority' => 'string',
-        'exclusiveCampaignsStrategy' => 'string',
         'defaultDiscountScope' => 'string',
         'enableCascadingDiscounts' => 'bool',
         'enableFlattenedCartItems' => 'bool',
@@ -90,8 +87,6 @@ class NewApplication implements ModelInterface, ArrayAccess
         'caseSensitivity' => null,
         'attributes' => null,
         'limits' => null,
-        'campaignPriority' => null,
-        'exclusiveCampaignsStrategy' => null,
         'defaultDiscountScope' => null,
         'enableCascadingDiscounts' => null,
         'enableFlattenedCartItems' => null,
@@ -136,8 +131,6 @@ class NewApplication implements ModelInterface, ArrayAccess
         'caseSensitivity' => 'caseSensitivity',
         'attributes' => 'attributes',
         'limits' => 'limits',
-        'campaignPriority' => 'campaignPriority',
-        'exclusiveCampaignsStrategy' => 'exclusiveCampaignsStrategy',
         'defaultDiscountScope' => 'defaultDiscountScope',
         'enableCascadingDiscounts' => 'enableCascadingDiscounts',
         'enableFlattenedCartItems' => 'enableFlattenedCartItems',
@@ -161,8 +154,6 @@ class NewApplication implements ModelInterface, ArrayAccess
         'caseSensitivity' => 'setCaseSensitivity',
         'attributes' => 'setAttributes',
         'limits' => 'setLimits',
-        'campaignPriority' => 'setCampaignPriority',
-        'exclusiveCampaignsStrategy' => 'setExclusiveCampaignsStrategy',
         'defaultDiscountScope' => 'setDefaultDiscountScope',
         'enableCascadingDiscounts' => 'setEnableCascadingDiscounts',
         'enableFlattenedCartItems' => 'setEnableFlattenedCartItems',
@@ -186,8 +177,6 @@ class NewApplication implements ModelInterface, ArrayAccess
         'caseSensitivity' => 'getCaseSensitivity',
         'attributes' => 'getAttributes',
         'limits' => 'getLimits',
-        'campaignPriority' => 'getCampaignPriority',
-        'exclusiveCampaignsStrategy' => 'getExclusiveCampaignsStrategy',
         'defaultDiscountScope' => 'getDefaultDiscountScope',
         'enableCascadingDiscounts' => 'getEnableCascadingDiscounts',
         'enableFlattenedCartItems' => 'getEnableFlattenedCartItems',
@@ -242,12 +231,6 @@ class NewApplication implements ModelInterface, ArrayAccess
     const CASE_SENSITIVITY_SENSITIVE = 'sensitive';
     const CASE_SENSITIVITY_INSENSITIVE_UPPERCASE = 'insensitive-uppercase';
     const CASE_SENSITIVITY_INSENSITIVE_LOWERCASE = 'insensitive-lowercase';
-    const CAMPAIGN_PRIORITY_UNIVERSAL = 'universal';
-    const CAMPAIGN_PRIORITY_STACKABLE = 'stackable';
-    const CAMPAIGN_PRIORITY_EXCLUSIVE = 'exclusive';
-    const EXCLUSIVE_CAMPAIGNS_STRATEGY_LIST_ORDER = 'listOrder';
-    const EXCLUSIVE_CAMPAIGNS_STRATEGY_LOWEST_DISCOUNT = 'lowestDiscount';
-    const EXCLUSIVE_CAMPAIGNS_STRATEGY_HIGHEST_DISCOUNT = 'highestDiscount';
     const DEFAULT_DISCOUNT_SCOPE_SESSION_TOTAL = 'sessionTotal';
     const DEFAULT_DISCOUNT_SCOPE_CART_ITEMS = 'cartItems';
     const DEFAULT_DISCOUNT_SCOPE_ADDITIONAL_COSTS = 'additionalCosts';
@@ -268,34 +251,6 @@ class NewApplication implements ModelInterface, ArrayAccess
             self::CASE_SENSITIVITY_SENSITIVE,
             self::CASE_SENSITIVITY_INSENSITIVE_UPPERCASE,
             self::CASE_SENSITIVITY_INSENSITIVE_LOWERCASE,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCampaignPriorityAllowableValues()
-    {
-        return [
-            self::CAMPAIGN_PRIORITY_UNIVERSAL,
-            self::CAMPAIGN_PRIORITY_STACKABLE,
-            self::CAMPAIGN_PRIORITY_EXCLUSIVE,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getExclusiveCampaignsStrategyAllowableValues()
-    {
-        return [
-            self::EXCLUSIVE_CAMPAIGNS_STRATEGY_LIST_ORDER,
-            self::EXCLUSIVE_CAMPAIGNS_STRATEGY_LOWEST_DISCOUNT,
-            self::EXCLUSIVE_CAMPAIGNS_STRATEGY_HIGHEST_DISCOUNT,
         ];
     }
     
@@ -350,8 +305,6 @@ class NewApplication implements ModelInterface, ArrayAccess
         $this->container['caseSensitivity'] = isset($data['caseSensitivity']) ? $data['caseSensitivity'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
-        $this->container['campaignPriority'] = isset($data['campaignPriority']) ? $data['campaignPriority'] : 'universal';
-        $this->container['exclusiveCampaignsStrategy'] = isset($data['exclusiveCampaignsStrategy']) ? $data['exclusiveCampaignsStrategy'] : 'listOrder';
         $this->container['defaultDiscountScope'] = isset($data['defaultDiscountScope']) ? $data['defaultDiscountScope'] : null;
         $this->container['enableCascadingDiscounts'] = isset($data['enableCascadingDiscounts']) ? $data['enableCascadingDiscounts'] : null;
         $this->container['enableFlattenedCartItems'] = isset($data['enableFlattenedCartItems']) ? $data['enableFlattenedCartItems'] : null;
@@ -396,22 +349,6 @@ class NewApplication implements ModelInterface, ArrayAccess
         if (!is_null($this->container['caseSensitivity']) && !in_array($this->container['caseSensitivity'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'caseSensitivity', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getCampaignPriorityAllowableValues();
-        if (!is_null($this->container['campaignPriority']) && !in_array($this->container['campaignPriority'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'campaignPriority', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getExclusiveCampaignsStrategyAllowableValues();
-        if (!is_null($this->container['exclusiveCampaignsStrategy']) && !in_array($this->container['exclusiveCampaignsStrategy'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'exclusiveCampaignsStrategy', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -644,72 +581,6 @@ class NewApplication implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets campaignPriority
-     *
-     * @return string|null
-     */
-    public function getCampaignPriority()
-    {
-        return $this->container['campaignPriority'];
-    }
-
-    /**
-     * Sets campaignPriority
-     *
-     * @param string|null $campaignPriority Default [priority](https://docs.talon.one/docs/product/applications/setting-up-campaign-priorities) for campaigns created in this Application.
-     *
-     * @return $this
-     */
-    public function setCampaignPriority($campaignPriority)
-    {
-        $allowedValues = $this->getCampaignPriorityAllowableValues();
-        if (!is_null($campaignPriority) && !in_array($campaignPriority, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'campaignPriority', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['campaignPriority'] = $campaignPriority;
-
-        return $this;
-    }
-
-    /**
-     * Gets exclusiveCampaignsStrategy
-     *
-     * @return string|null
-     */
-    public function getExclusiveCampaignsStrategy()
-    {
-        return $this->container['exclusiveCampaignsStrategy'];
-    }
-
-    /**
-     * Sets exclusiveCampaignsStrategy
-     *
-     * @param string|null $exclusiveCampaignsStrategy The strategy used when choosing exclusive campaigns for evaluation.
-     *
-     * @return $this
-     */
-    public function setExclusiveCampaignsStrategy($exclusiveCampaignsStrategy)
-    {
-        $allowedValues = $this->getExclusiveCampaignsStrategyAllowableValues();
-        if (!is_null($exclusiveCampaignsStrategy) && !in_array($exclusiveCampaignsStrategy, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'exclusiveCampaignsStrategy', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['exclusiveCampaignsStrategy'] = $exclusiveCampaignsStrategy;
-
-        return $this;
-    }
-
-    /**
      * Gets defaultDiscountScope
      *
      * @return string|null
@@ -779,7 +650,7 @@ class NewApplication implements ModelInterface, ArrayAccess
     /**
      * Sets enableFlattenedCartItems
      *
-     * @param bool|null $enableFlattenedCartItems Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening).
+     * @param bool|null $enableFlattenedCartItems Indicates if cart items of quantity larger than one should be separated into different items of quantity one.
      *
      * @return $this
      */

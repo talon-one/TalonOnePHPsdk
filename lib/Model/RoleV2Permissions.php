@@ -58,7 +58,7 @@ class RoleV2Permissions implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'permissionSets' => '\TalonOne\Client\Model\RoleV2PermissionSet[]',
-        'roles' => '\TalonOne\Client\Model\RoleV2PermissionsRoles'
+        'roles' => '\TalonOne\Client\Model\RoleV2RolesGroup'
     ];
 
     /**
@@ -223,7 +223,7 @@ class RoleV2Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets permissionSets
      *
-     * @param \TalonOne\Client\Model\RoleV2PermissionSet[]|null $permissionSets List of grouped operation IDs to use as a reference in the roles section. Each group of operation IDs has a name.
+     * @param \TalonOne\Client\Model\RoleV2PermissionSet[]|null $permissionSets List of grouped logical operations to use as a reference in the roles section. Each group of logical operations has a name.
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class RoleV2Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets roles
      *
-     * @return \TalonOne\Client\Model\RoleV2PermissionsRoles|null
+     * @return \TalonOne\Client\Model\RoleV2RolesGroup|null
      */
     public function getRoles()
     {
@@ -247,7 +247,7 @@ class RoleV2Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets roles
      *
-     * @param \TalonOne\Client\Model\RoleV2PermissionsRoles|null $roles roles
+     * @param \TalonOne\Client\Model\RoleV2RolesGroup|null $roles roles
      *
      * @return $this
      */

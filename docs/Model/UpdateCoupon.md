@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **recipientIntegrationId** | **string** | The integration ID for this coupon&#39;s beneficiary&#39;s profile. | [optional] 
 **attributes** | [**object**](.md) | Arbitrary properties associated with this item. | [optional] 
 **isReservationMandatory** | **bool** | Whether the reservation effect actually created a new reservation. | [optional] [default to true]
+**implicitlyReserved** | **bool** | An indication of whether the coupon is implicitly reserved for all customers. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

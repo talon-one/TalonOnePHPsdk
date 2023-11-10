@@ -59,6 +59,7 @@ class EventV2 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'profileId' => 'string',
+        'storeIntegrationId' => 'string',
         'evaluableCampaignIds' => 'int[]',
         'type' => 'string',
         'attributes' => 'object'
@@ -71,6 +72,7 @@ class EventV2 implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'profileId' => null,
+        'storeIntegrationId' => null,
         'evaluableCampaignIds' => null,
         'type' => null,
         'attributes' => null
@@ -104,6 +106,7 @@ class EventV2 implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'profileId' => 'profileId',
+        'storeIntegrationId' => 'storeIntegrationId',
         'evaluableCampaignIds' => 'evaluableCampaignIds',
         'type' => 'type',
         'attributes' => 'attributes'
@@ -116,6 +119,7 @@ class EventV2 implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'profileId' => 'setProfileId',
+        'storeIntegrationId' => 'setStoreIntegrationId',
         'evaluableCampaignIds' => 'setEvaluableCampaignIds',
         'type' => 'setType',
         'attributes' => 'setAttributes'
@@ -128,6 +132,7 @@ class EventV2 implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'profileId' => 'getProfileId',
+        'storeIntegrationId' => 'getStoreIntegrationId',
         'evaluableCampaignIds' => 'getEvaluableCampaignIds',
         'type' => 'getType',
         'attributes' => 'getAttributes'
@@ -194,6 +199,7 @@ class EventV2 implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
+        $this->container['storeIntegrationId'] = isset($data['storeIntegrationId']) ? $data['storeIntegrationId'] : null;
         $this->container['evaluableCampaignIds'] = isset($data['evaluableCampaignIds']) ? $data['evaluableCampaignIds'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
@@ -207,6 +213,14 @@ class EventV2 implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['storeIntegrationId']) && (mb_strlen($this->container['storeIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'storeIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
+        if (!is_null($this->container['storeIntegrationId']) && (mb_strlen($this->container['storeIntegrationId']) < 1)) {
+            $invalidProperties[] = "invalid value for 'storeIntegrationId', the character length must be bigger than or equal to 1.";
+        }
 
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
@@ -255,6 +269,37 @@ class EventV2 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets storeIntegrationId
+     *
+     * @return string|null
+     */
+    public function getStoreIntegrationId()
+    {
+        return $this->container['storeIntegrationId'];
+    }
+
+    /**
+     * Sets storeIntegrationId
+     *
+     * @param string|null $storeIntegrationId The integration ID of the store. You choose this ID when you create a store.
+     *
+     * @return $this
+     */
+    public function setStoreIntegrationId($storeIntegrationId)
+    {
+        if (!is_null($storeIntegrationId) && (mb_strlen($storeIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $storeIntegrationId when calling EventV2., must be smaller than or equal to 1000.');
+        }
+        if (!is_null($storeIntegrationId) && (mb_strlen($storeIntegrationId) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $storeIntegrationId when calling EventV2., must be bigger than or equal to 1.');
+        }
+
+        $this->container['storeIntegrationId'] = $storeIntegrationId;
+
+        return $this;
+    }
+
+    /**
      * Gets evaluableCampaignIds
      *
      * @return int[]|null
@@ -291,7 +336,7 @@ class EventV2 implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/events#creating-a-custom-event) of type `event` in the Campaign Manager.
+     * @param string $type A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.
      *
      * @return $this
      */
@@ -320,7 +365,7 @@ class EventV2 implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-custom-attributes).
+     * @param object|null $attributes Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute).
      *
      * @return $this
      */

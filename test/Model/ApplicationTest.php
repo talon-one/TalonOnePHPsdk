@@ -156,20 +156,6 @@ class ApplicationTest extends TestCase
     }
 
     /**
-     * Test attribute "campaignPriority"
-     */
-    public function testPropertyCampaignPriority()
-    {
-    }
-
-    /**
-     * Test attribute "exclusiveCampaignsStrategy"
-     */
-    public function testPropertyExclusiveCampaignsStrategy()
-    {
-    }
-
-    /**
      * Test attribute "defaultDiscountScope"
      */
     public function testPropertyDefaultDiscountScope()
@@ -215,6 +201,13 @@ class ApplicationTest extends TestCase
      * Test attribute "defaultDiscountAdditionalCostPerItemScope"
      */
     public function testPropertyDefaultDiscountAdditionalCostPerItemScope()
+    {
+    }
+
+    /**
+     * Test attribute "defaultEvaluationGroupId"
+     */
+    public function testPropertyDefaultEvaluationGroupId()
     {
     }
 

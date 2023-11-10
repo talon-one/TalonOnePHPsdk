@@ -86,9 +86,9 @@ class RoleV2PermissionSetTest extends TestCase
     }
 
     /**
-     * Test attribute "operationIds"
+     * Test attribute "logicalOperations"
      */
-    public function testPropertyOperationIds()
+    public function testPropertyLogicalOperations()
     {
     }
 }

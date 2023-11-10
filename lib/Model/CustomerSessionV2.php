@@ -63,6 +63,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'integrationId' => 'string',
         'applicationId' => 'int',
         'profileId' => 'string',
+        'storeIntegrationId' => 'string',
         'evaluableCampaignIds' => 'int[]',
         'couponCodes' => 'string[]',
         'referralCode' => 'string',
@@ -90,6 +91,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'integrationId' => 'string',
         'applicationId' => null,
         'profileId' => null,
+        'storeIntegrationId' => null,
         'evaluableCampaignIds' => null,
         'couponCodes' => null,
         'referralCode' => null,
@@ -138,6 +140,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'integrationId' => 'integrationId',
         'applicationId' => 'applicationId',
         'profileId' => 'profileId',
+        'storeIntegrationId' => 'storeIntegrationId',
         'evaluableCampaignIds' => 'evaluableCampaignIds',
         'couponCodes' => 'couponCodes',
         'referralCode' => 'referralCode',
@@ -165,6 +168,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'integrationId' => 'setIntegrationId',
         'applicationId' => 'setApplicationId',
         'profileId' => 'setProfileId',
+        'storeIntegrationId' => 'setStoreIntegrationId',
         'evaluableCampaignIds' => 'setEvaluableCampaignIds',
         'couponCodes' => 'setCouponCodes',
         'referralCode' => 'setReferralCode',
@@ -192,6 +196,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'integrationId' => 'getIntegrationId',
         'applicationId' => 'getApplicationId',
         'profileId' => 'getProfileId',
+        'storeIntegrationId' => 'getStoreIntegrationId',
         'evaluableCampaignIds' => 'getEvaluableCampaignIds',
         'couponCodes' => 'getCouponCodes',
         'referralCode' => 'getReferralCode',
@@ -292,6 +297,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
+        $this->container['storeIntegrationId'] = isset($data['storeIntegrationId']) ? $data['storeIntegrationId'] : null;
         $this->container['evaluableCampaignIds'] = isset($data['evaluableCampaignIds']) ? $data['evaluableCampaignIds'] : null;
         $this->container['couponCodes'] = isset($data['couponCodes']) ? $data['couponCodes'] : null;
         $this->container['referralCode'] = isset($data['referralCode']) ? $data['referralCode'] : null;
@@ -336,6 +342,14 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         if ($this->container['profileId'] === null) {
             $invalidProperties[] = "'profileId' can't be null";
         }
+        if (!is_null($this->container['storeIntegrationId']) && (mb_strlen($this->container['storeIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'storeIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
+        if (!is_null($this->container['storeIntegrationId']) && (mb_strlen($this->container['storeIntegrationId']) < 1)) {
+            $invalidProperties[] = "invalid value for 'storeIntegrationId', the character length must be bigger than or equal to 1.";
+        }
+
         if (!is_null($this->container['referralCode']) && (mb_strlen($this->container['referralCode']) > 100)) {
             $invalidProperties[] = "invalid value for 'referralCode', the character length must be smaller than or equal to 100.";
         }
@@ -512,6 +526,37 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets storeIntegrationId
+     *
+     * @return string|null
+     */
+    public function getStoreIntegrationId()
+    {
+        return $this->container['storeIntegrationId'];
+    }
+
+    /**
+     * Sets storeIntegrationId
+     *
+     * @param string|null $storeIntegrationId The integration ID of the store. You choose this ID when you create a store.
+     *
+     * @return $this
+     */
+    public function setStoreIntegrationId($storeIntegrationId)
+    {
+        if (!is_null($storeIntegrationId) && (mb_strlen($storeIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $storeIntegrationId when calling CustomerSessionV2., must be smaller than or equal to 1000.');
+        }
+        if (!is_null($storeIntegrationId) && (mb_strlen($storeIntegrationId) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $storeIntegrationId when calling CustomerSessionV2., must be bigger than or equal to 1.');
+        }
+
+        $this->container['storeIntegrationId'] = $storeIntegrationId;
+
+        return $this;
+    }
+
+    /**
      * Gets evaluableCampaignIds
      *
      * @return int[]|null
@@ -624,7 +669,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string $state Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. Either:    - `closed` → `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` → `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - `closed` → `open` (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities#customer-session).
+     * @param string $state Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. Either:    - `closed` → `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` → `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - `closed` → `open` (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).
      *
      * @return $this
      */
@@ -657,7 +702,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets cartItems
      *
-     * @param \TalonOne\Client\Model\CartItem[] $cartItems The items to add to this sessions. - If cart item flattening is disabled: **Do not exceed 1000 items** (regardless of their `quantity`) per request. - If cart item flattening is enabled: **Do not exceed 1000 items** and ensure the sum of all cart item's `quantity` **does not exceed 10.000** per request.
+     * @param \TalonOne\Client\Model\CartItem[] $cartItems The items to add to this session. **Do not exceed 1000 items** and ensure the sum of all cart item's `quantity` **does not exceed 10.000** per request.
      *
      * @return $this
      */
@@ -777,7 +822,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param float $total The total sum of cart-items, as well as additional costs, before any discounts applied.
+     * @param float $total The total value of cart items and additional costs in the session, before any discounts are applied.
      *
      * @return $this
      */
@@ -801,7 +846,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets cartItemTotal
      *
-     * @param float $cartItemTotal The total sum of cart-items before any discounts applied.
+     * @param float $cartItemTotal The total value of cart items, before any discounts are applied.
      *
      * @return $this
      */
@@ -825,7 +870,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets additionalCostTotal
      *
-     * @param float $additionalCostTotal The total sum of additional costs before any discounts applied.
+     * @param float $additionalCostTotal The total value of additional costs, before any discounts are applied.
      *
      * @return $this
      */
