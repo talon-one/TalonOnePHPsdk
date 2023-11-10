@@ -2888,7 +2888,7 @@ class ManagementApi
      */
     public function createCouponsAsynchronouslyWithHttpInfo($applicationId, $campaignId, $body)
     {
-        $request = $this->createCouponsAsyncRequest($applicationId, $campaignId, $body);
+        $request = $this->createCouponsAsynchronouslyRequest($applicationId, $campaignId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2964,7 +2964,7 @@ class ManagementApi
     }
 
     /**
-     * Operation createCouponsAsyncAsync
+     * Operation createCouponsAsynchronouslyAsync
      *
      * Create coupons asynchronously
      *
@@ -2975,9 +2975,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponsAsyncAsync($applicationId, $campaignId, $body)
+    public function createCouponsAsynchronouslyAsync($applicationId, $campaignId, $body)
     {
-        return $this->createCouponsAsyncAsyncWithHttpInfo($applicationId, $campaignId, $body)
+        return $this->createCouponsAsynchronouslyAsyncWithHttpInfo($applicationId, $campaignId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2986,7 +2986,7 @@ class ManagementApi
     }
 
     /**
-     * Operation createCouponsAsyncAsyncWithHttpInfo
+     * Operation createCouponsAsynchronouslyAsyncWithHttpInfo
      *
      * Create coupons asynchronously
      *
@@ -2997,10 +2997,10 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponsAsyncAsyncWithHttpInfo($applicationId, $campaignId, $body)
+    public function createCouponsAsynchronouslyAsyncWithHttpInfo($applicationId, $campaignId, $body)
     {
         $returnType = '\TalonOne\Client\Model\AsyncCouponCreationResponse';
-        $request = $this->createCouponsAsyncRequest($applicationId, $campaignId, $body);
+        $request = $this->createCouponsAsynchronouslyRequest($applicationId, $campaignId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
