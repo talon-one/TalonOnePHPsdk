@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **variables** | **string** | A stringified version of the environment&#39;s Talang variables scope. | 
 **giveawaysPools** | [**\TalonOne\Client\Model\GiveawaysPool[]**](GiveawaysPool.md) | The giveaways pools that the application is subscribed to. | [optional] 
 **loyaltyPrograms** | [**\TalonOne\Client\Model\LoyaltyProgram[]**](LoyaltyProgram.md) | The loyalty programs that the application is subscribed to. | [optional] 
+**achievements** | [**\TalonOne\Client\Model\Achievement[]**](Achievement.md) | The achievements, linked to the campaigns, belonging to the application. | [optional] 
 **attributes** | [**\TalonOne\Client\Model\Attribute[]**](Attribute.md) | The attributes that the application is subscribed to. | [optional] 
 **additionalCosts** | [**\TalonOne\Client\Model\AccountAdditionalCost[]**](AccountAdditionalCost.md) | The additional costs that the application is subscribed to. | [optional] 
 **audiences** | [**\TalonOne\Client\Model\Audience[]**](Audience.md) | The audiences contained in the account which the application belongs to. | [optional] 

@@ -93,13 +93,6 @@ class NewInvitationTest extends TestCase
     }
 
     /**
-     * Test attribute "acl"
-     */
-    public function testPropertyAcl()
-    {
-    }
-
-    /**
      * Test attribute "isAdmin"
      */
     public function testPropertyIsAdmin()
@@ -110,6 +103,13 @@ class NewInvitationTest extends TestCase
      * Test attribute "roles"
      */
     public function testPropertyRoles()
+    {
+    }
+
+    /**
+     * Test attribute "acl"
+     */
+    public function testPropertyAcl()
     {
     }
 }

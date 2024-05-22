@@ -792,7 +792,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status The current status of this request. Possible values: - `pending` - `completed` - `failed` - `coupon pattern full`
+     * @param string $status The current status of this request. Possible values: - `pending verification` - `pending` - `completed` - `failed` - `coupon pattern full`
      *
      * @return $this
      */

@@ -243,7 +243,7 @@ class UpdateCampaignGroup implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of this campaign access group.
+     * @param string $name The name of the campaign access group.
      *
      * @return $this
      */

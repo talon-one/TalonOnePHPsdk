@@ -170,13 +170,6 @@ class BaseCampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "evaluationGroupId"
-     */
-    public function testPropertyEvaluationGroupId()
-    {
-    }
-
-    /**
      * Test attribute "type"
      */
     public function testPropertyType()

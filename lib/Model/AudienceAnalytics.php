@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * AudienceAnalytics Class Doc Comment
  *
  * @category Class
- * @description The audiences and their members count.
+ * @description The audiences and their member count.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -248,7 +248,7 @@ class AudienceAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets membersCount
      *
-     * @param int|null $membersCount The count of members under a single audience.
+     * @param int|null $membersCount The member count of the audience.
      *
      * @return $this
      */

@@ -562,7 +562,7 @@ class AudienceCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets sandbox
      *
-     * @param bool|null $sandbox Shows whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments).
+     * @param bool|null $sandbox An indicator of whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments).
      *
      * @return $this
      */

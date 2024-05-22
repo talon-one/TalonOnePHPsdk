@@ -58,7 +58,7 @@ class CampaignDeletedNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'campaign' => '\TalonOne\Client\Model\CampaignStateNotification',
+        'campaign' => '\TalonOne\Client\Model\Campaign',
         'deletedAt' => '\DateTime'
     ];
 
@@ -220,7 +220,7 @@ class CampaignDeletedNotification implements ModelInterface, ArrayAccess
     /**
      * Gets campaign
      *
-     * @return \TalonOne\Client\Model\CampaignStateNotification
+     * @return \TalonOne\Client\Model\Campaign
      */
     public function getCampaign()
     {
@@ -230,7 +230,7 @@ class CampaignDeletedNotification implements ModelInterface, ArrayAccess
     /**
      * Sets campaign
      *
-     * @param \TalonOne\Client\Model\CampaignStateNotification $campaign campaign
+     * @param \TalonOne\Client\Model\Campaign $campaign campaign
      *
      * @return $this
      */

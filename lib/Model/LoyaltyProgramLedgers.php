@@ -61,6 +61,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         'id' => 'int',
         'title' => 'string',
         'name' => 'string',
+        'joinDate' => '\DateTime',
         'ledger' => '\TalonOne\Client\Model\LedgerInfo',
         'subLedgers' => 'map[string,\TalonOne\Client\Model\LedgerInfo]'
     ];
@@ -74,6 +75,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         'id' => null,
         'title' => null,
         'name' => null,
+        'joinDate' => 'date-time',
         'ledger' => null,
         'subLedgers' => null
     ];
@@ -108,6 +110,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         'id' => 'id',
         'title' => 'title',
         'name' => 'name',
+        'joinDate' => 'joinDate',
         'ledger' => 'ledger',
         'subLedgers' => 'subLedgers'
     ];
@@ -121,6 +124,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'title' => 'setTitle',
         'name' => 'setName',
+        'joinDate' => 'setJoinDate',
         'ledger' => 'setLedger',
         'subLedgers' => 'setSubLedgers'
     ];
@@ -134,6 +138,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'title' => 'getTitle',
         'name' => 'getName',
+        'joinDate' => 'getJoinDate',
         'ledger' => 'getLedger',
         'subLedgers' => 'getSubLedgers'
     ];
@@ -201,6 +206,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['joinDate'] = isset($data['joinDate']) ? $data['joinDate'] : null;
         $this->container['ledger'] = isset($data['ledger']) ? $data['ledger'] : null;
         $this->container['subLedgers'] = isset($data['subLedgers']) ? $data['subLedgers'] : null;
     }
@@ -309,6 +315,30 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets joinDate
+     *
+     * @return \DateTime|null
+     */
+    public function getJoinDate()
+    {
+        return $this->container['joinDate'];
+    }
+
+    /**
+     * Sets joinDate
+     *
+     * @param \DateTime|null $joinDate The date on which the customer joined the loyalty program in RFC3339.  **Note**: This is in the loyalty program's time zone.
+     *
+     * @return $this
+     */
+    public function setJoinDate($joinDate)
+    {
+        $this->container['joinDate'] = $joinDate;
 
         return $this;
     }

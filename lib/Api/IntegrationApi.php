@@ -1443,7 +1443,7 @@ class IntegrationApi
      *
      * Delete audience memberships
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1459,7 +1459,7 @@ class IntegrationApi
      *
      * Delete audience memberships
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1527,7 +1527,7 @@ class IntegrationApi
      *
      * Delete audience memberships
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1547,7 +1547,7 @@ class IntegrationApi
      *
      * Delete audience memberships
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1583,7 +1583,7 @@ class IntegrationApi
     /**
      * Create request for operation 'deleteAudienceMembershipsV2'
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1689,7 +1689,7 @@ class IntegrationApi
      *
      * Delete audience
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1705,7 +1705,7 @@ class IntegrationApi
      *
      * Delete audience
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1781,7 +1781,7 @@ class IntegrationApi
      *
      * Delete audience
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1801,7 +1801,7 @@ class IntegrationApi
      *
      * Delete audience
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1837,7 +1837,7 @@ class IntegrationApi
     /**
      * Create request for operation 'deleteAudienceV2'
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2463,14 +2463,15 @@ class IntegrationApi
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
      * @param  bool $loyalty Set to &#x60;true&#x60; to include loyalty information in the response. (optional)
      * @param  bool $giveaways Set to &#x60;true&#x60; to include giveaways information in the response. (optional)
+     * @param  bool $achievements Set to &#x60;true&#x60; to include achievement information in the response. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\CustomerInventory|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getCustomerInventory($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null, $giveaways = null)
+    public function getCustomerInventory($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null, $giveaways = null, $achievements = null)
     {
-        list($response) = $this->getCustomerInventoryWithHttpInfo($integrationId, $profile, $referrals, $coupons, $loyalty, $giveaways);
+        list($response) = $this->getCustomerInventoryWithHttpInfo($integrationId, $profile, $referrals, $coupons, $loyalty, $giveaways, $achievements);
         return $response;
     }
 
@@ -2485,14 +2486,15 @@ class IntegrationApi
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
      * @param  bool $loyalty Set to &#x60;true&#x60; to include loyalty information in the response. (optional)
      * @param  bool $giveaways Set to &#x60;true&#x60; to include giveaways information in the response. (optional)
+     * @param  bool $achievements Set to &#x60;true&#x60; to include achievement information in the response. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\CustomerInventory|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomerInventoryWithHttpInfo($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null, $giveaways = null)
+    public function getCustomerInventoryWithHttpInfo($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null, $giveaways = null, $achievements = null)
     {
-        $request = $this->getCustomerInventoryRequest($integrationId, $profile, $referrals, $coupons, $loyalty, $giveaways);
+        $request = $this->getCustomerInventoryRequest($integrationId, $profile, $referrals, $coupons, $loyalty, $giveaways, $achievements);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2618,13 +2620,14 @@ class IntegrationApi
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
      * @param  bool $loyalty Set to &#x60;true&#x60; to include loyalty information in the response. (optional)
      * @param  bool $giveaways Set to &#x60;true&#x60; to include giveaways information in the response. (optional)
+     * @param  bool $achievements Set to &#x60;true&#x60; to include achievement information in the response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerInventoryAsync($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null, $giveaways = null)
+    public function getCustomerInventoryAsync($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null, $giveaways = null, $achievements = null)
     {
-        return $this->getCustomerInventoryAsyncWithHttpInfo($integrationId, $profile, $referrals, $coupons, $loyalty, $giveaways)
+        return $this->getCustomerInventoryAsyncWithHttpInfo($integrationId, $profile, $referrals, $coupons, $loyalty, $giveaways, $achievements)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2643,14 +2646,15 @@ class IntegrationApi
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
      * @param  bool $loyalty Set to &#x60;true&#x60; to include loyalty information in the response. (optional)
      * @param  bool $giveaways Set to &#x60;true&#x60; to include giveaways information in the response. (optional)
+     * @param  bool $achievements Set to &#x60;true&#x60; to include achievement information in the response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerInventoryAsyncWithHttpInfo($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null, $giveaways = null)
+    public function getCustomerInventoryAsyncWithHttpInfo($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null, $giveaways = null, $achievements = null)
     {
         $returnType = '\TalonOne\Client\Model\CustomerInventory';
-        $request = $this->getCustomerInventoryRequest($integrationId, $profile, $referrals, $coupons, $loyalty, $giveaways);
+        $request = $this->getCustomerInventoryRequest($integrationId, $profile, $referrals, $coupons, $loyalty, $giveaways, $achievements);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2695,11 +2699,12 @@ class IntegrationApi
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
      * @param  bool $loyalty Set to &#x60;true&#x60; to include loyalty information in the response. (optional)
      * @param  bool $giveaways Set to &#x60;true&#x60; to include giveaways information in the response. (optional)
+     * @param  bool $achievements Set to &#x60;true&#x60; to include achievement information in the response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomerInventoryRequest($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null, $giveaways = null)
+    protected function getCustomerInventoryRequest($integrationId, $profile = null, $referrals = null, $coupons = null, $loyalty = null, $giveaways = null, $achievements = null)
     {
         // verify the required parameter 'integrationId' is set
         if ($integrationId === null || (is_array($integrationId) && count($integrationId) === 0)) {
@@ -2749,6 +2754,13 @@ class IntegrationApi
         }
         if ($giveaways !== null) {
             $queryParams['giveaways'] = $giveaways;
+        }
+        // query params
+        if (is_array($achievements)) {
+            $achievements = ObjectSerializer::serializeCollection($achievements, '', true);
+        }
+        if ($achievements !== null) {
+            $queryParams['achievements'] = $achievements;
         }
 
 
@@ -3155,7 +3167,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:** It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3174,7 +3186,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:** It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3324,7 +3336,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:** It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3346,7 +3358,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:** It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3395,7 +3407,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:** It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3524,7 +3536,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:** It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3543,7 +3555,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:** It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3693,7 +3705,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:** It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3715,7 +3727,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:** It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3764,7 +3776,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:** It must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3899,7 +3911,7 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -3921,7 +3933,7 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -4074,7 +4086,7 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
@@ -4099,7 +4111,7 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
@@ -4151,7 +4163,7 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
@@ -4315,9 +4327,9 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 1000)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -4339,9 +4351,9 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 1000)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -4494,9 +4506,9 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 1000)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
@@ -4521,9 +4533,9 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 1000)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
@@ -4575,9 +4587,9 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 1000)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
@@ -4755,7 +4767,7 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -4777,7 +4789,7 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -4930,7 +4942,7 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
@@ -4955,7 +4967,7 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
@@ -5007,7 +5019,7 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
@@ -5167,9 +5179,9 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -5191,9 +5203,9 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -5346,9 +5358,9 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
@@ -5373,9 +5385,9 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
@@ -5427,9 +5439,9 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. (optional)
-     * @param  int $pageSize The number of items in this response. (optional, default to 50)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
@@ -7683,7 +7695,7 @@ class IntegrationApi
      *
      * Update profile attributes for all customers in audience
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      * @param  object $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -7700,7 +7712,7 @@ class IntegrationApi
      *
      * Update profile attributes for all customers in audience
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      * @param  object $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -7769,7 +7781,7 @@ class IntegrationApi
      *
      * Update profile attributes for all customers in audience
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      * @param  object $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -7790,7 +7802,7 @@ class IntegrationApi
      *
      * Update profile attributes for all customers in audience
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      * @param  object $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -7827,7 +7839,7 @@ class IntegrationApi
     /**
      * Create request for operation 'updateAudienceCustomersAttributes'
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      * @param  object $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -7943,7 +7955,7 @@ class IntegrationApi
      *
      * Update audience name
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      * @param  \TalonOne\Client\Model\UpdateAudience $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -7961,7 +7973,7 @@ class IntegrationApi
      *
      * Update audience name
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      * @param  \TalonOne\Client\Model\UpdateAudience $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -8090,7 +8102,7 @@ class IntegrationApi
      *
      * Update audience name
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      * @param  \TalonOne\Client\Model\UpdateAudience $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -8111,7 +8123,7 @@ class IntegrationApi
      *
      * Update audience name
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      * @param  \TalonOne\Client\Model\UpdateAudience $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -8159,7 +8171,7 @@ class IntegrationApi
     /**
      * Create request for operation 'updateAudienceV2'
      *
-     * @param  int $audienceId The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required)
+     * @param  int $audienceId The ID of the audience. (required)
      * @param  \TalonOne\Client\Model\UpdateAudience $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -9228,14 +9240,15 @@ class IntegrationApi
      * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint will **only** consider the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests). (optional)
+     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  **Note:**  - It must be an RFC3339 timestamp string. - It can **only** be a date in the future. - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\IntegrationStateV2|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponseWithStatus|object
      */
-    public function updateCustomerSessionV2($customerSessionId, $body, $dry = null)
+    public function updateCustomerSessionV2($customerSessionId, $body, $dry = null, $now = null)
     {
-        list($response) = $this->updateCustomerSessionV2WithHttpInfo($customerSessionId, $body, $dry);
+        list($response) = $this->updateCustomerSessionV2WithHttpInfo($customerSessionId, $body, $dry, $now);
         return $response;
     }
 
@@ -9247,14 +9260,15 @@ class IntegrationApi
      * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint will **only** consider the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests). (optional)
+     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  **Note:**  - It must be an RFC3339 timestamp string. - It can **only** be a date in the future. - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\IntegrationStateV2|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponseWithStatus|object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCustomerSessionV2WithHttpInfo($customerSessionId, $body, $dry = null)
+    public function updateCustomerSessionV2WithHttpInfo($customerSessionId, $body, $dry = null, $now = null)
     {
-        $request = $this->updateCustomerSessionV2Request($customerSessionId, $body, $dry);
+        $request = $this->updateCustomerSessionV2Request($customerSessionId, $body, $dry, $now);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9397,13 +9411,14 @@ class IntegrationApi
      * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint will **only** consider the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests). (optional)
+     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  **Note:**  - It must be an RFC3339 timestamp string. - It can **only** be a date in the future. - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomerSessionV2Async($customerSessionId, $body, $dry = null)
+    public function updateCustomerSessionV2Async($customerSessionId, $body, $dry = null, $now = null)
     {
-        return $this->updateCustomerSessionV2AsyncWithHttpInfo($customerSessionId, $body, $dry)
+        return $this->updateCustomerSessionV2AsyncWithHttpInfo($customerSessionId, $body, $dry, $now)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9419,14 +9434,15 @@ class IntegrationApi
      * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint will **only** consider the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests). (optional)
+     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  **Note:**  - It must be an RFC3339 timestamp string. - It can **only** be a date in the future. - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomerSessionV2AsyncWithHttpInfo($customerSessionId, $body, $dry = null)
+    public function updateCustomerSessionV2AsyncWithHttpInfo($customerSessionId, $body, $dry = null, $now = null)
     {
         $returnType = '\TalonOne\Client\Model\IntegrationStateV2';
-        $request = $this->updateCustomerSessionV2Request($customerSessionId, $body, $dry);
+        $request = $this->updateCustomerSessionV2Request($customerSessionId, $body, $dry, $now);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9468,11 +9484,12 @@ class IntegrationApi
      * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint will **only** consider the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests). (optional)
+     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  **Note:**  - It must be an RFC3339 timestamp string. - It can **only** be a date in the future. - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCustomerSessionV2Request($customerSessionId, $body, $dry = null)
+    protected function updateCustomerSessionV2Request($customerSessionId, $body, $dry = null, $now = null)
     {
         // verify the required parameter 'customerSessionId' is set
         if ($customerSessionId === null || (is_array($customerSessionId) && count($customerSessionId) === 0)) {
@@ -9500,6 +9517,13 @@ class IntegrationApi
         }
         if ($dry !== null) {
             $queryParams['dry'] = $dry;
+        }
+        // query params
+        if (is_array($now)) {
+            $now = ObjectSerializer::serializeCollection($now, '', true);
+        }
+        if ($now !== null) {
+            $queryParams['now'] = $now;
         }
 
 

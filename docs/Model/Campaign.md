@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **referralSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **limits** | [**\TalonOne\Client\Model\LimitConfig[]**](LimitConfig.md) | The set of [budget limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets) for this campaign. | 
 **campaignGroups** | **int[]** | The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to. | [optional] 
-**evaluationGroupId** | **int** | The ID of the campaign evaluation group the campaign belongs to. | [optional] 
 **type** | **string** | The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. | [default to 'advanced']
 **linkedStoreIds** | **int[]** | A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. | [optional] 
 **budgets** | [**\TalonOne\Client\Model\CampaignBudget[]**](CampaignBudget.md) | A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined. | 
@@ -45,6 +44,7 @@ Name | Type | Description | Notes
 **createdBy** | **string** | Name of the user who created this campaign if available. | [optional] 
 **updatedBy** | **string** | Name of the user who last updated this campaign if available. | [optional] 
 **templateId** | **int** | The ID of the Campaign Template this Campaign was created from. | [optional] 
+**frontendState** | **string** | A campaign state described exactly as in the Campaign Manager. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

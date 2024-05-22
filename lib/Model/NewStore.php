@@ -340,7 +340,7 @@ class NewStore implements ModelInterface, ArrayAccess
     /**
      * Sets integrationId
      *
-     * @param string $integrationId The integration ID of the store. You choose this ID when you create a store.
+     * @param string $integrationId The integration ID of the store. You choose this ID when you create a store.  **Note**: You cannot edit the `integrationId` after the store has been created.
      *
      * @return $this
      */

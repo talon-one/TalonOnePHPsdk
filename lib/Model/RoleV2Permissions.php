@@ -223,7 +223,7 @@ class RoleV2Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets permissionSets
      *
-     * @param \TalonOne\Client\Model\RoleV2PermissionSet[]|null $permissionSets List of grouped logical operations to use as a reference in the roles section. Each group of logical operations has a name.
+     * @param \TalonOne\Client\Model\RoleV2PermissionSet[]|null $permissionSets List of grouped logical operations referenced by roles.
      *
      * @return $this
      */

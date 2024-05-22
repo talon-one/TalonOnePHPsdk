@@ -63,17 +63,17 @@ class User implements ModelInterface, ArrayAccess
         'modified' => '\DateTime',
         'email' => 'string',
         'accountId' => 'int',
-        'inviteToken' => 'string',
-        'state' => 'string',
         'name' => 'string',
-        'policy' => 'object',
-        'latestFeedTimestamp' => '\DateTime',
-        'roles' => 'int[]',
-        'applicationNotificationSubscriptions' => 'object',
-        'authMethod' => 'string',
+        'state' => 'string',
+        'inviteToken' => 'string',
         'isAdmin' => 'bool',
+        'policy' => 'object',
+        'roles' => 'int[]',
+        'authMethod' => 'string',
+        'applicationNotificationSubscriptions' => 'object',
         'lastSignedIn' => '\DateTime',
-        'lastAccessed' => '\DateTime'
+        'lastAccessed' => '\DateTime',
+        'latestFeedTimestamp' => '\DateTime'
     ];
 
     /**
@@ -87,17 +87,17 @@ class User implements ModelInterface, ArrayAccess
         'modified' => 'date-time',
         'email' => 'email',
         'accountId' => null,
-        'inviteToken' => null,
-        'state' => null,
         'name' => null,
-        'policy' => null,
-        'latestFeedTimestamp' => 'date-time',
-        'roles' => null,
-        'applicationNotificationSubscriptions' => null,
-        'authMethod' => null,
+        'state' => null,
+        'inviteToken' => null,
         'isAdmin' => null,
+        'policy' => null,
+        'roles' => null,
+        'authMethod' => null,
+        'applicationNotificationSubscriptions' => null,
         'lastSignedIn' => 'date-time',
-        'lastAccessed' => 'date-time'
+        'lastAccessed' => 'date-time',
+        'latestFeedTimestamp' => 'date-time'
     ];
 
     /**
@@ -132,17 +132,17 @@ class User implements ModelInterface, ArrayAccess
         'modified' => 'modified',
         'email' => 'email',
         'accountId' => 'accountId',
-        'inviteToken' => 'inviteToken',
-        'state' => 'state',
         'name' => 'name',
-        'policy' => 'policy',
-        'latestFeedTimestamp' => 'latestFeedTimestamp',
-        'roles' => 'roles',
-        'applicationNotificationSubscriptions' => 'applicationNotificationSubscriptions',
-        'authMethod' => 'authMethod',
+        'state' => 'state',
+        'inviteToken' => 'inviteToken',
         'isAdmin' => 'isAdmin',
+        'policy' => 'policy',
+        'roles' => 'roles',
+        'authMethod' => 'authMethod',
+        'applicationNotificationSubscriptions' => 'applicationNotificationSubscriptions',
         'lastSignedIn' => 'lastSignedIn',
-        'lastAccessed' => 'lastAccessed'
+        'lastAccessed' => 'lastAccessed',
+        'latestFeedTimestamp' => 'latestFeedTimestamp'
     ];
 
     /**
@@ -156,17 +156,17 @@ class User implements ModelInterface, ArrayAccess
         'modified' => 'setModified',
         'email' => 'setEmail',
         'accountId' => 'setAccountId',
-        'inviteToken' => 'setInviteToken',
-        'state' => 'setState',
         'name' => 'setName',
-        'policy' => 'setPolicy',
-        'latestFeedTimestamp' => 'setLatestFeedTimestamp',
-        'roles' => 'setRoles',
-        'applicationNotificationSubscriptions' => 'setApplicationNotificationSubscriptions',
-        'authMethod' => 'setAuthMethod',
+        'state' => 'setState',
+        'inviteToken' => 'setInviteToken',
         'isAdmin' => 'setIsAdmin',
+        'policy' => 'setPolicy',
+        'roles' => 'setRoles',
+        'authMethod' => 'setAuthMethod',
+        'applicationNotificationSubscriptions' => 'setApplicationNotificationSubscriptions',
         'lastSignedIn' => 'setLastSignedIn',
-        'lastAccessed' => 'setLastAccessed'
+        'lastAccessed' => 'setLastAccessed',
+        'latestFeedTimestamp' => 'setLatestFeedTimestamp'
     ];
 
     /**
@@ -180,17 +180,17 @@ class User implements ModelInterface, ArrayAccess
         'modified' => 'getModified',
         'email' => 'getEmail',
         'accountId' => 'getAccountId',
-        'inviteToken' => 'getInviteToken',
-        'state' => 'getState',
         'name' => 'getName',
-        'policy' => 'getPolicy',
-        'latestFeedTimestamp' => 'getLatestFeedTimestamp',
-        'roles' => 'getRoles',
-        'applicationNotificationSubscriptions' => 'getApplicationNotificationSubscriptions',
-        'authMethod' => 'getAuthMethod',
+        'state' => 'getState',
+        'inviteToken' => 'getInviteToken',
         'isAdmin' => 'getIsAdmin',
+        'policy' => 'getPolicy',
+        'roles' => 'getRoles',
+        'authMethod' => 'getAuthMethod',
+        'applicationNotificationSubscriptions' => 'getApplicationNotificationSubscriptions',
         'lastSignedIn' => 'getLastSignedIn',
-        'lastAccessed' => 'getLastAccessed'
+        'lastAccessed' => 'getLastAccessed',
+        'latestFeedTimestamp' => 'getLatestFeedTimestamp'
     ];
 
     /**
@@ -275,17 +275,17 @@ class User implements ModelInterface, ArrayAccess
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
-        $this->container['inviteToken'] = isset($data['inviteToken']) ? $data['inviteToken'] : null;
-        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
-        $this->container['latestFeedTimestamp'] = isset($data['latestFeedTimestamp']) ? $data['latestFeedTimestamp'] : null;
-        $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
-        $this->container['applicationNotificationSubscriptions'] = isset($data['applicationNotificationSubscriptions']) ? $data['applicationNotificationSubscriptions'] : null;
-        $this->container['authMethod'] = isset($data['authMethod']) ? $data['authMethod'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['inviteToken'] = isset($data['inviteToken']) ? $data['inviteToken'] : null;
         $this->container['isAdmin'] = isset($data['isAdmin']) ? $data['isAdmin'] : null;
+        $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
+        $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
+        $this->container['authMethod'] = isset($data['authMethod']) ? $data['authMethod'] : null;
+        $this->container['applicationNotificationSubscriptions'] = isset($data['applicationNotificationSubscriptions']) ? $data['applicationNotificationSubscriptions'] : null;
         $this->container['lastSignedIn'] = isset($data['lastSignedIn']) ? $data['lastSignedIn'] : null;
         $this->container['lastAccessed'] = isset($data['lastAccessed']) ? $data['lastAccessed'] : null;
+        $this->container['latestFeedTimestamp'] = isset($data['latestFeedTimestamp']) ? $data['latestFeedTimestamp'] : null;
     }
 
     /**
@@ -312,8 +312,8 @@ class User implements ModelInterface, ArrayAccess
         if ($this->container['accountId'] === null) {
             $invalidProperties[] = "'accountId' can't be null";
         }
-        if ($this->container['inviteToken'] === null) {
-            $invalidProperties[] = "'inviteToken' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
         if ($this->container['state'] === null) {
             $invalidProperties[] = "'state' can't be null";
@@ -326,8 +326,8 @@ class User implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['inviteToken'] === null) {
+            $invalidProperties[] = "'inviteToken' can't be null";
         }
         if ($this->container['policy'] === null) {
             $invalidProperties[] = "'policy' can't be null";
@@ -432,7 +432,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email The email address associated with your account.
+     * @param string $email The email address associated with the user profile.
      *
      * @return $this
      */
@@ -468,25 +468,25 @@ class User implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets inviteToken
+     * Gets name
      *
      * @return string
      */
-    public function getInviteToken()
+    public function getName()
     {
-        return $this->container['inviteToken'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets inviteToken
+     * Sets name
      *
-     * @param string $inviteToken Invite token, empty if the user as already accepted their invite.
+     * @param string $name Name of the user.
      *
      * @return $this
      */
-    public function setInviteToken($inviteToken)
+    public function setName($name)
     {
-        $this->container['inviteToken'] = $inviteToken;
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -504,7 +504,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string $state Current user state.
+     * @param string $state State of the user.
      *
      * @return $this
      */
@@ -525,145 +525,25 @@ class User implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets name
+     * Gets inviteToken
      *
      * @return string
      */
-    public function getName()
+    public function getInviteToken()
     {
-        return $this->container['name'];
+        return $this->container['inviteToken'];
     }
 
     /**
-     * Sets name
+     * Sets inviteToken
      *
-     * @param string $name Full name
+     * @param string $inviteToken Invitation token of the user.  **Note**: If the user has already accepted their invitation, this is `null`.
      *
      * @return $this
      */
-    public function setName($name)
+    public function setInviteToken($inviteToken)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets policy
-     *
-     * @return object
-     */
-    public function getPolicy()
-    {
-        return $this->container['policy'];
-    }
-
-    /**
-     * Sets policy
-     *
-     * @param object $policy User ACL Policy
-     *
-     * @return $this
-     */
-    public function setPolicy($policy)
-    {
-        $this->container['policy'] = $policy;
-
-        return $this;
-    }
-
-    /**
-     * Gets latestFeedTimestamp
-     *
-     * @return \DateTime|null
-     */
-    public function getLatestFeedTimestamp()
-    {
-        return $this->container['latestFeedTimestamp'];
-    }
-
-    /**
-     * Sets latestFeedTimestamp
-     *
-     * @param \DateTime|null $latestFeedTimestamp Latest timestamp the user has been notified for feed.
-     *
-     * @return $this
-     */
-    public function setLatestFeedTimestamp($latestFeedTimestamp)
-    {
-        $this->container['latestFeedTimestamp'] = $latestFeedTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets roles
-     *
-     * @return int[]|null
-     */
-    public function getRoles()
-    {
-        return $this->container['roles'];
-    }
-
-    /**
-     * Sets roles
-     *
-     * @param int[]|null $roles Contains a list of all roles the user is a member of.
-     *
-     * @return $this
-     */
-    public function setRoles($roles)
-    {
-        $this->container['roles'] = $roles;
-
-        return $this;
-    }
-
-    /**
-     * Gets applicationNotificationSubscriptions
-     *
-     * @return object|null
-     */
-    public function getApplicationNotificationSubscriptions()
-    {
-        return $this->container['applicationNotificationSubscriptions'];
-    }
-
-    /**
-     * Sets applicationNotificationSubscriptions
-     *
-     * @param object|null $applicationNotificationSubscriptions applicationNotificationSubscriptions
-     *
-     * @return $this
-     */
-    public function setApplicationNotificationSubscriptions($applicationNotificationSubscriptions)
-    {
-        $this->container['applicationNotificationSubscriptions'] = $applicationNotificationSubscriptions;
-
-        return $this;
-    }
-
-    /**
-     * Gets authMethod
-     *
-     * @return string|null
-     */
-    public function getAuthMethod()
-    {
-        return $this->container['authMethod'];
-    }
-
-    /**
-     * Sets authMethod
-     *
-     * @param string|null $authMethod The Authentication method for this user.
-     *
-     * @return $this
-     */
-    public function setAuthMethod($authMethod)
-    {
-        $this->container['authMethod'] = $authMethod;
+        $this->container['inviteToken'] = $inviteToken;
 
         return $this;
     }
@@ -681,13 +561,109 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets isAdmin
      *
-     * @param bool|null $isAdmin An indication of whether the user has admin permissions.
+     * @param bool|null $isAdmin Indicates whether the user is an `admin`.
      *
      * @return $this
      */
     public function setIsAdmin($isAdmin)
     {
         $this->container['isAdmin'] = $isAdmin;
+
+        return $this;
+    }
+
+    /**
+     * Gets policy
+     *
+     * @return object
+     */
+    public function getPolicy()
+    {
+        return $this->container['policy'];
+    }
+
+    /**
+     * Sets policy
+     *
+     * @param object $policy Access level of the user.
+     *
+     * @return $this
+     */
+    public function setPolicy($policy)
+    {
+        $this->container['policy'] = $policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets roles
+     *
+     * @return int[]|null
+     */
+    public function getRoles()
+    {
+        return $this->container['roles'];
+    }
+
+    /**
+     * Sets roles
+     *
+     * @param int[]|null $roles A list of the IDs of the roles assigned to the user.
+     *
+     * @return $this
+     */
+    public function setRoles($roles)
+    {
+        $this->container['roles'] = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Gets authMethod
+     *
+     * @return string|null
+     */
+    public function getAuthMethod()
+    {
+        return $this->container['authMethod'];
+    }
+
+    /**
+     * Sets authMethod
+     *
+     * @param string|null $authMethod Authentication method for this user.
+     *
+     * @return $this
+     */
+    public function setAuthMethod($authMethod)
+    {
+        $this->container['authMethod'] = $authMethod;
+
+        return $this;
+    }
+
+    /**
+     * Gets applicationNotificationSubscriptions
+     *
+     * @return object|null
+     */
+    public function getApplicationNotificationSubscriptions()
+    {
+        return $this->container['applicationNotificationSubscriptions'];
+    }
+
+    /**
+     * Sets applicationNotificationSubscriptions
+     *
+     * @param object|null $applicationNotificationSubscriptions Application notifications that the user is subscribed to.
+     *
+     * @return $this
+     */
+    public function setApplicationNotificationSubscriptions($applicationNotificationSubscriptions)
+    {
+        $this->container['applicationNotificationSubscriptions'] = $applicationNotificationSubscriptions;
 
         return $this;
     }
@@ -705,7 +681,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets lastSignedIn
      *
-     * @param \DateTime|null $lastSignedIn Date and time when the user last signed in to Talon.One.
+     * @param \DateTime|null $lastSignedIn Timestamp when the user last signed in to Talon.One.
      *
      * @return $this
      */
@@ -729,13 +705,37 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets lastAccessed
      *
-     * @param \DateTime|null $lastAccessed Date and time of the user's last activity after signing in to Talon.One.
+     * @param \DateTime|null $lastAccessed Timestamp of the user's last activity after signing in to Talon.One.
      *
      * @return $this
      */
     public function setLastAccessed($lastAccessed)
     {
         $this->container['lastAccessed'] = $lastAccessed;
+
+        return $this;
+    }
+
+    /**
+     * Gets latestFeedTimestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getLatestFeedTimestamp()
+    {
+        return $this->container['latestFeedTimestamp'];
+    }
+
+    /**
+     * Sets latestFeedTimestamp
+     *
+     * @param \DateTime|null $latestFeedTimestamp Timestamp when the user was notified for feed.
+     *
+     * @return $this
+     */
+    public function setLatestFeedTimestamp($latestFeedTimestamp)
+    {
+        $this->container['latestFeedTimestamp'] = $latestFeedTimestamp;
 
         return $this;
     }

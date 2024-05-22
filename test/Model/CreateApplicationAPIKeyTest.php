@@ -98,4 +98,18 @@ class CreateApplicationAPIKeyTest extends TestCase
     public function testPropertyPlatform()
     {
     }
+
+    /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+    }
+
+    /**
+     * Test attribute "timeOffset"
+     */
+    public function testPropertyTimeOffset()
+    {
+    }
 }

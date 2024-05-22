@@ -93,6 +93,13 @@ class LoyaltyProgramTransactionTest extends TestCase
     }
 
     /**
+     * Test attribute "campaignId"
+     */
+    public function testPropertyCampaignId()
+    {
+    }
+
+    /**
      * Test attribute "created"
      */
     public function testPropertyCreated()

@@ -182,7 +182,9 @@ class BaseNotification implements ModelInterface, ArrayAccess
     const TYPE_CAMPAIGN = 'campaign';
     const TYPE_LOYALTY_ADDED_DEDUCTED_POINTS = 'loyalty_added_deducted_points';
     const TYPE_COUPON = 'coupon';
+    const TYPE_EXPIRING_COUPONS = 'expiring_coupons';
     const TYPE_EXPIRING_POINTS = 'expiring_points';
+    const TYPE_CARD_EXPIRING_POINTS = 'card_expiring_points';
     const TYPE_PENDING_TO_ACTIVE_POINTS = 'pending_to_active_points';
     const TYPE_STRIKETHROUGH_PRICING = 'strikethrough_pricing';
     const TYPE_TIER_DOWNGRADE = 'tier_downgrade';
@@ -202,7 +204,9 @@ class BaseNotification implements ModelInterface, ArrayAccess
             self::TYPE_CAMPAIGN,
             self::TYPE_LOYALTY_ADDED_DEDUCTED_POINTS,
             self::TYPE_COUPON,
+            self::TYPE_EXPIRING_COUPONS,
             self::TYPE_EXPIRING_POINTS,
+            self::TYPE_CARD_EXPIRING_POINTS,
             self::TYPE_PENDING_TO_ACTIVE_POINTS,
             self::TYPE_STRIKETHROUGH_PRICING,
             self::TYPE_TIER_DOWNGRADE,

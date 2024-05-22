@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * PatchItemCatalogAction Class Doc Comment
  *
  * @category Class
- * @description The specific properties of the \&quot;PATCH\&quot; catalog sync action.
+ * @description The specific properties of the \&quot;PATCH\&quot; catalog sync action.  **Note:**   - If you do not provide a new &#x60;price&#x60; value, the existing &#x60;price&#x60; value is retained.   - If you do not provide a new &#x60;product&#x60; value, the &#x60;product&#x60; value is set to &#x60;null&#x60;.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,6 +61,7 @@ class PatchItemCatalogAction implements ModelInterface, ArrayAccess
         'sku' => 'string',
         'price' => 'float',
         'attributes' => 'object',
+        'product' => '\TalonOne\Client\Model\Product',
         'createIfNotExists' => 'bool'
     ];
 
@@ -73,6 +74,7 @@ class PatchItemCatalogAction implements ModelInterface, ArrayAccess
         'sku' => null,
         'price' => null,
         'attributes' => null,
+        'product' => null,
         'createIfNotExists' => null
     ];
 
@@ -106,6 +108,7 @@ class PatchItemCatalogAction implements ModelInterface, ArrayAccess
         'sku' => 'sku',
         'price' => 'price',
         'attributes' => 'attributes',
+        'product' => 'product',
         'createIfNotExists' => 'createIfNotExists'
     ];
 
@@ -118,6 +121,7 @@ class PatchItemCatalogAction implements ModelInterface, ArrayAccess
         'sku' => 'setSku',
         'price' => 'setPrice',
         'attributes' => 'setAttributes',
+        'product' => 'setProduct',
         'createIfNotExists' => 'setCreateIfNotExists'
     ];
 
@@ -130,6 +134,7 @@ class PatchItemCatalogAction implements ModelInterface, ArrayAccess
         'sku' => 'getSku',
         'price' => 'getPrice',
         'attributes' => 'getAttributes',
+        'product' => 'getProduct',
         'createIfNotExists' => 'getCreateIfNotExists'
     ];
 
@@ -196,6 +201,7 @@ class PatchItemCatalogAction implements ModelInterface, ArrayAccess
         $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['createIfNotExists'] = isset($data['createIfNotExists']) ? $data['createIfNotExists'] : false;
     }
 
@@ -294,6 +300,30 @@ class PatchItemCatalogAction implements ModelInterface, ArrayAccess
     public function setAttributes($attributes)
     {
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets product
+     *
+     * @return \TalonOne\Client\Model\Product|null
+     */
+    public function getProduct()
+    {
+        return $this->container['product'];
+    }
+
+    /**
+     * Sets product
+     *
+     * @param \TalonOne\Client\Model\Product|null $product product
+     *
+     * @return $this
+     */
+    public function setProduct($product)
+    {
+        $this->container['product'] = $product;
 
         return $this;
     }

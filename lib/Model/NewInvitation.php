@@ -60,9 +60,9 @@ class NewInvitation implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'email' => 'string',
-        'acl' => 'string',
         'isAdmin' => 'bool',
-        'roles' => 'int[]'
+        'roles' => 'int[]',
+        'acl' => 'string'
     ];
 
     /**
@@ -73,9 +73,9 @@ class NewInvitation implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'email' => 'email',
-        'acl' => null,
         'isAdmin' => null,
-        'roles' => null
+        'roles' => null,
+        'acl' => null
     ];
 
     /**
@@ -107,9 +107,9 @@ class NewInvitation implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'email' => 'email',
-        'acl' => 'acl',
         'isAdmin' => 'isAdmin',
-        'roles' => 'roles'
+        'roles' => 'roles',
+        'acl' => 'acl'
     ];
 
     /**
@@ -120,9 +120,9 @@ class NewInvitation implements ModelInterface, ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'email' => 'setEmail',
-        'acl' => 'setAcl',
         'isAdmin' => 'setIsAdmin',
-        'roles' => 'setRoles'
+        'roles' => 'setRoles',
+        'acl' => 'setAcl'
     ];
 
     /**
@@ -133,9 +133,9 @@ class NewInvitation implements ModelInterface, ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'email' => 'getEmail',
-        'acl' => 'getAcl',
         'isAdmin' => 'getIsAdmin',
-        'roles' => 'getRoles'
+        'roles' => 'getRoles',
+        'acl' => 'getAcl'
     ];
 
     /**
@@ -200,9 +200,9 @@ class NewInvitation implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['acl'] = isset($data['acl']) ? $data['acl'] : null;
         $this->container['isAdmin'] = isset($data['isAdmin']) ? $data['isAdmin'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
+        $this->container['acl'] = isset($data['acl']) ? $data['acl'] : null;
     }
 
     /**
@@ -245,7 +245,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Name of the user being invited.
+     * @param string|null $name Name of the user.
      *
      * @return $this
      */
@@ -269,37 +269,13 @@ class NewInvitation implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email email
+     * @param string $email Email address of the user.
      *
      * @return $this
      */
     public function setEmail($email)
     {
         $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets acl
-     *
-     * @return string|null
-     */
-    public function getAcl()
-    {
-        return $this->container['acl'];
-    }
-
-    /**
-     * Sets acl
-     *
-     * @param string|null $acl The `Access Control List` json defining the role of the user.  This represents the access control on the user level. Use one of the following: - normal user: `{\"Role\": 0}` - admin: `{\"Role\": 127}`
-     *
-     * @return $this
-     */
-    public function setAcl($acl)
-    {
-        $this->container['acl'] = $acl;
 
         return $this;
     }
@@ -317,7 +293,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
     /**
      * Sets isAdmin
      *
-     * @param bool|null $isAdmin An indication of whether the user has admin permissions. We recommend using this flag over using the `acl` with value `{\"Role\": 127}`.
+     * @param bool|null $isAdmin Indicates whether the user is an `admin`.
      *
      * @return $this
      */
@@ -341,13 +317,37 @@ class NewInvitation implements ModelInterface, ArrayAccess
     /**
      * Sets roles
      *
-     * @param int[]|null $roles An array of role IDs to assign to the new user.
+     * @param int[]|null $roles A list of the IDs of the roles assigned to the user.
      *
      * @return $this
      */
     public function setRoles($roles)
     {
         $this->container['roles'] = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Gets acl
+     *
+     * @return string|null
+     */
+    public function getAcl()
+    {
+        return $this->container['acl'];
+    }
+
+    /**
+     * Sets acl
+     *
+     * @param string|null $acl Indicates the access level of the user.
+     *
+     * @return $this
+     */
+    public function setAcl($acl)
+    {
+        $this->container['acl'] = $acl;
 
         return $this;
     }

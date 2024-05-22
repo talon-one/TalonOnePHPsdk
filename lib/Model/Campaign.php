@@ -75,7 +75,6 @@ class Campaign implements ModelInterface, ArrayAccess
         'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
         'campaignGroups' => 'int[]',
-        'evaluationGroupId' => 'int',
         'type' => 'string',
         'linkedStoreIds' => 'int[]',
         'budgets' => '\TalonOne\Client\Model\CampaignBudget[]',
@@ -98,7 +97,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'updated' => '\DateTime',
         'createdBy' => 'string',
         'updatedBy' => 'string',
-        'templateId' => 'int'
+        'templateId' => 'int',
+        'frontendState' => 'string'
     ];
 
     /**
@@ -124,7 +124,6 @@ class Campaign implements ModelInterface, ArrayAccess
         'referralSettings' => null,
         'limits' => null,
         'campaignGroups' => null,
-        'evaluationGroupId' => null,
         'type' => null,
         'linkedStoreIds' => null,
         'budgets' => null,
@@ -147,7 +146,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'updated' => 'date-time',
         'createdBy' => null,
         'updatedBy' => null,
-        'templateId' => null
+        'templateId' => null,
+        'frontendState' => null
     ];
 
     /**
@@ -194,7 +194,6 @@ class Campaign implements ModelInterface, ArrayAccess
         'referralSettings' => 'referralSettings',
         'limits' => 'limits',
         'campaignGroups' => 'campaignGroups',
-        'evaluationGroupId' => 'evaluationGroupId',
         'type' => 'type',
         'linkedStoreIds' => 'linkedStoreIds',
         'budgets' => 'budgets',
@@ -217,7 +216,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'updated' => 'updated',
         'createdBy' => 'createdBy',
         'updatedBy' => 'updatedBy',
-        'templateId' => 'templateId'
+        'templateId' => 'templateId',
+        'frontendState' => 'frontendState'
     ];
 
     /**
@@ -243,7 +243,6 @@ class Campaign implements ModelInterface, ArrayAccess
         'referralSettings' => 'setReferralSettings',
         'limits' => 'setLimits',
         'campaignGroups' => 'setCampaignGroups',
-        'evaluationGroupId' => 'setEvaluationGroupId',
         'type' => 'setType',
         'linkedStoreIds' => 'setLinkedStoreIds',
         'budgets' => 'setBudgets',
@@ -266,7 +265,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'updated' => 'setUpdated',
         'createdBy' => 'setCreatedBy',
         'updatedBy' => 'setUpdatedBy',
-        'templateId' => 'setTemplateId'
+        'templateId' => 'setTemplateId',
+        'frontendState' => 'setFrontendState'
     ];
 
     /**
@@ -292,7 +292,6 @@ class Campaign implements ModelInterface, ArrayAccess
         'referralSettings' => 'getReferralSettings',
         'limits' => 'getLimits',
         'campaignGroups' => 'getCampaignGroups',
-        'evaluationGroupId' => 'getEvaluationGroupId',
         'type' => 'getType',
         'linkedStoreIds' => 'getLinkedStoreIds',
         'budgets' => 'getBudgets',
@@ -315,7 +314,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'updated' => 'getUpdated',
         'createdBy' => 'getCreatedBy',
         'updatedBy' => 'getUpdatedBy',
-        'templateId' => 'getTemplateId'
+        'templateId' => 'getTemplateId',
+        'frontendState' => 'getFrontendState'
     ];
 
     /**
@@ -367,8 +367,13 @@ class Campaign implements ModelInterface, ArrayAccess
     const FEATURES_LOYALTY = 'loyalty';
     const FEATURES_GIVEAWAYS = 'giveaways';
     const FEATURES_STRIKETHROUGH = 'strikethrough';
+    const FEATURES_ACHIEVEMENTS = 'achievements';
     const TYPE_CART_ITEM = 'cartItem';
     const TYPE_ADVANCED = 'advanced';
+    const FRONTEND_STATE_EXPIRED = 'expired';
+    const FRONTEND_STATE_SCHEDULED = 'scheduled';
+    const FRONTEND_STATE_RUNNING = 'running';
+    const FRONTEND_STATE_DRAFT = 'draft';
     
 
     
@@ -399,6 +404,7 @@ class Campaign implements ModelInterface, ArrayAccess
             self::FEATURES_LOYALTY,
             self::FEATURES_GIVEAWAYS,
             self::FEATURES_STRIKETHROUGH,
+            self::FEATURES_ACHIEVEMENTS,
         ];
     }
     
@@ -412,6 +418,21 @@ class Campaign implements ModelInterface, ArrayAccess
         return [
             self::TYPE_CART_ITEM,
             self::TYPE_ADVANCED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFrontendStateAllowableValues()
+    {
+        return [
+            self::FRONTEND_STATE_EXPIRED,
+            self::FRONTEND_STATE_SCHEDULED,
+            self::FRONTEND_STATE_RUNNING,
+            self::FRONTEND_STATE_DRAFT,
         ];
     }
     
@@ -448,7 +469,6 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
-        $this->container['evaluationGroupId'] = isset($data['evaluationGroupId']) ? $data['evaluationGroupId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : 'advanced';
         $this->container['linkedStoreIds'] = isset($data['linkedStoreIds']) ? $data['linkedStoreIds'] : null;
         $this->container['budgets'] = isset($data['budgets']) ? $data['budgets'] : null;
@@ -472,6 +492,7 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
         $this->container['updatedBy'] = isset($data['updatedBy']) ? $data['updatedBy'] : null;
         $this->container['templateId'] = isset($data['templateId']) ? $data['templateId'] : null;
+        $this->container['frontendState'] = isset($data['frontendState']) ? $data['frontendState'] : null;
     }
 
     /**
@@ -539,6 +560,17 @@ class Campaign implements ModelInterface, ArrayAccess
         if ($this->container['budgets'] === null) {
             $invalidProperties[] = "'budgets' can't be null";
         }
+        if ($this->container['frontendState'] === null) {
+            $invalidProperties[] = "'frontendState' can't be null";
+        }
+        $allowedValues = $this->getFrontendStateAllowableValues();
+        if (!is_null($this->container['frontendState']) && !in_array($this->container['frontendState'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'frontendState', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -981,30 +1013,6 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setCampaignGroups($campaignGroups)
     {
         $this->container['campaignGroups'] = $campaignGroups;
-
-        return $this;
-    }
-
-    /**
-     * Gets evaluationGroupId
-     *
-     * @return int|null
-     */
-    public function getEvaluationGroupId()
-    {
-        return $this->container['evaluationGroupId'];
-    }
-
-    /**
-     * Sets evaluationGroupId
-     *
-     * @param int|null $evaluationGroupId The ID of the campaign evaluation group the campaign belongs to.
-     *
-     * @return $this
-     */
-    public function setEvaluationGroupId($evaluationGroupId)
-    {
-        $this->container['evaluationGroupId'] = $evaluationGroupId;
 
         return $this;
     }
@@ -1566,6 +1574,39 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setTemplateId($templateId)
     {
         $this->container['templateId'] = $templateId;
+
+        return $this;
+    }
+
+    /**
+     * Gets frontendState
+     *
+     * @return string
+     */
+    public function getFrontendState()
+    {
+        return $this->container['frontendState'];
+    }
+
+    /**
+     * Sets frontendState
+     *
+     * @param string $frontendState A campaign state described exactly as in the Campaign Manager.
+     *
+     * @return $this
+     */
+    public function setFrontendState($frontendState)
+    {
+        $allowedValues = $this->getFrontendStateAllowableValues();
+        if (!in_array($frontendState, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'frontendState', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['frontendState'] = $frontendState;
 
         return $this;
     }

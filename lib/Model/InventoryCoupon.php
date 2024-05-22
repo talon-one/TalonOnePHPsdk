@@ -313,7 +313,7 @@ class InventoryCoupon implements ModelInterface, ArrayAccess
         $this->container['importId'] = isset($data['importId']) ? $data['importId'] : null;
         $this->container['reservation'] = isset($data['reservation']) ? $data['reservation'] : true;
         $this->container['batchId'] = isset($data['batchId']) ? $data['batchId'] : null;
-        $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : true;
+        $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : false;
         $this->container['implicitlyReserved'] = isset($data['implicitlyReserved']) ? $data['implicitlyReserved'] : null;
         $this->container['profileRedemptionCount'] = isset($data['profileRedemptionCount']) ? $data['profileRedemptionCount'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
@@ -997,7 +997,7 @@ class InventoryCoupon implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string $state Can be:  - `active`: The coupon can be used. It is a reserved coupon that is neither pending, used nor expired, and has a non-exhausted limit counter. - `used`: The coupon has been redeemed and cannot be used again. It is not pending and has reached its redemption limit or was redeemed by the profile before expiration. - `expired`: The coupon was never redeemed and it is now expired. It is non-pending, non-active and non-used by the profile. - `pending`: The coupon will be usable in the future. - `disabled`: The coupon is part of a non-active campaign.
+     * @param string $state Can be:  - `active`: The coupon can be used. It is a reserved coupon that is not pending, used, or expired, and it has a non-exhausted limit counter.    **Note:** This coupon state is returned for [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule), but the coupon cannot be used until the campaign is **running**. - `used`: The coupon has been redeemed and cannot be used again. It is not pending and has reached its redemption limit or was redeemed by the profile before expiration. - `expired`: The coupon was never redeemed, and it is now expired. It is non-pending, non-active, and non-used by the profile. - `pending`: The coupon will be usable in the future. - `disabled`: The coupon is part of a non-active campaign.
      *
      * @return $this
      */

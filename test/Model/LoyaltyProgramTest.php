@@ -149,6 +149,13 @@ class LoyaltyProgramTest extends TestCase
     }
 
     /**
+     * Test attribute "tiersExpirationPolicy"
+     */
+    public function testPropertyTiersExpirationPolicy()
+    {
+    }
+
+    /**
      * Test attribute "tiersExpireIn"
      */
     public function testPropertyTiersExpireIn()
@@ -159,6 +166,13 @@ class LoyaltyProgramTest extends TestCase
      * Test attribute "tiersDowngradePolicy"
      */
     public function testPropertyTiersDowngradePolicy()
+    {
+    }
+
+    /**
+     * Test attribute "programJoinPolicy"
+     */
+    public function testPropertyProgramJoinPolicy()
     {
     }
 
@@ -201,6 +215,13 @@ class LoyaltyProgramTest extends TestCase
      * Test attribute "canUpdateTiers"
      */
     public function testPropertyCanUpdateTiers()
+    {
+    }
+
+    /**
+     * Test attribute "canUpdateJoinPolicy"
+     */
+    public function testPropertyCanUpdateJoinPolicy()
     {
     }
 

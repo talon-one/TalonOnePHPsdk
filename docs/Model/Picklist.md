@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Internal ID of this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
-**type** | **string** | The type of allowed values in the picklist. If type time is chosen, it must be an RFC3339 timestamp string. | 
+**type** | **string** | The type of allowed values in the picklist. If the type &#x60;time&#x60; is chosen, it must be an RFC3339 timestamp string. | 
 **values** | **string[]** | The list of allowed values provided by this picklist. | 
 **modifiedBy** | **int** | ID of the user who last updated this effect if available. | [optional] 
 **createdBy** | **int** | ID of the user who created this effect. | 

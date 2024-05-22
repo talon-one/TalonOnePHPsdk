@@ -61,6 +61,8 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
         'title' => 'string',
         'expires' => '\DateTime',
         'platform' => 'string',
+        'type' => 'string',
+        'timeOffset' => 'int',
         'id' => 'int',
         'createdBy' => 'int',
         'accountID' => 'int',
@@ -78,6 +80,8 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
         'title' => null,
         'expires' => 'date-time',
         'platform' => null,
+        'type' => null,
+        'timeOffset' => null,
         'id' => null,
         'createdBy' => null,
         'accountID' => null,
@@ -116,6 +120,8 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
         'title' => 'title',
         'expires' => 'expires',
         'platform' => 'platform',
+        'type' => 'type',
+        'timeOffset' => 'timeOffset',
         'id' => 'id',
         'createdBy' => 'createdBy',
         'accountID' => 'accountID',
@@ -133,6 +139,8 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
         'title' => 'setTitle',
         'expires' => 'setExpires',
         'platform' => 'setPlatform',
+        'type' => 'setType',
+        'timeOffset' => 'setTimeOffset',
         'id' => 'setId',
         'createdBy' => 'setCreatedBy',
         'accountID' => 'setAccountID',
@@ -150,6 +158,8 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
         'title' => 'getTitle',
         'expires' => 'getExpires',
         'platform' => 'getPlatform',
+        'type' => 'getType',
+        'timeOffset' => 'getTimeOffset',
         'id' => 'getId',
         'createdBy' => 'getCreatedBy',
         'accountID' => 'getAccountID',
@@ -208,6 +218,8 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
     const PLATFORM_CUSTOMER_ENGAGEMENT = 'customer_engagement';
     const PLATFORM_CUSTOMER_DATA = 'customer_data';
     const PLATFORM_SALESFORCE = 'salesforce';
+    const PLATFORM_EMARSYS = 'emarsys';
+    const TYPE_STAGING = 'staging';
     
 
     
@@ -228,6 +240,19 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
             self::PLATFORM_CUSTOMER_ENGAGEMENT,
             self::PLATFORM_CUSTOMER_DATA,
             self::PLATFORM_SALESFORCE,
+            self::PLATFORM_EMARSYS,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_STAGING,
         ];
     }
     
@@ -250,6 +275,8 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['expires'] = isset($data['expires']) ? $data['expires'] : null;
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['timeOffset'] = isset($data['timeOffset']) ? $data['timeOffset'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
         $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
@@ -277,6 +304,14 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
         if (!is_null($this->container['platform']) && !in_array($this->container['platform'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'platform', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -327,7 +362,7 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title Title for API Key.
+     * @param string $title Title of the API key.
      *
      * @return $this
      */
@@ -351,7 +386,7 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
     /**
      * Sets expires
      *
-     * @param \DateTime $expires The date the API key expired.
+     * @param \DateTime $expires The date the API key expires.
      *
      * @return $this
      */
@@ -391,6 +426,63 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
             );
         }
         $this->container['platform'] = $platform;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type The API key type. Can be empty or `staging`.  Staging API keys can only be used for dry requests with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint, [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint, and [Track event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) endpoint.  When using the _Update customer profile_ endpoint with a staging API key, the query parameter `runRuleEngine` must be `true`.
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeOffset
+     *
+     * @return int|null
+     */
+    public function getTimeOffset()
+    {
+        return $this->container['timeOffset'];
+    }
+
+    /**
+     * Sets timeOffset
+     *
+     * @param int|null $timeOffset A time offset in nanoseconds associated with the API key. When making a request using the API key, rule evaluation is based on a date that is calculated by adding the offset to the current date.
+     *
+     * @return $this
+     */
+    public function setTimeOffset($timeOffset)
+    {
+        $this->container['timeOffset'] = $timeOffset;
 
         return $this;
     }

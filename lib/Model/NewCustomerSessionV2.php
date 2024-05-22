@@ -448,7 +448,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets loyaltyCards
      *
-     * @param string[]|null $loyaltyCards Any loyalty cards used.
+     * @param string[]|null $loyaltyCards Identifier of a loyalty card.
      *
      * @return $this
      */

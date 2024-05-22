@@ -231,9 +231,6 @@ class FuncArgDef implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'type', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -290,7 +287,7 @@ class FuncArgDef implements ModelInterface, ArrayAccess
     /**
      * Gets description
      *
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -300,7 +297,7 @@ class FuncArgDef implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string $description A campaigner-friendly description of the argument, this will also be shown in the rule editor.
+     * @param string|null $description A campaigner-friendly description of the argument, this will also be shown in the rule editor.
      *
      * @return $this
      */

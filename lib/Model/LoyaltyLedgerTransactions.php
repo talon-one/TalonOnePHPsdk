@@ -224,7 +224,7 @@ class LoyaltyLedgerTransactions implements ModelInterface, ArrayAccess
     /**
      * Sets hasMore
      *
-     * @param bool|null $hasMore true means there is more data in the source collection to request.
+     * @param bool|null $hasMore If `true`, it means that there is more data to request in the source collection.
      *
      * @return $this
      */

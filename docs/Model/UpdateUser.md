@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | The user name. | [optional] 
-**policy** | **string** | The &#x60;Access Control List&#x60; json defining the role of the user. This represents the access control on the user level. | [optional] 
-**state** | **string** | New state (\&quot;deactivated\&quot; or \&quot;active\&quot;) for the user. Only usable by admins for the user. | [optional] 
-**roles** | **int[]** | List of roles to assign to the user. | [optional] 
-**applicationNotificationSubscriptions** | [**object**](.md) |  | [optional] 
-**isAdmin** | **bool** | An indication of whether the user has admin permissions. | [optional] 
+**name** | **string** | Name of the user. | [optional] 
+**state** | **string** | The state of the user.   - &#x60;deactivated&#x60;: The user has been deactivated.   - &#x60;active&#x60;: The user is active.  **Note**: Only &#x60;admin&#x60; users can update the state of another user. | [optional] 
+**isAdmin** | **bool** | Indicates whether the user is an &#x60;admin&#x60;. | [optional] 
+**policy** | **string** | Indicates the access level of the user. | [optional] 
+**roles** | **int[]** | A list of the IDs of the roles assigned to the user.  **Note**: Use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint to find the ID of a role. | [optional] 
+**applicationNotificationSubscriptions** | [**object**](.md) | Application notifications that the user is subscribed to. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

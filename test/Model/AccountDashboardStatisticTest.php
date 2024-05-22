@@ -107,13 +107,6 @@ class AccountDashboardStatisticTest extends TestCase
     }
 
     /**
-     * Test attribute "apiCalls"
-     */
-    public function testPropertyApiCalls()
-    {
-    }
-
-    /**
      * Test attribute "campaigns"
      */
     public function testPropertyCampaigns()

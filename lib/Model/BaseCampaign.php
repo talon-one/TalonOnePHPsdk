@@ -70,7 +70,6 @@ class BaseCampaign implements ModelInterface, ArrayAccess
         'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
         'campaignGroups' => 'int[]',
-        'evaluationGroupId' => 'int',
         'type' => 'string',
         'linkedStoreIds' => 'int[]'
     ];
@@ -94,7 +93,6 @@ class BaseCampaign implements ModelInterface, ArrayAccess
         'referralSettings' => null,
         'limits' => null,
         'campaignGroups' => null,
-        'evaluationGroupId' => null,
         'type' => null,
         'linkedStoreIds' => null
     ];
@@ -139,7 +137,6 @@ class BaseCampaign implements ModelInterface, ArrayAccess
         'referralSettings' => 'referralSettings',
         'limits' => 'limits',
         'campaignGroups' => 'campaignGroups',
-        'evaluationGroupId' => 'evaluationGroupId',
         'type' => 'type',
         'linkedStoreIds' => 'linkedStoreIds'
     ];
@@ -163,7 +160,6 @@ class BaseCampaign implements ModelInterface, ArrayAccess
         'referralSettings' => 'setReferralSettings',
         'limits' => 'setLimits',
         'campaignGroups' => 'setCampaignGroups',
-        'evaluationGroupId' => 'setEvaluationGroupId',
         'type' => 'setType',
         'linkedStoreIds' => 'setLinkedStoreIds'
     ];
@@ -187,7 +183,6 @@ class BaseCampaign implements ModelInterface, ArrayAccess
         'referralSettings' => 'getReferralSettings',
         'limits' => 'getLimits',
         'campaignGroups' => 'getCampaignGroups',
-        'evaluationGroupId' => 'getEvaluationGroupId',
         'type' => 'getType',
         'linkedStoreIds' => 'getLinkedStoreIds'
     ];
@@ -241,6 +236,7 @@ class BaseCampaign implements ModelInterface, ArrayAccess
     const FEATURES_LOYALTY = 'loyalty';
     const FEATURES_GIVEAWAYS = 'giveaways';
     const FEATURES_STRIKETHROUGH = 'strikethrough';
+    const FEATURES_ACHIEVEMENTS = 'achievements';
     const TYPE_CART_ITEM = 'cartItem';
     const TYPE_ADVANCED = 'advanced';
     
@@ -273,6 +269,7 @@ class BaseCampaign implements ModelInterface, ArrayAccess
             self::FEATURES_LOYALTY,
             self::FEATURES_GIVEAWAYS,
             self::FEATURES_STRIKETHROUGH,
+            self::FEATURES_ACHIEVEMENTS,
         ];
     }
     
@@ -318,7 +315,6 @@ class BaseCampaign implements ModelInterface, ArrayAccess
         $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
-        $this->container['evaluationGroupId'] = isset($data['evaluationGroupId']) ? $data['evaluationGroupId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : 'advanced';
         $this->container['linkedStoreIds'] = isset($data['linkedStoreIds']) ? $data['linkedStoreIds'] : null;
     }
@@ -713,30 +709,6 @@ class BaseCampaign implements ModelInterface, ArrayAccess
     public function setCampaignGroups($campaignGroups)
     {
         $this->container['campaignGroups'] = $campaignGroups;
-
-        return $this;
-    }
-
-    /**
-     * Gets evaluationGroupId
-     *
-     * @return int|null
-     */
-    public function getEvaluationGroupId()
-    {
-        return $this->container['evaluationGroupId'];
-    }
-
-    /**
-     * Sets evaluationGroupId
-     *
-     * @param int|null $evaluationGroupId The ID of the campaign evaluation group the campaign belongs to.
-     *
-     * @return $this
-     */
-    public function setEvaluationGroupId($evaluationGroupId)
-    {
-        $this->container['evaluationGroupId'] = $evaluationGroupId;
 
         return $this;
     }

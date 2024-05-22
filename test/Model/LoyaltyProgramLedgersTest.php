@@ -100,6 +100,13 @@ class LoyaltyProgramLedgersTest extends TestCase
     }
 
     /**
+     * Test attribute "joinDate"
+     */
+    public function testPropertyJoinDate()
+    {
+    }
+
+    /**
      * Test attribute "ledger"
      */
     public function testPropertyLedger()

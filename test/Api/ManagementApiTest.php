@@ -113,6 +113,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for createAchievement
+     *
+     * Create achievement.
+     *
+     */
+    public function testCreateAchievement()
+    {
+    }
+
+    /**
      * Test case for createAdditionalCost
      *
      * Create additional cost.
@@ -183,6 +193,26 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for createInviteEmail
+     *
+     * Resend invitation email.
+     *
+     */
+    public function testCreateInviteEmail()
+    {
+    }
+
+    /**
+     * Test case for createInviteV2
+     *
+     * Invite user.
+     *
+     */
+    public function testCreateInviteV2()
+    {
+    }
+
+    /**
      * Test case for createPasswordRecoveryEmail
      *
      * Request a password reset.
@@ -213,6 +243,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for deactivateUserByEmail
+     *
+     * Deactivate user by email address.
+     *
+     */
+    public function testDeactivateUserByEmail()
+    {
+    }
+
+    /**
      * Test case for deductLoyaltyCardPoints
      *
      * Deduct points from card.
@@ -229,6 +269,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testDeleteAccountCollection()
+    {
+    }
+
+    /**
+     * Test case for deleteAchievement
+     *
+     * Delete achievement.
+     *
+     */
+    public function testDeleteAchievement()
     {
     }
 
@@ -303,6 +353,26 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for deleteUser
+     *
+     * Delete user.
+     *
+     */
+    public function testDeleteUser()
+    {
+    }
+
+    /**
+     * Test case for deleteUserByEmail
+     *
+     * Delete user by email address.
+     *
+     */
+    public function testDeleteUserByEmail()
+    {
+    }
+
+    /**
      * Test case for destroySession
      *
      * Destroy session.
@@ -319,6 +389,26 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testExportAccountCollectionItems()
+    {
+    }
+
+    /**
+     * Test case for exportAchievements
+     *
+     * Export achievement customer data.
+     *
+     */
+    public function testExportAchievements()
+    {
+    }
+
+    /**
+     * Test case for exportAudiencesMemberships
+     *
+     * Export audience members.
+     *
+     */
+    public function testExportAudiencesMemberships()
     {
     }
 
@@ -479,6 +569,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testGetAccountCollection()
+    {
+    }
+
+    /**
+     * Test case for getAchievement
+     *
+     * Get achievement.
+     *
+     */
+    public function testGetAchievement()
     {
     }
 
@@ -653,12 +753,32 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for getAudienceMemberships
+     *
+     * List audience members.
+     *
+     */
+    public function testGetAudienceMemberships()
+    {
+    }
+
+    /**
      * Test case for getAudiences
      *
      * List audiences.
      *
      */
     public function testGetAudiences()
+    {
+    }
+
+    /**
+     * Test case for getAudiencesAnalytics
+     *
+     * List audience analytics.
+     *
+     */
+    public function testGetAudiencesAnalytics()
     {
     }
 
@@ -689,6 +809,26 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testGetCampaignByAttributes()
+    {
+    }
+
+    /**
+     * Test case for getCampaignGroup
+     *
+     * Get campaign access group.
+     *
+     */
+    public function testGetCampaignGroup()
+    {
+    }
+
+    /**
+     * Test case for getCampaignGroups
+     *
+     * List campaign access groups.
+     *
+     */
+    public function testGetCampaignGroups()
     {
     }
 
@@ -789,6 +929,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testGetCustomerProfile()
+    {
+    }
+
+    /**
+     * Test case for getCustomerProfileAchievementProgress
+     *
+     * List customer achievements.
+     *
+     */
+    public function testGetCustomerProfileAchievementProgress()
     {
     }
 
@@ -1043,6 +1193,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for importAudiencesMemberships
+     *
+     * Import audience members.
+     *
+     */
+    public function testImportAudiencesMemberships()
+    {
+    }
+
+    /**
      * Test case for importCollection
      *
      * Import data into existing campaign-level collection.
@@ -1119,6 +1279,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testListAccountCollections()
+    {
+    }
+
+    /**
+     * Test case for listAchievements
+     *
+     * List achievements.
+     *
+     */
+    public function testListAchievements()
     {
     }
 
@@ -1263,6 +1433,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for updateAchievement
+     *
+     * Update achievement.
+     *
+     */
+    public function testUpdateAchievement()
+    {
+    }
+
+    /**
      * Test case for updateAdditionalCost
      *
      * Update additional cost.
@@ -1343,12 +1523,32 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for updateRoleV2
+     *
+     * Update role.
+     *
+     */
+    public function testUpdateRoleV2()
+    {
+    }
+
+    /**
      * Test case for updateStore
      *
      * Update store.
      *
      */
     public function testUpdateStore()
+    {
+    }
+
+    /**
+     * Test case for updateUser
+     *
+     * Update user.
+     *
+     */
+    public function testUpdateUser()
     {
     }
 }

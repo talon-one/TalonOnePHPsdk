@@ -59,6 +59,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'programId' => 'int',
+        'campaignId' => 'int',
         'created' => '\DateTime',
         'type' => 'string',
         'amount' => 'float',
@@ -84,6 +85,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'programId' => null,
+        'campaignId' => null,
         'created' => 'date-time',
         'type' => null,
         'amount' => null,
@@ -130,6 +132,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'programId' => 'programId',
+        'campaignId' => 'campaignId',
         'created' => 'created',
         'type' => 'type',
         'amount' => 'amount',
@@ -155,6 +158,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'programId' => 'setProgramId',
+        'campaignId' => 'setCampaignId',
         'created' => 'setCreated',
         'type' => 'setType',
         'amount' => 'setAmount',
@@ -180,6 +184,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'programId' => 'getProgramId',
+        'campaignId' => 'getCampaignId',
         'created' => 'getCreated',
         'type' => 'getType',
         'amount' => 'getAmount',
@@ -274,6 +279,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
+        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
@@ -422,6 +428,30 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
     public function setProgramId($programId)
     {
         $this->container['programId'] = $programId;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignId
+     *
+     * @return int|null
+     */
+    public function getCampaignId()
+    {
+        return $this->container['campaignId'];
+    }
+
+    /**
+     * Sets campaignId
+     *
+     * @param int|null $campaignId ID of the campaign.
+     *
+     * @return $this
+     */
+    public function setCampaignId($campaignId)
+    {
+        $this->container['campaignId'] = $campaignId;
 
         return $this;
     }

@@ -67,6 +67,7 @@ class Environment implements ModelInterface, ArrayAccess
         'variables' => 'string',
         'giveawaysPools' => '\TalonOne\Client\Model\GiveawaysPool[]',
         'loyaltyPrograms' => '\TalonOne\Client\Model\LoyaltyProgram[]',
+        'achievements' => '\TalonOne\Client\Model\Achievement[]',
         'attributes' => '\TalonOne\Client\Model\Attribute[]',
         'additionalCosts' => '\TalonOne\Client\Model\AccountAdditionalCost[]',
         'audiences' => '\TalonOne\Client\Model\Audience[]',
@@ -88,6 +89,7 @@ class Environment implements ModelInterface, ArrayAccess
         'variables' => null,
         'giveawaysPools' => null,
         'loyaltyPrograms' => null,
+        'achievements' => null,
         'attributes' => null,
         'additionalCosts' => null,
         'audiences' => null,
@@ -130,6 +132,7 @@ class Environment implements ModelInterface, ArrayAccess
         'variables' => 'variables',
         'giveawaysPools' => 'giveawaysPools',
         'loyaltyPrograms' => 'loyaltyPrograms',
+        'achievements' => 'achievements',
         'attributes' => 'attributes',
         'additionalCosts' => 'additionalCosts',
         'audiences' => 'audiences',
@@ -151,6 +154,7 @@ class Environment implements ModelInterface, ArrayAccess
         'variables' => 'setVariables',
         'giveawaysPools' => 'setGiveawaysPools',
         'loyaltyPrograms' => 'setLoyaltyPrograms',
+        'achievements' => 'setAchievements',
         'attributes' => 'setAttributes',
         'additionalCosts' => 'setAdditionalCosts',
         'audiences' => 'setAudiences',
@@ -172,6 +176,7 @@ class Environment implements ModelInterface, ArrayAccess
         'variables' => 'getVariables',
         'giveawaysPools' => 'getGiveawaysPools',
         'loyaltyPrograms' => 'getLoyaltyPrograms',
+        'achievements' => 'getAchievements',
         'attributes' => 'getAttributes',
         'additionalCosts' => 'getAdditionalCosts',
         'audiences' => 'getAudiences',
@@ -247,6 +252,7 @@ class Environment implements ModelInterface, ArrayAccess
         $this->container['variables'] = isset($data['variables']) ? $data['variables'] : null;
         $this->container['giveawaysPools'] = isset($data['giveawaysPools']) ? $data['giveawaysPools'] : null;
         $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
+        $this->container['achievements'] = isset($data['achievements']) ? $data['achievements'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['additionalCosts'] = isset($data['additionalCosts']) ? $data['additionalCosts'] : null;
         $this->container['audiences'] = isset($data['audiences']) ? $data['audiences'] : null;
@@ -510,6 +516,30 @@ class Environment implements ModelInterface, ArrayAccess
     public function setLoyaltyPrograms($loyaltyPrograms)
     {
         $this->container['loyaltyPrograms'] = $loyaltyPrograms;
+
+        return $this;
+    }
+
+    /**
+     * Gets achievements
+     *
+     * @return \TalonOne\Client\Model\Achievement[]|null
+     */
+    public function getAchievements()
+    {
+        return $this->container['achievements'];
+    }
+
+    /**
+     * Sets achievements
+     *
+     * @param \TalonOne\Client\Model\Achievement[]|null $achievements The achievements, linked to the campaigns, belonging to the application.
+     *
+     * @return $this
+     */
+    public function setAchievements($achievements)
+    {
+        $this->container['achievements'] = $achievements;
 
         return $this;
     }
