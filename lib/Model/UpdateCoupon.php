@@ -231,7 +231,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : true;
+        $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : false;
         $this->container['implicitlyReserved'] = isset($data['implicitlyReserved']) ? $data['implicitlyReserved'] : null;
     }
 

@@ -58,8 +58,7 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'hasMore' => 'bool',
-        'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\CollectionWithoutPayload[]'
+        'data' => '\TalonOne\Client\Model\CardLedgerTransactionLogEntry[]'
     ];
 
     /**
@@ -69,7 +68,6 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'hasMore' => null,
-        'totalResultSize' => null,
         'data' => null
     ];
 
@@ -101,7 +99,6 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'hasMore' => 'hasMore',
-        'totalResultSize' => 'totalResultSize',
         'data' => 'data'
     ];
 
@@ -112,7 +109,6 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'hasMore' => 'setHasMore',
-        'totalResultSize' => 'setTotalResultSize',
         'data' => 'setData'
     ];
 
@@ -123,7 +119,6 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'hasMore' => 'getHasMore',
-        'totalResultSize' => 'getTotalResultSize',
         'data' => 'getData'
     ];
 
@@ -188,7 +183,6 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
-        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -201,6 +195,9 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['hasMore'] === null) {
+            $invalidProperties[] = "'hasMore' can't be null";
+        }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
@@ -222,7 +219,7 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess
     /**
      * Gets hasMore
      *
-     * @return bool|null
+     * @return bool
      */
     public function getHasMore()
     {
@@ -232,7 +229,7 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess
     /**
      * Sets hasMore
      *
-     * @param bool|null $hasMore hasMore
+     * @param bool $hasMore true means there is more data in the source collection to request..
      *
      * @return $this
      */
@@ -244,33 +241,9 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets totalResultSize
-     *
-     * @return int|null
-     */
-    public function getTotalResultSize()
-    {
-        return $this->container['totalResultSize'];
-    }
-
-    /**
-     * Sets totalResultSize
-     *
-     * @param int|null $totalResultSize totalResultSize
-     *
-     * @return $this
-     */
-    public function setTotalResultSize($totalResultSize)
-    {
-        $this->container['totalResultSize'] = $totalResultSize;
-
-        return $this;
-    }
-
-    /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\CollectionWithoutPayload[]
+     * @return \TalonOne\Client\Model\CardLedgerTransactionLogEntry[]
      */
     public function getData()
     {
@@ -280,7 +253,7 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\CollectionWithoutPayload[] $data data
+     * @param \TalonOne\Client\Model\CardLedgerTransactionLogEntry[] $data List of loyalty card transaction logs.
      *
      * @return $this
      */

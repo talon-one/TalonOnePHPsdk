@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | ID of the loyalty ledger transaction. | 
 **programId** | **int** | ID of the loyalty program. | 
+**campaignId** | **int** | ID of the campaign. | [optional] 
 **created** | [**\DateTime**](\DateTime.md) | Date and time the loyalty transaction occurred. | 
 **type** | **string** | Type of transaction. Possible values:   - &#x60;addition&#x60;: Signifies added points.   - &#x60;subtraction&#x60;: Signifies deducted points. | 
 **amount** | **float** | Amount of loyalty points added or deducted in the transaction. | 

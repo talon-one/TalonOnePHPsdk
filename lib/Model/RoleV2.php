@@ -440,7 +440,7 @@ class RoleV2 implements ModelInterface, ArrayAccess
     /**
      * Sets members
      *
-     * @param int[]|null $members A list of user identifiers the role is assigned to.
+     * @param int[]|null $members A list of user IDs the role is assigned to.
      *
      * @return $this
      */

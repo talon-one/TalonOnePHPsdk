@@ -77,7 +77,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'updated' => '\DateTime',
         'createdBy' => 'string',
         'updatedBy' => 'string',
-        'templateId' => 'int'
+        'templateId' => 'int',
+        'frontendState' => 'string'
     ];
 
     /**
@@ -106,7 +107,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'updated' => 'date-time',
         'createdBy' => null,
         'updatedBy' => null,
-        'templateId' => null
+        'templateId' => null,
+        'frontendState' => null
     ];
 
     /**
@@ -156,7 +158,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'updated' => 'updated',
         'createdBy' => 'createdBy',
         'updatedBy' => 'updatedBy',
-        'templateId' => 'templateId'
+        'templateId' => 'templateId',
+        'frontendState' => 'frontendState'
     ];
 
     /**
@@ -185,7 +188,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'updated' => 'setUpdated',
         'createdBy' => 'setCreatedBy',
         'updatedBy' => 'setUpdatedBy',
-        'templateId' => 'setTemplateId'
+        'templateId' => 'setTemplateId',
+        'frontendState' => 'setFrontendState'
     ];
 
     /**
@@ -214,7 +218,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'updated' => 'getUpdated',
         'createdBy' => 'getCreatedBy',
         'updatedBy' => 'getUpdatedBy',
-        'templateId' => 'getTemplateId'
+        'templateId' => 'getTemplateId',
+        'frontendState' => 'getFrontendState'
     ];
 
     /**
@@ -258,8 +263,27 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const FRONTEND_STATE_EXPIRED = 'expired';
+    const FRONTEND_STATE_SCHEDULED = 'scheduled';
+    const FRONTEND_STATE_RUNNING = 'running';
+    const FRONTEND_STATE_DRAFT = 'draft';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFrontendStateAllowableValues()
+    {
+        return [
+            self::FRONTEND_STATE_EXPIRED,
+            self::FRONTEND_STATE_SCHEDULED,
+            self::FRONTEND_STATE_RUNNING,
+            self::FRONTEND_STATE_DRAFT,
+        ];
+    }
     
 
     /**
@@ -298,6 +322,7 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
         $this->container['updatedBy'] = isset($data['updatedBy']) ? $data['updatedBy'] : null;
         $this->container['templateId'] = isset($data['templateId']) ? $data['templateId'] : null;
+        $this->container['frontendState'] = isset($data['frontendState']) ? $data['frontendState'] : null;
     }
 
     /**
@@ -312,6 +337,17 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         if ($this->container['budgets'] === null) {
             $invalidProperties[] = "'budgets' can't be null";
         }
+        if ($this->container['frontendState'] === null) {
+            $invalidProperties[] = "'frontendState' can't be null";
+        }
+        $allowedValues = $this->getFrontendStateAllowableValues();
+        if (!is_null($this->container['frontendState']) && !in_array($this->container['frontendState'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'frontendState', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -827,6 +863,39 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
     public function setTemplateId($templateId)
     {
         $this->container['templateId'] = $templateId;
+
+        return $this;
+    }
+
+    /**
+     * Gets frontendState
+     *
+     * @return string
+     */
+    public function getFrontendState()
+    {
+        return $this->container['frontendState'];
+    }
+
+    /**
+     * Sets frontendState
+     *
+     * @param string $frontendState A campaign state described exactly as in the Campaign Manager.
+     *
+     * @return $this
+     */
+    public function setFrontendState($frontendState)
+    {
+        $allowedValues = $this->getFrontendStateAllowableValues();
+        if (!in_array($frontendState, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'frontendState', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['frontendState'] = $frontendState;
 
         return $this;
     }

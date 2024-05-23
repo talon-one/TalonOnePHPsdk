@@ -126,4 +126,11 @@ class CatalogItemTest extends TestCase
     public function testPropertyAttributes()
     {
     }
+
+    /**
+     * Test attribute "product"
+     */
+    public function testPropertyProduct()
+    {
+    }
 }

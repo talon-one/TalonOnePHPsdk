@@ -71,9 +71,9 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
         'campaignGroups' => 'int[]',
-        'evaluationGroupId' => 'int',
         'type' => 'string',
-        'linkedStoreIds' => 'int[]'
+        'linkedStoreIds' => 'int[]',
+        'evaluationGroupId' => 'int'
     ];
 
     /**
@@ -95,9 +95,9 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'referralSettings' => null,
         'limits' => null,
         'campaignGroups' => null,
-        'evaluationGroupId' => null,
         'type' => null,
-        'linkedStoreIds' => null
+        'linkedStoreIds' => null,
+        'evaluationGroupId' => null
     ];
 
     /**
@@ -140,9 +140,9 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'referralSettings' => 'referralSettings',
         'limits' => 'limits',
         'campaignGroups' => 'campaignGroups',
-        'evaluationGroupId' => 'evaluationGroupId',
         'type' => 'type',
-        'linkedStoreIds' => 'linkedStoreIds'
+        'linkedStoreIds' => 'linkedStoreIds',
+        'evaluationGroupId' => 'evaluationGroupId'
     ];
 
     /**
@@ -164,9 +164,9 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'referralSettings' => 'setReferralSettings',
         'limits' => 'setLimits',
         'campaignGroups' => 'setCampaignGroups',
-        'evaluationGroupId' => 'setEvaluationGroupId',
         'type' => 'setType',
-        'linkedStoreIds' => 'setLinkedStoreIds'
+        'linkedStoreIds' => 'setLinkedStoreIds',
+        'evaluationGroupId' => 'setEvaluationGroupId'
     ];
 
     /**
@@ -188,9 +188,9 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'referralSettings' => 'getReferralSettings',
         'limits' => 'getLimits',
         'campaignGroups' => 'getCampaignGroups',
-        'evaluationGroupId' => 'getEvaluationGroupId',
         'type' => 'getType',
-        'linkedStoreIds' => 'getLinkedStoreIds'
+        'linkedStoreIds' => 'getLinkedStoreIds',
+        'evaluationGroupId' => 'getEvaluationGroupId'
     ];
 
     /**
@@ -242,6 +242,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
     const FEATURES_LOYALTY = 'loyalty';
     const FEATURES_GIVEAWAYS = 'giveaways';
     const FEATURES_STRIKETHROUGH = 'strikethrough';
+    const FEATURES_ACHIEVEMENTS = 'achievements';
     const TYPE_CART_ITEM = 'cartItem';
     const TYPE_ADVANCED = 'advanced';
     
@@ -274,6 +275,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
             self::FEATURES_LOYALTY,
             self::FEATURES_GIVEAWAYS,
             self::FEATURES_STRIKETHROUGH,
+            self::FEATURES_ACHIEVEMENTS,
         ];
     }
     
@@ -319,9 +321,9 @@ class NewCampaign implements ModelInterface, ArrayAccess
         $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
-        $this->container['evaluationGroupId'] = isset($data['evaluationGroupId']) ? $data['evaluationGroupId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : 'advanced';
         $this->container['linkedStoreIds'] = isset($data['linkedStoreIds']) ? $data['linkedStoreIds'] : null;
+        $this->container['evaluationGroupId'] = isset($data['evaluationGroupId']) ? $data['evaluationGroupId'] : null;
     }
 
     /**
@@ -719,30 +721,6 @@ class NewCampaign implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets evaluationGroupId
-     *
-     * @return int|null
-     */
-    public function getEvaluationGroupId()
-    {
-        return $this->container['evaluationGroupId'];
-    }
-
-    /**
-     * Sets evaluationGroupId
-     *
-     * @param int|null $evaluationGroupId The ID of the campaign evaluation group the campaign belongs to.
-     *
-     * @return $this
-     */
-    public function setEvaluationGroupId($evaluationGroupId)
-    {
-        $this->container['evaluationGroupId'] = $evaluationGroupId;
-
-        return $this;
-    }
-
-    /**
      * Gets type
      *
      * @return string|null
@@ -795,6 +773,30 @@ class NewCampaign implements ModelInterface, ArrayAccess
     public function setLinkedStoreIds($linkedStoreIds)
     {
         $this->container['linkedStoreIds'] = $linkedStoreIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationGroupId
+     *
+     * @return int|null
+     */
+    public function getEvaluationGroupId()
+    {
+        return $this->container['evaluationGroupId'];
+    }
+
+    /**
+     * Sets evaluationGroupId
+     *
+     * @param int|null $evaluationGroupId The ID of the campaign evaluation group the campaign belongs to.
+     *
+     * @return $this
+     */
+    public function setEvaluationGroupId($evaluationGroupId)
+    {
+        $this->container['evaluationGroupId'] = $evaluationGroupId;
 
         return $this;
     }

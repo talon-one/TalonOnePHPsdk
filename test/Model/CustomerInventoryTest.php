@@ -112,4 +112,11 @@ class CustomerInventoryTest extends TestCase
     public function testPropertyGiveaways()
     {
     }
+
+    /**
+     * Test attribute "achievements"
+     */
+    public function testPropertyAchievements()
+    {
+    }
 }

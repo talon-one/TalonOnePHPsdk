@@ -58,7 +58,7 @@ class CampaignRulesetChangedNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'campaign' => '\TalonOne\Client\Model\CampaignStateNotification',
+        'campaign' => '\TalonOne\Client\Model\Campaign',
         'oldRuleset' => '\TalonOne\Client\Model\Ruleset',
         'ruleset' => '\TalonOne\Client\Model\Ruleset'
     ];
@@ -223,7 +223,7 @@ class CampaignRulesetChangedNotification implements ModelInterface, ArrayAccess
     /**
      * Gets campaign
      *
-     * @return \TalonOne\Client\Model\CampaignStateNotification
+     * @return \TalonOne\Client\Model\Campaign
      */
     public function getCampaign()
     {
@@ -233,7 +233,7 @@ class CampaignRulesetChangedNotification implements ModelInterface, ArrayAccess
     /**
      * Sets campaign
      *
-     * @param \TalonOne\Client\Model\CampaignStateNotification $campaign campaign
+     * @param \TalonOne\Client\Model\Campaign $campaign campaign
      *
      * @return $this
      */

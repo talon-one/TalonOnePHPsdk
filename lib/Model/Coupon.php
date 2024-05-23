@@ -303,7 +303,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['importId'] = isset($data['importId']) ? $data['importId'] : null;
         $this->container['reservation'] = isset($data['reservation']) ? $data['reservation'] : true;
         $this->container['batchId'] = isset($data['batchId']) ? $data['batchId'] : null;
-        $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : true;
+        $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : false;
         $this->container['implicitlyReserved'] = isset($data['implicitlyReserved']) ? $data['implicitlyReserved'] : null;
     }
 

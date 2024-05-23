@@ -79,6 +79,13 @@ class SamlLoginEndpointTest extends TestCase
     }
 
     /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+    }
+
+    /**
      * Test attribute "name"
      */
     public function testPropertyName()

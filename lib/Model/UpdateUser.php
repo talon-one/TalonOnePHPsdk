@@ -58,11 +58,11 @@ class UpdateUser implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'policy' => 'string',
         'state' => 'string',
+        'isAdmin' => 'bool',
+        'policy' => 'string',
         'roles' => 'int[]',
-        'applicationNotificationSubscriptions' => 'object',
-        'isAdmin' => 'bool'
+        'applicationNotificationSubscriptions' => 'object'
     ];
 
     /**
@@ -72,11 +72,11 @@ class UpdateUser implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'policy' => null,
         'state' => null,
+        'isAdmin' => null,
+        'policy' => null,
         'roles' => null,
-        'applicationNotificationSubscriptions' => null,
-        'isAdmin' => null
+        'applicationNotificationSubscriptions' => null
     ];
 
     /**
@@ -107,11 +107,11 @@ class UpdateUser implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'policy' => 'policy',
         'state' => 'state',
+        'isAdmin' => 'isAdmin',
+        'policy' => 'policy',
         'roles' => 'roles',
-        'applicationNotificationSubscriptions' => 'applicationNotificationSubscriptions',
-        'isAdmin' => 'isAdmin'
+        'applicationNotificationSubscriptions' => 'applicationNotificationSubscriptions'
     ];
 
     /**
@@ -121,11 +121,11 @@ class UpdateUser implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'policy' => 'setPolicy',
         'state' => 'setState',
+        'isAdmin' => 'setIsAdmin',
+        'policy' => 'setPolicy',
         'roles' => 'setRoles',
-        'applicationNotificationSubscriptions' => 'setApplicationNotificationSubscriptions',
-        'isAdmin' => 'setIsAdmin'
+        'applicationNotificationSubscriptions' => 'setApplicationNotificationSubscriptions'
     ];
 
     /**
@@ -135,11 +135,11 @@ class UpdateUser implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'policy' => 'getPolicy',
         'state' => 'getState',
+        'isAdmin' => 'getIsAdmin',
+        'policy' => 'getPolicy',
         'roles' => 'getRoles',
-        'applicationNotificationSubscriptions' => 'getApplicationNotificationSubscriptions',
-        'isAdmin' => 'getIsAdmin'
+        'applicationNotificationSubscriptions' => 'getApplicationNotificationSubscriptions'
     ];
 
     /**
@@ -218,11 +218,11 @@ class UpdateUser implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['isAdmin'] = isset($data['isAdmin']) ? $data['isAdmin'] : null;
+        $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
         $this->container['applicationNotificationSubscriptions'] = isset($data['applicationNotificationSubscriptions']) ? $data['applicationNotificationSubscriptions'] : null;
-        $this->container['isAdmin'] = isset($data['isAdmin']) ? $data['isAdmin'] : null;
     }
 
     /**
@@ -270,37 +270,13 @@ class UpdateUser implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name The user name.
+     * @param string|null $name Name of the user.
      *
      * @return $this
      */
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets policy
-     *
-     * @return string|null
-     */
-    public function getPolicy()
-    {
-        return $this->container['policy'];
-    }
-
-    /**
-     * Sets policy
-     *
-     * @param string|null $policy The `Access Control List` json defining the role of the user. This represents the access control on the user level.
-     *
-     * @return $this
-     */
-    public function setPolicy($policy)
-    {
-        $this->container['policy'] = $policy;
 
         return $this;
     }
@@ -318,7 +294,7 @@ class UpdateUser implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string|null $state New state (\"deactivated\" or \"active\") for the user. Only usable by admins for the user.
+     * @param string|null $state The state of the user.   - `deactivated`: The user has been deactivated.   - `active`: The user is active.  **Note**: Only `admin` users can update the state of another user.
      *
      * @return $this
      */
@@ -339,6 +315,54 @@ class UpdateUser implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets isAdmin
+     *
+     * @return bool|null
+     */
+    public function getIsAdmin()
+    {
+        return $this->container['isAdmin'];
+    }
+
+    /**
+     * Sets isAdmin
+     *
+     * @param bool|null $isAdmin Indicates whether the user is an `admin`.
+     *
+     * @return $this
+     */
+    public function setIsAdmin($isAdmin)
+    {
+        $this->container['isAdmin'] = $isAdmin;
+
+        return $this;
+    }
+
+    /**
+     * Gets policy
+     *
+     * @return string|null
+     */
+    public function getPolicy()
+    {
+        return $this->container['policy'];
+    }
+
+    /**
+     * Sets policy
+     *
+     * @param string|null $policy Indicates the access level of the user.
+     *
+     * @return $this
+     */
+    public function setPolicy($policy)
+    {
+        $this->container['policy'] = $policy;
+
+        return $this;
+    }
+
+    /**
      * Gets roles
      *
      * @return int[]|null
@@ -351,7 +375,7 @@ class UpdateUser implements ModelInterface, ArrayAccess
     /**
      * Sets roles
      *
-     * @param int[]|null $roles List of roles to assign to the user.
+     * @param int[]|null $roles A list of the IDs of the roles assigned to the user.  **Note**: Use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint to find the ID of a role.
      *
      * @return $this
      */
@@ -375,37 +399,13 @@ class UpdateUser implements ModelInterface, ArrayAccess
     /**
      * Sets applicationNotificationSubscriptions
      *
-     * @param object|null $applicationNotificationSubscriptions applicationNotificationSubscriptions
+     * @param object|null $applicationNotificationSubscriptions Application notifications that the user is subscribed to.
      *
      * @return $this
      */
     public function setApplicationNotificationSubscriptions($applicationNotificationSubscriptions)
     {
         $this->container['applicationNotificationSubscriptions'] = $applicationNotificationSubscriptions;
-
-        return $this;
-    }
-
-    /**
-     * Gets isAdmin
-     *
-     * @return bool|null
-     */
-    public function getIsAdmin()
-    {
-        return $this->container['isAdmin'];
-    }
-
-    /**
-     * Sets isAdmin
-     *
-     * @param bool|null $isAdmin An indication of whether the user has admin permissions.
-     *
-     * @return $this
-     */
-    public function setIsAdmin($isAdmin)
-    {
-        $this->container['isAdmin'] = $isAdmin;
 
         return $this;
     }

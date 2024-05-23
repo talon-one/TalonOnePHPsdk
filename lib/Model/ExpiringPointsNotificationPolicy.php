@@ -58,7 +58,8 @@ class ExpiringPointsNotificationPolicy implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'triggers' => '\TalonOne\Client\Model\ExpiringPointsNotificationTrigger[]'
+        'triggers' => '\TalonOne\Client\Model\ExpiringPointsNotificationTrigger[]',
+        'batchingEnabled' => 'bool'
     ];
 
     /**
@@ -68,7 +69,8 @@ class ExpiringPointsNotificationPolicy implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'triggers' => null
+        'triggers' => null,
+        'batchingEnabled' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class ExpiringPointsNotificationPolicy implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'triggers' => 'triggers'
+        'triggers' => 'triggers',
+        'batchingEnabled' => 'batchingEnabled'
     ];
 
     /**
@@ -109,7 +112,8 @@ class ExpiringPointsNotificationPolicy implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'triggers' => 'setTriggers'
+        'triggers' => 'setTriggers',
+        'batchingEnabled' => 'setBatchingEnabled'
     ];
 
     /**
@@ -119,7 +123,8 @@ class ExpiringPointsNotificationPolicy implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'triggers' => 'getTriggers'
+        'triggers' => 'getTriggers',
+        'batchingEnabled' => 'getBatchingEnabled'
     ];
 
     /**
@@ -184,6 +189,7 @@ class ExpiringPointsNotificationPolicy implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['triggers'] = isset($data['triggers']) ? $data['triggers'] : null;
+        $this->container['batchingEnabled'] = isset($data['batchingEnabled']) ? $data['batchingEnabled'] : true;
     }
 
     /**
@@ -269,6 +275,30 @@ class ExpiringPointsNotificationPolicy implements ModelInterface, ArrayAccess
     public function setTriggers($triggers)
     {
         $this->container['triggers'] = $triggers;
+
+        return $this;
+    }
+
+    /**
+     * Gets batchingEnabled
+     *
+     * @return bool|null
+     */
+    public function getBatchingEnabled()
+    {
+        return $this->container['batchingEnabled'];
+    }
+
+    /**
+     * Sets batchingEnabled
+     *
+     * @param bool|null $batchingEnabled Indicates whether batching is activated.
+     *
+     * @return $this
+     */
+    public function setBatchingEnabled($batchingEnabled)
+    {
+        $this->container['batchingEnabled'] = $batchingEnabled;
 
         return $this;
     }

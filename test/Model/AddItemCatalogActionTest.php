@@ -100,6 +100,13 @@ class AddItemCatalogActionTest extends TestCase
     }
 
     /**
+     * Test attribute "product"
+     */
+    public function testPropertyProduct()
+    {
+    }
+
+    /**
      * Test attribute "replaceIfExists"
      */
     public function testPropertyReplaceIfExists()

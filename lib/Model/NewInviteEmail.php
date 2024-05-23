@@ -198,17 +198,9 @@ class NewInviteEmail implements ModelInterface, ArrayAccess
         if ($this->container['email'] === null) {
             $invalidProperties[] = "'email' can't be null";
         }
-        if ((mb_strlen($this->container['email']) < 1)) {
-            $invalidProperties[] = "invalid value for 'email', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['token'] === null) {
             $invalidProperties[] = "'token' can't be null";
         }
-        if ((mb_strlen($this->container['token']) < 1)) {
-            $invalidProperties[] = "invalid value for 'token', the character length must be bigger than or equal to 1.";
-        }
-
         return $invalidProperties;
     }
 
@@ -237,17 +229,12 @@ class NewInviteEmail implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email email
+     * @param string $email Email address of the user.
      *
      * @return $this
      */
     public function setEmail($email)
     {
-
-        if ((mb_strlen($email) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $email when calling NewInviteEmail., must be bigger than or equal to 1.');
-        }
-
         $this->container['email'] = $email;
 
         return $this;
@@ -266,17 +253,12 @@ class NewInviteEmail implements ModelInterface, ArrayAccess
     /**
      * Sets token
      *
-     * @param string $token token
+     * @param string $token Invitation token of the user.
      *
      * @return $this
      */
     public function setToken($token)
     {
-
-        if ((mb_strlen($token) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $token when calling NewInviteEmail., must be bigger than or equal to 1.');
-        }
-
         $this->container['token'] = $token;
 
         return $this;

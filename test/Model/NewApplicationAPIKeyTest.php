@@ -100,6 +100,20 @@ class NewApplicationAPIKeyTest extends TestCase
     }
 
     /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+    }
+
+    /**
+     * Test attribute "timeOffset"
+     */
+    public function testPropertyTimeOffset()
+    {
+    }
+
+    /**
      * Test attribute "id"
      */
     public function testPropertyId()

@@ -114,9 +114,9 @@ class UserTest extends TestCase
     }
 
     /**
-     * Test attribute "inviteToken"
+     * Test attribute "name"
      */
-    public function testPropertyInviteToken()
+    public function testPropertyName()
     {
     }
 
@@ -128,9 +128,16 @@ class UserTest extends TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "inviteToken"
      */
-    public function testPropertyName()
+    public function testPropertyInviteToken()
+    {
+    }
+
+    /**
+     * Test attribute "isAdmin"
+     */
+    public function testPropertyIsAdmin()
     {
     }
 
@@ -142,23 +149,9 @@ class UserTest extends TestCase
     }
 
     /**
-     * Test attribute "latestFeedTimestamp"
-     */
-    public function testPropertyLatestFeedTimestamp()
-    {
-    }
-
-    /**
      * Test attribute "roles"
      */
     public function testPropertyRoles()
-    {
-    }
-
-    /**
-     * Test attribute "applicationNotificationSubscriptions"
-     */
-    public function testPropertyApplicationNotificationSubscriptions()
     {
     }
 
@@ -170,9 +163,9 @@ class UserTest extends TestCase
     }
 
     /**
-     * Test attribute "isAdmin"
+     * Test attribute "applicationNotificationSubscriptions"
      */
-    public function testPropertyIsAdmin()
+    public function testPropertyApplicationNotificationSubscriptions()
     {
     }
 
@@ -187,6 +180,13 @@ class UserTest extends TestCase
      * Test attribute "lastAccessed"
      */
     public function testPropertyLastAccessed()
+    {
+    }
+
+    /**
+     * Test attribute "latestFeedTimestamp"
+     */
+    public function testPropertyLatestFeedTimestamp()
     {
     }
 }

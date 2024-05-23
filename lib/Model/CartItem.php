@@ -64,6 +64,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'remainingQuantity' => 'int',
         'price' => 'float',
         'category' => 'string',
+        'product' => '\TalonOne\Client\Model\Product',
         'weight' => 'float',
         'height' => 'float',
         'width' => 'float',
@@ -87,6 +88,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'remainingQuantity' => null,
         'price' => null,
         'category' => null,
+        'product' => null,
         'weight' => null,
         'height' => null,
         'width' => null,
@@ -131,6 +133,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'remainingQuantity' => 'remainingQuantity',
         'price' => 'price',
         'category' => 'category',
+        'product' => 'product',
         'weight' => 'weight',
         'height' => 'height',
         'width' => 'width',
@@ -154,6 +157,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'remainingQuantity' => 'setRemainingQuantity',
         'price' => 'setPrice',
         'category' => 'setCategory',
+        'product' => 'setProduct',
         'weight' => 'setWeight',
         'height' => 'setHeight',
         'width' => 'setWidth',
@@ -177,6 +181,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'remainingQuantity' => 'getRemainingQuantity',
         'price' => 'getPrice',
         'category' => 'getCategory',
+        'product' => 'getProduct',
         'weight' => 'getWeight',
         'height' => 'getHeight',
         'width' => 'getWidth',
@@ -254,6 +259,7 @@ class CartItem implements ModelInterface, ArrayAccess
         $this->container['remainingQuantity'] = isset($data['remainingQuantity']) ? $data['remainingQuantity'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['category'] = isset($data['category']) ? $data['category'] : null;
+        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
@@ -476,6 +482,30 @@ class CartItem implements ModelInterface, ArrayAccess
     public function setCategory($category)
     {
         $this->container['category'] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Gets product
+     *
+     * @return \TalonOne\Client\Model\Product|null
+     */
+    public function getProduct()
+    {
+        return $this->container['product'];
+    }
+
+    /**
+     * Sets product
+     *
+     * @param \TalonOne\Client\Model\Product|null $product product
+     *
+     * @return $this
+     */
+    public function setProduct($product)
+    {
+        $this->container['product'] = $product;
 
         return $this;
     }

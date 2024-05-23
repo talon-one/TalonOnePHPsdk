@@ -57,6 +57,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'int',
         'name' => 'string',
         'loginURL' => 'string'
     ];
@@ -67,6 +68,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'id' => null,
         'name' => null,
         'loginURL' => null
     ];
@@ -98,6 +100,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'name' => 'name',
         'loginURL' => 'loginURL'
     ];
@@ -108,6 +111,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'name' => 'setName',
         'loginURL' => 'setLoginURL'
     ];
@@ -118,6 +122,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'name' => 'getName',
         'loginURL' => 'getLoginURL'
     ];
@@ -182,6 +187,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['loginURL'] = isset($data['loginURL']) ? $data['loginURL'] : null;
     }
@@ -195,6 +201,9 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -223,6 +232,30 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id ID of the SAML login endpoint.
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets name
@@ -266,7 +299,7 @@ class SamlLoginEndpoint implements ModelInterface, ArrayAccess
     /**
      * Sets loginURL
      *
-     * @param string $loginURL Single Sign-On URL.
+     * @param string $loginURL The single sign-on URL.
      *
      * @return $this
      */

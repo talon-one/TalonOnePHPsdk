@@ -265,7 +265,7 @@ class CustomerProfileAudienceRequestItem implements ModelInterface, ArrayAccess
     /**
      * Sets action
      *
-     * @param string $action Defines the action to perform: - `add`: Adds the customer profile to the audience. - `delete`: Removes the customer profile from the audience.
+     * @param string $action Defines the action to perform: - `add`: Adds the customer profile to the audience. If the customer profile does not exist, it will be created. - `delete`: Removes the customer profile from the audience.
      *
      * @return $this
      */

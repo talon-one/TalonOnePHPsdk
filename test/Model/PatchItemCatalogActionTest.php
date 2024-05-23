@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * PatchItemCatalogActionTest Class Doc Comment
  *
  * @category    Class
- * @description The specific properties of the \&quot;PATCH\&quot; catalog sync action.
+ * @description The specific properties of the \&quot;PATCH\&quot; catalog sync action.  **Note:**   - If you do not provide a new &#x60;price&#x60; value, the existing &#x60;price&#x60; value is retained.   - If you do not provide a new &#x60;product&#x60; value, the &#x60;product&#x60; value is set to &#x60;null&#x60;.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -96,6 +96,13 @@ class PatchItemCatalogActionTest extends TestCase
      * Test attribute "attributes"
      */
     public function testPropertyAttributes()
+    {
+    }
+
+    /**
+     * Test attribute "product"
+     */
+    public function testPropertyProduct()
     {
     }
 

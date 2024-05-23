@@ -128,6 +128,13 @@ class CartItemTest extends TestCase
     }
 
     /**
+     * Test attribute "product"
+     */
+    public function testPropertyProduct()
+    {
+    }
+
+    /**
      * Test attribute "weight"
      */
     public function testPropertyWeight()

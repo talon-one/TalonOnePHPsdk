@@ -142,6 +142,13 @@ class EnvironmentTest extends TestCase
     }
 
     /**
+     * Test attribute "achievements"
+     */
+    public function testPropertyAchievements()
+    {
+    }
+
+    /**
      * Test attribute "attributes"
      */
     public function testPropertyAttributes()

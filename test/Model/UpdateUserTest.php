@@ -86,16 +86,23 @@ class UpdateUserTest extends TestCase
     }
 
     /**
-     * Test attribute "policy"
+     * Test attribute "state"
      */
-    public function testPropertyPolicy()
+    public function testPropertyState()
     {
     }
 
     /**
-     * Test attribute "state"
+     * Test attribute "isAdmin"
      */
-    public function testPropertyState()
+    public function testPropertyIsAdmin()
+    {
+    }
+
+    /**
+     * Test attribute "policy"
+     */
+    public function testPropertyPolicy()
     {
     }
 
@@ -110,13 +117,6 @@ class UpdateUserTest extends TestCase
      * Test attribute "applicationNotificationSubscriptions"
      */
     public function testPropertyApplicationNotificationSubscriptions()
-    {
-    }
-
-    /**
-     * Test attribute "isAdmin"
-     */
-    public function testPropertyIsAdmin()
     {
     }
 }

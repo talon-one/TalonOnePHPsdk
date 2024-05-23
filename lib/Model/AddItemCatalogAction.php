@@ -61,6 +61,7 @@ class AddItemCatalogAction implements ModelInterface, ArrayAccess
         'sku' => 'string',
         'price' => 'float',
         'attributes' => 'object',
+        'product' => '\TalonOne\Client\Model\Product',
         'replaceIfExists' => 'bool'
     ];
 
@@ -73,6 +74,7 @@ class AddItemCatalogAction implements ModelInterface, ArrayAccess
         'sku' => null,
         'price' => null,
         'attributes' => null,
+        'product' => null,
         'replaceIfExists' => null
     ];
 
@@ -106,6 +108,7 @@ class AddItemCatalogAction implements ModelInterface, ArrayAccess
         'sku' => 'sku',
         'price' => 'price',
         'attributes' => 'attributes',
+        'product' => 'product',
         'replaceIfExists' => 'replaceIfExists'
     ];
 
@@ -118,6 +121,7 @@ class AddItemCatalogAction implements ModelInterface, ArrayAccess
         'sku' => 'setSku',
         'price' => 'setPrice',
         'attributes' => 'setAttributes',
+        'product' => 'setProduct',
         'replaceIfExists' => 'setReplaceIfExists'
     ];
 
@@ -130,6 +134,7 @@ class AddItemCatalogAction implements ModelInterface, ArrayAccess
         'sku' => 'getSku',
         'price' => 'getPrice',
         'attributes' => 'getAttributes',
+        'product' => 'getProduct',
         'replaceIfExists' => 'getReplaceIfExists'
     ];
 
@@ -196,6 +201,7 @@ class AddItemCatalogAction implements ModelInterface, ArrayAccess
         $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['replaceIfExists'] = isset($data['replaceIfExists']) ? $data['replaceIfExists'] : false;
     }
 
@@ -299,6 +305,30 @@ class AddItemCatalogAction implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets product
+     *
+     * @return \TalonOne\Client\Model\Product|null
+     */
+    public function getProduct()
+    {
+        return $this->container['product'];
+    }
+
+    /**
+     * Sets product
+     *
+     * @param \TalonOne\Client\Model\Product|null $product product
+     *
+     * @return $this
+     */
+    public function setProduct($product)
+    {
+        $this->container['product'] = $product;
+
+        return $this;
+    }
+
+    /**
      * Gets replaceIfExists
      *
      * @return bool|null
@@ -311,7 +341,7 @@ class AddItemCatalogAction implements ModelInterface, ArrayAccess
     /**
      * Sets replaceIfExists
      *
-     * @param bool|null $replaceIfExists Indicates whether to replace the attributes of the item if the same SKU exists.
+     * @param bool|null $replaceIfExists Indicates whether to replace the attributes of the item if the same SKU exists.  **Note**: When set to `true`:   - If you do not provide a new `price` value, the existing `price` value is retained.   - If you do not provide a new `product` value, the `product` value is set to `null`.
      *
      * @return $this
      */

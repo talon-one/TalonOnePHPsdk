@@ -61,7 +61,6 @@ class AccountDashboardStatistic implements ModelInterface, ArrayAccess
         'discounts' => '\TalonOne\Client\Model\AccountDashboardStatisticDiscount[]',
         'loyaltyPoints' => '\TalonOne\Client\Model\AccountDashboardStatisticLoyaltyPoints[]',
         'referrals' => '\TalonOne\Client\Model\AccountDashboardStatisticReferrals[]',
-        'apiCalls' => '\TalonOne\Client\Model\AccountDashboardStatisticApiCalls[]',
         'campaigns' => '\TalonOne\Client\Model\AccountDashboardStatisticCampaigns'
     ];
 
@@ -75,7 +74,6 @@ class AccountDashboardStatistic implements ModelInterface, ArrayAccess
         'discounts' => null,
         'loyaltyPoints' => null,
         'referrals' => null,
-        'apiCalls' => null,
         'campaigns' => null
     ];
 
@@ -110,7 +108,6 @@ class AccountDashboardStatistic implements ModelInterface, ArrayAccess
         'discounts' => 'discounts',
         'loyaltyPoints' => 'loyaltyPoints',
         'referrals' => 'referrals',
-        'apiCalls' => 'apiCalls',
         'campaigns' => 'campaigns'
     ];
 
@@ -124,7 +121,6 @@ class AccountDashboardStatistic implements ModelInterface, ArrayAccess
         'discounts' => 'setDiscounts',
         'loyaltyPoints' => 'setLoyaltyPoints',
         'referrals' => 'setReferrals',
-        'apiCalls' => 'setApiCalls',
         'campaigns' => 'setCampaigns'
     ];
 
@@ -138,7 +134,6 @@ class AccountDashboardStatistic implements ModelInterface, ArrayAccess
         'discounts' => 'getDiscounts',
         'loyaltyPoints' => 'getLoyaltyPoints',
         'referrals' => 'getReferrals',
-        'apiCalls' => 'getApiCalls',
         'campaigns' => 'getCampaigns'
     ];
 
@@ -206,7 +201,6 @@ class AccountDashboardStatistic implements ModelInterface, ArrayAccess
         $this->container['discounts'] = isset($data['discounts']) ? $data['discounts'] : null;
         $this->container['loyaltyPoints'] = isset($data['loyaltyPoints']) ? $data['loyaltyPoints'] : null;
         $this->container['referrals'] = isset($data['referrals']) ? $data['referrals'] : null;
-        $this->container['apiCalls'] = isset($data['apiCalls']) ? $data['apiCalls'] : null;
         $this->container['campaigns'] = isset($data['campaigns']) ? $data['campaigns'] : null;
     }
 
@@ -329,30 +323,6 @@ class AccountDashboardStatistic implements ModelInterface, ArrayAccess
     public function setReferrals($referrals)
     {
         $this->container['referrals'] = $referrals;
-
-        return $this;
-    }
-
-    /**
-     * Gets apiCalls
-     *
-     * @return \TalonOne\Client\Model\AccountDashboardStatisticApiCalls[]|null
-     */
-    public function getApiCalls()
-    {
-        return $this->container['apiCalls'];
-    }
-
-    /**
-     * Sets apiCalls
-     *
-     * @param \TalonOne\Client\Model\AccountDashboardStatisticApiCalls[]|null $apiCalls Aggregated statistic for the number of account API calls.
-     *
-     * @return $this
-     */
-    public function setApiCalls($apiCalls)
-    {
-        $this->container['apiCalls'] = $apiCalls;
 
         return $this;
     }

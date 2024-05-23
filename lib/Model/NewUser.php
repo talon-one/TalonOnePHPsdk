@@ -249,7 +249,7 @@ class NewUser implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email The email address associated with your account.
+     * @param string $email The email address associated with the user profile.
      *
      * @return $this
      */

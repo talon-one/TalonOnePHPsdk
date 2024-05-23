@@ -350,7 +350,7 @@ class Picklist implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type The type of allowed values in the picklist. If type time is chosen, it must be an RFC3339 timestamp string.
+     * @param string $type The type of allowed values in the picklist. If the type `time` is chosen, it must be an RFC3339 timestamp string.
      *
      * @return $this
      */

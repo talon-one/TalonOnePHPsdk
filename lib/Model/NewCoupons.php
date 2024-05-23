@@ -255,7 +255,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
         $this->container['validCharacters'] = isset($data['validCharacters']) ? $data['validCharacters'] : null;
         $this->container['couponPattern'] = isset($data['couponPattern']) ? $data['couponPattern'] : null;
-        $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : true;
+        $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : false;
         $this->container['implicitlyReserved'] = isset($data['implicitlyReserved']) ? $data['implicitlyReserved'] : null;
     }
 

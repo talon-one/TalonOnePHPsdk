@@ -236,6 +236,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
     const FEATURES_LOYALTY = 'loyalty';
     const FEATURES_GIVEAWAYS = 'giveaways';
     const FEATURES_STRIKETHROUGH = 'strikethrough';
+    const FEATURES_ACHIEVEMENTS = 'achievements';
     const CAMPAIGN_TYPE_CART_ITEM = 'cartItem';
     const CAMPAIGN_TYPE_ADVANCED = 'advanced';
     
@@ -268,6 +269,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
             self::FEATURES_LOYALTY,
             self::FEATURES_GIVEAWAYS,
             self::FEATURES_STRIKETHROUGH,
+            self::FEATURES_ACHIEVEMENTS,
         ];
     }
     

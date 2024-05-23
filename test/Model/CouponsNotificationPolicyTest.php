@@ -91,4 +91,11 @@ class CouponsNotificationPolicyTest extends TestCase
     public function testPropertyScopes()
     {
     }
+
+    /**
+     * Test attribute "batchingEnabled"
+     */
+    public function testPropertyBatchingEnabled()
+    {
+    }
 }

@@ -58,6 +58,7 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
+        'batchingEnabled' => 'bool',
         'triggers' => '\TalonOne\Client\Model\TierWillDowngradeNotificationTrigger[]'
     ];
 
@@ -68,6 +69,7 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
+        'batchingEnabled' => null,
         'triggers' => null
     ];
 
@@ -99,6 +101,7 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
+        'batchingEnabled' => 'batchingEnabled',
         'triggers' => 'triggers'
     ];
 
@@ -109,6 +112,7 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
+        'batchingEnabled' => 'setBatchingEnabled',
         'triggers' => 'setTriggers'
     ];
 
@@ -119,6 +123,7 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
+        'batchingEnabled' => 'getBatchingEnabled',
         'triggers' => 'getTriggers'
     ];
 
@@ -183,6 +188,7 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['batchingEnabled'] = isset($data['batchingEnabled']) ? $data['batchingEnabled'] : true;
         $this->container['triggers'] = isset($data['triggers']) ? $data['triggers'] : null;
     }
 
@@ -245,6 +251,30 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
         }
 
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets batchingEnabled
+     *
+     * @return bool|null
+     */
+    public function getBatchingEnabled()
+    {
+        return $this->container['batchingEnabled'];
+    }
+
+    /**
+     * Sets batchingEnabled
+     *
+     * @param bool|null $batchingEnabled Indicates whether batching is activated.
+     *
+     * @return $this
+     */
+    public function setBatchingEnabled($batchingEnabled)
+    {
+        $this->container['batchingEnabled'] = $batchingEnabled;
 
         return $this;
     }

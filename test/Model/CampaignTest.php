@@ -198,13 +198,6 @@ class CampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "evaluationGroupId"
-     */
-    public function testPropertyEvaluationGroupId()
-    {
-    }
-
-    /**
      * Test attribute "type"
      */
     public function testPropertyType()
@@ -362,6 +355,13 @@ class CampaignTest extends TestCase
      * Test attribute "templateId"
      */
     public function testPropertyTemplateId()
+    {
+    }
+
+    /**
+     * Test attribute "frontendState"
+     */
+    public function testPropertyFrontendState()
     {
     }
 }

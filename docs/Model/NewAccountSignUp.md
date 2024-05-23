@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **string** | The email address associated with your account. | 
+**email** | **string** | The email address associated with the user profile. | 
 **password** | **string** | The password for your account. | 
 **companyName** | **string** |  | 
 

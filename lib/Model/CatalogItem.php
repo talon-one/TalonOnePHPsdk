@@ -64,7 +64,8 @@ class CatalogItem implements ModelInterface, ArrayAccess
         'price' => 'float',
         'catalogid' => 'int',
         'version' => 'int',
-        'attributes' => '\TalonOne\Client\Model\ItemAttribute[]'
+        'attributes' => '\TalonOne\Client\Model\ItemAttribute[]',
+        'product' => '\TalonOne\Client\Model\Product'
     ];
 
     /**
@@ -79,7 +80,8 @@ class CatalogItem implements ModelInterface, ArrayAccess
         'price' => null,
         'catalogid' => null,
         'version' => null,
-        'attributes' => null
+        'attributes' => null,
+        'product' => null
     ];
 
     /**
@@ -115,7 +117,8 @@ class CatalogItem implements ModelInterface, ArrayAccess
         'price' => 'price',
         'catalogid' => 'catalogid',
         'version' => 'version',
-        'attributes' => 'attributes'
+        'attributes' => 'attributes',
+        'product' => 'product'
     ];
 
     /**
@@ -130,7 +133,8 @@ class CatalogItem implements ModelInterface, ArrayAccess
         'price' => 'setPrice',
         'catalogid' => 'setCatalogid',
         'version' => 'setVersion',
-        'attributes' => 'setAttributes'
+        'attributes' => 'setAttributes',
+        'product' => 'setProduct'
     ];
 
     /**
@@ -145,7 +149,8 @@ class CatalogItem implements ModelInterface, ArrayAccess
         'price' => 'getPrice',
         'catalogid' => 'getCatalogid',
         'version' => 'getVersion',
-        'attributes' => 'getAttributes'
+        'attributes' => 'getAttributes',
+        'product' => 'getProduct'
     ];
 
     /**
@@ -215,6 +220,7 @@ class CatalogItem implements ModelInterface, ArrayAccess
         $this->container['catalogid'] = isset($data['catalogid']) ? $data['catalogid'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
     }
 
     /**
@@ -429,6 +435,30 @@ class CatalogItem implements ModelInterface, ArrayAccess
     public function setAttributes($attributes)
     {
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets product
+     *
+     * @return \TalonOne\Client\Model\Product|null
+     */
+    public function getProduct()
+    {
+        return $this->container['product'];
+    }
+
+    /**
+     * Sets product
+     *
+     * @param \TalonOne\Client\Model\Product|null $product product
+     *
+     * @return $this
+     */
+    public function setProduct($product)
+    {
+        $this->container['product'] = $product;
 
         return $this;
     }

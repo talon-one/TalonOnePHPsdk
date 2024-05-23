@@ -224,4 +224,11 @@ class AdditionalCampaignPropertiesTest extends TestCase
     public function testPropertyTemplateId()
     {
     }
+
+    /**
+     * Test attribute "frontendState"
+     */
+    public function testPropertyFrontendState()
+    {
+    }
 }

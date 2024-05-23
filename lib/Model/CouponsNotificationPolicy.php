@@ -58,7 +58,8 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'scopes' => 'string[]'
+        'scopes' => 'string[]',
+        'batchingEnabled' => 'bool'
     ];
 
     /**
@@ -68,7 +69,8 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'scopes' => null
+        'scopes' => null,
+        'batchingEnabled' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'scopes' => 'scopes'
+        'scopes' => 'scopes',
+        'batchingEnabled' => 'batchingEnabled'
     ];
 
     /**
@@ -109,7 +112,8 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'scopes' => 'setScopes'
+        'scopes' => 'setScopes',
+        'batchingEnabled' => 'setBatchingEnabled'
     ];
 
     /**
@@ -119,7 +123,8 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'scopes' => 'getScopes'
+        'scopes' => 'getScopes',
+        'batchingEnabled' => 'getBatchingEnabled'
     ];
 
     /**
@@ -203,6 +208,7 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['scopes'] = isset($data['scopes']) ? $data['scopes'] : null;
+        $this->container['batchingEnabled'] = isset($data['batchingEnabled']) ? $data['batchingEnabled'] : true;
     }
 
     /**
@@ -297,6 +303,30 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
             );
         }
         $this->container['scopes'] = $scopes;
+
+        return $this;
+    }
+
+    /**
+     * Gets batchingEnabled
+     *
+     * @return bool|null
+     */
+    public function getBatchingEnabled()
+    {
+        return $this->container['batchingEnabled'];
+    }
+
+    /**
+     * Sets batchingEnabled
+     *
+     * @param bool|null $batchingEnabled Indicates whether batching is activated.
+     *
+     * @return $this
+     */
+    public function setBatchingEnabled($batchingEnabled)
+    {
+        $this->container['batchingEnabled'] = $batchingEnabled;
 
         return $this;
     }
