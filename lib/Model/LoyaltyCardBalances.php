@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerInventory
+ * LoyaltyCardBalances
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * CustomerInventory Class Doc Comment
+ * LoyaltyCardBalances Class Doc Comment
  *
  * @category Class
+ * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomerInventory implements ModelInterface, ArrayAccess
+class LoyaltyCardBalances implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomerInventory';
+    protected static $openAPIModelName = 'LoyaltyCardBalances';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +58,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profile' => '\TalonOne\Client\Model\CustomerProfile',
-        'loyalty' => '\TalonOne\Client\Model\Loyalty',
-        'referrals' => '\TalonOne\Client\Model\InventoryReferral[]',
-        'coupons' => '\TalonOne\Client\Model\InventoryCoupon[]',
-        'giveaways' => '\TalonOne\Client\Model\Giveaway[]',
-        'achievements' => '\TalonOne\Client\Model\AchievementProgress[]'
+        'balance' => '\TalonOne\Client\Model\LoyaltyBalance',
+        'subledgerBalances' => 'map[string,\TalonOne\Client\Model\LoyaltyBalance]',
+        'profiles' => '\TalonOne\Client\Model\LoyaltyCardProfileRegistration[]'
     ];
 
     /**
@@ -71,12 +69,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'profile' => null,
-        'loyalty' => null,
-        'referrals' => null,
-        'coupons' => null,
-        'giveaways' => null,
-        'achievements' => null
+        'balance' => null,
+        'subledgerBalances' => null,
+        'profiles' => null
     ];
 
     /**
@@ -106,12 +101,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'profile' => 'profile',
-        'loyalty' => 'loyalty',
-        'referrals' => 'referrals',
-        'coupons' => 'coupons',
-        'giveaways' => 'giveaways',
-        'achievements' => 'achievements'
+        'balance' => 'balance',
+        'subledgerBalances' => 'subledgerBalances',
+        'profiles' => 'profiles'
     ];
 
     /**
@@ -120,12 +112,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'profile' => 'setProfile',
-        'loyalty' => 'setLoyalty',
-        'referrals' => 'setReferrals',
-        'coupons' => 'setCoupons',
-        'giveaways' => 'setGiveaways',
-        'achievements' => 'setAchievements'
+        'balance' => 'setBalance',
+        'subledgerBalances' => 'setSubledgerBalances',
+        'profiles' => 'setProfiles'
     ];
 
     /**
@@ -134,12 +123,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'profile' => 'getProfile',
-        'loyalty' => 'getLoyalty',
-        'referrals' => 'getReferrals',
-        'coupons' => 'getCoupons',
-        'giveaways' => 'getGiveaways',
-        'achievements' => 'getAchievements'
+        'balance' => 'getBalance',
+        'subledgerBalances' => 'getSubledgerBalances',
+        'profiles' => 'getProfiles'
     ];
 
     /**
@@ -202,12 +188,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['profile'] = isset($data['profile']) ? $data['profile'] : null;
-        $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
-        $this->container['referrals'] = isset($data['referrals']) ? $data['referrals'] : null;
-        $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
-        $this->container['giveaways'] = isset($data['giveaways']) ? $data['giveaways'] : null;
-        $this->container['achievements'] = isset($data['achievements']) ? $data['achievements'] : null;
+        $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
+        $this->container['subledgerBalances'] = isset($data['subledgerBalances']) ? $data['subledgerBalances'] : null;
+        $this->container['profiles'] = isset($data['profiles']) ? $data['profiles'] : null;
     }
 
     /**
@@ -235,145 +218,73 @@ class CustomerInventory implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets profile
+     * Gets balance
      *
-     * @return \TalonOne\Client\Model\CustomerProfile|null
+     * @return \TalonOne\Client\Model\LoyaltyBalance|null
      */
-    public function getProfile()
+    public function getBalance()
     {
-        return $this->container['profile'];
+        return $this->container['balance'];
     }
 
     /**
-     * Sets profile
+     * Sets balance
      *
-     * @param \TalonOne\Client\Model\CustomerProfile|null $profile profile
+     * @param \TalonOne\Client\Model\LoyaltyBalance|null $balance balance
      *
      * @return $this
      */
-    public function setProfile($profile)
+    public function setBalance($balance)
     {
-        $this->container['profile'] = $profile;
+        $this->container['balance'] = $balance;
 
         return $this;
     }
 
     /**
-     * Gets loyalty
+     * Gets subledgerBalances
      *
-     * @return \TalonOne\Client\Model\Loyalty|null
+     * @return map[string,\TalonOne\Client\Model\LoyaltyBalance]|null
      */
-    public function getLoyalty()
+    public function getSubledgerBalances()
     {
-        return $this->container['loyalty'];
+        return $this->container['subledgerBalances'];
     }
 
     /**
-     * Sets loyalty
+     * Sets subledgerBalances
      *
-     * @param \TalonOne\Client\Model\Loyalty|null $loyalty loyalty
+     * @param map[string,\TalonOne\Client\Model\LoyaltyBalance]|null $subledgerBalances Map of the loyalty balances of the subledgers of a ledger.
      *
      * @return $this
      */
-    public function setLoyalty($loyalty)
+    public function setSubledgerBalances($subledgerBalances)
     {
-        $this->container['loyalty'] = $loyalty;
+        $this->container['subledgerBalances'] = $subledgerBalances;
 
         return $this;
     }
 
     /**
-     * Gets referrals
+     * Gets profiles
      *
-     * @return \TalonOne\Client\Model\InventoryReferral[]|null
+     * @return \TalonOne\Client\Model\LoyaltyCardProfileRegistration[]|null
      */
-    public function getReferrals()
+    public function getProfiles()
     {
-        return $this->container['referrals'];
+        return $this->container['profiles'];
     }
 
     /**
-     * Sets referrals
+     * Sets profiles
      *
-     * @param \TalonOne\Client\Model\InventoryReferral[]|null $referrals referrals
+     * @param \TalonOne\Client\Model\LoyaltyCardProfileRegistration[]|null $profiles Customer profiles linked to the loyalty card.
      *
      * @return $this
      */
-    public function setReferrals($referrals)
+    public function setProfiles($profiles)
     {
-        $this->container['referrals'] = $referrals;
-
-        return $this;
-    }
-
-    /**
-     * Gets coupons
-     *
-     * @return \TalonOne\Client\Model\InventoryCoupon[]|null
-     */
-    public function getCoupons()
-    {
-        return $this->container['coupons'];
-    }
-
-    /**
-     * Sets coupons
-     *
-     * @param \TalonOne\Client\Model\InventoryCoupon[]|null $coupons The coupons reserved by this profile. This array includes hard and soft reservations.
-     *
-     * @return $this
-     */
-    public function setCoupons($coupons)
-    {
-        $this->container['coupons'] = $coupons;
-
-        return $this;
-    }
-
-    /**
-     * Gets giveaways
-     *
-     * @return \TalonOne\Client\Model\Giveaway[]|null
-     */
-    public function getGiveaways()
-    {
-        return $this->container['giveaways'];
-    }
-
-    /**
-     * Sets giveaways
-     *
-     * @param \TalonOne\Client\Model\Giveaway[]|null $giveaways giveaways
-     *
-     * @return $this
-     */
-    public function setGiveaways($giveaways)
-    {
-        $this->container['giveaways'] = $giveaways;
-
-        return $this;
-    }
-
-    /**
-     * Gets achievements
-     *
-     * @return \TalonOne\Client\Model\AchievementProgress[]|null
-     */
-    public function getAchievements()
-    {
-        return $this->container['achievements'];
-    }
-
-    /**
-     * Sets achievements
-     *
-     * @param \TalonOne\Client\Model\AchievementProgress[]|null $achievements achievements
-     *
-     * @return $this
-     */
-    public function setAchievements($achievements)
-    {
-        $this->container['achievements'] = $achievements;
+        $this->container['profiles'] = $profiles;
 
         return $this;
     }

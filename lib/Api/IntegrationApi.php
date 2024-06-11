@@ -3168,14 +3168,15 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\LoyaltyBalances|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getLoyaltyBalances($loyaltyProgramId, $integrationId, $endDate = null)
+    public function getLoyaltyBalances($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null)
     {
-        list($response) = $this->getLoyaltyBalancesWithHttpInfo($loyaltyProgramId, $integrationId, $endDate);
+        list($response) = $this->getLoyaltyBalancesWithHttpInfo($loyaltyProgramId, $integrationId, $endDate, $subledgerId);
         return $response;
     }
 
@@ -3187,14 +3188,15 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\LoyaltyBalances|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyBalancesWithHttpInfo($loyaltyProgramId, $integrationId, $endDate = null)
+    public function getLoyaltyBalancesWithHttpInfo($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null)
     {
-        $request = $this->getLoyaltyBalancesRequest($loyaltyProgramId, $integrationId, $endDate);
+        $request = $this->getLoyaltyBalancesRequest($loyaltyProgramId, $integrationId, $endDate, $subledgerId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3337,13 +3339,14 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyBalancesAsync($loyaltyProgramId, $integrationId, $endDate = null)
+    public function getLoyaltyBalancesAsync($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null)
     {
-        return $this->getLoyaltyBalancesAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $endDate)
+        return $this->getLoyaltyBalancesAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $endDate, $subledgerId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3359,14 +3362,15 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyBalancesAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $endDate = null)
+    public function getLoyaltyBalancesAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null)
     {
         $returnType = '\TalonOne\Client\Model\LoyaltyBalances';
-        $request = $this->getLoyaltyBalancesRequest($loyaltyProgramId, $integrationId, $endDate);
+        $request = $this->getLoyaltyBalancesRequest($loyaltyProgramId, $integrationId, $endDate, $subledgerId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3408,11 +3412,12 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyBalancesRequest($loyaltyProgramId, $integrationId, $endDate = null)
+    protected function getLoyaltyBalancesRequest($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -3440,6 +3445,13 @@ class IntegrationApi
         }
         if ($endDate !== null) {
             $queryParams['endDate'] = $endDate;
+        }
+        // query params
+        if (is_array($subledgerId)) {
+            $subledgerId = ObjectSerializer::serializeCollection($subledgerId, '', true);
+        }
+        if ($subledgerId !== null) {
+            $queryParams['subledgerId'] = $subledgerId;
         }
 
 
@@ -3537,14 +3549,15 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\LoyaltyBalances|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\LoyaltyCardBalances|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getLoyaltyCardBalances($loyaltyProgramId, $loyaltyCardId, $endDate = null)
+    public function getLoyaltyCardBalances($loyaltyProgramId, $loyaltyCardId, $endDate = null, $subledgerId = null)
     {
-        list($response) = $this->getLoyaltyCardBalancesWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $endDate);
+        list($response) = $this->getLoyaltyCardBalancesWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $endDate, $subledgerId);
         return $response;
     }
 
@@ -3556,14 +3569,15 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\LoyaltyBalances|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\LoyaltyCardBalances|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyCardBalancesWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $endDate = null)
+    public function getLoyaltyCardBalancesWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $endDate = null, $subledgerId = null)
     {
-        $request = $this->getLoyaltyCardBalancesRequest($loyaltyProgramId, $loyaltyCardId, $endDate);
+        $request = $this->getLoyaltyCardBalancesRequest($loyaltyProgramId, $loyaltyCardId, $endDate, $subledgerId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3596,14 +3610,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\LoyaltyBalances' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\LoyaltyCardBalances' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\LoyaltyBalances', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\LoyaltyCardBalances', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3645,7 +3659,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\LoyaltyBalances';
+            $returnType = '\TalonOne\Client\Model\LoyaltyCardBalances';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3664,7 +3678,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\LoyaltyBalances',
+                        '\TalonOne\Client\Model\LoyaltyCardBalances',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3706,13 +3720,14 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyCardBalancesAsync($loyaltyProgramId, $loyaltyCardId, $endDate = null)
+    public function getLoyaltyCardBalancesAsync($loyaltyProgramId, $loyaltyCardId, $endDate = null, $subledgerId = null)
     {
-        return $this->getLoyaltyCardBalancesAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $endDate)
+        return $this->getLoyaltyCardBalancesAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $endDate, $subledgerId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3728,14 +3743,15 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyCardBalancesAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $endDate = null)
+    public function getLoyaltyCardBalancesAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $endDate = null, $subledgerId = null)
     {
-        $returnType = '\TalonOne\Client\Model\LoyaltyBalances';
-        $request = $this->getLoyaltyCardBalancesRequest($loyaltyProgramId, $loyaltyCardId, $endDate);
+        $returnType = '\TalonOne\Client\Model\LoyaltyCardBalances';
+        $request = $this->getLoyaltyCardBalancesRequest($loyaltyProgramId, $loyaltyCardId, $endDate, $subledgerId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3777,11 +3793,12 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyCardBalancesRequest($loyaltyProgramId, $loyaltyCardId, $endDate = null)
+    protected function getLoyaltyCardBalancesRequest($loyaltyProgramId, $loyaltyCardId, $endDate = null, $subledgerId = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -3813,6 +3830,13 @@ class IntegrationApi
         }
         if ($endDate !== null) {
             $queryParams['endDate'] = $endDate;
+        }
+        // query params
+        if (is_array($subledgerId)) {
+            $subledgerId = ObjectSerializer::serializeCollection($subledgerId, 'form', true);
+        }
+        if ($subledgerId !== null) {
+            $queryParams['subledgerId'] = $subledgerId;
         }
 
 
@@ -3910,7 +3934,7 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
-     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
@@ -3932,7 +3956,7 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
-     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
@@ -4085,7 +4109,7 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
-     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
@@ -4110,7 +4134,7 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
-     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
@@ -4162,7 +4186,7 @@ class IntegrationApi
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
-     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
@@ -4211,7 +4235,7 @@ class IntegrationApi
         }
         // query params
         if (is_array($subledgerId)) {
-            $subledgerId = ObjectSerializer::serializeCollection($subledgerId, '', true);
+            $subledgerId = ObjectSerializer::serializeCollection($subledgerId, 'form', true);
         }
         if ($subledgerId !== null) {
             $queryParams['subledgerId'] = $subledgerId;
@@ -4325,7 +4349,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
@@ -4349,7 +4373,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
@@ -4504,7 +4528,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
@@ -4531,7 +4555,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
@@ -4585,7 +4609,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
@@ -4630,7 +4654,7 @@ class IntegrationApi
 
         // query params
         if (is_array($subledgerId)) {
-            $subledgerId = ObjectSerializer::serializeCollection($subledgerId, '', true);
+            $subledgerId = ObjectSerializer::serializeCollection($subledgerId, 'form', true);
         }
         if ($subledgerId !== null) {
             $queryParams['subledgerId'] = $subledgerId;

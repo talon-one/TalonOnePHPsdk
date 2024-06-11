@@ -1,6 +1,6 @@
 <?php
 /**
- * MessageLogEntryTest
+ * NewExternalInvitationTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MessageLogEntryTest Class Doc Comment
+ * NewExternalInvitationTest Class Doc Comment
  *
  * @category    Class
- * @description Message Log.
+ * @description Parameters for inviting a new user from an external identity provider.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MessageLogEntryTest extends TestCase
+class NewExternalInvitationTest extends TestCase
 {
 
     /**
@@ -72,86 +72,30 @@ class MessageLogEntryTest extends TestCase
     }
 
     /**
-     * Test "MessageLogEntry"
+     * Test "NewExternalInvitation"
      */
-    public function testMessageLogEntry()
+    public function testNewExternalInvitation()
     {
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "name"
      */
-    public function testPropertyId()
+    public function testPropertyName()
     {
     }
 
     /**
-     * Test attribute "service"
+     * Test attribute "userGroups"
      */
-    public function testPropertyService()
+    public function testPropertyUserGroups()
     {
     }
 
     /**
-     * Test attribute "changeType"
+     * Test attribute "email"
      */
-    public function testPropertyChangeType()
-    {
-    }
-
-    /**
-     * Test attribute "notificationId"
-     */
-    public function testPropertyNotificationId()
-    {
-    }
-
-    /**
-     * Test attribute "notificationName"
-     */
-    public function testPropertyNotificationName()
-    {
-    }
-
-    /**
-     * Test attribute "request"
-     */
-    public function testPropertyRequest()
-    {
-    }
-
-    /**
-     * Test attribute "response"
-     */
-    public function testPropertyResponse()
-    {
-    }
-
-    /**
-     * Test attribute "createdAt"
-     */
-    public function testPropertyCreatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "entityType"
-     */
-    public function testPropertyEntityType()
-    {
-    }
-
-    /**
-     * Test attribute "applicationId"
-     */
-    public function testPropertyApplicationId()
-    {
-    }
-
-    /**
-     * Test attribute "loyaltyProgramId"
-     */
-    public function testPropertyLoyaltyProgramId()
+    public function testPropertyEmail()
     {
     }
 }

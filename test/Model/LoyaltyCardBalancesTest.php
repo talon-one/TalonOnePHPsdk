@@ -1,6 +1,6 @@
 <?php
 /**
- * MessageLogEntryTest
+ * LoyaltyCardBalancesTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MessageLogEntryTest Class Doc Comment
+ * LoyaltyCardBalancesTest Class Doc Comment
  *
  * @category    Class
- * @description Message Log.
+ * @description 
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MessageLogEntryTest extends TestCase
+class LoyaltyCardBalancesTest extends TestCase
 {
 
     /**
@@ -72,86 +72,30 @@ class MessageLogEntryTest extends TestCase
     }
 
     /**
-     * Test "MessageLogEntry"
+     * Test "LoyaltyCardBalances"
      */
-    public function testMessageLogEntry()
+    public function testLoyaltyCardBalances()
     {
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "balance"
      */
-    public function testPropertyId()
+    public function testPropertyBalance()
     {
     }
 
     /**
-     * Test attribute "service"
+     * Test attribute "subledgerBalances"
      */
-    public function testPropertyService()
+    public function testPropertySubledgerBalances()
     {
     }
 
     /**
-     * Test attribute "changeType"
+     * Test attribute "profiles"
      */
-    public function testPropertyChangeType()
-    {
-    }
-
-    /**
-     * Test attribute "notificationId"
-     */
-    public function testPropertyNotificationId()
-    {
-    }
-
-    /**
-     * Test attribute "notificationName"
-     */
-    public function testPropertyNotificationName()
-    {
-    }
-
-    /**
-     * Test attribute "request"
-     */
-    public function testPropertyRequest()
-    {
-    }
-
-    /**
-     * Test attribute "response"
-     */
-    public function testPropertyResponse()
-    {
-    }
-
-    /**
-     * Test attribute "createdAt"
-     */
-    public function testPropertyCreatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "entityType"
-     */
-    public function testPropertyEntityType()
-    {
-    }
-
-    /**
-     * Test attribute "applicationId"
-     */
-    public function testPropertyApplicationId()
-    {
-    }
-
-    /**
-     * Test attribute "loyaltyProgramId"
-     */
-    public function testPropertyLoyaltyProgramId()
+    public function testPropertyProfiles()
     {
     }
 }

@@ -12,8 +12,7 @@ Name | Type | Description | Notes
 **request** | [**\TalonOne\Client\Model\MessageLogRequest**](MessageLogRequest.md) |  | [optional] 
 **response** | [**\TalonOne\Client\Model\MessageLogResponse**](MessageLogResponse.md) |  | [optional] 
 **createdAt** | [**\DateTime**](\DateTime.md) | Timestamp when the log entry was created. | 
-**entityType** | **string** | The entity type the log is related to. | [optional] 
-**url** | **string** | The target URL of the request. | [optional] 
+**entityType** | **string** | The entity type the notification is related to. | [optional] 
 **applicationId** | **int** | Identifier of the Application. | [optional] 
 **loyaltyProgramId** | **int** | Identifier of the loyalty program. | [optional] 
 

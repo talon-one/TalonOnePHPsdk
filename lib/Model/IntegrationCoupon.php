@@ -868,7 +868,7 @@ class IntegrationCoupon implements ModelInterface, ArrayAccess
     /**
      * Sets reservation
      *
-     * @param bool|null $reservation Defines the type of reservation: - `true`: The reservation is a soft reservation. Any customer can use the coupon. This is done via the [Create coupon reservation](https://docs.talon.one/integration-api#operation/createCouponReservation) endpoint. - `false`: The reservation is a hard reservation. Only the associated customer (`recipientIntegrationId`) can use the coupon. This is done via the Campaign Manager when you create a coupon for a given `recipientIntegrationId`, the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoint.
+     * @param bool|null $reservation Defines the reservation type: - `true`: The coupon can be reserved for multiple customers. - `false`: The coupon can be reserved only for one customer. It is a personal code.
      *
      * @return $this
      */
@@ -916,7 +916,7 @@ class IntegrationCoupon implements ModelInterface, ArrayAccess
     /**
      * Sets isReservationMandatory
      *
-     * @param bool|null $isReservationMandatory Whether the reservation effect actually created a new reservation.
+     * @param bool|null $isReservationMandatory An indication of whether the code can be redeemed only if it has been reserved first.
      *
      * @return $this
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * MessageLogEntryTest
+ * ActivateUserRequestTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MessageLogEntryTest Class Doc Comment
+ * ActivateUserRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Message Log.
+ * @description 
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MessageLogEntryTest extends TestCase
+class ActivateUserRequestTest extends TestCase
 {
 
     /**
@@ -72,86 +72,16 @@ class MessageLogEntryTest extends TestCase
     }
 
     /**
-     * Test "MessageLogEntry"
+     * Test "ActivateUserRequest"
      */
-    public function testMessageLogEntry()
+    public function testActivateUserRequest()
     {
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "email"
      */
-    public function testPropertyId()
-    {
-    }
-
-    /**
-     * Test attribute "service"
-     */
-    public function testPropertyService()
-    {
-    }
-
-    /**
-     * Test attribute "changeType"
-     */
-    public function testPropertyChangeType()
-    {
-    }
-
-    /**
-     * Test attribute "notificationId"
-     */
-    public function testPropertyNotificationId()
-    {
-    }
-
-    /**
-     * Test attribute "notificationName"
-     */
-    public function testPropertyNotificationName()
-    {
-    }
-
-    /**
-     * Test attribute "request"
-     */
-    public function testPropertyRequest()
-    {
-    }
-
-    /**
-     * Test attribute "response"
-     */
-    public function testPropertyResponse()
-    {
-    }
-
-    /**
-     * Test attribute "createdAt"
-     */
-    public function testPropertyCreatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "entityType"
-     */
-    public function testPropertyEntityType()
-    {
-    }
-
-    /**
-     * Test attribute "applicationId"
-     */
-    public function testPropertyApplicationId()
-    {
-    }
-
-    /**
-     * Test attribute "loyaltyProgramId"
-     */
-    public function testPropertyLoyaltyProgramId()
+    public function testPropertyEmail()
     {
     }
 }
