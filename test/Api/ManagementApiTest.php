@@ -73,6 +73,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for activateUserByEmail
+     *
+     * Activate user by email address.
+     *
+     */
+    public function testActivateUserByEmail()
+    {
+    }
+
+    /**
      * Test case for addLoyaltyCardPoints
      *
      * Add points to card.
@@ -613,16 +623,6 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for getAllRoles
-     *
-     * List roles.
-     *
-     */
-    public function testGetAllRoles()
-    {
-    }
-
-    /**
      * Test case for getApplication
      *
      * Get Application.
@@ -1073,12 +1073,12 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for getRole
+     * Test case for getRoleV2
      *
      * Get role.
      *
      */
-    public function testGetRole()
+    public function testGetRoleV2()
     {
     }
 
@@ -1273,6 +1273,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for inviteUserExternal
+     *
+     * Invite user from identity provider.
+     *
+     */
+    public function testInviteUserExternal()
+    {
+    }
+
+    /**
      * Test case for listAccountCollections
      *
      * List collections in account.
@@ -1289,6 +1299,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testListAchievements()
+    {
+    }
+
+    /**
+     * Test case for listAllRolesV2
+     *
+     * List roles.
+     *
+     */
+    public function testListAllRolesV2()
     {
     }
 

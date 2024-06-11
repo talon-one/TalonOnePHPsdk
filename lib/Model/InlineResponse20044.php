@@ -58,7 +58,7 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\Role[]'
+        'data' => '\TalonOne\Client\Model\RoleV2[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\Role[]
+     * @return \TalonOne\Client\Model\RoleV2[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\Role[] $data data
+     * @param \TalonOne\Client\Model\RoleV2[] $data data
      *
      * @return $this
      */

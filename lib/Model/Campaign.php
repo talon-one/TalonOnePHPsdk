@@ -374,6 +374,8 @@ class Campaign implements ModelInterface, ArrayAccess
     const FRONTEND_STATE_SCHEDULED = 'scheduled';
     const FRONTEND_STATE_RUNNING = 'running';
     const FRONTEND_STATE_DRAFT = 'draft';
+    const FRONTEND_STATE_DISABLED = 'disabled';
+    const FRONTEND_STATE_ARCHIVED = 'archived';
     
 
     
@@ -433,6 +435,8 @@ class Campaign implements ModelInterface, ArrayAccess
             self::FRONTEND_STATE_SCHEDULED,
             self::FRONTEND_STATE_RUNNING,
             self::FRONTEND_STATE_DRAFT,
+            self::FRONTEND_STATE_DISABLED,
+            self::FRONTEND_STATE_ARCHIVED,
         ];
     }
     

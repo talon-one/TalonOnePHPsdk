@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerInventory
+ * NewExternalInvitation
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * CustomerInventory Class Doc Comment
+ * NewExternalInvitation Class Doc Comment
  *
  * @category Class
+ * @description Parameters for inviting a new user from an external identity provider.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomerInventory implements ModelInterface, ArrayAccess
+class NewExternalInvitation implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomerInventory';
+    protected static $openAPIModelName = 'NewExternalInvitation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +58,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profile' => '\TalonOne\Client\Model\CustomerProfile',
-        'loyalty' => '\TalonOne\Client\Model\Loyalty',
-        'referrals' => '\TalonOne\Client\Model\InventoryReferral[]',
-        'coupons' => '\TalonOne\Client\Model\InventoryCoupon[]',
-        'giveaways' => '\TalonOne\Client\Model\Giveaway[]',
-        'achievements' => '\TalonOne\Client\Model\AchievementProgress[]'
+        'name' => 'string',
+        'userGroups' => 'string[]',
+        'email' => 'string'
     ];
 
     /**
@@ -71,12 +69,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'profile' => null,
-        'loyalty' => null,
-        'referrals' => null,
-        'coupons' => null,
-        'giveaways' => null,
-        'achievements' => null
+        'name' => null,
+        'userGroups' => null,
+        'email' => 'email'
     ];
 
     /**
@@ -106,12 +101,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'profile' => 'profile',
-        'loyalty' => 'loyalty',
-        'referrals' => 'referrals',
-        'coupons' => 'coupons',
-        'giveaways' => 'giveaways',
-        'achievements' => 'achievements'
+        'name' => 'name',
+        'userGroups' => 'userGroups',
+        'email' => 'email'
     ];
 
     /**
@@ -120,12 +112,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'profile' => 'setProfile',
-        'loyalty' => 'setLoyalty',
-        'referrals' => 'setReferrals',
-        'coupons' => 'setCoupons',
-        'giveaways' => 'setGiveaways',
-        'achievements' => 'setAchievements'
+        'name' => 'setName',
+        'userGroups' => 'setUserGroups',
+        'email' => 'setEmail'
     ];
 
     /**
@@ -134,12 +123,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'profile' => 'getProfile',
-        'loyalty' => 'getLoyalty',
-        'referrals' => 'getReferrals',
-        'coupons' => 'getCoupons',
-        'giveaways' => 'getGiveaways',
-        'achievements' => 'getAchievements'
+        'name' => 'getName',
+        'userGroups' => 'getUserGroups',
+        'email' => 'getEmail'
     ];
 
     /**
@@ -202,12 +188,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['profile'] = isset($data['profile']) ? $data['profile'] : null;
-        $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
-        $this->container['referrals'] = isset($data['referrals']) ? $data['referrals'] : null;
-        $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
-        $this->container['giveaways'] = isset($data['giveaways']) ? $data['giveaways'] : null;
-        $this->container['achievements'] = isset($data['achievements']) ? $data['achievements'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['userGroups'] = isset($data['userGroups']) ? $data['userGroups'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
     }
 
     /**
@@ -219,6 +202,9 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -235,145 +221,73 @@ class CustomerInventory implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets profile
+     * Gets name
      *
-     * @return \TalonOne\Client\Model\CustomerProfile|null
+     * @return string|null
      */
-    public function getProfile()
+    public function getName()
     {
-        return $this->container['profile'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets profile
+     * Sets name
      *
-     * @param \TalonOne\Client\Model\CustomerProfile|null $profile profile
+     * @param string|null $name Name of the user.
      *
      * @return $this
      */
-    public function setProfile($profile)
+    public function setName($name)
     {
-        $this->container['profile'] = $profile;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets loyalty
+     * Gets userGroups
      *
-     * @return \TalonOne\Client\Model\Loyalty|null
+     * @return string[]|null
      */
-    public function getLoyalty()
+    public function getUserGroups()
     {
-        return $this->container['loyalty'];
+        return $this->container['userGroups'];
     }
 
     /**
-     * Sets loyalty
+     * Sets userGroups
      *
-     * @param \TalonOne\Client\Model\Loyalty|null $loyalty loyalty
+     * @param string[]|null $userGroups List of user groups in the external identity provider.  If there are roles in Talon.One whose names match these user groups, those roles will be automatically assigned to the user upon invitation.
      *
      * @return $this
      */
-    public function setLoyalty($loyalty)
+    public function setUserGroups($userGroups)
     {
-        $this->container['loyalty'] = $loyalty;
+        $this->container['userGroups'] = $userGroups;
 
         return $this;
     }
 
     /**
-     * Gets referrals
+     * Gets email
      *
-     * @return \TalonOne\Client\Model\InventoryReferral[]|null
+     * @return string
      */
-    public function getReferrals()
+    public function getEmail()
     {
-        return $this->container['referrals'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets referrals
+     * Sets email
      *
-     * @param \TalonOne\Client\Model\InventoryReferral[]|null $referrals referrals
+     * @param string $email Email address of the user.
      *
      * @return $this
      */
-    public function setReferrals($referrals)
+    public function setEmail($email)
     {
-        $this->container['referrals'] = $referrals;
-
-        return $this;
-    }
-
-    /**
-     * Gets coupons
-     *
-     * @return \TalonOne\Client\Model\InventoryCoupon[]|null
-     */
-    public function getCoupons()
-    {
-        return $this->container['coupons'];
-    }
-
-    /**
-     * Sets coupons
-     *
-     * @param \TalonOne\Client\Model\InventoryCoupon[]|null $coupons The coupons reserved by this profile. This array includes hard and soft reservations.
-     *
-     * @return $this
-     */
-    public function setCoupons($coupons)
-    {
-        $this->container['coupons'] = $coupons;
-
-        return $this;
-    }
-
-    /**
-     * Gets giveaways
-     *
-     * @return \TalonOne\Client\Model\Giveaway[]|null
-     */
-    public function getGiveaways()
-    {
-        return $this->container['giveaways'];
-    }
-
-    /**
-     * Sets giveaways
-     *
-     * @param \TalonOne\Client\Model\Giveaway[]|null $giveaways giveaways
-     *
-     * @return $this
-     */
-    public function setGiveaways($giveaways)
-    {
-        $this->container['giveaways'] = $giveaways;
-
-        return $this;
-    }
-
-    /**
-     * Gets achievements
-     *
-     * @return \TalonOne\Client\Model\AchievementProgress[]|null
-     */
-    public function getAchievements()
-    {
-        return $this->container['achievements'];
-    }
-
-    /**
-     * Sets achievements
-     *
-     * @param \TalonOne\Client\Model\AchievementProgress[]|null $achievements achievements
-     *
-     * @return $this
-     */
-    public function setAchievements($achievements)
-    {
-        $this->container['achievements'] = $achievements;
+        $this->container['email'] = $email;
 
         return $this;
     }

@@ -22,9 +22,9 @@ Name | Type | Description | Notes
 **referralId** | **int** | The integration ID of the referring customer (if any) for whom this coupon was created as an effect. | [optional] 
 **recipientIntegrationId** | **string** | The Integration ID of the customer that is allowed to redeem this coupon. | [optional] 
 **importId** | **int** | The ID of the Import which created this coupon. | [optional] 
-**reservation** | **bool** | Defines the type of reservation: - &#x60;true&#x60;: The reservation is a soft reservation. Any customer can use the coupon. This is done via the [Create coupon reservation](https://docs.talon.one/integration-api#operation/createCouponReservation) endpoint. - &#x60;false&#x60;: The reservation is a hard reservation. Only the associated customer (&#x60;recipientIntegrationId&#x60;) can use the coupon. This is done via the Campaign Manager when you create a coupon for a given &#x60;recipientIntegrationId&#x60;, the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoint. | [optional] [default to true]
+**reservation** | **bool** | Defines the reservation type: - &#x60;true&#x60;: The coupon can be reserved for multiple customers. - &#x60;false&#x60;: The coupon can be reserved only for one customer. It is a personal code. | [optional] [default to true]
 **batchId** | **string** | The id of the batch the coupon belongs to. | [optional] 
-**isReservationMandatory** | **bool** | Whether the reservation effect actually created a new reservation. | [optional] [default to false]
+**isReservationMandatory** | **bool** | An indication of whether the code can be redeemed only if it has been reserved first. | [optional] [default to false]
 **implicitlyReserved** | **bool** | An indication of whether the coupon is implicitly reserved for all customers. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

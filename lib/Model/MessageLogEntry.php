@@ -67,7 +67,6 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         'response' => '\TalonOne\Client\Model\MessageLogResponse',
         'createdAt' => '\DateTime',
         'entityType' => 'string',
-        'url' => 'string',
         'applicationId' => 'int',
         'loyaltyProgramId' => 'int'
     ];
@@ -87,7 +86,6 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         'response' => null,
         'createdAt' => 'date-time',
         'entityType' => null,
-        'url' => null,
         'applicationId' => null,
         'loyaltyProgramId' => null
     ];
@@ -128,7 +126,6 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         'response' => 'response',
         'createdAt' => 'createdAt',
         'entityType' => 'entityType',
-        'url' => 'url',
         'applicationId' => 'applicationId',
         'loyaltyProgramId' => 'loyaltyProgramId'
     ];
@@ -148,7 +145,6 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         'response' => 'setResponse',
         'createdAt' => 'setCreatedAt',
         'entityType' => 'setEntityType',
-        'url' => 'setUrl',
         'applicationId' => 'setApplicationId',
         'loyaltyProgramId' => 'setLoyaltyProgramId'
     ];
@@ -168,7 +164,6 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         'response' => 'getResponse',
         'createdAt' => 'getCreatedAt',
         'entityType' => 'getEntityType',
-        'url' => 'getUrl',
         'applicationId' => 'getApplicationId',
         'loyaltyProgramId' => 'getLoyaltyProgramId'
     ];
@@ -216,7 +211,6 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
 
     const ENTITY_TYPE_APPLICATION = 'application';
     const ENTITY_TYPE_LOYALTY_PROGRAM = 'loyalty_program';
-    const ENTITY_TYPE_WEBHOOK = 'webhook';
     
 
     
@@ -230,7 +224,6 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         return [
             self::ENTITY_TYPE_APPLICATION,
             self::ENTITY_TYPE_LOYALTY_PROGRAM,
-            self::ENTITY_TYPE_WEBHOOK,
         ];
     }
     
@@ -259,7 +252,6 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         $this->container['response'] = isset($data['response']) ? $data['response'] : null;
         $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
         $this->container['entityType'] = isset($data['entityType']) ? $data['entityType'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['loyaltyProgramId'] = isset($data['loyaltyProgramId']) ? $data['loyaltyProgramId'] : null;
     }
@@ -518,7 +510,7 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets entityType
      *
-     * @param string|null $entityType The entity type the log is related to.
+     * @param string|null $entityType The entity type the notification is related to.
      *
      * @return $this
      */
@@ -534,30 +526,6 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
             );
         }
         $this->container['entityType'] = $entityType;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     *
-     * @return string|null
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     *
-     * @param string|null $url The target URL of the request.
-     *
-     * @return $this
-     */
-    public function setUrl($url)
-    {
-        $this->container['url'] = $url;
 
         return $this;
     }

@@ -261,7 +261,7 @@ class LoyaltyCardProfileRegistration implements ModelInterface, ArrayAccess
     /**
      * Sets timestamp
      *
-     * @param \DateTime $timestamp Timestamp of the registration to the card.
+     * @param \DateTime $timestamp Timestamp the customer profile was linked to the card.
      *
      * @return $this
      */

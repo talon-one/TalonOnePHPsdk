@@ -661,7 +661,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
     /**
      * Sets isReservationMandatory
      *
-     * @param bool|null $isReservationMandatory Whether the reservation effect actually created a new reservation.
+     * @param bool|null $isReservationMandatory An indication of whether the code can be redeemed only if it has been reserved first.
      *
      * @return $this
      */
