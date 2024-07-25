@@ -73,7 +73,8 @@ class User implements ModelInterface, ArrayAccess
         'applicationNotificationSubscriptions' => 'object',
         'lastSignedIn' => '\DateTime',
         'lastAccessed' => '\DateTime',
-        'latestFeedTimestamp' => '\DateTime'
+        'latestFeedTimestamp' => '\DateTime',
+        'additionalAttributes' => 'object'
     ];
 
     /**
@@ -97,7 +98,8 @@ class User implements ModelInterface, ArrayAccess
         'applicationNotificationSubscriptions' => null,
         'lastSignedIn' => 'date-time',
         'lastAccessed' => 'date-time',
-        'latestFeedTimestamp' => 'date-time'
+        'latestFeedTimestamp' => 'date-time',
+        'additionalAttributes' => null
     ];
 
     /**
@@ -142,7 +144,8 @@ class User implements ModelInterface, ArrayAccess
         'applicationNotificationSubscriptions' => 'applicationNotificationSubscriptions',
         'lastSignedIn' => 'lastSignedIn',
         'lastAccessed' => 'lastAccessed',
-        'latestFeedTimestamp' => 'latestFeedTimestamp'
+        'latestFeedTimestamp' => 'latestFeedTimestamp',
+        'additionalAttributes' => 'additionalAttributes'
     ];
 
     /**
@@ -166,7 +169,8 @@ class User implements ModelInterface, ArrayAccess
         'applicationNotificationSubscriptions' => 'setApplicationNotificationSubscriptions',
         'lastSignedIn' => 'setLastSignedIn',
         'lastAccessed' => 'setLastAccessed',
-        'latestFeedTimestamp' => 'setLatestFeedTimestamp'
+        'latestFeedTimestamp' => 'setLatestFeedTimestamp',
+        'additionalAttributes' => 'setAdditionalAttributes'
     ];
 
     /**
@@ -190,7 +194,8 @@ class User implements ModelInterface, ArrayAccess
         'applicationNotificationSubscriptions' => 'getApplicationNotificationSubscriptions',
         'lastSignedIn' => 'getLastSignedIn',
         'lastAccessed' => 'getLastAccessed',
-        'latestFeedTimestamp' => 'getLatestFeedTimestamp'
+        'latestFeedTimestamp' => 'getLatestFeedTimestamp',
+        'additionalAttributes' => 'getAdditionalAttributes'
     ];
 
     /**
@@ -286,6 +291,7 @@ class User implements ModelInterface, ArrayAccess
         $this->container['lastSignedIn'] = isset($data['lastSignedIn']) ? $data['lastSignedIn'] : null;
         $this->container['lastAccessed'] = isset($data['lastAccessed']) ? $data['lastAccessed'] : null;
         $this->container['latestFeedTimestamp'] = isset($data['latestFeedTimestamp']) ? $data['latestFeedTimestamp'] : null;
+        $this->container['additionalAttributes'] = isset($data['additionalAttributes']) ? $data['additionalAttributes'] : null;
     }
 
     /**
@@ -736,6 +742,30 @@ class User implements ModelInterface, ArrayAccess
     public function setLatestFeedTimestamp($latestFeedTimestamp)
     {
         $this->container['latestFeedTimestamp'] = $latestFeedTimestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets additionalAttributes
+     *
+     * @return object|null
+     */
+    public function getAdditionalAttributes()
+    {
+        return $this->container['additionalAttributes'];
+    }
+
+    /**
+     * Sets additionalAttributes
+     *
+     * @param object|null $additionalAttributes Additional user attributes, created and used by external identity providers.
+     *
+     * @return $this
+     */
+    public function setAdditionalAttributes($additionalAttributes)
+    {
+        $this->container['additionalAttributes'] = $additionalAttributes;
 
         return $this;
     }

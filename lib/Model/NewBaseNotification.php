@@ -236,7 +236,7 @@ class NewBaseNotification implements ModelInterface, ArrayAccess
     /**
      * Sets policy
      *
-     * @param object $policy policy
+     * @param object $policy Indicates which notification properties to apply.
      *
      * @return $this
      */

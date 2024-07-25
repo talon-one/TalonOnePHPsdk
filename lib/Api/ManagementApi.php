@@ -118,7 +118,7 @@ class ManagementApi
     /**
      * Operation activateUserByEmail
      *
-     * Activate user by email address
+     * Enable user by email address
      *
      * @param  \TalonOne\Client\Model\ActivateUserRequest $body body (required)
      *
@@ -134,7 +134,7 @@ class ManagementApi
     /**
      * Operation activateUserByEmailWithHttpInfo
      *
-     * Activate user by email address
+     * Enable user by email address
      *
      * @param  \TalonOne\Client\Model\ActivateUserRequest $body body (required)
      *
@@ -186,7 +186,7 @@ class ManagementApi
     /**
      * Operation activateUserByEmailAsync
      *
-     * Activate user by email address
+     * Enable user by email address
      *
      * @param  \TalonOne\Client\Model\ActivateUserRequest $body body (required)
      *
@@ -206,7 +206,7 @@ class ManagementApi
     /**
      * Operation activateUserByEmailAsyncWithHttpInfo
      *
-     * Activate user by email address
+     * Enable user by email address
      *
      * @param  \TalonOne\Client\Model\ActivateUserRequest $body body (required)
      *
@@ -3441,7 +3441,7 @@ class ManagementApi
     }
 
     /**
-     * Operation createCouponsAsynchronously
+     * Operation createCouponsAsync
      *
      * Create coupons asynchronously
      *
@@ -3453,14 +3453,14 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\AsyncCouponCreationResponse
      */
-    public function createCouponsAsynchronously($applicationId, $campaignId, $body)
+    public function createCouponsAsync($applicationId, $campaignId, $body)
     {
-        list($response) = $this->createCouponsAsynchronouslyWithHttpInfo($applicationId, $campaignId, $body);
+        list($response) = $this->createCouponsAsyncWithHttpInfo($applicationId, $campaignId, $body);
         return $response;
     }
 
     /**
-     * Operation createCouponsAsynchronouslyWithHttpInfo
+     * Operation createCouponsAsyncWithHttpInfo
      *
      * Create coupons asynchronously
      *
@@ -3472,9 +3472,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\AsyncCouponCreationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCouponsAsynchronouslyWithHttpInfo($applicationId, $campaignId, $body)
+    public function createCouponsAsyncWithHttpInfo($applicationId, $campaignId, $body)
     {
-        $request = $this->createCouponsAsynchronouslyRequest($applicationId, $campaignId, $body);
+        $request = $this->createCouponsAsyncRequest($applicationId, $campaignId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3550,7 +3550,7 @@ class ManagementApi
     }
 
     /**
-     * Operation createCouponsAsynchronouslyAsync
+     * Operation createCouponsAsyncAsync
      *
      * Create coupons asynchronously
      *
@@ -3561,9 +3561,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponsAsynchronouslyAsync($applicationId, $campaignId, $body)
+    public function createCouponsAsyncAsync($applicationId, $campaignId, $body)
     {
-        return $this->createCouponsAsynchronouslyAsyncWithHttpInfo($applicationId, $campaignId, $body)
+        return $this->createCouponsAsyncAsyncWithHttpInfo($applicationId, $campaignId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3572,7 +3572,7 @@ class ManagementApi
     }
 
     /**
-     * Operation createCouponsAsynchronouslyAsyncWithHttpInfo
+     * Operation createCouponsAsyncAsyncWithHttpInfo
      *
      * Create coupons asynchronously
      *
@@ -3583,10 +3583,10 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCouponsAsynchronouslyAsyncWithHttpInfo($applicationId, $campaignId, $body)
+    public function createCouponsAsyncAsyncWithHttpInfo($applicationId, $campaignId, $body)
     {
         $returnType = '\TalonOne\Client\Model\AsyncCouponCreationResponse';
-        $request = $this->createCouponsAsynchronouslyRequest($applicationId, $campaignId, $body);
+        $request = $this->createCouponsAsyncRequest($applicationId, $campaignId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5536,7 +5536,7 @@ class ManagementApi
     /**
      * Operation deactivateUserByEmail
      *
-     * Deactivate user by email address
+     * Disable user by email address
      *
      * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
@@ -5552,7 +5552,7 @@ class ManagementApi
     /**
      * Operation deactivateUserByEmailWithHttpInfo
      *
-     * Deactivate user by email address
+     * Disable user by email address
      *
      * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
@@ -5604,7 +5604,7 @@ class ManagementApi
     /**
      * Operation deactivateUserByEmailAsync
      *
-     * Deactivate user by email address
+     * Disable user by email address
      *
      * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
@@ -5624,7 +5624,7 @@ class ManagementApi
     /**
      * Operation deactivateUserByEmailAsyncWithHttpInfo
      *
-     * Deactivate user by email address
+     * Disable user by email address
      *
      * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
@@ -7409,10 +7409,10 @@ class ManagementApi
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid - &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned. (optional)
@@ -7439,10 +7439,10 @@ class ManagementApi
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid - &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned. (optional)
@@ -7505,10 +7505,10 @@ class ManagementApi
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid - &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned. (optional)
@@ -7539,10 +7539,10 @@ class ManagementApi
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid - &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned. (optional)
@@ -7589,10 +7589,10 @@ class ManagementApi
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid - &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned. (optional)
@@ -9300,6 +9300,284 @@ class ManagementApi
     }
 
     /**
+     * Operation disconnectCampaignStores
+     *
+     * Disconnect stores
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function disconnectCampaignStores($applicationId, $campaignId)
+    {
+        $this->disconnectCampaignStoresWithHttpInfo($applicationId, $campaignId);
+    }
+
+    /**
+     * Operation disconnectCampaignStoresWithHttpInfo
+     *
+     * Disconnect stores
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function disconnectCampaignStoresWithHttpInfo($applicationId, $campaignId)
+    {
+        $request = $this->disconnectCampaignStoresRequest($applicationId, $campaignId);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation disconnectCampaignStoresAsync
+     *
+     * Disconnect stores
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function disconnectCampaignStoresAsync($applicationId, $campaignId)
+    {
+        return $this->disconnectCampaignStoresAsyncWithHttpInfo($applicationId, $campaignId)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation disconnectCampaignStoresAsyncWithHttpInfo
+     *
+     * Disconnect stores
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function disconnectCampaignStoresAsyncWithHttpInfo($applicationId, $campaignId)
+    {
+        $returnType = '';
+        $request = $this->disconnectCampaignStoresRequest($applicationId, $campaignId);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'disconnectCampaignStores'
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function disconnectCampaignStoresRequest($applicationId, $campaignId)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling disconnectCampaignStores'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling disconnectCampaignStores'
+            );
+        }
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/stores';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation exportAccountCollectionItems
      *
      * Export account-level collection's items
@@ -10268,6 +10546,368 @@ class ManagementApi
             $resourcePath = str_replace(
                 '{' . 'audienceId' . '}',
                 ObjectSerializer::toPathValue($audienceId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/csv']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/csv'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation exportCampaignStores
+     *
+     * Export stores
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     */
+    public function exportCampaignStores($applicationId, $campaignId)
+    {
+        list($response) = $this->exportCampaignStoresWithHttpInfo($applicationId, $campaignId);
+        return $response;
+    }
+
+    /**
+     * Operation exportCampaignStoresWithHttpInfo
+     *
+     * Export stores
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function exportCampaignStoresWithHttpInfo($applicationId, $campaignId)
+    {
+        $request = $this->exportCampaignStoresRequest($applicationId, $campaignId);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('string' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'string', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'string';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation exportCampaignStoresAsync
+     *
+     * Export stores
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function exportCampaignStoresAsync($applicationId, $campaignId)
+    {
+        return $this->exportCampaignStoresAsyncWithHttpInfo($applicationId, $campaignId)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation exportCampaignStoresAsyncWithHttpInfo
+     *
+     * Export stores
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function exportCampaignStoresAsyncWithHttpInfo($applicationId, $campaignId)
+    {
+        $returnType = 'string';
+        $request = $this->exportCampaignStoresRequest($applicationId, $campaignId);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'exportCampaignStores'
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function exportCampaignStoresRequest($applicationId, $campaignId)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling exportCampaignStores'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling exportCampaignStores'
+            );
+        }
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/export';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -25954,14 +26594,19 @@ class ManagementApi
      * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  bool $valuesOnly Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2009
      */
-    public function getCouponsWithoutTotalCount($applicationId, $campaignId, $pageSize = 1000, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false)
+    public function getCouponsWithoutTotalCount($applicationId, $campaignId, $pageSize = 1000, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $expiresBefore = null, $expiresAfter = null, $startsBefore = null, $startsAfter = null, $valuesOnly = false)
     {
-        list($response) = $this->getCouponsWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch);
+        list($response) = $this->getCouponsWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $expiresBefore, $expiresAfter, $startsBefore, $startsAfter, $valuesOnly);
         return $response;
     }
 
@@ -25984,14 +26629,19 @@ class ManagementApi
      * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  bool $valuesOnly Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCouponsWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $pageSize = 1000, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false)
+    public function getCouponsWithoutTotalCountWithHttpInfo($applicationId, $campaignId, $pageSize = 1000, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $expiresBefore = null, $expiresAfter = null, $startsBefore = null, $startsAfter = null, $valuesOnly = false)
     {
-        $request = $this->getCouponsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch);
+        $request = $this->getCouponsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $expiresBefore, $expiresAfter, $startsBefore, $startsAfter, $valuesOnly);
 
         try {
             $options = $this->createHttpClientOption();
@@ -26085,13 +26735,18 @@ class ManagementApi
      * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  bool $valuesOnly Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsWithoutTotalCountAsync($applicationId, $campaignId, $pageSize = 1000, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false)
+    public function getCouponsWithoutTotalCountAsync($applicationId, $campaignId, $pageSize = 1000, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $expiresBefore = null, $expiresAfter = null, $startsBefore = null, $startsAfter = null, $valuesOnly = false)
     {
-        return $this->getCouponsWithoutTotalCountAsyncWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch)
+        return $this->getCouponsWithoutTotalCountAsyncWithHttpInfo($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $expiresBefore, $expiresAfter, $startsBefore, $startsAfter, $valuesOnly)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -26118,14 +26773,19 @@ class ManagementApi
      * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  bool $valuesOnly Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsWithoutTotalCountAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = 1000, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false)
+    public function getCouponsWithoutTotalCountAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = 1000, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $expiresBefore = null, $expiresAfter = null, $startsBefore = null, $startsAfter = null, $valuesOnly = false)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2009';
-        $request = $this->getCouponsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch);
+        $request = $this->getCouponsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $expiresBefore, $expiresAfter, $startsBefore, $startsAfter, $valuesOnly);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -26178,11 +26838,16 @@ class ManagementApi
      * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  \DateTime $startsAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+     * @param  bool $valuesOnly Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCouponsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize = 1000, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false)
+    protected function getCouponsWithoutTotalCountRequest($applicationId, $campaignId, $pageSize = 1000, $skip = null, $sort = null, $value = null, $createdBefore = null, $createdAfter = null, $valid = null, $usable = null, $referralId = null, $recipientIntegrationId = null, $batchId = null, $exactMatch = false, $expiresBefore = null, $expiresAfter = null, $startsBefore = null, $startsAfter = null, $valuesOnly = false)
     {
         // verify the required parameter 'applicationId' is set
         if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
@@ -26294,6 +26959,41 @@ class ManagementApi
         }
         if ($exactMatch !== null) {
             $queryParams['exactMatch'] = $exactMatch;
+        }
+        // query params
+        if (is_array($expiresBefore)) {
+            $expiresBefore = ObjectSerializer::serializeCollection($expiresBefore, '', true);
+        }
+        if ($expiresBefore !== null) {
+            $queryParams['expiresBefore'] = $expiresBefore;
+        }
+        // query params
+        if (is_array($expiresAfter)) {
+            $expiresAfter = ObjectSerializer::serializeCollection($expiresAfter, '', true);
+        }
+        if ($expiresAfter !== null) {
+            $queryParams['expiresAfter'] = $expiresAfter;
+        }
+        // query params
+        if (is_array($startsBefore)) {
+            $startsBefore = ObjectSerializer::serializeCollection($startsBefore, '', true);
+        }
+        if ($startsBefore !== null) {
+            $queryParams['startsBefore'] = $startsBefore;
+        }
+        // query params
+        if (is_array($startsAfter)) {
+            $startsAfter = ObjectSerializer::serializeCollection($startsAfter, '', true);
+        }
+        if ($startsAfter !== null) {
+            $queryParams['startsAfter'] = $startsAfter;
+        }
+        // query params
+        if (is_array($valuesOnly)) {
+            $valuesOnly = ObjectSerializer::serializeCollection($valuesOnly, '', true);
+        }
+        if ($valuesOnly !== null) {
+            $queryParams['valuesOnly'] = $valuesOnly;
         }
 
 
@@ -35549,7 +36249,7 @@ class ManagementApi
      *
      * List webhooks
      *
-     * @param  string $applicationIds Filter by one or more Application IDs, separated by a comma. (optional)
+     * @param  string $applicationIds Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
@@ -35573,7 +36273,7 @@ class ManagementApi
      *
      * List webhooks
      *
-     * @param  string $applicationIds Filter by one or more Application IDs, separated by a comma. (optional)
+     * @param  string $applicationIds Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
@@ -35668,7 +36368,7 @@ class ManagementApi
      *
      * List webhooks
      *
-     * @param  string $applicationIds Filter by one or more Application IDs, separated by a comma. (optional)
+     * @param  string $applicationIds Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
@@ -35695,7 +36395,7 @@ class ManagementApi
      *
      * List webhooks
      *
-     * @param  string $applicationIds Filter by one or more Application IDs, separated by a comma. (optional)
+     * @param  string $applicationIds Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
@@ -35749,7 +36449,7 @@ class ManagementApi
     /**
      * Create request for operation 'getWebhooks'
      *
-     * @param  string $applicationIds Filter by one or more Application IDs, separated by a comma. (optional)
+     * @param  string $applicationIds Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
@@ -36865,6 +37565,377 @@ class ManagementApi
             $resourcePath = str_replace(
                 '{' . 'audienceId' . '}',
                 ObjectSerializer::toPathValue($audienceId),
+                $resourcePath
+            );
+        }
+
+        // form params
+        if ($upFile !== null) {
+            $formParams['upFile'] = ObjectSerializer::toFormValue($upFile);
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation importCampaignStores
+     *
+     * Import stores
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $upFile The file containing the data that is being imported. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\Import|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     */
+    public function importCampaignStores($applicationId, $campaignId, $upFile = null)
+    {
+        list($response) = $this->importCampaignStoresWithHttpInfo($applicationId, $campaignId, $upFile);
+        return $response;
+    }
+
+    /**
+     * Operation importCampaignStoresWithHttpInfo
+     *
+     * Import stores
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $upFile The file containing the data that is being imported. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\Import|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function importCampaignStoresWithHttpInfo($applicationId, $campaignId, $upFile = null)
+    {
+        $request = $this->importCampaignStoresRequest($applicationId, $campaignId, $upFile);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\Import' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\Import', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\Import';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\Import',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation importCampaignStoresAsync
+     *
+     * Import stores
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $upFile The file containing the data that is being imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importCampaignStoresAsync($applicationId, $campaignId, $upFile = null)
+    {
+        return $this->importCampaignStoresAsyncWithHttpInfo($applicationId, $campaignId, $upFile)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation importCampaignStoresAsyncWithHttpInfo
+     *
+     * Import stores
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $upFile The file containing the data that is being imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importCampaignStoresAsyncWithHttpInfo($applicationId, $campaignId, $upFile = null)
+    {
+        $returnType = '\TalonOne\Client\Model\Import';
+        $request = $this->importCampaignStoresRequest($applicationId, $campaignId, $upFile);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'importCampaignStores'
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $upFile The file containing the data that is being imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function importCampaignStoresRequest($applicationId, $campaignId, $upFile = null)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling importCampaignStores'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling importCampaignStores'
+            );
+        }
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/import';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -42174,6 +43245,222 @@ class ManagementApi
     }
 
     /**
+     * Operation oktaEventHandlerChallenge
+     *
+     * Validate Okta API ownership
+     *
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function oktaEventHandlerChallenge()
+    {
+        $this->oktaEventHandlerChallengeWithHttpInfo();
+    }
+
+    /**
+     * Operation oktaEventHandlerChallengeWithHttpInfo
+     *
+     * Validate Okta API ownership
+     *
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function oktaEventHandlerChallengeWithHttpInfo()
+    {
+        $request = $this->oktaEventHandlerChallengeRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation oktaEventHandlerChallengeAsync
+     *
+     * Validate Okta API ownership
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function oktaEventHandlerChallengeAsync()
+    {
+        return $this->oktaEventHandlerChallengeAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation oktaEventHandlerChallengeAsyncWithHttpInfo
+     *
+     * Validate Okta API ownership
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function oktaEventHandlerChallengeAsyncWithHttpInfo()
+    {
+        $returnType = '';
+        $request = $this->oktaEventHandlerChallengeRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'oktaEventHandlerChallenge'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function oktaEventHandlerChallengeRequest()
+    {
+
+        $resourcePath = '/v1/provisioning/okta';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation postAddedDeductedPointsNotification
      *
      * Create notification about added or deducted loyalty points
@@ -43808,6 +45095,2342 @@ class ManagementApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation scimCreateUser
+     *
+     * Create SCIM user
+     *
+     * @param  object $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\ScimUser
+     */
+    public function scimCreateUser($body)
+    {
+        list($response) = $this->scimCreateUserWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation scimCreateUserWithHttpInfo
+     *
+     * Create SCIM user
+     *
+     * @param  object $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\ScimUser, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimCreateUserWithHttpInfo($body)
+    {
+        $request = $this->scimCreateUserRequest($body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\TalonOne\Client\Model\ScimUser' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ScimUser', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\ScimUser';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ScimUser',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimCreateUserAsync
+     *
+     * Create SCIM user
+     *
+     * @param  object $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimCreateUserAsync($body)
+    {
+        return $this->scimCreateUserAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimCreateUserAsyncWithHttpInfo
+     *
+     * Create SCIM user
+     *
+     * @param  object $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimCreateUserAsyncWithHttpInfo($body)
+    {
+        $returnType = '\TalonOne\Client\Model\ScimUser';
+        $request = $this->scimCreateUserRequest($body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimCreateUser'
+     *
+     * @param  object $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimCreateUserRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling scimCreateUser'
+            );
+        }
+
+        $resourcePath = '/v1/provisioning/scim/Users';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation scimDeleteUser
+     *
+     * Delete SCIM user
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function scimDeleteUser($userId)
+    {
+        $this->scimDeleteUserWithHttpInfo($userId);
+    }
+
+    /**
+     * Operation scimDeleteUserWithHttpInfo
+     *
+     * Delete SCIM user
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimDeleteUserWithHttpInfo($userId)
+    {
+        $request = $this->scimDeleteUserRequest($userId);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimDeleteUserAsync
+     *
+     * Delete SCIM user
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimDeleteUserAsync($userId)
+    {
+        return $this->scimDeleteUserAsyncWithHttpInfo($userId)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimDeleteUserAsyncWithHttpInfo
+     *
+     * Delete SCIM user
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimDeleteUserAsyncWithHttpInfo($userId)
+    {
+        $returnType = '';
+        $request = $this->scimDeleteUserRequest($userId);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimDeleteUser'
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimDeleteUserRequest($userId)
+    {
+        // verify the required parameter 'userId' is set
+        if ($userId === null || (is_array($userId) && count($userId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $userId when calling scimDeleteUser'
+            );
+        }
+
+        $resourcePath = '/v1/provisioning/scim/Users/{userId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($userId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'userId' . '}',
+                ObjectSerializer::toPathValue($userId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation scimGetResourceTypes
+     *
+     * List supported SCIM resource types
+     *
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\ScimResourceTypesListResponse
+     */
+    public function scimGetResourceTypes()
+    {
+        list($response) = $this->scimGetResourceTypesWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation scimGetResourceTypesWithHttpInfo
+     *
+     * List supported SCIM resource types
+     *
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\ScimResourceTypesListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimGetResourceTypesWithHttpInfo()
+    {
+        $request = $this->scimGetResourceTypesRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\ScimResourceTypesListResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ScimResourceTypesListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\ScimResourceTypesListResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ScimResourceTypesListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimGetResourceTypesAsync
+     *
+     * List supported SCIM resource types
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetResourceTypesAsync()
+    {
+        return $this->scimGetResourceTypesAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimGetResourceTypesAsyncWithHttpInfo
+     *
+     * List supported SCIM resource types
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetResourceTypesAsyncWithHttpInfo()
+    {
+        $returnType = '\TalonOne\Client\Model\ScimResourceTypesListResponse';
+        $request = $this->scimGetResourceTypesRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimGetResourceTypes'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimGetResourceTypesRequest()
+    {
+
+        $resourcePath = '/v1/provisioning/scim/ResourceTypes';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation scimGetSchemas
+     *
+     * List supported SCIM schemas
+     *
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function scimGetSchemas()
+    {
+        $this->scimGetSchemasWithHttpInfo();
+    }
+
+    /**
+     * Operation scimGetSchemasWithHttpInfo
+     *
+     * List supported SCIM schemas
+     *
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimGetSchemasWithHttpInfo()
+    {
+        $request = $this->scimGetSchemasRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimGetSchemasAsync
+     *
+     * List supported SCIM schemas
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetSchemasAsync()
+    {
+        return $this->scimGetSchemasAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimGetSchemasAsyncWithHttpInfo
+     *
+     * List supported SCIM schemas
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetSchemasAsyncWithHttpInfo()
+    {
+        $returnType = '';
+        $request = $this->scimGetSchemasRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimGetSchemas'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimGetSchemasRequest()
+    {
+
+        $resourcePath = '/v1/provisioning/scim/Schemas';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation scimGetServiceProviderConfig
+     *
+     * Service config endpoint for SCIM provisioning protocol
+     *
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function scimGetServiceProviderConfig()
+    {
+        $this->scimGetServiceProviderConfigWithHttpInfo();
+    }
+
+    /**
+     * Operation scimGetServiceProviderConfigWithHttpInfo
+     *
+     * Service config endpoint for SCIM provisioning protocol
+     *
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimGetServiceProviderConfigWithHttpInfo()
+    {
+        $request = $this->scimGetServiceProviderConfigRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimGetServiceProviderConfigAsync
+     *
+     * Service config endpoint for SCIM provisioning protocol
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetServiceProviderConfigAsync()
+    {
+        return $this->scimGetServiceProviderConfigAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimGetServiceProviderConfigAsyncWithHttpInfo
+     *
+     * Service config endpoint for SCIM provisioning protocol
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetServiceProviderConfigAsyncWithHttpInfo()
+    {
+        $returnType = '';
+        $request = $this->scimGetServiceProviderConfigRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimGetServiceProviderConfig'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimGetServiceProviderConfigRequest()
+    {
+
+        $resourcePath = '/v1/provisioning/scim/ServiceProviderConfig';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation scimGetUser
+     *
+     * Get SCIM user
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\ScimUser
+     */
+    public function scimGetUser($userId)
+    {
+        list($response) = $this->scimGetUserWithHttpInfo($userId);
+        return $response;
+    }
+
+    /**
+     * Operation scimGetUserWithHttpInfo
+     *
+     * Get SCIM user
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\ScimUser, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimGetUserWithHttpInfo($userId)
+    {
+        $request = $this->scimGetUserRequest($userId);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\ScimUser' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ScimUser', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\ScimUser';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ScimUser',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimGetUserAsync
+     *
+     * Get SCIM user
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetUserAsync($userId)
+    {
+        return $this->scimGetUserAsyncWithHttpInfo($userId)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimGetUserAsyncWithHttpInfo
+     *
+     * Get SCIM user
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetUserAsyncWithHttpInfo($userId)
+    {
+        $returnType = '\TalonOne\Client\Model\ScimUser';
+        $request = $this->scimGetUserRequest($userId);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimGetUser'
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimGetUserRequest($userId)
+    {
+        // verify the required parameter 'userId' is set
+        if ($userId === null || (is_array($userId) && count($userId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $userId when calling scimGetUser'
+            );
+        }
+
+        $resourcePath = '/v1/provisioning/scim/Users/{userId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($userId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'userId' . '}',
+                ObjectSerializer::toPathValue($userId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation scimGetUsers
+     *
+     * List SCIM users
+     *
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\ScimUsersListResponse
+     */
+    public function scimGetUsers()
+    {
+        list($response) = $this->scimGetUsersWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation scimGetUsersWithHttpInfo
+     *
+     * List SCIM users
+     *
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\ScimUsersListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimGetUsersWithHttpInfo()
+    {
+        $request = $this->scimGetUsersRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\ScimUsersListResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ScimUsersListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\ScimUsersListResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ScimUsersListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimGetUsersAsync
+     *
+     * List SCIM users
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetUsersAsync()
+    {
+        return $this->scimGetUsersAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimGetUsersAsyncWithHttpInfo
+     *
+     * List SCIM users
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetUsersAsyncWithHttpInfo()
+    {
+        $returnType = '\TalonOne\Client\Model\ScimUsersListResponse';
+        $request = $this->scimGetUsersRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimGetUsers'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimGetUsersRequest()
+    {
+
+        $resourcePath = '/v1/provisioning/scim/Users';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation scimPatchUser
+     *
+     * Update SCIM user attributes
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\ScimUser
+     */
+    public function scimPatchUser($userId)
+    {
+        list($response) = $this->scimPatchUserWithHttpInfo($userId);
+        return $response;
+    }
+
+    /**
+     * Operation scimPatchUserWithHttpInfo
+     *
+     * Update SCIM user attributes
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\ScimUser, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimPatchUserWithHttpInfo($userId)
+    {
+        $request = $this->scimPatchUserRequest($userId);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\ScimUser' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ScimUser', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\ScimUser';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ScimUser',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimPatchUserAsync
+     *
+     * Update SCIM user attributes
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimPatchUserAsync($userId)
+    {
+        return $this->scimPatchUserAsyncWithHttpInfo($userId)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimPatchUserAsyncWithHttpInfo
+     *
+     * Update SCIM user attributes
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimPatchUserAsyncWithHttpInfo($userId)
+    {
+        $returnType = '\TalonOne\Client\Model\ScimUser';
+        $request = $this->scimPatchUserRequest($userId);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimPatchUser'
+     *
+     * @param  int $userId The ID of the user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimPatchUserRequest($userId)
+    {
+        // verify the required parameter 'userId' is set
+        if ($userId === null || (is_array($userId) && count($userId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $userId when calling scimPatchUser'
+            );
+        }
+
+        $resourcePath = '/v1/provisioning/scim/Users/{userId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($userId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'userId' . '}',
+                ObjectSerializer::toPathValue($userId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation scimReplaceUserAttributes
+     *
+     * Update SCIM user
+     *
+     * @param  int $userId The ID of the user. (required)
+     * @param  object $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\ScimUser
+     */
+    public function scimReplaceUserAttributes($userId, $body)
+    {
+        list($response) = $this->scimReplaceUserAttributesWithHttpInfo($userId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation scimReplaceUserAttributesWithHttpInfo
+     *
+     * Update SCIM user
+     *
+     * @param  int $userId The ID of the user. (required)
+     * @param  object $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\ScimUser, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimReplaceUserAttributesWithHttpInfo($userId, $body)
+    {
+        $request = $this->scimReplaceUserAttributesRequest($userId, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\ScimUser' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ScimUser', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\ScimUser';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ScimUser',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimReplaceUserAttributesAsync
+     *
+     * Update SCIM user
+     *
+     * @param  int $userId The ID of the user. (required)
+     * @param  object $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimReplaceUserAttributesAsync($userId, $body)
+    {
+        return $this->scimReplaceUserAttributesAsyncWithHttpInfo($userId, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimReplaceUserAttributesAsyncWithHttpInfo
+     *
+     * Update SCIM user
+     *
+     * @param  int $userId The ID of the user. (required)
+     * @param  object $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimReplaceUserAttributesAsyncWithHttpInfo($userId, $body)
+    {
+        $returnType = '\TalonOne\Client\Model\ScimUser';
+        $request = $this->scimReplaceUserAttributesRequest($userId, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimReplaceUserAttributes'
+     *
+     * @param  int $userId The ID of the user. (required)
+     * @param  object $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimReplaceUserAttributesRequest($userId, $body)
+    {
+        // verify the required parameter 'userId' is set
+        if ($userId === null || (is_array($userId) && count($userId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $userId when calling scimReplaceUserAttributes'
+            );
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling scimReplaceUserAttributes'
+            );
+        }
+
+        $resourcePath = '/v1/provisioning/scim/Users/{userId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($userId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'userId' . '}',
+                ObjectSerializer::toPathValue($userId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

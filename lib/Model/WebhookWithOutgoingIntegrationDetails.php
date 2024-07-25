@@ -63,6 +63,7 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
         'modified' => '\DateTime',
         'applicationIds' => 'int[]',
         'title' => 'string',
+        'description' => 'string',
         'verb' => 'string',
         'url' => 'string',
         'headers' => 'string[]',
@@ -85,6 +86,7 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
         'modified' => 'date-time',
         'applicationIds' => null,
         'title' => null,
+        'description' => null,
         'verb' => null,
         'url' => null,
         'headers' => null,
@@ -128,6 +130,7 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
         'modified' => 'modified',
         'applicationIds' => 'applicationIds',
         'title' => 'title',
+        'description' => 'description',
         'verb' => 'verb',
         'url' => 'url',
         'headers' => 'headers',
@@ -150,6 +153,7 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
         'modified' => 'setModified',
         'applicationIds' => 'setApplicationIds',
         'title' => 'setTitle',
+        'description' => 'setDescription',
         'verb' => 'setVerb',
         'url' => 'setUrl',
         'headers' => 'setHeaders',
@@ -172,6 +176,7 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
         'modified' => 'getModified',
         'applicationIds' => 'getApplicationIds',
         'title' => 'getTitle',
+        'description' => 'getDescription',
         'verb' => 'getVerb',
         'url' => 'getUrl',
         'headers' => 'getHeaders',
@@ -269,6 +274,7 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
         $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['verb'] = isset($data['verb']) ? $data['verb'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['headers'] = isset($data['headers']) ? $data['headers'] : null;
@@ -467,6 +473,30 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
         }
 
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description A description of the webhook.
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }

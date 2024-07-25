@@ -181,6 +181,7 @@ class BaseNotification implements ModelInterface, ArrayAccess
 
     const TYPE_CAMPAIGN = 'campaign';
     const TYPE_LOYALTY_ADDED_DEDUCTED_POINTS = 'loyalty_added_deducted_points';
+    const TYPE_CARD_ADDED_DEDUCTED_POINTS = 'card_added_deducted_points';
     const TYPE_COUPON = 'coupon';
     const TYPE_EXPIRING_COUPONS = 'expiring_coupons';
     const TYPE_EXPIRING_POINTS = 'expiring_points';
@@ -203,6 +204,7 @@ class BaseNotification implements ModelInterface, ArrayAccess
         return [
             self::TYPE_CAMPAIGN,
             self::TYPE_LOYALTY_ADDED_DEDUCTED_POINTS,
+            self::TYPE_CARD_ADDED_DEDUCTED_POINTS,
             self::TYPE_COUPON,
             self::TYPE_EXPIRING_COUPONS,
             self::TYPE_EXPIRING_POINTS,
@@ -299,7 +301,7 @@ class BaseNotification implements ModelInterface, ArrayAccess
     /**
      * Sets policy
      *
-     * @param object $policy policy
+     * @param object $policy Indicates which notification properties to apply.
      *
      * @return $this
      */
