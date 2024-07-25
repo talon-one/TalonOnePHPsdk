@@ -392,7 +392,7 @@ class IncreaseAchievementProgressEffectProps implements ModelInterface, ArrayAcc
     /**
      * Sets target
      *
-     * @param float $target The required number of actions or the transactional milestone to complete the achievement.
+     * @param float $target The target value to complete the achievement.
      *
      * @return $this
      */

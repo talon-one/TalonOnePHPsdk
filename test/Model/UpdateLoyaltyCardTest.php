@@ -84,4 +84,11 @@ class UpdateLoyaltyCardTest extends TestCase
     public function testPropertyStatus()
     {
     }
+
+    /**
+     * Test attribute "blockReason"
+     */
+    public function testPropertyBlockReason()
+    {
+    }
 }

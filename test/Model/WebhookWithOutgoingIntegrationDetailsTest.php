@@ -114,6 +114,13 @@ class WebhookWithOutgoingIntegrationDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+    }
+
+    /**
      * Test attribute "verb"
      */
     public function testPropertyVerb()

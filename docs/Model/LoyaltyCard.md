@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
 **programID** | **int** | The ID of the loyalty program that owns this entity. | 
 **status** | **string** | Status of the loyalty card. Can be one of: [&#39;active&#39;, &#39;inactive&#39;] | 
+**blockReason** | **string** | Reason for transferring and blocking the loyalty card. | [optional] 
 **identifier** | **string** | The alphanumeric identifier of the loyalty card. | 
 **usersPerCardLimit** | **int** | The max amount of customer profiles that can be linked to the card. 0 means unlimited. | 
 **profiles** | [**\TalonOne\Client\Model\LoyaltyCardProfileRegistration[]**](LoyaltyCardProfileRegistration.md) | Integration IDs of the customers profiles linked to the card. | [optional] 

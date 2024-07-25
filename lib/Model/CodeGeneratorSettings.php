@@ -261,7 +261,7 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
     /**
      * Sets couponPattern
      *
-     * @param string $couponPattern The pattern used to generate coupon codes. The character `#` is a placeholder and is replaced by a random character from the `validCharacters` set.
+     * @param string $couponPattern The pattern used to generate codes, such as coupon codes, referral codes, and loyalty cards. The character `#` is a placeholder and is replaced by a random character from the `validCharacters` set.
      *
      * @return $this
      */

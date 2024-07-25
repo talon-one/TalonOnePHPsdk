@@ -57,7 +57,8 @@ class SSOConfig implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'enforced' => 'bool'
+        'enforced' => 'bool',
+        'newAcsUrl' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class SSOConfig implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'enforced' => null
+        'enforced' => null,
+        'newAcsUrl' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class SSOConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'enforced' => 'enforced'
+        'enforced' => 'enforced',
+        'newAcsUrl' => 'newAcsUrl'
     ];
 
     /**
@@ -105,7 +108,8 @@ class SSOConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'enforced' => 'setEnforced'
+        'enforced' => 'setEnforced',
+        'newAcsUrl' => 'setNewAcsUrl'
     ];
 
     /**
@@ -114,7 +118,8 @@ class SSOConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'enforced' => 'getEnforced'
+        'enforced' => 'getEnforced',
+        'newAcsUrl' => 'getNewAcsUrl'
     ];
 
     /**
@@ -178,6 +183,7 @@ class SSOConfig implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['enforced'] = isset($data['enforced']) ? $data['enforced'] : null;
+        $this->container['newAcsUrl'] = isset($data['newAcsUrl']) ? $data['newAcsUrl'] : null;
     }
 
     /**
@@ -227,6 +233,30 @@ class SSOConfig implements ModelInterface, ArrayAccess
     public function setEnforced($enforced)
     {
         $this->container['enforced'] = $enforced;
+
+        return $this;
+    }
+
+    /**
+     * Gets newAcsUrl
+     *
+     * @return string|null
+     */
+    public function getNewAcsUrl()
+    {
+        return $this->container['newAcsUrl'];
+    }
+
+    /**
+     * Sets newAcsUrl
+     *
+     * @param string|null $newAcsUrl Assertion Consumer Service (ACS) URL for setting up a new SAML connection with an identity provider like Okta or Microsoft Entra ID.
+     *
+     * @return $this
+     */
+    public function setNewAcsUrl($newAcsUrl)
+    {
+        $this->container['newAcsUrl'] = $newAcsUrl;
 
         return $this;
     }

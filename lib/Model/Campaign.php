@@ -98,7 +98,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'createdBy' => 'string',
         'updatedBy' => 'string',
         'templateId' => 'int',
-        'frontendState' => 'string'
+        'frontendState' => 'string',
+        'storesImported' => 'bool'
     ];
 
     /**
@@ -147,7 +148,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'createdBy' => null,
         'updatedBy' => null,
         'templateId' => null,
-        'frontendState' => null
+        'frontendState' => null,
+        'storesImported' => null
     ];
 
     /**
@@ -217,7 +219,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'createdBy' => 'createdBy',
         'updatedBy' => 'updatedBy',
         'templateId' => 'templateId',
-        'frontendState' => 'frontendState'
+        'frontendState' => 'frontendState',
+        'storesImported' => 'storesImported'
     ];
 
     /**
@@ -266,7 +269,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'createdBy' => 'setCreatedBy',
         'updatedBy' => 'setUpdatedBy',
         'templateId' => 'setTemplateId',
-        'frontendState' => 'setFrontendState'
+        'frontendState' => 'setFrontendState',
+        'storesImported' => 'setStoresImported'
     ];
 
     /**
@@ -315,7 +319,8 @@ class Campaign implements ModelInterface, ArrayAccess
         'createdBy' => 'getCreatedBy',
         'updatedBy' => 'getUpdatedBy',
         'templateId' => 'getTemplateId',
-        'frontendState' => 'getFrontendState'
+        'frontendState' => 'getFrontendState',
+        'storesImported' => 'getStoresImported'
     ];
 
     /**
@@ -497,6 +502,7 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['updatedBy'] = isset($data['updatedBy']) ? $data['updatedBy'] : null;
         $this->container['templateId'] = isset($data['templateId']) ? $data['templateId'] : null;
         $this->container['frontendState'] = isset($data['frontendState']) ? $data['frontendState'] : null;
+        $this->container['storesImported'] = isset($data['storesImported']) ? $data['storesImported'] : null;
     }
 
     /**
@@ -575,6 +581,9 @@ class Campaign implements ModelInterface, ArrayAccess
             );
         }
 
+        if ($this->container['storesImported'] === null) {
+            $invalidProperties[] = "'storesImported' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -1611,6 +1620,30 @@ class Campaign implements ModelInterface, ArrayAccess
             );
         }
         $this->container['frontendState'] = $frontendState;
+
+        return $this;
+    }
+
+    /**
+     * Gets storesImported
+     *
+     * @return bool
+     */
+    public function getStoresImported()
+    {
+        return $this->container['storesImported'];
+    }
+
+    /**
+     * Sets storesImported
+     *
+     * @param bool $storesImported Indicates whether the linked stores were imported via a CSV file.
+     *
+     * @return $this
+     */
+    public function setStoresImported($storesImported)
+    {
+        $this->container['storesImported'] = $storesImported;
 
         return $this;
     }
