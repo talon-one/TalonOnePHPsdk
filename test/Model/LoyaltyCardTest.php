@@ -107,6 +107,13 @@ class LoyaltyCardTest extends TestCase
     }
 
     /**
+     * Test attribute "blockReason"
+     */
+    public function testPropertyBlockReason()
+    {
+    }
+
+    /**
      * Test attribute "identifier"
      */
     public function testPropertyIdentifier()

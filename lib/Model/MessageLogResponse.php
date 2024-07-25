@@ -202,19 +202,10 @@ class MessageLogResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['createdAt'] === null) {
-            $invalidProperties[] = "'createdAt' can't be null";
-        }
-        if ($this->container['response'] === null) {
-            $invalidProperties[] = "'response' can't be null";
-        }
-        if (!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['response'])) {
+        if (!is_null($this->container['response']) && !preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['response'])) {
             $invalidProperties[] = "invalid value for 'response', must be conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.";
         }
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -233,7 +224,7 @@ class MessageLogResponse implements ModelInterface, ArrayAccess
     /**
      * Gets createdAt
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -243,7 +234,7 @@ class MessageLogResponse implements ModelInterface, ArrayAccess
     /**
      * Sets createdAt
      *
-     * @param \DateTime $createdAt Timestamp when the response was received.
+     * @param \DateTime|null $createdAt Timestamp when the response was received.
      *
      * @return $this
      */
@@ -257,7 +248,7 @@ class MessageLogResponse implements ModelInterface, ArrayAccess
     /**
      * Gets response
      *
-     * @return string
+     * @return string|null
      */
     public function getResponse()
     {
@@ -267,14 +258,14 @@ class MessageLogResponse implements ModelInterface, ArrayAccess
     /**
      * Sets response
      *
-     * @param string $response Raw response data.
+     * @param string|null $response Raw response data.
      *
      * @return $this
      */
     public function setResponse($response)
     {
 
-        if ((!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $response))) {
+        if (!is_null($response) && (!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $response))) {
             throw new \InvalidArgumentException("invalid value for $response when calling MessageLogResponse., must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.");
         }
 
@@ -286,7 +277,7 @@ class MessageLogResponse implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return int
+     * @return int|null
      */
     public function getStatus()
     {
@@ -296,7 +287,7 @@ class MessageLogResponse implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param int $status HTTP status code of the response.
+     * @param int|null $status HTTP status code of the response.
      *
      * @return $this
      */

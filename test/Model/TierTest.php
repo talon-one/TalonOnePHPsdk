@@ -93,6 +93,13 @@ class TierTest extends TestCase
     }
 
     /**
+     * Test attribute "startDate"
+     */
+    public function testPropertyStartDate()
+    {
+    }
+
+    /**
      * Test attribute "expiryDate"
      */
     public function testPropertyExpiryDate()

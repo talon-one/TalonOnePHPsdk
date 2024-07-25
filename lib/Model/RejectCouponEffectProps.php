@@ -62,7 +62,8 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
         'rejectionReason' => 'string',
         'conditionIndex' => 'int',
         'effectIndex' => 'int',
-        'details' => 'string'
+        'details' => 'string',
+        'campaignExclusionReason' => 'string'
     ];
 
     /**
@@ -75,7 +76,8 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
         'rejectionReason' => null,
         'conditionIndex' => null,
         'effectIndex' => null,
-        'details' => null
+        'details' => null,
+        'campaignExclusionReason' => null
     ];
 
     /**
@@ -109,7 +111,8 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
         'rejectionReason' => 'rejectionReason',
         'conditionIndex' => 'conditionIndex',
         'effectIndex' => 'effectIndex',
-        'details' => 'details'
+        'details' => 'details',
+        'campaignExclusionReason' => 'campaignExclusionReason'
     ];
 
     /**
@@ -122,7 +125,8 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
         'rejectionReason' => 'setRejectionReason',
         'conditionIndex' => 'setConditionIndex',
         'effectIndex' => 'setEffectIndex',
-        'details' => 'setDetails'
+        'details' => 'setDetails',
+        'campaignExclusionReason' => 'setCampaignExclusionReason'
     ];
 
     /**
@@ -135,7 +139,8 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
         'rejectionReason' => 'getRejectionReason',
         'conditionIndex' => 'getConditionIndex',
         'effectIndex' => 'getEffectIndex',
-        'details' => 'getDetails'
+        'details' => 'getDetails',
+        'campaignExclusionReason' => 'getCampaignExclusionReason'
     ];
 
     /**
@@ -203,6 +208,7 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
         $this->container['conditionIndex'] = isset($data['conditionIndex']) ? $data['conditionIndex'] : null;
         $this->container['effectIndex'] = isset($data['effectIndex']) ? $data['effectIndex'] : null;
         $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['campaignExclusionReason'] = isset($data['campaignExclusionReason']) ? $data['campaignExclusionReason'] : null;
     }
 
     /**
@@ -351,6 +357,30 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
     public function setDetails($details)
     {
         $this->container['details'] = $details;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignExclusionReason
+     *
+     * @return string|null
+     */
+    public function getCampaignExclusionReason()
+    {
+        return $this->container['campaignExclusionReason'];
+    }
+
+    /**
+     * Sets campaignExclusionReason
+     *
+     * @param string|null $campaignExclusionReason The reason why the campaign was not applied.
+     *
+     * @return $this
+     */
+    public function setCampaignExclusionReason($campaignExclusionReason)
+    {
+        $this->container['campaignExclusionReason'] = $campaignExclusionReason;
 
         return $this;
     }

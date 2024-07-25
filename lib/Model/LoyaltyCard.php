@@ -62,6 +62,7 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         'created' => '\DateTime',
         'programID' => 'int',
         'status' => 'string',
+        'blockReason' => 'string',
         'identifier' => 'string',
         'usersPerCardLimit' => 'int',
         'profiles' => '\TalonOne\Client\Model\LoyaltyCardProfileRegistration[]',
@@ -82,6 +83,7 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         'created' => 'date-time',
         'programID' => null,
         'status' => null,
+        'blockReason' => null,
         'identifier' => null,
         'usersPerCardLimit' => null,
         'profiles' => null,
@@ -123,6 +125,7 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         'created' => 'created',
         'programID' => 'programID',
         'status' => 'status',
+        'blockReason' => 'blockReason',
         'identifier' => 'identifier',
         'usersPerCardLimit' => 'usersPerCardLimit',
         'profiles' => 'profiles',
@@ -143,6 +146,7 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         'created' => 'setCreated',
         'programID' => 'setProgramID',
         'status' => 'setStatus',
+        'blockReason' => 'setBlockReason',
         'identifier' => 'setIdentifier',
         'usersPerCardLimit' => 'setUsersPerCardLimit',
         'profiles' => 'setProfiles',
@@ -163,6 +167,7 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         'created' => 'getCreated',
         'programID' => 'getProgramID',
         'status' => 'getStatus',
+        'blockReason' => 'getBlockReason',
         'identifier' => 'getIdentifier',
         'usersPerCardLimit' => 'getUsersPerCardLimit',
         'profiles' => 'getProfiles',
@@ -237,6 +242,7 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['programID'] = isset($data['programID']) ? $data['programID'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['blockReason'] = isset($data['blockReason']) ? $data['blockReason'] : null;
         $this->container['identifier'] = isset($data['identifier']) ? $data['identifier'] : null;
         $this->container['usersPerCardLimit'] = isset($data['usersPerCardLimit']) ? $data['usersPerCardLimit'] : null;
         $this->container['profiles'] = isset($data['profiles']) ? $data['profiles'] : null;
@@ -397,6 +403,30 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets blockReason
+     *
+     * @return string|null
+     */
+    public function getBlockReason()
+    {
+        return $this->container['blockReason'];
+    }
+
+    /**
+     * Sets blockReason
+     *
+     * @param string|null $blockReason Reason for transferring and blocking the loyalty card.
+     *
+     * @return $this
+     */
+    public function setBlockReason($blockReason)
+    {
+        $this->container['blockReason'] = $blockReason;
 
         return $this;
     }

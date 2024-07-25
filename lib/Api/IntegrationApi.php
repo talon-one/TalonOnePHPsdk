@@ -3169,14 +3169,16 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  bool $includeTiers Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier. (optional, default to false)
+     * @param  bool $includeProjectedTier Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer’s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance. (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\LoyaltyBalances|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\LoyaltyBalancesWithTiers|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getLoyaltyBalances($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null)
+    public function getLoyaltyBalances($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null, $includeTiers = false, $includeProjectedTier = false)
     {
-        list($response) = $this->getLoyaltyBalancesWithHttpInfo($loyaltyProgramId, $integrationId, $endDate, $subledgerId);
+        list($response) = $this->getLoyaltyBalancesWithHttpInfo($loyaltyProgramId, $integrationId, $endDate, $subledgerId, $includeTiers, $includeProjectedTier);
         return $response;
     }
 
@@ -3189,14 +3191,16 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  bool $includeTiers Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier. (optional, default to false)
+     * @param  bool $includeProjectedTier Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer’s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance. (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\LoyaltyBalances|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\LoyaltyBalancesWithTiers|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyBalancesWithHttpInfo($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null)
+    public function getLoyaltyBalancesWithHttpInfo($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null, $includeTiers = false, $includeProjectedTier = false)
     {
-        $request = $this->getLoyaltyBalancesRequest($loyaltyProgramId, $integrationId, $endDate, $subledgerId);
+        $request = $this->getLoyaltyBalancesRequest($loyaltyProgramId, $integrationId, $endDate, $subledgerId, $includeTiers, $includeProjectedTier);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3229,14 +3233,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\LoyaltyBalances' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\LoyaltyBalancesWithTiers' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\LoyaltyBalances', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\LoyaltyBalancesWithTiers', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3278,7 +3282,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\LoyaltyBalances';
+            $returnType = '\TalonOne\Client\Model\LoyaltyBalancesWithTiers';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3297,7 +3301,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\LoyaltyBalances',
+                        '\TalonOne\Client\Model\LoyaltyBalancesWithTiers',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3340,13 +3344,15 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  bool $includeTiers Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier. (optional, default to false)
+     * @param  bool $includeProjectedTier Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer’s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyBalancesAsync($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null)
+    public function getLoyaltyBalancesAsync($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null, $includeTiers = false, $includeProjectedTier = false)
     {
-        return $this->getLoyaltyBalancesAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $endDate, $subledgerId)
+        return $this->getLoyaltyBalancesAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $endDate, $subledgerId, $includeTiers, $includeProjectedTier)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3363,14 +3369,16 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  bool $includeTiers Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier. (optional, default to false)
+     * @param  bool $includeProjectedTier Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer’s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyBalancesAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null)
+    public function getLoyaltyBalancesAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null, $includeTiers = false, $includeProjectedTier = false)
     {
-        $returnType = '\TalonOne\Client\Model\LoyaltyBalances';
-        $request = $this->getLoyaltyBalancesRequest($loyaltyProgramId, $integrationId, $endDate, $subledgerId);
+        $returnType = '\TalonOne\Client\Model\LoyaltyBalancesWithTiers';
+        $request = $this->getLoyaltyBalancesRequest($loyaltyProgramId, $integrationId, $endDate, $subledgerId, $includeTiers, $includeProjectedTier);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3413,11 +3421,13 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  bool $includeTiers Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier. (optional, default to false)
+     * @param  bool $includeProjectedTier Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer’s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyBalancesRequest($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null)
+    protected function getLoyaltyBalancesRequest($loyaltyProgramId, $integrationId, $endDate = null, $subledgerId = null, $includeTiers = false, $includeProjectedTier = false)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -3452,6 +3462,20 @@ class IntegrationApi
         }
         if ($subledgerId !== null) {
             $queryParams['subledgerId'] = $subledgerId;
+        }
+        // query params
+        if (is_array($includeTiers)) {
+            $includeTiers = ObjectSerializer::serializeCollection($includeTiers, '', true);
+        }
+        if ($includeTiers !== null) {
+            $queryParams['includeTiers'] = $includeTiers;
+        }
+        // query params
+        if (is_array($includeProjectedTier)) {
+            $includeProjectedTier = ObjectSerializer::serializeCollection($includeProjectedTier, '', true);
+        }
+        if ($includeProjectedTier !== null) {
+            $queryParams['includeProjectedTier'] = $includeProjectedTier;
         }
 
 

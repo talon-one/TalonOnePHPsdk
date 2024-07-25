@@ -84,4 +84,11 @@ class TransferLoyaltyCardTest extends TestCase
     public function testPropertyNewCardIdentifier()
     {
     }
+
+    /**
+     * Test attribute "blockReason"
+     */
+    public function testPropertyBlockReason()
+    {
+    }
 }

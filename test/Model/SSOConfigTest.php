@@ -84,4 +84,11 @@ class SSOConfigTest extends TestCase
     public function testPropertyEnforced()
     {
     }
+
+    /**
+     * Test attribute "newAcsUrl"
+     */
+    public function testPropertyNewAcsUrl()
+    {
+    }
 }

@@ -219,7 +219,6 @@ class NewAttribute implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const ENTITY_ACCOUNT = 'Account';
     const ENTITY_APPLICATION = 'Application';
     const ENTITY_CAMPAIGN = 'Campaign';
     const ENTITY_CUSTOMER_PROFILE = 'CustomerProfile';
@@ -252,7 +251,6 @@ class NewAttribute implements ModelInterface, ArrayAccess
     public function getEntityAllowableValues()
     {
         return [
-            self::ENTITY_ACCOUNT,
             self::ENTITY_APPLICATION,
             self::ENTITY_CAMPAIGN,
             self::ENTITY_CUSTOMER_PROFILE,

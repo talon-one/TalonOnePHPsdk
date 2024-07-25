@@ -364,4 +364,11 @@ class CampaignTest extends TestCase
     public function testPropertyFrontendState()
     {
     }
+
+    /**
+     * Test attribute "storesImported"
+     */
+    public function testPropertyStoresImported()
+    {
+    }
 }

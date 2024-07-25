@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **applicationIds** | **int[]** | The IDs of the Applications that are related to this entity. | 
 **title** | **string** | Name or title for this webhook. | 
+**description** | **string** | A description of the webhook. | [optional] 
 **verb** | **string** | API method for this webhook. | 
 **url** | **string** | API URL (supports templating using parameters) for this webhook. | 
 **headers** | **string[]** | List of API HTTP headers for this webhook. | 

@@ -135,6 +135,20 @@ class EffectTest extends TestCase
     }
 
     /**
+     * Test attribute "evaluationGroupID"
+     */
+    public function testPropertyEvaluationGroupID()
+    {
+    }
+
+    /**
+     * Test attribute "evaluationGroupMode"
+     */
+    public function testPropertyEvaluationGroupMode()
+    {
+    }
+
+    /**
      * Test attribute "props"
      */
     public function testPropertyProps()
