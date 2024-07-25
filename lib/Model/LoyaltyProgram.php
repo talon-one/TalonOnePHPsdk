@@ -68,10 +68,12 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'allowSubledger' => 'bool',
         'usersPerCardLimit' => 'int',
         'sandbox' => 'bool',
+        'programJoinPolicy' => 'string',
         'tiersExpirationPolicy' => 'string',
+        'tiersStartDate' => '\DateTime',
         'tiersExpireIn' => 'string',
         'tiersDowngradePolicy' => 'string',
-        'programJoinPolicy' => 'string',
+        'cardCodeSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'accountID' => 'int',
         'name' => 'string',
         'tiers' => '\TalonOne\Client\Model\LoyaltyTier[]',
@@ -79,6 +81,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'cardBased' => 'bool',
         'canUpdateTiers' => 'bool',
         'canUpdateJoinPolicy' => 'bool',
+        'canUpdateTierExpirationPolicy' => 'bool',
         'canUpgradeToAdvancedTiers' => 'bool'
     ];
 
@@ -98,10 +101,12 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'allowSubledger' => null,
         'usersPerCardLimit' => null,
         'sandbox' => null,
+        'programJoinPolicy' => null,
         'tiersExpirationPolicy' => null,
+        'tiersStartDate' => 'date-time',
         'tiersExpireIn' => null,
         'tiersDowngradePolicy' => null,
-        'programJoinPolicy' => null,
+        'cardCodeSettings' => null,
         'accountID' => null,
         'name' => null,
         'tiers' => null,
@@ -109,6 +114,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'cardBased' => null,
         'canUpdateTiers' => null,
         'canUpdateJoinPolicy' => null,
+        'canUpdateTierExpirationPolicy' => null,
         'canUpgradeToAdvancedTiers' => null
     ];
 
@@ -149,10 +155,12 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'allowSubledger' => 'allowSubledger',
         'usersPerCardLimit' => 'usersPerCardLimit',
         'sandbox' => 'sandbox',
+        'programJoinPolicy' => 'programJoinPolicy',
         'tiersExpirationPolicy' => 'tiersExpirationPolicy',
+        'tiersStartDate' => 'tiersStartDate',
         'tiersExpireIn' => 'tiersExpireIn',
         'tiersDowngradePolicy' => 'tiersDowngradePolicy',
-        'programJoinPolicy' => 'programJoinPolicy',
+        'cardCodeSettings' => 'cardCodeSettings',
         'accountID' => 'accountID',
         'name' => 'name',
         'tiers' => 'tiers',
@@ -160,6 +168,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'cardBased' => 'cardBased',
         'canUpdateTiers' => 'canUpdateTiers',
         'canUpdateJoinPolicy' => 'canUpdateJoinPolicy',
+        'canUpdateTierExpirationPolicy' => 'canUpdateTierExpirationPolicy',
         'canUpgradeToAdvancedTiers' => 'canUpgradeToAdvancedTiers'
     ];
 
@@ -179,10 +188,12 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'allowSubledger' => 'setAllowSubledger',
         'usersPerCardLimit' => 'setUsersPerCardLimit',
         'sandbox' => 'setSandbox',
+        'programJoinPolicy' => 'setProgramJoinPolicy',
         'tiersExpirationPolicy' => 'setTiersExpirationPolicy',
+        'tiersStartDate' => 'setTiersStartDate',
         'tiersExpireIn' => 'setTiersExpireIn',
         'tiersDowngradePolicy' => 'setTiersDowngradePolicy',
-        'programJoinPolicy' => 'setProgramJoinPolicy',
+        'cardCodeSettings' => 'setCardCodeSettings',
         'accountID' => 'setAccountID',
         'name' => 'setName',
         'tiers' => 'setTiers',
@@ -190,6 +201,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'cardBased' => 'setCardBased',
         'canUpdateTiers' => 'setCanUpdateTiers',
         'canUpdateJoinPolicy' => 'setCanUpdateJoinPolicy',
+        'canUpdateTierExpirationPolicy' => 'setCanUpdateTierExpirationPolicy',
         'canUpgradeToAdvancedTiers' => 'setCanUpgradeToAdvancedTiers'
     ];
 
@@ -209,10 +221,12 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'allowSubledger' => 'getAllowSubledger',
         'usersPerCardLimit' => 'getUsersPerCardLimit',
         'sandbox' => 'getSandbox',
+        'programJoinPolicy' => 'getProgramJoinPolicy',
         'tiersExpirationPolicy' => 'getTiersExpirationPolicy',
+        'tiersStartDate' => 'getTiersStartDate',
         'tiersExpireIn' => 'getTiersExpireIn',
         'tiersDowngradePolicy' => 'getTiersDowngradePolicy',
-        'programJoinPolicy' => 'getProgramJoinPolicy',
+        'cardCodeSettings' => 'getCardCodeSettings',
         'accountID' => 'getAccountID',
         'name' => 'getName',
         'tiers' => 'getTiers',
@@ -220,6 +234,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'cardBased' => 'getCardBased',
         'canUpdateTiers' => 'getCanUpdateTiers',
         'canUpdateJoinPolicy' => 'getCanUpdateJoinPolicy',
+        'canUpdateTierExpirationPolicy' => 'getCanUpdateTierExpirationPolicy',
         'canUpgradeToAdvancedTiers' => 'getCanUpgradeToAdvancedTiers'
     ];
 
@@ -264,15 +279,31 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const TIERS_EXPIRATION_POLICY_TIER_START_DATE = 'tier_start_date';
-    const TIERS_EXPIRATION_POLICY_PROGRAM_JOIN_DATE = 'program_join_date';
-    const TIERS_DOWNGRADE_POLICY_ONE_DOWN = 'one_down';
-    const TIERS_DOWNGRADE_POLICY_BALANCE_BASED = 'balance_based';
     const PROGRAM_JOIN_POLICY_NOT_JOIN = 'not_join';
     const PROGRAM_JOIN_POLICY_POINTS_ACTIVATED = 'points_activated';
     const PROGRAM_JOIN_POLICY_POINTS_EARNED = 'points_earned';
+    const TIERS_EXPIRATION_POLICY_TIER_START_DATE = 'tier_start_date';
+    const TIERS_EXPIRATION_POLICY_PROGRAM_JOIN_DATE = 'program_join_date';
+    const TIERS_EXPIRATION_POLICY_CUSTOMER_ATTRIBUTE = 'customer_attribute';
+    const TIERS_EXPIRATION_POLICY_ABSOLUTE_EXPIRATION = 'absolute_expiration';
+    const TIERS_DOWNGRADE_POLICY_ONE_DOWN = 'one_down';
+    const TIERS_DOWNGRADE_POLICY_BALANCE_BASED = 'balance_based';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getProgramJoinPolicyAllowableValues()
+    {
+        return [
+            self::PROGRAM_JOIN_POLICY_NOT_JOIN,
+            self::PROGRAM_JOIN_POLICY_POINTS_ACTIVATED,
+            self::PROGRAM_JOIN_POLICY_POINTS_EARNED,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -284,6 +315,8 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         return [
             self::TIERS_EXPIRATION_POLICY_TIER_START_DATE,
             self::TIERS_EXPIRATION_POLICY_PROGRAM_JOIN_DATE,
+            self::TIERS_EXPIRATION_POLICY_CUSTOMER_ATTRIBUTE,
+            self::TIERS_EXPIRATION_POLICY_ABSOLUTE_EXPIRATION,
         ];
     }
     
@@ -297,20 +330,6 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         return [
             self::TIERS_DOWNGRADE_POLICY_ONE_DOWN,
             self::TIERS_DOWNGRADE_POLICY_BALANCE_BASED,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getProgramJoinPolicyAllowableValues()
-    {
-        return [
-            self::PROGRAM_JOIN_POLICY_NOT_JOIN,
-            self::PROGRAM_JOIN_POLICY_POINTS_ACTIVATED,
-            self::PROGRAM_JOIN_POLICY_POINTS_EARNED,
         ];
     }
     
@@ -340,10 +359,12 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         $this->container['allowSubledger'] = isset($data['allowSubledger']) ? $data['allowSubledger'] : null;
         $this->container['usersPerCardLimit'] = isset($data['usersPerCardLimit']) ? $data['usersPerCardLimit'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
+        $this->container['programJoinPolicy'] = isset($data['programJoinPolicy']) ? $data['programJoinPolicy'] : null;
         $this->container['tiersExpirationPolicy'] = isset($data['tiersExpirationPolicy']) ? $data['tiersExpirationPolicy'] : null;
+        $this->container['tiersStartDate'] = isset($data['tiersStartDate']) ? $data['tiersStartDate'] : null;
         $this->container['tiersExpireIn'] = isset($data['tiersExpireIn']) ? $data['tiersExpireIn'] : null;
         $this->container['tiersDowngradePolicy'] = isset($data['tiersDowngradePolicy']) ? $data['tiersDowngradePolicy'] : null;
-        $this->container['programJoinPolicy'] = isset($data['programJoinPolicy']) ? $data['programJoinPolicy'] : null;
+        $this->container['cardCodeSettings'] = isset($data['cardCodeSettings']) ? $data['cardCodeSettings'] : null;
         $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['tiers'] = isset($data['tiers']) ? $data['tiers'] : null;
@@ -351,6 +372,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         $this->container['cardBased'] = isset($data['cardBased']) ? $data['cardBased'] : false;
         $this->container['canUpdateTiers'] = isset($data['canUpdateTiers']) ? $data['canUpdateTiers'] : false;
         $this->container['canUpdateJoinPolicy'] = isset($data['canUpdateJoinPolicy']) ? $data['canUpdateJoinPolicy'] : null;
+        $this->container['canUpdateTierExpirationPolicy'] = isset($data['canUpdateTierExpirationPolicy']) ? $data['canUpdateTierExpirationPolicy'] : null;
         $this->container['canUpgradeToAdvancedTiers'] = isset($data['canUpgradeToAdvancedTiers']) ? $data['canUpgradeToAdvancedTiers'] : false;
     }
 
@@ -394,6 +416,14 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         if ($this->container['sandbox'] === null) {
             $invalidProperties[] = "'sandbox' can't be null";
         }
+        $allowedValues = $this->getProgramJoinPolicyAllowableValues();
+        if (!is_null($this->container['programJoinPolicy']) && !in_array($this->container['programJoinPolicy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'programJoinPolicy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         $allowedValues = $this->getTiersExpirationPolicyAllowableValues();
         if (!is_null($this->container['tiersExpirationPolicy']) && !in_array($this->container['tiersExpirationPolicy'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -406,14 +436,6 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         if (!is_null($this->container['tiersDowngradePolicy']) && !in_array($this->container['tiersDowngradePolicy'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'tiersDowngradePolicy', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getProgramJoinPolicyAllowableValues();
-        if (!is_null($this->container['programJoinPolicy']) && !in_array($this->container['programJoinPolicy'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'programJoinPolicy', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -695,6 +717,39 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets programJoinPolicy
+     *
+     * @return string|null
+     */
+    public function getProgramJoinPolicy()
+    {
+        return $this->container['programJoinPolicy'];
+    }
+
+    /**
+     * Sets programJoinPolicy
+     *
+     * @param string|null $programJoinPolicy The policy that defines when the customer joins the loyalty program.   - `not_join`: The customer does not join the loyalty program but can still earn and spend loyalty points.       **Note**: The customer does not have a program join date.   - `points_activated`: The customer joins the loyalty program only when their earned loyalty points become active for the first time.   - `points_earned`: The customer joins the loyalty program when they earn loyalty points for the first time.
+     *
+     * @return $this
+     */
+    public function setProgramJoinPolicy($programJoinPolicy)
+    {
+        $allowedValues = $this->getProgramJoinPolicyAllowableValues();
+        if (!is_null($programJoinPolicy) && !in_array($programJoinPolicy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'programJoinPolicy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['programJoinPolicy'] = $programJoinPolicy;
+
+        return $this;
+    }
+
+    /**
      * Gets tiersExpirationPolicy
      *
      * @return string|null
@@ -707,7 +762,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     /**
      * Sets tiersExpirationPolicy
      *
-     * @param string|null $tiersExpirationPolicy The policy that defines which date is used to calculate the expiration date of a customer's current tier.  - `tier_start_date`: The tier expiration date is calculated based on when the customer joined the current tier.  - `program_join_date`: The tier expiration date is calculated based on when the customer joined the loyalty program.
+     * @param string|null $tiersExpirationPolicy The policy that defines which date is used to calculate the expiration date of a customer's current tier.  - `tier_start_date`: The tier expiration date is calculated based on when the customer joined the current tier.  - `program_join_date`: The tier expiration date is calculated based on when the customer joined the loyalty program.  - `customer_attribute`: The tier expiration date is calculated based on a custom customer attribute.  - `absolute_expiration`: The tier expires on a specified date and time. **Note**: For absolute expiration, it is required to provide a `tiersStartDate.`
      *
      * @return $this
      */
@@ -723,6 +778,30 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
             );
         }
         $this->container['tiersExpirationPolicy'] = $tiersExpirationPolicy;
+
+        return $this;
+    }
+
+    /**
+     * Gets tiersStartDate
+     *
+     * @return \DateTime|null
+     */
+    public function getTiersStartDate()
+    {
+        return $this->container['tiersStartDate'];
+    }
+
+    /**
+     * Sets tiersStartDate
+     *
+     * @param \DateTime|null $tiersStartDate Timestamp at which the tier starts for all customers.  **Note**: This is only required when the tier expiration policy is set to `absolute_expiration`.
+     *
+     * @return $this
+     */
+    public function setTiersStartDate($tiersStartDate)
+    {
+        $this->container['tiersStartDate'] = $tiersStartDate;
 
         return $this;
     }
@@ -785,34 +864,25 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets programJoinPolicy
+     * Gets cardCodeSettings
      *
-     * @return string|null
+     * @return \TalonOne\Client\Model\CodeGeneratorSettings|null
      */
-    public function getProgramJoinPolicy()
+    public function getCardCodeSettings()
     {
-        return $this->container['programJoinPolicy'];
+        return $this->container['cardCodeSettings'];
     }
 
     /**
-     * Sets programJoinPolicy
+     * Sets cardCodeSettings
      *
-     * @param string|null $programJoinPolicy The policy that defines when the customer joins the loyalty program.   - `not_join`: The customer does not join the loyalty program but can still earn and spend loyalty points.       **Note**: The customer does not have a program join date.   - `points_activated`: The customer joins the loyalty program only when their earned loyalty points become active for the first time.   - `points_earned`: The customer joins the loyalty program when they earn loyalty points for the first time.
+     * @param \TalonOne\Client\Model\CodeGeneratorSettings|null $cardCodeSettings cardCodeSettings
      *
      * @return $this
      */
-    public function setProgramJoinPolicy($programJoinPolicy)
+    public function setCardCodeSettings($cardCodeSettings)
     {
-        $allowedValues = $this->getProgramJoinPolicyAllowableValues();
-        if (!is_null($programJoinPolicy) && !in_array($programJoinPolicy, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'programJoinPolicy', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['programJoinPolicy'] = $programJoinPolicy;
+        $this->container['cardCodeSettings'] = $cardCodeSettings;
 
         return $this;
     }
@@ -979,13 +1049,37 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     /**
      * Sets canUpdateJoinPolicy
      *
-     * @param bool|null $canUpdateJoinPolicy Indicates whether the program join policy can be updated. The join policy can be updated when this value is set to `true`.
+     * @param bool|null $canUpdateJoinPolicy `True` if the program join policy can be updated.
      *
      * @return $this
      */
     public function setCanUpdateJoinPolicy($canUpdateJoinPolicy)
     {
         $this->container['canUpdateJoinPolicy'] = $canUpdateJoinPolicy;
+
+        return $this;
+    }
+
+    /**
+     * Gets canUpdateTierExpirationPolicy
+     *
+     * @return bool|null
+     */
+    public function getCanUpdateTierExpirationPolicy()
+    {
+        return $this->container['canUpdateTierExpirationPolicy'];
+    }
+
+    /**
+     * Sets canUpdateTierExpirationPolicy
+     *
+     * @param bool|null $canUpdateTierExpirationPolicy `True` if the tier expiration policy can be updated.
+     *
+     * @return $this
+     */
+    public function setCanUpdateTierExpirationPolicy($canUpdateTierExpirationPolicy)
+    {
+        $this->container['canUpdateTierExpirationPolicy'] = $canUpdateTierExpirationPolicy;
 
         return $this;
     }

@@ -65,7 +65,9 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'effectType' => 'string',
         'triggeredByCoupon' => 'int',
         'triggeredForCatalogItem' => 'int',
-        'conditionIndex' => 'int'
+        'conditionIndex' => 'int',
+        'evaluationGroupID' => 'int',
+        'evaluationGroupMode' => 'string'
     ];
 
     /**
@@ -81,7 +83,9 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'effectType' => null,
         'triggeredByCoupon' => null,
         'triggeredForCatalogItem' => null,
-        'conditionIndex' => null
+        'conditionIndex' => null,
+        'evaluationGroupID' => null,
+        'evaluationGroupMode' => null
     ];
 
     /**
@@ -118,7 +122,9 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'effectType' => 'effectType',
         'triggeredByCoupon' => 'triggeredByCoupon',
         'triggeredForCatalogItem' => 'triggeredForCatalogItem',
-        'conditionIndex' => 'conditionIndex'
+        'conditionIndex' => 'conditionIndex',
+        'evaluationGroupID' => 'evaluationGroupID',
+        'evaluationGroupMode' => 'evaluationGroupMode'
     ];
 
     /**
@@ -134,7 +140,9 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'effectType' => 'setEffectType',
         'triggeredByCoupon' => 'setTriggeredByCoupon',
         'triggeredForCatalogItem' => 'setTriggeredForCatalogItem',
-        'conditionIndex' => 'setConditionIndex'
+        'conditionIndex' => 'setConditionIndex',
+        'evaluationGroupID' => 'setEvaluationGroupID',
+        'evaluationGroupMode' => 'setEvaluationGroupMode'
     ];
 
     /**
@@ -150,7 +158,9 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'effectType' => 'getEffectType',
         'triggeredByCoupon' => 'getTriggeredByCoupon',
         'triggeredForCatalogItem' => 'getTriggeredForCatalogItem',
-        'conditionIndex' => 'getConditionIndex'
+        'conditionIndex' => 'getConditionIndex',
+        'evaluationGroupID' => 'getEvaluationGroupID',
+        'evaluationGroupMode' => 'getEvaluationGroupMode'
     ];
 
     /**
@@ -221,6 +231,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         $this->container['triggeredByCoupon'] = isset($data['triggeredByCoupon']) ? $data['triggeredByCoupon'] : null;
         $this->container['triggeredForCatalogItem'] = isset($data['triggeredForCatalogItem']) ? $data['triggeredForCatalogItem'] : null;
         $this->container['conditionIndex'] = isset($data['conditionIndex']) ? $data['conditionIndex'] : null;
+        $this->container['evaluationGroupID'] = isset($data['evaluationGroupID']) ? $data['evaluationGroupID'] : null;
+        $this->container['evaluationGroupMode'] = isset($data['evaluationGroupMode']) ? $data['evaluationGroupMode'] : null;
     }
 
     /**
@@ -450,6 +462,54 @@ class EffectEntity implements ModelInterface, ArrayAccess
     public function setConditionIndex($conditionIndex)
     {
         $this->container['conditionIndex'] = $conditionIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationGroupID
+     *
+     * @return int|null
+     */
+    public function getEvaluationGroupID()
+    {
+        return $this->container['evaluationGroupID'];
+    }
+
+    /**
+     * Sets evaluationGroupID
+     *
+     * @param int|null $evaluationGroupID The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
+     *
+     * @return $this
+     */
+    public function setEvaluationGroupID($evaluationGroupID)
+    {
+        $this->container['evaluationGroupID'] = $evaluationGroupID;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationGroupMode
+     *
+     * @return string|null
+     */
+    public function getEvaluationGroupMode()
+    {
+        return $this->container['evaluationGroupMode'];
+    }
+
+    /**
+     * Sets evaluationGroupMode
+     *
+     * @param string|null $evaluationGroupMode The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
+     *
+     * @return $this
+     */
+    public function setEvaluationGroupMode($evaluationGroupMode)
+    {
+        $this->container['evaluationGroupMode'] = $evaluationGroupMode;
 
         return $this;
     }
