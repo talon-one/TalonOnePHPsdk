@@ -175,4 +175,11 @@ class EnvironmentTest extends TestCase
     public function testPropertyCollections()
     {
     }
+
+    /**
+     * Test attribute "applicationCartItemFilters"
+     */
+    public function testPropertyApplicationCartItemFilters()
+    {
+    }
 }

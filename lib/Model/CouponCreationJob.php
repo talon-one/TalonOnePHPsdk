@@ -664,7 +664,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets expiryDate
      *
-     * @param \DateTime|null $expiryDate Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative.
+     * @param \DateTime|null $expiryDate Expiration date of the coupon. Coupon never expires if this is omitted.
      *
      * @return $this
      */

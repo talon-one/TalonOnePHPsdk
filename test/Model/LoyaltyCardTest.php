@@ -107,6 +107,13 @@ class LoyaltyCardTest extends TestCase
     }
 
     /**
+     * Test attribute "blockReason"
+     */
+    public function testPropertyBlockReason()
+    {
+    }
+
+    /**
      * Test attribute "identifier"
      */
     public function testPropertyIdentifier()
@@ -159,6 +166,13 @@ class LoyaltyCardTest extends TestCase
      * Test attribute "newCardIdentifier"
      */
     public function testPropertyNewCardIdentifier()
+    {
+    }
+
+    /**
+     * Test attribute "batchId"
+     */
+    public function testPropertyBatchId()
     {
     }
 }

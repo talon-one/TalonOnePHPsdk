@@ -269,7 +269,7 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
     /**
      * Sets oldState
      *
-     * @param string $oldState The campaign's old state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'draft', 'archived']
+     * @param string $oldState The campaign's old state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'archived']
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
     /**
      * Sets newState
      *
-     * @param string $newState The campaign's new state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'draft', 'archived']
+     * @param string $newState The campaign's new state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'archived']
      *
      * @return $this
      */

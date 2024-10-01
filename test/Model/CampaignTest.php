@@ -364,4 +364,53 @@ class CampaignTest extends TestCase
     public function testPropertyFrontendState()
     {
     }
+
+    /**
+     * Test attribute "storesImported"
+     */
+    public function testPropertyStoresImported()
+    {
+    }
+
+    /**
+     * Test attribute "activeRevisionId"
+     */
+    public function testPropertyActiveRevisionId()
+    {
+    }
+
+    /**
+     * Test attribute "activeRevisionVersionId"
+     */
+    public function testPropertyActiveRevisionVersionId()
+    {
+    }
+
+    /**
+     * Test attribute "version"
+     */
+    public function testPropertyVersion()
+    {
+    }
+
+    /**
+     * Test attribute "currentRevisionId"
+     */
+    public function testPropertyCurrentRevisionId()
+    {
+    }
+
+    /**
+     * Test attribute "currentRevisionVersionId"
+     */
+    public function testPropertyCurrentRevisionVersionId()
+    {
+    }
+
+    /**
+     * Test attribute "stageRevision"
+     */
+    public function testPropertyStageRevision()
+    {
+    }
 }

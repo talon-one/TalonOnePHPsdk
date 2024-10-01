@@ -66,6 +66,10 @@ class Effect implements ModelInterface, ArrayAccess
         'triggeredByCoupon' => 'int',
         'triggeredForCatalogItem' => 'int',
         'conditionIndex' => 'int',
+        'evaluationGroupID' => 'int',
+        'evaluationGroupMode' => 'string',
+        'campaignRevisionId' => 'int',
+        'campaignRevisionVersionId' => 'int',
         'props' => 'object'
     ];
 
@@ -83,6 +87,10 @@ class Effect implements ModelInterface, ArrayAccess
         'triggeredByCoupon' => null,
         'triggeredForCatalogItem' => null,
         'conditionIndex' => null,
+        'evaluationGroupID' => null,
+        'evaluationGroupMode' => null,
+        'campaignRevisionId' => null,
+        'campaignRevisionVersionId' => null,
         'props' => null
     ];
 
@@ -121,6 +129,10 @@ class Effect implements ModelInterface, ArrayAccess
         'triggeredByCoupon' => 'triggeredByCoupon',
         'triggeredForCatalogItem' => 'triggeredForCatalogItem',
         'conditionIndex' => 'conditionIndex',
+        'evaluationGroupID' => 'evaluationGroupID',
+        'evaluationGroupMode' => 'evaluationGroupMode',
+        'campaignRevisionId' => 'campaignRevisionId',
+        'campaignRevisionVersionId' => 'campaignRevisionVersionId',
         'props' => 'props'
     ];
 
@@ -138,6 +150,10 @@ class Effect implements ModelInterface, ArrayAccess
         'triggeredByCoupon' => 'setTriggeredByCoupon',
         'triggeredForCatalogItem' => 'setTriggeredForCatalogItem',
         'conditionIndex' => 'setConditionIndex',
+        'evaluationGroupID' => 'setEvaluationGroupID',
+        'evaluationGroupMode' => 'setEvaluationGroupMode',
+        'campaignRevisionId' => 'setCampaignRevisionId',
+        'campaignRevisionVersionId' => 'setCampaignRevisionVersionId',
         'props' => 'setProps'
     ];
 
@@ -155,6 +171,10 @@ class Effect implements ModelInterface, ArrayAccess
         'triggeredByCoupon' => 'getTriggeredByCoupon',
         'triggeredForCatalogItem' => 'getTriggeredForCatalogItem',
         'conditionIndex' => 'getConditionIndex',
+        'evaluationGroupID' => 'getEvaluationGroupID',
+        'evaluationGroupMode' => 'getEvaluationGroupMode',
+        'campaignRevisionId' => 'getCampaignRevisionId',
+        'campaignRevisionVersionId' => 'getCampaignRevisionVersionId',
         'props' => 'getProps'
     ];
 
@@ -226,6 +246,10 @@ class Effect implements ModelInterface, ArrayAccess
         $this->container['triggeredByCoupon'] = isset($data['triggeredByCoupon']) ? $data['triggeredByCoupon'] : null;
         $this->container['triggeredForCatalogItem'] = isset($data['triggeredForCatalogItem']) ? $data['triggeredForCatalogItem'] : null;
         $this->container['conditionIndex'] = isset($data['conditionIndex']) ? $data['conditionIndex'] : null;
+        $this->container['evaluationGroupID'] = isset($data['evaluationGroupID']) ? $data['evaluationGroupID'] : null;
+        $this->container['evaluationGroupMode'] = isset($data['evaluationGroupMode']) ? $data['evaluationGroupMode'] : null;
+        $this->container['campaignRevisionId'] = isset($data['campaignRevisionId']) ? $data['campaignRevisionId'] : null;
+        $this->container['campaignRevisionVersionId'] = isset($data['campaignRevisionVersionId']) ? $data['campaignRevisionVersionId'] : null;
         $this->container['props'] = isset($data['props']) ? $data['props'] : null;
     }
 
@@ -459,6 +483,102 @@ class Effect implements ModelInterface, ArrayAccess
     public function setConditionIndex($conditionIndex)
     {
         $this->container['conditionIndex'] = $conditionIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationGroupID
+     *
+     * @return int|null
+     */
+    public function getEvaluationGroupID()
+    {
+        return $this->container['evaluationGroupID'];
+    }
+
+    /**
+     * Sets evaluationGroupID
+     *
+     * @param int|null $evaluationGroupID The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
+     *
+     * @return $this
+     */
+    public function setEvaluationGroupID($evaluationGroupID)
+    {
+        $this->container['evaluationGroupID'] = $evaluationGroupID;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationGroupMode
+     *
+     * @return string|null
+     */
+    public function getEvaluationGroupMode()
+    {
+        return $this->container['evaluationGroupMode'];
+    }
+
+    /**
+     * Sets evaluationGroupMode
+     *
+     * @param string|null $evaluationGroupMode The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
+     *
+     * @return $this
+     */
+    public function setEvaluationGroupMode($evaluationGroupMode)
+    {
+        $this->container['evaluationGroupMode'] = $evaluationGroupMode;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignRevisionId
+     *
+     * @return int|null
+     */
+    public function getCampaignRevisionId()
+    {
+        return $this->container['campaignRevisionId'];
+    }
+
+    /**
+     * Sets campaignRevisionId
+     *
+     * @param int|null $campaignRevisionId The revision ID of the campaign that was used when triggering the effect.
+     *
+     * @return $this
+     */
+    public function setCampaignRevisionId($campaignRevisionId)
+    {
+        $this->container['campaignRevisionId'] = $campaignRevisionId;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignRevisionVersionId
+     *
+     * @return int|null
+     */
+    public function getCampaignRevisionVersionId()
+    {
+        return $this->container['campaignRevisionVersionId'];
+    }
+
+    /**
+     * Sets campaignRevisionVersionId
+     *
+     * @param int|null $campaignRevisionVersionId The revision version ID of the campaign that was used when triggering the effect.
+     *
+     * @return $this
+     */
+    public function setCampaignRevisionVersionId($campaignRevisionVersionId)
+    {
+        $this->container['campaignRevisionVersionId'] = $campaignRevisionVersionId;
 
         return $this;
     }

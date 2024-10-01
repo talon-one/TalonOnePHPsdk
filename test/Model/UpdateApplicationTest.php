@@ -182,4 +182,18 @@ class UpdateApplicationTest extends TestCase
     public function testPropertyDefaultEvaluationGroupId()
     {
     }
+
+    /**
+     * Test attribute "defaultCartItemFilterId"
+     */
+    public function testPropertyDefaultCartItemFilterId()
+    {
+    }
+
+    /**
+     * Test attribute "enableCampaignStateManagement"
+     */
+    public function testPropertyEnableCampaignStateManagement()
+    {
+    }
 }

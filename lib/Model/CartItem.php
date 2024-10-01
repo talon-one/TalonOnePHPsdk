@@ -643,7 +643,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.
+     * @param object|null $attributes Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.  **Note:** Any previously defined attributes that you do not include in the array will be removed.
      *
      * @return $this
      */

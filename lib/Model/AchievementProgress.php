@@ -60,6 +60,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
         'achievementId' => 'int',
         'name' => 'string',
         'title' => 'string',
+        'description' => 'string',
         'campaignId' => 'int',
         'status' => 'string',
         'target' => 'float',
@@ -78,6 +79,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
         'achievementId' => null,
         'name' => null,
         'title' => null,
+        'description' => 'string',
         'campaignId' => null,
         'status' => null,
         'target' => null,
@@ -117,6 +119,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
         'achievementId' => 'achievementId',
         'name' => 'name',
         'title' => 'title',
+        'description' => 'description',
         'campaignId' => 'campaignId',
         'status' => 'status',
         'target' => 'target',
@@ -135,6 +138,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
         'achievementId' => 'setAchievementId',
         'name' => 'setName',
         'title' => 'setTitle',
+        'description' => 'setDescription',
         'campaignId' => 'setCampaignId',
         'status' => 'setStatus',
         'target' => 'setTarget',
@@ -153,6 +157,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
         'achievementId' => 'getAchievementId',
         'name' => 'getName',
         'title' => 'getTitle',
+        'description' => 'getDescription',
         'campaignId' => 'getCampaignId',
         'status' => 'getStatus',
         'target' => 'getTarget',
@@ -242,6 +247,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
         $this->container['achievementId'] = isset($data['achievementId']) ? $data['achievementId'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['target'] = isset($data['target']) ? $data['target'] : null;
@@ -280,6 +286,9 @@ class AchievementProgress implements ModelInterface, ArrayAccess
 
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
         }
         if ($this->container['campaignId'] === null) {
             $invalidProperties[] = "'campaignId' can't be null";
@@ -397,6 +406,30 @@ class AchievementProgress implements ModelInterface, ArrayAccess
     public function setTitle($title)
     {
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description The description of the achievement in the Campaign Manager.
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }

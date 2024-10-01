@@ -189,4 +189,11 @@ class UserTest extends TestCase
     public function testPropertyLatestFeedTimestamp()
     {
     }
+
+    /**
+     * Test attribute "additionalAttributes"
+     */
+    public function testPropertyAdditionalAttributes()
+    {
+    }
 }

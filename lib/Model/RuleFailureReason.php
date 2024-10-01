@@ -69,7 +69,9 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
         'ruleName' => 'string',
         'conditionIndex' => 'int',
         'effectIndex' => 'int',
-        'details' => 'string'
+        'details' => 'string',
+        'evaluationGroupID' => 'int',
+        'evaluationGroupMode' => 'string'
     ];
 
     /**
@@ -89,7 +91,9 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
         'ruleName' => null,
         'conditionIndex' => null,
         'effectIndex' => null,
-        'details' => null
+        'details' => null,
+        'evaluationGroupID' => null,
+        'evaluationGroupMode' => null
     ];
 
     /**
@@ -130,7 +134,9 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
         'ruleName' => 'ruleName',
         'conditionIndex' => 'conditionIndex',
         'effectIndex' => 'effectIndex',
-        'details' => 'details'
+        'details' => 'details',
+        'evaluationGroupID' => 'evaluationGroupID',
+        'evaluationGroupMode' => 'evaluationGroupMode'
     ];
 
     /**
@@ -150,7 +156,9 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
         'ruleName' => 'setRuleName',
         'conditionIndex' => 'setConditionIndex',
         'effectIndex' => 'setEffectIndex',
-        'details' => 'setDetails'
+        'details' => 'setDetails',
+        'evaluationGroupID' => 'setEvaluationGroupID',
+        'evaluationGroupMode' => 'setEvaluationGroupMode'
     ];
 
     /**
@@ -170,7 +178,9 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
         'ruleName' => 'getRuleName',
         'conditionIndex' => 'getConditionIndex',
         'effectIndex' => 'getEffectIndex',
-        'details' => 'getDetails'
+        'details' => 'getDetails',
+        'evaluationGroupID' => 'getEvaluationGroupID',
+        'evaluationGroupMode' => 'getEvaluationGroupMode'
     ];
 
     /**
@@ -245,6 +255,8 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
         $this->container['conditionIndex'] = isset($data['conditionIndex']) ? $data['conditionIndex'] : null;
         $this->container['effectIndex'] = isset($data['effectIndex']) ? $data['effectIndex'] : null;
         $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['evaluationGroupID'] = isset($data['evaluationGroupID']) ? $data['evaluationGroupID'] : null;
+        $this->container['evaluationGroupMode'] = isset($data['evaluationGroupMode']) ? $data['evaluationGroupMode'] : null;
     }
 
     /**
@@ -570,6 +582,54 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     public function setDetails($details)
     {
         $this->container['details'] = $details;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationGroupID
+     *
+     * @return int|null
+     */
+    public function getEvaluationGroupID()
+    {
+        return $this->container['evaluationGroupID'];
+    }
+
+    /**
+     * Sets evaluationGroupID
+     *
+     * @param int|null $evaluationGroupID The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
+     *
+     * @return $this
+     */
+    public function setEvaluationGroupID($evaluationGroupID)
+    {
+        $this->container['evaluationGroupID'] = $evaluationGroupID;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationGroupMode
+     *
+     * @return string|null
+     */
+    public function getEvaluationGroupMode()
+    {
+        return $this->container['evaluationGroupMode'];
+    }
+
+    /**
+     * Sets evaluationGroupMode
+     *
+     * @param string|null $evaluationGroupMode The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-
+     *
+     * @return $this
+     */
+    public function setEvaluationGroupMode($evaluationGroupMode)
+    {
+        $this->container['evaluationGroupMode'] = $evaluationGroupMode;
 
         return $this;
     }

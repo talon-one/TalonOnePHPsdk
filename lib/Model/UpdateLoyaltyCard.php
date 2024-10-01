@@ -57,7 +57,8 @@ class UpdateLoyaltyCard implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => 'string'
+        'status' => 'string',
+        'blockReason' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class UpdateLoyaltyCard implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'status' => null
+        'status' => null,
+        'blockReason' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class UpdateLoyaltyCard implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status'
+        'status' => 'status',
+        'blockReason' => 'blockReason'
     ];
 
     /**
@@ -105,7 +108,8 @@ class UpdateLoyaltyCard implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'blockReason' => 'setBlockReason'
     ];
 
     /**
@@ -114,7 +118,8 @@ class UpdateLoyaltyCard implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'blockReason' => 'getBlockReason'
     ];
 
     /**
@@ -178,6 +183,7 @@ class UpdateLoyaltyCard implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['blockReason'] = isset($data['blockReason']) ? $data['blockReason'] : null;
     }
 
     /**
@@ -220,13 +226,37 @@ class UpdateLoyaltyCard implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status Status of the loyalty card. Can be one of: ['active', 'inactive']
+     * @param string $status Status of the loyalty card. Can be `active` or `inactive`.
      *
      * @return $this
      */
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets blockReason
+     *
+     * @return string|null
+     */
+    public function getBlockReason()
+    {
+        return $this->container['blockReason'];
+    }
+
+    /**
+     * Sets blockReason
+     *
+     * @param string|null $blockReason Reason for transferring and blocking the loyalty card.
+     *
+     * @return $this
+     */
+    public function setBlockReason($blockReason)
+    {
+        $this->container['blockReason'] = $blockReason;
 
         return $this;
     }

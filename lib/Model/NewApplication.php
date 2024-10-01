@@ -71,7 +71,8 @@ class NewApplication implements ModelInterface, ArrayAccess
         'sandbox' => 'bool',
         'enablePartialDiscounts' => 'bool',
         'defaultDiscountAdditionalCostPerItemScope' => 'string',
-        'key' => 'string'
+        'key' => 'string',
+        'enableCampaignStateManagement' => 'bool'
     ];
 
     /**
@@ -94,7 +95,8 @@ class NewApplication implements ModelInterface, ArrayAccess
         'sandbox' => null,
         'enablePartialDiscounts' => null,
         'defaultDiscountAdditionalCostPerItemScope' => null,
-        'key' => null
+        'key' => null,
+        'enableCampaignStateManagement' => null
     ];
 
     /**
@@ -138,7 +140,8 @@ class NewApplication implements ModelInterface, ArrayAccess
         'sandbox' => 'sandbox',
         'enablePartialDiscounts' => 'enablePartialDiscounts',
         'defaultDiscountAdditionalCostPerItemScope' => 'defaultDiscountAdditionalCostPerItemScope',
-        'key' => 'key'
+        'key' => 'key',
+        'enableCampaignStateManagement' => 'enableCampaignStateManagement'
     ];
 
     /**
@@ -161,7 +164,8 @@ class NewApplication implements ModelInterface, ArrayAccess
         'sandbox' => 'setSandbox',
         'enablePartialDiscounts' => 'setEnablePartialDiscounts',
         'defaultDiscountAdditionalCostPerItemScope' => 'setDefaultDiscountAdditionalCostPerItemScope',
-        'key' => 'setKey'
+        'key' => 'setKey',
+        'enableCampaignStateManagement' => 'setEnableCampaignStateManagement'
     ];
 
     /**
@@ -184,7 +188,8 @@ class NewApplication implements ModelInterface, ArrayAccess
         'sandbox' => 'getSandbox',
         'enablePartialDiscounts' => 'getEnablePartialDiscounts',
         'defaultDiscountAdditionalCostPerItemScope' => 'getDefaultDiscountAdditionalCostPerItemScope',
-        'key' => 'getKey'
+        'key' => 'getKey',
+        'enableCampaignStateManagement' => 'getEnableCampaignStateManagement'
     ];
 
     /**
@@ -313,6 +318,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         $this->container['enablePartialDiscounts'] = isset($data['enablePartialDiscounts']) ? $data['enablePartialDiscounts'] : null;
         $this->container['defaultDiscountAdditionalCostPerItemScope'] = isset($data['defaultDiscountAdditionalCostPerItemScope']) ? $data['defaultDiscountAdditionalCostPerItemScope'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['enableCampaignStateManagement'] = isset($data['enableCampaignStateManagement']) ? $data['enableCampaignStateManagement'] : null;
     }
 
     /**
@@ -791,6 +797,30 @@ class NewApplication implements ModelInterface, ArrayAccess
         }
 
         $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets enableCampaignStateManagement
+     *
+     * @return bool|null
+     */
+    public function getEnableCampaignStateManagement()
+    {
+        return $this->container['enableCampaignStateManagement'];
+    }
+
+    /**
+     * Sets enableCampaignStateManagement
+     *
+     * @param bool|null $enableCampaignStateManagement Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled.
+     *
+     * @return $this
+     */
+    public function setEnableCampaignStateManagement($enableCampaignStateManagement)
+    {
+        $this->container['enableCampaignStateManagement'] = $enableCampaignStateManagement;
 
         return $this;
     }

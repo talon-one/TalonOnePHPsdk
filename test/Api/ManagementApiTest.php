@@ -75,7 +75,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for activateUserByEmail
      *
-     * Activate user by email address.
+     * Enable user by email address.
      *
      */
     public function testActivateUserByEmail()
@@ -153,6 +153,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for createBatchLoyaltyCards
+     *
+     * Create loyalty cards.
+     *
+     */
+    public function testCreateBatchLoyaltyCards()
+    {
+    }
+
+    /**
      * Test case for createCampaignFromTemplate
      *
      * Create campaign from campaign template.
@@ -189,6 +199,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testCreateCouponsAsync()
+    {
+    }
+
+    /**
+     * Test case for createCouponsDeletionJob
+     *
+     * Creates a coupon deletion job.
+     *
+     */
+    public function testCreateCouponsDeletionJob()
     {
     }
 
@@ -255,7 +275,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for deactivateUserByEmail
      *
-     * Deactivate user by email address.
+     * Disable user by email address.
      *
      */
     public function testDeactivateUserByEmail()
@@ -393,6 +413,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for disconnectCampaignStores
+     *
+     * Disconnect stores.
+     *
+     */
+    public function testDisconnectCampaignStores()
+    {
+    }
+
+    /**
      * Test case for exportAccountCollectionItems
      *
      * Export account-level collection's items.
@@ -419,6 +449,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testExportAudiencesMemberships()
+    {
+    }
+
+    /**
+     * Test case for exportCampaignStores
+     *
+     * Export stores.
+     *
+     */
+    public function testExportCampaignStores()
     {
     }
 
@@ -509,6 +549,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testExportLoyaltyCardLedger()
+    {
+    }
+
+    /**
+     * Test case for exportLoyaltyCards
+     *
+     * Export loyalty cards.
+     *
+     */
+    public function testExportLoyaltyCards()
     {
     }
 
@@ -1203,6 +1253,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for importCampaignStores
+     *
+     * Import stores.
+     *
+     */
+    public function testImportCampaignStores()
+    {
+    }
+
+    /**
      * Test case for importCollection
      *
      * Import data into existing campaign-level collection.
@@ -1363,6 +1423,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for oktaEventHandlerChallenge
+     *
+     * Validate Okta API ownership.
+     *
+     */
+    public function testOktaEventHandlerChallenge()
+    {
+    }
+
+    /**
      * Test case for postAddedDeductedPointsNotification
      *
      * Create notification about added or deducted loyalty points.
@@ -1409,6 +1479,96 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testResetPassword()
+    {
+    }
+
+    /**
+     * Test case for scimCreateUser
+     *
+     * Create SCIM user.
+     *
+     */
+    public function testScimCreateUser()
+    {
+    }
+
+    /**
+     * Test case for scimDeleteUser
+     *
+     * Delete SCIM user.
+     *
+     */
+    public function testScimDeleteUser()
+    {
+    }
+
+    /**
+     * Test case for scimGetResourceTypes
+     *
+     * List supported SCIM resource types.
+     *
+     */
+    public function testScimGetResourceTypes()
+    {
+    }
+
+    /**
+     * Test case for scimGetSchemas
+     *
+     * List supported SCIM schemas.
+     *
+     */
+    public function testScimGetSchemas()
+    {
+    }
+
+    /**
+     * Test case for scimGetServiceProviderConfig
+     *
+     * Get SCIM service provider configuration.
+     *
+     */
+    public function testScimGetServiceProviderConfig()
+    {
+    }
+
+    /**
+     * Test case for scimGetUser
+     *
+     * Get SCIM user.
+     *
+     */
+    public function testScimGetUser()
+    {
+    }
+
+    /**
+     * Test case for scimGetUsers
+     *
+     * List SCIM users.
+     *
+     */
+    public function testScimGetUsers()
+    {
+    }
+
+    /**
+     * Test case for scimPatchUser
+     *
+     * Update SCIM user attributes.
+     *
+     */
+    public function testScimPatchUser()
+    {
+    }
+
+    /**
+     * Test case for scimReplaceUserAttributes
+     *
+     * Update SCIM user.
+     *
+     */
+    public function testScimReplaceUserAttributes()
     {
     }
 

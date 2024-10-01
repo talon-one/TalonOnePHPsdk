@@ -63,15 +63,12 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
         'campaignName' => 'string',
         'campaignTags' => 'string[]',
         'campaignState' => 'string',
-        'campaignActiveRulesetId' => 'int',
-        'campaignStartTime' => '\DateTime',
-        'campaignEndTime' => '\DateTime',
-        'totalRevenue' => '\TalonOne\Client\Model\ApplicationCampaignAnalyticsTotalRevenue',
-        'sessionsCount' => '\TalonOne\Client\Model\ApplicationCampaignAnalyticsSessionsCount',
-        'avgItemsPerSession' => '\TalonOne\Client\Model\ApplicationCampaignAnalyticsAvgItemsPerSession',
-        'avgSessionValue' => '\TalonOne\Client\Model\ApplicationCampaignAnalyticsAvgSessionValue',
-        'totalDiscounts' => '\TalonOne\Client\Model\ApplicationCampaignAnalyticsTotalDiscounts',
-        'couponsCount' => '\TalonOne\Client\Model\ApplicationCampaignAnalyticsCouponsCount'
+        'totalRevenue' => '\TalonOne\Client\Model\AnalyticsDataPointWithTrendAndInfluencedRate',
+        'sessionsCount' => '\TalonOne\Client\Model\AnalyticsDataPointWithTrendAndInfluencedRate',
+        'avgItemsPerSession' => '\TalonOne\Client\Model\AnalyticsDataPointWithTrendAndUplift',
+        'avgSessionValue' => '\TalonOne\Client\Model\AnalyticsDataPointWithTrendAndUplift',
+        'totalDiscounts' => '\TalonOne\Client\Model\AnalyticsDataPointWithTrend',
+        'couponsCount' => '\TalonOne\Client\Model\AnalyticsDataPointWithTrend'
     ];
 
     /**
@@ -86,9 +83,6 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
         'campaignName' => null,
         'campaignTags' => null,
         'campaignState' => null,
-        'campaignActiveRulesetId' => null,
-        'campaignStartTime' => 'date-time',
-        'campaignEndTime' => 'date-time',
         'totalRevenue' => null,
         'sessionsCount' => null,
         'avgItemsPerSession' => null,
@@ -130,9 +124,6 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
         'campaignName' => 'campaignName',
         'campaignTags' => 'campaignTags',
         'campaignState' => 'campaignState',
-        'campaignActiveRulesetId' => 'campaignActiveRulesetId',
-        'campaignStartTime' => 'campaignStartTime',
-        'campaignEndTime' => 'campaignEndTime',
         'totalRevenue' => 'totalRevenue',
         'sessionsCount' => 'sessionsCount',
         'avgItemsPerSession' => 'avgItemsPerSession',
@@ -153,9 +144,6 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
         'campaignName' => 'setCampaignName',
         'campaignTags' => 'setCampaignTags',
         'campaignState' => 'setCampaignState',
-        'campaignActiveRulesetId' => 'setCampaignActiveRulesetId',
-        'campaignStartTime' => 'setCampaignStartTime',
-        'campaignEndTime' => 'setCampaignEndTime',
         'totalRevenue' => 'setTotalRevenue',
         'sessionsCount' => 'setSessionsCount',
         'avgItemsPerSession' => 'setAvgItemsPerSession',
@@ -176,9 +164,6 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
         'campaignName' => 'getCampaignName',
         'campaignTags' => 'getCampaignTags',
         'campaignState' => 'getCampaignState',
-        'campaignActiveRulesetId' => 'getCampaignActiveRulesetId',
-        'campaignStartTime' => 'getCampaignStartTime',
-        'campaignEndTime' => 'getCampaignEndTime',
         'totalRevenue' => 'getTotalRevenue',
         'sessionsCount' => 'getSessionsCount',
         'avgItemsPerSession' => 'getAvgItemsPerSession',
@@ -228,7 +213,9 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const CAMPAIGN_STATE_ENABLED = 'enabled';
+    const CAMPAIGN_STATE_EXPIRED = 'expired';
+    const CAMPAIGN_STATE_SCHEDULED = 'scheduled';
+    const CAMPAIGN_STATE_RUNNING = 'running';
     const CAMPAIGN_STATE_DISABLED = 'disabled';
     const CAMPAIGN_STATE_ARCHIVED = 'archived';
     
@@ -242,7 +229,9 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     public function getCampaignStateAllowableValues()
     {
         return [
-            self::CAMPAIGN_STATE_ENABLED,
+            self::CAMPAIGN_STATE_EXPIRED,
+            self::CAMPAIGN_STATE_SCHEDULED,
+            self::CAMPAIGN_STATE_RUNNING,
             self::CAMPAIGN_STATE_DISABLED,
             self::CAMPAIGN_STATE_ARCHIVED,
         ];
@@ -269,10 +258,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['campaignName'] = isset($data['campaignName']) ? $data['campaignName'] : null;
         $this->container['campaignTags'] = isset($data['campaignTags']) ? $data['campaignTags'] : null;
-        $this->container['campaignState'] = isset($data['campaignState']) ? $data['campaignState'] : 'enabled';
-        $this->container['campaignActiveRulesetId'] = isset($data['campaignActiveRulesetId']) ? $data['campaignActiveRulesetId'] : null;
-        $this->container['campaignStartTime'] = isset($data['campaignStartTime']) ? $data['campaignStartTime'] : null;
-        $this->container['campaignEndTime'] = isset($data['campaignEndTime']) ? $data['campaignEndTime'] : null;
+        $this->container['campaignState'] = isset($data['campaignState']) ? $data['campaignState'] : null;
         $this->container['totalRevenue'] = isset($data['totalRevenue']) ? $data['totalRevenue'] : null;
         $this->container['sessionsCount'] = isset($data['sessionsCount']) ? $data['sessionsCount'] : null;
         $this->container['avgItemsPerSession'] = isset($data['avgItemsPerSession']) ? $data['avgItemsPerSession'] : null;
@@ -290,6 +276,24 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['startTime'] === null) {
+            $invalidProperties[] = "'startTime' can't be null";
+        }
+        if ($this->container['endTime'] === null) {
+            $invalidProperties[] = "'endTime' can't be null";
+        }
+        if ($this->container['campaignId'] === null) {
+            $invalidProperties[] = "'campaignId' can't be null";
+        }
+        if ($this->container['campaignName'] === null) {
+            $invalidProperties[] = "'campaignName' can't be null";
+        }
+        if ($this->container['campaignTags'] === null) {
+            $invalidProperties[] = "'campaignTags' can't be null";
+        }
+        if ($this->container['campaignState'] === null) {
+            $invalidProperties[] = "'campaignState' can't be null";
+        }
         $allowedValues = $this->getCampaignStateAllowableValues();
         if (!is_null($this->container['campaignState']) && !in_array($this->container['campaignState'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -316,7 +320,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Gets startTime
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getStartTime()
     {
@@ -326,7 +330,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets startTime
      *
-     * @param \DateTime|null $startTime The start of the aggregation time frame in UTC.
+     * @param \DateTime $startTime The start of the aggregation time frame in UTC.
      *
      * @return $this
      */
@@ -340,7 +344,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Gets endTime
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getEndTime()
     {
@@ -350,7 +354,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets endTime
      *
-     * @param \DateTime|null $endTime The end of the aggregation time frame in UTC.
+     * @param \DateTime $endTime The end of the aggregation time frame in UTC.
      *
      * @return $this
      */
@@ -364,7 +368,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Gets campaignId
      *
-     * @return int|null
+     * @return int
      */
     public function getCampaignId()
     {
@@ -374,7 +378,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets campaignId
      *
-     * @param int|null $campaignId The ID of the campaign.
+     * @param int $campaignId The ID of the campaign.
      *
      * @return $this
      */
@@ -388,7 +392,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Gets campaignName
      *
-     * @return string|null
+     * @return string
      */
     public function getCampaignName()
     {
@@ -398,7 +402,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets campaignName
      *
-     * @param string|null $campaignName The name of the campaign.
+     * @param string $campaignName The name of the campaign.
      *
      * @return $this
      */
@@ -412,7 +416,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Gets campaignTags
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getCampaignTags()
     {
@@ -422,7 +426,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets campaignTags
      *
-     * @param string[]|null $campaignTags A list of tags for the campaign.
+     * @param string[] $campaignTags A list of tags for the campaign.
      *
      * @return $this
      */
@@ -436,7 +440,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Gets campaignState
      *
-     * @return string|null
+     * @return string
      */
     public function getCampaignState()
     {
@@ -446,14 +450,14 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets campaignState
      *
-     * @param string|null $campaignState The state of the campaign.  **Note:** A disabled or archived campaign is not evaluated for rules or coupons.
+     * @param string $campaignState The state of the campaign.  **Note:** A disabled or archived campaign is not evaluated for rules or coupons.
      *
      * @return $this
      */
     public function setCampaignState($campaignState)
     {
         $allowedValues = $this->getCampaignStateAllowableValues();
-        if (!is_null($campaignState) && !in_array($campaignState, $allowedValues, true)) {
+        if (!in_array($campaignState, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'campaignState', must be one of '%s'",
@@ -467,81 +471,9 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets campaignActiveRulesetId
-     *
-     * @return int|null
-     */
-    public function getCampaignActiveRulesetId()
-    {
-        return $this->container['campaignActiveRulesetId'];
-    }
-
-    /**
-     * Sets campaignActiveRulesetId
-     *
-     * @param int|null $campaignActiveRulesetId The [ID of the ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation.
-     *
-     * @return $this
-     */
-    public function setCampaignActiveRulesetId($campaignActiveRulesetId)
-    {
-        $this->container['campaignActiveRulesetId'] = $campaignActiveRulesetId;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaignStartTime
-     *
-     * @return \DateTime|null
-     */
-    public function getCampaignStartTime()
-    {
-        return $this->container['campaignStartTime'];
-    }
-
-    /**
-     * Sets campaignStartTime
-     *
-     * @param \DateTime|null $campaignStartTime Date and time when the campaign becomes active.
-     *
-     * @return $this
-     */
-    public function setCampaignStartTime($campaignStartTime)
-    {
-        $this->container['campaignStartTime'] = $campaignStartTime;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaignEndTime
-     *
-     * @return \DateTime|null
-     */
-    public function getCampaignEndTime()
-    {
-        return $this->container['campaignEndTime'];
-    }
-
-    /**
-     * Sets campaignEndTime
-     *
-     * @param \DateTime|null $campaignEndTime Date and time when the campaign becomes inactive.
-     *
-     * @return $this
-     */
-    public function setCampaignEndTime($campaignEndTime)
-    {
-        $this->container['campaignEndTime'] = $campaignEndTime;
-
-        return $this;
-    }
-
-    /**
      * Gets totalRevenue
      *
-     * @return \TalonOne\Client\Model\ApplicationCampaignAnalyticsTotalRevenue|null
+     * @return \TalonOne\Client\Model\AnalyticsDataPointWithTrendAndInfluencedRate|null
      */
     public function getTotalRevenue()
     {
@@ -551,7 +483,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets totalRevenue
      *
-     * @param \TalonOne\Client\Model\ApplicationCampaignAnalyticsTotalRevenue|null $totalRevenue totalRevenue
+     * @param \TalonOne\Client\Model\AnalyticsDataPointWithTrendAndInfluencedRate|null $totalRevenue totalRevenue
      *
      * @return $this
      */
@@ -565,7 +497,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Gets sessionsCount
      *
-     * @return \TalonOne\Client\Model\ApplicationCampaignAnalyticsSessionsCount|null
+     * @return \TalonOne\Client\Model\AnalyticsDataPointWithTrendAndInfluencedRate|null
      */
     public function getSessionsCount()
     {
@@ -575,7 +507,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets sessionsCount
      *
-     * @param \TalonOne\Client\Model\ApplicationCampaignAnalyticsSessionsCount|null $sessionsCount sessionsCount
+     * @param \TalonOne\Client\Model\AnalyticsDataPointWithTrendAndInfluencedRate|null $sessionsCount sessionsCount
      *
      * @return $this
      */
@@ -589,7 +521,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Gets avgItemsPerSession
      *
-     * @return \TalonOne\Client\Model\ApplicationCampaignAnalyticsAvgItemsPerSession|null
+     * @return \TalonOne\Client\Model\AnalyticsDataPointWithTrendAndUplift|null
      */
     public function getAvgItemsPerSession()
     {
@@ -599,7 +531,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets avgItemsPerSession
      *
-     * @param \TalonOne\Client\Model\ApplicationCampaignAnalyticsAvgItemsPerSession|null $avgItemsPerSession avgItemsPerSession
+     * @param \TalonOne\Client\Model\AnalyticsDataPointWithTrendAndUplift|null $avgItemsPerSession avgItemsPerSession
      *
      * @return $this
      */
@@ -613,7 +545,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Gets avgSessionValue
      *
-     * @return \TalonOne\Client\Model\ApplicationCampaignAnalyticsAvgSessionValue|null
+     * @return \TalonOne\Client\Model\AnalyticsDataPointWithTrendAndUplift|null
      */
     public function getAvgSessionValue()
     {
@@ -623,7 +555,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets avgSessionValue
      *
-     * @param \TalonOne\Client\Model\ApplicationCampaignAnalyticsAvgSessionValue|null $avgSessionValue avgSessionValue
+     * @param \TalonOne\Client\Model\AnalyticsDataPointWithTrendAndUplift|null $avgSessionValue avgSessionValue
      *
      * @return $this
      */
@@ -637,7 +569,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Gets totalDiscounts
      *
-     * @return \TalonOne\Client\Model\ApplicationCampaignAnalyticsTotalDiscounts|null
+     * @return \TalonOne\Client\Model\AnalyticsDataPointWithTrend|null
      */
     public function getTotalDiscounts()
     {
@@ -647,7 +579,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets totalDiscounts
      *
-     * @param \TalonOne\Client\Model\ApplicationCampaignAnalyticsTotalDiscounts|null $totalDiscounts totalDiscounts
+     * @param \TalonOne\Client\Model\AnalyticsDataPointWithTrend|null $totalDiscounts totalDiscounts
      *
      * @return $this
      */
@@ -661,7 +593,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Gets couponsCount
      *
-     * @return \TalonOne\Client\Model\ApplicationCampaignAnalyticsCouponsCount|null
+     * @return \TalonOne\Client\Model\AnalyticsDataPointWithTrend|null
      */
     public function getCouponsCount()
     {
@@ -671,7 +603,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     /**
      * Sets couponsCount
      *
-     * @param \TalonOne\Client\Model\ApplicationCampaignAnalyticsCouponsCount|null $couponsCount couponsCount
+     * @param \TalonOne\Client\Model\AnalyticsDataPointWithTrend|null $couponsCount couponsCount
      *
      * @return $this
      */

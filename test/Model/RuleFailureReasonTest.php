@@ -161,4 +161,18 @@ class RuleFailureReasonTest extends TestCase
     public function testPropertyDetails()
     {
     }
+
+    /**
+     * Test attribute "evaluationGroupID"
+     */
+    public function testPropertyEvaluationGroupID()
+    {
+    }
+
+    /**
+     * Test attribute "evaluationGroupMode"
+     */
+    public function testPropertyEvaluationGroupMode()
+    {
+    }
 }

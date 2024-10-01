@@ -45,6 +45,13 @@ Name | Type | Description | Notes
 **updatedBy** | **string** | Name of the user who last updated this campaign if available. | [optional] 
 **templateId** | **int** | The ID of the Campaign Template this Campaign was created from. | [optional] 
 **frontendState** | **string** | A campaign state described exactly as in the Campaign Manager. | 
+**storesImported** | **bool** | Indicates whether the linked stores were imported via a CSV file. | 
+**activeRevisionId** | **int** | ID of the revision that was last activated on this campaign. | [optional] 
+**activeRevisionVersionId** | **int** | ID of the revision version that is active on the campaign. | [optional] 
+**version** | **int** | Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. | [optional] 
+**currentRevisionId** | **int** | ID of the revision currently being modified for the campaign. | [optional] 
+**currentRevisionVersionId** | **int** | ID of the latest version applied on the current revision. | [optional] 
+**stageRevision** | **bool** | Flag for determining whether we use current revision when sending requests with staging API key. | [optional] [default to false]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

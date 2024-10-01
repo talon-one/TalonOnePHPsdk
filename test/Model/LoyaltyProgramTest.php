@@ -149,9 +149,23 @@ class LoyaltyProgramTest extends TestCase
     }
 
     /**
+     * Test attribute "programJoinPolicy"
+     */
+    public function testPropertyProgramJoinPolicy()
+    {
+    }
+
+    /**
      * Test attribute "tiersExpirationPolicy"
      */
     public function testPropertyTiersExpirationPolicy()
+    {
+    }
+
+    /**
+     * Test attribute "tierCycleStartDate"
+     */
+    public function testPropertyTierCycleStartDate()
     {
     }
 
@@ -170,9 +184,9 @@ class LoyaltyProgramTest extends TestCase
     }
 
     /**
-     * Test attribute "programJoinPolicy"
+     * Test attribute "cardCodeSettings"
      */
-    public function testPropertyProgramJoinPolicy()
+    public function testPropertyCardCodeSettings()
     {
     }
 
@@ -226,9 +240,23 @@ class LoyaltyProgramTest extends TestCase
     }
 
     /**
+     * Test attribute "canUpdateTierExpirationPolicy"
+     */
+    public function testPropertyCanUpdateTierExpirationPolicy()
+    {
+    }
+
+    /**
      * Test attribute "canUpgradeToAdvancedTiers"
      */
     public function testPropertyCanUpgradeToAdvancedTiers()
+    {
+    }
+
+    /**
+     * Test attribute "canUpdateSubledgers"
+     */
+    public function testPropertyCanUpdateSubledgers()
     {
     }
 }

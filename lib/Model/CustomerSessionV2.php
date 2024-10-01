@@ -593,7 +593,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets couponCodes
      *
-     * @param string[]|null $couponCodes Any coupon codes entered.  **Important**: If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it.
+     * @param string[]|null $couponCodes Any coupon codes entered.  **Important - for requests only**:  - If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it. - In requests where `dry=false`, providing an empty array discards any previous coupons. To avoid this, provide `\"couponCodes\": null` or omit the parameter entirely.
      *
      * @return $this
      */
@@ -617,7 +617,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets referralCode
      *
-     * @param string|null $referralCode Any referral code entered.  **Important**: If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it.
+     * @param string|null $referralCode Any referral code entered.  **Important - for requests only**:  - If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it. - In requests where `dry=false`, providing an empty value discards the previous referral code. To avoid this, provide `\"referralCode\": null` or omit the parameter entirely.
      *
      * @return $this
      */

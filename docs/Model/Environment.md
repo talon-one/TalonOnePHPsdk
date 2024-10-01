@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **additionalCosts** | [**\TalonOne\Client\Model\AccountAdditionalCost[]**](AccountAdditionalCost.md) | The additional costs that the application is subscribed to. | [optional] 
 **audiences** | [**\TalonOne\Client\Model\Audience[]**](Audience.md) | The audiences contained in the account which the application belongs to. | [optional] 
 **collections** | [**\TalonOne\Client\Model\Collection[]**](Collection.md) | The account-level collections that the application is subscribed to. | [optional] 
+**applicationCartItemFilters** | [**\TalonOne\Client\Model\ApplicationCIF[]**](ApplicationCIF.md) | The cart item filters belonging to the Application. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -59,10 +59,10 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'startTime' => '\DateTime',
         'endTime' => '\DateTime',
-        'totalRevenue' => '\TalonOne\Client\Model\ApplicationAnalyticsDataPointTotalRevenue',
-        'sessionsCount' => '\TalonOne\Client\Model\ApplicationAnalyticsDataPointSessionsCount',
-        'avgItemsPerSession' => '\TalonOne\Client\Model\ApplicationAnalyticsDataPointAvgItemsPerSession',
-        'avgSessionValue' => '\TalonOne\Client\Model\ApplicationAnalyticsDataPointAvgSessionValue',
+        'totalRevenue' => '\TalonOne\Client\Model\AnalyticsDataPoint',
+        'sessionsCount' => '\TalonOne\Client\Model\AnalyticsDataPoint',
+        'avgItemsPerSession' => '\TalonOne\Client\Model\AnalyticsDataPoint',
+        'avgSessionValue' => '\TalonOne\Client\Model\AnalyticsDataPoint',
         'totalDiscounts' => 'float',
         'couponsCount' => 'float'
     ];
@@ -231,6 +231,12 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['startTime'] === null) {
+            $invalidProperties[] = "'startTime' can't be null";
+        }
+        if ($this->container['endTime'] === null) {
+            $invalidProperties[] = "'endTime' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -249,7 +255,7 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     /**
      * Gets startTime
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getStartTime()
     {
@@ -259,7 +265,7 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     /**
      * Sets startTime
      *
-     * @param \DateTime|null $startTime The start of the aggregation time frame in UTC.
+     * @param \DateTime $startTime The start of the aggregation time frame in UTC.
      *
      * @return $this
      */
@@ -273,7 +279,7 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     /**
      * Gets endTime
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getEndTime()
     {
@@ -283,7 +289,7 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     /**
      * Sets endTime
      *
-     * @param \DateTime|null $endTime The end of the aggregation time frame in UTC.
+     * @param \DateTime $endTime The end of the aggregation time frame in UTC.
      *
      * @return $this
      */
@@ -297,7 +303,7 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     /**
      * Gets totalRevenue
      *
-     * @return \TalonOne\Client\Model\ApplicationAnalyticsDataPointTotalRevenue|null
+     * @return \TalonOne\Client\Model\AnalyticsDataPoint|null
      */
     public function getTotalRevenue()
     {
@@ -307,7 +313,7 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     /**
      * Sets totalRevenue
      *
-     * @param \TalonOne\Client\Model\ApplicationAnalyticsDataPointTotalRevenue|null $totalRevenue totalRevenue
+     * @param \TalonOne\Client\Model\AnalyticsDataPoint|null $totalRevenue totalRevenue
      *
      * @return $this
      */
@@ -321,7 +327,7 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     /**
      * Gets sessionsCount
      *
-     * @return \TalonOne\Client\Model\ApplicationAnalyticsDataPointSessionsCount|null
+     * @return \TalonOne\Client\Model\AnalyticsDataPoint|null
      */
     public function getSessionsCount()
     {
@@ -331,7 +337,7 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     /**
      * Sets sessionsCount
      *
-     * @param \TalonOne\Client\Model\ApplicationAnalyticsDataPointSessionsCount|null $sessionsCount sessionsCount
+     * @param \TalonOne\Client\Model\AnalyticsDataPoint|null $sessionsCount sessionsCount
      *
      * @return $this
      */
@@ -345,7 +351,7 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     /**
      * Gets avgItemsPerSession
      *
-     * @return \TalonOne\Client\Model\ApplicationAnalyticsDataPointAvgItemsPerSession|null
+     * @return \TalonOne\Client\Model\AnalyticsDataPoint|null
      */
     public function getAvgItemsPerSession()
     {
@@ -355,7 +361,7 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     /**
      * Sets avgItemsPerSession
      *
-     * @param \TalonOne\Client\Model\ApplicationAnalyticsDataPointAvgItemsPerSession|null $avgItemsPerSession avgItemsPerSession
+     * @param \TalonOne\Client\Model\AnalyticsDataPoint|null $avgItemsPerSession avgItemsPerSession
      *
      * @return $this
      */
@@ -369,7 +375,7 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     /**
      * Gets avgSessionValue
      *
-     * @return \TalonOne\Client\Model\ApplicationAnalyticsDataPointAvgSessionValue|null
+     * @return \TalonOne\Client\Model\AnalyticsDataPoint|null
      */
     public function getAvgSessionValue()
     {
@@ -379,7 +385,7 @@ class ApplicationAnalyticsDataPoint implements ModelInterface, ArrayAccess
     /**
      * Sets avgSessionValue
      *
-     * @param \TalonOne\Client\Model\ApplicationAnalyticsDataPointAvgSessionValue|null $avgSessionValue avgSessionValue
+     * @param \TalonOne\Client\Model\AnalyticsDataPoint|null $avgSessionValue avgSessionValue
      *
      * @return $this
      */

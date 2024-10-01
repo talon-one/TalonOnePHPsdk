@@ -79,13 +79,6 @@ class ApplicationCampaignStatsTest extends TestCase
     }
 
     /**
-     * Test attribute "draft"
-     */
-    public function testPropertyDraft()
-    {
-    }
-
-    /**
      * Test attribute "disabled"
      */
     public function testPropertyDisabled()

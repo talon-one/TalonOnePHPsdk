@@ -112,4 +112,11 @@ class RejectReferralEffectPropsTest extends TestCase
     public function testPropertyDetails()
     {
     }
+
+    /**
+     * Test attribute "campaignExclusionReason"
+     */
+    public function testPropertyCampaignExclusionReason()
+    {
+    }
 }

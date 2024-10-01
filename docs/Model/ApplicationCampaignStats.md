@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**draft** | **int** | Number of draft campaigns. | 
 **disabled** | **int** | Number of disabled campaigns. | 
 **scheduled** | **int** | Number of scheduled campaigns. | 
 **running** | **int** | Number of running campaigns. | 
