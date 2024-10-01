@@ -77,6 +77,8 @@ class Application implements ModelInterface, ArrayAccess
         'enablePartialDiscounts' => 'bool',
         'defaultDiscountAdditionalCostPerItemScope' => 'string',
         'defaultEvaluationGroupId' => 'int',
+        'defaultCartItemFilterId' => 'int',
+        'enableCampaignStateManagement' => 'bool',
         'loyaltyPrograms' => '\TalonOne\Client\Model\LoyaltyProgram[]'
     ];
 
@@ -105,6 +107,8 @@ class Application implements ModelInterface, ArrayAccess
         'enablePartialDiscounts' => null,
         'defaultDiscountAdditionalCostPerItemScope' => null,
         'defaultEvaluationGroupId' => null,
+        'defaultCartItemFilterId' => null,
+        'enableCampaignStateManagement' => null,
         'loyaltyPrograms' => null
     ];
 
@@ -154,6 +158,8 @@ class Application implements ModelInterface, ArrayAccess
         'enablePartialDiscounts' => 'enablePartialDiscounts',
         'defaultDiscountAdditionalCostPerItemScope' => 'defaultDiscountAdditionalCostPerItemScope',
         'defaultEvaluationGroupId' => 'defaultEvaluationGroupId',
+        'defaultCartItemFilterId' => 'defaultCartItemFilterId',
+        'enableCampaignStateManagement' => 'enableCampaignStateManagement',
         'loyaltyPrograms' => 'loyaltyPrograms'
     ];
 
@@ -182,6 +188,8 @@ class Application implements ModelInterface, ArrayAccess
         'enablePartialDiscounts' => 'setEnablePartialDiscounts',
         'defaultDiscountAdditionalCostPerItemScope' => 'setDefaultDiscountAdditionalCostPerItemScope',
         'defaultEvaluationGroupId' => 'setDefaultEvaluationGroupId',
+        'defaultCartItemFilterId' => 'setDefaultCartItemFilterId',
+        'enableCampaignStateManagement' => 'setEnableCampaignStateManagement',
         'loyaltyPrograms' => 'setLoyaltyPrograms'
     ];
 
@@ -210,6 +218,8 @@ class Application implements ModelInterface, ArrayAccess
         'enablePartialDiscounts' => 'getEnablePartialDiscounts',
         'defaultDiscountAdditionalCostPerItemScope' => 'getDefaultDiscountAdditionalCostPerItemScope',
         'defaultEvaluationGroupId' => 'getDefaultEvaluationGroupId',
+        'defaultCartItemFilterId' => 'getDefaultCartItemFilterId',
+        'enableCampaignStateManagement' => 'getEnableCampaignStateManagement',
         'loyaltyPrograms' => 'getLoyaltyPrograms'
     ];
 
@@ -343,6 +353,8 @@ class Application implements ModelInterface, ArrayAccess
         $this->container['enablePartialDiscounts'] = isset($data['enablePartialDiscounts']) ? $data['enablePartialDiscounts'] : null;
         $this->container['defaultDiscountAdditionalCostPerItemScope'] = isset($data['defaultDiscountAdditionalCostPerItemScope']) ? $data['defaultDiscountAdditionalCostPerItemScope'] : null;
         $this->container['defaultEvaluationGroupId'] = isset($data['defaultEvaluationGroupId']) ? $data['defaultEvaluationGroupId'] : null;
+        $this->container['defaultCartItemFilterId'] = isset($data['defaultCartItemFilterId']) ? $data['defaultCartItemFilterId'] : null;
+        $this->container['enableCampaignStateManagement'] = isset($data['enableCampaignStateManagement']) ? $data['enableCampaignStateManagement'] : null;
         $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
     }
 
@@ -924,6 +936,54 @@ class Application implements ModelInterface, ArrayAccess
     public function setDefaultEvaluationGroupId($defaultEvaluationGroupId)
     {
         $this->container['defaultEvaluationGroupId'] = $defaultEvaluationGroupId;
+
+        return $this;
+    }
+
+    /**
+     * Gets defaultCartItemFilterId
+     *
+     * @return int|null
+     */
+    public function getDefaultCartItemFilterId()
+    {
+        return $this->container['defaultCartItemFilterId'];
+    }
+
+    /**
+     * Sets defaultCartItemFilterId
+     *
+     * @param int|null $defaultCartItemFilterId The ID of the default Cart-Item-Filter for this application.
+     *
+     * @return $this
+     */
+    public function setDefaultCartItemFilterId($defaultCartItemFilterId)
+    {
+        $this->container['defaultCartItemFilterId'] = $defaultCartItemFilterId;
+
+        return $this;
+    }
+
+    /**
+     * Gets enableCampaignStateManagement
+     *
+     * @return bool|null
+     */
+    public function getEnableCampaignStateManagement()
+    {
+        return $this->container['enableCampaignStateManagement'];
+    }
+
+    /**
+     * Sets enableCampaignStateManagement
+     *
+     * @param bool|null $enableCampaignStateManagement Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled.
+     *
+     * @return $this
+     */
+    public function setEnableCampaignStateManagement($enableCampaignStateManagement)
+    {
+        $this->container['enableCampaignStateManagement'] = $enableCampaignStateManagement;
 
         return $this;
     }

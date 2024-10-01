@@ -98,7 +98,14 @@ class Campaign implements ModelInterface, ArrayAccess
         'createdBy' => 'string',
         'updatedBy' => 'string',
         'templateId' => 'int',
-        'frontendState' => 'string'
+        'frontendState' => 'string',
+        'storesImported' => 'bool',
+        'activeRevisionId' => 'int',
+        'activeRevisionVersionId' => 'int',
+        'version' => 'int',
+        'currentRevisionId' => 'int',
+        'currentRevisionVersionId' => 'int',
+        'stageRevision' => 'bool'
     ];
 
     /**
@@ -147,7 +154,14 @@ class Campaign implements ModelInterface, ArrayAccess
         'createdBy' => null,
         'updatedBy' => null,
         'templateId' => null,
-        'frontendState' => null
+        'frontendState' => null,
+        'storesImported' => null,
+        'activeRevisionId' => null,
+        'activeRevisionVersionId' => null,
+        'version' => null,
+        'currentRevisionId' => null,
+        'currentRevisionVersionId' => null,
+        'stageRevision' => null
     ];
 
     /**
@@ -217,7 +231,14 @@ class Campaign implements ModelInterface, ArrayAccess
         'createdBy' => 'createdBy',
         'updatedBy' => 'updatedBy',
         'templateId' => 'templateId',
-        'frontendState' => 'frontendState'
+        'frontendState' => 'frontendState',
+        'storesImported' => 'storesImported',
+        'activeRevisionId' => 'activeRevisionId',
+        'activeRevisionVersionId' => 'activeRevisionVersionId',
+        'version' => 'version',
+        'currentRevisionId' => 'currentRevisionId',
+        'currentRevisionVersionId' => 'currentRevisionVersionId',
+        'stageRevision' => 'stageRevision'
     ];
 
     /**
@@ -266,7 +287,14 @@ class Campaign implements ModelInterface, ArrayAccess
         'createdBy' => 'setCreatedBy',
         'updatedBy' => 'setUpdatedBy',
         'templateId' => 'setTemplateId',
-        'frontendState' => 'setFrontendState'
+        'frontendState' => 'setFrontendState',
+        'storesImported' => 'setStoresImported',
+        'activeRevisionId' => 'setActiveRevisionId',
+        'activeRevisionVersionId' => 'setActiveRevisionVersionId',
+        'version' => 'setVersion',
+        'currentRevisionId' => 'setCurrentRevisionId',
+        'currentRevisionVersionId' => 'setCurrentRevisionVersionId',
+        'stageRevision' => 'setStageRevision'
     ];
 
     /**
@@ -315,7 +343,14 @@ class Campaign implements ModelInterface, ArrayAccess
         'createdBy' => 'getCreatedBy',
         'updatedBy' => 'getUpdatedBy',
         'templateId' => 'getTemplateId',
-        'frontendState' => 'getFrontendState'
+        'frontendState' => 'getFrontendState',
+        'storesImported' => 'getStoresImported',
+        'activeRevisionId' => 'getActiveRevisionId',
+        'activeRevisionVersionId' => 'getActiveRevisionVersionId',
+        'version' => 'getVersion',
+        'currentRevisionId' => 'getCurrentRevisionId',
+        'currentRevisionVersionId' => 'getCurrentRevisionVersionId',
+        'stageRevision' => 'getStageRevision'
     ];
 
     /**
@@ -373,7 +408,6 @@ class Campaign implements ModelInterface, ArrayAccess
     const FRONTEND_STATE_EXPIRED = 'expired';
     const FRONTEND_STATE_SCHEDULED = 'scheduled';
     const FRONTEND_STATE_RUNNING = 'running';
-    const FRONTEND_STATE_DRAFT = 'draft';
     const FRONTEND_STATE_DISABLED = 'disabled';
     const FRONTEND_STATE_ARCHIVED = 'archived';
     
@@ -434,7 +468,6 @@ class Campaign implements ModelInterface, ArrayAccess
             self::FRONTEND_STATE_EXPIRED,
             self::FRONTEND_STATE_SCHEDULED,
             self::FRONTEND_STATE_RUNNING,
-            self::FRONTEND_STATE_DRAFT,
             self::FRONTEND_STATE_DISABLED,
             self::FRONTEND_STATE_ARCHIVED,
         ];
@@ -497,6 +530,13 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['updatedBy'] = isset($data['updatedBy']) ? $data['updatedBy'] : null;
         $this->container['templateId'] = isset($data['templateId']) ? $data['templateId'] : null;
         $this->container['frontendState'] = isset($data['frontendState']) ? $data['frontendState'] : null;
+        $this->container['storesImported'] = isset($data['storesImported']) ? $data['storesImported'] : null;
+        $this->container['activeRevisionId'] = isset($data['activeRevisionId']) ? $data['activeRevisionId'] : null;
+        $this->container['activeRevisionVersionId'] = isset($data['activeRevisionVersionId']) ? $data['activeRevisionVersionId'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['currentRevisionId'] = isset($data['currentRevisionId']) ? $data['currentRevisionId'] : null;
+        $this->container['currentRevisionVersionId'] = isset($data['currentRevisionVersionId']) ? $data['currentRevisionVersionId'] : null;
+        $this->container['stageRevision'] = isset($data['stageRevision']) ? $data['stageRevision'] : false;
     }
 
     /**
@@ -575,6 +615,9 @@ class Campaign implements ModelInterface, ArrayAccess
             );
         }
 
+        if ($this->container['storesImported'] === null) {
+            $invalidProperties[] = "'storesImported' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -1611,6 +1654,174 @@ class Campaign implements ModelInterface, ArrayAccess
             );
         }
         $this->container['frontendState'] = $frontendState;
+
+        return $this;
+    }
+
+    /**
+     * Gets storesImported
+     *
+     * @return bool
+     */
+    public function getStoresImported()
+    {
+        return $this->container['storesImported'];
+    }
+
+    /**
+     * Sets storesImported
+     *
+     * @param bool $storesImported Indicates whether the linked stores were imported via a CSV file.
+     *
+     * @return $this
+     */
+    public function setStoresImported($storesImported)
+    {
+        $this->container['storesImported'] = $storesImported;
+
+        return $this;
+    }
+
+    /**
+     * Gets activeRevisionId
+     *
+     * @return int|null
+     */
+    public function getActiveRevisionId()
+    {
+        return $this->container['activeRevisionId'];
+    }
+
+    /**
+     * Sets activeRevisionId
+     *
+     * @param int|null $activeRevisionId ID of the revision that was last activated on this campaign.
+     *
+     * @return $this
+     */
+    public function setActiveRevisionId($activeRevisionId)
+    {
+        $this->container['activeRevisionId'] = $activeRevisionId;
+
+        return $this;
+    }
+
+    /**
+     * Gets activeRevisionVersionId
+     *
+     * @return int|null
+     */
+    public function getActiveRevisionVersionId()
+    {
+        return $this->container['activeRevisionVersionId'];
+    }
+
+    /**
+     * Sets activeRevisionVersionId
+     *
+     * @param int|null $activeRevisionVersionId ID of the revision version that is active on the campaign.
+     *
+     * @return $this
+     */
+    public function setActiveRevisionVersionId($activeRevisionVersionId)
+    {
+        $this->container['activeRevisionVersionId'] = $activeRevisionVersionId;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return int|null
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param int|null $version Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign.
+     *
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
+     * Gets currentRevisionId
+     *
+     * @return int|null
+     */
+    public function getCurrentRevisionId()
+    {
+        return $this->container['currentRevisionId'];
+    }
+
+    /**
+     * Sets currentRevisionId
+     *
+     * @param int|null $currentRevisionId ID of the revision currently being modified for the campaign.
+     *
+     * @return $this
+     */
+    public function setCurrentRevisionId($currentRevisionId)
+    {
+        $this->container['currentRevisionId'] = $currentRevisionId;
+
+        return $this;
+    }
+
+    /**
+     * Gets currentRevisionVersionId
+     *
+     * @return int|null
+     */
+    public function getCurrentRevisionVersionId()
+    {
+        return $this->container['currentRevisionVersionId'];
+    }
+
+    /**
+     * Sets currentRevisionVersionId
+     *
+     * @param int|null $currentRevisionVersionId ID of the latest version applied on the current revision.
+     *
+     * @return $this
+     */
+    public function setCurrentRevisionVersionId($currentRevisionVersionId)
+    {
+        $this->container['currentRevisionVersionId'] = $currentRevisionVersionId;
+
+        return $this;
+    }
+
+    /**
+     * Gets stageRevision
+     *
+     * @return bool|null
+     */
+    public function getStageRevision()
+    {
+        return $this->container['stageRevision'];
+    }
+
+    /**
+     * Sets stageRevision
+     *
+     * @param bool|null $stageRevision Flag for determining whether we use current revision when sending requests with staging API key.
+     *
+     * @return $this
+     */
+    public function setStageRevision($stageRevision)
+    {
+        $this->container['stageRevision'] = $stageRevision;
 
         return $this;
     }

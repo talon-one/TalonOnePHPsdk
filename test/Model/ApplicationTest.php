@@ -212,6 +212,20 @@ class ApplicationTest extends TestCase
     }
 
     /**
+     * Test attribute "defaultCartItemFilterId"
+     */
+    public function testPropertyDefaultCartItemFilterId()
+    {
+    }
+
+    /**
+     * Test attribute "enableCampaignStateManagement"
+     */
+    public function testPropertyEnableCampaignStateManagement()
+    {
+    }
+
+    /**
      * Test attribute "loyaltyPrograms"
      */
     public function testPropertyLoyaltyPrograms()

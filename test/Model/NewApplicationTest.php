@@ -182,4 +182,11 @@ class NewApplicationTest extends TestCase
     public function testPropertyKey()
     {
     }
+
+    /**
+     * Test attribute "enableCampaignStateManagement"
+     */
+    public function testPropertyEnableCampaignStateManagement()
+    {
+    }
 }

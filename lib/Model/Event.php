@@ -280,9 +280,6 @@ class Event implements ModelInterface, ArrayAccess
         if ($this->container['effects'] === null) {
             $invalidProperties[] = "'effects' can't be null";
         }
-        if ($this->container['ledgerEntries'] === null) {
-            $invalidProperties[] = "'ledgerEntries' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -529,7 +526,7 @@ class Event implements ModelInterface, ArrayAccess
     /**
      * Gets ledgerEntries
      *
-     * @return \TalonOne\Client\Model\LedgerEntry[]
+     * @return \TalonOne\Client\Model\LedgerEntry[]|null
      */
     public function getLedgerEntries()
     {
@@ -539,7 +536,7 @@ class Event implements ModelInterface, ArrayAccess
     /**
      * Sets ledgerEntries
      *
-     * @param \TalonOne\Client\Model\LedgerEntry[] $ledgerEntries Ledger entries for the event.
+     * @param \TalonOne\Client\Model\LedgerEntry[]|null $ledgerEntries Ledger entries for the event.
      *
      * @return $this
      */

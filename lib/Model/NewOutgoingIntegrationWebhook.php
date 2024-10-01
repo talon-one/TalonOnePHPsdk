@@ -58,6 +58,7 @@ class NewOutgoingIntegrationWebhook implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'title' => 'string',
+        'description' => 'string',
         'applicationIds' => 'int[]'
     ];
 
@@ -68,6 +69,7 @@ class NewOutgoingIntegrationWebhook implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'title' => null,
+        'description' => null,
         'applicationIds' => null
     ];
 
@@ -99,6 +101,7 @@ class NewOutgoingIntegrationWebhook implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'title' => 'title',
+        'description' => 'description',
         'applicationIds' => 'applicationIds'
     ];
 
@@ -109,6 +112,7 @@ class NewOutgoingIntegrationWebhook implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'title' => 'setTitle',
+        'description' => 'setDescription',
         'applicationIds' => 'setApplicationIds'
     ];
 
@@ -119,6 +123,7 @@ class NewOutgoingIntegrationWebhook implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'title' => 'getTitle',
+        'description' => 'getDescription',
         'applicationIds' => 'getApplicationIds'
     ];
 
@@ -183,6 +188,7 @@ class NewOutgoingIntegrationWebhook implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
     }
 
@@ -236,6 +242,30 @@ class NewOutgoingIntegrationWebhook implements ModelInterface, ArrayAccess
     public function setTitle($title)
     {
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description A description of the webhook.
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }

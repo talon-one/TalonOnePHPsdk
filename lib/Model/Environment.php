@@ -71,7 +71,8 @@ class Environment implements ModelInterface, ArrayAccess
         'attributes' => '\TalonOne\Client\Model\Attribute[]',
         'additionalCosts' => '\TalonOne\Client\Model\AccountAdditionalCost[]',
         'audiences' => '\TalonOne\Client\Model\Audience[]',
-        'collections' => '\TalonOne\Client\Model\Collection[]'
+        'collections' => '\TalonOne\Client\Model\Collection[]',
+        'applicationCartItemFilters' => '\TalonOne\Client\Model\ApplicationCIF[]'
     ];
 
     /**
@@ -93,7 +94,8 @@ class Environment implements ModelInterface, ArrayAccess
         'attributes' => null,
         'additionalCosts' => null,
         'audiences' => null,
-        'collections' => null
+        'collections' => null,
+        'applicationCartItemFilters' => null
     ];
 
     /**
@@ -136,7 +138,8 @@ class Environment implements ModelInterface, ArrayAccess
         'attributes' => 'attributes',
         'additionalCosts' => 'additionalCosts',
         'audiences' => 'audiences',
-        'collections' => 'collections'
+        'collections' => 'collections',
+        'applicationCartItemFilters' => 'applicationCartItemFilters'
     ];
 
     /**
@@ -158,7 +161,8 @@ class Environment implements ModelInterface, ArrayAccess
         'attributes' => 'setAttributes',
         'additionalCosts' => 'setAdditionalCosts',
         'audiences' => 'setAudiences',
-        'collections' => 'setCollections'
+        'collections' => 'setCollections',
+        'applicationCartItemFilters' => 'setApplicationCartItemFilters'
     ];
 
     /**
@@ -180,7 +184,8 @@ class Environment implements ModelInterface, ArrayAccess
         'attributes' => 'getAttributes',
         'additionalCosts' => 'getAdditionalCosts',
         'audiences' => 'getAudiences',
-        'collections' => 'getCollections'
+        'collections' => 'getCollections',
+        'applicationCartItemFilters' => 'getApplicationCartItemFilters'
     ];
 
     /**
@@ -257,6 +262,7 @@ class Environment implements ModelInterface, ArrayAccess
         $this->container['additionalCosts'] = isset($data['additionalCosts']) ? $data['additionalCosts'] : null;
         $this->container['audiences'] = isset($data['audiences']) ? $data['audiences'] : null;
         $this->container['collections'] = isset($data['collections']) ? $data['collections'] : null;
+        $this->container['applicationCartItemFilters'] = isset($data['applicationCartItemFilters']) ? $data['applicationCartItemFilters'] : null;
     }
 
     /**
@@ -636,6 +642,30 @@ class Environment implements ModelInterface, ArrayAccess
     public function setCollections($collections)
     {
         $this->container['collections'] = $collections;
+
+        return $this;
+    }
+
+    /**
+     * Gets applicationCartItemFilters
+     *
+     * @return \TalonOne\Client\Model\ApplicationCIF[]|null
+     */
+    public function getApplicationCartItemFilters()
+    {
+        return $this->container['applicationCartItemFilters'];
+    }
+
+    /**
+     * Sets applicationCartItemFilters
+     *
+     * @param \TalonOne\Client\Model\ApplicationCIF[]|null $applicationCartItemFilters The cart item filters belonging to the Application.
+     *
+     * @return $this
+     */
+    public function setApplicationCartItemFilters($applicationCartItemFilters)
+    {
+        $this->container['applicationCartItemFilters'] = $applicationCartItemFilters;
 
         return $this;
     }

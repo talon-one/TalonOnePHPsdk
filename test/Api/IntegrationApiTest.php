@@ -153,6 +153,16 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for generateLoyaltyCard
+     *
+     * Generate loyalty card.
+     *
+     */
+    public function testGenerateLoyaltyCard()
+    {
+    }
+
+    /**
      * Test case for getCustomerInventory
      *
      * List customer data.

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**policy** | [**object**](.md) |  | 
+**policy** | [**object**](.md) | Indicates which notification properties to apply. | 
 **enabled** | **bool** | Indicates whether the notification is activated. | [optional] [default to true]
 **webhook** | [**\TalonOne\Client\Model\NewNotificationWebhook**](NewNotificationWebhook.md) |  | 
 

@@ -59,6 +59,7 @@ class Tier implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'name' => 'string',
+        'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
         'downgradePolicy' => 'string'
     ];
@@ -71,6 +72,7 @@ class Tier implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'name' => null,
+        'startDate' => 'date-time',
         'expiryDate' => 'date-time',
         'downgradePolicy' => null
     ];
@@ -104,6 +106,7 @@ class Tier implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
+        'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
         'downgradePolicy' => 'downgradePolicy'
     ];
@@ -116,6 +119,7 @@ class Tier implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
+        'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
         'downgradePolicy' => 'setDowngradePolicy'
     ];
@@ -128,6 +132,7 @@ class Tier implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
+        'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
         'downgradePolicy' => 'getDowngradePolicy'
     ];
@@ -209,6 +214,7 @@ class Tier implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['downgradePolicy'] = isset($data['downgradePolicy']) ? $data['downgradePolicy'] : null;
     }
@@ -300,6 +306,30 @@ class Tier implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets startDate
+     *
+     * @return \DateTime|null
+     */
+    public function getStartDate()
+    {
+        return $this->container['startDate'];
+    }
+
+    /**
+     * Sets startDate
+     *
+     * @param \DateTime|null $startDate Date and time when the customer moved to this tier. This value uses the loyalty program's time zone setting.
+     *
+     * @return $this
+     */
+    public function setStartDate($startDate)
+    {
+        $this->container['startDate'] = $startDate;
+
+        return $this;
+    }
+
+    /**
      * Gets expiryDate
      *
      * @return \DateTime|null
@@ -336,7 +366,7 @@ class Tier implements ModelInterface, ArrayAccess
     /**
      * Sets downgradePolicy
      *
-     * @param string|null $downgradePolicy Customers's tier downgrade policy. - `one_down`: Once the tier expires and if the user doesn't have enough points to stay in the tier, the user is downgraded one tier down. - `balance_based`: Once the tier expires, the user's tier is evaluated based on the amount of active points the user has at this instant.
+     * @param string|null $downgradePolicy The policy that defines how customer tiers are downgraded in the loyalty program after tier reevaluation.  - `one_down`: If the customer doesn't have enough points to stay in the current tier, they are downgraded by one tier.  - `balance_based`: The customer's tier is reevaluated based on the amount of active points they have at the moment.
      *
      * @return $this
      */

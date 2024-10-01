@@ -12,6 +12,10 @@ Name | Type | Description | Notes
 **triggeredByCoupon** | **int** | The ID of the coupon that was being evaluated when this effect was triggered. | [optional] 
 **triggeredForCatalogItem** | **int** | The ID of the catalog item that was being evaluated when this effect was triggered. | [optional] 
 **conditionIndex** | **int** | The index of the condition that was triggered. | [optional] 
+**evaluationGroupID** | **int** | The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation). | [optional] 
+**evaluationGroupMode** | **string** | The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation). | [optional] 
+**campaignRevisionId** | **int** | The revision ID of the campaign that was used when triggering the effect. | [optional] 
+**campaignRevisionVersionId** | **int** | The revision version ID of the campaign that was used when triggering the effect. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

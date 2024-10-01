@@ -121,27 +121,6 @@ class ApplicationCampaignAnalyticsTest extends TestCase
     }
 
     /**
-     * Test attribute "campaignActiveRulesetId"
-     */
-    public function testPropertyCampaignActiveRulesetId()
-    {
-    }
-
-    /**
-     * Test attribute "campaignStartTime"
-     */
-    public function testPropertyCampaignStartTime()
-    {
-    }
-
-    /**
-     * Test attribute "campaignEndTime"
-     */
-    public function testPropertyCampaignEndTime()
-    {
-    }
-
-    /**
      * Test attribute "totalRevenue"
      */
     public function testPropertyTotalRevenue()

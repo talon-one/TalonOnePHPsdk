@@ -58,7 +58,6 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'draft' => 'int',
         'disabled' => 'int',
         'scheduled' => 'int',
         'running' => 'int',
@@ -72,7 +71,6 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'draft' => null,
         'disabled' => null,
         'scheduled' => null,
         'running' => null,
@@ -107,7 +105,6 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'draft' => 'draft',
         'disabled' => 'disabled',
         'scheduled' => 'scheduled',
         'running' => 'running',
@@ -121,7 +118,6 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'draft' => 'setDraft',
         'disabled' => 'setDisabled',
         'scheduled' => 'setScheduled',
         'running' => 'setRunning',
@@ -135,7 +131,6 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'draft' => 'getDraft',
         'disabled' => 'getDisabled',
         'scheduled' => 'getScheduled',
         'running' => 'getRunning',
@@ -203,7 +198,6 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['draft'] = isset($data['draft']) ? $data['draft'] : null;
         $this->container['disabled'] = isset($data['disabled']) ? $data['disabled'] : null;
         $this->container['scheduled'] = isset($data['scheduled']) ? $data['scheduled'] : null;
         $this->container['running'] = isset($data['running']) ? $data['running'] : null;
@@ -220,9 +214,6 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['draft'] === null) {
-            $invalidProperties[] = "'draft' can't be null";
-        }
         if ($this->container['disabled'] === null) {
             $invalidProperties[] = "'disabled' can't be null";
         }
@@ -252,30 +243,6 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets draft
-     *
-     * @return int
-     */
-    public function getDraft()
-    {
-        return $this->container['draft'];
-    }
-
-    /**
-     * Sets draft
-     *
-     * @param int $draft Number of draft campaigns.
-     *
-     * @return $this
-     */
-    public function setDraft($draft)
-    {
-        $this->container['draft'] = $draft;
-
-        return $this;
-    }
 
     /**
      * Gets disabled

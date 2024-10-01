@@ -100,6 +100,13 @@ class AchievementProgressTest extends TestCase
     }
 
     /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+    }
+
+    /**
      * Test attribute "campaignId"
      */
     public function testPropertyCampaignId()

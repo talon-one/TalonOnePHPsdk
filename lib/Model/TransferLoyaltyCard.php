@@ -57,7 +57,8 @@ class TransferLoyaltyCard implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'newCardIdentifier' => 'string'
+        'newCardIdentifier' => 'string',
+        'blockReason' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class TransferLoyaltyCard implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'newCardIdentifier' => null
+        'newCardIdentifier' => null,
+        'blockReason' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class TransferLoyaltyCard implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'newCardIdentifier' => 'newCardIdentifier'
+        'newCardIdentifier' => 'newCardIdentifier',
+        'blockReason' => 'blockReason'
     ];
 
     /**
@@ -105,7 +108,8 @@ class TransferLoyaltyCard implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'newCardIdentifier' => 'setNewCardIdentifier'
+        'newCardIdentifier' => 'setNewCardIdentifier',
+        'blockReason' => 'setBlockReason'
     ];
 
     /**
@@ -114,7 +118,8 @@ class TransferLoyaltyCard implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'newCardIdentifier' => 'getNewCardIdentifier'
+        'newCardIdentifier' => 'getNewCardIdentifier',
+        'blockReason' => 'getBlockReason'
     ];
 
     /**
@@ -178,6 +183,7 @@ class TransferLoyaltyCard implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['newCardIdentifier'] = isset($data['newCardIdentifier']) ? $data['newCardIdentifier'] : null;
+        $this->container['blockReason'] = isset($data['blockReason']) ? $data['blockReason'] : null;
     }
 
     /**
@@ -235,6 +241,30 @@ class TransferLoyaltyCard implements ModelInterface, ArrayAccess
         }
 
         $this->container['newCardIdentifier'] = $newCardIdentifier;
+
+        return $this;
+    }
+
+    /**
+     * Gets blockReason
+     *
+     * @return string|null
+     */
+    public function getBlockReason()
+    {
+        return $this->container['blockReason'];
+    }
+
+    /**
+     * Sets blockReason
+     *
+     * @param string|null $blockReason Reason for transferring and blocking the loyalty card.
+     *
+     * @return $this
+     */
+    public function setBlockReason($blockReason)
+    {
+        $this->container['blockReason'] = $blockReason;
 
         return $this;
     }

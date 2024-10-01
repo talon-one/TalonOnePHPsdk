@@ -133,4 +133,32 @@ class EffectEntityTest extends TestCase
     public function testPropertyConditionIndex()
     {
     }
+
+    /**
+     * Test attribute "evaluationGroupID"
+     */
+    public function testPropertyEvaluationGroupID()
+    {
+    }
+
+    /**
+     * Test attribute "evaluationGroupMode"
+     */
+    public function testPropertyEvaluationGroupMode()
+    {
+    }
+
+    /**
+     * Test attribute "campaignRevisionId"
+     */
+    public function testPropertyCampaignRevisionId()
+    {
+    }
+
+    /**
+     * Test attribute "campaignRevisionVersionId"
+     */
+    public function testPropertyCampaignRevisionVersionId()
+    {
+    }
 }

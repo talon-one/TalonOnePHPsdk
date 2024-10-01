@@ -84,4 +84,11 @@ class CampaignNotificationPolicyTest extends TestCase
     public function testPropertyName()
     {
     }
+
+    /**
+     * Test attribute "batchingEnabled"
+     */
+    public function testPropertyBatchingEnabled()
+    {
+    }
 }
