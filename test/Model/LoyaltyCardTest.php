@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * LoyaltyCardTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description LoyaltyCard
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -96,6 +96,20 @@ class LoyaltyCardTest extends TestCase
      * Test attribute "programID"
      */
     public function testPropertyProgramID()
+    {
+    }
+
+    /**
+     * Test attribute "programName"
+     */
+    public function testPropertyProgramName()
+    {
+    }
+
+    /**
+     * Test attribute "programTitle"
+     */
+    public function testPropertyProgramTitle()
     {
     }
 

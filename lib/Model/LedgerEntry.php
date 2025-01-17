@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * LedgerEntry Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description Entry in the point ledger.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

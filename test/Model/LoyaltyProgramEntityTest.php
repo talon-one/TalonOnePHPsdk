@@ -84,4 +84,18 @@ class LoyaltyProgramEntityTest extends TestCase
     public function testPropertyProgramID()
     {
     }
+
+    /**
+     * Test attribute "programName"
+     */
+    public function testPropertyProgramName()
+    {
+    }
+
+    /**
+     * Test attribute "programTitle"
+     */
+    public function testPropertyProgramTitle()
+    {
+    }
 }

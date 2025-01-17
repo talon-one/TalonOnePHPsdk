@@ -386,7 +386,7 @@ class WebhookLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets url
      *
-     * @param string $url Target url of request
+     * @param string $url The target URL of the request.
      *
      * @return $this
      */

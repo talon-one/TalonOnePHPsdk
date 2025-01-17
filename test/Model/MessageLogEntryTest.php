@@ -114,6 +114,20 @@ class MessageLogEntryTest extends TestCase
     }
 
     /**
+     * Test attribute "webhookId"
+     */
+    public function testPropertyWebhookId()
+    {
+    }
+
+    /**
+     * Test attribute "webhookName"
+     */
+    public function testPropertyWebhookName()
+    {
+    }
+
+    /**
      * Test attribute "request"
      */
     public function testPropertyRequest()
@@ -142,6 +156,13 @@ class MessageLogEntryTest extends TestCase
     }
 
     /**
+     * Test attribute "url"
+     */
+    public function testPropertyUrl()
+    {
+    }
+
+    /**
      * Test attribute "applicationId"
      */
     public function testPropertyApplicationId()
@@ -152,6 +173,13 @@ class MessageLogEntryTest extends TestCase
      * Test attribute "loyaltyProgramId"
      */
     public function testPropertyLoyaltyProgramId()
+    {
+    }
+
+    /**
+     * Test attribute "campaignId"
+     */
+    public function testPropertyCampaignId()
     {
     }
 }

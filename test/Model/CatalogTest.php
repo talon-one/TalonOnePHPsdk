@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CatalogTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Catalog
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

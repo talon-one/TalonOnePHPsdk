@@ -79,9 +79,9 @@ class GenerateCampaignTagsTest extends TestCase
     }
 
     /**
-     * Test attribute "campaignID"
+     * Test attribute "rulesetID"
      */
-    public function testPropertyCampaignID()
+    public function testPropertyRulesetID()
     {
     }
 }

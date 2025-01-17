@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse20047Test
+ * ScimServiceProviderConfigResponseSortTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * InlineResponse20047Test Class Doc Comment
+ * ScimServiceProviderConfigResponseSortTest Class Doc Comment
  *
  * @category    Class
- * @description InlineResponse20047
+ * @description Configuration settings related to sorting SCIM resources in query responses.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class InlineResponse20047Test extends TestCase
+class ScimServiceProviderConfigResponseSortTest extends TestCase
 {
 
     /**
@@ -72,23 +72,16 @@ class InlineResponse20047Test extends TestCase
     }
 
     /**
-     * Test "InlineResponse20047"
+     * Test "ScimServiceProviderConfigResponseSort"
      */
-    public function testInlineResponse20047()
+    public function testScimServiceProviderConfigResponseSort()
     {
     }
 
     /**
-     * Test attribute "hasMore"
+     * Test attribute "supported"
      */
-    public function testPropertyHasMore()
-    {
-    }
-
-    /**
-     * Test attribute "data"
-     */
-    public function testPropertyData()
+    public function testPropertySupported()
     {
     }
 }

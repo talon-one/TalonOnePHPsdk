@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * LoyaltyCard Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,6 +60,8 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         'id' => 'int',
         'created' => '\DateTime',
         'programID' => 'int',
+        'programName' => 'string',
+        'programTitle' => 'string',
         'status' => 'string',
         'blockReason' => 'string',
         'identifier' => 'string',
@@ -83,6 +84,8 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         'id' => null,
         'created' => 'date-time',
         'programID' => null,
+        'programName' => null,
+        'programTitle' => null,
         'status' => null,
         'blockReason' => null,
         'identifier' => null,
@@ -126,6 +129,8 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         'id' => 'id',
         'created' => 'created',
         'programID' => 'programID',
+        'programName' => 'programName',
+        'programTitle' => 'programTitle',
         'status' => 'status',
         'blockReason' => 'blockReason',
         'identifier' => 'identifier',
@@ -148,6 +153,8 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'created' => 'setCreated',
         'programID' => 'setProgramID',
+        'programName' => 'setProgramName',
+        'programTitle' => 'setProgramTitle',
         'status' => 'setStatus',
         'blockReason' => 'setBlockReason',
         'identifier' => 'setIdentifier',
@@ -170,6 +177,8 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'created' => 'getCreated',
         'programID' => 'getProgramID',
+        'programName' => 'getProgramName',
+        'programTitle' => 'getProgramTitle',
         'status' => 'getStatus',
         'blockReason' => 'getBlockReason',
         'identifier' => 'getIdentifier',
@@ -246,6 +255,8 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['programID'] = isset($data['programID']) ? $data['programID'] : null;
+        $this->container['programName'] = isset($data['programName']) ? $data['programName'] : null;
+        $this->container['programTitle'] = isset($data['programTitle']) ? $data['programTitle'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['blockReason'] = isset($data['blockReason']) ? $data['blockReason'] : null;
         $this->container['identifier'] = isset($data['identifier']) ? $data['identifier'] : null;
@@ -287,6 +298,10 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'identifier', the character length must be smaller than or equal to 108.";
         }
 
+        if (!preg_match("/^[A-Za-z0-9_-]*$/", $this->container['identifier'])) {
+            $invalidProperties[] = "invalid value for 'identifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
+        }
+
         if ($this->container['usersPerCardLimit'] === null) {
             $invalidProperties[] = "'usersPerCardLimit' can't be null";
         }
@@ -298,8 +313,16 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'oldCardIdentifier', the character length must be smaller than or equal to 108.";
         }
 
+        if (!is_null($this->container['oldCardIdentifier']) && !preg_match("/^[A-Za-z0-9_-]*$/", $this->container['oldCardIdentifier'])) {
+            $invalidProperties[] = "invalid value for 'oldCardIdentifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
+        }
+
         if (!is_null($this->container['newCardIdentifier']) && (mb_strlen($this->container['newCardIdentifier']) > 108)) {
             $invalidProperties[] = "invalid value for 'newCardIdentifier', the character length must be smaller than or equal to 108.";
+        }
+
+        if (!is_null($this->container['newCardIdentifier']) && !preg_match("/^[A-Za-z0-9_-]*$/", $this->container['newCardIdentifier'])) {
+            $invalidProperties[] = "invalid value for 'newCardIdentifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
         }
 
         return $invalidProperties;
@@ -390,6 +413,54 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets programName
+     *
+     * @return string|null
+     */
+    public function getProgramName()
+    {
+        return $this->container['programName'];
+    }
+
+    /**
+     * Sets programName
+     *
+     * @param string|null $programName The integration name of the loyalty program that owns this entity.
+     *
+     * @return $this
+     */
+    public function setProgramName($programName)
+    {
+        $this->container['programName'] = $programName;
+
+        return $this;
+    }
+
+    /**
+     * Gets programTitle
+     *
+     * @return string|null
+     */
+    public function getProgramTitle()
+    {
+        return $this->container['programTitle'];
+    }
+
+    /**
+     * Sets programTitle
+     *
+     * @param string|null $programTitle The Campaign Manager-displayed name of the loyalty program that owns this entity.
+     *
+     * @return $this
+     */
+    public function setProgramTitle($programTitle)
+    {
+        $this->container['programTitle'] = $programTitle;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string
@@ -458,6 +529,9 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     {
         if ((mb_strlen($identifier) > 108)) {
             throw new \InvalidArgumentException('invalid length for $identifier when calling LoyaltyCard., must be smaller than or equal to 108.');
+        }
+        if ((!preg_match("/^[A-Za-z0-9_-]*$/", $identifier))) {
+            throw new \InvalidArgumentException("invalid value for $identifier when calling LoyaltyCard., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
         }
 
         $this->container['identifier'] = $identifier;
@@ -612,6 +686,9 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         if (!is_null($oldCardIdentifier) && (mb_strlen($oldCardIdentifier) > 108)) {
             throw new \InvalidArgumentException('invalid length for $oldCardIdentifier when calling LoyaltyCard., must be smaller than or equal to 108.');
         }
+        if (!is_null($oldCardIdentifier) && (!preg_match("/^[A-Za-z0-9_-]*$/", $oldCardIdentifier))) {
+            throw new \InvalidArgumentException("invalid value for $oldCardIdentifier when calling LoyaltyCard., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
+        }
 
         $this->container['oldCardIdentifier'] = $oldCardIdentifier;
 
@@ -639,6 +716,9 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     {
         if (!is_null($newCardIdentifier) && (mb_strlen($newCardIdentifier) > 108)) {
             throw new \InvalidArgumentException('invalid length for $newCardIdentifier when calling LoyaltyCard., must be smaller than or equal to 108.');
+        }
+        if (!is_null($newCardIdentifier) && (!preg_match("/^[A-Za-z0-9_-]*$/", $newCardIdentifier))) {
+            throw new \InvalidArgumentException("invalid value for $newCardIdentifier when calling LoyaltyCard., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
         }
 
         $this->container['newCardIdentifier'] = $newCardIdentifier;

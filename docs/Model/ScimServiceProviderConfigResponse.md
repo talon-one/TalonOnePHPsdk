@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **filter** | [**\TalonOne\Client\Model\ScimServiceProviderConfigResponseFilter**](ScimServiceProviderConfigResponseFilter.md) |  | [optional] 
 **patch** | [**\TalonOne\Client\Model\ScimServiceProviderConfigResponsePatch**](ScimServiceProviderConfigResponsePatch.md) |  | [optional] 
 **schemas** | **string[]** | A list of SCIM schemas that define the structure and data types supported by the service provider. | [optional] 
+**sort** | [**\TalonOne\Client\Model\ScimServiceProviderConfigResponseSort**](ScimServiceProviderConfigResponseSort.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

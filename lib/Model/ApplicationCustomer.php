@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * ApplicationCustomer Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -316,7 +315,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity. Internal ID of this entity.
+     * @param int $id Internal ID of this entity.
      *
      * @return $this
      */
@@ -340,7 +339,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created The time this entity was created. The time this entity was created. The time this entity was created. The time this entity was created.
+     * @param \DateTime $created The time this entity was created.
      *
      * @return $this
      */
@@ -364,7 +363,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets integrationId
      *
-     * @param string $integrationId The integration ID set by your integration layer. The integration ID set by your integration layer.
+     * @param string $integrationId The integration ID set by your integration layer.
      *
      * @return $this
      */
@@ -416,7 +415,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets accountId
      *
-     * @param int $accountId The ID of the Talon.One account that owns this profile. The ID of the Talon.One account that owns this profile.
+     * @param int $accountId The ID of the Talon.One account that owns this profile.
      *
      * @return $this
      */

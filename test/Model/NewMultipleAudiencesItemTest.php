@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewMultipleAudiencesItemTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description NewMultipleAudiencesItem
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * Store Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -327,7 +326,7 @@ class Store implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created The time this entity was created. The time this entity was created.
+     * @param \DateTime $created The time this entity was created.
      *
      * @return $this
      */

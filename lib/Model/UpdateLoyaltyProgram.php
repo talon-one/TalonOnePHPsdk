@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * UpdateLoyaltyProgram Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description An updated loyalty program.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -72,6 +72,7 @@ class UpdateLoyaltyProgram implements ModelInterface, ArrayAccess
         'tiersExpireIn' => 'string',
         'tiersDowngradePolicy' => 'string',
         'cardCodeSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
+        'returnPolicy' => 'string',
         'tiers' => '\TalonOne\Client\Model\NewLoyaltyTier[]'
     ];
 
@@ -95,6 +96,7 @@ class UpdateLoyaltyProgram implements ModelInterface, ArrayAccess
         'tiersExpireIn' => null,
         'tiersDowngradePolicy' => null,
         'cardCodeSettings' => null,
+        'returnPolicy' => null,
         'tiers' => null
     ];
 
@@ -139,6 +141,7 @@ class UpdateLoyaltyProgram implements ModelInterface, ArrayAccess
         'tiersExpireIn' => 'tiersExpireIn',
         'tiersDowngradePolicy' => 'tiersDowngradePolicy',
         'cardCodeSettings' => 'cardCodeSettings',
+        'returnPolicy' => 'returnPolicy',
         'tiers' => 'tiers'
     ];
 
@@ -162,6 +165,7 @@ class UpdateLoyaltyProgram implements ModelInterface, ArrayAccess
         'tiersExpireIn' => 'setTiersExpireIn',
         'tiersDowngradePolicy' => 'setTiersDowngradePolicy',
         'cardCodeSettings' => 'setCardCodeSettings',
+        'returnPolicy' => 'setReturnPolicy',
         'tiers' => 'setTiers'
     ];
 
@@ -185,6 +189,7 @@ class UpdateLoyaltyProgram implements ModelInterface, ArrayAccess
         'tiersExpireIn' => 'getTiersExpireIn',
         'tiersDowngradePolicy' => 'getTiersDowngradePolicy',
         'cardCodeSettings' => 'getCardCodeSettings',
+        'returnPolicy' => 'getReturnPolicy',
         'tiers' => 'getTiers'
     ];
 
@@ -238,6 +243,8 @@ class UpdateLoyaltyProgram implements ModelInterface, ArrayAccess
     const TIERS_EXPIRATION_POLICY_ABSOLUTE_EXPIRATION = 'absolute_expiration';
     const TIERS_DOWNGRADE_POLICY_ONE_DOWN = 'one_down';
     const TIERS_DOWNGRADE_POLICY_BALANCE_BASED = 'balance_based';
+    const RETURN_POLICY_ONLY_PENDING = 'only_pending';
+    const RETURN_POLICY_WITHIN_BALANCE = 'within_balance';
     
 
     
@@ -283,6 +290,19 @@ class UpdateLoyaltyProgram implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getReturnPolicyAllowableValues()
+    {
+        return [
+            self::RETURN_POLICY_ONLY_PENDING,
+            self::RETURN_POLICY_WITHIN_BALANCE,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -313,6 +333,7 @@ class UpdateLoyaltyProgram implements ModelInterface, ArrayAccess
         $this->container['tiersExpireIn'] = isset($data['tiersExpireIn']) ? $data['tiersExpireIn'] : null;
         $this->container['tiersDowngradePolicy'] = isset($data['tiersDowngradePolicy']) ? $data['tiersDowngradePolicy'] : null;
         $this->container['cardCodeSettings'] = isset($data['cardCodeSettings']) ? $data['cardCodeSettings'] : null;
+        $this->container['returnPolicy'] = isset($data['returnPolicy']) ? $data['returnPolicy'] : null;
         $this->container['tiers'] = isset($data['tiers']) ? $data['tiers'] : null;
     }
 
@@ -349,6 +370,14 @@ class UpdateLoyaltyProgram implements ModelInterface, ArrayAccess
         if (!is_null($this->container['tiersDowngradePolicy']) && !in_array($this->container['tiersDowngradePolicy'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'tiersDowngradePolicy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getReturnPolicyAllowableValues();
+        if (!is_null($this->container['returnPolicy']) && !in_array($this->container['returnPolicy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'returnPolicy', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -732,6 +761,39 @@ class UpdateLoyaltyProgram implements ModelInterface, ArrayAccess
     public function setCardCodeSettings($cardCodeSettings)
     {
         $this->container['cardCodeSettings'] = $cardCodeSettings;
+
+        return $this;
+    }
+
+    /**
+     * Gets returnPolicy
+     *
+     * @return string|null
+     */
+    public function getReturnPolicy()
+    {
+        return $this->container['returnPolicy'];
+    }
+
+    /**
+     * Sets returnPolicy
+     *
+     * @param string|null $returnPolicy The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - `only_pending`: Only pending points can be rolled back. - `within_balance`: Available active points can be rolled back if there aren't enough pending points. The active balance of the customer cannot be negative.
+     *
+     * @return $this
+     */
+    public function setReturnPolicy($returnPolicy)
+    {
+        $allowedValues = $this->getReturnPolicyAllowableValues();
+        if (!is_null($returnPolicy) && !in_array($returnPolicy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'returnPolicy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['returnPolicy'] = $returnPolicy;
 
         return $this;
     }

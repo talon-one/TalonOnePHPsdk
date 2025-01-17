@@ -663,16 +663,6 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for getAllAccessLogs
-     *
-     * List access logs.
-     *
-     */
-    public function testGetAllAccessLogs()
-    {
-    }
-
-    /**
      * Test case for getApplication
      *
      * Get Application.

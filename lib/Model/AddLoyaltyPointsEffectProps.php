@@ -294,6 +294,10 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'cardIdentifier', the character length must be smaller than or equal to 108.";
         }
 
+        if (!is_null($this->container['cardIdentifier']) && !preg_match("/^[A-Za-z0-9_-]*$/", $this->container['cardIdentifier'])) {
+            $invalidProperties[] = "invalid value for 'cardIdentifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
+        }
+
         return $invalidProperties;
     }
 
@@ -598,6 +602,9 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     {
         if (!is_null($cardIdentifier) && (mb_strlen($cardIdentifier) > 108)) {
             throw new \InvalidArgumentException('invalid length for $cardIdentifier when calling AddLoyaltyPointsEffectProps., must be smaller than or equal to 108.');
+        }
+        if (!is_null($cardIdentifier) && (!preg_match("/^[A-Za-z0-9_-]*$/", $cardIdentifier))) {
+            throw new \InvalidArgumentException("invalid value for $cardIdentifier when calling AddLoyaltyPointsEffectProps., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
         }
 
         $this->container['cardIdentifier'] = $cardIdentifier;

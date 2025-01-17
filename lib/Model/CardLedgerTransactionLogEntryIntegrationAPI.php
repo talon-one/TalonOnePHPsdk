@@ -290,6 +290,10 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
             $invalidProperties[] = "invalid value for 'cardIdentifier', the character length must be smaller than or equal to 108.";
         }
 
+        if (!preg_match("/^[A-Za-z0-9_-]*$/", $this->container['cardIdentifier'])) {
+            $invalidProperties[] = "invalid value for 'cardIdentifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
+        }
+
         if (!is_null($this->container['customerSessionId']) && (mb_strlen($this->container['customerSessionId']) > 255)) {
             $invalidProperties[] = "invalid value for 'customerSessionId', the character length must be smaller than or equal to 255.";
         }
@@ -423,6 +427,9 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
     {
         if ((mb_strlen($cardIdentifier) > 108)) {
             throw new \InvalidArgumentException('invalid length for $cardIdentifier when calling CardLedgerTransactionLogEntryIntegrationAPI., must be smaller than or equal to 108.');
+        }
+        if ((!preg_match("/^[A-Za-z0-9_-]*$/", $cardIdentifier))) {
+            throw new \InvalidArgumentException("invalid value for $cardIdentifier when calling CardLedgerTransactionLogEntryIntegrationAPI., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
         }
 
         $this->container['cardIdentifier'] = $cardIdentifier;

@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * Campaign Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -100,6 +99,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'templateId' => 'int',
         'frontendState' => 'string',
         'storesImported' => 'bool',
+        'revisionFrontendState' => 'string',
         'activeRevisionId' => 'int',
         'activeRevisionVersionId' => 'int',
         'version' => 'int',
@@ -156,6 +156,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'templateId' => null,
         'frontendState' => null,
         'storesImported' => null,
+        'revisionFrontendState' => null,
         'activeRevisionId' => null,
         'activeRevisionVersionId' => null,
         'version' => null,
@@ -233,6 +234,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'templateId' => 'templateId',
         'frontendState' => 'frontendState',
         'storesImported' => 'storesImported',
+        'revisionFrontendState' => 'revisionFrontendState',
         'activeRevisionId' => 'activeRevisionId',
         'activeRevisionVersionId' => 'activeRevisionVersionId',
         'version' => 'version',
@@ -289,6 +291,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'templateId' => 'setTemplateId',
         'frontendState' => 'setFrontendState',
         'storesImported' => 'setStoresImported',
+        'revisionFrontendState' => 'setRevisionFrontendState',
         'activeRevisionId' => 'setActiveRevisionId',
         'activeRevisionVersionId' => 'setActiveRevisionVersionId',
         'version' => 'setVersion',
@@ -345,6 +348,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'templateId' => 'getTemplateId',
         'frontendState' => 'getFrontendState',
         'storesImported' => 'getStoresImported',
+        'revisionFrontendState' => 'getRevisionFrontendState',
         'activeRevisionId' => 'getActiveRevisionId',
         'activeRevisionVersionId' => 'getActiveRevisionVersionId',
         'version' => 'getVersion',
@@ -410,6 +414,9 @@ class Campaign implements ModelInterface, ArrayAccess
     const FRONTEND_STATE_RUNNING = 'running';
     const FRONTEND_STATE_DISABLED = 'disabled';
     const FRONTEND_STATE_ARCHIVED = 'archived';
+    const FRONTEND_STATE_STAGED = 'staged';
+    const REVISION_FRONTEND_STATE_REVISED = 'revised';
+    const REVISION_FRONTEND_STATE_PENDING = 'pending';
     
 
     
@@ -470,6 +477,20 @@ class Campaign implements ModelInterface, ArrayAccess
             self::FRONTEND_STATE_RUNNING,
             self::FRONTEND_STATE_DISABLED,
             self::FRONTEND_STATE_ARCHIVED,
+            self::FRONTEND_STATE_STAGED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRevisionFrontendStateAllowableValues()
+    {
+        return [
+            self::REVISION_FRONTEND_STATE_REVISED,
+            self::REVISION_FRONTEND_STATE_PENDING,
         ];
     }
     
@@ -531,6 +552,7 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['templateId'] = isset($data['templateId']) ? $data['templateId'] : null;
         $this->container['frontendState'] = isset($data['frontendState']) ? $data['frontendState'] : null;
         $this->container['storesImported'] = isset($data['storesImported']) ? $data['storesImported'] : null;
+        $this->container['revisionFrontendState'] = isset($data['revisionFrontendState']) ? $data['revisionFrontendState'] : null;
         $this->container['activeRevisionId'] = isset($data['activeRevisionId']) ? $data['activeRevisionId'] : null;
         $this->container['activeRevisionVersionId'] = isset($data['activeRevisionVersionId']) ? $data['activeRevisionVersionId'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
@@ -618,6 +640,14 @@ class Campaign implements ModelInterface, ArrayAccess
         if ($this->container['storesImported'] === null) {
             $invalidProperties[] = "'storesImported' can't be null";
         }
+        $allowedValues = $this->getRevisionFrontendStateAllowableValues();
+        if (!is_null($this->container['revisionFrontendState']) && !in_array($this->container['revisionFrontendState'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'revisionFrontendState', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -1638,7 +1668,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets frontendState
      *
-     * @param string $frontendState A campaign state described exactly as in the Campaign Manager.
+     * @param string $frontendState The campaign state displayed in the Campaign Manager.
      *
      * @return $this
      */
@@ -1678,6 +1708,39 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setStoresImported($storesImported)
     {
         $this->container['storesImported'] = $storesImported;
+
+        return $this;
+    }
+
+    /**
+     * Gets revisionFrontendState
+     *
+     * @return string|null
+     */
+    public function getRevisionFrontendState()
+    {
+        return $this->container['revisionFrontendState'];
+    }
+
+    /**
+     * Sets revisionFrontendState
+     *
+     * @param string|null $revisionFrontendState The campaign revision state displayed in the Campaign Manager.
+     *
+     * @return $this
+     */
+    public function setRevisionFrontendState($revisionFrontendState)
+    {
+        $allowedValues = $this->getRevisionFrontendStateAllowableValues();
+        if (!is_null($revisionFrontendState) && !in_array($revisionFrontendState, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'revisionFrontendState', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['revisionFrontendState'] = $revisionFrontendState;
 
         return $this;
     }

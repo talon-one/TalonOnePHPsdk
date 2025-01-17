@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewReferralsForMultipleAdvocatesTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description NewReferralsForMultipleAdvocates
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -58,7 +58,8 @@ class BulkOperationOnCampaigns implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'operation' => 'string',
-        'campaignIds' => 'int[]'
+        'campaignIds' => 'int[]',
+        'activateAt' => '\DateTime'
     ];
 
     /**
@@ -68,7 +69,8 @@ class BulkOperationOnCampaigns implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'operation' => null,
-        'campaignIds' => null
+        'campaignIds' => null,
+        'activateAt' => 'date-time'
     ];
 
     /**
@@ -99,7 +101,8 @@ class BulkOperationOnCampaigns implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'operation' => 'operation',
-        'campaignIds' => 'campaignIds'
+        'campaignIds' => 'campaignIds',
+        'activateAt' => 'activateAt'
     ];
 
     /**
@@ -109,7 +112,8 @@ class BulkOperationOnCampaigns implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'operation' => 'setOperation',
-        'campaignIds' => 'setCampaignIds'
+        'campaignIds' => 'setCampaignIds',
+        'activateAt' => 'setActivateAt'
     ];
 
     /**
@@ -119,7 +123,8 @@ class BulkOperationOnCampaigns implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'operation' => 'getOperation',
-        'campaignIds' => 'getCampaignIds'
+        'campaignIds' => 'getCampaignIds',
+        'activateAt' => 'getActivateAt'
     ];
 
     /**
@@ -165,6 +170,7 @@ class BulkOperationOnCampaigns implements ModelInterface, ArrayAccess
 
     const OPERATION_DISABLE = 'disable';
     const OPERATION_DELETE = 'delete';
+    const OPERATION_ACTIVATE_REVISION = 'activate_revision';
     
 
     
@@ -178,6 +184,7 @@ class BulkOperationOnCampaigns implements ModelInterface, ArrayAccess
         return [
             self::OPERATION_DISABLE,
             self::OPERATION_DELETE,
+            self::OPERATION_ACTIVATE_REVISION,
         ];
     }
     
@@ -199,6 +206,7 @@ class BulkOperationOnCampaigns implements ModelInterface, ArrayAccess
     {
         $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
         $this->container['campaignIds'] = isset($data['campaignIds']) ? $data['campaignIds'] : null;
+        $this->container['activateAt'] = isset($data['activateAt']) ? $data['activateAt'] : null;
     }
 
     /**
@@ -292,6 +300,30 @@ class BulkOperationOnCampaigns implements ModelInterface, ArrayAccess
     public function setCampaignIds($campaignIds)
     {
         $this->container['campaignIds'] = $campaignIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets activateAt
+     *
+     * @return \DateTime|null
+     */
+    public function getActivateAt()
+    {
+        return $this->container['activateAt'];
+    }
+
+    /**
+     * Sets activateAt
+     *
+     * @param \DateTime|null $activateAt Timestamp when the revisions are finalized after the `activate_revision` operation. The current time is used when left blank.  **Note:** It must be an RFC3339 timestamp string.
+     *
+     * @return $this
+     */
+    public function setActivateAt($activateAt)
+    {
+        $this->container['activateAt'] = $activateAt;
 
         return $this;
     }

@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * LoyaltyCardBatch Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,7 +59,8 @@ class LoyaltyCardBatch implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'numberOfCards' => 'int',
         'batchId' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'cardCodeSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings'
     ];
 
     /**
@@ -71,7 +71,8 @@ class LoyaltyCardBatch implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'numberOfCards' => null,
         'batchId' => null,
-        'status' => null
+        'status' => null,
+        'cardCodeSettings' => null
     ];
 
     /**
@@ -103,7 +104,8 @@ class LoyaltyCardBatch implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'numberOfCards' => 'numberOfCards',
         'batchId' => 'batchId',
-        'status' => 'status'
+        'status' => 'status',
+        'cardCodeSettings' => 'cardCodeSettings'
     ];
 
     /**
@@ -114,7 +116,8 @@ class LoyaltyCardBatch implements ModelInterface, ArrayAccess
     protected static $setters = [
         'numberOfCards' => 'setNumberOfCards',
         'batchId' => 'setBatchId',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'cardCodeSettings' => 'setCardCodeSettings'
     ];
 
     /**
@@ -125,7 +128,8 @@ class LoyaltyCardBatch implements ModelInterface, ArrayAccess
     protected static $getters = [
         'numberOfCards' => 'getNumberOfCards',
         'batchId' => 'getBatchId',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'cardCodeSettings' => 'getCardCodeSettings'
     ];
 
     /**
@@ -206,6 +210,7 @@ class LoyaltyCardBatch implements ModelInterface, ArrayAccess
         $this->container['numberOfCards'] = isset($data['numberOfCards']) ? $data['numberOfCards'] : null;
         $this->container['batchId'] = isset($data['batchId']) ? $data['batchId'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : 'active';
+        $this->container['cardCodeSettings'] = isset($data['cardCodeSettings']) ? $data['cardCodeSettings'] : null;
     }
 
     /**
@@ -342,6 +347,30 @@ class LoyaltyCardBatch implements ModelInterface, ArrayAccess
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets cardCodeSettings
+     *
+     * @return \TalonOne\Client\Model\CodeGeneratorSettings|null
+     */
+    public function getCardCodeSettings()
+    {
+        return $this->container['cardCodeSettings'];
+    }
+
+    /**
+     * Sets cardCodeSettings
+     *
+     * @param \TalonOne\Client\Model\CodeGeneratorSettings|null $cardCodeSettings cardCodeSettings
+     *
+     * @return $this
+     */
+    public function setCardCodeSettings($cardCodeSettings)
+    {
+        $this->container['cardCodeSettings'] = $cardCodeSettings;
 
         return $this;
     }

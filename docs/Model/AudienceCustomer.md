@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Internal ID of this entity. | 
-**created** | [**\DateTime**](\DateTime.md) | The time this entity was created. The time this entity was created. | 
+**created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
 **integrationId** | **string** | The integration ID set by your integration layer. | 
 **attributes** | [**object**](.md) | Arbitrary properties associated with this item. | 
 **accountId** | **int** | The ID of the Talon.One account that owns this profile. | 

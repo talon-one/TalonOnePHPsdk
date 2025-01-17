@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCustomEffect
+ * AnalyticsProduct
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * UpdateCustomEffect Class Doc Comment
+ * AnalyticsProduct Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class UpdateCustomEffect implements ModelInterface, ArrayAccess
+class AnalyticsProduct implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class UpdateCustomEffect implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateCustomEffect';
+    protected static $openAPIModelName = 'AnalyticsProduct';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +57,10 @@ class UpdateCustomEffect implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'applicationIds' => 'int[]',
-        'isPerItem' => 'bool',
+        'id' => 'int',
+        'isPreliminary' => 'bool',
         'name' => 'string',
-        'title' => 'string',
-        'payload' => 'string',
-        'description' => 'string',
-        'enabled' => 'bool',
-        'params' => '\TalonOne\Client\Model\TemplateArgDef[]'
+        'catalogId' => 'int'
     ];
 
     /**
@@ -74,14 +69,10 @@ class UpdateCustomEffect implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'applicationIds' => null,
-        'isPerItem' => null,
+        'id' => null,
+        'isPreliminary' => null,
         'name' => null,
-        'title' => null,
-        'payload' => null,
-        'description' => null,
-        'enabled' => null,
-        'params' => null
+        'catalogId' => null
     ];
 
     /**
@@ -111,14 +102,10 @@ class UpdateCustomEffect implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'applicationIds' => 'applicationIds',
-        'isPerItem' => 'isPerItem',
+        'id' => 'id',
+        'isPreliminary' => 'isPreliminary',
         'name' => 'name',
-        'title' => 'title',
-        'payload' => 'payload',
-        'description' => 'description',
-        'enabled' => 'enabled',
-        'params' => 'params'
+        'catalogId' => 'catalogId'
     ];
 
     /**
@@ -127,14 +114,10 @@ class UpdateCustomEffect implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'applicationIds' => 'setApplicationIds',
-        'isPerItem' => 'setIsPerItem',
+        'id' => 'setId',
+        'isPreliminary' => 'setIsPreliminary',
         'name' => 'setName',
-        'title' => 'setTitle',
-        'payload' => 'setPayload',
-        'description' => 'setDescription',
-        'enabled' => 'setEnabled',
-        'params' => 'setParams'
+        'catalogId' => 'setCatalogId'
     ];
 
     /**
@@ -143,14 +126,10 @@ class UpdateCustomEffect implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'applicationIds' => 'getApplicationIds',
-        'isPerItem' => 'getIsPerItem',
+        'id' => 'getId',
+        'isPreliminary' => 'getIsPreliminary',
         'name' => 'getName',
-        'title' => 'getTitle',
-        'payload' => 'getPayload',
-        'description' => 'getDescription',
-        'enabled' => 'getEnabled',
-        'params' => 'getParams'
+        'catalogId' => 'getCatalogId'
     ];
 
     /**
@@ -213,14 +192,10 @@ class UpdateCustomEffect implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
-        $this->container['isPerItem'] = isset($data['isPerItem']) ? $data['isPerItem'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['isPreliminary'] = isset($data['isPreliminary']) ? $data['isPreliminary'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
-        $this->container['params'] = isset($data['params']) ? $data['params'] : null;
+        $this->container['catalogId'] = isset($data['catalogId']) ? $data['catalogId'] : null;
     }
 
     /**
@@ -232,28 +207,14 @@ class UpdateCustomEffect implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['applicationIds'] === null) {
-            $invalidProperties[] = "'applicationIds' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['isPreliminary'] === null) {
+            $invalidProperties[] = "'isPreliminary' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if (!preg_match("/^[A-Za-z](\\w|\\s)*$/", $this->container['name'])) {
-            $invalidProperties[] = "invalid value for 'name', must be conform to the pattern /^[A-Za-z](\\w|\\s)*$/.";
-        }
-
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
-        }
-        if (!preg_match("/^[^[:cntrl:]\\s][^[:cntrl:]]*$/", $this->container['title'])) {
-            $invalidProperties[] = "invalid value for 'title', must be conform to the pattern /^[^[:cntrl:]\\s][^[:cntrl:]]*$/.";
-        }
-
-        if ($this->container['payload'] === null) {
-            $invalidProperties[] = "'payload' can't be null";
-        }
-        if ($this->container['enabled'] === null) {
-            $invalidProperties[] = "'enabled' can't be null";
         }
         return $invalidProperties;
     }
@@ -271,49 +232,49 @@ class UpdateCustomEffect implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets applicationIds
+     * Gets id
      *
-     * @return int[]
+     * @return int
      */
-    public function getApplicationIds()
+    public function getId()
     {
-        return $this->container['applicationIds'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets applicationIds
+     * Sets id
      *
-     * @param int[] $applicationIds The IDs of the Applications that are related to this entity.
+     * @param int $id The ID of the analytics-level product.
      *
      * @return $this
      */
-    public function setApplicationIds($applicationIds)
+    public function setId($id)
     {
-        $this->container['applicationIds'] = $applicationIds;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets isPerItem
+     * Gets isPreliminary
      *
-     * @return bool|null
+     * @return bool
      */
-    public function getIsPerItem()
+    public function getIsPreliminary()
     {
-        return $this->container['isPerItem'];
+        return $this->container['isPreliminary'];
     }
 
     /**
-     * Sets isPerItem
+     * Sets isPreliminary
      *
-     * @param bool|null $isPerItem Indicates if this effect is per item or not.
+     * @param bool $isPreliminary Indicates whether the analytics-level product is connected to a catalog and also has a product name.
      *
      * @return $this
      */
-    public function setIsPerItem($isPerItem)
+    public function setIsPreliminary($isPreliminary)
     {
-        $this->container['isPerItem'] = $isPerItem;
+        $this->container['isPreliminary'] = $isPreliminary;
 
         return $this;
     }
@@ -331,143 +292,37 @@ class UpdateCustomEffect implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of this effect.
+     * @param string $name The name of the analytics-level product.
      *
      * @return $this
      */
     public function setName($name)
     {
-
-        if ((!preg_match("/^[A-Za-z](\\w|\\s)*$/", $name))) {
-            throw new \InvalidArgumentException("invalid value for $name when calling UpdateCustomEffect., must conform to the pattern /^[A-Za-z](\\w|\\s)*$/.");
-        }
-
         $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets title
+     * Gets catalogId
      *
-     * @return string
+     * @return int|null
      */
-    public function getTitle()
+    public function getCatalogId()
     {
-        return $this->container['title'];
+        return $this->container['catalogId'];
     }
 
     /**
-     * Sets title
+     * Sets catalogId
      *
-     * @param string $title The title of this effect.
+     * @param int|null $catalogId The ID of the catalog. You can find the ID in the Campaign Manager in **Account** > **Tools** > **Cart item catalogs**.
      *
      * @return $this
      */
-    public function setTitle($title)
+    public function setCatalogId($catalogId)
     {
-
-        if ((!preg_match("/^[^[:cntrl:]\\s][^[:cntrl:]]*$/", $title))) {
-            throw new \InvalidArgumentException("invalid value for $title when calling UpdateCustomEffect., must conform to the pattern /^[^[:cntrl:]\\s][^[:cntrl:]]*$/.");
-        }
-
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets payload
-     *
-     * @return string
-     */
-    public function getPayload()
-    {
-        return $this->container['payload'];
-    }
-
-    /**
-     * Sets payload
-     *
-     * @param string $payload The JSON payload of this effect.
-     *
-     * @return $this
-     */
-    public function setPayload($payload)
-    {
-        $this->container['payload'] = $payload;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description The description of this effect.
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets enabled
-     *
-     * @return bool
-     */
-    public function getEnabled()
-    {
-        return $this->container['enabled'];
-    }
-
-    /**
-     * Sets enabled
-     *
-     * @param bool $enabled Determines if this effect is active.
-     *
-     * @return $this
-     */
-    public function setEnabled($enabled)
-    {
-        $this->container['enabled'] = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets params
-     *
-     * @return \TalonOne\Client\Model\TemplateArgDef[]|null
-     */
-    public function getParams()
-    {
-        return $this->container['params'];
-    }
-
-    /**
-     * Sets params
-     *
-     * @param \TalonOne\Client\Model\TemplateArgDef[]|null $params Array of template argument definitions.
-     *
-     * @return $this
-     */
-    public function setParams($params)
-    {
-        $this->container['params'] = $params;
+        $this->container['catalogId'] = $catalogId;
 
         return $this;
     }

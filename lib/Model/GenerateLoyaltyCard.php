@@ -59,7 +59,8 @@ class GenerateLoyaltyCard implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'customerProfileIds' => 'string[]'
+        'customerProfileIds' => 'string[]',
+        'cardIdentifier' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class GenerateLoyaltyCard implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'status' => null,
-        'customerProfileIds' => null
+        'customerProfileIds' => null,
+        'cardIdentifier' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class GenerateLoyaltyCard implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'status' => 'status',
-        'customerProfileIds' => 'customerProfileIds'
+        'customerProfileIds' => 'customerProfileIds',
+        'cardIdentifier' => 'cardIdentifier'
     ];
 
     /**
@@ -110,7 +113,8 @@ class GenerateLoyaltyCard implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'status' => 'setStatus',
-        'customerProfileIds' => 'setCustomerProfileIds'
+        'customerProfileIds' => 'setCustomerProfileIds',
+        'cardIdentifier' => 'setCardIdentifier'
     ];
 
     /**
@@ -120,7 +124,8 @@ class GenerateLoyaltyCard implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'status' => 'getStatus',
-        'customerProfileIds' => 'getCustomerProfileIds'
+        'customerProfileIds' => 'getCustomerProfileIds',
+        'cardIdentifier' => 'getCardIdentifier'
     ];
 
     /**
@@ -200,6 +205,7 @@ class GenerateLoyaltyCard implements ModelInterface, ArrayAccess
     {
         $this->container['status'] = isset($data['status']) ? $data['status'] : 'active';
         $this->container['customerProfileIds'] = isset($data['customerProfileIds']) ? $data['customerProfileIds'] : null;
+        $this->container['cardIdentifier'] = isset($data['cardIdentifier']) ? $data['cardIdentifier'] : null;
     }
 
     /**
@@ -217,6 +223,14 @@ class GenerateLoyaltyCard implements ModelInterface, ArrayAccess
                 "invalid value for 'status', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
+        }
+
+        if (!is_null($this->container['cardIdentifier']) && (mb_strlen($this->container['cardIdentifier']) > 108)) {
+            $invalidProperties[] = "invalid value for 'cardIdentifier', the character length must be smaller than or equal to 108.";
+        }
+
+        if (!is_null($this->container['cardIdentifier']) && !preg_match("/^[A-Za-z0-9_-]*$/", $this->container['cardIdentifier'])) {
+            $invalidProperties[] = "invalid value for 'cardIdentifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
         }
 
         return $invalidProperties;
@@ -287,6 +301,37 @@ class GenerateLoyaltyCard implements ModelInterface, ArrayAccess
     public function setCustomerProfileIds($customerProfileIds)
     {
         $this->container['customerProfileIds'] = $customerProfileIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets cardIdentifier
+     *
+     * @return string|null
+     */
+    public function getCardIdentifier()
+    {
+        return $this->container['cardIdentifier'];
+    }
+
+    /**
+     * Sets cardIdentifier
+     *
+     * @param string|null $cardIdentifier The alphanumeric identifier of the loyalty card.
+     *
+     * @return $this
+     */
+    public function setCardIdentifier($cardIdentifier)
+    {
+        if (!is_null($cardIdentifier) && (mb_strlen($cardIdentifier) > 108)) {
+            throw new \InvalidArgumentException('invalid length for $cardIdentifier when calling GenerateLoyaltyCard., must be smaller than or equal to 108.');
+        }
+        if (!is_null($cardIdentifier) && (!preg_match("/^[A-Za-z0-9_-]*$/", $cardIdentifier))) {
+            throw new \InvalidArgumentException("invalid value for $cardIdentifier when calling GenerateLoyaltyCard., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
+        }
+
+        $this->container['cardIdentifier'] = $cardIdentifier;
 
         return $this;
     }

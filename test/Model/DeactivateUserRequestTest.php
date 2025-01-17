@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * DeactivateUserRequestTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description DeactivateUserRequest
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

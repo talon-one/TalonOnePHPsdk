@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewManagementKeyTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description NewManagementKey
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

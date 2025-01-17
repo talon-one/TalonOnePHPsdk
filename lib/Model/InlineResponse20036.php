@@ -58,7 +58,7 @@ class InlineResponse20036 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\AccountAdditionalCost[]'
+        'data' => '\TalonOne\Client\Model\WebhookWithOutgoingIntegrationDetails[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse20036 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\AccountAdditionalCost[]
+     * @return \TalonOne\Client\Model\WebhookWithOutgoingIntegrationDetails[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20036 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\AccountAdditionalCost[] $data data
+     * @param \TalonOne\Client\Model\WebhookWithOutgoingIntegrationDetails[] $data data
      *
      * @return $this
      */

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * OutgoingIntegrationTemplateWithConfigurationDetailsTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description OutgoingIntegrationTemplateWithConfigurationDetails
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

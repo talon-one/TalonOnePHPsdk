@@ -268,7 +268,7 @@ class CouponDeletionFilters implements ModelInterface, ArrayAccess
         $this->container['redeemed'] = isset($data['redeemed']) ? $data['redeemed'] : null;
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
         $this->container['exactMatch'] = isset($data['exactMatch']) ? $data['exactMatch'] : false;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : 'false';
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['batchId'] = isset($data['batchId']) ? $data['batchId'] : null;
         $this->container['referralId'] = isset($data['referralId']) ? $data['referralId'] : null;
         $this->container['expiresAfter'] = isset($data['expiresAfter']) ? $data['expiresAfter'] : null;

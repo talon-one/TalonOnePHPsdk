@@ -63,7 +63,6 @@ Method | HTTP request | Description
 [**getAchievement**](ManagementApi.md#getAchievement) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Get achievement
 [**getAdditionalCost**](ManagementApi.md#getAdditionalCost) | **GET** /v1/additional_costs/{additionalCostId} | Get additional cost
 [**getAdditionalCosts**](ManagementApi.md#getAdditionalCosts) | **GET** /v1/additional_costs | List additional costs
-[**getAllAccessLogs**](ManagementApi.md#getAllAccessLogs) | **GET** /v1/access_logs | List access logs
 [**getApplication**](ManagementApi.md#getApplication) | **GET** /v1/applications/{applicationId} | Get Application
 [**getApplicationApiHealth**](ManagementApi.md#getApplicationApiHealth) | **GET** /v1/applications/{applicationId}/health_report | Get Application health
 [**getApplicationCustomer**](ManagementApi.md#getApplicationCustomer) | **GET** /v1/applications/{applicationId}/customers/{customerId} | Get application&#39;s customer
@@ -205,7 +204,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \TalonOne\Client\Model\ActivateUserRequest(); // \TalonOne\Client\Model\ActivateUserRequest | body
+$body = new \TalonOne\Client\Model\DeactivateUserRequest(); // \TalonOne\Client\Model\DeactivateUserRequest | body
 
 try {
     $apiInstance->activateUserByEmail($body);
@@ -220,7 +219,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\TalonOne\Client\Model\ActivateUserRequest**](../Model/ActivateUserRequest.md)| body |
+ **body** | **\TalonOne\Client\Model\DeactivateUserRequest**| body |
 
 ### Return type
 
@@ -2108,7 +2107,7 @@ $valid = 'valid_example'; // string | - `expired`: Matches coupons in which the 
 $batchId = 'batchId_example'; // string | Filter results by batches of coupons
 $usable = 'usable_example'; // string | - `true`: only coupons where `usageCounter < usageLimit` will be returned. - `false`: only coupons where `usageCounter >= usageLimit` will be returned.
 $referralId = 56; // int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.
-$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's `RecipientIntegrationId` field.
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile ID specified in the coupon's `RecipientIntegrationId` field.
 $exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
 
 try {
@@ -2137,7 +2136,7 @@ Name | Type | Description  | Notes
  **batchId** | **string**| Filter results by batches of coupons | [optional]
  **usable** | **string**| - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned. | [optional]
  **referralId** | **int**| Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional]
- **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. | [optional]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile ID specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. | [optional]
  **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
 
 ### Return type
@@ -2466,7 +2465,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \TalonOne\Client\Model\DeleteUserRequest(); // \TalonOne\Client\Model\DeleteUserRequest | body
+$body = new \TalonOne\Client\Model\DeactivateUserRequest(); // \TalonOne\Client\Model\DeactivateUserRequest | body
 
 try {
     $apiInstance->deleteUserByEmail($body);
@@ -2481,7 +2480,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\TalonOne\Client\Model\DeleteUserRequest**](../Model/DeleteUserRequest.md)| body |
+ **body** | **\TalonOne\Client\Model\DeactivateUserRequest**| body |
 
 ### Return type
 
@@ -2989,7 +2988,7 @@ Name | Type | Description  | Notes
 
 Export coupons
 
-Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon can be reserved for multiple customers. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code.
+Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date in RFC3339 of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon can be reserved for multiple customers. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code.
 
 ### Example
 
@@ -3016,7 +3015,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$campaignId = 3.4; // float | Filter results by campaign.
+$campaignId = 3.4; // float | Filter results by campaign ID.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.
 $value = 'value_example'; // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -3046,7 +3045,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **campaignId** | **float**| Filter results by campaign. | [optional]
+ **campaignId** | **float**| Filter results by campaign ID. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. | [optional]
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
@@ -3262,7 +3261,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$campaignId = 3.4; // float | Filter results by campaign.
+$campaignId = 3.4; // float | Filter results by campaign ID.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
 $dateFormat = 'dateFormat_example'; // string | Determines the format of dates in the export document.
@@ -3282,7 +3281,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **campaignId** | **float**| Filter results by campaign. | [optional]
+ **campaignId** | **float**| Filter results by campaign ID. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **dateFormat** | **string**| Determines the format of dates in the export document. | [optional]
@@ -3593,7 +3592,7 @@ Name | Type | Description  | Notes
 
 ## exportLoyaltyCards
 
-> string exportLoyaltyCards($loyaltyProgramId, $batchId)
+> string exportLoyaltyCards($loyaltyProgramId, $batchId, $dateFormat)
 
 Export loyalty cards
 
@@ -3625,9 +3624,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
 $batchId = 'batchId_example'; // string | Filter results by loyalty card batch ID.
+$dateFormat = 'dateFormat_example'; // string | Determines the format of dates in the export document.
 
 try {
-    $result = $apiInstance->exportLoyaltyCards($loyaltyProgramId, $batchId);
+    $result = $apiInstance->exportLoyaltyCards($loyaltyProgramId, $batchId, $dateFormat);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->exportLoyaltyCards: ', $e->getMessage(), PHP_EOL;
@@ -3642,6 +3642,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
  **batchId** | **string**| Filter results by loyalty card batch ID. | [optional]
+ **dateFormat** | **string**| Determines the format of dates in the export document. | [optional]
 
 ### Return type
 
@@ -3842,7 +3843,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$campaignId = 3.4; // float | Filter results by campaign.
+$campaignId = 3.4; // float | Filter results by campaign ID.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
 $valid = 'valid_example'; // string | - `expired`: Matches referrals in which the expiration date is set and in the past. - `validNow`: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches referrals in which start date is set and in the future.
@@ -3865,7 +3866,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **campaignId** | **float**| Filter results by campaign. | [optional]
+ **campaignId** | **float**| Filter results by campaign ID. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **valid** | **string**| - &#x60;expired&#x60;: Matches referrals in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches referrals in which start date is set and in the future. | [optional]
@@ -4321,7 +4322,7 @@ Name | Type | Description  | Notes
 
 ## getAdditionalCosts
 
-> \TalonOne\Client\Model\InlineResponse20036 getAdditionalCosts($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20035 getAdditionalCosts($pageSize, $skip, $sort)
 
 List additional costs
 
@@ -4375,89 +4376,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20036**](../Model/InlineResponse20036.md)
-
-### Authorization
-
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
-## getAllAccessLogs
-
-> \TalonOne\Client\Model\InlineResponse20020 getAllAccessLogs($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
-
-List access logs
-
-Fetches the access logs for the entire account. Sensitive requests (logins) are _always_ filtered from the logs.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: management_key
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure API key authorization: manager_auth
-$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new TalonOne\Client\Api\ManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
-$path = 'path_example'; // string | Only return results where the request path matches the given regular expression.
-$method = 'method_example'; // string | Only return results where the request method matches the given regular expression.
-$status = 'status_example'; // string | Filter results by HTTP status codes.
-$pageSize = 1000; // int | The number of items in the response.
-$skip = 56; // int | The number of items to skip when paging through large result sets.
-$sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.
-
-try {
-    $result = $apiInstance->getAllAccessLogs($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ManagementApi->getAllAccessLogs: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **rangeStart** | **\DateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
- **path** | **string**| Only return results where the request path matches the given regular expression. | [optional]
- **method** | **string**| Only return results where the request method matches the given regular expression. | [optional]
- **status** | **string**| Filter results by HTTP status codes. | [optional]
- **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
- **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. | [optional]
-
-### Return type
-
-[**\TalonOne\Client\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
+[**\TalonOne\Client\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
 
 ### Authorization
 
@@ -4547,7 +4466,7 @@ Name | Type | Description  | Notes
 
 Get Application health
 
-Display the health of the Application and show the last time the Application was used.  You can also display this information from the **Settings** of an Application, in the **Developer Settings** menu. See the [docs](https://docs.talon.one/docs/dev/tutorials/monitoring-integration-status).
+Display the health of the Application and show the last time the Application was used.  You can also find this information in the Campaign Manager. In your Application, click **Settings** > **Integration API Keys**. See the [docs](https://docs.talon.one/docs/dev/tutorials/monitoring-integration-status).
 
 ### Example
 
@@ -4681,7 +4600,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomerFriends
 
-> \TalonOne\Client\Model\InlineResponse20033 getApplicationCustomerFriends($applicationId, $integrationId, $pageSize, $skip, $sort, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20032 getApplicationCustomerFriends($applicationId, $integrationId, $pageSize, $skip, $sort, $withTotalResultSize)
 
 List friends referred by customer profile
 
@@ -4741,7 +4660,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
+[**\TalonOne\Client\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
 
 ### Authorization
 
@@ -4759,7 +4678,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomers
 
-> \TalonOne\Client\Model\InlineResponse20022 getApplicationCustomers($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20021 getApplicationCustomers($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize)
 
 List application's customers
 
@@ -4817,7 +4736,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
+[**\TalonOne\Client\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
 
 ### Authorization
 
@@ -4835,7 +4754,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomersByAttributes
 
-> \TalonOne\Client\Model\InlineResponse20023 getApplicationCustomersByAttributes($applicationId, $body, $pageSize, $skip, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20022 getApplicationCustomersByAttributes($applicationId, $body, $pageSize, $skip, $withTotalResultSize)
 
 List application customers matching the given attributes
 
@@ -4893,7 +4812,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
+[**\TalonOne\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
 
 ### Authorization
 
@@ -4911,7 +4830,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventTypes
 
-> \TalonOne\Client\Model\InlineResponse20029 getApplicationEventTypes($applicationId, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20028 getApplicationEventTypes($applicationId, $pageSize, $skip, $sort)
 
 List Applications event types
 
@@ -4967,7 +4886,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
+[**\TalonOne\Client\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
 
 ### Authorization
 
@@ -4985,7 +4904,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20028 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
+> \TalonOne\Client\Model\InlineResponse20027 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
 
 List Applications events
 
@@ -5063,7 +4982,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
+[**\TalonOne\Client\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
 
 ### Authorization
 
@@ -5151,7 +5070,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationSessions
 
-> \TalonOne\Client\Model\InlineResponse20027 getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId, $storeIntegrationId)
+> \TalonOne\Client\Model\InlineResponse20026 getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId, $storeIntegrationId)
 
 List Application sessions
 
@@ -5191,7 +5110,7 @@ $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
 $coupon = 'coupon_example'; // string | Filter by sessions with this coupon. Must be exact match.
 $referral = 'referral_example'; // string | Filter by sessions with this referral. Must be exact match.
-$integrationId = 'integrationId_example'; // string | Filter by sessions with this integrationId. Must be exact match.
+$integrationId = 'integrationId_example'; // string | Filter by sessions with this integration ID. Must be exact match.
 $storeIntegrationId = 'storeIntegrationId_example'; // string | The integration ID of the store. You choose this ID when you create a store.
 
 try {
@@ -5218,12 +5137,12 @@ Name | Type | Description  | Notes
  **createdAfter** | **\DateTime**| Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **coupon** | **string**| Filter by sessions with this coupon. Must be exact match. | [optional]
  **referral** | **string**| Filter by sessions with this referral. Must be exact match. | [optional]
- **integrationId** | **string**| Filter by sessions with this integrationId. Must be exact match. | [optional]
+ **integrationId** | **string**| Filter by sessions with this integration ID. Must be exact match. | [optional]
  **storeIntegrationId** | **string**| The integration ID of the store. You choose this ID when you create a store. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
+[**\TalonOne\Client\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
 
 ### Authorization
 
@@ -5381,7 +5300,7 @@ Name | Type | Description  | Notes
 
 ## getAttributes
 
-> \TalonOne\Client\Model\InlineResponse20034 getAttributes($pageSize, $skip, $sort, $entity)
+> \TalonOne\Client\Model\InlineResponse20033 getAttributes($pageSize, $skip, $sort, $entity)
 
 List custom attributes
 
@@ -5437,7 +5356,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
+[**\TalonOne\Client\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
 
 ### Authorization
 
@@ -5455,7 +5374,7 @@ Name | Type | Description  | Notes
 
 ## getAudienceMemberships
 
-> \TalonOne\Client\Model\InlineResponse20032 getAudienceMemberships($audienceId, $pageSize, $skip, $sort, $profileQuery)
+> \TalonOne\Client\Model\InlineResponse20031 getAudienceMemberships($audienceId, $pageSize, $skip, $sort, $profileQuery)
 
 List audience members
 
@@ -5513,7 +5432,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
+[**\TalonOne\Client\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
 
 ### Authorization
 
@@ -5531,7 +5450,7 @@ Name | Type | Description  | Notes
 
 ## getAudiences
 
-> \TalonOne\Client\Model\InlineResponse20030 getAudiences($pageSize, $skip, $sort, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20029 getAudiences($pageSize, $skip, $sort, $withTotalResultSize)
 
 List audiences
 
@@ -5587,7 +5506,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
+[**\TalonOne\Client\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
 
 ### Authorization
 
@@ -5605,7 +5524,7 @@ Name | Type | Description  | Notes
 
 ## getAudiencesAnalytics
 
-> \TalonOne\Client\Model\InlineResponse20031 getAudiencesAnalytics($audienceIds, $sort)
+> \TalonOne\Client\Model\InlineResponse20030 getAudiencesAnalytics($audienceIds, $sort)
 
 List audience analytics
 
@@ -5657,7 +5576,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
+[**\TalonOne\Client\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
 
 ### Authorization
 
@@ -5745,7 +5664,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignAnalytics
 
-> \TalonOne\Client\Model\InlineResponse20021 getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity)
+> \TalonOne\Client\Model\InlineResponse20020 getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity)
 
 Get analytics of campaigns
 
@@ -5803,7 +5722,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
+[**\TalonOne\Client\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
 
 ### Authorization
 
@@ -6159,7 +6078,7 @@ $tags = 'tags_example'; // string | Filter results performing case-insensitive m
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
 $campaignGroupId = 56; // int | Filter results to campaigns owned by the specified campaign access group ID.
-$templateId = 56; // int | The ID of the Campaign Template this Campaign was created from.
+$templateId = 56; // int | The ID of the campaign template this campaign was created from.
 $storeId = 56; // int | Filter results to campaigns linked to the specified store ID.
 
 try {
@@ -6186,7 +6105,7 @@ Name | Type | Description  | Notes
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **campaignGroupId** | **int**| Filter results to campaigns owned by the specified campaign access group ID. | [optional]
- **templateId** | **int**| The ID of the Campaign Template this Campaign was created from. | [optional]
+ **templateId** | **int**| The ID of the campaign template this campaign was created from. | [optional]
  **storeId** | **int**| Filter results to campaigns linked to the specified store ID. | [optional]
 
 ### Return type
@@ -6209,7 +6128,7 @@ Name | Type | Description  | Notes
 
 ## getChanges
 
-> \TalonOne\Client\Model\InlineResponse20042 getChanges($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $managementKeyId, $includeOld)
+> \TalonOne\Client\Model\InlineResponse20041 getChanges($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $managementKeyId, $includeOld)
 
 Get audit logs for an account
 
@@ -6279,7 +6198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20042**](../Model/InlineResponse20042.md)
+[**\TalonOne\Client\Model\InlineResponse20041**](../Model/InlineResponse20041.md)
 
 ### Authorization
 
@@ -6483,9 +6402,9 @@ $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"val
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
 $redeemed = 'redeemed_example'; // string | - `true`: only coupons where `usageCounter > 0` will be returned. - `false`: only coupons where `usageCounter = 0` will be returned. - This field cannot be used in conjunction with the `usable` query parameter.
 $referralId = 56; // int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.
-$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile ID specified in the coupon's RecipientIntegrationId field.
 $batchId = 'batchId_example'; // string | Filter results by batches of coupons
-$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
+$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code.
 $expiresBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
 $expiresAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
 $startsBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -6518,9 +6437,9 @@ Name | Type | Description  | Notes
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
  **redeemed** | **string**| - &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter. | [optional]
  **referralId** | **int**| Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional]
- **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. | [optional]
  **batchId** | **string**| Filter results by batches of coupons | [optional]
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code. | [optional] [default to false]
  **expiresBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **expiresAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **startsBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
@@ -6625,7 +6544,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerActivityReportsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20026 getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
+> \TalonOne\Client\Model\InlineResponse20025 getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
 
 Get Activity Reports for Application Customers
 
@@ -6661,10 +6580,10 @@ $applicationId = 56; // int | The ID of the Application. It is displayed in your
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.
-$name = 'name_example'; // string | Only return reports matching the customer name
+$name = 'name_example'; // string | Only return reports matching the customer name.
 $integrationId = 'integrationId_example'; // string | Filter results performing an exact matching against the profile integration identifier.
-$campaignName = 'campaignName_example'; // string | Only return reports matching the campaignName
-$advocateName = 'advocateName_example'; // string | Only return reports matching the current customer referrer name
+$campaignName = 'campaignName_example'; // string | Only return reports matching the campaign name.
+$advocateName = 'advocateName_example'; // string | Only return reports matching the current customer referrer name.
 
 try {
     $result = $apiInstance->getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
@@ -6686,14 +6605,14 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. | [optional]
- **name** | **string**| Only return reports matching the customer name | [optional]
+ **name** | **string**| Only return reports matching the customer name. | [optional]
  **integrationId** | **string**| Filter results performing an exact matching against the profile integration identifier. | [optional]
- **campaignName** | **string**| Only return reports matching the campaignName | [optional]
- **advocateName** | **string**| Only return reports matching the current customer referrer name | [optional]
+ **campaignName** | **string**| Only return reports matching the campaign name. | [optional]
+ **advocateName** | **string**| Only return reports matching the current customer referrer name. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\TalonOne\Client\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
 
 ### Authorization
 
@@ -6855,7 +6774,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerProfileAchievementProgress
 
-> \TalonOne\Client\Model\InlineResponse20047 getCustomerProfileAchievementProgress($applicationId, $integrationId, $pageSize, $skip, $achievementId, $title)
+> \TalonOne\Client\Model\InlineResponse20046 getCustomerProfileAchievementProgress($applicationId, $integrationId, $pageSize, $skip, $achievementId, $title)
 
 List customer achievements
 
@@ -6915,7 +6834,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20047**](../Model/InlineResponse20047.md)
+[**\TalonOne\Client\Model\InlineResponse20046**](../Model/InlineResponse20046.md)
 
 ### Authorization
 
@@ -6933,7 +6852,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerProfiles
 
-> \TalonOne\Client\Model\InlineResponse20025 getCustomerProfiles($pageSize, $skip, $sandbox)
+> \TalonOne\Client\Model\InlineResponse20024 getCustomerProfiles($pageSize, $skip, $sandbox)
 
 List customer profiles
 
@@ -6965,7 +6884,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
-$sandbox = false; // bool | Indicates whether you are pointing to a sandbox or Live customer.
+$sandbox = false; // bool | Indicates whether you are pointing to a sandbox or live customer.
 
 try {
     $result = $apiInstance->getCustomerProfiles($pageSize, $skip, $sandbox);
@@ -6983,11 +6902,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
- **sandbox** | **bool**| Indicates whether you are pointing to a sandbox or Live customer. | [optional] [default to false]
+ **sandbox** | **bool**| Indicates whether you are pointing to a sandbox or live customer. | [optional] [default to false]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
+[**\TalonOne\Client\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
 
 ### Authorization
 
@@ -7005,7 +6924,7 @@ Name | Type | Description  | Notes
 
 ## getCustomersByAttributes
 
-> \TalonOne\Client\Model\InlineResponse20024 getCustomersByAttributes($body, $pageSize, $skip, $sandbox)
+> \TalonOne\Client\Model\InlineResponse20023 getCustomersByAttributes($body, $pageSize, $skip, $sandbox)
 
 List customer profiles matching the given attributes
 
@@ -7038,7 +6957,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $body = new \TalonOne\Client\Model\CustomerProfileSearchQuery(); // \TalonOne\Client\Model\CustomerProfileSearchQuery | body
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
-$sandbox = false; // bool | Indicates whether you are pointing to a sandbox or Live customer.
+$sandbox = false; // bool | Indicates whether you are pointing to a sandbox or live customer.
 
 try {
     $result = $apiInstance->getCustomersByAttributes($body, $pageSize, $skip, $sandbox);
@@ -7057,11 +6976,11 @@ Name | Type | Description  | Notes
  **body** | [**\TalonOne\Client\Model\CustomerProfileSearchQuery**](../Model/CustomerProfileSearchQuery.md)| body |
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
- **sandbox** | **bool**| Indicates whether you are pointing to a sandbox or Live customer. | [optional] [default to false]
+ **sandbox** | **bool**| Indicates whether you are pointing to a sandbox or live customer. | [optional] [default to false]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
+[**\TalonOne\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
 
 ### Authorization
 
@@ -7079,7 +6998,7 @@ Name | Type | Description  | Notes
 
 ## getEventTypes
 
-> \TalonOne\Client\Model\InlineResponse20040 getEventTypes($name, $includeOldVersions, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20039 getEventTypes($name, $includeOldVersions, $pageSize, $skip, $sort)
 
 List event types
 
@@ -7137,7 +7056,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20040**](../Model/InlineResponse20040.md)
+[**\TalonOne\Client\Model\InlineResponse20039**](../Model/InlineResponse20039.md)
 
 ### Authorization
 
@@ -7155,7 +7074,7 @@ Name | Type | Description  | Notes
 
 ## getExports
 
-> \TalonOne\Client\Model\InlineResponse20043 getExports($pageSize, $skip, $applicationId, $campaignId, $entity)
+> \TalonOne\Client\Model\InlineResponse20042 getExports($pageSize, $skip, $applicationId, $campaignId, $entity)
 
 Get exports
 
@@ -7213,7 +7132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20043**](../Model/InlineResponse20043.md)
+[**\TalonOne\Client\Model\InlineResponse20042**](../Model/InlineResponse20042.md)
 
 ### Authorization
 
@@ -7851,7 +7770,7 @@ $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filt
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future.
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.
-$advocate = 'advocate_example'; // string | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field
+$advocate = 'advocate_example'; // string | Filter results by match with a profile ID specified in the referral's AdvocateProfileIntegrationId field.
 
 try {
     $result = $apiInstance->getReferralsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate);
@@ -7877,7 +7796,7 @@ Name | Type | Description  | Notes
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future. | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
- **advocate** | **string**| Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field | [optional]
+ **advocate** | **string**| Filter results by match with a profile ID specified in the referral&#39;s AdvocateProfileIntegrationId field. | [optional]
 
 ### Return type
 
@@ -8253,7 +8172,7 @@ Name | Type | Description  | Notes
 
 ## getUsers
 
-> \TalonOne\Client\Model\InlineResponse20041 getUsers($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20040 getUsers($pageSize, $skip, $sort)
 
 List users in account
 
@@ -8307,7 +8226,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20041**](../Model/InlineResponse20041.md)
+[**\TalonOne\Client\Model\InlineResponse20040**](../Model/InlineResponse20040.md)
 
 ### Authorization
 
@@ -8393,7 +8312,7 @@ Name | Type | Description  | Notes
 
 ## getWebhookActivationLogs
 
-> \TalonOne\Client\Model\InlineResponse20038 getWebhookActivationLogs($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter)
+> \TalonOne\Client\Model\InlineResponse20037 getWebhookActivationLogs($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter)
 
 List webhook activation log entries
 
@@ -8427,9 +8346,9 @@ $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.
 $integrationRequestUuid = 'integrationRequestUuid_example'; // string | Filter results by integration request UUID.
-$webhookId = 3.4; // float | Filter results by Webhook.
+$webhookId = 3.4; // float | Filter results by webhook id.
 $applicationId = 3.4; // float | Filter results by Application ID.
-$campaignId = 3.4; // float | Filter results by campaign.
+$campaignId = 3.4; // float | Filter results by campaign ID.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
 
@@ -8451,15 +8370,15 @@ Name | Type | Description  | Notes
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. | [optional]
  **integrationRequestUuid** | **string**| Filter results by integration request UUID. | [optional]
- **webhookId** | **float**| Filter results by Webhook. | [optional]
+ **webhookId** | **float**| Filter results by webhook id. | [optional]
  **applicationId** | **float**| Filter results by Application ID. | [optional]
- **campaignId** | **float**| Filter results by campaign. | [optional]
+ **campaignId** | **float**| Filter results by campaign ID. | [optional]
  **createdBefore** | **\DateTime**| Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20038**](../Model/InlineResponse20038.md)
+[**\TalonOne\Client\Model\InlineResponse20037**](../Model/InlineResponse20037.md)
 
 ### Authorization
 
@@ -8477,7 +8396,7 @@ Name | Type | Description  | Notes
 
 ## getWebhookLogs
 
-> \TalonOne\Client\Model\InlineResponse20039 getWebhookLogs($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter)
+> \TalonOne\Client\Model\InlineResponse20038 getWebhookLogs($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter)
 
 List webhook log entries
 
@@ -8511,9 +8430,9 @@ $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.
 $status = 'status_example'; // string | Filter results by HTTP status codes.
-$webhookId = 3.4; // float | Filter results by Webhook.
+$webhookId = 3.4; // float | Filter results by webhook id.
 $applicationId = 3.4; // float | Filter results by Application ID.
-$campaignId = 3.4; // float | Filter results by campaign.
+$campaignId = 3.4; // float | Filter results by campaign ID.
 $requestUuid = 'requestUuid_example'; // string | Filter results by request UUID.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -8536,16 +8455,16 @@ Name | Type | Description  | Notes
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. | [optional]
  **status** | **string**| Filter results by HTTP status codes. | [optional]
- **webhookId** | **float**| Filter results by Webhook. | [optional]
+ **webhookId** | **float**| Filter results by webhook id. | [optional]
  **applicationId** | **float**| Filter results by Application ID. | [optional]
- **campaignId** | **float**| Filter results by campaign. | [optional]
+ **campaignId** | **float**| Filter results by campaign ID. | [optional]
  **requestUuid** | **string**| Filter results by request UUID. | [optional]
  **createdBefore** | **\DateTime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20039**](../Model/InlineResponse20039.md)
+[**\TalonOne\Client\Model\InlineResponse20038**](../Model/InlineResponse20038.md)
 
 ### Authorization
 
@@ -8563,7 +8482,7 @@ Name | Type | Description  | Notes
 
 ## getWebhooks
 
-> \TalonOne\Client\Model\InlineResponse20037 getWebhooks($applicationIds, $sort, $pageSize, $skip, $creationType, $visibility, $outgoingIntegrationsTypeId, $title)
+> \TalonOne\Client\Model\InlineResponse20036 getWebhooks($applicationIds, $sort, $pageSize, $skip, $creationType, $visibility, $outgoingIntegrationsTypeId, $title)
 
 List webhooks
 
@@ -8627,7 +8546,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20037**](../Model/InlineResponse20037.md)
+[**\TalonOne\Client\Model\InlineResponse20036**](../Model/InlineResponse20036.md)
 
 ### Authorization
 
@@ -9079,7 +8998,7 @@ Name | Type | Description  | Notes
 
 Import loyalty cards
 
-Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program. Send the file as multipart data.  It contains the following columns for each card:  - `identifier` (required): The alphanumeric identifier of the loyalty card. - `state` (required): The state of the loyalty card. It can be `active` or `inactive`. - `customerprofileids` (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA ```
+Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program. Send the file as multipart data.  It contains the following columns for each card:  - `identifier` (required): The alphanumeric identifier of the loyalty card. - `state` (required): The state of the loyalty card. It can be `active` or `inactive`. - `customerprofileids` (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA ```
 
 ### Example
 
@@ -9219,7 +9138,7 @@ Name | Type | Description  | Notes
 
 Import loyalty points
 
-Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - `customerprofileid` (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - `identifier` (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - `amount`: The amount of points to award to the customer profile. - `startdate` (optional): The earliest date when the points can be redeemed. The points are `active` from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string `immediate`. Empty or missing values are considered `immediate`. - `expirydate` (optional): The latest date when the points can be redeemed. The points are `expired` after this date.    **Note**: It must be an RFC3339 timestamp string or string `unlimited`. Empty or missing values are considered `unlimited`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for `startdate`. If `startdate` matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for `startdate` is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```  **Example for card-based programs:**  ```text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```
+Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - `customerprofileid` (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported.    **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - `identifier` (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - `amount`: The amount of points to award to the customer profile. - `startdate` (optional): The earliest date when the points can be redeemed. The points are `active` from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string `immediate`. Empty or missing values are considered `immediate`. - `expirydate` (optional): The latest date when the points can be redeemed. The points are `expired` after this date.    **Note**: It must be an RFC3339 timestamp string or string `unlimited`. Empty or missing values are considered `unlimited`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for `startdate`. If `startdate` matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for `startdate` is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```  **Example for card-based programs:**  ```text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```
 
 ### Example
 
@@ -9570,7 +9489,7 @@ Name | Type | Description  | Notes
 
 ## listAchievements
 
-> \TalonOne\Client\Model\InlineResponse20046 listAchievements($applicationId, $campaignId, $pageSize, $skip, $title)
+> \TalonOne\Client\Model\InlineResponse20045 listAchievements($applicationId, $campaignId, $pageSize, $skip, $title)
 
 List achievements
 
@@ -9628,7 +9547,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20046**](../Model/InlineResponse20046.md)
+[**\TalonOne\Client\Model\InlineResponse20045**](../Model/InlineResponse20045.md)
 
 ### Authorization
 
@@ -9646,7 +9565,7 @@ Name | Type | Description  | Notes
 
 ## listAllRolesV2
 
-> \TalonOne\Client\Model\InlineResponse20044 listAllRolesV2()
+> \TalonOne\Client\Model\InlineResponse20043 listAllRolesV2()
 
 List roles
 
@@ -9692,7 +9611,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
+[**\TalonOne\Client\Model\InlineResponse20043**](../Model/InlineResponse20043.md)
 
 ### Authorization
 
@@ -9710,7 +9629,7 @@ This endpoint does not need any parameter.
 
 ## listCatalogItems
 
-> \TalonOne\Client\Model\InlineResponse20035 listCatalogItems($catalogId, $pageSize, $skip, $withTotalResultSize, $sku, $productNames)
+> \TalonOne\Client\Model\InlineResponse20034 listCatalogItems($catalogId, $pageSize, $skip, $withTotalResultSize, $sku, $productNames)
 
 List items in a catalog
 
@@ -9770,7 +9689,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
+[**\TalonOne\Client\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
 
 ### Authorization
 
@@ -9946,7 +9865,7 @@ Name | Type | Description  | Notes
 
 ## listStores
 
-> \TalonOne\Client\Model\InlineResponse20045 listStores($applicationId, $pageSize, $skip, $sort, $withTotalResultSize, $campaignId, $name, $integrationId, $query)
+> \TalonOne\Client\Model\InlineResponse20044 listStores($applicationId, $pageSize, $skip, $sort, $withTotalResultSize, $campaignId, $name, $integrationId, $query)
 
 List stores
 
@@ -9981,7 +9900,7 @@ $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.
 $withTotalResultSize = True; // bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.
-$campaignId = 3.4; // float | Filter results by campaign.
+$campaignId = 3.4; // float | Filter results by campaign ID.
 $name = 'name_example'; // string | The name of the store.
 $integrationId = 'integrationId_example'; // string | The integration ID of the store.
 $query = 'query_example'; // string | Filter results by `name` or `integrationId`.
@@ -10005,14 +9924,14 @@ Name | Type | Description  | Notes
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. | [optional]
  **withTotalResultSize** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. | [optional]
- **campaignId** | **float**| Filter results by campaign. | [optional]
+ **campaignId** | **float**| Filter results by campaign ID. | [optional]
  **name** | **string**| The name of the store. | [optional]
  **integrationId** | **string**| The integration ID of the store. | [optional]
  **query** | **string**| Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20045**](../Model/InlineResponse20045.md)
+[**\TalonOne\Client\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
 
 ### Authorization
 
@@ -11151,9 +11070,9 @@ $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filte
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
 $referralId = 56; // int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.
-$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile ID specified in the coupon's RecipientIntegrationId field.
 $batchId = 'batchId_example'; // string | Filter results by batches of coupons
-$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
+$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code.
 $campaignState = 'campaignState_example'; // string | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.
 
 try {
@@ -11181,9 +11100,9 @@ Name | Type | Description  | Notes
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
  **referralId** | **int**| Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional]
- **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. | [optional]
  **batchId** | **string**| Filter results by batches of coupons | [optional]
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code. | [optional] [default to false]
  **campaignState** | **string**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. | [optional]
 
 ### Return type
@@ -11248,8 +11167,8 @@ $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filte
 $valid = 'valid_example'; // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.
 $usable = 'usable_example'; // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.
 $referralId = 56; // int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.
-$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
-$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code
+$recipientIntegrationId = 'recipientIntegrationId_example'; // string | Filter results by match with a profile ID specified in the coupon's RecipientIntegrationId field.
+$exactMatch = false; // bool | Filter results to an exact case-insensitive matching against the coupon code.
 $batchId = 'batchId_example'; // string | Filter results by batches of coupons
 
 try {
@@ -11278,8 +11197,8 @@ Name | Type | Description  | Notes
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. | [optional]
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. | [optional]
  **referralId** | **int**| Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional]
- **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional]
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **recipientIntegrationId** | **string**| Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. | [optional]
+ **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code. | [optional] [default to false]
  **batchId** | **string**| Filter results by batches of coupons | [optional]
 
 ### Return type
@@ -11661,7 +11580,7 @@ Name | Type | Description  | Notes
 
 Update campaign
 
-Update the given campaign.
+Update the given campaign.  **Important:** You cannot use this endpoint to update campaigns if [campaign staging and revisions](https://docs.talon.one/docs/product/applications/managing-general-settings#campaign-staging-and-revisions) is enabled for your Application.
 
 ### Example
 
@@ -11807,7 +11726,7 @@ Name | Type | Description  | Notes
 
 Update coupon
 
-Update the specified coupon.  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <p>With this <code>PUT</code> endpoint alone, if you do not explicitly set a value for the <code>startDate</code>, <code>expiryDate</code>, and <code>recipientIntegrationId</code> properties in your request, it is automatically set to <code>null</code>.</p>  </div>
+Update the specified coupon.  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <p>With this <code>PUT</code> endpoint, if you do not explicitly set a value for the <code>startDate</code>, <code>expiryDate</code>, and <code>recipientIntegrationId</code> properties in your request, it is automatically set to <code>null</code>.</p>  </div>
 
 ### Example
 
@@ -11881,7 +11800,7 @@ Name | Type | Description  | Notes
 
 Update coupons
 
-Update all coupons, or a specific batch of coupons in the given campaign. You can find the `batchId` in the **Coupons** view of your Application in the Campaign Manager, or you can use [List coupons](#operation/getCouponsWithoutTotalCount).  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <ul>     <li>Only send sequential requests to this endpoint.</li>     <li>Requests to this endpoint timeout after 30 minutes. If you hit a timeout, reach out to our support team.</li>   </ul>  </div>  To update a specific coupon, use [Update coupon](#operation/updateCoupon).
+Update all coupons or a specific batch of coupons in the given campaign. You can find the `batchId` on the **Coupons** page of your campaign in the Campaign Manager, or you can use [List coupons](#operation/getCouponsWithoutTotalCount).  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <ul>     <li>Only send sequential requests to this endpoint.</li>     <li>Requests to this endpoint time out after 30 minutes. If you hit a timeout, contact our support team.</li>     <li>With this <code>PUT</code> endpoint, if you do not explicitly set a value for the <code>startDate</code> and <code>expiryDate</code> properties in your request, it is automatically set to <code>null</code>.</li>   </ul>  </div>  To update a specific coupon, use [Update coupon](#operation/updateCoupon).
 
 ### Example
 

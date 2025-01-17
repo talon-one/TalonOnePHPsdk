@@ -238,7 +238,7 @@ class NewLoyaltyTier implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of the tier
+     * @param string $name The name of the tier.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class NewLoyaltyTier implements ModelInterface, ArrayAccess
     /**
      * Sets minPoints
      *
-     * @param float $minPoints The minimum amount of points required to be eligible for the tier.
+     * @param float $minPoints The minimum amount of points required to enter the tier.
      *
      * @return $this
      */

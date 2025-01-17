@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * IntegrationEventV2RequestTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description IntegrationEventV2Request
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

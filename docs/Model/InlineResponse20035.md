@@ -4,9 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hasMore** | **bool** |  | [optional] 
-**totalResultSize** | **int** |  | [optional] 
-**data** | [**\TalonOne\Client\Model\CatalogItem[]**](CatalogItem.md) |  | 
+**totalResultSize** | **int** |  | 
+**data** | [**\TalonOne\Client\Model\AccountAdditionalCost[]**](AccountAdditionalCost.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * ActivateUserRequest
+ * StrikethroughDebugResponse
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * ActivateUserRequest Class Doc Comment
+ * StrikethroughDebugResponse Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ActivateUserRequest implements ModelInterface, ArrayAccess
+class StrikethroughDebugResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class ActivateUserRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ActivateUserRequest';
+    protected static $openAPIModelName = 'StrikethroughDebugResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +57,8 @@ class ActivateUserRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'string'
+        'campaignsIDs' => 'int[]',
+        'effects' => '\TalonOne\Client\Model\StrikethroughEffect[]'
     ];
 
     /**
@@ -67,7 +67,8 @@ class ActivateUserRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'email' => 'email'
+        'campaignsIDs' => null,
+        'effects' => null
     ];
 
     /**
@@ -97,7 +98,8 @@ class ActivateUserRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email'
+        'campaignsIDs' => 'campaignsIDs',
+        'effects' => 'effects'
     ];
 
     /**
@@ -106,7 +108,8 @@ class ActivateUserRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail'
+        'campaignsIDs' => 'setCampaignsIDs',
+        'effects' => 'setEffects'
     ];
 
     /**
@@ -115,7 +118,8 @@ class ActivateUserRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail'
+        'campaignsIDs' => 'getCampaignsIDs',
+        'effects' => 'getEffects'
     ];
 
     /**
@@ -178,7 +182,8 @@ class ActivateUserRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['campaignsIDs'] = isset($data['campaignsIDs']) ? $data['campaignsIDs'] : null;
+        $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
     }
 
     /**
@@ -190,9 +195,6 @@ class ActivateUserRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['email'] === null) {
-            $invalidProperties[] = "'email' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,25 +211,49 @@ class ActivateUserRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets email
+     * Gets campaignsIDs
      *
-     * @return string
+     * @return int[]|null
      */
-    public function getEmail()
+    public function getCampaignsIDs()
     {
-        return $this->container['email'];
+        return $this->container['campaignsIDs'];
     }
 
     /**
-     * Sets email
+     * Sets campaignsIDs
      *
-     * @param string $email The email address associated with the user profile.
+     * @param int[]|null $campaignsIDs The campaign IDs that got fetched for the evaluation process.
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setCampaignsIDs($campaignsIDs)
     {
-        $this->container['email'] = $email;
+        $this->container['campaignsIDs'] = $campaignsIDs;
+
+        return $this;
+    }
+
+    /**
+     * Gets effects
+     *
+     * @return \TalonOne\Client\Model\StrikethroughEffect[]|null
+     */
+    public function getEffects()
+    {
+        return $this->container['effects'];
+    }
+
+    /**
+     * Sets effects
+     *
+     * @param \TalonOne\Client\Model\StrikethroughEffect[]|null $effects The strikethrough effects that are returned from the evaluation process.
+     *
+     * @return $this
+     */
+    public function setEffects($effects)
+    {
+        $this->container['effects'] = $effects;
 
         return $this;
     }

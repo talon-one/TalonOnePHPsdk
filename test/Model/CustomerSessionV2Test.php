@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CustomerSessionV2Test Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description The representation of the customer session.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -215,6 +215,13 @@ class CustomerSessionV2Test extends TestCase
      * Test attribute "updated"
      */
     public function testPropertyUpdated()
+    {
+    }
+
+    /**
+     * Test attribute "closurePrediction"
+     */
+    public function testPropertyClosurePrediction()
     {
     }
 }

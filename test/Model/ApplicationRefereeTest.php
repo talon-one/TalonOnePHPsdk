@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ApplicationRefereeTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description ApplicationReferee
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

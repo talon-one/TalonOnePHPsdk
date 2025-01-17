@@ -86,6 +86,13 @@ class ApplicationCampaignStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "staged"
+     */
+    public function testPropertyStaged()
+    {
+    }
+
+    /**
      * Test attribute "scheduled"
      */
     public function testPropertyScheduled()

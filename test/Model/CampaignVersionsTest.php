@@ -79,6 +79,13 @@ class CampaignVersionsTest extends TestCase
     }
 
     /**
+     * Test attribute "revisionFrontendState"
+     */
+    public function testPropertyRevisionFrontendState()
+    {
+    }
+
+    /**
      * Test attribute "activeRevisionId"
      */
     public function testPropertyActiveRevisionId()

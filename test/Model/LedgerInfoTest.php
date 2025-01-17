@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * LedgerInfoTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description The balance in a Loyalty Program for some Customer.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

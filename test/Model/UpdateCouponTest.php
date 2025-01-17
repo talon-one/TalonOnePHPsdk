@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * UpdateCouponTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description UpdateCoupon
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -1,6 +1,6 @@
 <?php
 /**
- * ActivateUserRequestTest
+ * ValueMapTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ActivateUserRequestTest Class Doc Comment
+ * ValueMapTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description ValueMap
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ActivateUserRequestTest extends TestCase
+class ValueMapTest extends TestCase
 {
 
     /**
@@ -72,16 +72,37 @@ class ActivateUserRequestTest extends TestCase
     }
 
     /**
-     * Test "ActivateUserRequest"
+     * Test "ValueMap"
      */
-    public function testActivateUserRequest()
+    public function testValueMap()
     {
     }
 
     /**
-     * Test attribute "email"
+     * Test attribute "id"
      */
-    public function testPropertyEmail()
+    public function testPropertyId()
+    {
+    }
+
+    /**
+     * Test attribute "created"
+     */
+    public function testPropertyCreated()
+    {
+    }
+
+    /**
+     * Test attribute "createdBy"
+     */
+    public function testPropertyCreatedBy()
+    {
+    }
+
+    /**
+     * Test attribute "campaignId"
+     */
+    public function testPropertyCampaignId()
     {
     }
 }
