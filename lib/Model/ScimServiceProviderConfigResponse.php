@@ -63,7 +63,8 @@ class ScimServiceProviderConfigResponse implements ModelInterface, ArrayAccess
         'documentationUri' => 'string',
         'filter' => '\TalonOne\Client\Model\ScimServiceProviderConfigResponseFilter',
         'patch' => '\TalonOne\Client\Model\ScimServiceProviderConfigResponsePatch',
-        'schemas' => 'string[]'
+        'schemas' => 'string[]',
+        'sort' => '\TalonOne\Client\Model\ScimServiceProviderConfigResponseSort'
     ];
 
     /**
@@ -77,7 +78,8 @@ class ScimServiceProviderConfigResponse implements ModelInterface, ArrayAccess
         'documentationUri' => null,
         'filter' => null,
         'patch' => null,
-        'schemas' => null
+        'schemas' => null,
+        'sort' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class ScimServiceProviderConfigResponse implements ModelInterface, ArrayAccess
         'documentationUri' => 'documentationUri',
         'filter' => 'filter',
         'patch' => 'patch',
-        'schemas' => 'schemas'
+        'schemas' => 'schemas',
+        'sort' => 'sort'
     ];
 
     /**
@@ -126,7 +129,8 @@ class ScimServiceProviderConfigResponse implements ModelInterface, ArrayAccess
         'documentationUri' => 'setDocumentationUri',
         'filter' => 'setFilter',
         'patch' => 'setPatch',
-        'schemas' => 'setSchemas'
+        'schemas' => 'setSchemas',
+        'sort' => 'setSort'
     ];
 
     /**
@@ -140,7 +144,8 @@ class ScimServiceProviderConfigResponse implements ModelInterface, ArrayAccess
         'documentationUri' => 'getDocumentationUri',
         'filter' => 'getFilter',
         'patch' => 'getPatch',
-        'schemas' => 'getSchemas'
+        'schemas' => 'getSchemas',
+        'sort' => 'getSort'
     ];
 
     /**
@@ -209,6 +214,7 @@ class ScimServiceProviderConfigResponse implements ModelInterface, ArrayAccess
         $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
         $this->container['patch'] = isset($data['patch']) ? $data['patch'] : null;
         $this->container['schemas'] = isset($data['schemas']) ? $data['schemas'] : null;
+        $this->container['sort'] = isset($data['sort']) ? $data['sort'] : null;
     }
 
     /**
@@ -375,6 +381,30 @@ class ScimServiceProviderConfigResponse implements ModelInterface, ArrayAccess
     public function setSchemas($schemas)
     {
         $this->container['schemas'] = $schemas;
+
+        return $this;
+    }
+
+    /**
+     * Gets sort
+     *
+     * @return \TalonOne\Client\Model\ScimServiceProviderConfigResponseSort|null
+     */
+    public function getSort()
+    {
+        return $this->container['sort'];
+    }
+
+    /**
+     * Sets sort
+     *
+     * @param \TalonOne\Client\Model\ScimServiceProviderConfigResponseSort|null $sort sort
+     *
+     * @return $this
+     */
+    public function setSort($sort)
+    {
+        $this->container['sort'] = $sort;
 
         return $this;
     }

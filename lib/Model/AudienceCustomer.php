@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * AudienceCustomer Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -342,7 +341,7 @@ class AudienceCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created The time this entity was created. The time this entity was created.
+     * @param \DateTime $created The time this entity was created.
      *
      * @return $this
      */

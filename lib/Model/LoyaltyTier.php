@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * LoyaltyTier Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description A tier in a loyalty program.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,6 +61,8 @@ class LoyaltyTier implements ModelInterface, ArrayAccess
         'id' => 'int',
         'created' => '\DateTime',
         'programID' => 'int',
+        'programName' => 'string',
+        'programTitle' => 'string',
         'name' => 'string',
         'minPoints' => 'float'
     ];
@@ -74,6 +76,8 @@ class LoyaltyTier implements ModelInterface, ArrayAccess
         'id' => null,
         'created' => 'date-time',
         'programID' => null,
+        'programName' => null,
+        'programTitle' => null,
         'name' => null,
         'minPoints' => null
     ];
@@ -108,6 +112,8 @@ class LoyaltyTier implements ModelInterface, ArrayAccess
         'id' => 'id',
         'created' => 'created',
         'programID' => 'programID',
+        'programName' => 'programName',
+        'programTitle' => 'programTitle',
         'name' => 'name',
         'minPoints' => 'minPoints'
     ];
@@ -121,6 +127,8 @@ class LoyaltyTier implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'created' => 'setCreated',
         'programID' => 'setProgramID',
+        'programName' => 'setProgramName',
+        'programTitle' => 'setProgramTitle',
         'name' => 'setName',
         'minPoints' => 'setMinPoints'
     ];
@@ -134,6 +142,8 @@ class LoyaltyTier implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'created' => 'getCreated',
         'programID' => 'getProgramID',
+        'programName' => 'getProgramName',
+        'programTitle' => 'getProgramTitle',
         'name' => 'getName',
         'minPoints' => 'getMinPoints'
     ];
@@ -201,6 +211,8 @@ class LoyaltyTier implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['programID'] = isset($data['programID']) ? $data['programID'] : null;
+        $this->container['programName'] = isset($data['programName']) ? $data['programName'] : null;
+        $this->container['programTitle'] = isset($data['programTitle']) ? $data['programTitle'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['minPoints'] = isset($data['minPoints']) ? $data['minPoints'] : null;
     }
@@ -325,6 +337,54 @@ class LoyaltyTier implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets programName
+     *
+     * @return string|null
+     */
+    public function getProgramName()
+    {
+        return $this->container['programName'];
+    }
+
+    /**
+     * Sets programName
+     *
+     * @param string|null $programName The integration name of the loyalty program that owns this entity.
+     *
+     * @return $this
+     */
+    public function setProgramName($programName)
+    {
+        $this->container['programName'] = $programName;
+
+        return $this;
+    }
+
+    /**
+     * Gets programTitle
+     *
+     * @return string|null
+     */
+    public function getProgramTitle()
+    {
+        return $this->container['programTitle'];
+    }
+
+    /**
+     * Sets programTitle
+     *
+     * @param string|null $programTitle The Campaign Manager-displayed name of the loyalty program that owns this entity.
+     *
+     * @return $this
+     */
+    public function setProgramTitle($programTitle)
+    {
+        $this->container['programTitle'] = $programTitle;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -337,7 +397,7 @@ class LoyaltyTier implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of the tier
+     * @param string $name The name of the tier.
      *
      * @return $this
      */
@@ -361,7 +421,7 @@ class LoyaltyTier implements ModelInterface, ArrayAccess
     /**
      * Sets minPoints
      *
-     * @param float $minPoints The minimum amount of points required to be eligible for the tier.
+     * @param float $minPoints The minimum amount of points required to enter the tier.
      *
      * @return $this
      */

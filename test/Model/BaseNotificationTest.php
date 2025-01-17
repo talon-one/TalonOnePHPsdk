@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * BaseNotificationTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description BaseNotification
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -57,7 +57,7 @@ class GenerateCampaignTags implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'campaignID' => 'int'
+        'rulesetID' => 'int'
     ];
 
     /**
@@ -66,7 +66,7 @@ class GenerateCampaignTags implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignID' => null
+        'rulesetID' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class GenerateCampaignTags implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'campaignID' => 'campaignID'
+        'rulesetID' => 'rulesetID'
     ];
 
     /**
@@ -105,7 +105,7 @@ class GenerateCampaignTags implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'campaignID' => 'setCampaignID'
+        'rulesetID' => 'setRulesetID'
     ];
 
     /**
@@ -114,7 +114,7 @@ class GenerateCampaignTags implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'campaignID' => 'getCampaignID'
+        'rulesetID' => 'getRulesetID'
     ];
 
     /**
@@ -177,7 +177,7 @@ class GenerateCampaignTags implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['campaignID'] = isset($data['campaignID']) ? $data['campaignID'] : null;
+        $this->container['rulesetID'] = isset($data['rulesetID']) ? $data['rulesetID'] : null;
     }
 
     /**
@@ -189,8 +189,8 @@ class GenerateCampaignTags implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['campaignID'] === null) {
-            $invalidProperties[] = "'campaignID' can't be null";
+        if ($this->container['rulesetID'] === null) {
+            $invalidProperties[] = "'rulesetID' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,25 +208,25 @@ class GenerateCampaignTags implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets campaignID
+     * Gets rulesetID
      *
      * @return int
      */
-    public function getCampaignID()
+    public function getRulesetID()
     {
-        return $this->container['campaignID'];
+        return $this->container['rulesetID'];
     }
 
     /**
-     * Sets campaignID
+     * Sets rulesetID
      *
-     * @param int $campaignID ID of the campaign.
+     * @param int $rulesetID ID of a ruleset.
      *
      * @return $this
      */
-    public function setCampaignID($campaignID)
+    public function setRulesetID($rulesetID)
     {
-        $this->container['campaignID'] = $campaignID;
+        $this->container['rulesetID'] = $rulesetID;
 
         return $this;
     }

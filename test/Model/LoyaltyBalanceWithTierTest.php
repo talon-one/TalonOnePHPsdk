@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * LoyaltyBalanceWithTierTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Point balance of a ledger in the Loyalty Program.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

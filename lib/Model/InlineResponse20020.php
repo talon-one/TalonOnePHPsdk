@@ -58,7 +58,7 @@ class InlineResponse20020 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\AccessLogEntry[]'
+        'data' => '\TalonOne\Client\Model\CampaignAnalytics[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse20020 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\AccessLogEntry[]
+     * @return \TalonOne\Client\Model\CampaignAnalytics[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20020 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\AccessLogEntry[] $data data
+     * @param \TalonOne\Client\Model\CampaignAnalytics[] $data data
      *
      * @return $this
      */

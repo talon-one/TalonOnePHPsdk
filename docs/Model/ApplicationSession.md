@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Internal ID of this entity. | 
-**created** | [**\DateTime**](\DateTime.md) | The time this entity was created. The time this entity was created. | 
+**created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
 **integrationId** | **string** | The integration ID set by your integration layer. | 
 **storeIntegrationId** | **string** | The integration ID of the store. You choose this ID when you create a store. | [optional] 
 **applicationId** | **int** | The ID of the application that owns this entity. | 

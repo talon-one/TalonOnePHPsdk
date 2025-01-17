@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * UpdateLoyaltyProgramTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description An updated loyalty program.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -173,6 +173,13 @@ class UpdateLoyaltyProgramTest extends TestCase
      * Test attribute "cardCodeSettings"
      */
     public function testPropertyCardCodeSettings()
+    {
+    }
+
+    /**
+     * Test attribute "returnPolicy"
+     */
+    public function testPropertyReturnPolicy()
     {
     }
 

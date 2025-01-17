@@ -119,4 +119,11 @@ class ScimServiceProviderConfigResponseTest extends TestCase
     public function testPropertySchemas()
     {
     }
+
+    /**
+     * Test attribute "sort"
+     */
+    public function testPropertySort()
+    {
+    }
 }

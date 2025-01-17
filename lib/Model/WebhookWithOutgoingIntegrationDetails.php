@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * WebhookWithOutgoingIntegrationDetails Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -437,7 +436,7 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
     /**
      * Sets applicationIds
      *
-     * @param int[] $applicationIds The IDs of the Applications that are related to this entity. The IDs of the Applications that are related to this entity.
+     * @param int[] $applicationIds The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in `All Applications`.
      *
      * @return $this
      */

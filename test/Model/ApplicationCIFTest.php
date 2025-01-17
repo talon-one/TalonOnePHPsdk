@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ApplicationCIFTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description ApplicationCIF
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse20047
+ * ListCampaignStoreBudgets
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * InlineResponse20047 Class Doc Comment
+ * ListCampaignStoreBudgets Class Doc Comment
  *
  * @category Class
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InlineResponse20047 implements ModelInterface, ArrayAccess
+class ListCampaignStoreBudgets implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200_47';
+    protected static $openAPIModelName = 'ListCampaignStoreBudgets';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,10 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\AchievementProgress[]'
+        'store' => '\TalonOne\Client\Model\ListCampaignStoreBudgetsStore',
+        'limit' => 'int',
+        'action' => 'string',
+        'period' => 'string'
     ];
 
     /**
@@ -67,8 +69,10 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'hasMore' => null,
-        'data' => null
+        'store' => null,
+        'limit' => null,
+        'action' => null,
+        'period' => null
     ];
 
     /**
@@ -98,8 +102,10 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'hasMore' => 'hasMore',
-        'data' => 'data'
+        'store' => 'store',
+        'limit' => 'limit',
+        'action' => 'action',
+        'period' => 'period'
     ];
 
     /**
@@ -108,8 +114,10 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'hasMore' => 'setHasMore',
-        'data' => 'setData'
+        'store' => 'setStore',
+        'limit' => 'setLimit',
+        'action' => 'setAction',
+        'period' => 'setPeriod'
     ];
 
     /**
@@ -118,8 +126,10 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'hasMore' => 'getHasMore',
-        'data' => 'getData'
+        'store' => 'getStore',
+        'limit' => 'getLimit',
+        'action' => 'getAction',
+        'period' => 'getPeriod'
     ];
 
     /**
@@ -182,8 +192,10 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['store'] = isset($data['store']) ? $data['store'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
+        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
     }
 
     /**
@@ -195,11 +207,14 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['hasMore'] === null) {
-            $invalidProperties[] = "'hasMore' can't be null";
+        if ($this->container['store'] === null) {
+            $invalidProperties[] = "'store' can't be null";
         }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['limit'] === null) {
+            $invalidProperties[] = "'limit' can't be null";
+        }
+        if ($this->container['action'] === null) {
+            $invalidProperties[] = "'action' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,49 +232,97 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets hasMore
+     * Gets store
      *
-     * @return bool
+     * @return \TalonOne\Client\Model\ListCampaignStoreBudgetsStore
      */
-    public function getHasMore()
+    public function getStore()
     {
-        return $this->container['hasMore'];
+        return $this->container['store'];
     }
 
     /**
-     * Sets hasMore
+     * Sets store
      *
-     * @param bool $hasMore hasMore
+     * @param \TalonOne\Client\Model\ListCampaignStoreBudgetsStore $store store
      *
      * @return $this
      */
-    public function setHasMore($hasMore)
+    public function setStore($store)
     {
-        $this->container['hasMore'] = $hasMore;
+        $this->container['store'] = $store;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets limit
      *
-     * @return \TalonOne\Client\Model\AchievementProgress[]
+     * @return int
      */
-    public function getData()
+    public function getLimit()
     {
-        return $this->container['data'];
+        return $this->container['limit'];
     }
 
     /**
-     * Sets data
+     * Sets limit
      *
-     * @param \TalonOne\Client\Model\AchievementProgress[] $data data
+     * @param int $limit limit
      *
      * @return $this
      */
-    public function setData($data)
+    public function setLimit($limit)
     {
-        $this->container['data'] = $data;
+        $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets action
+     *
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->container['action'];
+    }
+
+    /**
+     * Sets action
+     *
+     * @param string $action action
+     *
+     * @return $this
+     */
+    public function setAction($action)
+    {
+        $this->container['action'] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Gets period
+     *
+     * @return string|null
+     */
+    public function getPeriod()
+    {
+        return $this->container['period'];
+    }
+
+    /**
+     * Sets period
+     *
+     * @param string|null $period period
+     *
+     * @return $this
+     */
+    public function setPeriod($period)
+    {
+        $this->container['period'] = $period;
 
         return $this;
     }

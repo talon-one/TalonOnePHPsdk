@@ -119,4 +119,32 @@ class UpdateAchievementTest extends TestCase
     public function testPropertyPeriodEndOverride()
     {
     }
+
+    /**
+     * Test attribute "recurrencePolicy"
+     */
+    public function testPropertyRecurrencePolicy()
+    {
+    }
+
+    /**
+     * Test attribute "activationPolicy"
+     */
+    public function testPropertyActivationPolicy()
+    {
+    }
+
+    /**
+     * Test attribute "fixedStartDate"
+     */
+    public function testPropertyFixedStartDate()
+    {
+    }
+
+    /**
+     * Test attribute "endDate"
+     */
+    public function testPropertyEndDate()
+    {
+    }
 }

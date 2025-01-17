@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * ApplicationSession Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -402,7 +401,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created The time this entity was created. The time this entity was created.
+     * @param \DateTime $created The time this entity was created.
      *
      * @return $this
      */

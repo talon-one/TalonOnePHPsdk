@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCustomEffectTest
+ * SummaryCampaignStoreBudgetTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * UpdateCustomEffectTest Class Doc Comment
+ * SummaryCampaignStoreBudgetTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description SummaryCampaignStoreBudget
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class UpdateCustomEffectTest extends TestCase
+class SummaryCampaignStoreBudgetTest extends TestCase
 {
 
     /**
@@ -72,65 +72,30 @@ class UpdateCustomEffectTest extends TestCase
     }
 
     /**
-     * Test "UpdateCustomEffect"
+     * Test "SummaryCampaignStoreBudget"
      */
-    public function testUpdateCustomEffect()
+    public function testSummaryCampaignStoreBudget()
     {
     }
 
     /**
-     * Test attribute "applicationIds"
+     * Test attribute "action"
      */
-    public function testPropertyApplicationIds()
+    public function testPropertyAction()
     {
     }
 
     /**
-     * Test attribute "isPerItem"
+     * Test attribute "period"
      */
-    public function testPropertyIsPerItem()
+    public function testPropertyPeriod()
     {
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "storeCount"
      */
-    public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "title"
-     */
-    public function testPropertyTitle()
-    {
-    }
-
-    /**
-     * Test attribute "payload"
-     */
-    public function testPropertyPayload()
-    {
-    }
-
-    /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
-    {
-    }
-
-    /**
-     * Test attribute "enabled"
-     */
-    public function testPropertyEnabled()
-    {
-    }
-
-    /**
-     * Test attribute "params"
-     */
-    public function testPropertyParams()
+    public function testPropertyStoreCount()
     {
     }
 }

@@ -209,6 +209,10 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'couponPattern', the character length must be bigger than or equal to 3.";
         }
 
+        if (!preg_match("/^[A-Za-z0-9_#-]*$/", $this->container['couponPattern'])) {
+            $invalidProperties[] = "invalid value for 'couponPattern', must be conform to the pattern /^[A-Za-z0-9_#-]*$/.";
+        }
+
         return $invalidProperties;
     }
 
@@ -272,6 +276,9 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
         }
         if ((mb_strlen($couponPattern) < 3)) {
             throw new \InvalidArgumentException('invalid length for $couponPattern when calling CodeGeneratorSettings., must be bigger than or equal to 3.');
+        }
+        if ((!preg_match("/^[A-Za-z0-9_#-]*$/", $couponPattern))) {
+            throw new \InvalidArgumentException("invalid value for $couponPattern when calling CodeGeneratorSettings., must conform to the pattern /^[A-Za-z0-9_#-]*$/.");
         }
 
         $this->container['couponPattern'] = $couponPattern;

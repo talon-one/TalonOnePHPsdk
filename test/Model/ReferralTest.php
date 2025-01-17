@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ReferralTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Referral
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

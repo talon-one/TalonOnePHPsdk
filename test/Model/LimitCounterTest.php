@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * LimitCounterTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description LimitCounter
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

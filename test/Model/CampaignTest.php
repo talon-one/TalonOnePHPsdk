@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CampaignTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Campaign
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -369,6 +369,13 @@ class CampaignTest extends TestCase
      * Test attribute "storesImported"
      */
     public function testPropertyStoresImported()
+    {
+    }
+
+    /**
+     * Test attribute "revisionFrontendState"
+     */
+    public function testPropertyRevisionFrontendState()
     {
     }
 

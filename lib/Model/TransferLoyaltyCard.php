@@ -202,6 +202,10 @@ class TransferLoyaltyCard implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'newCardIdentifier', the character length must be smaller than or equal to 108.";
         }
 
+        if (!preg_match("/^[A-Za-z0-9_-]*$/", $this->container['newCardIdentifier'])) {
+            $invalidProperties[] = "invalid value for 'newCardIdentifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
+        }
+
         return $invalidProperties;
     }
 
@@ -238,6 +242,9 @@ class TransferLoyaltyCard implements ModelInterface, ArrayAccess
     {
         if ((mb_strlen($newCardIdentifier) > 108)) {
             throw new \InvalidArgumentException('invalid length for $newCardIdentifier when calling TransferLoyaltyCard., must be smaller than or equal to 108.');
+        }
+        if ((!preg_match("/^[A-Za-z0-9_-]*$/", $newCardIdentifier))) {
+            throw new \InvalidArgumentException("invalid value for $newCardIdentifier when calling TransferLoyaltyCard., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
         }
 
         $this->container['newCardIdentifier'] = $newCardIdentifier;

@@ -218,6 +218,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     const CAMPAIGN_STATE_RUNNING = 'running';
     const CAMPAIGN_STATE_DISABLED = 'disabled';
     const CAMPAIGN_STATE_ARCHIVED = 'archived';
+    const CAMPAIGN_STATE_STAGED = 'staged';
     
 
     
@@ -234,6 +235,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
             self::CAMPAIGN_STATE_RUNNING,
             self::CAMPAIGN_STATE_DISABLED,
             self::CAMPAIGN_STATE_ARCHIVED,
+            self::CAMPAIGN_STATE_STAGED,
         ];
     }
     

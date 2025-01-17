@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * RevisionTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Revision
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CouponCreationJobTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description CouponCreationJob
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

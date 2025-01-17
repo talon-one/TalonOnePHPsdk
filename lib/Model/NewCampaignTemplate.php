@@ -66,6 +66,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         'tags' => 'string[]',
         'features' => 'string[]',
         'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
+        'couponReservationSettings' => '\TalonOne\Client\Model\CampaignTemplateCouponReservationSettings',
         'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'limits' => '\TalonOne\Client\Model\TemplateLimitConfig[]',
         'templateParams' => '\TalonOne\Client\Model\CampaignTemplateParams[]',
@@ -89,6 +90,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         'tags' => null,
         'features' => null,
         'couponSettings' => null,
+        'couponReservationSettings' => null,
         'referralSettings' => null,
         'limits' => null,
         'templateParams' => null,
@@ -133,6 +135,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         'tags' => 'tags',
         'features' => 'features',
         'couponSettings' => 'couponSettings',
+        'couponReservationSettings' => 'couponReservationSettings',
         'referralSettings' => 'referralSettings',
         'limits' => 'limits',
         'templateParams' => 'templateParams',
@@ -156,6 +159,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         'tags' => 'setTags',
         'features' => 'setFeatures',
         'couponSettings' => 'setCouponSettings',
+        'couponReservationSettings' => 'setCouponReservationSettings',
         'referralSettings' => 'setReferralSettings',
         'limits' => 'setLimits',
         'templateParams' => 'setTemplateParams',
@@ -179,6 +183,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         'tags' => 'getTags',
         'features' => 'getFeatures',
         'couponSettings' => 'getCouponSettings',
+        'couponReservationSettings' => 'getCouponReservationSettings',
         'referralSettings' => 'getReferralSettings',
         'limits' => 'getLimits',
         'templateParams' => 'getTemplateParams',
@@ -311,6 +316,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['features'] = isset($data['features']) ? $data['features'] : null;
         $this->container['couponSettings'] = isset($data['couponSettings']) ? $data['couponSettings'] : null;
+        $this->container['couponReservationSettings'] = isset($data['couponReservationSettings']) ? $data['couponReservationSettings'] : null;
         $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['templateParams'] = isset($data['templateParams']) ? $data['templateParams'] : null;
@@ -613,6 +619,30 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
     public function setCouponSettings($couponSettings)
     {
         $this->container['couponSettings'] = $couponSettings;
+
+        return $this;
+    }
+
+    /**
+     * Gets couponReservationSettings
+     *
+     * @return \TalonOne\Client\Model\CampaignTemplateCouponReservationSettings|null
+     */
+    public function getCouponReservationSettings()
+    {
+        return $this->container['couponReservationSettings'];
+    }
+
+    /**
+     * Sets couponReservationSettings
+     *
+     * @param \TalonOne\Client\Model\CampaignTemplateCouponReservationSettings|null $couponReservationSettings couponReservationSettings
+     *
+     * @return $this
+     */
+    public function setCouponReservationSettings($couponReservationSettings)
+    {
+        $this->container['couponReservationSettings'] = $couponReservationSettings;
 
         return $this;
     }

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**revisionFrontendState** | **string** | The campaign revision state displayed in the Campaign Manager. | [optional] 
 **activeRevisionId** | **int** | ID of the revision that was last activated on this campaign. | [optional] 
 **activeRevisionVersionId** | **int** | ID of the revision version that is active on the campaign. | [optional] 
 **version** | **int** | Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. | [optional] 

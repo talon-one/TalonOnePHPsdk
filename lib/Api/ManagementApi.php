@@ -120,7 +120,7 @@ class ManagementApi
      *
      * Enable user by email address
      *
-     * @param  \TalonOne\Client\Model\ActivateUserRequest $body body (required)
+     * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -136,7 +136,7 @@ class ManagementApi
      *
      * Enable user by email address
      *
-     * @param  \TalonOne\Client\Model\ActivateUserRequest $body body (required)
+     * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -188,7 +188,7 @@ class ManagementApi
      *
      * Enable user by email address
      *
-     * @param  \TalonOne\Client\Model\ActivateUserRequest $body body (required)
+     * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -208,7 +208,7 @@ class ManagementApi
      *
      * Enable user by email address
      *
-     * @param  \TalonOne\Client\Model\ActivateUserRequest $body body (required)
+     * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -244,7 +244,7 @@ class ManagementApi
     /**
      * Create request for operation 'activateUserByEmail'
      *
-     * @param  \TalonOne\Client\Model\ActivateUserRequest $body body (required)
+     * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8090,7 +8090,7 @@ class ManagementApi
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. (optional)
      * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -8120,7 +8120,7 @@ class ManagementApi
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. (optional)
      * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -8186,7 +8186,7 @@ class ManagementApi
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. (optional)
      * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \InvalidArgumentException
@@ -8220,7 +8220,7 @@ class ManagementApi
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. (optional)
      * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \InvalidArgumentException
@@ -8270,7 +8270,7 @@ class ManagementApi
      * @param  string $batchId Filter results by batches of coupons (optional)
      * @param  string $usable - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. (optional)
      * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
      *
      * @throws \InvalidArgumentException
@@ -9531,7 +9531,7 @@ class ManagementApi
      *
      * Delete user by email address
      *
-     * @param  \TalonOne\Client\Model\DeleteUserRequest $body body (required)
+     * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9547,7 +9547,7 @@ class ManagementApi
      *
      * Delete user by email address
      *
-     * @param  \TalonOne\Client\Model\DeleteUserRequest $body body (required)
+     * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9599,7 +9599,7 @@ class ManagementApi
      *
      * Delete user by email address
      *
-     * @param  \TalonOne\Client\Model\DeleteUserRequest $body body (required)
+     * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9619,7 +9619,7 @@ class ManagementApi
      *
      * Delete user by email address
      *
-     * @param  \TalonOne\Client\Model\DeleteUserRequest $body body (required)
+     * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9655,7 +9655,7 @@ class ManagementApi
     /**
      * Create request for operation 'deleteUserByEmail'
      *
-     * @param  \TalonOne\Client\Model\DeleteUserRequest $body body (required)
+     * @param  \TalonOne\Client\Model\DeactivateUserRequest $body body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -12026,7 +12026,7 @@ class ManagementApi
      * Export coupons
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -12057,7 +12057,7 @@ class ManagementApi
      * Export coupons
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -12159,7 +12159,7 @@ class ManagementApi
      * Export coupons
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -12193,7 +12193,7 @@ class ManagementApi
      * Export coupons
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -12254,7 +12254,7 @@ class ManagementApi
      * Create request for operation 'exportCoupons'
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $value Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -13127,7 +13127,7 @@ class ManagementApi
      * Export triggered effects
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
@@ -13148,7 +13148,7 @@ class ManagementApi
      * Export triggered effects
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
@@ -13240,7 +13240,7 @@ class ManagementApi
      * Export triggered effects
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
@@ -13264,7 +13264,7 @@ class ManagementApi
      * Export triggered effects
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
@@ -13315,7 +13315,7 @@ class ManagementApi
      * Create request for operation 'exportEffects'
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
@@ -14858,14 +14858,15 @@ class ManagementApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $batchId Filter results by loyalty card batch ID. (optional)
+     * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function exportLoyaltyCards($loyaltyProgramId, $batchId = null)
+    public function exportLoyaltyCards($loyaltyProgramId, $batchId = null, $dateFormat = null)
     {
-        list($response) = $this->exportLoyaltyCardsWithHttpInfo($loyaltyProgramId, $batchId);
+        list($response) = $this->exportLoyaltyCardsWithHttpInfo($loyaltyProgramId, $batchId, $dateFormat);
         return $response;
     }
 
@@ -14876,14 +14877,15 @@ class ManagementApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $batchId Filter results by loyalty card batch ID. (optional)
+     * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function exportLoyaltyCardsWithHttpInfo($loyaltyProgramId, $batchId = null)
+    public function exportLoyaltyCardsWithHttpInfo($loyaltyProgramId, $batchId = null, $dateFormat = null)
     {
-        $request = $this->exportLoyaltyCardsRequest($loyaltyProgramId, $batchId);
+        $request = $this->exportLoyaltyCardsRequest($loyaltyProgramId, $batchId, $dateFormat);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15005,13 +15007,14 @@ class ManagementApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $batchId Filter results by loyalty card batch ID. (optional)
+     * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function exportLoyaltyCardsAsync($loyaltyProgramId, $batchId = null)
+    public function exportLoyaltyCardsAsync($loyaltyProgramId, $batchId = null, $dateFormat = null)
     {
-        return $this->exportLoyaltyCardsAsyncWithHttpInfo($loyaltyProgramId, $batchId)
+        return $this->exportLoyaltyCardsAsyncWithHttpInfo($loyaltyProgramId, $batchId, $dateFormat)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15026,14 +15029,15 @@ class ManagementApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $batchId Filter results by loyalty card batch ID. (optional)
+     * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function exportLoyaltyCardsAsyncWithHttpInfo($loyaltyProgramId, $batchId = null)
+    public function exportLoyaltyCardsAsyncWithHttpInfo($loyaltyProgramId, $batchId = null, $dateFormat = null)
     {
         $returnType = 'string';
-        $request = $this->exportLoyaltyCardsRequest($loyaltyProgramId, $batchId);
+        $request = $this->exportLoyaltyCardsRequest($loyaltyProgramId, $batchId, $dateFormat);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15074,11 +15078,12 @@ class ManagementApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $batchId Filter results by loyalty card batch ID. (optional)
+     * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function exportLoyaltyCardsRequest($loyaltyProgramId, $batchId = null)
+    protected function exportLoyaltyCardsRequest($loyaltyProgramId, $batchId = null, $dateFormat = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -15100,6 +15105,13 @@ class ManagementApi
         }
         if ($batchId !== null) {
             $queryParams['batchId'] = $batchId;
+        }
+        // query params
+        if (is_array($dateFormat)) {
+            $dateFormat = ObjectSerializer::serializeCollection($dateFormat, '', true);
+        }
+        if ($dateFormat !== null) {
+            $queryParams['dateFormat'] = $dateFormat;
         }
 
 
@@ -15869,7 +15881,7 @@ class ManagementApi
      * Export referrals
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid - &#x60;expired&#x60;: Matches referrals in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches referrals in which start date is set and in the future. (optional)
@@ -15893,7 +15905,7 @@ class ManagementApi
      * Export referrals
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid - &#x60;expired&#x60;: Matches referrals in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches referrals in which start date is set and in the future. (optional)
@@ -15988,7 +16000,7 @@ class ManagementApi
      * Export referrals
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid - &#x60;expired&#x60;: Matches referrals in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches referrals in which start date is set and in the future. (optional)
@@ -16015,7 +16027,7 @@ class ManagementApi
      * Export referrals
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid - &#x60;expired&#x60;: Matches referrals in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches referrals in which start date is set and in the future. (optional)
@@ -16069,7 +16081,7 @@ class ManagementApi
      * Create request for operation 'exportReferrals'
      *
      * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid - &#x60;expired&#x60;: Matches referrals in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches referrals in which start date is set and in the future. (optional)
@@ -18152,7 +18164,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20036
+     * @return \TalonOne\Client\Model\InlineResponse20035
      */
     public function getAdditionalCosts($pageSize = 1000, $skip = null, $sort = null)
     {
@@ -18171,7 +18183,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20036, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20035, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAdditionalCostsWithHttpInfo($pageSize = 1000, $skip = null, $sort = null)
     {
@@ -18208,20 +18220,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20036' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20035' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20036', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20035', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20036';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20035';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -18240,7 +18252,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20036',
+                        '\TalonOne\Client\Model\InlineResponse20035',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18286,7 +18298,7 @@ class ManagementApi
      */
     public function getAdditionalCostsAsyncWithHttpInfo($pageSize = 1000, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20036';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20035';
         $request = $this->getAdditionalCostsRequest($pageSize, $skip, $sort);
 
         return $this->client
@@ -18350,373 +18362,6 @@ class ManagementApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
-        if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
-        }
-        // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
-        if ($skip !== null) {
-            $queryParams['skip'] = $skip;
-        }
-        // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
-        if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getAllAccessLogs
-     *
-     * List access logs
-     *
-     * @param  \DateTime $rangeStart Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
-     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20020
-     */
-    public function getAllAccessLogs($rangeStart = null, $rangeEnd = null, $path = null, $method = null, $status = null, $pageSize = 1000, $skip = null, $sort = null)
-    {
-        list($response) = $this->getAllAccessLogsWithHttpInfo($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
-        return $response;
-    }
-
-    /**
-     * Operation getAllAccessLogsWithHttpInfo
-     *
-     * List access logs
-     *
-     * @param  \DateTime $rangeStart Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
-     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20020, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAllAccessLogsWithHttpInfo($rangeStart = null, $rangeEnd = null, $path = null, $method = null, $status = null, $pageSize = 1000, $skip = null, $sort = null)
-    {
-        $request = $this->getAllAccessLogsRequest($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20020' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20020', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\InlineResponse20020';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20020',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getAllAccessLogsAsync
-     *
-     * List access logs
-     *
-     * @param  \DateTime $rangeStart Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
-     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAllAccessLogsAsync($rangeStart = null, $rangeEnd = null, $path = null, $method = null, $status = null, $pageSize = 1000, $skip = null, $sort = null)
-    {
-        return $this->getAllAccessLogsAsyncWithHttpInfo($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAllAccessLogsAsyncWithHttpInfo
-     *
-     * List access logs
-     *
-     * @param  \DateTime $rangeStart Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
-     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAllAccessLogsAsyncWithHttpInfo($rangeStart = null, $rangeEnd = null, $path = null, $method = null, $status = null, $pageSize = 1000, $skip = null, $sort = null)
-    {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20020';
-        $request = $this->getAllAccessLogsRequest($rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAllAccessLogs'
-     *
-     * @param  \DateTime $rangeStart Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $rangeEnd Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  string $path Only return results where the request path matches the given regular expression. (optional)
-     * @param  string $method Only return results where the request method matches the given regular expression. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getAllAccessLogsRequest($rangeStart = null, $rangeEnd = null, $path = null, $method = null, $status = null, $pageSize = 1000, $skip = null, $sort = null)
-    {
-        if ($pageSize !== null && $pageSize > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAllAccessLogs, must be smaller than or equal to 1000.');
-        }
-        if ($pageSize !== null && $pageSize < 1) {
-            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getAllAccessLogs, must be bigger than or equal to 1.');
-        }
-
-
-        $resourcePath = '/v1/access_logs';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if (is_array($rangeStart)) {
-            $rangeStart = ObjectSerializer::serializeCollection($rangeStart, '', true);
-        }
-        if ($rangeStart !== null) {
-            $queryParams['rangeStart'] = $rangeStart;
-        }
-        // query params
-        if (is_array($rangeEnd)) {
-            $rangeEnd = ObjectSerializer::serializeCollection($rangeEnd, '', true);
-        }
-        if ($rangeEnd !== null) {
-            $queryParams['rangeEnd'] = $rangeEnd;
-        }
-        // query params
-        if (is_array($path)) {
-            $path = ObjectSerializer::serializeCollection($path, '', true);
-        }
-        if ($path !== null) {
-            $queryParams['path'] = $path;
-        }
-        // query params
-        if (is_array($method)) {
-            $method = ObjectSerializer::serializeCollection($method, '', true);
-        }
-        if ($method !== null) {
-            $queryParams['method'] = $method;
-        }
-        // query params
-        if (is_array($status)) {
-            $status = ObjectSerializer::serializeCollection($status, '', true);
-        }
-        if ($status !== null) {
-            $queryParams['status'] = $status;
-        }
         // query params
         if (is_array($pageSize)) {
             $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
@@ -19697,7 +19342,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20033
+     * @return \TalonOne\Client\Model\InlineResponse20032
      */
     public function getApplicationCustomerFriends($applicationId, $integrationId, $pageSize = 1000, $skip = null, $sort = null, $withTotalResultSize = null)
     {
@@ -19719,7 +19364,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20033, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20032, HTTP status code, HTTP response headers (array of strings)
      */
     public function getApplicationCustomerFriendsWithHttpInfo($applicationId, $integrationId, $pageSize = 1000, $skip = null, $sort = null, $withTotalResultSize = null)
     {
@@ -19756,20 +19401,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20033' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20032' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20033', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20032', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20033';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20032';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -19788,7 +19433,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20033',
+                        '\TalonOne\Client\Model\InlineResponse20032',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19840,7 +19485,7 @@ class ManagementApi
      */
     public function getApplicationCustomerFriendsAsyncWithHttpInfo($applicationId, $integrationId, $pageSize = 1000, $skip = null, $sort = null, $withTotalResultSize = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20033';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20032';
         $request = $this->getApplicationCustomerFriendsRequest($applicationId, $integrationId, $pageSize, $skip, $sort, $withTotalResultSize);
 
         return $this->client
@@ -20053,7 +19698,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20022
+     * @return \TalonOne\Client\Model\InlineResponse20021
      */
     public function getApplicationCustomers($applicationId, $integrationId = null, $pageSize = 1000, $skip = null, $withTotalResultSize = null)
     {
@@ -20074,7 +19719,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20022, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20021, HTTP status code, HTTP response headers (array of strings)
      */
     public function getApplicationCustomersWithHttpInfo($applicationId, $integrationId = null, $pageSize = 1000, $skip = null, $withTotalResultSize = null)
     {
@@ -20111,20 +19756,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20022' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20021' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20022', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20021', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20022';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20021';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -20143,7 +19788,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20022',
+                        '\TalonOne\Client\Model\InlineResponse20021',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20193,7 +19838,7 @@ class ManagementApi
      */
     public function getApplicationCustomersAsyncWithHttpInfo($applicationId, $integrationId = null, $pageSize = 1000, $skip = null, $withTotalResultSize = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20022';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20021';
         $request = $this->getApplicationCustomersRequest($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize);
 
         return $this->client
@@ -20391,7 +20036,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20023
+     * @return \TalonOne\Client\Model\InlineResponse20022
      */
     public function getApplicationCustomersByAttributes($applicationId, $body, $pageSize = 1000, $skip = null, $withTotalResultSize = null)
     {
@@ -20412,7 +20057,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20023, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20022, HTTP status code, HTTP response headers (array of strings)
      */
     public function getApplicationCustomersByAttributesWithHttpInfo($applicationId, $body, $pageSize = 1000, $skip = null, $withTotalResultSize = null)
     {
@@ -20449,20 +20094,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20023' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20022' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20023', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20022', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20023';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20022';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -20481,7 +20126,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20023',
+                        '\TalonOne\Client\Model\InlineResponse20022',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20531,7 +20176,7 @@ class ManagementApi
      */
     public function getApplicationCustomersByAttributesAsyncWithHttpInfo($applicationId, $body, $pageSize = 1000, $skip = null, $withTotalResultSize = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20023';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20022';
         $request = $this->getApplicationCustomersByAttributesRequest($applicationId, $body, $pageSize, $skip, $withTotalResultSize);
 
         return $this->client
@@ -20730,7 +20375,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20029
+     * @return \TalonOne\Client\Model\InlineResponse20028
      */
     public function getApplicationEventTypes($applicationId, $pageSize = 1000, $skip = null, $sort = null)
     {
@@ -20750,7 +20395,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20029, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20028, HTTP status code, HTTP response headers (array of strings)
      */
     public function getApplicationEventTypesWithHttpInfo($applicationId, $pageSize = 1000, $skip = null, $sort = null)
     {
@@ -20787,20 +20432,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20029' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20028' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20029', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20028', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20029';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20028';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -20819,7 +20464,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20029',
+                        '\TalonOne\Client\Model\InlineResponse20028',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20867,7 +20512,7 @@ class ManagementApi
      */
     public function getApplicationEventTypesAsyncWithHttpInfo($applicationId, $pageSize = 1000, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20029';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20028';
         $request = $this->getApplicationEventTypesRequest($applicationId, $pageSize, $skip, $sort);
 
         return $this->client
@@ -21067,7 +20712,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20028
+     * @return \TalonOne\Client\Model\InlineResponse20027
      */
     public function getApplicationEventsWithoutTotalCount($applicationId, $pageSize = 1000, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
@@ -21098,7 +20743,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20028, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20027, HTTP status code, HTTP response headers (array of strings)
      */
     public function getApplicationEventsWithoutTotalCountWithHttpInfo($applicationId, $pageSize = 1000, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
@@ -21135,20 +20780,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20028' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20027' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20028', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20027', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20028';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20027';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -21167,7 +20812,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20028',
+                        '\TalonOne\Client\Model\InlineResponse20027',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21237,7 +20882,7 @@ class ManagementApi
      */
     public function getApplicationEventsWithoutTotalCountAsyncWithHttpInfo($applicationId, $pageSize = 1000, $skip = null, $sort = null, $type = null, $createdBefore = null, $createdAfter = null, $session = null, $profile = null, $customerName = null, $customerEmail = null, $couponCode = null, $referralCode = null, $ruleQuery = null, $campaignQuery = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20028';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20027';
         $request = $this->getApplicationEventsWithoutTotalCountRequest($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
 
         return $this->client
@@ -21827,12 +21472,12 @@ class ManagementApi
      * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
-     * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
+     * @param  string $integrationId Filter by sessions with this integration ID. Must be exact match. (optional)
      * @param  string $storeIntegrationId The integration ID of the store. You choose this ID when you create a store. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20027
+     * @return \TalonOne\Client\Model\InlineResponse20026
      */
     public function getApplicationSessions($applicationId, $pageSize = 1000, $skip = null, $sort = null, $profile = null, $state = null, $createdBefore = null, $createdAfter = null, $coupon = null, $referral = null, $integrationId = null, $storeIntegrationId = null)
     {
@@ -21855,12 +21500,12 @@ class ManagementApi
      * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
-     * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
+     * @param  string $integrationId Filter by sessions with this integration ID. Must be exact match. (optional)
      * @param  string $storeIntegrationId The integration ID of the store. You choose this ID when you create a store. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20027, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20026, HTTP status code, HTTP response headers (array of strings)
      */
     public function getApplicationSessionsWithHttpInfo($applicationId, $pageSize = 1000, $skip = null, $sort = null, $profile = null, $state = null, $createdBefore = null, $createdAfter = null, $coupon = null, $referral = null, $integrationId = null, $storeIntegrationId = null)
     {
@@ -21897,20 +21542,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20027' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20026' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20027', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20026', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20027';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20026';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -21929,7 +21574,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20027',
+                        '\TalonOne\Client\Model\InlineResponse20026',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21954,7 +21599,7 @@ class ManagementApi
      * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
-     * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
+     * @param  string $integrationId Filter by sessions with this integration ID. Must be exact match. (optional)
      * @param  string $storeIntegrationId The integration ID of the store. You choose this ID when you create a store. (optional)
      *
      * @throws \InvalidArgumentException
@@ -21985,7 +21630,7 @@ class ManagementApi
      * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
-     * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
+     * @param  string $integrationId Filter by sessions with this integration ID. Must be exact match. (optional)
      * @param  string $storeIntegrationId The integration ID of the store. You choose this ID when you create a store. (optional)
      *
      * @throws \InvalidArgumentException
@@ -21993,7 +21638,7 @@ class ManagementApi
      */
     public function getApplicationSessionsAsyncWithHttpInfo($applicationId, $pageSize = 1000, $skip = null, $sort = null, $profile = null, $state = null, $createdBefore = null, $createdAfter = null, $coupon = null, $referral = null, $integrationId = null, $storeIntegrationId = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20027';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20026';
         $request = $this->getApplicationSessionsRequest($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId, $storeIntegrationId);
 
         return $this->client
@@ -22043,7 +21688,7 @@ class ManagementApi
      * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $coupon Filter by sessions with this coupon. Must be exact match. (optional)
      * @param  string $referral Filter by sessions with this referral. Must be exact match. (optional)
-     * @param  string $integrationId Filter by sessions with this integrationId. Must be exact match. (optional)
+     * @param  string $integrationId Filter by sessions with this integration ID. Must be exact match. (optional)
      * @param  string $storeIntegrationId The integration ID of the store. You choose this ID when you create a store. (optional)
      *
      * @throws \InvalidArgumentException
@@ -22836,7 +22481,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20034
+     * @return \TalonOne\Client\Model\InlineResponse20033
      */
     public function getAttributes($pageSize = 1000, $skip = null, $sort = null, $entity = null)
     {
@@ -22856,7 +22501,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20034, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20033, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAttributesWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $entity = null)
     {
@@ -22893,20 +22538,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20034' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20033' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20034', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20033', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20034';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20033';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -22925,7 +22570,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20034',
+                        '\TalonOne\Client\Model\InlineResponse20033',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22973,7 +22618,7 @@ class ManagementApi
      */
     public function getAttributesAsyncWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $entity = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20034';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20033';
         $request = $this->getAttributesRequest($pageSize, $skip, $sort, $entity);
 
         return $this->client
@@ -23156,7 +22801,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20032|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse20031|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
     public function getAudienceMemberships($audienceId, $pageSize = 1000, $skip = null, $sort = null, $profileQuery = null)
     {
@@ -23177,7 +22822,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20032|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20031|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAudienceMembershipsWithHttpInfo($audienceId, $pageSize = 1000, $skip = null, $sort = null, $profileQuery = null)
     {
@@ -23214,14 +22859,14 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20032' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20031' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20032', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20031', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -23239,7 +22884,7 @@ class ManagementApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20032';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20031';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -23258,7 +22903,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20032',
+                        '\TalonOne\Client\Model\InlineResponse20031',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23316,7 +22961,7 @@ class ManagementApi
      */
     public function getAudienceMembershipsAsyncWithHttpInfo($audienceId, $pageSize = 1000, $skip = null, $sort = null, $profileQuery = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20032';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20031';
         $request = $this->getAudienceMembershipsRequest($audienceId, $pageSize, $skip, $sort, $profileQuery);
 
         return $this->client
@@ -23513,7 +23158,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20030
+     * @return \TalonOne\Client\Model\InlineResponse20029
      */
     public function getAudiences($pageSize = 1000, $skip = null, $sort = null, $withTotalResultSize = null)
     {
@@ -23533,7 +23178,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20030, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20029, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAudiencesWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $withTotalResultSize = null)
     {
@@ -23570,20 +23215,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20030' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20029' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20030', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20029', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20030';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20029';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -23602,7 +23247,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20030',
+                        '\TalonOne\Client\Model\InlineResponse20029',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23650,7 +23295,7 @@ class ManagementApi
      */
     public function getAudiencesAsyncWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $withTotalResultSize = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20030';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20029';
         $request = $this->getAudiencesRequest($pageSize, $skip, $sort, $withTotalResultSize);
 
         return $this->client
@@ -23830,7 +23475,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20031
+     * @return \TalonOne\Client\Model\InlineResponse20030
      */
     public function getAudiencesAnalytics($audienceIds, $sort = null)
     {
@@ -23848,7 +23493,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20031, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20030, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAudiencesAnalyticsWithHttpInfo($audienceIds, $sort = null)
     {
@@ -23885,20 +23530,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20031' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20030' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20031', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20030', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20031';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20030';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -23917,7 +23562,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20031',
+                        '\TalonOne\Client\Model\InlineResponse20030',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23961,7 +23606,7 @@ class ManagementApi
      */
     public function getAudiencesAnalyticsAsyncWithHttpInfo($audienceIds, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20031';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20030';
         $request = $this->getAudiencesAnalyticsRequest($audienceIds, $sort);
 
         return $this->client
@@ -24429,7 +24074,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20021
+     * @return \TalonOne\Client\Model\InlineResponse20020
      */
     public function getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity = null)
     {
@@ -24450,7 +24095,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20021, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20020, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCampaignAnalyticsWithHttpInfo($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity = null)
     {
@@ -24487,20 +24132,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20021' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20020' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20021', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20020', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20021';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20020';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -24519,7 +24164,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20021',
+                        '\TalonOne\Client\Model\InlineResponse20020',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24569,7 +24214,7 @@ class ManagementApi
      */
     public function getCampaignAnalyticsAsyncWithHttpInfo($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20021';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20020';
         $request = $this->getCampaignAnalyticsRequest($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity);
 
         return $this->client
@@ -26078,7 +25723,7 @@ class ManagementApi
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  int $campaignGroupId Filter results to campaigns owned by the specified campaign access group ID. (optional)
-     * @param  int $templateId The ID of the Campaign Template this Campaign was created from. (optional)
+     * @param  int $templateId The ID of the campaign template this campaign was created from. (optional)
      * @param  int $storeId Filter results to campaigns linked to the specified store ID. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -26106,7 +25751,7 @@ class ManagementApi
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  int $campaignGroupId Filter results to campaigns owned by the specified campaign access group ID. (optional)
-     * @param  int $templateId The ID of the Campaign Template this Campaign was created from. (optional)
+     * @param  int $templateId The ID of the campaign template this campaign was created from. (optional)
      * @param  int $storeId Filter results to campaigns linked to the specified store ID. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -26225,7 +25870,7 @@ class ManagementApi
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  int $campaignGroupId Filter results to campaigns owned by the specified campaign access group ID. (optional)
-     * @param  int $templateId The ID of the Campaign Template this Campaign was created from. (optional)
+     * @param  int $templateId The ID of the campaign template this campaign was created from. (optional)
      * @param  int $storeId Filter results to campaigns linked to the specified store ID. (optional)
      *
      * @throws \InvalidArgumentException
@@ -26256,7 +25901,7 @@ class ManagementApi
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  int $campaignGroupId Filter results to campaigns owned by the specified campaign access group ID. (optional)
-     * @param  int $templateId The ID of the Campaign Template this Campaign was created from. (optional)
+     * @param  int $templateId The ID of the campaign template this campaign was created from. (optional)
      * @param  int $storeId Filter results to campaigns linked to the specified store ID. (optional)
      *
      * @throws \InvalidArgumentException
@@ -26314,7 +25959,7 @@ class ManagementApi
      * @param  \DateTime $createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  int $campaignGroupId Filter results to campaigns owned by the specified campaign access group ID. (optional)
-     * @param  int $templateId The ID of the Campaign Template this Campaign was created from. (optional)
+     * @param  int $templateId The ID of the campaign template this campaign was created from. (optional)
      * @param  int $storeId Filter results to campaigns linked to the specified store ID. (optional)
      *
      * @throws \InvalidArgumentException
@@ -26524,7 +26169,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20042
+     * @return \TalonOne\Client\Model\InlineResponse20041
      */
     public function getChanges($pageSize = 1000, $skip = null, $sort = null, $applicationId = null, $entityPath = null, $userId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $managementKeyId = null, $includeOld = null)
     {
@@ -26551,7 +26196,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20042, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20041, HTTP status code, HTTP response headers (array of strings)
      */
     public function getChangesWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $applicationId = null, $entityPath = null, $userId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $managementKeyId = null, $includeOld = null)
     {
@@ -26588,20 +26233,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20042' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20041' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20042', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20041', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20042';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20041';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -26620,7 +26265,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20042',
+                        '\TalonOne\Client\Model\InlineResponse20041',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26682,7 +26327,7 @@ class ManagementApi
      */
     public function getChangesAsyncWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $applicationId = null, $entityPath = null, $userId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $managementKeyId = null, $includeOld = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20042';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20041';
         $request = $this->getChangesRequest($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $managementKeyId, $includeOld);
 
         return $this->client
@@ -27600,9 +27245,9 @@ class ManagementApi
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $redeemed - &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -27636,9 +27281,9 @@ class ManagementApi
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $redeemed - &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -27743,9 +27388,9 @@ class ManagementApi
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $redeemed - &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -27782,9 +27427,9 @@ class ManagementApi
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $redeemed - &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -27848,9 +27493,9 @@ class ManagementApi
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  string $redeemed - &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  \DateTime $expiresBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $expiresAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $startsBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -28488,14 +28133,14 @@ class ManagementApi
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
-     * @param  string $name Only return reports matching the customer name (optional)
+     * @param  string $name Only return reports matching the customer name. (optional)
      * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
-     * @param  string $campaignName Only return reports matching the campaignName (optional)
-     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
+     * @param  string $campaignName Only return reports matching the campaign name. (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20026
+     * @return \TalonOne\Client\Model\InlineResponse20025
      */
     public function getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize = 1000, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
@@ -28514,14 +28159,14 @@ class ManagementApi
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
-     * @param  string $name Only return reports matching the customer name (optional)
+     * @param  string $name Only return reports matching the customer name. (optional)
      * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
-     * @param  string $campaignName Only return reports matching the campaignName (optional)
-     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
+     * @param  string $campaignName Only return reports matching the campaign name. (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20026, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20025, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomerActivityReportsWithoutTotalCountWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = 1000, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
@@ -28558,20 +28203,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20026' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20025' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20026', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20025', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20026';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20025';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -28590,7 +28235,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20026',
+                        '\TalonOne\Client\Model\InlineResponse20025',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28611,10 +28256,10 @@ class ManagementApi
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
-     * @param  string $name Only return reports matching the customer name (optional)
+     * @param  string $name Only return reports matching the customer name. (optional)
      * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
-     * @param  string $campaignName Only return reports matching the campaignName (optional)
-     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
+     * @param  string $campaignName Only return reports matching the campaign name. (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -28640,17 +28285,17 @@ class ManagementApi
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
-     * @param  string $name Only return reports matching the customer name (optional)
+     * @param  string $name Only return reports matching the customer name. (optional)
      * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
-     * @param  string $campaignName Only return reports matching the campaignName (optional)
-     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
+     * @param  string $campaignName Only return reports matching the campaign name. (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getCustomerActivityReportsWithoutTotalCountAsyncWithHttpInfo($rangeStart, $rangeEnd, $applicationId, $pageSize = 1000, $skip = null, $sort = null, $name = null, $integrationId = null, $campaignName = null, $advocateName = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20026';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20025';
         $request = $this->getCustomerActivityReportsWithoutTotalCountRequest($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName);
 
         return $this->client
@@ -28696,10 +28341,10 @@ class ManagementApi
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
-     * @param  string $name Only return reports matching the customer name (optional)
+     * @param  string $name Only return reports matching the customer name. (optional)
      * @param  string $integrationId Filter results performing an exact matching against the profile integration identifier. (optional)
-     * @param  string $campaignName Only return reports matching the campaignName (optional)
-     * @param  string $advocateName Only return reports matching the current customer referrer name (optional)
+     * @param  string $campaignName Only return reports matching the campaign name. (optional)
+     * @param  string $advocateName Only return reports matching the current customer referrer name. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -29529,7 +29174,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20047|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse20046|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
     public function getCustomerProfileAchievementProgress($applicationId, $integrationId, $pageSize = 50, $skip = null, $achievementId = null, $title = null)
     {
@@ -29551,7 +29196,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20047|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20046|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomerProfileAchievementProgressWithHttpInfo($applicationId, $integrationId, $pageSize = 50, $skip = null, $achievementId = null, $title = null)
     {
@@ -29588,14 +29233,14 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20047' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20046' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20047', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20046', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -29625,7 +29270,7 @@ class ManagementApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20047';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20046';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -29644,7 +29289,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20047',
+                        '\TalonOne\Client\Model\InlineResponse20046',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29712,7 +29357,7 @@ class ManagementApi
      */
     public function getCustomerProfileAchievementProgressAsyncWithHttpInfo($applicationId, $integrationId, $pageSize = 50, $skip = null, $achievementId = null, $title = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20047';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20046';
         $request = $this->getCustomerProfileAchievementProgressRequest($applicationId, $integrationId, $pageSize, $skip, $achievementId, $title);
 
         return $this->client
@@ -29919,11 +29564,11 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)
+     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or live customer. (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20025
+     * @return \TalonOne\Client\Model\InlineResponse20024
      */
     public function getCustomerProfiles($pageSize = 1000, $skip = null, $sandbox = false)
     {
@@ -29938,11 +29583,11 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)
+     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or live customer. (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20025, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20024, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomerProfilesWithHttpInfo($pageSize = 1000, $skip = null, $sandbox = false)
     {
@@ -29979,20 +29624,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20025' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20024' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20025', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20024', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20025';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20024';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -30011,7 +29656,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20025',
+                        '\TalonOne\Client\Model\InlineResponse20024',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30028,7 +29673,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)
+     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or live customer. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -30050,14 +29695,14 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)
+     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or live customer. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getCustomerProfilesAsyncWithHttpInfo($pageSize = 1000, $skip = null, $sandbox = false)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20025';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20024';
         $request = $this->getCustomerProfilesRequest($pageSize, $skip, $sandbox);
 
         return $this->client
@@ -30099,7 +29744,7 @@ class ManagementApi
      *
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)
+     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or live customer. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -30227,11 +29872,11 @@ class ManagementApi
      * @param  \TalonOne\Client\Model\CustomerProfileSearchQuery $body body (required)
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)
+     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or live customer. (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20024
+     * @return \TalonOne\Client\Model\InlineResponse20023
      */
     public function getCustomersByAttributes($body, $pageSize = 1000, $skip = null, $sandbox = false)
     {
@@ -30247,11 +29892,11 @@ class ManagementApi
      * @param  \TalonOne\Client\Model\CustomerProfileSearchQuery $body body (required)
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)
+     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or live customer. (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20024, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20023, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomersByAttributesWithHttpInfo($body, $pageSize = 1000, $skip = null, $sandbox = false)
     {
@@ -30288,20 +29933,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20024' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20023' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20024', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20023', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20024';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20023';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -30320,7 +29965,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20024',
+                        '\TalonOne\Client\Model\InlineResponse20023',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30338,7 +29983,7 @@ class ManagementApi
      * @param  \TalonOne\Client\Model\CustomerProfileSearchQuery $body body (required)
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)
+     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or live customer. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -30361,14 +30006,14 @@ class ManagementApi
      * @param  \TalonOne\Client\Model\CustomerProfileSearchQuery $body body (required)
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)
+     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or live customer. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getCustomersByAttributesAsyncWithHttpInfo($body, $pageSize = 1000, $skip = null, $sandbox = false)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20024';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20023';
         $request = $this->getCustomersByAttributesRequest($body, $pageSize, $skip, $sandbox);
 
         return $this->client
@@ -30411,7 +30056,7 @@ class ManagementApi
      * @param  \TalonOne\Client\Model\CustomerProfileSearchQuery $body body (required)
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)
+     * @param  bool $sandbox Indicates whether you are pointing to a sandbox or live customer. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -30553,7 +30198,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20040
+     * @return \TalonOne\Client\Model\InlineResponse20039
      */
     public function getEventTypes($name = null, $includeOldVersions = false, $pageSize = 1000, $skip = null, $sort = null)
     {
@@ -30574,7 +30219,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20040, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20039, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEventTypesWithHttpInfo($name = null, $includeOldVersions = false, $pageSize = 1000, $skip = null, $sort = null)
     {
@@ -30611,20 +30256,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20040' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20039' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20040', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20039', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20040';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20039';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -30643,7 +30288,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20040',
+                        '\TalonOne\Client\Model\InlineResponse20039',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30693,7 +30338,7 @@ class ManagementApi
      */
     public function getEventTypesAsyncWithHttpInfo($name = null, $includeOldVersions = false, $pageSize = 1000, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20040';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20039';
         $request = $this->getEventTypesRequest($name, $includeOldVersions, $pageSize, $skip, $sort);
 
         return $this->client
@@ -30884,7 +30529,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20043
+     * @return \TalonOne\Client\Model\InlineResponse20042
      */
     public function getExports($pageSize = 1000, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
@@ -30905,7 +30550,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20043, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20042, HTTP status code, HTTP response headers (array of strings)
      */
     public function getExportsWithHttpInfo($pageSize = 1000, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
@@ -30942,20 +30587,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20043' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20042' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20043', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20042', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20043';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20042';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -30974,7 +30619,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20043',
+                        '\TalonOne\Client\Model\InlineResponse20042',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31024,7 +30669,7 @@ class ManagementApi
      */
     public function getExportsAsyncWithHttpInfo($pageSize = 1000, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20043';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20042';
         $request = $this->getExportsRequest($pageSize, $skip, $applicationId, $campaignId, $entity);
 
         return $this->client
@@ -33960,7 +33605,7 @@ class ManagementApi
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
+     * @param  string $advocate Filter results by match with a profile ID specified in the referral&#39;s AdvocateProfileIntegrationId field. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -33987,7 +33632,7 @@ class ManagementApi
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
+     * @param  string $advocate Filter results by match with a profile ID specified in the referral&#39;s AdvocateProfileIntegrationId field. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -34085,7 +33730,7 @@ class ManagementApi
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
+     * @param  string $advocate Filter results by match with a profile ID specified in the referral&#39;s AdvocateProfileIntegrationId field. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -34115,7 +33760,7 @@ class ManagementApi
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
+     * @param  string $advocate Filter results by match with a profile ID specified in the referral&#39;s AdvocateProfileIntegrationId field. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -34172,7 +33817,7 @@ class ManagementApi
      * @param  \DateTime $createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
-     * @param  string $advocate Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)
+     * @param  string $advocate Filter results by match with a profile ID specified in the referral&#39;s AdvocateProfileIntegrationId field. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -35927,7 +35572,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20041
+     * @return \TalonOne\Client\Model\InlineResponse20040
      */
     public function getUsers($pageSize = 1000, $skip = null, $sort = null)
     {
@@ -35946,7 +35591,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20041, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20040, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUsersWithHttpInfo($pageSize = 1000, $skip = null, $sort = null)
     {
@@ -35983,20 +35628,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20041' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20040' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20041', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20040', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20041';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20040';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -36015,7 +35660,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20041',
+                        '\TalonOne\Client\Model\InlineResponse20040',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36061,7 +35706,7 @@ class ManagementApi
      */
     public function getUsersAsyncWithHttpInfo($pageSize = 1000, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20041';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20040';
         $request = $this->getUsersRequest($pageSize, $skip, $sort);
 
         return $this->client
@@ -36515,15 +36160,15 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $webhookId Filter results by webhook id. (optional)
      * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20038
+     * @return \TalonOne\Client\Model\InlineResponse20037
      */
     public function getWebhookActivationLogs($pageSize = 1000, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
@@ -36540,15 +36185,15 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $webhookId Filter results by webhook id. (optional)
      * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20038, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20037, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWebhookActivationLogsWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
@@ -36585,20 +36230,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20038' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20037' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20038', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20037', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20038';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20037';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -36617,7 +36262,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20038',
+                        '\TalonOne\Client\Model\InlineResponse20037',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36636,9 +36281,9 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $webhookId Filter results by webhook id. (optional)
      * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      *
@@ -36664,9 +36309,9 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $webhookId Filter results by webhook id. (optional)
      * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      *
@@ -36675,7 +36320,7 @@ class ManagementApi
      */
     public function getWebhookActivationLogsAsyncWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20038';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20037';
         $request = $this->getWebhookActivationLogsRequest($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter);
 
         return $this->client
@@ -36719,9 +36364,9 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $webhookId Filter results by webhook id. (optional)
      * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  \DateTime $createdBefore Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      *
@@ -36894,16 +36539,16 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $webhookId Filter results by webhook id. (optional)
      * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $requestUuid Filter results by request UUID. (optional)
      * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20039
+     * @return \TalonOne\Client\Model\InlineResponse20038
      */
     public function getWebhookLogs($pageSize = 1000, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
     {
@@ -36920,16 +36565,16 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $webhookId Filter results by webhook id. (optional)
      * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $requestUuid Filter results by request UUID. (optional)
      * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20039, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20038, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWebhookLogsWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
     {
@@ -36966,20 +36611,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20039' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20038' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20039', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20038', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20039';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20038';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -36998,7 +36643,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20039',
+                        '\TalonOne\Client\Model\InlineResponse20038',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37017,9 +36662,9 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $webhookId Filter results by webhook id. (optional)
      * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $requestUuid Filter results by request UUID. (optional)
      * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -37046,9 +36691,9 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $webhookId Filter results by webhook id. (optional)
      * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $requestUuid Filter results by request UUID. (optional)
      * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -37058,7 +36703,7 @@ class ManagementApi
      */
     public function getWebhookLogsAsyncWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20039';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20038';
         $request = $this->getWebhookLogsRequest($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
 
         return $this->client
@@ -37102,9 +36747,9 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by Webhook. (optional)
+     * @param  float $webhookId Filter results by webhook id. (optional)
      * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $requestUuid Filter results by request UUID. (optional)
      * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -37292,7 +36937,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20037
+     * @return \TalonOne\Client\Model\InlineResponse20036
      */
     public function getWebhooks($applicationIds = null, $sort = null, $pageSize = 1000, $skip = null, $creationType = null, $visibility = null, $outgoingIntegrationsTypeId = null, $title = null)
     {
@@ -37316,7 +36961,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20037, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20036, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWebhooksWithHttpInfo($applicationIds = null, $sort = null, $pageSize = 1000, $skip = null, $creationType = null, $visibility = null, $outgoingIntegrationsTypeId = null, $title = null)
     {
@@ -37353,20 +36998,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20037' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20036' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20037', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20036', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20037';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20036';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -37385,7 +37030,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20037',
+                        '\TalonOne\Client\Model\InlineResponse20036',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37441,7 +37086,7 @@ class ManagementApi
      */
     public function getWebhooksAsyncWithHttpInfo($applicationIds = null, $sort = null, $pageSize = 1000, $skip = null, $creationType = null, $visibility = null, $outgoingIntegrationsTypeId = null, $title = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20037';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20036';
         $request = $this->getWebhooksRequest($applicationIds, $sort, $pageSize, $skip, $creationType, $visibility, $outgoingIntegrationsTypeId, $title);
 
         return $this->client
@@ -41936,7 +41581,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20046
+     * @return \TalonOne\Client\Model\InlineResponse20045
      */
     public function listAchievements($applicationId, $campaignId, $pageSize = 50, $skip = null, $title = null)
     {
@@ -41957,7 +41602,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20046, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20045, HTTP status code, HTTP response headers (array of strings)
      */
     public function listAchievementsWithHttpInfo($applicationId, $campaignId, $pageSize = 50, $skip = null, $title = null)
     {
@@ -41994,20 +41639,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20046' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20045' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20046', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20045', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20046';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20045';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -42026,7 +41671,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20046',
+                        '\TalonOne\Client\Model\InlineResponse20045',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -42076,7 +41721,7 @@ class ManagementApi
      */
     public function listAchievementsAsyncWithHttpInfo($applicationId, $campaignId, $pageSize = 50, $skip = null, $title = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20046';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20045';
         $request = $this->listAchievementsRequest($applicationId, $campaignId, $pageSize, $skip, $title);
 
         return $this->client
@@ -42276,7 +41921,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20044
+     * @return \TalonOne\Client\Model\InlineResponse20043
      */
     public function listAllRolesV2()
     {
@@ -42292,7 +41937,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20044, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20043, HTTP status code, HTTP response headers (array of strings)
      */
     public function listAllRolesV2WithHttpInfo()
     {
@@ -42329,20 +41974,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20044' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20043' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20044', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20043', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20044';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20043';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -42361,7 +42006,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20044',
+                        '\TalonOne\Client\Model\InlineResponse20043',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -42401,7 +42046,7 @@ class ManagementApi
      */
     public function listAllRolesV2AsyncWithHttpInfo()
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20044';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20043';
         $request = $this->listAllRolesV2Request();
 
         return $this->client
@@ -42546,7 +42191,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20035
+     * @return \TalonOne\Client\Model\InlineResponse20034
      */
     public function listCatalogItems($catalogId, $pageSize = 1000, $skip = null, $withTotalResultSize = null, $sku = null, $productNames = null)
     {
@@ -42568,7 +42213,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20035, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20034, HTTP status code, HTTP response headers (array of strings)
      */
     public function listCatalogItemsWithHttpInfo($catalogId, $pageSize = 1000, $skip = null, $withTotalResultSize = null, $sku = null, $productNames = null)
     {
@@ -42605,20 +42250,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20035' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20034' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20035', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20034', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20035';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20034';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -42637,7 +42282,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20035',
+                        '\TalonOne\Client\Model\InlineResponse20034',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -42689,7 +42334,7 @@ class ManagementApi
      */
     public function listCatalogItemsAsyncWithHttpInfo($catalogId, $pageSize = 1000, $skip = null, $withTotalResultSize = null, $sku = null, $productNames = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20035';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20034';
         $request = $this->listCatalogItemsRequest($catalogId, $pageSize, $skip, $withTotalResultSize, $sku, $productNames);
 
         return $this->client
@@ -43651,14 +43296,14 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  bool $withTotalResultSize When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $name The name of the store. (optional)
      * @param  string $integrationId The integration ID of the store. (optional)
      * @param  string $query Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20045
+     * @return \TalonOne\Client\Model\InlineResponse20044
      */
     public function listStores($applicationId, $pageSize = 1000, $skip = null, $sort = null, $withTotalResultSize = null, $campaignId = null, $name = null, $integrationId = null, $query = null)
     {
@@ -43676,14 +43321,14 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  bool $withTotalResultSize When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $name The name of the store. (optional)
      * @param  string $integrationId The integration ID of the store. (optional)
      * @param  string $query Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20045, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20044, HTTP status code, HTTP response headers (array of strings)
      */
     public function listStoresWithHttpInfo($applicationId, $pageSize = 1000, $skip = null, $sort = null, $withTotalResultSize = null, $campaignId = null, $name = null, $integrationId = null, $query = null)
     {
@@ -43720,20 +43365,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20045' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20044' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20045', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20044', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20045';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20044';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -43752,7 +43397,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20045',
+                        '\TalonOne\Client\Model\InlineResponse20044',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -43772,7 +43417,7 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  bool $withTotalResultSize When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $name The name of the store. (optional)
      * @param  string $integrationId The integration ID of the store. (optional)
      * @param  string $query Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)
@@ -43800,7 +43445,7 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  bool $withTotalResultSize When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $name The name of the store. (optional)
      * @param  string $integrationId The integration ID of the store. (optional)
      * @param  string $query Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)
@@ -43810,7 +43455,7 @@ class ManagementApi
      */
     public function listStoresAsyncWithHttpInfo($applicationId, $pageSize = 1000, $skip = null, $sort = null, $withTotalResultSize = null, $campaignId = null, $name = null, $integrationId = null, $query = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20045';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20044';
         $request = $this->listStoresRequest($applicationId, $pageSize, $skip, $sort, $withTotalResultSize, $campaignId, $name, $integrationId, $query);
 
         return $this->client
@@ -43855,7 +43500,7 @@ class ManagementApi
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields. (optional)
      * @param  bool $withTotalResultSize When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. (optional)
-     * @param  float $campaignId Filter results by campaign. (optional)
+     * @param  float $campaignId Filter results by campaign ID. (optional)
      * @param  string $name The name of the store. (optional)
      * @param  string $integrationId The integration ID of the store. (optional)
      * @param  string $query Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)
@@ -48595,9 +48240,9 @@ class ManagementApi
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  string $campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -48626,9 +48271,9 @@ class ManagementApi
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  string $campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -48728,9 +48373,9 @@ class ManagementApi
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  string $campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. (optional)
      *
      * @throws \InvalidArgumentException
@@ -48762,9 +48407,9 @@ class ManagementApi
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  string $campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. (optional)
      *
      * @throws \InvalidArgumentException
@@ -48823,9 +48468,9 @@ class ManagementApi
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
      * @param  string $batchId Filter results by batches of coupons (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  string $campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. (optional)
      *
      * @throws \InvalidArgumentException
@@ -49056,8 +48701,8 @@ class ManagementApi
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -49087,8 +48732,8 @@ class ManagementApi
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -49189,8 +48834,8 @@ class ManagementApi
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \InvalidArgumentException
@@ -49223,8 +48868,8 @@ class ManagementApi
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \InvalidArgumentException
@@ -49284,8 +48929,8 @@ class ManagementApi
      * @param  string $valid Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. (optional)
      * @param  string $usable Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;. (optional)
      * @param  int $referralId Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-     * @param  string $recipientIntegrationId Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)
-     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)
+     * @param  string $recipientIntegrationId Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. (optional)
+     * @param  bool $exactMatch Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)
      * @param  string $batchId Filter results by batches of coupons (optional)
      *
      * @throws \InvalidArgumentException

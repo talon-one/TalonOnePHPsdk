@@ -59,6 +59,7 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'disabled' => 'int',
+        'staged' => 'int',
         'scheduled' => 'int',
         'running' => 'int',
         'expired' => 'int',
@@ -72,6 +73,7 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'disabled' => null,
+        'staged' => null,
         'scheduled' => null,
         'running' => null,
         'expired' => null,
@@ -106,6 +108,7 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'disabled' => 'disabled',
+        'staged' => 'staged',
         'scheduled' => 'scheduled',
         'running' => 'running',
         'expired' => 'expired',
@@ -119,6 +122,7 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'disabled' => 'setDisabled',
+        'staged' => 'setStaged',
         'scheduled' => 'setScheduled',
         'running' => 'setRunning',
         'expired' => 'setExpired',
@@ -132,6 +136,7 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'disabled' => 'getDisabled',
+        'staged' => 'getStaged',
         'scheduled' => 'getScheduled',
         'running' => 'getRunning',
         'expired' => 'getExpired',
@@ -199,6 +204,7 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['disabled'] = isset($data['disabled']) ? $data['disabled'] : null;
+        $this->container['staged'] = isset($data['staged']) ? $data['staged'] : null;
         $this->container['scheduled'] = isset($data['scheduled']) ? $data['scheduled'] : null;
         $this->container['running'] = isset($data['running']) ? $data['running'] : null;
         $this->container['expired'] = isset($data['expired']) ? $data['expired'] : null;
@@ -216,6 +222,9 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
 
         if ($this->container['disabled'] === null) {
             $invalidProperties[] = "'disabled' can't be null";
+        }
+        if ($this->container['staged'] === null) {
+            $invalidProperties[] = "'staged' can't be null";
         }
         if ($this->container['scheduled'] === null) {
             $invalidProperties[] = "'scheduled' can't be null";
@@ -264,6 +273,30 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
     public function setDisabled($disabled)
     {
         $this->container['disabled'] = $disabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets staged
+     *
+     * @return int
+     */
+    public function getStaged()
+    {
+        return $this->container['staged'];
+    }
+
+    /**
+     * Sets staged
+     *
+     * @param int $staged Number of staged campaigns.
+     *
+     * @return $this
+     */
+    public function setStaged($staged)
+    {
+        $this->container['staged'] = $staged;
 
         return $this;
     }

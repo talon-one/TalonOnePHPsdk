@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * TemplateLimitConfigTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description TemplateLimitConfig
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

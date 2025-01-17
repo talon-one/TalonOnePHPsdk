@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * Achievement Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -66,6 +65,10 @@ class Achievement implements ModelInterface, ArrayAccess
         'target' => 'float',
         'period' => 'string',
         'periodEndOverride' => '\TalonOne\Client\Model\TimePoint',
+        'recurrencePolicy' => 'string',
+        'activationPolicy' => 'string',
+        'fixedStartDate' => '\DateTime',
+        'endDate' => '\DateTime',
         'campaignId' => 'int',
         'userId' => 'int',
         'createdBy' => 'string',
@@ -86,6 +89,10 @@ class Achievement implements ModelInterface, ArrayAccess
         'target' => null,
         'period' => null,
         'periodEndOverride' => null,
+        'recurrencePolicy' => null,
+        'activationPolicy' => null,
+        'fixedStartDate' => 'date-time',
+        'endDate' => 'date-time',
         'campaignId' => null,
         'userId' => null,
         'createdBy' => null,
@@ -127,6 +134,10 @@ class Achievement implements ModelInterface, ArrayAccess
         'target' => 'target',
         'period' => 'period',
         'periodEndOverride' => 'periodEndOverride',
+        'recurrencePolicy' => 'recurrencePolicy',
+        'activationPolicy' => 'activationPolicy',
+        'fixedStartDate' => 'fixedStartDate',
+        'endDate' => 'endDate',
         'campaignId' => 'campaignId',
         'userId' => 'userId',
         'createdBy' => 'createdBy',
@@ -147,6 +158,10 @@ class Achievement implements ModelInterface, ArrayAccess
         'target' => 'setTarget',
         'period' => 'setPeriod',
         'periodEndOverride' => 'setPeriodEndOverride',
+        'recurrencePolicy' => 'setRecurrencePolicy',
+        'activationPolicy' => 'setActivationPolicy',
+        'fixedStartDate' => 'setFixedStartDate',
+        'endDate' => 'setEndDate',
         'campaignId' => 'setCampaignId',
         'userId' => 'setUserId',
         'createdBy' => 'setCreatedBy',
@@ -167,6 +182,10 @@ class Achievement implements ModelInterface, ArrayAccess
         'target' => 'getTarget',
         'period' => 'getPeriod',
         'periodEndOverride' => 'getPeriodEndOverride',
+        'recurrencePolicy' => 'getRecurrencePolicy',
+        'activationPolicy' => 'getActivationPolicy',
+        'fixedStartDate' => 'getFixedStartDate',
+        'endDate' => 'getEndDate',
         'campaignId' => 'getCampaignId',
         'userId' => 'getUserId',
         'createdBy' => 'getCreatedBy',
@@ -214,8 +233,38 @@ class Achievement implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const RECURRENCE_POLICY_NO_RECURRENCE = 'no_recurrence';
+    const RECURRENCE_POLICY_ON_EXPIRATION = 'on_expiration';
+    const ACTIVATION_POLICY_USER_ACTION = 'user_action';
+    const ACTIVATION_POLICY_FIXED_SCHEDULE = 'fixed_schedule';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRecurrencePolicyAllowableValues()
+    {
+        return [
+            self::RECURRENCE_POLICY_NO_RECURRENCE,
+            self::RECURRENCE_POLICY_ON_EXPIRATION,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getActivationPolicyAllowableValues()
+    {
+        return [
+            self::ACTIVATION_POLICY_USER_ACTION,
+            self::ACTIVATION_POLICY_FIXED_SCHEDULE,
+        ];
+    }
     
 
     /**
@@ -241,6 +290,10 @@ class Achievement implements ModelInterface, ArrayAccess
         $this->container['target'] = isset($data['target']) ? $data['target'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['periodEndOverride'] = isset($data['periodEndOverride']) ? $data['periodEndOverride'] : null;
+        $this->container['recurrencePolicy'] = isset($data['recurrencePolicy']) ? $data['recurrencePolicy'] : null;
+        $this->container['activationPolicy'] = isset($data['activationPolicy']) ? $data['activationPolicy'] : null;
+        $this->container['fixedStartDate'] = isset($data['fixedStartDate']) ? $data['fixedStartDate'] : null;
+        $this->container['endDate'] = isset($data['endDate']) ? $data['endDate'] : null;
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
@@ -289,6 +342,22 @@ class Achievement implements ModelInterface, ArrayAccess
         if ($this->container['period'] === null) {
             $invalidProperties[] = "'period' can't be null";
         }
+        $allowedValues = $this->getRecurrencePolicyAllowableValues();
+        if (!is_null($this->container['recurrencePolicy']) && !in_array($this->container['recurrencePolicy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'recurrencePolicy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getActivationPolicyAllowableValues();
+        if (!is_null($this->container['activationPolicy']) && !in_array($this->container['activationPolicy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'activationPolicy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['campaignId'] === null) {
             $invalidProperties[] = "'campaignId' can't be null";
         }
@@ -511,6 +580,120 @@ class Achievement implements ModelInterface, ArrayAccess
     public function setPeriodEndOverride($periodEndOverride)
     {
         $this->container['periodEndOverride'] = $periodEndOverride;
+
+        return $this;
+    }
+
+    /**
+     * Gets recurrencePolicy
+     *
+     * @return string|null
+     */
+    public function getRecurrencePolicy()
+    {
+        return $this->container['recurrencePolicy'];
+    }
+
+    /**
+     * Sets recurrencePolicy
+     *
+     * @param string|null $recurrencePolicy The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again.
+     *
+     * @return $this
+     */
+    public function setRecurrencePolicy($recurrencePolicy)
+    {
+        $allowedValues = $this->getRecurrencePolicyAllowableValues();
+        if (!is_null($recurrencePolicy) && !in_array($recurrencePolicy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'recurrencePolicy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['recurrencePolicy'] = $recurrencePolicy;
+
+        return $this;
+    }
+
+    /**
+     * Gets activationPolicy
+     *
+     * @return string|null
+     */
+    public function getActivationPolicy()
+    {
+        return $this->container['activationPolicy'];
+    }
+
+    /**
+     * Sets activationPolicy
+     *
+     * @param string|null $activationPolicy The policy that determines how the achievement starts, ends, or resets. - `user_action`: The achievement ends or resets relative to when the customer started the achievement. - `fixed_schedule`: The achievement starts, ends, or resets for all customers following a fixed schedule.
+     *
+     * @return $this
+     */
+    public function setActivationPolicy($activationPolicy)
+    {
+        $allowedValues = $this->getActivationPolicyAllowableValues();
+        if (!is_null($activationPolicy) && !in_array($activationPolicy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'activationPolicy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['activationPolicy'] = $activationPolicy;
+
+        return $this;
+    }
+
+    /**
+     * Gets fixedStartDate
+     *
+     * @return \DateTime|null
+     */
+    public function getFixedStartDate()
+    {
+        return $this->container['fixedStartDate'];
+    }
+
+    /**
+     * Sets fixedStartDate
+     *
+     * @param \DateTime|null $fixedStartDate The achievement's start date when `activationPolicy` is set to `fixed_schedule`.  **Note:** It must be an RFC3339 timestamp string.
+     *
+     * @return $this
+     */
+    public function setFixedStartDate($fixedStartDate)
+    {
+        $this->container['fixedStartDate'] = $fixedStartDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets endDate
+     *
+     * @return \DateTime|null
+     */
+    public function getEndDate()
+    {
+        return $this->container['endDate'];
+    }
+
+    /**
+     * Sets endDate
+     *
+     * @param \DateTime|null $endDate The achievement's end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string.
+     *
+     * @return $this
+     */
+    public function setEndDate($endDate)
+    {
+        $this->container['endDate'] = $endDate;
 
         return $this;
     }

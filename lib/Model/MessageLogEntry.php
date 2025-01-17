@@ -63,12 +63,16 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         'changeType' => 'string',
         'notificationId' => 'int',
         'notificationName' => 'string',
+        'webhookId' => 'int',
+        'webhookName' => 'string',
         'request' => '\TalonOne\Client\Model\MessageLogRequest',
         'response' => '\TalonOne\Client\Model\MessageLogResponse',
         'createdAt' => '\DateTime',
         'entityType' => 'string',
+        'url' => 'string',
         'applicationId' => 'int',
-        'loyaltyProgramId' => 'int'
+        'loyaltyProgramId' => 'int',
+        'campaignId' => 'int'
     ];
 
     /**
@@ -82,12 +86,16 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         'changeType' => null,
         'notificationId' => null,
         'notificationName' => null,
+        'webhookId' => null,
+        'webhookName' => null,
         'request' => null,
         'response' => null,
         'createdAt' => 'date-time',
         'entityType' => null,
+        'url' => null,
         'applicationId' => null,
-        'loyaltyProgramId' => null
+        'loyaltyProgramId' => null,
+        'campaignId' => null
     ];
 
     /**
@@ -122,12 +130,16 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         'changeType' => 'changeType',
         'notificationId' => 'notificationId',
         'notificationName' => 'notificationName',
+        'webhookId' => 'webhookId',
+        'webhookName' => 'webhookName',
         'request' => 'request',
         'response' => 'response',
         'createdAt' => 'createdAt',
         'entityType' => 'entityType',
+        'url' => 'url',
         'applicationId' => 'applicationId',
-        'loyaltyProgramId' => 'loyaltyProgramId'
+        'loyaltyProgramId' => 'loyaltyProgramId',
+        'campaignId' => 'campaignId'
     ];
 
     /**
@@ -141,12 +153,16 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         'changeType' => 'setChangeType',
         'notificationId' => 'setNotificationId',
         'notificationName' => 'setNotificationName',
+        'webhookId' => 'setWebhookId',
+        'webhookName' => 'setWebhookName',
         'request' => 'setRequest',
         'response' => 'setResponse',
         'createdAt' => 'setCreatedAt',
         'entityType' => 'setEntityType',
+        'url' => 'setUrl',
         'applicationId' => 'setApplicationId',
-        'loyaltyProgramId' => 'setLoyaltyProgramId'
+        'loyaltyProgramId' => 'setLoyaltyProgramId',
+        'campaignId' => 'setCampaignId'
     ];
 
     /**
@@ -160,12 +176,16 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         'changeType' => 'getChangeType',
         'notificationId' => 'getNotificationId',
         'notificationName' => 'getNotificationName',
+        'webhookId' => 'getWebhookId',
+        'webhookName' => 'getWebhookName',
         'request' => 'getRequest',
         'response' => 'getResponse',
         'createdAt' => 'getCreatedAt',
         'entityType' => 'getEntityType',
+        'url' => 'getUrl',
         'applicationId' => 'getApplicationId',
-        'loyaltyProgramId' => 'getLoyaltyProgramId'
+        'loyaltyProgramId' => 'getLoyaltyProgramId',
+        'campaignId' => 'getCampaignId'
     ];
 
     /**
@@ -211,6 +231,7 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
 
     const ENTITY_TYPE_APPLICATION = 'application';
     const ENTITY_TYPE_LOYALTY_PROGRAM = 'loyalty_program';
+    const ENTITY_TYPE_WEBHOOK = 'webhook';
     
 
     
@@ -224,6 +245,7 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         return [
             self::ENTITY_TYPE_APPLICATION,
             self::ENTITY_TYPE_LOYALTY_PROGRAM,
+            self::ENTITY_TYPE_WEBHOOK,
         ];
     }
     
@@ -248,12 +270,16 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         $this->container['changeType'] = isset($data['changeType']) ? $data['changeType'] : null;
         $this->container['notificationId'] = isset($data['notificationId']) ? $data['notificationId'] : null;
         $this->container['notificationName'] = isset($data['notificationName']) ? $data['notificationName'] : null;
+        $this->container['webhookId'] = isset($data['webhookId']) ? $data['webhookId'] : null;
+        $this->container['webhookName'] = isset($data['webhookName']) ? $data['webhookName'] : null;
         $this->container['request'] = isset($data['request']) ? $data['request'] : null;
         $this->container['response'] = isset($data['response']) ? $data['response'] : null;
         $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
         $this->container['entityType'] = isset($data['entityType']) ? $data['entityType'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['loyaltyProgramId'] = isset($data['loyaltyProgramId']) ? $data['loyaltyProgramId'] : null;
+        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
     }
 
     /**
@@ -274,6 +300,9 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         if ($this->container['createdAt'] === null) {
             $invalidProperties[] = "'createdAt' can't be null";
         }
+        if ($this->container['entityType'] === null) {
+            $invalidProperties[] = "'entityType' can't be null";
+        }
         $allowedValues = $this->getEntityTypeAllowableValues();
         if (!is_null($this->container['entityType']) && !in_array($this->container['entityType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -288,6 +317,10 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['loyaltyProgramId']) && ($this->container['loyaltyProgramId'] < 1)) {
             $invalidProperties[] = "invalid value for 'loyaltyProgramId', must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['campaignId']) && ($this->container['campaignId'] < 1)) {
+            $invalidProperties[] = "invalid value for 'campaignId', must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -426,6 +459,54 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets webhookId
+     *
+     * @return int|null
+     */
+    public function getWebhookId()
+    {
+        return $this->container['webhookId'];
+    }
+
+    /**
+     * Sets webhookId
+     *
+     * @param int|null $webhookId ID of the webhook.
+     *
+     * @return $this
+     */
+    public function setWebhookId($webhookId)
+    {
+        $this->container['webhookId'] = $webhookId;
+
+        return $this;
+    }
+
+    /**
+     * Gets webhookName
+     *
+     * @return string|null
+     */
+    public function getWebhookName()
+    {
+        return $this->container['webhookName'];
+    }
+
+    /**
+     * Sets webhookName
+     *
+     * @param string|null $webhookName The name of the webhook.
+     *
+     * @return $this
+     */
+    public function setWebhookName($webhookName)
+    {
+        $this->container['webhookName'] = $webhookName;
+
+        return $this;
+    }
+
+    /**
      * Gets request
      *
      * @return \TalonOne\Client\Model\MessageLogRequest|null
@@ -500,7 +581,7 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
     /**
      * Gets entityType
      *
-     * @return string|null
+     * @return string
      */
     public function getEntityType()
     {
@@ -510,14 +591,14 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets entityType
      *
-     * @param string|null $entityType The entity type the notification is related to.
+     * @param string $entityType The entity type the log is related to.
      *
      * @return $this
      */
     public function setEntityType($entityType)
     {
         $allowedValues = $this->getEntityTypeAllowableValues();
-        if (!is_null($entityType) && !in_array($entityType, $allowedValues, true)) {
+        if (!in_array($entityType, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'entityType', must be one of '%s'",
@@ -526,6 +607,30 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
             );
         }
         $this->container['entityType'] = $entityType;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string|null
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string|null $url The target URL of the request.
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }
@@ -584,6 +689,35 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         }
 
         $this->container['loyaltyProgramId'] = $loyaltyProgramId;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignId
+     *
+     * @return int|null
+     */
+    public function getCampaignId()
+    {
+        return $this->container['campaignId'];
+    }
+
+    /**
+     * Sets campaignId
+     *
+     * @param int|null $campaignId Identifier of the campaign.
+     *
+     * @return $this
+     */
+    public function setCampaignId($campaignId)
+    {
+
+        if (!is_null($campaignId) && ($campaignId < 1)) {
+            throw new \InvalidArgumentException('invalid value for $campaignId when calling MessageLogEntry., must be bigger than or equal to 1.');
+        }
+
+        $this->container['campaignId'] = $campaignId;
 
         return $this;
     }

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewSamlConnectionTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description A new SAML 2.0 connection.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

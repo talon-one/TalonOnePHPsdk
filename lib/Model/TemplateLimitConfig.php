@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * TemplateLimitConfig Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -182,6 +181,8 @@ class TemplateLimitConfig implements ModelInterface, ArrayAccess
     const ENTITIES_REFERRAL = 'Referral';
     const ENTITIES_PROFILE = 'Profile';
     const ENTITIES_IDENTIFIER = 'Identifier';
+    const ENTITIES_STORE = 'Store';
+    const ENTITIES_SESSION = 'Session';
     
 
     
@@ -212,6 +213,8 @@ class TemplateLimitConfig implements ModelInterface, ArrayAccess
             self::ENTITIES_REFERRAL,
             self::ENTITIES_PROFILE,
             self::ENTITIES_IDENTIFIER,
+            self::ENTITIES_STORE,
+            self::ENTITIES_SESSION,
         ];
     }
     

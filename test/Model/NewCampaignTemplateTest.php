@@ -142,6 +142,13 @@ class NewCampaignTemplateTest extends TestCase
     }
 
     /**
+     * Test attribute "couponReservationSettings"
+     */
+    public function testPropertyCouponReservationSettings()
+    {
+    }
+
+    /**
      * Test attribute "referralSettings"
      */
     public function testPropertyReferralSettings()

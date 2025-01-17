@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * InventoryReferralTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description InventoryReferral
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

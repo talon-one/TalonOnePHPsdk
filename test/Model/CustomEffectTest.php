@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CustomEffectTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description CustomEffect
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -91,4 +91,11 @@ class BulkOperationOnCampaignsTest extends TestCase
     public function testPropertyCampaignIds()
     {
     }
+
+    /**
+     * Test attribute "activateAt"
+     */
+    public function testPropertyActivateAt()
+    {
+    }
 }

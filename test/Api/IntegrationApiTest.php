@@ -185,7 +185,7 @@ class IntegrationApiTest extends TestCase
     /**
      * Test case for getLoyaltyBalances
      *
-     * Get customer's loyalty points.
+     * Get customer's loyalty balances.
      *
      */
     public function testGetLoyaltyBalances()

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AchievementTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Achievement
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -131,6 +131,34 @@ class AchievementTest extends TestCase
      * Test attribute "periodEndOverride"
      */
     public function testPropertyPeriodEndOverride()
+    {
+    }
+
+    /**
+     * Test attribute "recurrencePolicy"
+     */
+    public function testPropertyRecurrencePolicy()
+    {
+    }
+
+    /**
+     * Test attribute "activationPolicy"
+     */
+    public function testPropertyActivationPolicy()
+    {
+    }
+
+    /**
+     * Test attribute "fixedStartDate"
+     */
+    public function testPropertyFixedStartDate()
+    {
+    }
+
+    /**
+     * Test attribute "endDate"
+     */
+    public function testPropertyEndDate()
     {
     }
 

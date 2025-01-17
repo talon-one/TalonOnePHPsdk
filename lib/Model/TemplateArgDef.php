@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * TemplateArgDef Class Doc Comment
  *
  * @category Class
- * @description 
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,6 +61,7 @@ class TemplateArgDef implements ModelInterface, ArrayAccess
         'description' => 'string',
         'title' => 'string',
         'ui' => 'object',
+        'key' => 'string',
         'picklistID' => 'int',
         'restrictedByPicklist' => 'bool'
     ];
@@ -76,6 +76,7 @@ class TemplateArgDef implements ModelInterface, ArrayAccess
         'description' => null,
         'title' => null,
         'ui' => null,
+        'key' => null,
         'picklistID' => null,
         'restrictedByPicklist' => null
     ];
@@ -111,6 +112,7 @@ class TemplateArgDef implements ModelInterface, ArrayAccess
         'description' => 'description',
         'title' => 'title',
         'ui' => 'ui',
+        'key' => 'key',
         'picklistID' => 'picklistID',
         'restrictedByPicklist' => 'restrictedByPicklist'
     ];
@@ -125,6 +127,7 @@ class TemplateArgDef implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'title' => 'setTitle',
         'ui' => 'setUi',
+        'key' => 'setKey',
         'picklistID' => 'setPicklistID',
         'restrictedByPicklist' => 'setRestrictedByPicklist'
     ];
@@ -139,6 +142,7 @@ class TemplateArgDef implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'title' => 'getTitle',
         'ui' => 'getUi',
+        'key' => 'getKey',
         'picklistID' => 'getPicklistID',
         'restrictedByPicklist' => 'getRestrictedByPicklist'
     ];
@@ -228,6 +232,7 @@ class TemplateArgDef implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['ui'] = isset($data['ui']) ? $data['ui'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
         $this->container['picklistID'] = isset($data['picklistID']) ? $data['picklistID'] : null;
         $this->container['restrictedByPicklist'] = isset($data['restrictedByPicklist']) ? $data['restrictedByPicklist'] : null;
     }
@@ -392,6 +397,30 @@ class TemplateArgDef implements ModelInterface, ArrayAccess
     public function setUi($ui)
     {
         $this->container['ui'] = $ui;
+
+        return $this;
+    }
+
+    /**
+     * Gets key
+     *
+     * @return string|null
+     */
+    public function getKey()
+    {
+        return $this->container['key'];
+    }
+
+    /**
+     * Sets key
+     *
+     * @param string|null $key The identifier for the associated value within the JSON object.
+     *
+     * @return $this
+     */
+    public function setKey($key)
+    {
+        $this->container['key'] = $key;
 
         return $this;
     }

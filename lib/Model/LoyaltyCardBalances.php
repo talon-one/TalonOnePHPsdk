@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * LoyaltyCardBalances Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description List of customer profiles linked to the loyalty card.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

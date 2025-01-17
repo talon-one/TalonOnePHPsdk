@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * TemplateDefTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description TemplateDef
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

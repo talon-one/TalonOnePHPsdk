@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hasMore** | **bool** |  | [optional] 
-**data** | [**\TalonOne\Client\Model\Achievement[]**](Achievement.md) |  | 
+**hasMore** | **bool** |  | 
+**data** | [**\TalonOne\Client\Model\AchievementProgress[]**](AchievementProgress.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

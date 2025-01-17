@@ -273,6 +273,7 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
     const FRONTEND_STATE_RUNNING = 'running';
     const FRONTEND_STATE_DISABLED = 'disabled';
     const FRONTEND_STATE_ARCHIVED = 'archived';
+    const FRONTEND_STATE_STAGED = 'staged';
     
 
     
@@ -289,6 +290,7 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
             self::FRONTEND_STATE_RUNNING,
             self::FRONTEND_STATE_DISABLED,
             self::FRONTEND_STATE_ARCHIVED,
+            self::FRONTEND_STATE_STAGED,
         ];
     }
     
@@ -891,7 +893,7 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
     /**
      * Sets frontendState
      *
-     * @param string $frontendState A campaign state described exactly as in the Campaign Manager.
+     * @param string $frontendState The campaign state displayed in the Campaign Manager.
      *
      * @return $this
      */

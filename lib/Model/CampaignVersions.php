@@ -57,6 +57,7 @@ class CampaignVersions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'revisionFrontendState' => 'string',
         'activeRevisionId' => 'int',
         'activeRevisionVersionId' => 'int',
         'version' => 'int',
@@ -71,6 +72,7 @@ class CampaignVersions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'revisionFrontendState' => null,
         'activeRevisionId' => null,
         'activeRevisionVersionId' => null,
         'version' => null,
@@ -106,6 +108,7 @@ class CampaignVersions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'revisionFrontendState' => 'revisionFrontendState',
         'activeRevisionId' => 'activeRevisionId',
         'activeRevisionVersionId' => 'activeRevisionVersionId',
         'version' => 'version',
@@ -120,6 +123,7 @@ class CampaignVersions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'revisionFrontendState' => 'setRevisionFrontendState',
         'activeRevisionId' => 'setActiveRevisionId',
         'activeRevisionVersionId' => 'setActiveRevisionVersionId',
         'version' => 'setVersion',
@@ -134,6 +138,7 @@ class CampaignVersions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'revisionFrontendState' => 'getRevisionFrontendState',
         'activeRevisionId' => 'getActiveRevisionId',
         'activeRevisionVersionId' => 'getActiveRevisionVersionId',
         'version' => 'getVersion',
@@ -183,8 +188,23 @@ class CampaignVersions implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const REVISION_FRONTEND_STATE_REVISED = 'revised';
+    const REVISION_FRONTEND_STATE_PENDING = 'pending';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRevisionFrontendStateAllowableValues()
+    {
+        return [
+            self::REVISION_FRONTEND_STATE_REVISED,
+            self::REVISION_FRONTEND_STATE_PENDING,
+        ];
+    }
     
 
     /**
@@ -202,6 +222,7 @@ class CampaignVersions implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['revisionFrontendState'] = isset($data['revisionFrontendState']) ? $data['revisionFrontendState'] : null;
         $this->container['activeRevisionId'] = isset($data['activeRevisionId']) ? $data['activeRevisionId'] : null;
         $this->container['activeRevisionVersionId'] = isset($data['activeRevisionVersionId']) ? $data['activeRevisionVersionId'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
@@ -219,6 +240,14 @@ class CampaignVersions implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getRevisionFrontendStateAllowableValues();
+        if (!is_null($this->container['revisionFrontendState']) && !in_array($this->container['revisionFrontendState'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'revisionFrontendState', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -233,6 +262,39 @@ class CampaignVersions implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets revisionFrontendState
+     *
+     * @return string|null
+     */
+    public function getRevisionFrontendState()
+    {
+        return $this->container['revisionFrontendState'];
+    }
+
+    /**
+     * Sets revisionFrontendState
+     *
+     * @param string|null $revisionFrontendState The campaign revision state displayed in the Campaign Manager.
+     *
+     * @return $this
+     */
+    public function setRevisionFrontendState($revisionFrontendState)
+    {
+        $allowedValues = $this->getRevisionFrontendStateAllowableValues();
+        if (!is_null($revisionFrontendState) && !in_array($revisionFrontendState, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'revisionFrontendState', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['revisionFrontendState'] = $revisionFrontendState;
+
+        return $this;
+    }
 
     /**
      * Gets activeRevisionId

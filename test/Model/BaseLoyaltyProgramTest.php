@@ -175,4 +175,11 @@ class BaseLoyaltyProgramTest extends TestCase
     public function testPropertyCardCodeSettings()
     {
     }
+
+    /**
+     * Test attribute "returnPolicy"
+     */
+    public function testPropertyReturnPolicy()
+    {
+    }
 }

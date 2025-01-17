@@ -1,6 +1,6 @@
 <?php
 /**
- * DeleteUserRequestTest
+ * CampaignTemplateCouponReservationSettingsTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DeleteUserRequestTest Class Doc Comment
+ * CampaignTemplateCouponReservationSettingsTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description CampaignTemplateCouponReservationSettings
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DeleteUserRequestTest extends TestCase
+class CampaignTemplateCouponReservationSettingsTest extends TestCase
 {
 
     /**
@@ -72,16 +72,23 @@ class DeleteUserRequestTest extends TestCase
     }
 
     /**
-     * Test "DeleteUserRequest"
+     * Test "CampaignTemplateCouponReservationSettings"
      */
-    public function testDeleteUserRequest()
+    public function testCampaignTemplateCouponReservationSettings()
     {
     }
 
     /**
-     * Test attribute "email"
+     * Test attribute "reservationLimit"
      */
-    public function testPropertyEmail()
+    public function testPropertyReservationLimit()
+    {
+    }
+
+    /**
+     * Test attribute "isReservationMandatory"
+     */
+    public function testPropertyIsReservationMandatory()
     {
     }
 }

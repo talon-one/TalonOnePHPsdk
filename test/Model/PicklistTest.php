@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * PicklistTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Picklist
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **pendingBalance** | **float** | Sum of pending points. | 
 **expiredBalance** | **float** | **DEPRECATED** Value is shown as 0. | 
 **spentBalance** | **float** | **DEPRECATED** Value is shown as 0. | 
-**tentativeCurrentBalance** | **float** | Sum of the tentative active points (including additions and deductions) inside the currently open session. The &#x60;currentBalance&#x60; is updated to this value when you close the session, and the effects are applied. | 
-**tentativePendingBalance** | **float** | Sum of pending points (including additions and deductions) inside the currently open session. The &#x60;pendingBalance&#x60; is updated to this value when you close the session, and the effects are applied. | [optional] 
+**tentativeCurrentBalance** | **float** | The tentative points balance, reflecting the &#x60;currentBalance&#x60; and all point additions and deductions within the current open customer session. When the session is closed, the effects are applied and the &#x60;currentBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer. | 
+**tentativePendingBalance** | **float** | The tentative points balance, reflecting the &#x60;pendingBalance&#x60; and all point additions with a future activation date within the current open customer session. When the session is closed, the effects are applied and the &#x60;pendingBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer. | [optional] 
 **currentTier** | [**\TalonOne\Client\Model\Tier**](Tier.md) |  | [optional] 
 **pointsToNextTier** | **float** | Points required to move up a tier. | [optional] 
 

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * EffectTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description A generic effect that is fired by a triggered campaign. The props property will contain information specific to the specific effect type.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

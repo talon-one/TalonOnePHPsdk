@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * MultipleCustomerProfileIntegrationRequestItem Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description The body of a V2 integration API request (customer profile update). Next to the customer profile details, this contains an optional listing of extra properties that should be returned in the response.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

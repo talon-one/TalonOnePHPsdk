@@ -57,7 +57,9 @@ class LoyaltyProgramEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'programID' => 'int'
+        'programID' => 'int',
+        'programName' => 'string',
+        'programTitle' => 'string'
     ];
 
     /**
@@ -66,7 +68,9 @@ class LoyaltyProgramEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'programID' => null
+        'programID' => null,
+        'programName' => null,
+        'programTitle' => null
     ];
 
     /**
@@ -96,7 +100,9 @@ class LoyaltyProgramEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'programID' => 'programID'
+        'programID' => 'programID',
+        'programName' => 'programName',
+        'programTitle' => 'programTitle'
     ];
 
     /**
@@ -105,7 +111,9 @@ class LoyaltyProgramEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'programID' => 'setProgramID'
+        'programID' => 'setProgramID',
+        'programName' => 'setProgramName',
+        'programTitle' => 'setProgramTitle'
     ];
 
     /**
@@ -114,7 +122,9 @@ class LoyaltyProgramEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'programID' => 'getProgramID'
+        'programID' => 'getProgramID',
+        'programName' => 'getProgramName',
+        'programTitle' => 'getProgramTitle'
     ];
 
     /**
@@ -178,6 +188,8 @@ class LoyaltyProgramEntity implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['programID'] = isset($data['programID']) ? $data['programID'] : null;
+        $this->container['programName'] = isset($data['programName']) ? $data['programName'] : null;
+        $this->container['programTitle'] = isset($data['programTitle']) ? $data['programTitle'] : null;
     }
 
     /**
@@ -227,6 +239,54 @@ class LoyaltyProgramEntity implements ModelInterface, ArrayAccess
     public function setProgramID($programID)
     {
         $this->container['programID'] = $programID;
+
+        return $this;
+    }
+
+    /**
+     * Gets programName
+     *
+     * @return string|null
+     */
+    public function getProgramName()
+    {
+        return $this->container['programName'];
+    }
+
+    /**
+     * Sets programName
+     *
+     * @param string|null $programName The integration name of the loyalty program that owns this entity.
+     *
+     * @return $this
+     */
+    public function setProgramName($programName)
+    {
+        $this->container['programName'] = $programName;
+
+        return $this;
+    }
+
+    /**
+     * Gets programTitle
+     *
+     * @return string|null
+     */
+    public function getProgramTitle()
+    {
+        return $this->container['programTitle'];
+    }
+
+    /**
+     * Sets programTitle
+     *
+     * @param string|null $programTitle The Campaign Manager-displayed name of the loyalty program that owns this entity.
+     *
+     * @return $this
+     */
+    public function setProgramTitle($programTitle)
+    {
+        $this->container['programTitle'] = $programTitle;
 
         return $this;
     }

@@ -208,6 +208,9 @@ class ScimNewUser implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['userName'] === null) {
+            $invalidProperties[] = "'userName' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -274,7 +277,7 @@ class ScimNewUser implements ModelInterface, ArrayAccess
     /**
      * Gets userName
      *
-     * @return string|null
+     * @return string
      */
     public function getUserName()
     {
@@ -284,7 +287,7 @@ class ScimNewUser implements ModelInterface, ArrayAccess
     /**
      * Sets userName
      *
-     * @param string|null $userName Unique identifier of the user. This is usually an email address.
+     * @param string $userName Unique identifier of the user. This is usually an email address.
      *
      * @return $this
      */

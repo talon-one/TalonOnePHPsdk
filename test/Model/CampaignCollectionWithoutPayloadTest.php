@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CampaignCollectionWithoutPayloadTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description CampaignCollectionWithoutPayload
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

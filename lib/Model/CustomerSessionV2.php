@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * CustomerSessionV2 Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description The representation of the customer session.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -77,7 +77,8 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => 'float',
         'cartItemTotal' => 'float',
         'additionalCostTotal' => 'float',
-        'updated' => '\DateTime'
+        'updated' => '\DateTime',
+        'closurePrediction' => 'float'
     ];
 
     /**
@@ -105,7 +106,8 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => null,
         'cartItemTotal' => null,
         'additionalCostTotal' => null,
-        'updated' => 'date-time'
+        'updated' => 'date-time',
+        'closurePrediction' => null
     ];
 
     /**
@@ -154,7 +156,8 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => 'total',
         'cartItemTotal' => 'cartItemTotal',
         'additionalCostTotal' => 'additionalCostTotal',
-        'updated' => 'updated'
+        'updated' => 'updated',
+        'closurePrediction' => 'closurePrediction'
     ];
 
     /**
@@ -182,7 +185,8 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => 'setTotal',
         'cartItemTotal' => 'setCartItemTotal',
         'additionalCostTotal' => 'setAdditionalCostTotal',
-        'updated' => 'setUpdated'
+        'updated' => 'setUpdated',
+        'closurePrediction' => 'setClosurePrediction'
     ];
 
     /**
@@ -210,7 +214,8 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => 'getTotal',
         'cartItemTotal' => 'getCartItemTotal',
         'additionalCostTotal' => 'getAdditionalCostTotal',
-        'updated' => 'getUpdated'
+        'updated' => 'getUpdated',
+        'closurePrediction' => 'getClosurePrediction'
     ];
 
     /**
@@ -312,6 +317,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         $this->container['cartItemTotal'] = isset($data['cartItemTotal']) ? $data['cartItemTotal'] : null;
         $this->container['additionalCostTotal'] = isset($data['additionalCostTotal']) ? $data['additionalCostTotal'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
+        $this->container['closurePrediction'] = isset($data['closurePrediction']) ? $data['closurePrediction'] : null;
     }
 
     /**
@@ -438,7 +444,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created The time this entity was created. The time this entity was created.
+     * @param \DateTime $created The time this entity was created.
      *
      * @return $this
      */
@@ -593,7 +599,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets couponCodes
      *
-     * @param string[]|null $couponCodes Any coupon codes entered.  **Important - for requests only**:  - If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it. - In requests where `dry=false`, providing an empty array discards any previous coupons. To avoid this, provide `\"couponCodes\": null` or omit the parameter entirely.
+     * @param string[]|null $couponCodes Any coupon codes entered.  **Important - for requests only**:  - If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it. - In requests where `dry=false`, providing an empty array discards any previous coupons. To avoid this, omit the parameter entirely.
      *
      * @return $this
      */
@@ -617,7 +623,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets referralCode
      *
-     * @param string|null $referralCode Any referral code entered.  **Important - for requests only**:  - If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it. - In requests where `dry=false`, providing an empty value discards the previous referral code. To avoid this, provide `\"referralCode\": null` or omit the parameter entirely.
+     * @param string|null $referralCode Any referral code entered.  **Important - for requests only**:  - If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it. - In requests where `dry=false`, providing an empty value discards the previous referral code. To avoid this, omit the parameter entirely.
      *
      * @return $this
      */
@@ -750,7 +756,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets identifiers
      *
-     * @param string[]|null $identifiers Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  **Important**: Ensure the session contains an identifier by the time you close it if: - You [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign. - Your campaign has [coupons](https://docs.talon.one/docs/product/campaigns/coupons/coupon-page-overview).
+     * @param string[]|null $identifiers Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  **Important**: Ensure the session contains an identifier by the time you close it if: - You [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign. - Your campaign has [coupons](https://docs.talon.one/docs/product/campaigns/coupons/coupon-page-overview). - We recommend passing an anonymized (hashed) version of the identifier value.
      *
      * @return $this
      */
@@ -798,7 +804,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets firstSession
      *
-     * @param bool $firstSession Indicates whether this is the first session for the customer's profile. Will always be true for anonymous sessions.
+     * @param bool $firstSession Indicates whether this is the first session for the customer's profile. It's always `true` for anonymous sessions.
      *
      * @return $this
      */
@@ -901,6 +907,30 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     public function setUpdated($updated)
     {
         $this->container['updated'] = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Gets closurePrediction
+     *
+     * @return float|null
+     */
+    public function getClosurePrediction()
+    {
+        return $this->container['closurePrediction'];
+    }
+
+    /**
+     * Sets closurePrediction
+     *
+     * @param float|null $closurePrediction The likelihood of the customer session closing based on predictive modeling, expressed as a decimal between `0` and `1`.
+     *
+     * @return $this
+     */
+    public function setClosurePrediction($closurePrediction)
+    {
+        $this->container['closurePrediction'] = $closurePrediction;
 
         return $this;
     }

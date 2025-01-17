@@ -91,4 +91,11 @@ class GenerateLoyaltyCardTest extends TestCase
     public function testPropertyCustomerProfileIds()
     {
     }
+
+    /**
+     * Test attribute "cardIdentifier"
+     */
+    public function testPropertyCardIdentifier()
+    {
+    }
 }

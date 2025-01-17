@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CampaignTemplateTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description CampaignTemplate
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -173,6 +173,13 @@ class CampaignTemplateTest extends TestCase
      * Test attribute "couponSettings"
      */
     public function testPropertyCouponSettings()
+    {
+    }
+
+    /**
+     * Test attribute "couponReservationSettings"
+     */
+    public function testPropertyCouponReservationSettings()
     {
     }
 

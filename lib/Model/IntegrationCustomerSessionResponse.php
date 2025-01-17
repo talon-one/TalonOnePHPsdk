@@ -247,7 +247,7 @@ class IntegrationCustomerSessionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets effects
      *
-     * @param \TalonOne\Client\Model\Effect[]|null $effects effects
+     * @param \TalonOne\Client\Model\Effect[]|null $effects The returned effects.  **Note:** This endpoint returns only the effects that are valid after any rollback effects and their corresponding non-rollback effects are removed.
      *
      * @return $this
      */

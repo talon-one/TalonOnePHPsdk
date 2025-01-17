@@ -225,7 +225,7 @@ class Product implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of the product.
+     * @param string $name The product the item belongs to.
      *
      * @return $this
      */

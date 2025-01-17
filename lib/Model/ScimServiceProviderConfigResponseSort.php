@@ -1,6 +1,6 @@
 <?php
 /**
- * DeleteUserRequest
+ * ScimServiceProviderConfigResponseSort
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * DeleteUserRequest Class Doc Comment
+ * ScimServiceProviderConfigResponseSort Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description Configuration settings related to sorting SCIM resources in query responses.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DeleteUserRequest implements ModelInterface, ArrayAccess
+class ScimServiceProviderConfigResponseSort implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DeleteUserRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DeleteUserRequest';
+    protected static $openAPIModelName = 'ScimServiceProviderConfigResponse_sort';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class DeleteUserRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'string'
+        'supported' => 'bool'
     ];
 
     /**
@@ -67,7 +67,7 @@ class DeleteUserRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'email' => 'email'
+        'supported' => null
     ];
 
     /**
@@ -97,7 +97,7 @@ class DeleteUserRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email'
+        'supported' => 'supported'
     ];
 
     /**
@@ -106,7 +106,7 @@ class DeleteUserRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail'
+        'supported' => 'setSupported'
     ];
 
     /**
@@ -115,7 +115,7 @@ class DeleteUserRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail'
+        'supported' => 'getSupported'
     ];
 
     /**
@@ -178,7 +178,7 @@ class DeleteUserRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['supported'] = isset($data['supported']) ? $data['supported'] : null;
     }
 
     /**
@@ -190,9 +190,6 @@ class DeleteUserRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['email'] === null) {
-            $invalidProperties[] = "'email' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,25 +206,25 @@ class DeleteUserRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets email
+     * Gets supported
      *
-     * @return string
+     * @return bool|null
      */
-    public function getEmail()
+    public function getSupported()
     {
-        return $this->container['email'];
+        return $this->container['supported'];
     }
 
     /**
-     * Sets email
+     * Sets supported
      *
-     * @param string $email The email address associated with the user profile.
+     * @param bool|null $supported Indicates whether the service provider supports sorting operations for ordered query results.
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setSupported($supported)
     {
-        $this->container['email'] = $email;
+        $this->container['supported'] = $supported;
 
         return $this;
     }
