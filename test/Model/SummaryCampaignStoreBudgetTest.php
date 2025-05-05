@@ -98,4 +98,11 @@ class SummaryCampaignStoreBudgetTest extends TestCase
     public function testPropertyStoreCount()
     {
     }
+
+    /**
+     * Test attribute "imported"
+     */
+    public function testPropertyImported()
+    {
+    }
 }

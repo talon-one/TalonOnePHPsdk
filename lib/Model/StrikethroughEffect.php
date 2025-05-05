@@ -63,7 +63,9 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
         'ruleIndex' => 'int',
         'ruleName' => 'string',
         'type' => 'string',
-        'props' => 'object'
+        'props' => 'object',
+        'startTime' => '\DateTime',
+        'endTime' => '\DateTime'
     ];
 
     /**
@@ -77,7 +79,9 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
         'ruleIndex' => null,
         'ruleName' => null,
         'type' => null,
-        'props' => null
+        'props' => null,
+        'startTime' => 'date-time',
+        'endTime' => 'date-time'
     ];
 
     /**
@@ -112,7 +116,9 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
         'ruleIndex' => 'ruleIndex',
         'ruleName' => 'ruleName',
         'type' => 'type',
-        'props' => 'props'
+        'props' => 'props',
+        'startTime' => 'startTime',
+        'endTime' => 'endTime'
     ];
 
     /**
@@ -126,7 +132,9 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
         'ruleIndex' => 'setRuleIndex',
         'ruleName' => 'setRuleName',
         'type' => 'setType',
-        'props' => 'setProps'
+        'props' => 'setProps',
+        'startTime' => 'setStartTime',
+        'endTime' => 'setEndTime'
     ];
 
     /**
@@ -140,7 +148,9 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
         'ruleIndex' => 'getRuleIndex',
         'ruleName' => 'getRuleName',
         'type' => 'getType',
-        'props' => 'getProps'
+        'props' => 'getProps',
+        'startTime' => 'getStartTime',
+        'endTime' => 'getEndTime'
     ];
 
     /**
@@ -209,6 +219,8 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
         $this->container['ruleName'] = isset($data['ruleName']) ? $data['ruleName'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['props'] = isset($data['props']) ? $data['props'] : null;
+        $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
+        $this->container['endTime'] = isset($data['endTime']) ? $data['endTime'] : null;
     }
 
     /**
@@ -393,6 +405,54 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
     public function setProps($props)
     {
         $this->container['props'] = $props;
+
+        return $this;
+    }
+
+    /**
+     * Gets startTime
+     *
+     * @return \DateTime|null
+     */
+    public function getStartTime()
+    {
+        return $this->container['startTime'];
+    }
+
+    /**
+     * Sets startTime
+     *
+     * @param \DateTime|null $startTime The start of the time frame where the effect is active in UTC.
+     *
+     * @return $this
+     */
+    public function setStartTime($startTime)
+    {
+        $this->container['startTime'] = $startTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets endTime
+     *
+     * @return \DateTime|null
+     */
+    public function getEndTime()
+    {
+        return $this->container['endTime'];
+    }
+
+    /**
+     * Sets endTime
+     *
+     * @param \DateTime|null $endTime The end of the time frame where the effect is active in UTC.
+     *
+     * @return $this
+     */
+    public function setEndTime($endTime)
+    {
+        $this->container['endTime'] = $endTime;
 
         return $this;
     }

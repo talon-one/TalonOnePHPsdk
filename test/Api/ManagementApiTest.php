@@ -1003,6 +1003,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for getDashboardStatistics
+     *
+     * Get statistics for loyalty dashboard.
+     *
+     */
+    public function testGetDashboardStatistics()
+    {
+    }
+
+    /**
      * Test case for getEventTypes
      *
      * List event types.
@@ -1099,6 +1109,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testGetLoyaltyStatistics()
+    {
+    }
+
+    /**
+     * Test case for getMessageLogs
+     *
+     * List message log entries.
+     *
+     */
+    public function testGetMessageLogs()
     {
     }
 
@@ -1403,52 +1423,12 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for notificationActivation
-     *
-     * Activate or deactivate notification.
-     *
-     */
-    public function testNotificationActivation()
-    {
-    }
-
-    /**
      * Test case for oktaEventHandlerChallenge
      *
      * Validate Okta API ownership.
      *
      */
     public function testOktaEventHandlerChallenge()
-    {
-    }
-
-    /**
-     * Test case for postAddedDeductedPointsNotification
-     *
-     * Create notification about added or deducted loyalty points.
-     *
-     */
-    public function testPostAddedDeductedPointsNotification()
-    {
-    }
-
-    /**
-     * Test case for postCatalogsStrikethroughNotification
-     *
-     * Create strikethrough notification.
-     *
-     */
-    public function testPostCatalogsStrikethroughNotification()
-    {
-    }
-
-    /**
-     * Test case for postPendingPointsNotification
-     *
-     * Create notification about pending loyalty points.
-     *
-     */
-    public function testPostPendingPointsNotification()
     {
     }
 

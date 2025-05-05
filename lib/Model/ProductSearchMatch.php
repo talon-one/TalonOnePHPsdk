@@ -201,9 +201,6 @@ class ProductSearchMatch implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['productId'] === null) {
-            $invalidProperties[] = "'productId' can't be null";
-        }
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
@@ -225,7 +222,7 @@ class ProductSearchMatch implements ModelInterface, ArrayAccess
     /**
      * Gets productId
      *
-     * @return int
+     * @return int|null
      */
     public function getProductId()
     {
@@ -235,7 +232,7 @@ class ProductSearchMatch implements ModelInterface, ArrayAccess
     /**
      * Sets productId
      *
-     * @param int $productId The ID of the product.
+     * @param int|null $productId The ID of the product.
      *
      * @return $this
      */
@@ -283,7 +280,7 @@ class ProductSearchMatch implements ModelInterface, ArrayAccess
     /**
      * Sets productSkuId
      *
-     * @param int|null $productSkuId The ID of the SKU linked to a product. If empty, this is an analytics-level product.
+     * @param int|null $productSkuId The ID of the SKU linked to a product. If empty, this is an product.
      *
      * @return $this
      */

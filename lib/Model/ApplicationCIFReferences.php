@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductSkuUnitAnalytics
+ * ApplicationCIFReferences
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * ProductSkuUnitAnalytics Class Doc Comment
+ * ApplicationCIFReferences Class Doc Comment
  *
  * @category Class
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProductSkuUnitAnalytics implements ModelInterface, ArrayAccess
+class ApplicationCIFReferences implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ProductSkuUnitAnalytics implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProductSkuUnitAnalytics';
+    protected static $openAPIModelName = 'ApplicationCIFReferences';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,8 @@ class ProductSkuUnitAnalytics implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startTime' => '\DateTime',
-        'endTime' => '\DateTime',
-        'purchasedUnits' => '\TalonOne\Client\Model\AnalyticsDataPointWithTrend',
-        'sku' => 'string'
+        'applicationCartItemFilterId' => 'int',
+        'campaigns' => '\TalonOne\Client\Model\CampaignDetail[]'
     ];
 
     /**
@@ -69,10 +67,8 @@ class ProductSkuUnitAnalytics implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'startTime' => 'date-time',
-        'endTime' => 'date-time',
-        'purchasedUnits' => null,
-        'sku' => null
+        'applicationCartItemFilterId' => null,
+        'campaigns' => null
     ];
 
     /**
@@ -102,10 +98,8 @@ class ProductSkuUnitAnalytics implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'startTime' => 'startTime',
-        'endTime' => 'endTime',
-        'purchasedUnits' => 'purchasedUnits',
-        'sku' => 'sku'
+        'applicationCartItemFilterId' => 'applicationCartItemFilterId',
+        'campaigns' => 'campaigns'
     ];
 
     /**
@@ -114,10 +108,8 @@ class ProductSkuUnitAnalytics implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'startTime' => 'setStartTime',
-        'endTime' => 'setEndTime',
-        'purchasedUnits' => 'setPurchasedUnits',
-        'sku' => 'setSku'
+        'applicationCartItemFilterId' => 'setApplicationCartItemFilterId',
+        'campaigns' => 'setCampaigns'
     ];
 
     /**
@@ -126,10 +118,8 @@ class ProductSkuUnitAnalytics implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'startTime' => 'getStartTime',
-        'endTime' => 'getEndTime',
-        'purchasedUnits' => 'getPurchasedUnits',
-        'sku' => 'getSku'
+        'applicationCartItemFilterId' => 'getApplicationCartItemFilterId',
+        'campaigns' => 'getCampaigns'
     ];
 
     /**
@@ -192,10 +182,8 @@ class ProductSkuUnitAnalytics implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
-        $this->container['endTime'] = isset($data['endTime']) ? $data['endTime'] : null;
-        $this->container['purchasedUnits'] = isset($data['purchasedUnits']) ? $data['purchasedUnits'] : null;
-        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
+        $this->container['applicationCartItemFilterId'] = isset($data['applicationCartItemFilterId']) ? $data['applicationCartItemFilterId'] : null;
+        $this->container['campaigns'] = isset($data['campaigns']) ? $data['campaigns'] : null;
     }
 
     /**
@@ -207,18 +195,6 @@ class ProductSkuUnitAnalytics implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['startTime'] === null) {
-            $invalidProperties[] = "'startTime' can't be null";
-        }
-        if ($this->container['endTime'] === null) {
-            $invalidProperties[] = "'endTime' can't be null";
-        }
-        if ($this->container['purchasedUnits'] === null) {
-            $invalidProperties[] = "'purchasedUnits' can't be null";
-        }
-        if ($this->container['sku'] === null) {
-            $invalidProperties[] = "'sku' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -235,97 +211,49 @@ class ProductSkuUnitAnalytics implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets startTime
+     * Gets applicationCartItemFilterId
      *
-     * @return \DateTime
+     * @return int|null
      */
-    public function getStartTime()
+    public function getApplicationCartItemFilterId()
     {
-        return $this->container['startTime'];
+        return $this->container['applicationCartItemFilterId'];
     }
 
     /**
-     * Sets startTime
+     * Sets applicationCartItemFilterId
      *
-     * @param \DateTime $startTime The start of the aggregation time frame in UTC.
+     * @param int|null $applicationCartItemFilterId The ID of the Application Cart Item Filter that is referenced by a campaign.
      *
      * @return $this
      */
-    public function setStartTime($startTime)
+    public function setApplicationCartItemFilterId($applicationCartItemFilterId)
     {
-        $this->container['startTime'] = $startTime;
+        $this->container['applicationCartItemFilterId'] = $applicationCartItemFilterId;
 
         return $this;
     }
 
     /**
-     * Gets endTime
+     * Gets campaigns
      *
-     * @return \DateTime
+     * @return \TalonOne\Client\Model\CampaignDetail[]|null
      */
-    public function getEndTime()
+    public function getCampaigns()
     {
-        return $this->container['endTime'];
+        return $this->container['campaigns'];
     }
 
     /**
-     * Sets endTime
+     * Sets campaigns
      *
-     * @param \DateTime $endTime The end of the aggregation time frame in UTC.
+     * @param \TalonOne\Client\Model\CampaignDetail[]|null $campaigns Campaigns that reference a speciifc Application Cart Item Filter.
      *
      * @return $this
      */
-    public function setEndTime($endTime)
+    public function setCampaigns($campaigns)
     {
-        $this->container['endTime'] = $endTime;
-
-        return $this;
-    }
-
-    /**
-     * Gets purchasedUnits
-     *
-     * @return \TalonOne\Client\Model\AnalyticsDataPointWithTrend
-     */
-    public function getPurchasedUnits()
-    {
-        return $this->container['purchasedUnits'];
-    }
-
-    /**
-     * Sets purchasedUnits
-     *
-     * @param \TalonOne\Client\Model\AnalyticsDataPointWithTrend $purchasedUnits purchasedUnits
-     *
-     * @return $this
-     */
-    public function setPurchasedUnits($purchasedUnits)
-    {
-        $this->container['purchasedUnits'] = $purchasedUnits;
-
-        return $this;
-    }
-
-    /**
-     * Gets sku
-     *
-     * @return string
-     */
-    public function getSku()
-    {
-        return $this->container['sku'];
-    }
-
-    /**
-     * Sets sku
-     *
-     * @param string $sku The SKU linked to the analytics-level product.
-     *
-     * @return $this
-     */
-    public function setSku($sku)
-    {
-        $this->container['sku'] = $sku;
+        $this->container['campaigns'] = $campaigns;
 
         return $this;
     }

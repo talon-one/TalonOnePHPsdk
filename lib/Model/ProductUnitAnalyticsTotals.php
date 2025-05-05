@@ -1,6 +1,6 @@
 <?php
 /**
- * AnalyticsProductSKU
+ * ProductUnitAnalyticsTotals
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * AnalyticsProductSKU Class Doc Comment
+ * ProductUnitAnalyticsTotals Class Doc Comment
  *
  * @category Class
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class AnalyticsProductSKU implements ModelInterface, ArrayAccess
+class ProductUnitAnalyticsTotals implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class AnalyticsProductSKU implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AnalyticsProductSKU';
+    protected static $openAPIModelName = 'ProductUnitAnalytics_totals';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,7 @@ class AnalyticsProductSKU implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'sku' => 'string',
-        'lastUpdated' => '\DateTime'
+        'unitsSold' => '\TalonOne\Client\Model\AnalyticsDataPointWithTrend'
     ];
 
     /**
@@ -68,9 +66,7 @@ class AnalyticsProductSKU implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'sku' => null,
-        'lastUpdated' => 'date-time'
+        'unitsSold' => null
     ];
 
     /**
@@ -100,9 +96,7 @@ class AnalyticsProductSKU implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'sku' => 'sku',
-        'lastUpdated' => 'lastUpdated'
+        'unitsSold' => 'unitsSold'
     ];
 
     /**
@@ -111,9 +105,7 @@ class AnalyticsProductSKU implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'sku' => 'setSku',
-        'lastUpdated' => 'setLastUpdated'
+        'unitsSold' => 'setUnitsSold'
     ];
 
     /**
@@ -122,9 +114,7 @@ class AnalyticsProductSKU implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'sku' => 'getSku',
-        'lastUpdated' => 'getLastUpdated'
+        'unitsSold' => 'getUnitsSold'
     ];
 
     /**
@@ -187,9 +177,7 @@ class AnalyticsProductSKU implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
-        $this->container['lastUpdated'] = isset($data['lastUpdated']) ? $data['lastUpdated'] : null;
+        $this->container['unitsSold'] = isset($data['unitsSold']) ? $data['unitsSold'] : null;
     }
 
     /**
@@ -201,15 +189,6 @@ class AnalyticsProductSKU implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['sku'] === null) {
-            $invalidProperties[] = "'sku' can't be null";
-        }
-        if ($this->container['lastUpdated'] === null) {
-            $invalidProperties[] = "'lastUpdated' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -226,73 +205,25 @@ class AnalyticsProductSKU implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets unitsSold
      *
-     * @return int
+     * @return \TalonOne\Client\Model\AnalyticsDataPointWithTrend|null
      */
-    public function getId()
+    public function getUnitsSold()
     {
-        return $this->container['id'];
+        return $this->container['unitsSold'];
     }
 
     /**
-     * Sets id
+     * Sets unitsSold
      *
-     * @param int $id The ID of the SKU linked to the analytics-level product.
+     * @param \TalonOne\Client\Model\AnalyticsDataPointWithTrend|null $unitsSold unitsSold
      *
      * @return $this
      */
-    public function setId($id)
+    public function setUnitsSold($unitsSold)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets sku
-     *
-     * @return string
-     */
-    public function getSku()
-    {
-        return $this->container['sku'];
-    }
-
-    /**
-     * Sets sku
-     *
-     * @param string $sku The SKU linked to the analytics-level product.
-     *
-     * @return $this
-     */
-    public function setSku($sku)
-    {
-        $this->container['sku'] = $sku;
-
-        return $this;
-    }
-
-    /**
-     * Gets lastUpdated
-     *
-     * @return \DateTime
-     */
-    public function getLastUpdated()
-    {
-        return $this->container['lastUpdated'];
-    }
-
-    /**
-     * Sets lastUpdated
-     *
-     * @param \DateTime $lastUpdated Values in UTC for the date the SKU linked to the analytics-level product was last updated.
-     *
-     * @return $this
-     */
-    public function setLastUpdated($lastUpdated)
-    {
-        $this->container['lastUpdated'] = $lastUpdated;
+        $this->container['unitsSold'] = $unitsSold;
 
         return $this;
     }

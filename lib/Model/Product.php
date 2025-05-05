@@ -193,10 +193,6 @@ class Product implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ((mb_strlen($this->container['name']) > 50)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 50.";
-        }
-
         return $invalidProperties;
     }
 
@@ -231,10 +227,6 @@ class Product implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
-        if ((mb_strlen($name) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling Product., must be smaller than or equal to 50.');
-        }
-
         $this->container['name'] = $name;
 
         return $this;

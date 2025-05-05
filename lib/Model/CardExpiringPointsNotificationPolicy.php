@@ -59,7 +59,8 @@ class CardExpiringPointsNotificationPolicy implements ModelInterface, ArrayAcces
     protected static $openAPITypes = [
         'name' => 'string',
         'triggers' => '\TalonOne\Client\Model\CardExpiringPointsNotificationTrigger[]',
-        'batchingEnabled' => 'bool'
+        'batchingEnabled' => 'bool',
+        'batchSize' => 'int'
     ];
 
     /**
@@ -70,7 +71,8 @@ class CardExpiringPointsNotificationPolicy implements ModelInterface, ArrayAcces
     protected static $openAPIFormats = [
         'name' => null,
         'triggers' => null,
-        'batchingEnabled' => null
+        'batchingEnabled' => null,
+        'batchSize' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class CardExpiringPointsNotificationPolicy implements ModelInterface, ArrayAcces
     protected static $attributeMap = [
         'name' => 'name',
         'triggers' => 'triggers',
-        'batchingEnabled' => 'batchingEnabled'
+        'batchingEnabled' => 'batchingEnabled',
+        'batchSize' => 'batchSize'
     ];
 
     /**
@@ -113,7 +116,8 @@ class CardExpiringPointsNotificationPolicy implements ModelInterface, ArrayAcces
     protected static $setters = [
         'name' => 'setName',
         'triggers' => 'setTriggers',
-        'batchingEnabled' => 'setBatchingEnabled'
+        'batchingEnabled' => 'setBatchingEnabled',
+        'batchSize' => 'setBatchSize'
     ];
 
     /**
@@ -124,7 +128,8 @@ class CardExpiringPointsNotificationPolicy implements ModelInterface, ArrayAcces
     protected static $getters = [
         'name' => 'getName',
         'triggers' => 'getTriggers',
-        'batchingEnabled' => 'getBatchingEnabled'
+        'batchingEnabled' => 'getBatchingEnabled',
+        'batchSize' => 'getBatchSize'
     ];
 
     /**
@@ -190,6 +195,7 @@ class CardExpiringPointsNotificationPolicy implements ModelInterface, ArrayAcces
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['triggers'] = isset($data['triggers']) ? $data['triggers'] : null;
         $this->container['batchingEnabled'] = isset($data['batchingEnabled']) ? $data['batchingEnabled'] : true;
+        $this->container['batchSize'] = isset($data['batchSize']) ? $data['batchSize'] : null;
     }
 
     /**
@@ -299,6 +305,30 @@ class CardExpiringPointsNotificationPolicy implements ModelInterface, ArrayAcces
     public function setBatchingEnabled($batchingEnabled)
     {
         $this->container['batchingEnabled'] = $batchingEnabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets batchSize
+     *
+     * @return int|null
+     */
+    public function getBatchSize()
+    {
+        return $this->container['batchSize'];
+    }
+
+    /**
+     * Sets batchSize
+     *
+     * @param int|null $batchSize The required size of each batch of data. This value applies only when `batchingEnabled` is `true`.
+     *
+     * @return $this
+     */
+    public function setBatchSize($batchSize)
+    {
+        $this->container['batchSize'] = $batchSize;
 
         return $this;
     }

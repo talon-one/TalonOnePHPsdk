@@ -79,37 +79,16 @@ class ProductUnitAnalyticsTest extends TestCase
     }
 
     /**
-     * Test attribute "startTime"
+     * Test attribute "data"
      */
-    public function testPropertyStartTime()
+    public function testPropertyData()
     {
     }
 
     /**
-     * Test attribute "endTime"
+     * Test attribute "totals"
      */
-    public function testPropertyEndTime()
-    {
-    }
-
-    /**
-     * Test attribute "purchasedUnits"
-     */
-    public function testPropertyPurchasedUnits()
-    {
-    }
-
-    /**
-     * Test attribute "productId"
-     */
-    public function testPropertyProductId()
-    {
-    }
-
-    /**
-     * Test attribute "productName"
-     */
-    public function testPropertyProductName()
+    public function testPropertyTotals()
     {
     }
 }

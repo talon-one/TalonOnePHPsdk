@@ -86,13 +86,6 @@ class AnalyticsProductTest extends TestCase
     }
 
     /**
-     * Test attribute "isPreliminary"
-     */
-    public function testPropertyIsPreliminary()
-    {
-    }
-
-    /**
      * Test attribute "name"
      */
     public function testPropertyName()
@@ -103,6 +96,13 @@ class AnalyticsProductTest extends TestCase
      * Test attribute "catalogId"
      */
     public function testPropertyCatalogId()
+    {
+    }
+
+    /**
+     * Test attribute "unitsSold"
+     */
+    public function testPropertyUnitsSold()
     {
     }
 }

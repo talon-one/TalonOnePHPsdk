@@ -77,8 +77,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => 'float',
         'cartItemTotal' => 'float',
         'additionalCostTotal' => 'float',
-        'updated' => '\DateTime',
-        'closurePrediction' => 'float'
+        'updated' => '\DateTime'
     ];
 
     /**
@@ -106,8 +105,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => null,
         'cartItemTotal' => null,
         'additionalCostTotal' => null,
-        'updated' => 'date-time',
-        'closurePrediction' => null
+        'updated' => 'date-time'
     ];
 
     /**
@@ -156,8 +154,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => 'total',
         'cartItemTotal' => 'cartItemTotal',
         'additionalCostTotal' => 'additionalCostTotal',
-        'updated' => 'updated',
-        'closurePrediction' => 'closurePrediction'
+        'updated' => 'updated'
     ];
 
     /**
@@ -185,8 +182,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => 'setTotal',
         'cartItemTotal' => 'setCartItemTotal',
         'additionalCostTotal' => 'setAdditionalCostTotal',
-        'updated' => 'setUpdated',
-        'closurePrediction' => 'setClosurePrediction'
+        'updated' => 'setUpdated'
     ];
 
     /**
@@ -214,8 +210,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => 'getTotal',
         'cartItemTotal' => 'getCartItemTotal',
         'additionalCostTotal' => 'getAdditionalCostTotal',
-        'updated' => 'getUpdated',
-        'closurePrediction' => 'getClosurePrediction'
+        'updated' => 'getUpdated'
     ];
 
     /**
@@ -317,7 +312,6 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         $this->container['cartItemTotal'] = isset($data['cartItemTotal']) ? $data['cartItemTotal'] : null;
         $this->container['additionalCostTotal'] = isset($data['additionalCostTotal']) ? $data['additionalCostTotal'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
-        $this->container['closurePrediction'] = isset($data['closurePrediction']) ? $data['closurePrediction'] : null;
     }
 
     /**
@@ -496,7 +490,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets applicationId
      *
-     * @param int $applicationId The ID of the application that owns this entity.
+     * @param int $applicationId The ID of the Application that owns this entity.
      *
      * @return $this
      */
@@ -907,30 +901,6 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     public function setUpdated($updated)
     {
         $this->container['updated'] = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Gets closurePrediction
-     *
-     * @return float|null
-     */
-    public function getClosurePrediction()
-    {
-        return $this->container['closurePrediction'];
-    }
-
-    /**
-     * Sets closurePrediction
-     *
-     * @param float|null $closurePrediction The likelihood of the customer session closing based on predictive modeling, expressed as a decimal between `0` and `1`.
-     *
-     * @return $this
-     */
-    public function setClosurePrediction($closurePrediction)
-    {
-        $this->container['closurePrediction'] = $closurePrediction;
 
         return $this;
     }

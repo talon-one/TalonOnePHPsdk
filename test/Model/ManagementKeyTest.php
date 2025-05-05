@@ -133,4 +133,11 @@ class ManagementKeyTest extends TestCase
     public function testPropertyCreated()
     {
     }
+
+    /**
+     * Test attribute "disabled"
+     */
+    public function testPropertyDisabled()
+    {
+    }
 }

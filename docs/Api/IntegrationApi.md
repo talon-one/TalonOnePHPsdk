@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**deleteCouponReservation**](IntegrationApi.md#deleteCouponReservation) | **DELETE** /v1/coupon_reservations/{couponValue} | Delete coupon reservations
 [**deleteCustomerData**](IntegrationApi.md#deleteCustomerData) | **DELETE** /v1/customer_data/{integrationId} | Delete customer&#39;s personal data
 [**generateLoyaltyCard**](IntegrationApi.md#generateLoyaltyCard) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/cards | Generate loyalty card
+[**getCustomerAchievementHistory**](IntegrationApi.md#getCustomerAchievementHistory) | **GET** /v1/customer_profiles/{integrationId}/achievements/{achievementId} | List customer&#39;s achievement history
+[**getCustomerAchievements**](IntegrationApi.md#getCustomerAchievements) | **GET** /v1/customer_profiles/{integrationId}/achievements | List customer&#39;s available achievements
 [**getCustomerInventory**](IntegrationApi.md#getCustomerInventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | List customer data
 [**getCustomerSession**](IntegrationApi.md#getCustomerSession) | **GET** /v2/customer_sessions/{customerSessionId} | Get customer session
 [**getLoyaltyBalances**](IntegrationApi.md#getLoyaltyBalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/balances | Get customer&#39;s loyalty balances
@@ -170,7 +172,7 @@ Name | Type | Description  | Notes
 
 Create referral code for an advocate
 
-Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the `campaignId` parameter, and will be associated with the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.
+Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the `campaignId` parameter, and will be associated with the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint.
 
 ### Example
 
@@ -233,7 +235,7 @@ Name | Type | Description  | Notes
 
 Create referral codes for multiple advocates
 
-Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the `campaignId` parameter, and one referral code will be associated with one advocate using the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.
+Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the `campaignId` parameter, and one referral code will be associated with one advocate using the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint.
 
 ### Example
 
@@ -255,7 +257,7 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     $config
 );
 $body = new \TalonOne\Client\Model\NewReferralsForMultipleAdvocates(); // \TalonOne\Client\Model\NewReferralsForMultipleAdvocates | body
-$silent = 'yes'; // string | Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.
+$silent = 'yes'; // string | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.
 
 try {
     $result = $apiInstance->createReferralsForMultipleAdvocates($body, $silent);
@@ -272,7 +274,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**\TalonOne\Client\Model\NewReferralsForMultipleAdvocates**](../Model/NewReferralsForMultipleAdvocates.md)| body |
- **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. | [optional] [default to &#39;yes&#39;]
+ **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. | [optional] [default to &#39;yes&#39;]
 
 ### Return type
 
@@ -607,6 +609,156 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## getCustomerAchievementHistory
+
+> \TalonOne\Client\Model\InlineResponse2002 getCustomerAchievementHistory($integrationId, $achievementId, $progressStatus, $startDate, $endDate, $pageSize, $skip)
+
+List customer's achievement history
+
+Retrieve all progress history of a given customer in the given achievement.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$integrationId = 'integrationId_example'; // string | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.
+$achievementId = 56; // int | The achievement identifier.
+$progressStatus = array('progressStatus_example'); // string[] | Filter by customer progress status in the achievement.
+$startDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Timestamp that filters the results to only contain achievements created on or after the start date.
+$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Timestamp that filters the results to only contain achievements created before or on the end date.
+$pageSize = 1000; // int | The number of items in the response.
+$skip = 56; // int | The number of items to skip when paging through large result sets.
+
+try {
+    $result = $apiInstance->getCustomerAchievementHistory($integrationId, $achievementId, $progressStatus, $startDate, $endDate, $pageSize, $skip);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling IntegrationApi->getCustomerAchievementHistory: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integrationId** | **string**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. |
+ **achievementId** | **int**| The achievement identifier. |
+ **progressStatus** | [**string[]**](../Model/string.md)| Filter by customer progress status in the achievement. | [optional]
+ **startDate** | **\DateTime**| Timestamp that filters the results to only contain achievements created on or after the start date. | [optional]
+ **endDate** | **\DateTime**| Timestamp that filters the results to only contain achievements created before or on the end date. | [optional]
+ **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getCustomerAchievements
+
+> \TalonOne\Client\Model\InlineResponse2001 getCustomerAchievements($integrationId, $campaignIds, $achievementIds, $achievementStatus, $currentProgressStatus, $pageSize, $skip)
+
+List customer's available achievements
+
+Retrieve all the achievements available to a given customer and their progress in them.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$integrationId = 'integrationId_example'; // string | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.
+$campaignIds = array('campaignIds_example'); // string[] | Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.
+$achievementIds = array('achievementIds_example'); // string[] | Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.
+$achievementStatus = array('achievementStatus_example'); // string[] | Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.
+$currentProgressStatus = array('currentProgressStatus_example'); // string[] | Filter by customer progress status in the achievement.
+$pageSize = 1000; // int | The number of items in the response.
+$skip = 56; // int | The number of items to skip when paging through large result sets.
+
+try {
+    $result = $apiInstance->getCustomerAchievements($integrationId, $campaignIds, $achievementIds, $achievementStatus, $currentProgressStatus, $pageSize, $skip);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling IntegrationApi->getCustomerAchievements: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integrationId** | **string**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. |
+ **campaignIds** | [**string[]**](../Model/string.md)| Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. | [optional]
+ **achievementIds** | [**string[]**](../Model/string.md)| Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned. | [optional]
+ **achievementStatus** | [**string[]**](../Model/string.md)| Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned. | [optional]
+ **currentProgressStatus** | [**string[]**](../Model/string.md)| Filter by customer progress status in the achievement. | [optional]
+ **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## getCustomerInventory
 
 > \TalonOne\Client\Model\CustomerInventory getCustomerInventory($integrationId, $profile, $referrals, $coupons, $loyalty, $giveaways, $achievements)
@@ -889,7 +1041,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyCardPoints
 
-> \TalonOne\Client\Model\InlineResponse2003 getLoyaltyCardPoints($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $pageSize, $skip)
+> \TalonOne\Client\Model\InlineResponse2005 getLoyaltyCardPoints($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $pageSize, $skip)
 
 List card's unused loyalty points
 
@@ -944,7 +1096,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\TalonOne\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
 
 ### Authorization
 
@@ -962,7 +1114,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyCardTransactions
 
-> \TalonOne\Client\Model\InlineResponse2001 getLoyaltyCardTransactions($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip)
+> \TalonOne\Client\Model\InlineResponse2003 getLoyaltyCardTransactions($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip)
 
 List card's transactions
 
@@ -993,7 +1145,7 @@ $subledgerId = array('subledgerId_example'); // string[] | Filter results by one
 $loyaltyTransactionType = 'loyaltyTransactionType_example'; // string | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.
 $startDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
 $endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
-$pageSize = 1000; // int | The number of items in the response.
+$pageSize = 50; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 
 try {
@@ -1016,12 +1168,12 @@ Name | Type | Description  | Notes
  **loyaltyTransactionType** | **string**| Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. | [optional]
  **startDate** | **\DateTime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
  **endDate** | **\DateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
- **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **pageSize** | **int**| The number of items in the response. | [optional] [default to 50]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\TalonOne\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -1039,7 +1191,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyProgramProfilePoints
 
-> \TalonOne\Client\Model\InlineResponse2004 getLoyaltyProgramProfilePoints($loyaltyProgramId, $integrationId, $status, $subledgerId, $pageSize, $skip)
+> \TalonOne\Client\Model\InlineResponse2006 getLoyaltyProgramProfilePoints($loyaltyProgramId, $integrationId, $status, $subledgerId, $pageSize, $skip)
 
 List customer's unused loyalty points
 
@@ -1094,7 +1246,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\TalonOne\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
 
 ### Authorization
 
@@ -1112,7 +1264,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyProgramProfileTransactions
 
-> \TalonOne\Client\Model\InlineResponse2002 getLoyaltyProgramProfileTransactions($loyaltyProgramId, $integrationId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip)
+> \TalonOne\Client\Model\InlineResponse2004 getLoyaltyProgramProfileTransactions($loyaltyProgramId, $integrationId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip)
 
 List customer's loyalty transactions
 
@@ -1171,7 +1323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
 
 ### Authorization
 
@@ -1514,7 +1666,7 @@ Name | Type | Description  | Notes
 
 ## trackEventV2
 
-> \TalonOne\Client\Model\TrackEventV2Response trackEventV2($body, $silent, $dry)
+> \TalonOne\Client\Model\TrackEventV2Response trackEventV2($body, $silent, $dry, $forceCompleteEvaluation)
 
 Track event
 
@@ -1540,11 +1692,12 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     $config
 );
 $body = new \TalonOne\Client\Model\IntegrationEventV2Request(); // \TalonOne\Client\Model\IntegrationEventV2Request | body
-$silent = 'yes'; // string | Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.
+$silent = 'yes'; // string | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.
 $dry = True; // bool | Indicates whether to persist the changes. Changes are ignored when `dry=true`.
+$forceCompleteEvaluation = false; // bool | Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires `dry=true`.
 
 try {
-    $result = $apiInstance->trackEventV2($body, $silent, $dry);
+    $result = $apiInstance->trackEventV2($body, $silent, $dry, $forceCompleteEvaluation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationApi->trackEventV2: ', $e->getMessage(), PHP_EOL;
@@ -1558,8 +1711,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**\TalonOne\Client\Model\IntegrationEventV2Request**](../Model/IntegrationEventV2Request.md)| body |
- **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. | [optional] [default to &#39;yes&#39;]
+ **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. | [optional] [default to &#39;yes&#39;]
  **dry** | **bool**| Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. | [optional]
+ **forceCompleteEvaluation** | **bool**| Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;. | [optional] [default to false]
 
 ### Return type
 
@@ -1867,7 +2021,7 @@ $apiInstance = new TalonOne\Client\Api\IntegrationApi(
     $config
 );
 $body = new \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest(); // \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest | body
-$silent = 'yes'; // string | Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.
+$silent = 'yes'; // string | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.
 
 try {
     $result = $apiInstance->updateCustomerProfilesV2($body, $silent);
@@ -1884,7 +2038,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**\TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest**](../Model/MultipleCustomerProfileIntegrationRequest.md)| body |
- **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. | [optional] [default to &#39;yes&#39;]
+ **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. | [optional] [default to &#39;yes&#39;]
 
 ### Return type
 

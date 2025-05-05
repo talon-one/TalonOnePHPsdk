@@ -59,7 +59,9 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'scopes' => 'string[]',
-        'batchingEnabled' => 'bool'
+        'batchingEnabled' => 'bool',
+        'includeData' => 'bool',
+        'batchSize' => 'int'
     ];
 
     /**
@@ -70,7 +72,9 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'scopes' => null,
-        'batchingEnabled' => null
+        'batchingEnabled' => null,
+        'includeData' => null,
+        'batchSize' => null
     ];
 
     /**
@@ -102,7 +106,9 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'scopes' => 'scopes',
-        'batchingEnabled' => 'batchingEnabled'
+        'batchingEnabled' => 'batchingEnabled',
+        'includeData' => 'includeData',
+        'batchSize' => 'batchSize'
     ];
 
     /**
@@ -113,7 +119,9 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'scopes' => 'setScopes',
-        'batchingEnabled' => 'setBatchingEnabled'
+        'batchingEnabled' => 'setBatchingEnabled',
+        'includeData' => 'setIncludeData',
+        'batchSize' => 'setBatchSize'
     ];
 
     /**
@@ -124,7 +132,9 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'scopes' => 'getScopes',
-        'batchingEnabled' => 'getBatchingEnabled'
+        'batchingEnabled' => 'getBatchingEnabled',
+        'includeData' => 'getIncludeData',
+        'batchSize' => 'getBatchSize'
     ];
 
     /**
@@ -209,6 +219,8 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['scopes'] = isset($data['scopes']) ? $data['scopes'] : null;
         $this->container['batchingEnabled'] = isset($data['batchingEnabled']) ? $data['batchingEnabled'] : true;
+        $this->container['includeData'] = isset($data['includeData']) ? $data['includeData'] : null;
+        $this->container['batchSize'] = isset($data['batchSize']) ? $data['batchSize'] : null;
     }
 
     /**
@@ -327,6 +339,54 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
     public function setBatchingEnabled($batchingEnabled)
     {
         $this->container['batchingEnabled'] = $batchingEnabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets includeData
+     *
+     * @return bool|null
+     */
+    public function getIncludeData()
+    {
+        return $this->container['includeData'];
+    }
+
+    /**
+     * Sets includeData
+     *
+     * @param bool|null $includeData Indicates whether to include all generated coupons. If `false`, only the `batchId` of the generated coupons is included.
+     *
+     * @return $this
+     */
+    public function setIncludeData($includeData)
+    {
+        $this->container['includeData'] = $includeData;
+
+        return $this;
+    }
+
+    /**
+     * Gets batchSize
+     *
+     * @return int|null
+     */
+    public function getBatchSize()
+    {
+        return $this->container['batchSize'];
+    }
+
+    /**
+     * Sets batchSize
+     *
+     * @param int|null $batchSize The required size of each batch of data. This value applies only when `batchingEnabled` is `true`.
+     *
+     * @return $this
+     */
+    public function setBatchSize($batchSize)
+    {
+        $this->container['batchSize'] = $batchSize;
 
         return $this;
     }

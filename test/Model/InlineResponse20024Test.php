@@ -79,6 +79,13 @@ class InlineResponse20024Test extends TestCase
     }
 
     /**
+     * Test attribute "totalResultSize"
+     */
+    public function testPropertyTotalResultSize()
+    {
+    }
+
+    /**
      * Test attribute "hasMore"
      */
     public function testPropertyHasMore()

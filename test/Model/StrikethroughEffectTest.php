@@ -119,4 +119,18 @@ class StrikethroughEffectTest extends TestCase
     public function testPropertyProps()
     {
     }
+
+    /**
+     * Test attribute "startTime"
+     */
+    public function testPropertyStartTime()
+    {
+    }
+
+    /**
+     * Test attribute "endTime"
+     */
+    public function testPropertyEndTime()
+    {
+    }
 }

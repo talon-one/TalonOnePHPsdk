@@ -59,7 +59,8 @@ class AddFreeItemEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'sku' => 'string',
-        'name' => 'string'
+        'name' => 'string',
+        'desiredQuantity' => 'int'
     ];
 
     /**
@@ -69,7 +70,8 @@ class AddFreeItemEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'sku' => null,
-        'name' => null
+        'name' => null,
+        'desiredQuantity' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class AddFreeItemEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'sku' => 'sku',
-        'name' => 'name'
+        'name' => 'name',
+        'desiredQuantity' => 'desiredQuantity'
     ];
 
     /**
@@ -110,7 +113,8 @@ class AddFreeItemEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'sku' => 'setSku',
-        'name' => 'setName'
+        'name' => 'setName',
+        'desiredQuantity' => 'setDesiredQuantity'
     ];
 
     /**
@@ -120,7 +124,8 @@ class AddFreeItemEffectProps implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'sku' => 'getSku',
-        'name' => 'getName'
+        'name' => 'getName',
+        'desiredQuantity' => 'getDesiredQuantity'
     ];
 
     /**
@@ -185,6 +190,7 @@ class AddFreeItemEffectProps implements ModelInterface, ArrayAccess
     {
         $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['desiredQuantity'] = isset($data['desiredQuantity']) ? $data['desiredQuantity'] : null;
     }
 
     /**
@@ -261,6 +267,30 @@ class AddFreeItemEffectProps implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets desiredQuantity
+     *
+     * @return int|null
+     */
+    public function getDesiredQuantity()
+    {
+        return $this->container['desiredQuantity'];
+    }
+
+    /**
+     * Sets desiredQuantity
+     *
+     * @param int|null $desiredQuantity The original quantity in case a partial reward was applied.
+     *
+     * @return $this
+     */
+    public function setDesiredQuantity($desiredQuantity)
+    {
+        $this->container['desiredQuantity'] = $desiredQuantity;
 
         return $this;
     }

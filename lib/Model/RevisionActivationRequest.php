@@ -1,6 +1,6 @@
 <?php
 /**
- * NotificationTest
+ * RevisionActivationRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * NotificationTest Class Doc Comment
+ * RevisionActivationRequest Class Doc Comment
  *
  * @category Class
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class NotificationTest implements ModelInterface, ArrayAccess
+class RevisionActivationRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class NotificationTest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'NotificationTest';
+    protected static $openAPIModelName = 'RevisionActivationRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class NotificationTest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'httpResponse' => 'string',
-        'httpStatus' => 'int'
+        'userIds' => 'int[]',
+        'activateAt' => '\DateTime'
     ];
 
     /**
@@ -67,8 +67,8 @@ class NotificationTest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'httpResponse' => null,
-        'httpStatus' => null
+        'userIds' => null,
+        'activateAt' => 'date-time'
     ];
 
     /**
@@ -98,8 +98,8 @@ class NotificationTest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'httpResponse' => 'httpResponse',
-        'httpStatus' => 'httpStatus'
+        'userIds' => 'userIds',
+        'activateAt' => 'activateAt'
     ];
 
     /**
@@ -108,8 +108,8 @@ class NotificationTest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'httpResponse' => 'setHttpResponse',
-        'httpStatus' => 'setHttpStatus'
+        'userIds' => 'setUserIds',
+        'activateAt' => 'setActivateAt'
     ];
 
     /**
@@ -118,8 +118,8 @@ class NotificationTest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'httpResponse' => 'getHttpResponse',
-        'httpStatus' => 'getHttpStatus'
+        'userIds' => 'getUserIds',
+        'activateAt' => 'getActivateAt'
     ];
 
     /**
@@ -182,8 +182,8 @@ class NotificationTest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['httpResponse'] = isset($data['httpResponse']) ? $data['httpResponse'] : null;
-        $this->container['httpStatus'] = isset($data['httpStatus']) ? $data['httpStatus'] : null;
+        $this->container['userIds'] = isset($data['userIds']) ? $data['userIds'] : null;
+        $this->container['activateAt'] = isset($data['activateAt']) ? $data['activateAt'] : null;
     }
 
     /**
@@ -195,11 +195,8 @@ class NotificationTest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['httpResponse'] === null) {
-            $invalidProperties[] = "'httpResponse' can't be null";
-        }
-        if ($this->container['httpStatus'] === null) {
-            $invalidProperties[] = "'httpStatus' can't be null";
+        if ($this->container['userIds'] === null) {
+            $invalidProperties[] = "'userIds' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,49 +214,49 @@ class NotificationTest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets httpResponse
+     * Gets userIds
      *
-     * @return string
+     * @return int[]
      */
-    public function getHttpResponse()
+    public function getUserIds()
     {
-        return $this->container['httpResponse'];
+        return $this->container['userIds'];
     }
 
     /**
-     * Sets httpResponse
+     * Sets userIds
      *
-     * @param string $httpResponse The returned http response.
+     * @param int[] $userIds The list of IDs of the users who will receive the activation request.
      *
      * @return $this
      */
-    public function setHttpResponse($httpResponse)
+    public function setUserIds($userIds)
     {
-        $this->container['httpResponse'] = $httpResponse;
+        $this->container['userIds'] = $userIds;
 
         return $this;
     }
 
     /**
-     * Gets httpStatus
+     * Gets activateAt
      *
-     * @return int
+     * @return \DateTime|null
      */
-    public function getHttpStatus()
+    public function getActivateAt()
     {
-        return $this->container['httpStatus'];
+        return $this->container['activateAt'];
     }
 
     /**
-     * Sets httpStatus
+     * Sets activateAt
      *
-     * @param int $httpStatus The returned http status code.
+     * @param \DateTime|null $activateAt Time when the revisions are finalized after the `activate_revision` operation. The current time is used when left blank.  **Note:** It must be an RFC3339 timestamp string.
      *
      * @return $this
      */
-    public function setHttpStatus($httpStatus)
+    public function setActivateAt($activateAt)
     {
-        $this->container['httpStatus'] = $httpStatus;
+        $this->container['activateAt'] = $activateAt;
 
         return $this;
     }

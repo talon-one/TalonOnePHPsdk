@@ -238,4 +238,11 @@ class AdditionalCampaignPropertiesTest extends TestCase
     public function testPropertyStoresImported()
     {
     }
+
+    /**
+     * Test attribute "valueMapsIds"
+     */
+    public function testPropertyValueMapsIds()
+    {
+    }
 }

@@ -93,6 +93,13 @@ class TierWillDowngradeNotificationPolicyTest extends TestCase
     }
 
     /**
+     * Test attribute "batchSize"
+     */
+    public function testPropertyBatchSize()
+    {
+    }
+
+    /**
      * Test attribute "triggers"
      */
     public function testPropertyTriggers()

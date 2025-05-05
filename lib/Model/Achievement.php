@@ -72,7 +72,8 @@ class Achievement implements ModelInterface, ArrayAccess
         'campaignId' => 'int',
         'userId' => 'int',
         'createdBy' => 'string',
-        'hasProgress' => 'bool'
+        'hasProgress' => 'bool',
+        'status' => 'string'
     ];
 
     /**
@@ -96,7 +97,8 @@ class Achievement implements ModelInterface, ArrayAccess
         'campaignId' => null,
         'userId' => null,
         'createdBy' => null,
-        'hasProgress' => null
+        'hasProgress' => null,
+        'status' => null
     ];
 
     /**
@@ -141,7 +143,8 @@ class Achievement implements ModelInterface, ArrayAccess
         'campaignId' => 'campaignId',
         'userId' => 'userId',
         'createdBy' => 'createdBy',
-        'hasProgress' => 'hasProgress'
+        'hasProgress' => 'hasProgress',
+        'status' => 'status'
     ];
 
     /**
@@ -165,7 +168,8 @@ class Achievement implements ModelInterface, ArrayAccess
         'campaignId' => 'setCampaignId',
         'userId' => 'setUserId',
         'createdBy' => 'setCreatedBy',
-        'hasProgress' => 'setHasProgress'
+        'hasProgress' => 'setHasProgress',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -189,7 +193,8 @@ class Achievement implements ModelInterface, ArrayAccess
         'campaignId' => 'getCampaignId',
         'userId' => 'getUserId',
         'createdBy' => 'getCreatedBy',
-        'hasProgress' => 'getHasProgress'
+        'hasProgress' => 'getHasProgress',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -237,6 +242,10 @@ class Achievement implements ModelInterface, ArrayAccess
     const RECURRENCE_POLICY_ON_EXPIRATION = 'on_expiration';
     const ACTIVATION_POLICY_USER_ACTION = 'user_action';
     const ACTIVATION_POLICY_FIXED_SCHEDULE = 'fixed_schedule';
+    const STATUS_INPROGRESS = 'inprogress';
+    const STATUS_EXPIRED = 'expired';
+    const STATUS_NOT_STARTED = 'not_started';
+    const STATUS_COMPLETED = 'completed';
     
 
     
@@ -263,6 +272,21 @@ class Achievement implements ModelInterface, ArrayAccess
         return [
             self::ACTIVATION_POLICY_USER_ACTION,
             self::ACTIVATION_POLICY_FIXED_SCHEDULE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_INPROGRESS,
+            self::STATUS_EXPIRED,
+            self::STATUS_NOT_STARTED,
+            self::STATUS_COMPLETED,
         ];
     }
     
@@ -298,6 +322,7 @@ class Achievement implements ModelInterface, ArrayAccess
         $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
         $this->container['hasProgress'] = isset($data['hasProgress']) ? $data['hasProgress'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -339,9 +364,6 @@ class Achievement implements ModelInterface, ArrayAccess
         if ($this->container['target'] === null) {
             $invalidProperties[] = "'target' can't be null";
         }
-        if ($this->container['period'] === null) {
-            $invalidProperties[] = "'period' can't be null";
-        }
         $allowedValues = $this->getRecurrencePolicyAllowableValues();
         if (!is_null($this->container['recurrencePolicy']) && !in_array($this->container['recurrencePolicy'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -364,9 +386,14 @@ class Achievement implements ModelInterface, ArrayAccess
         if ($this->container['userId'] === null) {
             $invalidProperties[] = "'userId' can't be null";
         }
-        if ($this->container['createdBy'] === null) {
-            $invalidProperties[] = "'createdBy' can't be null";
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -539,7 +566,7 @@ class Achievement implements ModelInterface, ArrayAccess
     /**
      * Gets period
      *
-     * @return string
+     * @return string|null
      */
     public function getPeriod()
     {
@@ -549,7 +576,7 @@ class Achievement implements ModelInterface, ArrayAccess
     /**
      * Sets period
      *
-     * @param string $period The relative duration after which the achievement ends and resets for a particular customer profile.  **Note**: The `period` does not start when the achievement is created.  The period is a **positive real number** followed by one letter indicating the time unit.  Examples: `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can also round certain units down to the beginning of period and up to the end of period.: - `_D` for rounding down days only. Signifies the start of the day. Example: `30D_D` - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. Example: `23W_U`  **Note**: You can either use the round down and round up option or set an absolute period.
+     * @param string|null $period The relative duration after which the achievement ends and resets for a particular customer profile.  **Note**: The `period` does not start when the achievement is created.  The period is a **positive real number** followed by one letter indicating the time unit.  Examples: `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can also round certain units down to the beginning of period and up to the end of period.: - `_D` for rounding down days only. Signifies the start of the day. Example: `30D_D` - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. Example: `23W_U`  **Note**: You can either use the round down and round up option or set an absolute period.
      *
      * @return $this
      */
@@ -711,7 +738,7 @@ class Achievement implements ModelInterface, ArrayAccess
     /**
      * Sets campaignId
      *
-     * @param int $campaignId ID of the campaign, to which the achievement belongs to
+     * @param int $campaignId The ID of the campaign the achievement belongs to.
      *
      * @return $this
      */
@@ -749,7 +776,7 @@ class Achievement implements ModelInterface, ArrayAccess
     /**
      * Gets createdBy
      *
-     * @return string
+     * @return string|null
      */
     public function getCreatedBy()
     {
@@ -759,7 +786,7 @@ class Achievement implements ModelInterface, ArrayAccess
     /**
      * Sets createdBy
      *
-     * @param string $createdBy Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted.
+     * @param string|null $createdBy Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted.
      *
      * @return $this
      */
@@ -790,6 +817,39 @@ class Achievement implements ModelInterface, ArrayAccess
     public function setHasProgress($hasProgress)
     {
         $this->container['hasProgress'] = $hasProgress;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status The status of the achievement.
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

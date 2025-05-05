@@ -36,6 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * AchievementProgress Class Doc Comment
  *
  * @category Class
+ * @description The current progress of the customer in the achievement.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,13 +58,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'achievementId' => 'int',
-        'name' => 'string',
-        'title' => 'string',
-        'description' => 'string',
-        'campaignId' => 'int',
         'status' => 'string',
-        'target' => 'float',
         'progress' => 'float',
         'startDate' => '\DateTime',
         'completionDate' => '\DateTime',
@@ -76,13 +71,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'achievementId' => null,
-        'name' => null,
-        'title' => null,
-        'description' => 'string',
-        'campaignId' => null,
         'status' => null,
-        'target' => null,
         'progress' => null,
         'startDate' => 'date-time',
         'completionDate' => 'date-time',
@@ -116,13 +105,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'achievementId' => 'achievementId',
-        'name' => 'name',
-        'title' => 'title',
-        'description' => 'description',
-        'campaignId' => 'campaignId',
         'status' => 'status',
-        'target' => 'target',
         'progress' => 'progress',
         'startDate' => 'startDate',
         'completionDate' => 'completionDate',
@@ -135,13 +118,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'achievementId' => 'setAchievementId',
-        'name' => 'setName',
-        'title' => 'setTitle',
-        'description' => 'setDescription',
-        'campaignId' => 'setCampaignId',
         'status' => 'setStatus',
-        'target' => 'setTarget',
         'progress' => 'setProgress',
         'startDate' => 'setStartDate',
         'completionDate' => 'setCompletionDate',
@@ -154,13 +131,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'achievementId' => 'getAchievementId',
-        'name' => 'getName',
-        'title' => 'getTitle',
-        'description' => 'getDescription',
-        'campaignId' => 'getCampaignId',
         'status' => 'getStatus',
-        'target' => 'getTarget',
         'progress' => 'getProgress',
         'startDate' => 'getStartDate',
         'completionDate' => 'getCompletionDate',
@@ -211,6 +182,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
     const STATUS_INPROGRESS = 'inprogress';
     const STATUS_COMPLETED = 'completed';
     const STATUS_EXPIRED = 'expired';
+    const STATUS_NOT_STARTED = 'not_started';
     
 
     
@@ -225,6 +197,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
             self::STATUS_INPROGRESS,
             self::STATUS_COMPLETED,
             self::STATUS_EXPIRED,
+            self::STATUS_NOT_STARTED,
         ];
     }
     
@@ -244,13 +217,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['achievementId'] = isset($data['achievementId']) ? $data['achievementId'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['target'] = isset($data['target']) ? $data['target'] : null;
         $this->container['progress'] = isset($data['progress']) ? $data['progress'] : null;
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['completionDate'] = isset($data['completionDate']) ? $data['completionDate'] : null;
@@ -266,33 +233,6 @@ class AchievementProgress implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['achievementId'] === null) {
-            $invalidProperties[] = "'achievementId' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ((mb_strlen($this->container['name']) > 1000)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 1000.";
-        }
-
-        if ((mb_strlen($this->container['name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
-        }
-
-        if (!preg_match("/^[a-zA-Z]\\w+$/", $this->container['name'])) {
-            $invalidProperties[] = "invalid value for 'name', must be conform to the pattern /^[a-zA-Z]\\w+$/.";
-        }
-
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
-        }
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
-        if ($this->container['campaignId'] === null) {
-            $invalidProperties[] = "'campaignId' can't be null";
-        }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
@@ -306,12 +246,6 @@ class AchievementProgress implements ModelInterface, ArrayAccess
 
         if ($this->container['progress'] === null) {
             $invalidProperties[] = "'progress' can't be null";
-        }
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
-        }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
         }
         return $invalidProperties;
     }
@@ -327,136 +261,6 @@ class AchievementProgress implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets achievementId
-     *
-     * @return int
-     */
-    public function getAchievementId()
-    {
-        return $this->container['achievementId'];
-    }
-
-    /**
-     * Sets achievementId
-     *
-     * @param int $achievementId The internal ID of the achievement.
-     *
-     * @return $this
-     */
-    public function setAchievementId($achievementId)
-    {
-        $this->container['achievementId'] = $achievementId;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The internal name of the achievement used in API requests.
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        if ((mb_strlen($name) > 1000)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling AchievementProgress., must be smaller than or equal to 1000.');
-        }
-        if ((mb_strlen($name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling AchievementProgress., must be bigger than or equal to 1.');
-        }
-        if ((!preg_match("/^[a-zA-Z]\\w+$/", $name))) {
-            throw new \InvalidArgumentException("invalid value for $name when calling AchievementProgress., must conform to the pattern /^[a-zA-Z]\\w+$/.");
-        }
-
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->container['title'];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string $title The display name of the achievement in the Campaign Manager.
-     *
-     * @return $this
-     */
-    public function setTitle($title)
-    {
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description The description of the achievement in the Campaign Manager.
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaignId
-     *
-     * @return int
-     */
-    public function getCampaignId()
-    {
-        return $this->container['campaignId'];
-    }
-
-    /**
-     * Sets campaignId
-     *
-     * @param int $campaignId The ID of the campaign the achievement belongs to.
-     *
-     * @return $this
-     */
-    public function setCampaignId($campaignId)
-    {
-        $this->container['campaignId'] = $campaignId;
-
-        return $this;
-    }
 
     /**
      * Gets status
@@ -492,30 +296,6 @@ class AchievementProgress implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets target
-     *
-     * @return float|null
-     */
-    public function getTarget()
-    {
-        return $this->container['target'];
-    }
-
-    /**
-     * Sets target
-     *
-     * @param float|null $target The required number of actions or the transactional milestone to complete the achievement.
-     *
-     * @return $this
-     */
-    public function setTarget($target)
-    {
-        $this->container['target'] = $target;
-
-        return $this;
-    }
-
-    /**
      * Gets progress
      *
      * @return float
@@ -542,7 +322,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
     /**
      * Gets startDate
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getStartDate()
     {
@@ -552,7 +332,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
     /**
      * Sets startDate
      *
-     * @param \DateTime $startDate Timestamp at which the customer started the achievement.
+     * @param \DateTime|null $startDate Timestamp at which the customer started the achievement.
      *
      * @return $this
      */
@@ -590,7 +370,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
     /**
      * Gets endDate
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getEndDate()
     {
@@ -600,7 +380,7 @@ class AchievementProgress implements ModelInterface, ArrayAccess
     /**
      * Sets endDate
      *
-     * @param \DateTime $endDate Timestamp at which point the achievement ends and resets for the customer.
+     * @param \DateTime|null $endDate Timestamp at which point the achievement ends and resets for the customer.
      *
      * @return $this
      */

@@ -69,7 +69,8 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
         'amount' => 'float',
         'id' => 'int',
         'rulesetId' => 'int',
-        'ruleName' => 'string'
+        'ruleName' => 'string',
+        'flags' => '\TalonOne\Client\Model\LoyaltyLedgerEntryFlags'
     ];
 
     /**
@@ -89,7 +90,8 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
         'amount' => null,
         'id' => null,
         'rulesetId' => null,
-        'ruleName' => null
+        'ruleName' => null,
+        'flags' => null
     ];
 
     /**
@@ -130,7 +132,8 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
         'amount' => 'amount',
         'id' => 'id',
         'rulesetId' => 'rulesetId',
-        'ruleName' => 'ruleName'
+        'ruleName' => 'ruleName',
+        'flags' => 'flags'
     ];
 
     /**
@@ -150,7 +153,8 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
         'amount' => 'setAmount',
         'id' => 'setId',
         'rulesetId' => 'setRulesetId',
-        'ruleName' => 'setRuleName'
+        'ruleName' => 'setRuleName',
+        'flags' => 'setFlags'
     ];
 
     /**
@@ -170,7 +174,8 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
         'amount' => 'getAmount',
         'id' => 'getId',
         'rulesetId' => 'getRulesetId',
-        'ruleName' => 'getRuleName'
+        'ruleName' => 'getRuleName',
+        'flags' => 'getFlags'
     ];
 
     /**
@@ -260,6 +265,7 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['rulesetId'] = isset($data['rulesetId']) ? $data['rulesetId'] : null;
         $this->container['ruleName'] = isset($data['ruleName']) ? $data['ruleName'] : null;
+        $this->container['flags'] = isset($data['flags']) ? $data['flags'] : null;
     }
 
     /**
@@ -654,6 +660,30 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
     public function setRuleName($ruleName)
     {
         $this->container['ruleName'] = $ruleName;
+
+        return $this;
+    }
+
+    /**
+     * Gets flags
+     *
+     * @return \TalonOne\Client\Model\LoyaltyLedgerEntryFlags|null
+     */
+    public function getFlags()
+    {
+        return $this->container['flags'];
+    }
+
+    /**
+     * Sets flags
+     *
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntryFlags|null $flags flags
+     *
+     * @return $this
+     */
+    public function setFlags($flags)
+    {
+        $this->container['flags'] = $flags;
 
         return $this;
     }

@@ -61,7 +61,8 @@ class LoyaltyBalance implements ModelInterface, ArrayAccess
         'activePoints' => 'float',
         'pendingPoints' => 'float',
         'spentPoints' => 'float',
-        'expiredPoints' => 'float'
+        'expiredPoints' => 'float',
+        'negativePoints' => 'float'
     ];
 
     /**
@@ -73,7 +74,8 @@ class LoyaltyBalance implements ModelInterface, ArrayAccess
         'activePoints' => null,
         'pendingPoints' => null,
         'spentPoints' => null,
-        'expiredPoints' => null
+        'expiredPoints' => null,
+        'negativePoints' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class LoyaltyBalance implements ModelInterface, ArrayAccess
         'activePoints' => 'activePoints',
         'pendingPoints' => 'pendingPoints',
         'spentPoints' => 'spentPoints',
-        'expiredPoints' => 'expiredPoints'
+        'expiredPoints' => 'expiredPoints',
+        'negativePoints' => 'negativePoints'
     ];
 
     /**
@@ -118,7 +121,8 @@ class LoyaltyBalance implements ModelInterface, ArrayAccess
         'activePoints' => 'setActivePoints',
         'pendingPoints' => 'setPendingPoints',
         'spentPoints' => 'setSpentPoints',
-        'expiredPoints' => 'setExpiredPoints'
+        'expiredPoints' => 'setExpiredPoints',
+        'negativePoints' => 'setNegativePoints'
     ];
 
     /**
@@ -130,7 +134,8 @@ class LoyaltyBalance implements ModelInterface, ArrayAccess
         'activePoints' => 'getActivePoints',
         'pendingPoints' => 'getPendingPoints',
         'spentPoints' => 'getSpentPoints',
-        'expiredPoints' => 'getExpiredPoints'
+        'expiredPoints' => 'getExpiredPoints',
+        'negativePoints' => 'getNegativePoints'
     ];
 
     /**
@@ -197,6 +202,7 @@ class LoyaltyBalance implements ModelInterface, ArrayAccess
         $this->container['pendingPoints'] = isset($data['pendingPoints']) ? $data['pendingPoints'] : null;
         $this->container['spentPoints'] = isset($data['spentPoints']) ? $data['spentPoints'] : null;
         $this->container['expiredPoints'] = isset($data['expiredPoints']) ? $data['expiredPoints'] : null;
+        $this->container['negativePoints'] = isset($data['negativePoints']) ? $data['negativePoints'] : null;
     }
 
     /**
@@ -315,6 +321,30 @@ class LoyaltyBalance implements ModelInterface, ArrayAccess
     public function setExpiredPoints($expiredPoints)
     {
         $this->container['expiredPoints'] = $expiredPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets negativePoints
+     *
+     * @return float|null
+     */
+    public function getNegativePoints()
+    {
+        return $this->container['negativePoints'];
+    }
+
+    /**
+     * Sets negativePoints
+     *
+     * @param float|null $negativePoints Total amount of negative points. This implies that `activePoints` is `0`.
+     *
+     * @return $this
+     */
+    public function setNegativePoints($negativePoints)
+    {
+        $this->container['negativePoints'] = $negativePoints;
 
         return $this;
     }

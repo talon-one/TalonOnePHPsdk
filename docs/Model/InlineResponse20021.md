@@ -4,9 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**totalResultSize** | **int** |  | [optional] 
-**hasMore** | **bool** |  | [optional] 
-**data** | [**\TalonOne\Client\Model\ApplicationCustomer[]**](ApplicationCustomer.md) |  | 
+**hasMore** | **bool** |  | 
+**data** | [**\TalonOne\Client\Model\CollectionItem[]**](CollectionItem.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

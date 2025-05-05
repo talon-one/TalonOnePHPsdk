@@ -59,7 +59,8 @@ class SummaryCampaignStoreBudget implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'action' => 'string',
         'period' => 'string',
-        'storeCount' => 'int'
+        'storeCount' => 'int',
+        'imported' => 'bool'
     ];
 
     /**
@@ -70,7 +71,8 @@ class SummaryCampaignStoreBudget implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'action' => null,
         'period' => null,
-        'storeCount' => null
+        'storeCount' => null,
+        'imported' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class SummaryCampaignStoreBudget implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'action' => 'action',
         'period' => 'period',
-        'storeCount' => 'storeCount'
+        'storeCount' => 'storeCount',
+        'imported' => 'imported'
     ];
 
     /**
@@ -113,7 +116,8 @@ class SummaryCampaignStoreBudget implements ModelInterface, ArrayAccess
     protected static $setters = [
         'action' => 'setAction',
         'period' => 'setPeriod',
-        'storeCount' => 'setStoreCount'
+        'storeCount' => 'setStoreCount',
+        'imported' => 'setImported'
     ];
 
     /**
@@ -124,7 +128,8 @@ class SummaryCampaignStoreBudget implements ModelInterface, ArrayAccess
     protected static $getters = [
         'action' => 'getAction',
         'period' => 'getPeriod',
-        'storeCount' => 'getStoreCount'
+        'storeCount' => 'getStoreCount',
+        'imported' => 'getImported'
     ];
 
     /**
@@ -252,6 +257,7 @@ class SummaryCampaignStoreBudget implements ModelInterface, ArrayAccess
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['storeCount'] = isset($data['storeCount']) ? $data['storeCount'] : null;
+        $this->container['imported'] = isset($data['imported']) ? $data['imported'] : null;
     }
 
     /**
@@ -284,6 +290,9 @@ class SummaryCampaignStoreBudget implements ModelInterface, ArrayAccess
 
         if ($this->container['storeCount'] === null) {
             $invalidProperties[] = "'storeCount' can't be null";
+        }
+        if ($this->container['imported'] === null) {
+            $invalidProperties[] = "'imported' can't be null";
         }
         return $invalidProperties;
     }
@@ -386,6 +395,30 @@ class SummaryCampaignStoreBudget implements ModelInterface, ArrayAccess
     public function setStoreCount($storeCount)
     {
         $this->container['storeCount'] = $storeCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets imported
+     *
+     * @return bool
+     */
+    public function getImported()
+    {
+        return $this->container['imported'];
+    }
+
+    /**
+     * Sets imported
+     *
+     * @param bool $imported imported
+     *
+     * @return $this
+     */
+    public function setImported($imported)
+    {
+        $this->container['imported'] = $imported;
 
         return $this;
     }

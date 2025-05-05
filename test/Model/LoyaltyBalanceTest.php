@@ -105,4 +105,11 @@ class LoyaltyBalanceTest extends TestCase
     public function testPropertyExpiredPoints()
     {
     }
+
+    /**
+     * Test attribute "negativePoints"
+     */
+    public function testPropertyNegativePoints()
+    {
+    }
 }

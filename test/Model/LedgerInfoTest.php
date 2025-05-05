@@ -93,6 +93,13 @@ class LedgerInfoTest extends TestCase
     }
 
     /**
+     * Test attribute "negativeBalance"
+     */
+    public function testPropertyNegativeBalance()
+    {
+    }
+
+    /**
      * Test attribute "expiredBalance"
      */
     public function testPropertyExpiredBalance()
@@ -117,6 +124,13 @@ class LedgerInfoTest extends TestCase
      * Test attribute "tentativePendingBalance"
      */
     public function testPropertyTentativePendingBalance()
+    {
+    }
+
+    /**
+     * Test attribute "tentativeNegativeBalance"
+     */
+    public function testPropertyTentativeNegativeBalance()
     {
     }
 

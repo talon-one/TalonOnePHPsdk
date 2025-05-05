@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AchievementProgressTest Class Doc Comment
  *
  * @category    Class
- * @description AchievementProgress
+ * @description The current progress of the customer in the achievement.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -79,51 +79,9 @@ class AchievementProgressTest extends TestCase
     }
 
     /**
-     * Test attribute "achievementId"
-     */
-    public function testPropertyAchievementId()
-    {
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "title"
-     */
-    public function testPropertyTitle()
-    {
-    }
-
-    /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
-    {
-    }
-
-    /**
-     * Test attribute "campaignId"
-     */
-    public function testPropertyCampaignId()
-    {
-    }
-
-    /**
      * Test attribute "status"
      */
     public function testPropertyStatus()
-    {
-    }
-
-    /**
-     * Test attribute "target"
-     */
-    public function testPropertyTarget()
     {
     }
 

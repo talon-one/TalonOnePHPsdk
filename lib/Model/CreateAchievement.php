@@ -297,9 +297,6 @@ class CreateAchievement implements ModelInterface, ArrayAccess
         if ($this->container['target'] === null) {
             $invalidProperties[] = "'target' can't be null";
         }
-        if ($this->container['period'] === null) {
-            $invalidProperties[] = "'period' can't be null";
-        }
         $allowedValues = $this->getRecurrencePolicyAllowableValues();
         if (!is_null($this->container['recurrencePolicy']) && !in_array($this->container['recurrencePolicy'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -440,7 +437,7 @@ class CreateAchievement implements ModelInterface, ArrayAccess
     /**
      * Gets period
      *
-     * @return string
+     * @return string|null
      */
     public function getPeriod()
     {
@@ -450,7 +447,7 @@ class CreateAchievement implements ModelInterface, ArrayAccess
     /**
      * Sets period
      *
-     * @param string $period The relative duration after which the achievement ends and resets for a particular customer profile.  **Note**: The `period` does not start when the achievement is created.  The period is a **positive real number** followed by one letter indicating the time unit.  Examples: `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can also round certain units down to the beginning of period and up to the end of period.: - `_D` for rounding down days only. Signifies the start of the day. Example: `30D_D` - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. Example: `23W_U`  **Note**: You can either use the round down and round up option or set an absolute period.
+     * @param string|null $period The relative duration after which the achievement ends and resets for a particular customer profile.  **Note**: The `period` does not start when the achievement is created.  The period is a **positive real number** followed by one letter indicating the time unit.  Examples: `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can also round certain units down to the beginning of period and up to the end of period.: - `_D` for rounding down days only. Signifies the start of the day. Example: `30D_D` - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. Example: `23W_U`  **Note**: You can either use the round down and round up option or set an absolute period.
      *
      * @return $this
      */

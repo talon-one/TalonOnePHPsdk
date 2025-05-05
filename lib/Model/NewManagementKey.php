@@ -65,6 +65,7 @@ class NewManagementKey implements ModelInterface, ArrayAccess
         'createdBy' => 'int',
         'accountID' => 'int',
         'created' => '\DateTime',
+        'disabled' => 'bool',
         'key' => 'string'
     ];
 
@@ -82,6 +83,7 @@ class NewManagementKey implements ModelInterface, ArrayAccess
         'createdBy' => null,
         'accountID' => null,
         'created' => 'date-time',
+        'disabled' => null,
         'key' => null
     ];
 
@@ -120,6 +122,7 @@ class NewManagementKey implements ModelInterface, ArrayAccess
         'createdBy' => 'createdBy',
         'accountID' => 'accountID',
         'created' => 'created',
+        'disabled' => 'disabled',
         'key' => 'key'
     ];
 
@@ -137,6 +140,7 @@ class NewManagementKey implements ModelInterface, ArrayAccess
         'createdBy' => 'setCreatedBy',
         'accountID' => 'setAccountID',
         'created' => 'setCreated',
+        'disabled' => 'setDisabled',
         'key' => 'setKey'
     ];
 
@@ -154,6 +158,7 @@ class NewManagementKey implements ModelInterface, ArrayAccess
         'createdBy' => 'getCreatedBy',
         'accountID' => 'getAccountID',
         'created' => 'getCreated',
+        'disabled' => 'getDisabled',
         'key' => 'getKey'
     ];
 
@@ -225,6 +230,7 @@ class NewManagementKey implements ModelInterface, ArrayAccess
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
         $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['disabled'] = isset($data['disabled']) ? $data['disabled'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
     }
 
@@ -464,6 +470,30 @@ class NewManagementKey implements ModelInterface, ArrayAccess
     public function setCreated($created)
     {
         $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets disabled
+     *
+     * @return bool|null
+     */
+    public function getDisabled()
+    {
+        return $this->container['disabled'];
+    }
+
+    /**
+     * Sets disabled
+     *
+     * @param bool|null $disabled The management key is disabled (this property is set to `true`) when the user who created the key is disabled or deleted.
+     *
+     * @return $this
+     */
+    public function setDisabled($disabled)
+    {
+        $this->container['disabled'] = $disabled;
 
         return $this;
     }

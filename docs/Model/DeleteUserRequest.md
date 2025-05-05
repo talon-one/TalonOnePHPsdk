@@ -1,4 +1,4 @@
-# # DeactivateUserRequest
+# # DeleteUserRequest
 
 ## Properties
 

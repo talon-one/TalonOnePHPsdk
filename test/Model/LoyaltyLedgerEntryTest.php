@@ -175,4 +175,11 @@ class LoyaltyLedgerEntryTest extends TestCase
     public function testPropertyArchived()
     {
     }
+
+    /**
+     * Test attribute "flags"
+     */
+    public function testPropertyFlags()
+    {
+    }
 }

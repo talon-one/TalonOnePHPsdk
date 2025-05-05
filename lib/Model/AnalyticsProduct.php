@@ -58,9 +58,9 @@ class AnalyticsProduct implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'isPreliminary' => 'bool',
         'name' => 'string',
-        'catalogId' => 'int'
+        'catalogId' => 'int',
+        'unitsSold' => '\TalonOne\Client\Model\AnalyticsDataPointWithTrend'
     ];
 
     /**
@@ -70,9 +70,9 @@ class AnalyticsProduct implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'isPreliminary' => null,
         'name' => null,
-        'catalogId' => null
+        'catalogId' => null,
+        'unitsSold' => null
     ];
 
     /**
@@ -103,9 +103,9 @@ class AnalyticsProduct implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'isPreliminary' => 'isPreliminary',
         'name' => 'name',
-        'catalogId' => 'catalogId'
+        'catalogId' => 'catalogId',
+        'unitsSold' => 'unitsSold'
     ];
 
     /**
@@ -115,9 +115,9 @@ class AnalyticsProduct implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'isPreliminary' => 'setIsPreliminary',
         'name' => 'setName',
-        'catalogId' => 'setCatalogId'
+        'catalogId' => 'setCatalogId',
+        'unitsSold' => 'setUnitsSold'
     ];
 
     /**
@@ -127,9 +127,9 @@ class AnalyticsProduct implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'isPreliminary' => 'getIsPreliminary',
         'name' => 'getName',
-        'catalogId' => 'getCatalogId'
+        'catalogId' => 'getCatalogId',
+        'unitsSold' => 'getUnitsSold'
     ];
 
     /**
@@ -193,9 +193,9 @@ class AnalyticsProduct implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['isPreliminary'] = isset($data['isPreliminary']) ? $data['isPreliminary'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['catalogId'] = isset($data['catalogId']) ? $data['catalogId'] : null;
+        $this->container['unitsSold'] = isset($data['unitsSold']) ? $data['unitsSold'] : null;
     }
 
     /**
@@ -210,11 +210,11 @@ class AnalyticsProduct implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['isPreliminary'] === null) {
-            $invalidProperties[] = "'isPreliminary' can't be null";
-        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['catalogId'] === null) {
+            $invalidProperties[] = "'catalogId' can't be null";
         }
         return $invalidProperties;
     }
@@ -244,37 +244,13 @@ class AnalyticsProduct implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id The ID of the analytics-level product.
+     * @param int $id The ID of the product.
      *
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets isPreliminary
-     *
-     * @return bool
-     */
-    public function getIsPreliminary()
-    {
-        return $this->container['isPreliminary'];
-    }
-
-    /**
-     * Sets isPreliminary
-     *
-     * @param bool $isPreliminary Indicates whether the analytics-level product is connected to a catalog and also has a product name.
-     *
-     * @return $this
-     */
-    public function setIsPreliminary($isPreliminary)
-    {
-        $this->container['isPreliminary'] = $isPreliminary;
 
         return $this;
     }
@@ -292,7 +268,7 @@ class AnalyticsProduct implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of the analytics-level product.
+     * @param string $name The name of the product.
      *
      * @return $this
      */
@@ -306,7 +282,7 @@ class AnalyticsProduct implements ModelInterface, ArrayAccess
     /**
      * Gets catalogId
      *
-     * @return int|null
+     * @return int
      */
     public function getCatalogId()
     {
@@ -316,13 +292,37 @@ class AnalyticsProduct implements ModelInterface, ArrayAccess
     /**
      * Sets catalogId
      *
-     * @param int|null $catalogId The ID of the catalog. You can find the ID in the Campaign Manager in **Account** > **Tools** > **Cart item catalogs**.
+     * @param int $catalogId The ID of the catalog. You can find the ID in the Campaign Manager in **Account** > **Tools** > **Cart item catalogs**.
      *
      * @return $this
      */
     public function setCatalogId($catalogId)
     {
         $this->container['catalogId'] = $catalogId;
+
+        return $this;
+    }
+
+    /**
+     * Gets unitsSold
+     *
+     * @return \TalonOne\Client\Model\AnalyticsDataPointWithTrend|null
+     */
+    public function getUnitsSold()
+    {
+        return $this->container['unitsSold'];
+    }
+
+    /**
+     * Sets unitsSold
+     *
+     * @param \TalonOne\Client\Model\AnalyticsDataPointWithTrend|null $unitsSold unitsSold
+     *
+     * @return $this
+     */
+    public function setUnitsSold($unitsSold)
+    {
+        $this->container['unitsSold'] = $unitsSold;
 
         return $this;
     }

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **campaignId** | **int** | The ID of the campaign that owns this entity. | 
-**applicationId** | **int** | The ID of the application that owns this entity. | 
+**applicationId** | **int** | The ID of the Application that owns this entity. | 
 **accountId** | **int** | The ID of the account that owns this entity. | 
 **id** | **int** | Unique ID for this entity. | 
 **action** | **string** | The limitable action of the limit counter. | 

@@ -58,6 +58,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'version' => 'string',
+        'validFrom' => '\DateTime',
         'applicationId' => 'int',
         'currentBatch' => 'int',
         'totalBatches' => 'int',
@@ -71,6 +73,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'version' => null,
+        'validFrom' => 'date-time',
         'applicationId' => null,
         'currentBatch' => null,
         'totalBatches' => null,
@@ -105,6 +109,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'version' => 'version',
+        'validFrom' => 'validFrom',
         'applicationId' => 'applicationId',
         'currentBatch' => 'currentBatch',
         'totalBatches' => 'totalBatches',
@@ -118,6 +124,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'version' => 'setVersion',
+        'validFrom' => 'setValidFrom',
         'applicationId' => 'setApplicationId',
         'currentBatch' => 'setCurrentBatch',
         'totalBatches' => 'setTotalBatches',
@@ -131,6 +139,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'version' => 'getVersion',
+        'validFrom' => 'getValidFrom',
         'applicationId' => 'getApplicationId',
         'currentBatch' => 'getCurrentBatch',
         'totalBatches' => 'getTotalBatches',
@@ -179,8 +189,21 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const VERSION_V2 = 'v2';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVersionAllowableValues()
+    {
+        return [
+            self::VERSION_V2,
+        ];
+    }
     
 
     /**
@@ -198,6 +221,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['validFrom'] = isset($data['validFrom']) ? $data['validFrom'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['currentBatch'] = isset($data['currentBatch']) ? $data['currentBatch'] : null;
         $this->container['totalBatches'] = isset($data['totalBatches']) ? $data['totalBatches'] : null;
@@ -213,6 +238,14 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getVersionAllowableValues();
+        if (!is_null($this->container['version']) && !in_array($this->container['version'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'version', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         if ($this->container['applicationId'] === null) {
             $invalidProperties[] = "'applicationId' can't be null";
@@ -245,6 +278,63 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets version
+     *
+     * @return string|null
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param string|null $version The version of the strikethrough pricing notification.
+     *
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $allowedValues = $this->getVersionAllowableValues();
+        if (!is_null($version) && !in_array($version, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'version', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
+     * Gets validFrom
+     *
+     * @return \DateTime|null
+     */
+    public function getValidFrom()
+    {
+        return $this->container['validFrom'];
+    }
+
+    /**
+     * Sets validFrom
+     *
+     * @param \DateTime|null $validFrom Timestamp at which the strikethrough pricing update becomes valid. Set for **scheduled** strikethrough pricing updates (version: v2) only.
+     *
+     * @return $this
+     */
+    public function setValidFrom($validFrom)
+    {
+        $this->container['validFrom'] = $validFrom;
+
+        return $this;
+    }
+
+    /**
      * Gets applicationId
      *
      * @return int
@@ -257,7 +347,7 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
     /**
      * Sets applicationId
      *
-     * @param int $applicationId The ID of the application that catalog items labels belongs to.
+     * @param int $applicationId The ID of the Application to which the catalog items labels belongs.
      *
      * @return $this
      */

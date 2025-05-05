@@ -212,7 +212,7 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
     const PLATFORM_SEGMENT = 'segment';
     const PLATFORM_BRAZE = 'braze';
     const PLATFORM_MPARTICLE = 'mparticle';
-    const PLATFORM_SELLIGENT = 'selligent';
+    const PLATFORM_SHOPIFY = 'shopify';
     const PLATFORM_ITERABLE = 'iterable';
     const PLATFORM_CUSTOMER_ENGAGEMENT = 'customer_engagement';
     const PLATFORM_CUSTOMER_DATA = 'customer_data';
@@ -234,7 +234,7 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
             self::PLATFORM_SEGMENT,
             self::PLATFORM_BRAZE,
             self::PLATFORM_MPARTICLE,
-            self::PLATFORM_SELLIGENT,
+            self::PLATFORM_SHOPIFY,
             self::PLATFORM_ITERABLE,
             self::PLATFORM_CUSTOMER_ENGAGEMENT,
             self::PLATFORM_CUSTOMER_DATA,

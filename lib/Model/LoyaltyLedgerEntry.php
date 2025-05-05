@@ -71,7 +71,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'name' => 'string',
         'subLedgerID' => 'string',
         'userID' => 'int',
-        'archived' => 'bool'
+        'archived' => 'bool',
+        'flags' => '\TalonOne\Client\Model\LoyaltyLedgerEntryFlags'
     ];
 
     /**
@@ -93,7 +94,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'name' => null,
         'subLedgerID' => null,
         'userID' => null,
-        'archived' => null
+        'archived' => null,
+        'flags' => null
     ];
 
     /**
@@ -136,7 +138,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'name' => 'name',
         'subLedgerID' => 'subLedgerID',
         'userID' => 'userID',
-        'archived' => 'archived'
+        'archived' => 'archived',
+        'flags' => 'flags'
     ];
 
     /**
@@ -158,7 +161,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'subLedgerID' => 'setSubLedgerID',
         'userID' => 'setUserID',
-        'archived' => 'setArchived'
+        'archived' => 'setArchived',
+        'flags' => 'setFlags'
     ];
 
     /**
@@ -180,7 +184,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'subLedgerID' => 'getSubLedgerID',
         'userID' => 'getUserID',
-        'archived' => 'getArchived'
+        'archived' => 'getArchived',
+        'flags' => 'getFlags'
     ];
 
     /**
@@ -257,6 +262,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         $this->container['subLedgerID'] = isset($data['subLedgerID']) ? $data['subLedgerID'] : null;
         $this->container['userID'] = isset($data['userID']) ? $data['userID'] : null;
         $this->container['archived'] = isset($data['archived']) ? $data['archived'] : null;
+        $this->container['flags'] = isset($data['flags']) ? $data['flags'] : null;
     }
 
     /**
@@ -633,6 +639,30 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     public function setArchived($archived)
     {
         $this->container['archived'] = $archived;
+
+        return $this;
+    }
+
+    /**
+     * Gets flags
+     *
+     * @return \TalonOne\Client\Model\LoyaltyLedgerEntryFlags|null
+     */
+    public function getFlags()
+    {
+        return $this->container['flags'];
+    }
+
+    /**
+     * Sets flags
+     *
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntryFlags|null $flags flags
+     *
+     * @return $this
+     */
+    public function setFlags($flags)
+    {
+        $this->container['flags'] = $flags;
 
         return $this;
     }
