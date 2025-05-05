@@ -91,4 +91,11 @@ class AddFreeItemEffectPropsTest extends TestCase
     public function testPropertyName()
     {
     }
+
+    /**
+     * Test attribute "desiredQuantity"
+     */
+    public function testPropertyDesiredQuantity()
+    {
+    }
 }

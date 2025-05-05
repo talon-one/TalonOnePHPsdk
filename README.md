@@ -181,6 +181,8 @@ Class | Method | HTTP request | Description
 *IntegrationApi* | [**deleteCouponReservation**](docs/Api/IntegrationApi.md#deletecouponreservation) | **DELETE** /v1/coupon_reservations/{couponValue} | Delete coupon reservations
 *IntegrationApi* | [**deleteCustomerData**](docs/Api/IntegrationApi.md#deletecustomerdata) | **DELETE** /v1/customer_data/{integrationId} | Delete customer&#39;s personal data
 *IntegrationApi* | [**generateLoyaltyCard**](docs/Api/IntegrationApi.md#generateloyaltycard) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/cards | Generate loyalty card
+*IntegrationApi* | [**getCustomerAchievementHistory**](docs/Api/IntegrationApi.md#getcustomerachievementhistory) | **GET** /v1/customer_profiles/{integrationId}/achievements/{achievementId} | List customer&#39;s achievement history
+*IntegrationApi* | [**getCustomerAchievements**](docs/Api/IntegrationApi.md#getcustomerachievements) | **GET** /v1/customer_profiles/{integrationId}/achievements | List customer&#39;s available achievements
 *IntegrationApi* | [**getCustomerInventory**](docs/Api/IntegrationApi.md#getcustomerinventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | List customer data
 *IntegrationApi* | [**getCustomerSession**](docs/Api/IntegrationApi.md#getcustomersession) | **GET** /v2/customer_sessions/{customerSessionId} | Get customer session
 *IntegrationApi* | [**getLoyaltyBalances**](docs/Api/IntegrationApi.md#getloyaltybalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/balances | Get customer&#39;s loyalty balances
@@ -294,6 +296,7 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**getCustomerProfileAchievementProgress**](docs/Api/ManagementApi.md#getcustomerprofileachievementprogress) | **GET** /v1/applications/{applicationId}/achievement_progress/{integrationId} | List customer achievements
 *ManagementApi* | [**getCustomerProfiles**](docs/Api/ManagementApi.md#getcustomerprofiles) | **GET** /v1/customers/no_total | List customer profiles
 *ManagementApi* | [**getCustomersByAttributes**](docs/Api/ManagementApi.md#getcustomersbyattributes) | **POST** /v1/customer_search/no_total | List customer profiles matching the given attributes
+*ManagementApi* | [**getDashboardStatistics**](docs/Api/ManagementApi.md#getdashboardstatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/dashboard | Get statistics for loyalty dashboard
 *ManagementApi* | [**getEventTypes**](docs/Api/ManagementApi.md#geteventtypes) | **GET** /v1/event_types | List event types
 *ManagementApi* | [**getExports**](docs/Api/ManagementApi.md#getexports) | **GET** /v1/exports | Get exports
 *ManagementApi* | [**getLoyaltyCard**](docs/Api/ManagementApi.md#getloyaltycard) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Get loyalty card
@@ -304,6 +307,7 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**getLoyaltyProgramTransactions**](docs/Api/ManagementApi.md#getloyaltyprogramtransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/transactions | List loyalty program transactions
 *ManagementApi* | [**getLoyaltyPrograms**](docs/Api/ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List loyalty programs
 *ManagementApi* | [**getLoyaltyStatistics**](docs/Api/ManagementApi.md#getloyaltystatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
+*ManagementApi* | [**getMessageLogs**](docs/Api/ManagementApi.md#getmessagelogs) | **GET** /v1/message_logs | List message log entries
 *ManagementApi* | [**getReferralsWithoutTotalCount**](docs/Api/ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 *ManagementApi* | [**getRoleV2**](docs/Api/ManagementApi.md#getrolev2) | **GET** /v2/roles/{roleId} | Get role
 *ManagementApi* | [**getRuleset**](docs/Api/ManagementApi.md#getruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
@@ -334,11 +338,7 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**listCollections**](docs/Api/ManagementApi.md#listcollections) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | List collections in campaign
 *ManagementApi* | [**listCollectionsInApplication**](docs/Api/ManagementApi.md#listcollectionsinapplication) | **GET** /v1/applications/{applicationId}/collections | List collections in Application
 *ManagementApi* | [**listStores**](docs/Api/ManagementApi.md#liststores) | **GET** /v1/applications/{applicationId}/stores | List stores
-*ManagementApi* | [**notificationActivation**](docs/Api/ManagementApi.md#notificationactivation) | **PUT** /v1/notifications/{notificationId}/activation | Activate or deactivate notification
 *ManagementApi* | [**oktaEventHandlerChallenge**](docs/Api/ManagementApi.md#oktaeventhandlerchallenge) | **GET** /v1/provisioning/okta | Validate Okta API ownership
-*ManagementApi* | [**postAddedDeductedPointsNotification**](docs/Api/ManagementApi.md#postaddeddeductedpointsnotification) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/notifications/added_deducted_points | Create notification about added or deducted loyalty points
-*ManagementApi* | [**postCatalogsStrikethroughNotification**](docs/Api/ManagementApi.md#postcatalogsstrikethroughnotification) | **POST** /v1/applications/{applicationId}/catalogs/notifications/strikethrough | Create strikethrough notification
-*ManagementApi* | [**postPendingPointsNotification**](docs/Api/ManagementApi.md#postpendingpointsnotification) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/notifications/pending_points | Create notification about pending loyalty points
 *ManagementApi* | [**removeLoyaltyPoints**](docs/Api/ManagementApi.md#removeloyaltypoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/deduct_points | Deduct points from customer profile
 *ManagementApi* | [**resetPassword**](docs/Api/ManagementApi.md#resetpassword) | **POST** /v1/reset_password | Reset password
 *ManagementApi* | [**scimCreateUser**](docs/Api/ManagementApi.md#scimcreateuser) | **POST** /v1/provisioning/scim/Users | Create SCIM user
@@ -386,7 +386,10 @@ Class | Method | HTTP request | Description
 - [AccountLimits](docs/Model/AccountLimits.md)
 - [Achievement](docs/Model/Achievement.md)
 - [AchievementAdditionalProperties](docs/Model/AchievementAdditionalProperties.md)
+- [AchievementBase](docs/Model/AchievementBase.md)
 - [AchievementProgress](docs/Model/AchievementProgress.md)
+- [AchievementProgressWithDefinition](docs/Model/AchievementProgressWithDefinition.md)
+- [AchievementStatusEntry](docs/Model/AchievementStatusEntry.md)
 - [AddFreeItemEffectProps](docs/Model/AddFreeItemEffectProps.md)
 - [AddItemCatalogAction](docs/Model/AddItemCatalogAction.md)
 - [AddLoyaltyPoints](docs/Model/AddLoyaltyPoints.md)
@@ -400,13 +403,14 @@ Class | Method | HTTP request | Description
 - [AnalyticsDataPointWithTrendAndInfluencedRate](docs/Model/AnalyticsDataPointWithTrendAndInfluencedRate.md)
 - [AnalyticsDataPointWithTrendAndUplift](docs/Model/AnalyticsDataPointWithTrendAndUplift.md)
 - [AnalyticsProduct](docs/Model/AnalyticsProduct.md)
-- [AnalyticsProductSKU](docs/Model/AnalyticsProductSKU.md)
+- [AnalyticsSKU](docs/Model/AnalyticsSKU.md)
 - [Application](docs/Model/Application.md)
 - [ApplicationAPIKey](docs/Model/ApplicationAPIKey.md)
 - [ApplicationAnalyticsDataPoint](docs/Model/ApplicationAnalyticsDataPoint.md)
 - [ApplicationApiHealth](docs/Model/ApplicationApiHealth.md)
 - [ApplicationCIF](docs/Model/ApplicationCIF.md)
 - [ApplicationCIFExpression](docs/Model/ApplicationCIFExpression.md)
+- [ApplicationCIFReferences](docs/Model/ApplicationCIFReferences.md)
 - [ApplicationCampaignAnalytics](docs/Model/ApplicationCampaignAnalytics.md)
 - [ApplicationCampaignStats](docs/Model/ApplicationCampaignStats.md)
 - [ApplicationCustomer](docs/Model/ApplicationCustomer.md)
@@ -450,6 +454,7 @@ Class | Method | HTTP request | Description
 - [CampaignCopy](docs/Model/CampaignCopy.md)
 - [CampaignCreatedNotification](docs/Model/CampaignCreatedNotification.md)
 - [CampaignDeletedNotification](docs/Model/CampaignDeletedNotification.md)
+- [CampaignDetail](docs/Model/CampaignDetail.md)
 - [CampaignEditedNotification](docs/Model/CampaignEditedNotification.md)
 - [CampaignEntity](docs/Model/CampaignEntity.md)
 - [CampaignEvaluationGroup](docs/Model/CampaignEvaluationGroup.md)
@@ -467,6 +472,7 @@ Class | Method | HTTP request | Description
 - [CampaignSetNode](docs/Model/CampaignSetNode.md)
 - [CampaignStateChangedNotification](docs/Model/CampaignStateChangedNotification.md)
 - [CampaignStoreBudget](docs/Model/CampaignStoreBudget.md)
+- [CampaignStoreBudgetLimitConfig](docs/Model/CampaignStoreBudgetLimitConfig.md)
 - [CampaignTemplate](docs/Model/CampaignTemplate.md)
 - [CampaignTemplateCollection](docs/Model/CampaignTemplateCollection.md)
 - [CampaignTemplateCouponReservationSettings](docs/Model/CampaignTemplateCouponReservationSettings.md)
@@ -523,9 +529,9 @@ Class | Method | HTTP request | Description
 - [CustomerProfileUpdateV2Response](docs/Model/CustomerProfileUpdateV2Response.md)
 - [CustomerSession](docs/Model/CustomerSession.md)
 - [CustomerSessionV2](docs/Model/CustomerSessionV2.md)
-- [DeactivateUserRequest](docs/Model/DeactivateUserRequest.md)
 - [DeductLoyaltyPoints](docs/Model/DeductLoyaltyPoints.md)
 - [DeductLoyaltyPointsEffectProps](docs/Model/DeductLoyaltyPointsEffectProps.md)
+- [DeleteUserRequest](docs/Model/DeleteUserRequest.md)
 - [Effect](docs/Model/Effect.md)
 - [EffectEntity](docs/Model/EffectEntity.md)
 - [EmailEntity](docs/Model/EmailEntity.md)
@@ -559,6 +565,7 @@ Class | Method | HTTP request | Description
 - [GetIntegrationCouponRequest](docs/Model/GetIntegrationCouponRequest.md)
 - [Giveaway](docs/Model/Giveaway.md)
 - [GiveawaysPool](docs/Model/GiveawaysPool.md)
+- [HiddenConditionsEffects](docs/Model/HiddenConditionsEffects.md)
 - [IdentifiableEntity](docs/Model/IdentifiableEntity.md)
 - [Import](docs/Model/Import.md)
 - [ImportEntity](docs/Model/ImportEntity.md)
@@ -605,6 +612,9 @@ Class | Method | HTTP request | Description
 - [InlineResponse20044](docs/Model/InlineResponse20044.md)
 - [InlineResponse20045](docs/Model/InlineResponse20045.md)
 - [InlineResponse20046](docs/Model/InlineResponse20046.md)
+- [InlineResponse20047](docs/Model/InlineResponse20047.md)
+- [InlineResponse20048](docs/Model/InlineResponse20048.md)
+- [InlineResponse20049](docs/Model/InlineResponse20049.md)
 - [InlineResponse2005](docs/Model/InlineResponse2005.md)
 - [InlineResponse2006](docs/Model/InlineResponse2006.md)
 - [InlineResponse2007](docs/Model/InlineResponse2007.md)
@@ -649,6 +659,7 @@ Class | Method | HTTP request | Description
 - [LoyaltyDashboardPointsBreakdown](docs/Model/LoyaltyDashboardPointsBreakdown.md)
 - [LoyaltyLedger](docs/Model/LoyaltyLedger.md)
 - [LoyaltyLedgerEntry](docs/Model/LoyaltyLedgerEntry.md)
+- [LoyaltyLedgerEntryFlags](docs/Model/LoyaltyLedgerEntryFlags.md)
 - [LoyaltyLedgerTransactions](docs/Model/LoyaltyLedgerTransactions.md)
 - [LoyaltyMembership](docs/Model/LoyaltyMembership.md)
 - [LoyaltyProgram](docs/Model/LoyaltyProgram.md)
@@ -664,6 +675,7 @@ Class | Method | HTTP request | Description
 - [MessageLogEntry](docs/Model/MessageLogEntry.md)
 - [MessageLogRequest](docs/Model/MessageLogRequest.md)
 - [MessageLogResponse](docs/Model/MessageLogResponse.md)
+- [MessageTest](docs/Model/MessageTest.md)
 - [Meta](docs/Model/Meta.md)
 - [ModelReturn](docs/Model/ModelReturn.md)
 - [MultiApplicationEntity](docs/Model/MultiApplicationEntity.md)
@@ -715,8 +727,8 @@ Class | Method | HTTP request | Description
 - [NewLoyaltyProgram](docs/Model/NewLoyaltyProgram.md)
 - [NewLoyaltyTier](docs/Model/NewLoyaltyTier.md)
 - [NewManagementKey](docs/Model/NewManagementKey.md)
+- [NewMessageTest](docs/Model/NewMessageTest.md)
 - [NewMultipleAudiencesItem](docs/Model/NewMultipleAudiencesItem.md)
-- [NewNotificationTest](docs/Model/NewNotificationTest.md)
 - [NewNotificationWebhook](docs/Model/NewNotificationWebhook.md)
 - [NewOutgoingIntegrationWebhook](docs/Model/NewOutgoingIntegrationWebhook.md)
 - [NewPassword](docs/Model/NewPassword.md)
@@ -737,7 +749,6 @@ Class | Method | HTTP request | Description
 - [Notification](docs/Model/Notification.md)
 - [NotificationActivation](docs/Model/NotificationActivation.md)
 - [NotificationListItem](docs/Model/NotificationListItem.md)
-- [NotificationTest](docs/Model/NotificationTest.md)
 - [OktaEvent](docs/Model/OktaEvent.md)
 - [OktaEventPayload](docs/Model/OktaEventPayload.md)
 - [OktaEventPayloadData](docs/Model/OktaEventPayloadData.md)
@@ -759,8 +770,9 @@ Class | Method | HTTP request | Description
 - [Picklist](docs/Model/Picklist.md)
 - [Product](docs/Model/Product.md)
 - [ProductSearchMatch](docs/Model/ProductSearchMatch.md)
-- [ProductSkuUnitAnalytics](docs/Model/ProductSkuUnitAnalytics.md)
 - [ProductUnitAnalytics](docs/Model/ProductUnitAnalytics.md)
+- [ProductUnitAnalyticsDataPoint](docs/Model/ProductUnitAnalyticsDataPoint.md)
+- [ProductUnitAnalyticsTotals](docs/Model/ProductUnitAnalyticsTotals.md)
 - [ProfileAudiencesChanges](docs/Model/ProfileAudiencesChanges.md)
 - [ProjectedTier](docs/Model/ProjectedTier.md)
 - [RedeemReferralEffectProps](docs/Model/RedeemReferralEffectProps.md)
@@ -779,6 +791,7 @@ Class | Method | HTTP request | Description
 - [ReturnedCartItem](docs/Model/ReturnedCartItem.md)
 - [Revision](docs/Model/Revision.md)
 - [RevisionActivation](docs/Model/RevisionActivation.md)
+- [RevisionActivationRequest](docs/Model/RevisionActivationRequest.md)
 - [RevisionVersion](docs/Model/RevisionVersion.md)
 - [Role](docs/Model/Role.md)
 - [RoleAssign](docs/Model/RoleAssign.md)
@@ -827,6 +840,8 @@ Class | Method | HTTP request | Description
 - [SetDiscountPerItemEffectProps](docs/Model/SetDiscountPerItemEffectProps.md)
 - [ShowBundleMetadataEffectProps](docs/Model/ShowBundleMetadataEffectProps.md)
 - [ShowNotificationEffectProps](docs/Model/ShowNotificationEffectProps.md)
+- [SkuUnitAnalytics](docs/Model/SkuUnitAnalytics.md)
+- [SkuUnitAnalyticsDataPoint](docs/Model/SkuUnitAnalyticsDataPoint.md)
 - [SlotDef](docs/Model/SlotDef.md)
 - [Store](docs/Model/Store.md)
 - [StrikethroughChangedItem](docs/Model/StrikethroughChangedItem.md)

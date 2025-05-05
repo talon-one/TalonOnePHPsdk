@@ -58,7 +58,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\CollectionItem[]'
+        'data' => '\TalonOne\Client\Model\LoyaltyCard[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\CollectionItem[]
+     * @return \TalonOne\Client\Model\LoyaltyCard[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\CollectionItem[] $data data
+     * @param \TalonOne\Client\Model\LoyaltyCard[] $data data
      *
      * @return $this
      */

@@ -62,7 +62,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'referrals' => '\TalonOne\Client\Model\InventoryReferral[]',
         'coupons' => '\TalonOne\Client\Model\InventoryCoupon[]',
         'giveaways' => '\TalonOne\Client\Model\Giveaway[]',
-        'achievements' => '\TalonOne\Client\Model\AchievementProgress[]'
+        'achievements' => '\TalonOne\Client\Model\AchievementProgressWithDefinition[]'
     ];
 
     /**
@@ -357,7 +357,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     /**
      * Gets achievements
      *
-     * @return \TalonOne\Client\Model\AchievementProgress[]|null
+     * @return \TalonOne\Client\Model\AchievementProgressWithDefinition[]|null
      */
     public function getAchievements()
     {
@@ -367,7 +367,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     /**
      * Sets achievements
      *
-     * @param \TalonOne\Client\Model\AchievementProgress[]|null $achievements achievements
+     * @param \TalonOne\Client\Model\AchievementProgressWithDefinition[]|null $achievements achievements
      *
      * @return $this
      */

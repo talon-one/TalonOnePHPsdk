@@ -63,6 +63,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         'totalPendingPoints' => 'float',
         'totalSpentPoints' => 'float',
         'totalExpiredPoints' => 'float',
+        'totalNegativePoints' => 'float',
         'transactions' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
         'expiringPoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
         'activePoints' => '\TalonOne\Client\Model\LoyaltyLedgerEntry[]',
@@ -82,6 +83,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         'totalPendingPoints' => null,
         'totalSpentPoints' => null,
         'totalExpiredPoints' => null,
+        'totalNegativePoints' => null,
         'transactions' => null,
         'expiringPoints' => null,
         'activePoints' => null,
@@ -122,6 +124,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         'totalPendingPoints' => 'totalPendingPoints',
         'totalSpentPoints' => 'totalSpentPoints',
         'totalExpiredPoints' => 'totalExpiredPoints',
+        'totalNegativePoints' => 'totalNegativePoints',
         'transactions' => 'transactions',
         'expiringPoints' => 'expiringPoints',
         'activePoints' => 'activePoints',
@@ -141,6 +144,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         'totalPendingPoints' => 'setTotalPendingPoints',
         'totalSpentPoints' => 'setTotalSpentPoints',
         'totalExpiredPoints' => 'setTotalExpiredPoints',
+        'totalNegativePoints' => 'setTotalNegativePoints',
         'transactions' => 'setTransactions',
         'expiringPoints' => 'setExpiringPoints',
         'activePoints' => 'setActivePoints',
@@ -160,6 +164,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         'totalPendingPoints' => 'getTotalPendingPoints',
         'totalSpentPoints' => 'getTotalSpentPoints',
         'totalExpiredPoints' => 'getTotalExpiredPoints',
+        'totalNegativePoints' => 'getTotalNegativePoints',
         'transactions' => 'getTransactions',
         'expiringPoints' => 'getExpiringPoints',
         'activePoints' => 'getActivePoints',
@@ -233,6 +238,7 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         $this->container['totalPendingPoints'] = isset($data['totalPendingPoints']) ? $data['totalPendingPoints'] : null;
         $this->container['totalSpentPoints'] = isset($data['totalSpentPoints']) ? $data['totalSpentPoints'] : null;
         $this->container['totalExpiredPoints'] = isset($data['totalExpiredPoints']) ? $data['totalExpiredPoints'] : null;
+        $this->container['totalNegativePoints'] = isset($data['totalNegativePoints']) ? $data['totalNegativePoints'] : null;
         $this->container['transactions'] = isset($data['transactions']) ? $data['transactions'] : null;
         $this->container['expiringPoints'] = isset($data['expiringPoints']) ? $data['expiringPoints'] : null;
         $this->container['activePoints'] = isset($data['activePoints']) ? $data['activePoints'] : null;
@@ -264,6 +270,9 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
         }
         if ($this->container['totalExpiredPoints'] === null) {
             $invalidProperties[] = "'totalExpiredPoints' can't be null";
+        }
+        if ($this->container['totalNegativePoints'] === null) {
+            $invalidProperties[] = "'totalNegativePoints' can't be null";
         }
         return $invalidProperties;
     }
@@ -396,6 +405,30 @@ class LoyaltySubLedger implements ModelInterface, ArrayAccess
     public function setTotalExpiredPoints($totalExpiredPoints)
     {
         $this->container['totalExpiredPoints'] = $totalExpiredPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalNegativePoints
+     *
+     * @return float
+     */
+    public function getTotalNegativePoints()
+    {
+        return $this->container['totalNegativePoints'];
+    }
+
+    /**
+     * Sets totalNegativePoints
+     *
+     * @param float $totalNegativePoints Total amount of negative points. This implies that `totalActivePoints` is `0`.
+     *
+     * @return $this
+     */
+    public function setTotalNegativePoints($totalNegativePoints)
+    {
+        $this->container['totalNegativePoints'] = $totalNegativePoints;
 
         return $this;
     }

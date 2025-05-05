@@ -60,7 +60,8 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
         'campaignId' => 'int',
         'userId' => 'int',
         'createdBy' => 'string',
-        'hasProgress' => 'bool'
+        'hasProgress' => 'bool',
+        'status' => 'string'
     ];
 
     /**
@@ -72,7 +73,8 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
         'campaignId' => null,
         'userId' => null,
         'createdBy' => null,
-        'hasProgress' => null
+        'hasProgress' => null,
+        'status' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
         'campaignId' => 'campaignId',
         'userId' => 'userId',
         'createdBy' => 'createdBy',
-        'hasProgress' => 'hasProgress'
+        'hasProgress' => 'hasProgress',
+        'status' => 'status'
     ];
 
     /**
@@ -117,7 +120,8 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
         'campaignId' => 'setCampaignId',
         'userId' => 'setUserId',
         'createdBy' => 'setCreatedBy',
-        'hasProgress' => 'setHasProgress'
+        'hasProgress' => 'setHasProgress',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -129,7 +133,8 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
         'campaignId' => 'getCampaignId',
         'userId' => 'getUserId',
         'createdBy' => 'getCreatedBy',
-        'hasProgress' => 'getHasProgress'
+        'hasProgress' => 'getHasProgress',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -173,8 +178,27 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STATUS_INPROGRESS = 'inprogress';
+    const STATUS_EXPIRED = 'expired';
+    const STATUS_NOT_STARTED = 'not_started';
+    const STATUS_COMPLETED = 'completed';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_INPROGRESS,
+            self::STATUS_EXPIRED,
+            self::STATUS_NOT_STARTED,
+            self::STATUS_COMPLETED,
+        ];
+    }
     
 
     /**
@@ -196,6 +220,7 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
         $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
         $this->container['hasProgress'] = isset($data['hasProgress']) ? $data['hasProgress'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -213,9 +238,14 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
         if ($this->container['userId'] === null) {
             $invalidProperties[] = "'userId' can't be null";
         }
-        if ($this->container['createdBy'] === null) {
-            $invalidProperties[] = "'createdBy' can't be null";
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -244,7 +274,7 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
     /**
      * Sets campaignId
      *
-     * @param int $campaignId ID of the campaign, to which the achievement belongs to
+     * @param int $campaignId The ID of the campaign the achievement belongs to.
      *
      * @return $this
      */
@@ -282,7 +312,7 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
     /**
      * Gets createdBy
      *
-     * @return string
+     * @return string|null
      */
     public function getCreatedBy()
     {
@@ -292,7 +322,7 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
     /**
      * Sets createdBy
      *
-     * @param string $createdBy Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted.
+     * @param string|null $createdBy Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted.
      *
      * @return $this
      */
@@ -323,6 +353,39 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
     public function setHasProgress($hasProgress)
     {
         $this->container['hasProgress'] = $hasProgress;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status The status of the achievement.
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

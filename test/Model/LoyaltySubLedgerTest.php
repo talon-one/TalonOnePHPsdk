@@ -114,6 +114,13 @@ class LoyaltySubLedgerTest extends TestCase
     }
 
     /**
+     * Test attribute "totalNegativePoints"
+     */
+    public function testPropertyTotalNegativePoints()
+    {
+    }
+
+    /**
      * Test attribute "transactions"
      */
     public function testPropertyTransactions()

@@ -1,6 +1,6 @@
 <?php
 /**
- * AnalyticsProductSKUTest
+ * AchievementProgressWithDefinitionTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * AnalyticsProductSKUTest Class Doc Comment
+ * AchievementProgressWithDefinitionTest Class Doc Comment
  *
  * @category    Class
- * @description AnalyticsProductSKU
+ * @description The current progress of the customer in the achievement.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class AnalyticsProductSKUTest extends TestCase
+class AchievementProgressWithDefinitionTest extends TestCase
 {
 
     /**
@@ -72,30 +72,114 @@ class AnalyticsProductSKUTest extends TestCase
     }
 
     /**
-     * Test "AnalyticsProductSKU"
+     * Test "AchievementProgressWithDefinition"
      */
-    public function testAnalyticsProductSKU()
+    public function testAchievementProgressWithDefinition()
     {
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "status"
      */
-    public function testPropertyId()
+    public function testPropertyStatus()
     {
     }
 
     /**
-     * Test attribute "sku"
+     * Test attribute "progress"
      */
-    public function testPropertySku()
+    public function testPropertyProgress()
     {
     }
 
     /**
-     * Test attribute "lastUpdated"
+     * Test attribute "startDate"
      */
-    public function testPropertyLastUpdated()
+    public function testPropertyStartDate()
+    {
+    }
+
+    /**
+     * Test attribute "completionDate"
+     */
+    public function testPropertyCompletionDate()
+    {
+    }
+
+    /**
+     * Test attribute "endDate"
+     */
+    public function testPropertyEndDate()
+    {
+    }
+
+    /**
+     * Test attribute "achievementId"
+     */
+    public function testPropertyAchievementId()
+    {
+    }
+
+    /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+    }
+
+    /**
+     * Test attribute "title"
+     */
+    public function testPropertyTitle()
+    {
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+    }
+
+    /**
+     * Test attribute "campaignId"
+     */
+    public function testPropertyCampaignId()
+    {
+    }
+
+    /**
+     * Test attribute "target"
+     */
+    public function testPropertyTarget()
+    {
+    }
+
+    /**
+     * Test attribute "achievementRecurrencePolicy"
+     */
+    public function testPropertyAchievementRecurrencePolicy()
+    {
+    }
+
+    /**
+     * Test attribute "achievementActivationPolicy"
+     */
+    public function testPropertyAchievementActivationPolicy()
+    {
+    }
+
+    /**
+     * Test attribute "achievementFixedStartDate"
+     */
+    public function testPropertyAchievementFixedStartDate()
+    {
+    }
+
+    /**
+     * Test attribute "achievementEndDate"
+     */
+    public function testPropertyAchievementEndDate()
     {
     }
 }

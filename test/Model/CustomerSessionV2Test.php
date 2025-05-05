@@ -217,11 +217,4 @@ class CustomerSessionV2Test extends TestCase
     public function testPropertyUpdated()
     {
     }
-
-    /**
-     * Test attribute "closurePrediction"
-     */
-    public function testPropertyClosurePrediction()
-    {
-    }
 }

@@ -57,11 +57,8 @@ class ProductUnitAnalytics implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startTime' => '\DateTime',
-        'endTime' => '\DateTime',
-        'purchasedUnits' => '\TalonOne\Client\Model\AnalyticsDataPointWithTrend',
-        'productId' => 'int',
-        'productName' => 'string'
+        'data' => '\TalonOne\Client\Model\ProductUnitAnalyticsDataPoint[]',
+        'totals' => '\TalonOne\Client\Model\ProductUnitAnalyticsTotals'
     ];
 
     /**
@@ -70,11 +67,8 @@ class ProductUnitAnalytics implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'startTime' => 'date-time',
-        'endTime' => 'date-time',
-        'purchasedUnits' => null,
-        'productId' => null,
-        'productName' => null
+        'data' => null,
+        'totals' => null
     ];
 
     /**
@@ -104,11 +98,8 @@ class ProductUnitAnalytics implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'startTime' => 'startTime',
-        'endTime' => 'endTime',
-        'purchasedUnits' => 'purchasedUnits',
-        'productId' => 'productId',
-        'productName' => 'productName'
+        'data' => 'data',
+        'totals' => 'totals'
     ];
 
     /**
@@ -117,11 +108,8 @@ class ProductUnitAnalytics implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'startTime' => 'setStartTime',
-        'endTime' => 'setEndTime',
-        'purchasedUnits' => 'setPurchasedUnits',
-        'productId' => 'setProductId',
-        'productName' => 'setProductName'
+        'data' => 'setData',
+        'totals' => 'setTotals'
     ];
 
     /**
@@ -130,11 +118,8 @@ class ProductUnitAnalytics implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'startTime' => 'getStartTime',
-        'endTime' => 'getEndTime',
-        'purchasedUnits' => 'getPurchasedUnits',
-        'productId' => 'getProductId',
-        'productName' => 'getProductName'
+        'data' => 'getData',
+        'totals' => 'getTotals'
     ];
 
     /**
@@ -197,11 +182,8 @@ class ProductUnitAnalytics implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
-        $this->container['endTime'] = isset($data['endTime']) ? $data['endTime'] : null;
-        $this->container['purchasedUnits'] = isset($data['purchasedUnits']) ? $data['purchasedUnits'] : null;
-        $this->container['productId'] = isset($data['productId']) ? $data['productId'] : null;
-        $this->container['productName'] = isset($data['productName']) ? $data['productName'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['totals'] = isset($data['totals']) ? $data['totals'] : null;
     }
 
     /**
@@ -213,20 +195,11 @@ class ProductUnitAnalytics implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['startTime'] === null) {
-            $invalidProperties[] = "'startTime' can't be null";
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
         }
-        if ($this->container['endTime'] === null) {
-            $invalidProperties[] = "'endTime' can't be null";
-        }
-        if ($this->container['purchasedUnits'] === null) {
-            $invalidProperties[] = "'purchasedUnits' can't be null";
-        }
-        if ($this->container['productId'] === null) {
-            $invalidProperties[] = "'productId' can't be null";
-        }
-        if ($this->container['productName'] === null) {
-            $invalidProperties[] = "'productName' can't be null";
+        if ($this->container['totals'] === null) {
+            $invalidProperties[] = "'totals' can't be null";
         }
         return $invalidProperties;
     }
@@ -244,121 +217,49 @@ class ProductUnitAnalytics implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets startTime
+     * Gets data
      *
-     * @return \DateTime
+     * @return \TalonOne\Client\Model\ProductUnitAnalyticsDataPoint[]
      */
-    public function getStartTime()
+    public function getData()
     {
-        return $this->container['startTime'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets startTime
+     * Sets data
      *
-     * @param \DateTime $startTime The start of the aggregation time frame in UTC.
+     * @param \TalonOne\Client\Model\ProductUnitAnalyticsDataPoint[] $data data
      *
      * @return $this
      */
-    public function setStartTime($startTime)
+    public function setData($data)
     {
-        $this->container['startTime'] = $startTime;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets endTime
+     * Gets totals
      *
-     * @return \DateTime
+     * @return \TalonOne\Client\Model\ProductUnitAnalyticsTotals
      */
-    public function getEndTime()
+    public function getTotals()
     {
-        return $this->container['endTime'];
+        return $this->container['totals'];
     }
 
     /**
-     * Sets endTime
+     * Sets totals
      *
-     * @param \DateTime $endTime The end of the aggregation time frame in UTC.
+     * @param \TalonOne\Client\Model\ProductUnitAnalyticsTotals $totals totals
      *
      * @return $this
      */
-    public function setEndTime($endTime)
+    public function setTotals($totals)
     {
-        $this->container['endTime'] = $endTime;
-
-        return $this;
-    }
-
-    /**
-     * Gets purchasedUnits
-     *
-     * @return \TalonOne\Client\Model\AnalyticsDataPointWithTrend
-     */
-    public function getPurchasedUnits()
-    {
-        return $this->container['purchasedUnits'];
-    }
-
-    /**
-     * Sets purchasedUnits
-     *
-     * @param \TalonOne\Client\Model\AnalyticsDataPointWithTrend $purchasedUnits purchasedUnits
-     *
-     * @return $this
-     */
-    public function setPurchasedUnits($purchasedUnits)
-    {
-        $this->container['purchasedUnits'] = $purchasedUnits;
-
-        return $this;
-    }
-
-    /**
-     * Gets productId
-     *
-     * @return int
-     */
-    public function getProductId()
-    {
-        return $this->container['productId'];
-    }
-
-    /**
-     * Sets productId
-     *
-     * @param int $productId The ID of the analytics-level product.
-     *
-     * @return $this
-     */
-    public function setProductId($productId)
-    {
-        $this->container['productId'] = $productId;
-
-        return $this;
-    }
-
-    /**
-     * Gets productName
-     *
-     * @return string
-     */
-    public function getProductName()
-    {
-        return $this->container['productName'];
-    }
-
-    /**
-     * Sets productName
-     *
-     * @param string $productName The name of the analytics-level product.
-     *
-     * @return $this
-     */
-    public function setProductName($productName)
-    {
-        $this->container['productName'] = $productName;
+        $this->container['totals'] = $totals;
 
         return $this;
     }

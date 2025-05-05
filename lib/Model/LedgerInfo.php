@@ -60,10 +60,12 @@ class LedgerInfo implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'currentBalance' => 'float',
         'pendingBalance' => 'float',
+        'negativeBalance' => 'float',
         'expiredBalance' => 'float',
         'spentBalance' => 'float',
         'tentativeCurrentBalance' => 'float',
         'tentativePendingBalance' => 'float',
+        'tentativeNegativeBalance' => 'float',
         'currentTier' => '\TalonOne\Client\Model\Tier',
         'pointsToNextTier' => 'float'
     ];
@@ -76,10 +78,12 @@ class LedgerInfo implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'currentBalance' => null,
         'pendingBalance' => null,
+        'negativeBalance' => null,
         'expiredBalance' => null,
         'spentBalance' => null,
         'tentativeCurrentBalance' => null,
         'tentativePendingBalance' => null,
+        'tentativeNegativeBalance' => null,
         'currentTier' => null,
         'pointsToNextTier' => null
     ];
@@ -113,10 +117,12 @@ class LedgerInfo implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'currentBalance' => 'currentBalance',
         'pendingBalance' => 'pendingBalance',
+        'negativeBalance' => 'negativeBalance',
         'expiredBalance' => 'expiredBalance',
         'spentBalance' => 'spentBalance',
         'tentativeCurrentBalance' => 'tentativeCurrentBalance',
         'tentativePendingBalance' => 'tentativePendingBalance',
+        'tentativeNegativeBalance' => 'tentativeNegativeBalance',
         'currentTier' => 'currentTier',
         'pointsToNextTier' => 'pointsToNextTier'
     ];
@@ -129,10 +135,12 @@ class LedgerInfo implements ModelInterface, ArrayAccess
     protected static $setters = [
         'currentBalance' => 'setCurrentBalance',
         'pendingBalance' => 'setPendingBalance',
+        'negativeBalance' => 'setNegativeBalance',
         'expiredBalance' => 'setExpiredBalance',
         'spentBalance' => 'setSpentBalance',
         'tentativeCurrentBalance' => 'setTentativeCurrentBalance',
         'tentativePendingBalance' => 'setTentativePendingBalance',
+        'tentativeNegativeBalance' => 'setTentativeNegativeBalance',
         'currentTier' => 'setCurrentTier',
         'pointsToNextTier' => 'setPointsToNextTier'
     ];
@@ -145,10 +153,12 @@ class LedgerInfo implements ModelInterface, ArrayAccess
     protected static $getters = [
         'currentBalance' => 'getCurrentBalance',
         'pendingBalance' => 'getPendingBalance',
+        'negativeBalance' => 'getNegativeBalance',
         'expiredBalance' => 'getExpiredBalance',
         'spentBalance' => 'getSpentBalance',
         'tentativeCurrentBalance' => 'getTentativeCurrentBalance',
         'tentativePendingBalance' => 'getTentativePendingBalance',
+        'tentativeNegativeBalance' => 'getTentativeNegativeBalance',
         'currentTier' => 'getCurrentTier',
         'pointsToNextTier' => 'getPointsToNextTier'
     ];
@@ -215,10 +225,12 @@ class LedgerInfo implements ModelInterface, ArrayAccess
     {
         $this->container['currentBalance'] = isset($data['currentBalance']) ? $data['currentBalance'] : null;
         $this->container['pendingBalance'] = isset($data['pendingBalance']) ? $data['pendingBalance'] : null;
+        $this->container['negativeBalance'] = isset($data['negativeBalance']) ? $data['negativeBalance'] : null;
         $this->container['expiredBalance'] = isset($data['expiredBalance']) ? $data['expiredBalance'] : null;
         $this->container['spentBalance'] = isset($data['spentBalance']) ? $data['spentBalance'] : null;
         $this->container['tentativeCurrentBalance'] = isset($data['tentativeCurrentBalance']) ? $data['tentativeCurrentBalance'] : null;
         $this->container['tentativePendingBalance'] = isset($data['tentativePendingBalance']) ? $data['tentativePendingBalance'] : null;
+        $this->container['tentativeNegativeBalance'] = isset($data['tentativeNegativeBalance']) ? $data['tentativeNegativeBalance'] : null;
         $this->container['currentTier'] = isset($data['currentTier']) ? $data['currentTier'] : null;
         $this->container['pointsToNextTier'] = isset($data['pointsToNextTier']) ? $data['pointsToNextTier'] : null;
     }
@@ -238,6 +250,9 @@ class LedgerInfo implements ModelInterface, ArrayAccess
         if ($this->container['pendingBalance'] === null) {
             $invalidProperties[] = "'pendingBalance' can't be null";
         }
+        if ($this->container['negativeBalance'] === null) {
+            $invalidProperties[] = "'negativeBalance' can't be null";
+        }
         if ($this->container['expiredBalance'] === null) {
             $invalidProperties[] = "'expiredBalance' can't be null";
         }
@@ -246,6 +261,9 @@ class LedgerInfo implements ModelInterface, ArrayAccess
         }
         if ($this->container['tentativeCurrentBalance'] === null) {
             $invalidProperties[] = "'tentativeCurrentBalance' can't be null";
+        }
+        if ($this->container['tentativeNegativeBalance'] === null) {
+            $invalidProperties[] = "'tentativeNegativeBalance' can't be null";
         }
         return $invalidProperties;
     }
@@ -306,6 +324,30 @@ class LedgerInfo implements ModelInterface, ArrayAccess
     public function setPendingBalance($pendingBalance)
     {
         $this->container['pendingBalance'] = $pendingBalance;
+
+        return $this;
+    }
+
+    /**
+     * Gets negativeBalance
+     *
+     * @return float
+     */
+    public function getNegativeBalance()
+    {
+        return $this->container['negativeBalance'];
+    }
+
+    /**
+     * Sets negativeBalance
+     *
+     * @param float $negativeBalance Sum of negative points. This implies that `currentBalance` is `0`.
+     *
+     * @return $this
+     */
+    public function setNegativeBalance($negativeBalance)
+    {
+        $this->container['negativeBalance'] = $negativeBalance;
 
         return $this;
     }
@@ -402,6 +444,30 @@ class LedgerInfo implements ModelInterface, ArrayAccess
     public function setTentativePendingBalance($tentativePendingBalance)
     {
         $this->container['tentativePendingBalance'] = $tentativePendingBalance;
+
+        return $this;
+    }
+
+    /**
+     * Gets tentativeNegativeBalance
+     *
+     * @return float
+     */
+    public function getTentativeNegativeBalance()
+    {
+        return $this->container['tentativeNegativeBalance'];
+    }
+
+    /**
+     * Sets tentativeNegativeBalance
+     *
+     * @param float $tentativeNegativeBalance The tentative negative balance after all additions and deductions from the current customer session are applied to `negativeBalance`. When the session is closed, the tentative effects are applied and `negativeBalance` is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer.
+     *
+     * @return $this
+     */
+    public function setTentativeNegativeBalance($tentativeNegativeBalance)
+    {
+        $this->container['tentativeNegativeBalance'] = $tentativeNegativeBalance;
 
         return $this;
     }

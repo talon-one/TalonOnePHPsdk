@@ -98,4 +98,11 @@ class ExpiringPointsNotificationPolicyTest extends TestCase
     public function testPropertyBatchingEnabled()
     {
     }
+
+    /**
+     * Test attribute "batchSize"
+     */
+    public function testPropertyBatchSize()
+    {
+    }
 }

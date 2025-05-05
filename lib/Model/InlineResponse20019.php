@@ -58,7 +58,7 @@ class InlineResponse20019 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\AccessLogEntry[]'
+        'data' => '\TalonOne\Client\Model\CardLedgerTransactionLogEntry[]'
     ];
 
     /**
@@ -229,7 +229,7 @@ class InlineResponse20019 implements ModelInterface, ArrayAccess
     /**
      * Sets hasMore
      *
-     * @param bool $hasMore hasMore
+     * @param bool $hasMore true means there is more data in the source collection to request..
      *
      * @return $this
      */
@@ -243,7 +243,7 @@ class InlineResponse20019 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\AccessLogEntry[]
+     * @return \TalonOne\Client\Model\CardLedgerTransactionLogEntry[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20019 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\AccessLogEntry[] $data data
+     * @param \TalonOne\Client\Model\CardLedgerTransactionLogEntry[] $data List of loyalty card transaction logs.
      *
      * @return $this
      */

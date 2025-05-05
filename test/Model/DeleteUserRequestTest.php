@@ -1,6 +1,6 @@
 <?php
 /**
- * NotificationTestTest
+ * DeleteUserRequestTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * NotificationTestTest Class Doc Comment
+ * DeleteUserRequestTest Class Doc Comment
  *
  * @category    Class
- * @description NotificationTest
+ * @description DeleteUserRequest
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class NotificationTestTest extends TestCase
+class DeleteUserRequestTest extends TestCase
 {
 
     /**
@@ -72,23 +72,16 @@ class NotificationTestTest extends TestCase
     }
 
     /**
-     * Test "NotificationTest"
+     * Test "DeleteUserRequest"
      */
-    public function testNotificationTest()
+    public function testDeleteUserRequest()
     {
     }
 
     /**
-     * Test attribute "httpResponse"
+     * Test attribute "email"
      */
-    public function testPropertyHttpResponse()
-    {
-    }
-
-    /**
-     * Test attribute "httpStatus"
-     */
-    public function testPropertyHttpStatus()
+    public function testPropertyEmail()
     {
     }
 }

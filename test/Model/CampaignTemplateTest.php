@@ -252,4 +252,11 @@ class CampaignTemplateTest extends TestCase
     public function testPropertyValidApplicationIds()
     {
     }
+
+    /**
+     * Test attribute "isUserFavorite"
+     */
+    public function testPropertyIsUserFavorite()
+    {
+    }
 }

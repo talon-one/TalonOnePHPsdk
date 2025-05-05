@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**applicationId** | **int** | The ID of the application that owns this entity. | 
+**applicationId** | **int** | The ID of the Application that owns this entity. | 
 **name** | **string** | The name of the campaign evaluation group. | 
 **parentId** | **int** | The ID of the parent group that contains the campaign evaluation group. | 
 **description** | **string** | A description of the campaign evaluation group. | [optional] 

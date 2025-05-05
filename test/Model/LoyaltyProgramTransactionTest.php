@@ -203,4 +203,11 @@ class LoyaltyProgramTransactionTest extends TestCase
     public function testPropertyRuleName()
     {
     }
+
+    /**
+     * Test attribute "flags"
+     */
+    public function testPropertyFlags()
+    {
+    }
 }

@@ -59,6 +59,7 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'batchingEnabled' => 'bool',
+        'batchSize' => 'int',
         'triggers' => '\TalonOne\Client\Model\TierWillDowngradeNotificationTrigger[]'
     ];
 
@@ -70,6 +71,7 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'batchingEnabled' => null,
+        'batchSize' => null,
         'triggers' => null
     ];
 
@@ -102,6 +104,7 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'batchingEnabled' => 'batchingEnabled',
+        'batchSize' => 'batchSize',
         'triggers' => 'triggers'
     ];
 
@@ -113,6 +116,7 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'batchingEnabled' => 'setBatchingEnabled',
+        'batchSize' => 'setBatchSize',
         'triggers' => 'setTriggers'
     ];
 
@@ -124,6 +128,7 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'batchingEnabled' => 'getBatchingEnabled',
+        'batchSize' => 'getBatchSize',
         'triggers' => 'getTriggers'
     ];
 
@@ -189,6 +194,7 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['batchingEnabled'] = isset($data['batchingEnabled']) ? $data['batchingEnabled'] : true;
+        $this->container['batchSize'] = isset($data['batchSize']) ? $data['batchSize'] : null;
         $this->container['triggers'] = isset($data['triggers']) ? $data['triggers'] : null;
     }
 
@@ -275,6 +281,30 @@ class TierWillDowngradeNotificationPolicy implements ModelInterface, ArrayAccess
     public function setBatchingEnabled($batchingEnabled)
     {
         $this->container['batchingEnabled'] = $batchingEnabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets batchSize
+     *
+     * @return int|null
+     */
+    public function getBatchSize()
+    {
+        return $this->container['batchSize'];
+    }
+
+    /**
+     * Sets batchSize
+     *
+     * @param int|null $batchSize The required size of each batch of data. This value applies only when `batchingEnabled` is `true`.
+     *
+     * @return $this
+     */
+    public function setBatchSize($batchSize)
+    {
+        $this->container['batchSize'] = $batchSize;
 
         return $this;
     }

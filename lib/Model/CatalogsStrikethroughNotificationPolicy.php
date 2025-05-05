@@ -57,7 +57,8 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string'
+        'name' => 'string',
+        'aheadOfDaysTrigger' => 'int'
     ];
 
     /**
@@ -66,7 +67,8 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'name' => null
+        'name' => null,
+        'aheadOfDaysTrigger' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name'
+        'name' => 'name',
+        'aheadOfDaysTrigger' => 'aheadOfDaysTrigger'
     ];
 
     /**
@@ -105,7 +108,8 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName'
+        'name' => 'setName',
+        'aheadOfDaysTrigger' => 'setAheadOfDaysTrigger'
     ];
 
     /**
@@ -114,7 +118,8 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName'
+        'name' => 'getName',
+        'aheadOfDaysTrigger' => 'getAheadOfDaysTrigger'
     ];
 
     /**
@@ -178,6 +183,7 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['aheadOfDaysTrigger'] = isset($data['aheadOfDaysTrigger']) ? $data['aheadOfDaysTrigger'] : null;
     }
 
     /**
@@ -194,6 +200,14 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
         }
         if ((mb_strlen($this->container['name']) < 1)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['aheadOfDaysTrigger']) && ($this->container['aheadOfDaysTrigger'] > 30)) {
+            $invalidProperties[] = "invalid value for 'aheadOfDaysTrigger', must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['aheadOfDaysTrigger']) && ($this->container['aheadOfDaysTrigger'] < 1)) {
+            $invalidProperties[] = "invalid value for 'aheadOfDaysTrigger', must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -236,6 +250,38 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
         }
 
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets aheadOfDaysTrigger
+     *
+     * @return int|null
+     */
+    public function getAheadOfDaysTrigger()
+    {
+        return $this->container['aheadOfDaysTrigger'];
+    }
+
+    /**
+     * Sets aheadOfDaysTrigger
+     *
+     * @param int|null $aheadOfDaysTrigger The number of days in advance that strikethrough pricing updates should be sent.
+     *
+     * @return $this
+     */
+    public function setAheadOfDaysTrigger($aheadOfDaysTrigger)
+    {
+
+        if (!is_null($aheadOfDaysTrigger) && ($aheadOfDaysTrigger > 30)) {
+            throw new \InvalidArgumentException('invalid value for $aheadOfDaysTrigger when calling CatalogsStrikethroughNotificationPolicy., must be smaller than or equal to 30.');
+        }
+        if (!is_null($aheadOfDaysTrigger) && ($aheadOfDaysTrigger < 1)) {
+            throw new \InvalidArgumentException('invalid value for $aheadOfDaysTrigger when calling CatalogsStrikethroughNotificationPolicy., must be bigger than or equal to 1.');
+        }
+
+        $this->container['aheadOfDaysTrigger'] = $aheadOfDaysTrigger;
 
         return $this;
     }

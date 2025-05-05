@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **updated** | [**\DateTime**](\DateTime.md) | Timestamp of the most recent update to the campaign template or any of its elements. | [optional] 
 **updatedBy** | **string** | Name of the user who last updated this campaign template, if available. | [optional] 
 **validApplicationIds** | **int[]** | The IDs of the Applications that are related to this entity. | 
+**isUserFavorite** | **bool** | A flag indicating whether the user marked the template as a favorite. | [optional] [default to false]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * DeactivateUserRequest
+ * LoyaltyLedgerEntryFlags
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * DeactivateUserRequest Class Doc Comment
+ * LoyaltyLedgerEntryFlags Class Doc Comment
  *
  * @category Class
+ * @description A map of flags providing additional details about the entry.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DeactivateUserRequest implements ModelInterface, ArrayAccess
+class LoyaltyLedgerEntryFlags implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class DeactivateUserRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DeactivateUserRequest';
+    protected static $openAPIModelName = 'LoyaltyLedgerEntryFlags';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,7 @@ class DeactivateUserRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'string'
+        'createsNegativeBalance' => 'bool'
     ];
 
     /**
@@ -66,7 +67,7 @@ class DeactivateUserRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'email' => 'email'
+        'createsNegativeBalance' => null
     ];
 
     /**
@@ -96,7 +97,7 @@ class DeactivateUserRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email'
+        'createsNegativeBalance' => 'createsNegativeBalance'
     ];
 
     /**
@@ -105,7 +106,7 @@ class DeactivateUserRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail'
+        'createsNegativeBalance' => 'setCreatesNegativeBalance'
     ];
 
     /**
@@ -114,7 +115,7 @@ class DeactivateUserRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail'
+        'createsNegativeBalance' => 'getCreatesNegativeBalance'
     ];
 
     /**
@@ -177,7 +178,7 @@ class DeactivateUserRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['createsNegativeBalance'] = isset($data['createsNegativeBalance']) ? $data['createsNegativeBalance'] : null;
     }
 
     /**
@@ -189,9 +190,6 @@ class DeactivateUserRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['email'] === null) {
-            $invalidProperties[] = "'email' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -208,25 +206,25 @@ class DeactivateUserRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets email
+     * Gets createsNegativeBalance
      *
-     * @return string
+     * @return bool|null
      */
-    public function getEmail()
+    public function getCreatesNegativeBalance()
     {
-        return $this->container['email'];
+        return $this->container['createsNegativeBalance'];
     }
 
     /**
-     * Sets email
+     * Sets createsNegativeBalance
      *
-     * @param string $email The email address associated with the user profile.
+     * @param bool|null $createsNegativeBalance Set to true if the entry creates negative balance.
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setCreatesNegativeBalance($createsNegativeBalance)
     {
-        $this->container['email'] = $email;
+        $this->container['createsNegativeBalance'] = $createsNegativeBalance;
 
         return $this;
     }

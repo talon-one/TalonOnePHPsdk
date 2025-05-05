@@ -79,7 +79,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'updatedBy' => 'string',
         'templateId' => 'int',
         'frontendState' => 'string',
-        'storesImported' => 'bool'
+        'storesImported' => 'bool',
+        'valueMapsIds' => 'int[]'
     ];
 
     /**
@@ -110,7 +111,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'updatedBy' => null,
         'templateId' => null,
         'frontendState' => null,
-        'storesImported' => null
+        'storesImported' => null,
+        'valueMapsIds' => null
     ];
 
     /**
@@ -162,7 +164,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'updatedBy' => 'updatedBy',
         'templateId' => 'templateId',
         'frontendState' => 'frontendState',
-        'storesImported' => 'storesImported'
+        'storesImported' => 'storesImported',
+        'valueMapsIds' => 'valueMapsIds'
     ];
 
     /**
@@ -193,7 +196,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'updatedBy' => 'setUpdatedBy',
         'templateId' => 'setTemplateId',
         'frontendState' => 'setFrontendState',
-        'storesImported' => 'setStoresImported'
+        'storesImported' => 'setStoresImported',
+        'valueMapsIds' => 'setValueMapsIds'
     ];
 
     /**
@@ -224,7 +228,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'updatedBy' => 'getUpdatedBy',
         'templateId' => 'getTemplateId',
         'frontendState' => 'getFrontendState',
-        'storesImported' => 'getStoresImported'
+        'storesImported' => 'getStoresImported',
+        'valueMapsIds' => 'getValueMapsIds'
     ];
 
     /**
@@ -333,6 +338,7 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         $this->container['templateId'] = isset($data['templateId']) ? $data['templateId'] : null;
         $this->container['frontendState'] = isset($data['frontendState']) ? $data['frontendState'] : null;
         $this->container['storesImported'] = isset($data['storesImported']) ? $data['storesImported'] : null;
+        $this->container['valueMapsIds'] = isset($data['valueMapsIds']) ? $data['valueMapsIds'] : null;
     }
 
     /**
@@ -344,9 +350,6 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['budgets'] === null) {
-            $invalidProperties[] = "'budgets' can't be null";
-        }
         if ($this->container['frontendState'] === null) {
             $invalidProperties[] = "'frontendState' can't be null";
         }
@@ -379,7 +382,7 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
     /**
      * Gets budgets
      *
-     * @return \TalonOne\Client\Model\CampaignBudget[]
+     * @return \TalonOne\Client\Model\CampaignBudget[]|null
      */
     public function getBudgets()
     {
@@ -389,7 +392,7 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
     /**
      * Sets budgets
      *
-     * @param \TalonOne\Client\Model\CampaignBudget[] $budgets A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined.
+     * @param \TalonOne\Client\Model\CampaignBudget[]|null $budgets A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined.
      *
      * @return $this
      */
@@ -933,6 +936,30 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
     public function setStoresImported($storesImported)
     {
         $this->container['storesImported'] = $storesImported;
+
+        return $this;
+    }
+
+    /**
+     * Gets valueMapsIds
+     *
+     * @return int[]|null
+     */
+    public function getValueMapsIds()
+    {
+        return $this->container['valueMapsIds'];
+    }
+
+    /**
+     * Sets valueMapsIds
+     *
+     * @param int[]|null $valueMapsIds A list of value map IDs for the campaign.
+     *
+     * @return $this
+     */
+    public function setValueMapsIds($valueMapsIds)
+    {
+        $this->container['valueMapsIds'] = $valueMapsIds;
 
         return $this;
     }

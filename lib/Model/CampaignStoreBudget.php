@@ -61,7 +61,7 @@ class CampaignStoreBudget implements ModelInterface, ArrayAccess
         'created' => '\DateTime',
         'campaignId' => 'int',
         'storeId' => 'int',
-        'limits' => '\TalonOne\Client\Model\LimitConfig[]'
+        'limits' => '\TalonOne\Client\Model\CampaignStoreBudgetLimitConfig[]'
     ];
 
     /**
@@ -342,7 +342,7 @@ class CampaignStoreBudget implements ModelInterface, ArrayAccess
     /**
      * Gets limits
      *
-     * @return \TalonOne\Client\Model\LimitConfig[]
+     * @return \TalonOne\Client\Model\CampaignStoreBudgetLimitConfig[]
      */
     public function getLimits()
     {
@@ -352,7 +352,7 @@ class CampaignStoreBudget implements ModelInterface, ArrayAccess
     /**
      * Sets limits
      *
-     * @param \TalonOne\Client\Model\LimitConfig[] $limits The set of budget limits for stores linked to the campaign.
+     * @param \TalonOne\Client\Model\CampaignStoreBudgetLimitConfig[] $limits The set of budget limits for stores linked to the campaign.
      *
      * @return $this
      */

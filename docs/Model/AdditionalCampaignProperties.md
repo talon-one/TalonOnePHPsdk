@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**budgets** | [**\TalonOne\Client\Model\CampaignBudget[]**](CampaignBudget.md) | A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined. | 
+**budgets** | [**\TalonOne\Client\Model\CampaignBudget[]**](CampaignBudget.md) | A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined. | [optional] 
 **couponRedemptionCount** | **int** | This property is **deprecated**. The count should be available under *budgets* property. Number of coupons redeemed in the campaign. | [optional] 
 **referralRedemptionCount** | **int** | This property is **deprecated**. The count should be available under *budgets* property. Number of referral codes redeemed in the campaign. | [optional] 
 **discountCount** | **float** | This property is **deprecated**. The count should be available under *budgets* property. Total amount of discounts redeemed in the campaign. | [optional] 
@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **templateId** | **int** | The ID of the Campaign Template this Campaign was created from. | [optional] 
 **frontendState** | **string** | The campaign state displayed in the Campaign Manager. | 
 **storesImported** | **bool** | Indicates whether the linked stores were imported via a CSV file. | 
+**valueMapsIds** | **int[]** | A list of value map IDs for the campaign. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

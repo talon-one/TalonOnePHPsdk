@@ -189,4 +189,11 @@ class AchievementTest extends TestCase
     public function testPropertyHasProgress()
     {
     }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+    }
 }

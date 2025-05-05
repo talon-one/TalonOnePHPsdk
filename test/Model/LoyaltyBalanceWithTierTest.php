@@ -107,6 +107,13 @@ class LoyaltyBalanceWithTierTest extends TestCase
     }
 
     /**
+     * Test attribute "negativePoints"
+     */
+    public function testPropertyNegativePoints()
+    {
+    }
+
+    /**
      * Test attribute "currentTier"
      */
     public function testPropertyCurrentTier()

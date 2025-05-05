@@ -1,6 +1,6 @@
 <?php
 /**
- * NewNotificationTestTest
+ * InlineResponse20048Test
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * NewNotificationTestTest Class Doc Comment
+ * InlineResponse20048Test Class Doc Comment
  *
  * @category    Class
- * @description NewNotificationTest
+ * @description InlineResponse20048
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class NewNotificationTestTest extends TestCase
+class InlineResponse20048Test extends TestCase
 {
 
     /**
@@ -72,51 +72,23 @@ class NewNotificationTestTest extends TestCase
     }
 
     /**
-     * Test "NewNotificationTest"
+     * Test "InlineResponse20048"
      */
-    public function testNewNotificationTest()
+    public function testInlineResponse20048()
     {
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "hasMore"
      */
-    public function testPropertyType()
+    public function testPropertyHasMore()
     {
     }
 
     /**
-     * Test attribute "queryParams"
+     * Test attribute "data"
      */
-    public function testPropertyQueryParams()
-    {
-    }
-
-    /**
-     * Test attribute "headers"
-     */
-    public function testPropertyHeaders()
-    {
-    }
-
-    /**
-     * Test attribute "verb"
-     */
-    public function testPropertyVerb()
-    {
-    }
-
-    /**
-     * Test attribute "url"
-     */
-    public function testPropertyUrl()
-    {
-    }
-
-    /**
-     * Test attribute "payload"
-     */
-    public function testPropertyPayload()
+    public function testPropertyData()
     {
     }
 }

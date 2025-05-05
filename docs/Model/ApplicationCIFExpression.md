@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **cartItemFilterId** | **int** | The ID of the Application cart item filter. | [optional] 
 **createdBy** | **int** | The ID of the user who created the Application cart item filter. | [optional] 
 **expression** | **object[]** | Arbitrary additional JSON data associated with the Application cart item filter. | [optional] 
-**applicationId** | **int** | The ID of the application that owns this entity. | 
+**applicationId** | **int** | The ID of the Application that owns this entity. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

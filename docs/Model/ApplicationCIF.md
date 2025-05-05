@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **modifiedBy** | **int** | The ID of the user who last updated the Application cart item filter. | [optional] 
 **createdBy** | **int** | The ID of the user who created the Application cart item filter. | [optional] 
 **modified** | [**\DateTime**](\DateTime.md) | Timestamp of the most recent update to the Application cart item filter. | [optional] 
-**applicationId** | **int** | The ID of the application that owns this entity. | 
+**applicationId** | **int** | The ID of the Application that owns this entity. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

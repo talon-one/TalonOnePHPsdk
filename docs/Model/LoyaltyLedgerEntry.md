@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **subLedgerID** | **string** | This specifies if we are adding loyalty points to the main ledger or a subledger. | 
 **userID** | **int** | This is the ID of the user who created this entry, if the addition or subtraction was done manually. | [optional] 
 **archived** | **bool** | Indicates if the entry belongs to the archived session. | [optional] 
+**flags** | [**\TalonOne\Client\Model\LoyaltyLedgerEntryFlags**](LoyaltyLedgerEntryFlags.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

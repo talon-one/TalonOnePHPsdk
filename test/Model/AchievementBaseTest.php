@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductSkuUnitAnalyticsTest
+ * AchievementBaseTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ProductSkuUnitAnalyticsTest Class Doc Comment
+ * AchievementBaseTest Class Doc Comment
  *
  * @category    Class
- * @description ProductSkuUnitAnalytics
+ * @description AchievementBase
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ProductSkuUnitAnalyticsTest extends TestCase
+class AchievementBaseTest extends TestCase
 {
 
     /**
@@ -72,37 +72,79 @@ class ProductSkuUnitAnalyticsTest extends TestCase
     }
 
     /**
-     * Test "ProductSkuUnitAnalytics"
+     * Test "AchievementBase"
      */
-    public function testProductSkuUnitAnalytics()
+    public function testAchievementBase()
     {
     }
 
     /**
-     * Test attribute "startTime"
+     * Test attribute "name"
      */
-    public function testPropertyStartTime()
+    public function testPropertyName()
     {
     }
 
     /**
-     * Test attribute "endTime"
+     * Test attribute "title"
      */
-    public function testPropertyEndTime()
+    public function testPropertyTitle()
     {
     }
 
     /**
-     * Test attribute "purchasedUnits"
+     * Test attribute "description"
      */
-    public function testPropertyPurchasedUnits()
+    public function testPropertyDescription()
     {
     }
 
     /**
-     * Test attribute "sku"
+     * Test attribute "target"
      */
-    public function testPropertySku()
+    public function testPropertyTarget()
+    {
+    }
+
+    /**
+     * Test attribute "period"
+     */
+    public function testPropertyPeriod()
+    {
+    }
+
+    /**
+     * Test attribute "periodEndOverride"
+     */
+    public function testPropertyPeriodEndOverride()
+    {
+    }
+
+    /**
+     * Test attribute "recurrencePolicy"
+     */
+    public function testPropertyRecurrencePolicy()
+    {
+    }
+
+    /**
+     * Test attribute "activationPolicy"
+     */
+    public function testPropertyActivationPolicy()
+    {
+    }
+
+    /**
+     * Test attribute "fixedStartDate"
+     */
+    public function testPropertyFixedStartDate()
+    {
+    }
+
+    /**
+     * Test attribute "endDate"
+     */
+    public function testPropertyEndDate()
     {
     }
 }

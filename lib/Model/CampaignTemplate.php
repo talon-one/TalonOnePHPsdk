@@ -81,7 +81,8 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'campaignType' => 'string',
         'updated' => '\DateTime',
         'updatedBy' => 'string',
-        'validApplicationIds' => 'int[]'
+        'validApplicationIds' => 'int[]',
+        'isUserFavorite' => 'bool'
     ];
 
     /**
@@ -114,7 +115,8 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'campaignType' => null,
         'updated' => 'date-time',
         'updatedBy' => null,
-        'validApplicationIds' => null
+        'validApplicationIds' => null,
+        'isUserFavorite' => null
     ];
 
     /**
@@ -168,7 +170,8 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'campaignType' => 'campaignType',
         'updated' => 'updated',
         'updatedBy' => 'updatedBy',
-        'validApplicationIds' => 'validApplicationIds'
+        'validApplicationIds' => 'validApplicationIds',
+        'isUserFavorite' => 'isUserFavorite'
     ];
 
     /**
@@ -201,7 +204,8 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'campaignType' => 'setCampaignType',
         'updated' => 'setUpdated',
         'updatedBy' => 'setUpdatedBy',
-        'validApplicationIds' => 'setValidApplicationIds'
+        'validApplicationIds' => 'setValidApplicationIds',
+        'isUserFavorite' => 'setIsUserFavorite'
     ];
 
     /**
@@ -234,7 +238,8 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'campaignType' => 'getCampaignType',
         'updated' => 'getUpdated',
         'updatedBy' => 'getUpdatedBy',
-        'validApplicationIds' => 'getValidApplicationIds'
+        'validApplicationIds' => 'getValidApplicationIds',
+        'isUserFavorite' => 'getIsUserFavorite'
     ];
 
     /**
@@ -377,6 +382,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['updatedBy'] = isset($data['updatedBy']) ? $data['updatedBy'] : null;
         $this->container['validApplicationIds'] = isset($data['validApplicationIds']) ? $data['validApplicationIds'] : null;
+        $this->container['isUserFavorite'] = isset($data['isUserFavorite']) ? $data['isUserFavorite'] : false;
     }
 
     /**
@@ -1084,6 +1090,30 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
     public function setValidApplicationIds($validApplicationIds)
     {
         $this->container['validApplicationIds'] = $validApplicationIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets isUserFavorite
+     *
+     * @return bool|null
+     */
+    public function getIsUserFavorite()
+    {
+        return $this->container['isUserFavorite'];
+    }
+
+    /**
+     * Sets isUserFavorite
+     *
+     * @param bool|null $isUserFavorite A flag indicating whether the user marked the template as a favorite.
+     *
+     * @return $this
+     */
+    public function setIsUserFavorite($isUserFavorite)
+    {
+        $this->container['isUserFavorite'] = $isUserFavorite;
 
         return $this;
     }

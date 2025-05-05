@@ -135,6 +135,13 @@ class NewManagementKeyTest extends TestCase
     }
 
     /**
+     * Test attribute "disabled"
+     */
+    public function testPropertyDisabled()
+    {
+    }
+
+    /**
      * Test attribute "key"
      */
     public function testPropertyKey()

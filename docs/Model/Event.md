@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Internal ID of this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
-**applicationId** | **int** | The ID of the application that owns this entity. | 
+**applicationId** | **int** | The ID of the Application that owns this entity. | 
 **profileId** | **string** | ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;. | [optional] 
 **storeIntegrationId** | **string** | The integration ID of the store. You choose this ID when you create a store. | [optional] 
 **type** | **string** | A string representing the event. Must not be a reserved event name. | 

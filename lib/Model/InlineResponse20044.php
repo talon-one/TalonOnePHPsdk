@@ -57,9 +57,9 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'hasMore' => 'bool',
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\Store[]'
+        'hasMore' => 'bool',
+        'data' => '\TalonOne\Client\Model\Change[]'
     ];
 
     /**
@@ -68,8 +68,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'hasMore' => null,
         'totalResultSize' => null,
+        'hasMore' => null,
         'data' => null
     ];
 
@@ -100,8 +100,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'hasMore' => 'hasMore',
         'totalResultSize' => 'totalResultSize',
+        'hasMore' => 'hasMore',
         'data' => 'data'
     ];
 
@@ -111,8 +111,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'hasMore' => 'setHasMore',
         'totalResultSize' => 'setTotalResultSize',
+        'hasMore' => 'setHasMore',
         'data' => 'setData'
     ];
 
@@ -122,8 +122,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'hasMore' => 'getHasMore',
         'totalResultSize' => 'getTotalResultSize',
+        'hasMore' => 'getHasMore',
         'data' => 'getData'
     ];
 
@@ -187,8 +187,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
         $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
+        $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -220,30 +220,6 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets hasMore
-     *
-     * @return bool|null
-     */
-    public function getHasMore()
-    {
-        return $this->container['hasMore'];
-    }
-
-    /**
-     * Sets hasMore
-     *
-     * @param bool|null $hasMore hasMore
-     *
-     * @return $this
-     */
-    public function setHasMore($hasMore)
-    {
-        $this->container['hasMore'] = $hasMore;
-
-        return $this;
-    }
-
-    /**
      * Gets totalResultSize
      *
      * @return int|null
@@ -268,9 +244,33 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets hasMore
+     *
+     * @return bool|null
+     */
+    public function getHasMore()
+    {
+        return $this->container['hasMore'];
+    }
+
+    /**
+     * Sets hasMore
+     *
+     * @param bool|null $hasMore hasMore
+     *
+     * @return $this
+     */
+    public function setHasMore($hasMore)
+    {
+        $this->container['hasMore'] = $hasMore;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\Store[]
+     * @return \TalonOne\Client\Model\Change[]
      */
     public function getData()
     {
@@ -280,7 +280,7 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\Store[] $data data
+     * @param \TalonOne\Client\Model\Change[] $data data
      *
      * @return $this
      */

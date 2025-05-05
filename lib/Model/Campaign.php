@@ -99,6 +99,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'templateId' => 'int',
         'frontendState' => 'string',
         'storesImported' => 'bool',
+        'valueMapsIds' => 'int[]',
         'revisionFrontendState' => 'string',
         'activeRevisionId' => 'int',
         'activeRevisionVersionId' => 'int',
@@ -156,6 +157,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'templateId' => null,
         'frontendState' => null,
         'storesImported' => null,
+        'valueMapsIds' => null,
         'revisionFrontendState' => null,
         'activeRevisionId' => null,
         'activeRevisionVersionId' => null,
@@ -234,6 +236,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'templateId' => 'templateId',
         'frontendState' => 'frontendState',
         'storesImported' => 'storesImported',
+        'valueMapsIds' => 'valueMapsIds',
         'revisionFrontendState' => 'revisionFrontendState',
         'activeRevisionId' => 'activeRevisionId',
         'activeRevisionVersionId' => 'activeRevisionVersionId',
@@ -291,6 +294,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'templateId' => 'setTemplateId',
         'frontendState' => 'setFrontendState',
         'storesImported' => 'setStoresImported',
+        'valueMapsIds' => 'setValueMapsIds',
         'revisionFrontendState' => 'setRevisionFrontendState',
         'activeRevisionId' => 'setActiveRevisionId',
         'activeRevisionVersionId' => 'setActiveRevisionVersionId',
@@ -348,6 +352,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'templateId' => 'getTemplateId',
         'frontendState' => 'getFrontendState',
         'storesImported' => 'getStoresImported',
+        'valueMapsIds' => 'getValueMapsIds',
         'revisionFrontendState' => 'getRevisionFrontendState',
         'activeRevisionId' => 'getActiveRevisionId',
         'activeRevisionVersionId' => 'getActiveRevisionVersionId',
@@ -552,6 +557,7 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['templateId'] = isset($data['templateId']) ? $data['templateId'] : null;
         $this->container['frontendState'] = isset($data['frontendState']) ? $data['frontendState'] : null;
         $this->container['storesImported'] = isset($data['storesImported']) ? $data['storesImported'] : null;
+        $this->container['valueMapsIds'] = isset($data['valueMapsIds']) ? $data['valueMapsIds'] : null;
         $this->container['revisionFrontendState'] = isset($data['revisionFrontendState']) ? $data['revisionFrontendState'] : null;
         $this->container['activeRevisionId'] = isset($data['activeRevisionId']) ? $data['activeRevisionId'] : null;
         $this->container['activeRevisionVersionId'] = isset($data['activeRevisionVersionId']) ? $data['activeRevisionVersionId'] : null;
@@ -623,9 +629,6 @@ class Campaign implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['budgets'] === null) {
-            $invalidProperties[] = "'budgets' can't be null";
-        }
         if ($this->container['frontendState'] === null) {
             $invalidProperties[] = "'frontendState' can't be null";
         }
@@ -724,7 +727,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets applicationId
      *
-     * @param int $applicationId The ID of the application that owns this entity.
+     * @param int $applicationId The ID of the Application that owns this entity.
      *
      * @return $this
      */
@@ -1154,7 +1157,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Gets budgets
      *
-     * @return \TalonOne\Client\Model\CampaignBudget[]
+     * @return \TalonOne\Client\Model\CampaignBudget[]|null
      */
     public function getBudgets()
     {
@@ -1164,7 +1167,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets budgets
      *
-     * @param \TalonOne\Client\Model\CampaignBudget[] $budgets A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined.
+     * @param \TalonOne\Client\Model\CampaignBudget[]|null $budgets A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined.
      *
      * @return $this
      */
@@ -1708,6 +1711,30 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setStoresImported($storesImported)
     {
         $this->container['storesImported'] = $storesImported;
+
+        return $this;
+    }
+
+    /**
+     * Gets valueMapsIds
+     *
+     * @return int[]|null
+     */
+    public function getValueMapsIds()
+    {
+        return $this->container['valueMapsIds'];
+    }
+
+    /**
+     * Sets valueMapsIds
+     *
+     * @param int[]|null $valueMapsIds A list of value map IDs for the campaign.
+     *
+     * @return $this
+     */
+    public function setValueMapsIds($valueMapsIds)
+    {
+        $this->container['valueMapsIds'] = $valueMapsIds;
 
         return $this;
     }

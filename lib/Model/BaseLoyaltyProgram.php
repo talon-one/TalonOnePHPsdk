@@ -239,6 +239,7 @@ class BaseLoyaltyProgram implements ModelInterface, ArrayAccess
     const TIERS_DOWNGRADE_POLICY_BALANCE_BASED = 'balance_based';
     const RETURN_POLICY_ONLY_PENDING = 'only_pending';
     const RETURN_POLICY_WITHIN_BALANCE = 'within_balance';
+    const RETURN_POLICY_UNLIMITED = 'unlimited';
     
 
     
@@ -294,6 +295,7 @@ class BaseLoyaltyProgram implements ModelInterface, ArrayAccess
         return [
             self::RETURN_POLICY_ONLY_PENDING,
             self::RETURN_POLICY_WITHIN_BALANCE,
+            self::RETURN_POLICY_UNLIMITED,
         ];
     }
     
@@ -771,7 +773,7 @@ class BaseLoyaltyProgram implements ModelInterface, ArrayAccess
     /**
      * Sets returnPolicy
      *
-     * @param string|null $returnPolicy The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - `only_pending`: Only pending points can be rolled back. - `within_balance`: Available active points can be rolled back if there aren't enough pending points. The active balance of the customer cannot be negative.
+     * @param string|null $returnPolicy The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - `only_pending`: Only pending points can be rolled back. - `within_balance`: Available active points can be rolled back if there aren't enough pending points. The active balance of the customer cannot be negative. - `unlimited`: Allows negative balance without any limit.
      *
      * @return $this
      */

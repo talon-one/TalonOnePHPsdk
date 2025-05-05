@@ -373,6 +373,13 @@ class CampaignTest extends TestCase
     }
 
     /**
+     * Test attribute "valueMapsIds"
+     */
+    public function testPropertyValueMapsIds()
+    {
+    }
+
+    /**
      * Test attribute "revisionFrontendState"
      */
     public function testPropertyRevisionFrontendState()

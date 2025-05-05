@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Internal ID of this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
-**applicationId** | **int** | The ID of the application that owns this entity. | 
+**applicationId** | **int** | The ID of the Application that owns this entity. | 
 **accountId** | **int** | The ID of the account that owns this entity. | 
 **filters** | [**\TalonOne\Client\Model\CouponDeletionFilters**](CouponDeletionFilters.md) |  | 
 **status** | **string** | The current status of this request. Possible values: - &#x60;not_ready&#x60; - &#x60;pending&#x60; - &#x60;completed&#x60; - &#x60;failed&#x60; | 

@@ -460,7 +460,7 @@ class Store implements ModelInterface, ArrayAccess
     /**
      * Sets applicationId
      *
-     * @param int $applicationId The ID of the application that owns this entity.
+     * @param int $applicationId The ID of the Application that owns this entity.
      *
      * @return $this
      */

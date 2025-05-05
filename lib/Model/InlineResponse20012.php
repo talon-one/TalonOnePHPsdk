@@ -58,7 +58,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\CampaignTemplate[]'
+        'data' => '\TalonOne\Client\Model\Referral[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\CampaignTemplate[]
+     * @return \TalonOne\Client\Model\Referral[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\CampaignTemplate[] $data data
+     * @param \TalonOne\Client\Model\Referral[] $data data
      *
      * @return $this
      */

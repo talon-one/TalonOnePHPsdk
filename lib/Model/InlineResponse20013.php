@@ -58,7 +58,7 @@ class InlineResponse20013 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\LoyaltyProgram[]'
+        'data' => '\TalonOne\Client\Model\CampaignGroup[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse20013 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\LoyaltyProgram[]
+     * @return \TalonOne\Client\Model\CampaignGroup[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20013 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\LoyaltyProgram[] $data data
+     * @param \TalonOne\Client\Model\CampaignGroup[] $data data
      *
      * @return $this
      */

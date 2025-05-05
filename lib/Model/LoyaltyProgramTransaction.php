@@ -74,7 +74,8 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
         'userId' => 'int',
         'userEmail' => 'string',
         'rulesetId' => 'int',
-        'ruleName' => 'string'
+        'ruleName' => 'string',
+        'flags' => '\TalonOne\Client\Model\LoyaltyLedgerEntryFlags'
     ];
 
     /**
@@ -100,7 +101,8 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
         'userId' => null,
         'userEmail' => null,
         'rulesetId' => null,
-        'ruleName' => null
+        'ruleName' => null,
+        'flags' => null
     ];
 
     /**
@@ -147,7 +149,8 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
         'userId' => 'userId',
         'userEmail' => 'userEmail',
         'rulesetId' => 'rulesetId',
-        'ruleName' => 'ruleName'
+        'ruleName' => 'ruleName',
+        'flags' => 'flags'
     ];
 
     /**
@@ -173,7 +176,8 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
         'userId' => 'setUserId',
         'userEmail' => 'setUserEmail',
         'rulesetId' => 'setRulesetId',
-        'ruleName' => 'setRuleName'
+        'ruleName' => 'setRuleName',
+        'flags' => 'setFlags'
     ];
 
     /**
@@ -199,7 +203,8 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
         'userId' => 'getUserId',
         'userEmail' => 'getUserEmail',
         'rulesetId' => 'getRulesetId',
-        'ruleName' => 'getRuleName'
+        'ruleName' => 'getRuleName',
+        'flags' => 'getFlags'
     ];
 
     /**
@@ -295,6 +300,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
         $this->container['userEmail'] = isset($data['userEmail']) ? $data['userEmail'] : null;
         $this->container['rulesetId'] = isset($data['rulesetId']) ? $data['rulesetId'] : null;
         $this->container['ruleName'] = isset($data['ruleName']) ? $data['ruleName'] : null;
+        $this->container['flags'] = isset($data['flags']) ? $data['flags'] : null;
     }
 
     /**
@@ -856,6 +862,30 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
     public function setRuleName($ruleName)
     {
         $this->container['ruleName'] = $ruleName;
+
+        return $this;
+    }
+
+    /**
+     * Gets flags
+     *
+     * @return \TalonOne\Client\Model\LoyaltyLedgerEntryFlags|null
+     */
+    public function getFlags()
+    {
+        return $this->container['flags'];
+    }
+
+    /**
+     * Sets flags
+     *
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntryFlags|null $flags flags
+     *
+     * @return $this
+     */
+    public function setFlags($flags)
+    {
+        $this->container['flags'] = $flags;
 
         return $this;
     }

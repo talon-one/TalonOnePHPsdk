@@ -79,6 +79,20 @@ class StrikethroughLabelingNotificationTest extends TestCase
     }
 
     /**
+     * Test attribute "version"
+     */
+    public function testPropertyVersion()
+    {
+    }
+
+    /**
+     * Test attribute "validFrom"
+     */
+    public function testPropertyValidFrom()
+    {
+    }
+
+    /**
      * Test attribute "applicationId"
      */
     public function testPropertyApplicationId()

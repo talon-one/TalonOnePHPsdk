@@ -62,6 +62,7 @@ class LoyaltyBalanceWithTier implements ModelInterface, ArrayAccess
         'pendingPoints' => 'float',
         'spentPoints' => 'float',
         'expiredPoints' => 'float',
+        'negativePoints' => 'float',
         'currentTier' => '\TalonOne\Client\Model\Tier',
         'projectedTier' => '\TalonOne\Client\Model\ProjectedTier',
         'pointsToNextTier' => 'float',
@@ -78,6 +79,7 @@ class LoyaltyBalanceWithTier implements ModelInterface, ArrayAccess
         'pendingPoints' => null,
         'spentPoints' => null,
         'expiredPoints' => null,
+        'negativePoints' => null,
         'currentTier' => null,
         'projectedTier' => null,
         'pointsToNextTier' => null,
@@ -115,6 +117,7 @@ class LoyaltyBalanceWithTier implements ModelInterface, ArrayAccess
         'pendingPoints' => 'pendingPoints',
         'spentPoints' => 'spentPoints',
         'expiredPoints' => 'expiredPoints',
+        'negativePoints' => 'negativePoints',
         'currentTier' => 'currentTier',
         'projectedTier' => 'projectedTier',
         'pointsToNextTier' => 'pointsToNextTier',
@@ -131,6 +134,7 @@ class LoyaltyBalanceWithTier implements ModelInterface, ArrayAccess
         'pendingPoints' => 'setPendingPoints',
         'spentPoints' => 'setSpentPoints',
         'expiredPoints' => 'setExpiredPoints',
+        'negativePoints' => 'setNegativePoints',
         'currentTier' => 'setCurrentTier',
         'projectedTier' => 'setProjectedTier',
         'pointsToNextTier' => 'setPointsToNextTier',
@@ -147,6 +151,7 @@ class LoyaltyBalanceWithTier implements ModelInterface, ArrayAccess
         'pendingPoints' => 'getPendingPoints',
         'spentPoints' => 'getSpentPoints',
         'expiredPoints' => 'getExpiredPoints',
+        'negativePoints' => 'getNegativePoints',
         'currentTier' => 'getCurrentTier',
         'projectedTier' => 'getProjectedTier',
         'pointsToNextTier' => 'getPointsToNextTier',
@@ -217,6 +222,7 @@ class LoyaltyBalanceWithTier implements ModelInterface, ArrayAccess
         $this->container['pendingPoints'] = isset($data['pendingPoints']) ? $data['pendingPoints'] : null;
         $this->container['spentPoints'] = isset($data['spentPoints']) ? $data['spentPoints'] : null;
         $this->container['expiredPoints'] = isset($data['expiredPoints']) ? $data['expiredPoints'] : null;
+        $this->container['negativePoints'] = isset($data['negativePoints']) ? $data['negativePoints'] : null;
         $this->container['currentTier'] = isset($data['currentTier']) ? $data['currentTier'] : null;
         $this->container['projectedTier'] = isset($data['projectedTier']) ? $data['projectedTier'] : null;
         $this->container['pointsToNextTier'] = isset($data['pointsToNextTier']) ? $data['pointsToNextTier'] : null;
@@ -339,6 +345,30 @@ class LoyaltyBalanceWithTier implements ModelInterface, ArrayAccess
     public function setExpiredPoints($expiredPoints)
     {
         $this->container['expiredPoints'] = $expiredPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets negativePoints
+     *
+     * @return float|null
+     */
+    public function getNegativePoints()
+    {
+        return $this->container['negativePoints'];
+    }
+
+    /**
+     * Sets negativePoints
+     *
+     * @param float|null $negativePoints Total amount of negative points. This implies that `activePoints` is `0`.
+     *
+     * @return $this
+     */
+    public function setNegativePoints($negativePoints)
+    {
+        $this->container['negativePoints'] = $negativePoints;
 
         return $this;
     }

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **totalPendingPoints** | **float** | Total amount of pending points, which are not active yet but will become active in the future. | 
 **totalSpentPoints** | **float** | Total amount of points already spent by this customer. | 
 **totalExpiredPoints** | **float** | Total amount of points, that expired without ever being spent. | 
+**totalNegativePoints** | **float** | Total amount of negative points. This implies that &#x60;totalActivePoints&#x60; is &#x60;0&#x60;. | 
 **transactions** | [**\TalonOne\Client\Model\LoyaltyLedgerEntry[]**](LoyaltyLedgerEntry.md) | List of all events that have happened such as additions, subtractions and expiries. | [optional] 
 **expiringPoints** | [**\TalonOne\Client\Model\LoyaltyLedgerEntry[]**](LoyaltyLedgerEntry.md) | List of all points that will expire. | [optional] 
 **activePoints** | [**\TalonOne\Client\Model\LoyaltyLedgerEntry[]**](LoyaltyLedgerEntry.md) | List of all currently active points. | [optional] 

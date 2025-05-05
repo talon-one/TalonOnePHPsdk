@@ -1,6 +1,6 @@
 <?php
 /**
- * NewNotificationTest
+ * NewMessageTest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TalonOne\Client\ObjectSerializer;
 
 /**
- * NewNotificationTest Class Doc Comment
+ * NewMessageTest Class Doc Comment
  *
  * @category Class
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class NewNotificationTest implements ModelInterface, ArrayAccess
+class NewMessageTest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class NewNotificationTest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'NewNotificationTest';
+    protected static $openAPIModelName = 'NewMessageTest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -195,6 +195,7 @@ class NewNotificationTest implements ModelInterface, ArrayAccess
     const TYPE_TIER_UPGRADE = 'tier_upgrade';
     const TYPE_TIER_WILL_DOWNGRADE = 'tier_will_downgrade';
     const TYPE_CARD_EXPIRING_POINTS = 'card_expiring_points';
+    const TYPE_RULE_ENGINE_WEBHOOK = 'rule_engine_webhook';
     const VERB_POST = 'POST';
     const VERB_PUT = 'PUT';
     const VERB_GET = 'GET';
@@ -223,6 +224,7 @@ class NewNotificationTest implements ModelInterface, ArrayAccess
             self::TYPE_TIER_UPGRADE,
             self::TYPE_TIER_WILL_DOWNGRADE,
             self::TYPE_CARD_EXPIRING_POINTS,
+            self::TYPE_RULE_ENGINE_WEBHOOK,
         ];
     }
     
@@ -300,9 +302,6 @@ class NewNotificationTest implements ModelInterface, ArrayAccess
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
         }
-        if ($this->container['payload'] === null) {
-            $invalidProperties[] = "'payload' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -331,7 +330,7 @@ class NewNotificationTest implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type The notification type.
+     * @param string $type The message type.
      *
      * @return $this
      */
@@ -388,7 +387,7 @@ class NewNotificationTest implements ModelInterface, ArrayAccess
     /**
      * Sets headers
      *
-     * @param map[string,string]|null $headers List of API HTTP headers for the given webhook-based notification.
+     * @param map[string,string]|null $headers List of API HTTP headers for the given message.
      *
      * @return $this
      */
@@ -412,7 +411,7 @@ class NewNotificationTest implements ModelInterface, ArrayAccess
     /**
      * Sets verb
      *
-     * @param string $verb API method for this notification.
+     * @param string $verb API method for this message.
      *
      * @return $this
      */
@@ -445,7 +444,7 @@ class NewNotificationTest implements ModelInterface, ArrayAccess
     /**
      * Sets url
      *
-     * @param string $url API URL for the given notification.
+     * @param string $url API URL for the given message.
      *
      * @return $this
      */
@@ -459,7 +458,7 @@ class NewNotificationTest implements ModelInterface, ArrayAccess
     /**
      * Gets payload
      *
-     * @return string
+     * @return string|null
      */
     public function getPayload()
     {
@@ -469,7 +468,7 @@ class NewNotificationTest implements ModelInterface, ArrayAccess
     /**
      * Sets payload
      *
-     * @param string $payload API payload of this notification.
+     * @param string|null $payload API payload of this message.
      *
      * @return $this
      */

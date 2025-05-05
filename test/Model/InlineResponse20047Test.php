@@ -1,6 +1,6 @@
 <?php
 /**
- * DeactivateUserRequestTest
+ * InlineResponse20047Test
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace TalonOne\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DeactivateUserRequestTest Class Doc Comment
+ * InlineResponse20047Test Class Doc Comment
  *
  * @category    Class
- * @description DeactivateUserRequest
+ * @description InlineResponse20047
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DeactivateUserRequestTest extends TestCase
+class InlineResponse20047Test extends TestCase
 {
 
     /**
@@ -72,16 +72,30 @@ class DeactivateUserRequestTest extends TestCase
     }
 
     /**
-     * Test "DeactivateUserRequest"
+     * Test "InlineResponse20047"
      */
-    public function testDeactivateUserRequest()
+    public function testInlineResponse20047()
     {
     }
 
     /**
-     * Test attribute "email"
+     * Test attribute "hasMore"
      */
-    public function testPropertyEmail()
+    public function testPropertyHasMore()
+    {
+    }
+
+    /**
+     * Test attribute "totalResultSize"
+     */
+    public function testPropertyTotalResultSize()
+    {
+    }
+
+    /**
+     * Test attribute "data"
+     */
+    public function testPropertyData()
     {
     }
 }

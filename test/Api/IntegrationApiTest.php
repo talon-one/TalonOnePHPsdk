@@ -163,6 +163,26 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for getCustomerAchievementHistory
+     *
+     * List customer's achievement history.
+     *
+     */
+    public function testGetCustomerAchievementHistory()
+    {
+    }
+
+    /**
+     * Test case for getCustomerAchievements
+     *
+     * List customer's available achievements.
+     *
+     */
+    public function testGetCustomerAchievements()
+    {
+    }
+
+    /**
      * Test case for getCustomerInventory
      *
      * List customer data.

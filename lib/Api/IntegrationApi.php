@@ -1119,7 +1119,7 @@ class IntegrationApi
      * Create referral codes for multiple advocates
      *
      * @param  \TalonOne\Client\Model\NewReferralsForMultipleAdvocates $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1137,7 +1137,7 @@ class IntegrationApi
      * Create referral codes for multiple advocates
      *
      * @param  \TalonOne\Client\Model\NewReferralsForMultipleAdvocates $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1266,7 +1266,7 @@ class IntegrationApi
      * Create referral codes for multiple advocates
      *
      * @param  \TalonOne\Client\Model\NewReferralsForMultipleAdvocates $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1287,7 +1287,7 @@ class IntegrationApi
      * Create referral codes for multiple advocates
      *
      * @param  \TalonOne\Client\Model\NewReferralsForMultipleAdvocates $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1335,7 +1335,7 @@ class IntegrationApi
      * Create request for operation 'createReferralsForMultipleAdvocates'
      *
      * @param  \TalonOne\Client\Model\NewReferralsForMultipleAdvocates $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2778,6 +2778,847 @@ class IntegrationApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCustomerAchievementHistory
+     *
+     * List customer's achievement history
+     *
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  int $achievementId The achievement identifier. (required)
+     * @param  string[] $progressStatus Filter by customer progress status in the achievement. (optional)
+     * @param  \DateTime $startDate Timestamp that filters the results to only contain achievements created on or after the start date. (optional)
+     * @param  \DateTime $endDate Timestamp that filters the results to only contain achievements created before or on the end date. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse2002|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     */
+    public function getCustomerAchievementHistory($integrationId, $achievementId, $progressStatus = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
+    {
+        list($response) = $this->getCustomerAchievementHistoryWithHttpInfo($integrationId, $achievementId, $progressStatus, $startDate, $endDate, $pageSize, $skip);
+        return $response;
+    }
+
+    /**
+     * Operation getCustomerAchievementHistoryWithHttpInfo
+     *
+     * List customer's achievement history
+     *
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  int $achievementId The achievement identifier. (required)
+     * @param  string[] $progressStatus Filter by customer progress status in the achievement. (optional)
+     * @param  \DateTime $startDate Timestamp that filters the results to only contain achievements created on or after the start date. (optional)
+     * @param  \DateTime $endDate Timestamp that filters the results to only contain achievements created before or on the end date. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse2002|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCustomerAchievementHistoryWithHttpInfo($integrationId, $achievementId, $progressStatus = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
+    {
+        $request = $this->getCustomerAchievementHistoryRequest($integrationId, $achievementId, $progressStatus, $startDate, $endDate, $pageSize, $skip);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse2002' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2002', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse2002';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse2002',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCustomerAchievementHistoryAsync
+     *
+     * List customer's achievement history
+     *
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  int $achievementId The achievement identifier. (required)
+     * @param  string[] $progressStatus Filter by customer progress status in the achievement. (optional)
+     * @param  \DateTime $startDate Timestamp that filters the results to only contain achievements created on or after the start date. (optional)
+     * @param  \DateTime $endDate Timestamp that filters the results to only contain achievements created before or on the end date. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomerAchievementHistoryAsync($integrationId, $achievementId, $progressStatus = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
+    {
+        return $this->getCustomerAchievementHistoryAsyncWithHttpInfo($integrationId, $achievementId, $progressStatus, $startDate, $endDate, $pageSize, $skip)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCustomerAchievementHistoryAsyncWithHttpInfo
+     *
+     * List customer's achievement history
+     *
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  int $achievementId The achievement identifier. (required)
+     * @param  string[] $progressStatus Filter by customer progress status in the achievement. (optional)
+     * @param  \DateTime $startDate Timestamp that filters the results to only contain achievements created on or after the start date. (optional)
+     * @param  \DateTime $endDate Timestamp that filters the results to only contain achievements created before or on the end date. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomerAchievementHistoryAsyncWithHttpInfo($integrationId, $achievementId, $progressStatus = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse2002';
+        $request = $this->getCustomerAchievementHistoryRequest($integrationId, $achievementId, $progressStatus, $startDate, $endDate, $pageSize, $skip);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCustomerAchievementHistory'
+     *
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  int $achievementId The achievement identifier. (required)
+     * @param  string[] $progressStatus Filter by customer progress status in the achievement. (optional)
+     * @param  \DateTime $startDate Timestamp that filters the results to only contain achievements created on or after the start date. (optional)
+     * @param  \DateTime $endDate Timestamp that filters the results to only contain achievements created before or on the end date. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getCustomerAchievementHistoryRequest($integrationId, $achievementId, $progressStatus = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
+    {
+        // verify the required parameter 'integrationId' is set
+        if ($integrationId === null || (is_array($integrationId) && count($integrationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $integrationId when calling getCustomerAchievementHistory'
+            );
+        }
+        // verify the required parameter 'achievementId' is set
+        if ($achievementId === null || (is_array($achievementId) && count($achievementId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $achievementId when calling getCustomerAchievementHistory'
+            );
+        }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getCustomerAchievementHistory, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getCustomerAchievementHistory, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/v1/customer_profiles/{integrationId}/achievements/{achievementId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (is_array($progressStatus)) {
+            $progressStatus = ObjectSerializer::serializeCollection($progressStatus, 'form', true);
+        }
+        if ($progressStatus !== null) {
+            $queryParams['progressStatus'] = $progressStatus;
+        }
+        // query params
+        if (is_array($startDate)) {
+            $startDate = ObjectSerializer::serializeCollection($startDate, '', true);
+        }
+        if ($startDate !== null) {
+            $queryParams['startDate'] = $startDate;
+        }
+        // query params
+        if (is_array($endDate)) {
+            $endDate = ObjectSerializer::serializeCollection($endDate, '', true);
+        }
+        if ($endDate !== null) {
+            $queryParams['endDate'] = $endDate;
+        }
+        // query params
+        if (is_array($pageSize)) {
+            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
+        }
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = $pageSize;
+        }
+        // query params
+        if (is_array($skip)) {
+            $skip = ObjectSerializer::serializeCollection($skip, '', true);
+        }
+        if ($skip !== null) {
+            $queryParams['skip'] = $skip;
+        }
+
+
+        // path params
+        if ($integrationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'integrationId' . '}',
+                ObjectSerializer::toPathValue($integrationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($achievementId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'achievementId' . '}',
+                ObjectSerializer::toPathValue($achievementId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCustomerAchievements
+     *
+     * List customer's available achievements
+     *
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  string[] $campaignIds Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. (optional)
+     * @param  string[] $achievementIds Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned. (optional)
+     * @param  string[] $achievementStatus Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned. (optional)
+     * @param  string[] $currentProgressStatus Filter by customer progress status in the achievement. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse2001|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     */
+    public function getCustomerAchievements($integrationId, $campaignIds = null, $achievementIds = null, $achievementStatus = null, $currentProgressStatus = null, $pageSize = 1000, $skip = null)
+    {
+        list($response) = $this->getCustomerAchievementsWithHttpInfo($integrationId, $campaignIds, $achievementIds, $achievementStatus, $currentProgressStatus, $pageSize, $skip);
+        return $response;
+    }
+
+    /**
+     * Operation getCustomerAchievementsWithHttpInfo
+     *
+     * List customer's available achievements
+     *
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  string[] $campaignIds Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. (optional)
+     * @param  string[] $achievementIds Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned. (optional)
+     * @param  string[] $achievementStatus Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned. (optional)
+     * @param  string[] $currentProgressStatus Filter by customer progress status in the achievement. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse2001|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCustomerAchievementsWithHttpInfo($integrationId, $campaignIds = null, $achievementIds = null, $achievementStatus = null, $currentProgressStatus = null, $pageSize = 1000, $skip = null)
+    {
+        $request = $this->getCustomerAchievementsRequest($integrationId, $campaignIds, $achievementIds, $achievementStatus, $currentProgressStatus, $pageSize, $skip);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse2001',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCustomerAchievementsAsync
+     *
+     * List customer's available achievements
+     *
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  string[] $campaignIds Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. (optional)
+     * @param  string[] $achievementIds Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned. (optional)
+     * @param  string[] $achievementStatus Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned. (optional)
+     * @param  string[] $currentProgressStatus Filter by customer progress status in the achievement. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomerAchievementsAsync($integrationId, $campaignIds = null, $achievementIds = null, $achievementStatus = null, $currentProgressStatus = null, $pageSize = 1000, $skip = null)
+    {
+        return $this->getCustomerAchievementsAsyncWithHttpInfo($integrationId, $campaignIds, $achievementIds, $achievementStatus, $currentProgressStatus, $pageSize, $skip)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCustomerAchievementsAsyncWithHttpInfo
+     *
+     * List customer's available achievements
+     *
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  string[] $campaignIds Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. (optional)
+     * @param  string[] $achievementIds Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned. (optional)
+     * @param  string[] $achievementStatus Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned. (optional)
+     * @param  string[] $currentProgressStatus Filter by customer progress status in the achievement. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomerAchievementsAsyncWithHttpInfo($integrationId, $campaignIds = null, $achievementIds = null, $achievementStatus = null, $currentProgressStatus = null, $pageSize = 1000, $skip = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+        $request = $this->getCustomerAchievementsRequest($integrationId, $campaignIds, $achievementIds, $achievementStatus, $currentProgressStatus, $pageSize, $skip);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCustomerAchievements'
+     *
+     * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  string[] $campaignIds Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. (optional)
+     * @param  string[] $achievementIds Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned. (optional)
+     * @param  string[] $achievementStatus Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned. (optional)
+     * @param  string[] $currentProgressStatus Filter by customer progress status in the achievement. (optional)
+     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getCustomerAchievementsRequest($integrationId, $campaignIds = null, $achievementIds = null, $achievementStatus = null, $currentProgressStatus = null, $pageSize = 1000, $skip = null)
+    {
+        // verify the required parameter 'integrationId' is set
+        if ($integrationId === null || (is_array($integrationId) && count($integrationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $integrationId when calling getCustomerAchievements'
+            );
+        }
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getCustomerAchievements, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getCustomerAchievements, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/v1/customer_profiles/{integrationId}/achievements';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (is_array($campaignIds)) {
+            $campaignIds = ObjectSerializer::serializeCollection($campaignIds, 'form', true);
+        }
+        if ($campaignIds !== null) {
+            $queryParams['campaignIds'] = $campaignIds;
+        }
+        // query params
+        if (is_array($achievementIds)) {
+            $achievementIds = ObjectSerializer::serializeCollection($achievementIds, 'form', true);
+        }
+        if ($achievementIds !== null) {
+            $queryParams['achievementIds'] = $achievementIds;
+        }
+        // query params
+        if (is_array($achievementStatus)) {
+            $achievementStatus = ObjectSerializer::serializeCollection($achievementStatus, 'form', true);
+        }
+        if ($achievementStatus !== null) {
+            $queryParams['achievementStatus'] = $achievementStatus;
+        }
+        // query params
+        if (is_array($currentProgressStatus)) {
+            $currentProgressStatus = ObjectSerializer::serializeCollection($currentProgressStatus, 'form', true);
+        }
+        if ($currentProgressStatus !== null) {
+            $queryParams['currentProgressStatus'] = $currentProgressStatus;
+        }
+        // query params
+        if (is_array($pageSize)) {
+            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
+        }
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = $pageSize;
+        }
+        // query params
+        if (is_array($skip)) {
+            $skip = ObjectSerializer::serializeCollection($skip, '', true);
+        }
+        if ($skip !== null) {
+            $queryParams['skip'] = $skip;
+        }
+
+
+        // path params
+        if ($integrationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'integrationId' . '}',
+                ObjectSerializer::toPathValue($integrationId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -4300,7 +5141,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2003|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse2005|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
     public function getLoyaltyCardPoints($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
     {
@@ -4322,7 +5163,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2003|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2005|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLoyaltyCardPointsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
     {
@@ -4359,14 +5200,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2003' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2005' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2003', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2005', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4408,7 +5249,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2003';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2005';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -4427,7 +5268,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2003',
+                        '\TalonOne\Client\Model\InlineResponse2005',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4503,7 +5344,7 @@ class IntegrationApi
      */
     public function getLoyaltyCardPointsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2003';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2005';
         $request = $this->getLoyaltyCardPointsRequest($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $pageSize, $skip);
 
         return $this->client
@@ -4571,8 +5412,8 @@ class IntegrationApi
             throw new \InvalidArgumentException('invalid length for "$loyaltyCardId" when calling IntegrationApi.getLoyaltyCardPoints, must be smaller than or equal to 108.');
         }
 
-        if ($pageSize !== null && $pageSize > 50) {
-            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getLoyaltyCardPoints, must be smaller than or equal to 50.');
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getLoyaltyCardPoints, must be smaller than or equal to 1000.');
         }
         if ($pageSize !== null && $pageSize < 1) {
             throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getLoyaltyCardPoints, must be bigger than or equal to 1.');
@@ -4717,14 +5558,14 @@ class IntegrationApi
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2001|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse2003|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getLoyaltyCardTransactions($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
+    public function getLoyaltyCardTransactions($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
         list($response) = $this->getLoyaltyCardTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
         return $response;
@@ -4741,14 +5582,14 @@ class IntegrationApi
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2001|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2003|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyCardTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
+    public function getLoyaltyCardTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
         $request = $this->getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
 
@@ -4783,14 +5624,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2003' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2003', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4832,7 +5673,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2003';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -4851,7 +5692,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2001',
+                        '\TalonOne\Client\Model\InlineResponse2003',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4896,13 +5737,13 @@ class IntegrationApi
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyCardTransactionsAsync($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
+    public function getLoyaltyCardTransactionsAsync($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
         return $this->getLoyaltyCardTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip)
             ->then(
@@ -4923,15 +5764,15 @@ class IntegrationApi
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyCardTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
+    public function getLoyaltyCardTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2003';
         $request = $this->getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
 
         return $this->client
@@ -4977,13 +5818,13 @@ class IntegrationApi
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
+    protected function getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -5164,7 +6005,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2004|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse2006|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
     public function getLoyaltyProgramProfilePoints($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
     {
@@ -5186,7 +6027,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2004|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2006|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLoyaltyProgramProfilePointsWithHttpInfo($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
     {
@@ -5223,14 +6064,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2004' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2006' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2004', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2006', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5272,7 +6113,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2004';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2006';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -5291,7 +6132,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2004',
+                        '\TalonOne\Client\Model\InlineResponse2006',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5367,7 +6208,7 @@ class IntegrationApi
      */
     public function getLoyaltyProgramProfilePointsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2004';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2006';
         $request = $this->getLoyaltyProgramProfilePointsRequest($loyaltyProgramId, $integrationId, $status, $subledgerId, $pageSize, $skip);
 
         return $this->client
@@ -5431,8 +6272,8 @@ class IntegrationApi
                 'Missing the required parameter $integrationId when calling getLoyaltyProgramProfilePoints'
             );
         }
-        if ($pageSize !== null && $pageSize > 50) {
-            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getLoyaltyProgramProfilePoints, must be smaller than or equal to 50.');
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getLoyaltyProgramProfilePoints, must be smaller than or equal to 1000.');
         }
         if ($pageSize !== null && $pageSize < 1) {
             throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getLoyaltyProgramProfilePoints, must be bigger than or equal to 1.');
@@ -5578,7 +6419,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2002|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse2004|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
     public function getLoyaltyProgramProfileTransactions($loyaltyProgramId, $integrationId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
@@ -5602,7 +6443,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2002|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2004|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLoyaltyProgramProfileTransactionsWithHttpInfo($loyaltyProgramId, $integrationId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
@@ -5639,14 +6480,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2002' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2004' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2002', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2004', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5688,7 +6529,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2002';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2004';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -5707,7 +6548,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2002',
+                        '\TalonOne\Client\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5787,7 +6628,7 @@ class IntegrationApi
      */
     public function getLoyaltyProgramProfileTransactionsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2002';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2004';
         $request = $this->getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
 
         return $this->client
@@ -5853,8 +6694,8 @@ class IntegrationApi
                 'Missing the required parameter $integrationId when calling getLoyaltyProgramProfileTransactions'
             );
         }
-        if ($pageSize !== null && $pageSize > 50) {
-            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getLoyaltyProgramProfileTransactions, must be smaller than or equal to 50.');
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getLoyaltyProgramProfileTransactions, must be smaller than or equal to 1000.');
         }
         if ($pageSize !== null && $pageSize < 1) {
             throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.getLoyaltyProgramProfileTransactions, must be bigger than or equal to 1.');
@@ -7731,16 +8572,17 @@ class IntegrationApi
      * Track event
      *
      * @param  \TalonOne\Client\Model\IntegrationEventV2Request $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     * @param  bool $forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;. (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\TrackEventV2Response|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|object
      */
-    public function trackEventV2($body, $silent = 'yes', $dry = null)
+    public function trackEventV2($body, $silent = 'yes', $dry = null, $forceCompleteEvaluation = false)
     {
-        list($response) = $this->trackEventV2WithHttpInfo($body, $silent, $dry);
+        list($response) = $this->trackEventV2WithHttpInfo($body, $silent, $dry, $forceCompleteEvaluation);
         return $response;
     }
 
@@ -7750,16 +8592,17 @@ class IntegrationApi
      * Track event
      *
      * @param  \TalonOne\Client\Model\IntegrationEventV2Request $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     * @param  bool $forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;. (optional, default to false)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\TrackEventV2Response|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function trackEventV2WithHttpInfo($body, $silent = 'yes', $dry = null)
+    public function trackEventV2WithHttpInfo($body, $silent = 'yes', $dry = null, $forceCompleteEvaluation = false)
     {
-        $request = $this->trackEventV2Request($body, $silent, $dry);
+        $request = $this->trackEventV2Request($body, $silent, $dry, $forceCompleteEvaluation);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7900,15 +8743,16 @@ class IntegrationApi
      * Track event
      *
      * @param  \TalonOne\Client\Model\IntegrationEventV2Request $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     * @param  bool $forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function trackEventV2Async($body, $silent = 'yes', $dry = null)
+    public function trackEventV2Async($body, $silent = 'yes', $dry = null, $forceCompleteEvaluation = false)
     {
-        return $this->trackEventV2AsyncWithHttpInfo($body, $silent, $dry)
+        return $this->trackEventV2AsyncWithHttpInfo($body, $silent, $dry, $forceCompleteEvaluation)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7922,16 +8766,17 @@ class IntegrationApi
      * Track event
      *
      * @param  \TalonOne\Client\Model\IntegrationEventV2Request $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     * @param  bool $forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function trackEventV2AsyncWithHttpInfo($body, $silent = 'yes', $dry = null)
+    public function trackEventV2AsyncWithHttpInfo($body, $silent = 'yes', $dry = null, $forceCompleteEvaluation = false)
     {
         $returnType = '\TalonOne\Client\Model\TrackEventV2Response';
-        $request = $this->trackEventV2Request($body, $silent, $dry);
+        $request = $this->trackEventV2Request($body, $silent, $dry, $forceCompleteEvaluation);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7971,13 +8816,14 @@ class IntegrationApi
      * Create request for operation 'trackEventV2'
      *
      * @param  \TalonOne\Client\Model\IntegrationEventV2Request $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     * @param  bool $forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function trackEventV2Request($body, $silent = 'yes', $dry = null)
+    protected function trackEventV2Request($body, $silent = 'yes', $dry = null, $forceCompleteEvaluation = false)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
@@ -8006,6 +8852,13 @@ class IntegrationApi
         }
         if ($dry !== null) {
             $queryParams['dry'] = $dry;
+        }
+        // query params
+        if (is_array($forceCompleteEvaluation)) {
+            $forceCompleteEvaluation = ObjectSerializer::serializeCollection($forceCompleteEvaluation, '', true);
+        }
+        if ($forceCompleteEvaluation !== null) {
+            $queryParams['forceCompleteEvaluation'] = $forceCompleteEvaluation;
         }
 
 
@@ -9305,7 +10158,7 @@ class IntegrationApi
      * Update multiple customer profiles
      *
      * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9323,7 +10176,7 @@ class IntegrationApi
      * Update multiple customer profiles
      *
      * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9452,7 +10305,7 @@ class IntegrationApi
      * Update multiple customer profiles
      *
      * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9473,7 +10326,7 @@ class IntegrationApi
      * Update multiple customer profiles
      *
      * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9521,7 +10374,7 @@ class IntegrationApi
      * Create request for operation 'updateCustomerProfilesV2'
      *
      * @param  \TalonOne\Client\Model\MultipleCustomerProfileIntegrationRequest $body body (required)
-     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
+     * @param  string $silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles. (optional, default to 'yes')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

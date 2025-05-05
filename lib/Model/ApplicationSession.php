@@ -484,7 +484,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     /**
      * Sets applicationId
      *
-     * @param int $applicationId The ID of the application that owns this entity.
+     * @param int $applicationId The ID of the Application that owns this entity.
      *
      * @return $this
      */
@@ -689,7 +689,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     /**
      * Sets totalDiscounts
      *
-     * @param float $totalDiscounts The total sum of the discounts applied to this session.
+     * @param float $totalDiscounts The total sum of the discounts applied to this session.  **Note:** If more than one session is returned, this value is displayed as `0`.
      *
      * @return $this
      */
