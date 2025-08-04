@@ -73,13 +73,13 @@ class Picklist implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'type' => null,
         'values' => null,
-        'modifiedBy' => null,
-        'createdBy' => null,
-        'accountId' => null,
+        'modifiedBy' => 'int64',
+        'createdBy' => 'int64',
+        'accountId' => 'int64',
         'imported' => null
     ];
 
@@ -301,7 +301,7 @@ class Picklist implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

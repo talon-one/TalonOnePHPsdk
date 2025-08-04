@@ -80,11 +80,11 @@ class NewApplicationAPIKey implements ModelInterface, ArrayAccess
         'expires' => 'date-time',
         'platform' => null,
         'type' => null,
-        'timeOffset' => null,
-        'id' => null,
-        'createdBy' => null,
-        'accountID' => null,
-        'applicationID' => null,
+        'timeOffset' => 'int64',
+        'id' => 'int64',
+        'createdBy' => 'int64',
+        'accountID' => 'int64',
+        'applicationID' => 'int64',
         'created' => 'date-time',
         'key' => null
     ];

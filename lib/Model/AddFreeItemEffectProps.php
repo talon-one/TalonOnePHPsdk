@@ -71,7 +71,7 @@ class AddFreeItemEffectProps implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'sku' => null,
         'name' => null,
-        'desiredQuantity' => null
+        'desiredQuantity' => 'int64'
     ];
 
     /**

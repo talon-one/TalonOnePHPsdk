@@ -70,7 +70,7 @@ class ErrorResponseWithStatus implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'message' => null,
         'errors' => null,
-        'statusCode' => null
+        'statusCode' => 'int64'
     ];
 
     /**

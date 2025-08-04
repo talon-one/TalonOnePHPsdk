@@ -75,8 +75,8 @@ class Audience implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'accountId' => null,
-        'id' => null,
+        'accountId' => 'int64',
+        'id' => 'int64',
         'created' => 'date-time',
         'name' => null,
         'sandbox' => null,
@@ -319,7 +319,7 @@ class Audience implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

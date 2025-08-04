@@ -81,7 +81,7 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'programId' => null,
+        'programId' => 'int64',
         'subLedgerId' => null,
         'value' => null,
         'desiredValue' => null,
@@ -92,7 +92,7 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'cartItemPosition' => null,
         'cartItemSubPosition' => null,
         'cardIdentifier' => null,
-        'bundleIndex' => null,
+        'bundleIndex' => 'int64',
         'bundleName' => null
     ];
 

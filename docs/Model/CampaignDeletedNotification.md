@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**campaign** | [**\TalonOne\Client\Model\Campaign**](Campaign.md) |  | 
-**deletedAt** | [**\DateTime**](\DateTime.md) | Time when the campaign was deleted. | 
+**notificationType** | **string** | The type of the notification | [optional] 
+**totalResultSize** | **int** | The total size of the result set. | 
+**data** | [**\TalonOne\Client\Model\CampaignDeletedNotificationItem[]**](CampaignDeletedNotificationItem.md) | A list of campaign notification data. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

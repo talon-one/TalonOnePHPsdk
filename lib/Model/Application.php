@@ -87,10 +87,10 @@ class Application implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'modified' => 'date-time',
-        'accountId' => null,
+        'accountId' => 'int64',
         'name' => null,
         'description' => null,
         'timezone' => null,
@@ -105,8 +105,8 @@ class Application implements ModelInterface, ArrayAccess
         'sandbox' => null,
         'enablePartialDiscounts' => null,
         'defaultDiscountAdditionalCostPerItemScope' => null,
-        'defaultEvaluationGroupId' => null,
-        'defaultCartItemFilterId' => null,
+        'defaultEvaluationGroupId' => 'int64',
+        'defaultCartItemFilterId' => 'int64',
         'enableCampaignStateManagement' => null,
         'loyaltyPrograms' => null
     ];
@@ -454,7 +454,7 @@ class Application implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

@@ -67,7 +67,7 @@ class CampaignDetail implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignId' => null,
+        'campaignId' => 'int64',
         'campaignName' => null
     ];
 

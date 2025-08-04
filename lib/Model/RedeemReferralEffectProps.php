@@ -68,7 +68,7 @@ class RedeemReferralEffectProps implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'value' => null
     ];
 

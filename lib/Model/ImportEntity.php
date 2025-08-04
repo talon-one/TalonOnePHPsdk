@@ -66,7 +66,7 @@ class ImportEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'importId' => null
+        'importId' => 'int64'
     ];
 
     /**

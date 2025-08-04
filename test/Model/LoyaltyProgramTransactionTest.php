@@ -86,6 +86,13 @@ class LoyaltyProgramTransactionTest extends TestCase
     }
 
     /**
+     * Test attribute "transactionUUID"
+     */
+    public function testPropertyTransactionUUID()
+    {
+    }
+
+    /**
      * Test attribute "programId"
      */
     public function testPropertyProgramId()

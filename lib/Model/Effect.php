@@ -70,6 +70,9 @@ class Effect implements ModelInterface, ArrayAccess
         'evaluationGroupMode' => 'string',
         'campaignRevisionId' => 'int',
         'campaignRevisionVersionId' => 'int',
+        'selectedPriceType' => 'string',
+        'selectedPrice' => 'float',
+        'adjustmentReferenceId' => 'string',
         'props' => 'object'
     ];
 
@@ -79,18 +82,21 @@ class Effect implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignId' => null,
-        'rulesetId' => null,
-        'ruleIndex' => null,
+        'campaignId' => 'int64',
+        'rulesetId' => 'int64',
+        'ruleIndex' => 'int64',
         'ruleName' => null,
         'effectType' => null,
-        'triggeredByCoupon' => null,
-        'triggeredForCatalogItem' => null,
-        'conditionIndex' => null,
-        'evaluationGroupID' => null,
+        'triggeredByCoupon' => 'int64',
+        'triggeredForCatalogItem' => 'int64',
+        'conditionIndex' => 'int64',
+        'evaluationGroupID' => 'int64',
         'evaluationGroupMode' => null,
-        'campaignRevisionId' => null,
-        'campaignRevisionVersionId' => null,
+        'campaignRevisionId' => 'int64',
+        'campaignRevisionVersionId' => 'int64',
+        'selectedPriceType' => null,
+        'selectedPrice' => null,
+        'adjustmentReferenceId' => 'uuid',
         'props' => null
     ];
 
@@ -133,6 +139,9 @@ class Effect implements ModelInterface, ArrayAccess
         'evaluationGroupMode' => 'evaluationGroupMode',
         'campaignRevisionId' => 'campaignRevisionId',
         'campaignRevisionVersionId' => 'campaignRevisionVersionId',
+        'selectedPriceType' => 'selectedPriceType',
+        'selectedPrice' => 'selectedPrice',
+        'adjustmentReferenceId' => 'adjustmentReferenceId',
         'props' => 'props'
     ];
 
@@ -154,6 +163,9 @@ class Effect implements ModelInterface, ArrayAccess
         'evaluationGroupMode' => 'setEvaluationGroupMode',
         'campaignRevisionId' => 'setCampaignRevisionId',
         'campaignRevisionVersionId' => 'setCampaignRevisionVersionId',
+        'selectedPriceType' => 'setSelectedPriceType',
+        'selectedPrice' => 'setSelectedPrice',
+        'adjustmentReferenceId' => 'setAdjustmentReferenceId',
         'props' => 'setProps'
     ];
 
@@ -175,6 +187,9 @@ class Effect implements ModelInterface, ArrayAccess
         'evaluationGroupMode' => 'getEvaluationGroupMode',
         'campaignRevisionId' => 'getCampaignRevisionId',
         'campaignRevisionVersionId' => 'getCampaignRevisionVersionId',
+        'selectedPriceType' => 'getSelectedPriceType',
+        'selectedPrice' => 'getSelectedPrice',
+        'adjustmentReferenceId' => 'getAdjustmentReferenceId',
         'props' => 'getProps'
     ];
 
@@ -250,6 +265,9 @@ class Effect implements ModelInterface, ArrayAccess
         $this->container['evaluationGroupMode'] = isset($data['evaluationGroupMode']) ? $data['evaluationGroupMode'] : null;
         $this->container['campaignRevisionId'] = isset($data['campaignRevisionId']) ? $data['campaignRevisionId'] : null;
         $this->container['campaignRevisionVersionId'] = isset($data['campaignRevisionVersionId']) ? $data['campaignRevisionVersionId'] : null;
+        $this->container['selectedPriceType'] = isset($data['selectedPriceType']) ? $data['selectedPriceType'] : null;
+        $this->container['selectedPrice'] = isset($data['selectedPrice']) ? $data['selectedPrice'] : null;
+        $this->container['adjustmentReferenceId'] = isset($data['adjustmentReferenceId']) ? $data['adjustmentReferenceId'] : null;
         $this->container['props'] = isset($data['props']) ? $data['props'] : null;
     }
 
@@ -584,6 +602,78 @@ class Effect implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets selectedPriceType
+     *
+     * @return string|null
+     */
+    public function getSelectedPriceType()
+    {
+        return $this->container['selectedPriceType'];
+    }
+
+    /**
+     * Sets selectedPriceType
+     *
+     * @param string|null $selectedPriceType The selected price type for the SKU targeted by this effect.
+     *
+     * @return $this
+     */
+    public function setSelectedPriceType($selectedPriceType)
+    {
+        $this->container['selectedPriceType'] = $selectedPriceType;
+
+        return $this;
+    }
+
+    /**
+     * Gets selectedPrice
+     *
+     * @return float|null
+     */
+    public function getSelectedPrice()
+    {
+        return $this->container['selectedPrice'];
+    }
+
+    /**
+     * Sets selectedPrice
+     *
+     * @param float|null $selectedPrice The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.
+     *
+     * @return $this
+     */
+    public function setSelectedPrice($selectedPrice)
+    {
+        $this->container['selectedPrice'] = $selectedPrice;
+
+        return $this;
+    }
+
+    /**
+     * Gets adjustmentReferenceId
+     *
+     * @return string|null
+     */
+    public function getAdjustmentReferenceId()
+    {
+        return $this->container['adjustmentReferenceId'];
+    }
+
+    /**
+     * Sets adjustmentReferenceId
+     *
+     * @param string|null $adjustmentReferenceId The reference identifier of the selected price adjustment for this SKU. This is only returned if the `selectedPrice` resulted from a price adjustment.
+     *
+     * @return $this
+     */
+    public function setAdjustmentReferenceId($adjustmentReferenceId)
+    {
+        $this->container['adjustmentReferenceId'] = $adjustmentReferenceId;
+
+        return $this;
+    }
+
+    /**
      * Gets props
      *
      * @return object
@@ -596,7 +686,7 @@ class Effect implements ModelInterface, ArrayAccess
     /**
      * Sets props
      *
-     * @param object $props The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
+     * @param object $props props
      *
      * @return $this
      */

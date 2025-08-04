@@ -66,7 +66,7 @@ class MultiApplicationEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'applicationIds' => null
+        'applicationIds' => 'int64'
     ];
 
     /**

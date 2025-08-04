@@ -87,16 +87,16 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'endTime' => 'date-time',
         'attributes' => null,
         'state' => null,
-        'activeRulesetId' => null,
+        'activeRulesetId' => 'int64',
         'tags' => null,
         'features' => null,
         'couponSettings' => null,
         'referralSettings' => null,
         'limits' => null,
-        'campaignGroups' => null,
+        'campaignGroups' => 'int64',
         'type' => null,
-        'linkedStoreIds' => null,
-        'evaluationGroupId' => null
+        'linkedStoreIds' => 'int64',
+        'evaluationGroupId' => 'int64'
     ];
 
     /**

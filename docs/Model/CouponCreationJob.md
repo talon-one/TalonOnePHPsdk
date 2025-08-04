@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
 **campaignId** | **int** | The ID of the campaign that owns this entity. | 
 **applicationId** | **int** | The ID of the Application that owns this entity. | 

@@ -73,11 +73,11 @@ class CampaignVersions implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'revisionFrontendState' => null,
-        'activeRevisionId' => null,
-        'activeRevisionVersionId' => null,
-        'version' => null,
-        'currentRevisionId' => null,
-        'currentRevisionVersionId' => null,
+        'activeRevisionId' => 'int64',
+        'activeRevisionVersionId' => 'int64',
+        'version' => 'int64',
+        'currentRevisionId' => 'int64',
+        'currentRevisionVersionId' => 'int64',
         'stageRevision' => null
     ];
 

@@ -67,8 +67,8 @@ class GetIntegrationCouponRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignIds' => null,
-        'limit' => null
+        'campaignIds' => 'int64',
+        'limit' => 'int64'
     ];
 
     /**
@@ -183,7 +183,7 @@ class GetIntegrationCouponRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['campaignIds'] = isset($data['campaignIds']) ? $data['campaignIds'] : null;
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : 10;
     }
 
     /**

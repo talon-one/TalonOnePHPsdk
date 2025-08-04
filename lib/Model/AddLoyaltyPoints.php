@@ -81,7 +81,7 @@ class AddLoyaltyPoints implements ModelInterface, ArrayAccess
         'pendingDuration' => null,
         'pendingUntil' => 'date-time',
         'subledgerId' => null,
-        'applicationId' => null
+        'applicationId' => 'int64'
     ];
 
     /**
@@ -239,10 +239,6 @@ class AddLoyaltyPoints implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'points', must be smaller than or equal to 999999999999.99.";
         }
 
-        if (($this->container['points'] <= 0)) {
-            $invalidProperties[] = "invalid value for 'points', must be bigger than 0.";
-        }
-
         return $invalidProperties;
     }
 
@@ -280,9 +276,6 @@ class AddLoyaltyPoints implements ModelInterface, ArrayAccess
 
         if (($points > 999999999999.99)) {
             throw new \InvalidArgumentException('invalid value for $points when calling AddLoyaltyPoints., must be smaller than or equal to 999999999999.99.');
-        }
-        if (($points <= 0)) {
-            throw new \InvalidArgumentException('invalid value for $points when calling AddLoyaltyPoints., must be bigger than 0.');
         }
 
         $this->container['points'] = $points;

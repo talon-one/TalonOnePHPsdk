@@ -72,12 +72,12 @@ class ApplicationCampaignStats implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'disabled' => null,
-        'staged' => null,
-        'scheduled' => null,
-        'running' => null,
-        'expired' => null,
-        'archived' => null
+        'disabled' => 'int64',
+        'staged' => 'int64',
+        'scheduled' => 'int64',
+        'running' => 'int64',
+        'expired' => 'int64',
+        'archived' => 'int64'
     ];
 
     /**

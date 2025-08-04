@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * LedgerTransactionLogEntryIntegrationAPITest Class Doc Comment
  *
  * @category    Class
- * @description Log entry for a given loyalty card transaction.
+ * @description Log entry for a given loyalty profile transaction.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -75,6 +75,13 @@ class LedgerTransactionLogEntryIntegrationAPITest extends TestCase
      * Test "LedgerTransactionLogEntryIntegrationAPI"
      */
     public function testLedgerTransactionLogEntryIntegrationAPI()
+    {
+    }
+
+    /**
+     * Test attribute "transactionUUID"
+     */
+    public function testPropertyTransactionUUID()
     {
     }
 

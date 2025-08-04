@@ -66,7 +66,7 @@ class CampaignActivationRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'userIds' => null
+        'userIds' => 'int64'
     ];
 
     /**

@@ -186,6 +186,8 @@ class NewMessageTest implements ModelInterface, ArrayAccess
     const TYPE_CAMPAIGN = 'campaign';
     const TYPE_LOYALTY_ADDED_DEDUCTED_POINTS = 'loyalty_added_deducted_points';
     const TYPE_CARD_ADDED_DEDUCTED_POINTS = 'card_added_deducted_points';
+    const TYPE_LOYALTY_ADDED_DEDUCTED_POINTS_BALANCES = 'loyalty_added_deducted_points_balances';
+    const TYPE_LOYALTY_CARD_ADDED_DEDUCTED_POINTS_BALANCES = 'loyalty_card_added_deducted_points_balances';
     const TYPE_COUPON = 'coupon';
     const TYPE_EXPIRING_COUPONS = 'expiring_coupons';
     const TYPE_EXPIRING_POINTS = 'expiring_points';
@@ -215,6 +217,8 @@ class NewMessageTest implements ModelInterface, ArrayAccess
             self::TYPE_CAMPAIGN,
             self::TYPE_LOYALTY_ADDED_DEDUCTED_POINTS,
             self::TYPE_CARD_ADDED_DEDUCTED_POINTS,
+            self::TYPE_LOYALTY_ADDED_DEDUCTED_POINTS_BALANCES,
+            self::TYPE_LOYALTY_CARD_ADDED_DEDUCTED_POINTS_BALANCES,
             self::TYPE_COUPON,
             self::TYPE_EXPIRING_COUPONS,
             self::TYPE_EXPIRING_POINTS,

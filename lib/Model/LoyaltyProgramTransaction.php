@@ -58,6 +58,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
+        'transactionUUID' => 'string',
         'programId' => 'int',
         'campaignId' => 'int',
         'created' => '\DateTime',
@@ -84,9 +85,10 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'programId' => null,
-        'campaignId' => null,
+        'id' => 'int64',
+        'transactionUUID' => null,
+        'programId' => 'int64',
+        'campaignId' => 'int64',
         'created' => 'date-time',
         'type' => null,
         'amount' => null,
@@ -97,10 +99,10 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
         'cardIdentifier' => null,
         'subledgerId' => null,
         'customerSessionId' => null,
-        'importId' => null,
-        'userId' => null,
+        'importId' => 'int64',
+        'userId' => 'int64',
         'userEmail' => null,
-        'rulesetId' => null,
+        'rulesetId' => 'int64',
         'ruleName' => null,
         'flags' => null
     ];
@@ -133,6 +135,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'transactionUUID' => 'transactionUUID',
         'programId' => 'programId',
         'campaignId' => 'campaignId',
         'created' => 'created',
@@ -160,6 +163,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'transactionUUID' => 'setTransactionUUID',
         'programId' => 'setProgramId',
         'campaignId' => 'setCampaignId',
         'created' => 'setCreated',
@@ -187,6 +191,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'transactionUUID' => 'getTransactionUUID',
         'programId' => 'getProgramId',
         'campaignId' => 'getCampaignId',
         'created' => 'getCreated',
@@ -283,6 +288,7 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
         $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
@@ -314,6 +320,9 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
 
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['transactionUUID'] === null) {
+            $invalidProperties[] = "'transactionUUID' can't be null";
         }
         if ($this->container['programId'] === null) {
             $invalidProperties[] = "'programId' can't be null";
@@ -414,6 +423,30 @@ class LoyaltyProgramTransaction implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transactionUUID
+     *
+     * @return string
+     */
+    public function getTransactionUUID()
+    {
+        return $this->container['transactionUUID'];
+    }
+
+    /**
+     * Sets transactionUUID
+     *
+     * @param string $transactionUUID Unique identifier of the transaction in the UUID format.
+     *
+     * @return $this
+     */
+    public function setTransactionUUID($transactionUUID)
+    {
+        $this->container['transactionUUID'] = $transactionUUID;
 
         return $this;
     }

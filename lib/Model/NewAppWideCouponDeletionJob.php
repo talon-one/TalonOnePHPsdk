@@ -68,7 +68,7 @@ class NewAppWideCouponDeletionJob implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'filters' => null,
-        'campaignids' => null
+        'campaignids' => 'int64'
     ];
 
     /**

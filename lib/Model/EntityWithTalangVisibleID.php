@@ -67,7 +67,7 @@ class EntityWithTalangVisibleID implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time'
     ];
 

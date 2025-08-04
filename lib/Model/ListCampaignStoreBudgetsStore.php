@@ -68,7 +68,7 @@ class ListCampaignStoreBudgetsStore implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'integrationId' => null,
         'name' => null
     ];

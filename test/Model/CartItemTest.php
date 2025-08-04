@@ -189,4 +189,39 @@ class CartItemTest extends TestCase
     public function testPropertyCatalogItemID()
     {
     }
+
+    /**
+     * Test attribute "selectedPriceType"
+     */
+    public function testPropertySelectedPriceType()
+    {
+    }
+
+    /**
+     * Test attribute "adjustmentReferenceId"
+     */
+    public function testPropertyAdjustmentReferenceId()
+    {
+    }
+
+    /**
+     * Test attribute "adjustmentEffectiveFrom"
+     */
+    public function testPropertyAdjustmentEffectiveFrom()
+    {
+    }
+
+    /**
+     * Test attribute "adjustmentEffectiveUntil"
+     */
+    public function testPropertyAdjustmentEffectiveUntil()
+    {
+    }
+
+    /**
+     * Test attribute "prices"
+     */
+    public function testPropertyPrices()
+    {
+    }
 }

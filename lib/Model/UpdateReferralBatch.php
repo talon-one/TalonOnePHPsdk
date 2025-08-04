@@ -74,7 +74,7 @@ class UpdateReferralBatch implements ModelInterface, ArrayAccess
         'batchID' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'usageLimit' => null
+        'usageLimit' => 'int64'
     ];
 
     /**

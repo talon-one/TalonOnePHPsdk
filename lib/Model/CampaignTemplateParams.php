@@ -72,7 +72,7 @@ class CampaignTemplateParams implements ModelInterface, ArrayAccess
         'name' => null,
         'type' => null,
         'description' => null,
-        'attributeId' => null
+        'attributeId' => 'int64'
     ];
 
     /**

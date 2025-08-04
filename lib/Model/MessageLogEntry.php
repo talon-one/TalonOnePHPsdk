@@ -84,18 +84,18 @@ class MessageLogEntry implements ModelInterface, ArrayAccess
         'id' => null,
         'service' => null,
         'changeType' => null,
-        'notificationId' => null,
+        'notificationId' => 'int64',
         'notificationName' => null,
-        'webhookId' => null,
+        'webhookId' => 'int64',
         'webhookName' => null,
         'request' => null,
         'response' => null,
         'createdAt' => 'date-time',
         'entityType' => null,
         'url' => null,
-        'applicationId' => null,
-        'loyaltyProgramId' => null,
-        'campaignId' => null
+        'applicationId' => 'int64',
+        'loyaltyProgramId' => 'int64',
+        'campaignId' => 'int64'
     ];
 
     /**

@@ -80,19 +80,19 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignID' => null,
+        'campaignID' => 'int64',
         'campaignName' => null,
-        'rulesetID' => null,
-        'couponID' => null,
+        'rulesetID' => 'int64',
+        'couponID' => 'int64',
         'couponValue' => null,
-        'referralID' => null,
+        'referralID' => 'int64',
         'referralValue' => null,
-        'ruleIndex' => null,
+        'ruleIndex' => 'int64',
         'ruleName' => null,
-        'conditionIndex' => null,
-        'effectIndex' => null,
+        'conditionIndex' => 'int64',
+        'effectIndex' => 'int64',
         'details' => null,
-        'evaluationGroupID' => null,
+        'evaluationGroupID' => 'int64',
         'evaluationGroupMode' => null
     ];
 

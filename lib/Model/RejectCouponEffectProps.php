@@ -74,8 +74,8 @@ class RejectCouponEffectProps implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'value' => null,
         'rejectionReason' => null,
-        'conditionIndex' => null,
-        'effectIndex' => null,
+        'conditionIndex' => 'int64',
+        'effectIndex' => 'int64',
         'details' => null,
         'campaignExclusionReason' => null
     ];

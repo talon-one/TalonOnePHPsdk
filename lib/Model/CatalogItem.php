@@ -73,12 +73,12 @@ class CatalogItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'sku' => null,
         'price' => null,
-        'catalogid' => null,
-        'version' => null,
+        'catalogid' => 'int64',
+        'version' => 'int64',
         'attributes' => null,
         'product' => null
     ];
@@ -278,7 +278,7 @@ class CatalogItem implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

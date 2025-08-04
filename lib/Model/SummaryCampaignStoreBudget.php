@@ -71,7 +71,7 @@ class SummaryCampaignStoreBudget implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'action' => null,
         'period' => null,
-        'storeCount' => null,
+        'storeCount' => 'int64',
         'imported' => null
     ];
 

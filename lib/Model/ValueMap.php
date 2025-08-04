@@ -69,10 +69,10 @@ class ValueMap implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'createdBy' => null,
-        'campaignId' => null
+        'createdBy' => 'int64',
+        'campaignId' => 'int64'
     ];
 
     /**

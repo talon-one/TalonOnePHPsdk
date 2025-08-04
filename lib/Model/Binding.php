@@ -60,7 +60,11 @@ class Binding implements ModelInterface, ArrayAccess
         'name' => 'string',
         'type' => 'string',
         'expression' => 'object[]',
-        'valueType' => 'string'
+        'valueType' => 'string',
+        'minValue' => 'float',
+        'maxValue' => 'float',
+        'attributeId' => 'int',
+        'description' => 'string'
     ];
 
     /**
@@ -72,7 +76,11 @@ class Binding implements ModelInterface, ArrayAccess
         'name' => null,
         'type' => null,
         'expression' => null,
-        'valueType' => null
+        'valueType' => null,
+        'minValue' => null,
+        'maxValue' => null,
+        'attributeId' => 'int64',
+        'description' => null
     ];
 
     /**
@@ -105,7 +113,11 @@ class Binding implements ModelInterface, ArrayAccess
         'name' => 'name',
         'type' => 'type',
         'expression' => 'expression',
-        'valueType' => 'valueType'
+        'valueType' => 'valueType',
+        'minValue' => 'minValue',
+        'maxValue' => 'maxValue',
+        'attributeId' => 'attributeId',
+        'description' => 'description'
     ];
 
     /**
@@ -117,7 +129,11 @@ class Binding implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'type' => 'setType',
         'expression' => 'setExpression',
-        'valueType' => 'setValueType'
+        'valueType' => 'setValueType',
+        'minValue' => 'setMinValue',
+        'maxValue' => 'setMaxValue',
+        'attributeId' => 'setAttributeId',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -129,7 +145,11 @@ class Binding implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'type' => 'getType',
         'expression' => 'getExpression',
-        'valueType' => 'getValueType'
+        'valueType' => 'getValueType',
+        'minValue' => 'getMinValue',
+        'maxValue' => 'getMaxValue',
+        'attributeId' => 'getAttributeId',
+        'description' => 'getDescription'
     ];
 
     /**
@@ -196,6 +216,10 @@ class Binding implements ModelInterface, ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['expression'] = isset($data['expression']) ? $data['expression'] : null;
         $this->container['valueType'] = isset($data['valueType']) ? $data['valueType'] : null;
+        $this->container['minValue'] = isset($data['minValue']) ? $data['minValue'] : null;
+        $this->container['maxValue'] = isset($data['maxValue']) ? $data['maxValue'] : null;
+        $this->container['attributeId'] = isset($data['attributeId']) ? $data['attributeId'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
     }
 
     /**
@@ -320,6 +344,102 @@ class Binding implements ModelInterface, ArrayAccess
     public function setValueType($valueType)
     {
         $this->container['valueType'] = $valueType;
+
+        return $this;
+    }
+
+    /**
+     * Gets minValue
+     *
+     * @return float|null
+     */
+    public function getMinValue()
+    {
+        return $this->container['minValue'];
+    }
+
+    /**
+     * Sets minValue
+     *
+     * @param float|null $minValue The minimum value allowed for this placeholder.
+     *
+     * @return $this
+     */
+    public function setMinValue($minValue)
+    {
+        $this->container['minValue'] = $minValue;
+
+        return $this;
+    }
+
+    /**
+     * Gets maxValue
+     *
+     * @return float|null
+     */
+    public function getMaxValue()
+    {
+        return $this->container['maxValue'];
+    }
+
+    /**
+     * Sets maxValue
+     *
+     * @param float|null $maxValue The maximum value allowed for this placeholder.
+     *
+     * @return $this
+     */
+    public function setMaxValue($maxValue)
+    {
+        $this->container['maxValue'] = $maxValue;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributeId
+     *
+     * @return int|null
+     */
+    public function getAttributeId()
+    {
+        return $this->container['attributeId'];
+    }
+
+    /**
+     * Sets attributeId
+     *
+     * @param int|null $attributeId Id of the attribute attached to the placeholder.
+     *
+     * @return $this
+     */
+    public function setAttributeId($attributeId)
+    {
+        $this->container['attributeId'] = $attributeId;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template.
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }

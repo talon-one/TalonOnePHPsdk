@@ -66,7 +66,7 @@ class UserEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'userId' => null
+        'userId' => 'int64'
     ];
 
     /**

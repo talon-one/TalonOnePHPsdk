@@ -73,9 +73,9 @@ class NewApplicationCIF implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'description' => null,
-        'activeExpressionId' => null,
-        'modifiedBy' => null,
-        'createdBy' => null,
+        'activeExpressionId' => 'int64',
+        'modifiedBy' => 'int64',
+        'createdBy' => 'int64',
         'modified' => 'date-time'
     ];
 

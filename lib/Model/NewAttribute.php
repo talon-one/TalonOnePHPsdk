@@ -88,8 +88,8 @@ class NewAttribute implements ModelInterface, ArrayAccess
         'hasAllowedList' => null,
         'restrictedBySuggestions' => null,
         'editable' => null,
-        'subscribedApplicationsIds' => null,
-        'subscribedCatalogsIds' => null,
+        'subscribedApplicationsIds' => 'int64',
+        'subscribedCatalogsIds' => 'int64',
         'allowedSubscriptions' => null
     ];
 

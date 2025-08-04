@@ -82,18 +82,18 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'created' => 'date-time',
-        'programID' => null,
+        'programID' => 'int64',
         'customerProfileID' => null,
-        'cardID' => null,
+        'cardID' => 'int64',
         'customerSessionID' => null,
-        'eventID' => null,
+        'eventID' => 'int64',
         'type' => null,
         'amount' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
         'name' => null,
         'subLedgerID' => null,
-        'userID' => null,
+        'userID' => 'int64',
         'archived' => null,
         'flags' => null
     ];

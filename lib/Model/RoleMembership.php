@@ -67,8 +67,8 @@ class RoleMembership implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'roleID' => null,
-        'userID' => null
+        'roleID' => 'int64',
+        'userID' => 'int64'
     ];
 
     /**

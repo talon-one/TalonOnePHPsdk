@@ -88,29 +88,29 @@ class IntegrationCoupon implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'campaignId' => null,
+        'campaignId' => 'int64',
         'value' => null,
-        'usageLimit' => null,
+        'usageLimit' => 'int64',
         'discountLimit' => null,
-        'reservationLimit' => null,
+        'reservationLimit' => 'int64',
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
         'limits' => null,
-        'usageCounter' => null,
+        'usageCounter' => 'int64',
         'discountCounter' => null,
         'discountRemainder' => null,
         'reservationCounter' => null,
         'attributes' => null,
-        'referralId' => null,
+        'referralId' => 'int64',
         'recipientIntegrationId' => null,
-        'importId' => null,
+        'importId' => 'int64',
         'reservation' => null,
         'batchId' => null,
         'isReservationMandatory' => null,
         'implicitlyReserved' => null,
-        'profileRedemptionCount' => null
+        'profileRedemptionCount' => 'int64'
     ];
 
     /**
@@ -348,8 +348,8 @@ class IntegrationCoupon implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'usageLimit', must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] > 999999)) {
-            $invalidProperties[] = "invalid value for 'discountLimit', must be smaller than or equal to 999999.";
+        if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] > 1E+15)) {
+            $invalidProperties[] = "invalid value for 'discountLimit', must be smaller than or equal to 1E+15.";
         }
 
         if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] < 0)) {
@@ -402,7 +402,7 @@ class IntegrationCoupon implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of the coupon.
      *
      * @return $this
      */
@@ -426,7 +426,7 @@ class IntegrationCoupon implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created The time this entity was created.
+     * @param \DateTime $created The time the coupon was created.
      *
      * @return $this
      */
@@ -542,8 +542,8 @@ class IntegrationCoupon implements ModelInterface, ArrayAccess
     public function setDiscountLimit($discountLimit)
     {
 
-        if (!is_null($discountLimit) && ($discountLimit > 999999)) {
-            throw new \InvalidArgumentException('invalid value for $discountLimit when calling IntegrationCoupon., must be smaller than or equal to 999999.');
+        if (!is_null($discountLimit) && ($discountLimit > 1E+15)) {
+            throw new \InvalidArgumentException('invalid value for $discountLimit when calling IntegrationCoupon., must be smaller than or equal to 1E+15.');
         }
         if (!is_null($discountLimit) && ($discountLimit < 0)) {
             throw new \InvalidArgumentException('invalid value for $discountLimit when calling IntegrationCoupon., must be bigger than or equal to 0.');

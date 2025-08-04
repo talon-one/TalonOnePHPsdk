@@ -63,6 +63,7 @@ class StrikethroughChangedItem implements ModelInterface, ArrayAccess
         'sku' => 'string',
         'version' => 'int',
         'price' => 'float',
+        'prices' => 'map[string,\TalonOne\Client\Model\PriceDetail]',
         'evaluatedAt' => '\DateTime',
         'effects' => '\TalonOne\Client\Model\StrikethroughEffect[]'
     ];
@@ -73,11 +74,12 @@ class StrikethroughChangedItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'catalogId' => null,
+        'id' => 'int64',
+        'catalogId' => 'int64',
         'sku' => null,
-        'version' => null,
+        'version' => 'int64',
         'price' => null,
+        'prices' => null,
         'evaluatedAt' => 'date-time',
         'effects' => null
     ];
@@ -114,6 +116,7 @@ class StrikethroughChangedItem implements ModelInterface, ArrayAccess
         'sku' => 'sku',
         'version' => 'version',
         'price' => 'price',
+        'prices' => 'prices',
         'evaluatedAt' => 'evaluatedAt',
         'effects' => 'effects'
     ];
@@ -129,6 +132,7 @@ class StrikethroughChangedItem implements ModelInterface, ArrayAccess
         'sku' => 'setSku',
         'version' => 'setVersion',
         'price' => 'setPrice',
+        'prices' => 'setPrices',
         'evaluatedAt' => 'setEvaluatedAt',
         'effects' => 'setEffects'
     ];
@@ -144,6 +148,7 @@ class StrikethroughChangedItem implements ModelInterface, ArrayAccess
         'sku' => 'getSku',
         'version' => 'getVersion',
         'price' => 'getPrice',
+        'prices' => 'getPrices',
         'evaluatedAt' => 'getEvaluatedAt',
         'effects' => 'getEffects'
     ];
@@ -213,6 +218,7 @@ class StrikethroughChangedItem implements ModelInterface, ArrayAccess
         $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['prices'] = isset($data['prices']) ? $data['prices'] : null;
         $this->container['evaluatedAt'] = isset($data['evaluatedAt']) ? $data['evaluatedAt'] : null;
         $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
     }
@@ -384,6 +390,30 @@ class StrikethroughChangedItem implements ModelInterface, ArrayAccess
     public function setPrice($price)
     {
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets prices
+     *
+     * @return map[string,\TalonOne\Client\Model\PriceDetail]|null
+     */
+    public function getPrices()
+    {
+        return $this->container['prices'];
+    }
+
+    /**
+     * Sets prices
+     *
+     * @param map[string,\TalonOne\Client\Model\PriceDetail]|null $prices A map of keys and values representing the price types and related price adjustment details for this cart item.       The keys correspond to the `priceType` names.
+     *
+     * @return $this
+     */
+    public function setPrices($prices)
+    {
+        $this->container['prices'] = $prices;
 
         return $this;
     }

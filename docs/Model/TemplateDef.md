@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
 **applicationId** | **int** | The ID of the Application that owns this entity. | 
 **title** | **string** | Campaigner-friendly name for the template that will be shown in the rule editor. | 

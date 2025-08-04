@@ -74,7 +74,7 @@ class CreateApplicationAPIKey implements ModelInterface, ArrayAccess
         'expires' => 'date-time',
         'platform' => null,
         'type' => null,
-        'timeOffset' => null
+        'timeOffset' => 'int64'
     ];
 
     /**

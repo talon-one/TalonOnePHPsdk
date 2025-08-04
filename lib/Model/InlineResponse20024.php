@@ -68,7 +68,7 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'totalResultSize' => null,
+        'totalResultSize' => 'int64',
         'hasMore' => null,
         'data' => null
     ];

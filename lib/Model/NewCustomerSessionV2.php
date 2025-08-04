@@ -79,7 +79,7 @@ class NewCustomerSessionV2 implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'profileId' => null,
         'storeIntegrationId' => null,
-        'evaluableCampaignIds' => null,
+        'evaluableCampaignIds' => 'int64',
         'couponCodes' => null,
         'referralCode' => null,
         'loyaltyCards' => null,

@@ -70,7 +70,7 @@ class Tier implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'name' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',

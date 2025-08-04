@@ -73,14 +73,14 @@ class CampaignEvaluationGroup implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'applicationId' => null,
+        'applicationId' => 'int64',
         'name' => null,
-        'parentId' => null,
+        'parentId' => 'int64',
         'description' => null,
         'evaluationMode' => null,
         'evaluationScope' => null,
         'locked' => null,
-        'id' => null
+        'id' => 'int64'
     ];
 
     /**

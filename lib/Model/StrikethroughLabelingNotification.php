@@ -75,9 +75,9 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'version' => null,
         'validFrom' => 'date-time',
-        'applicationId' => null,
-        'currentBatch' => null,
-        'totalBatches' => null,
+        'applicationId' => 'int64',
+        'currentBatch' => 'int64',
+        'totalBatches' => 'int64',
         'trigger' => null,
         'changedItems' => null
     ];

@@ -82,17 +82,17 @@ class User implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'modified' => 'date-time',
         'email' => 'email',
-        'accountId' => null,
+        'accountId' => 'int64',
         'name' => null,
         'state' => null,
         'inviteToken' => null,
         'isAdmin' => null,
         'policy' => null,
-        'roles' => null,
+        'roles' => 'int64',
         'authMethod' => null,
         'applicationNotificationSubscriptions' => null,
         'lastSignedIn' => 'date-time',
@@ -365,7 +365,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

@@ -80,12 +80,12 @@ class ApplicationSession implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'integrationId' => 'string',
         'storeIntegrationId' => null,
-        'applicationId' => null,
-        'profileId' => null,
+        'applicationId' => 'int64',
+        'profileId' => 'int64',
         'profileintegrationid' => null,
         'coupon' => null,
         'referral' => null,
@@ -377,7 +377,7 @@ class ApplicationSession implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

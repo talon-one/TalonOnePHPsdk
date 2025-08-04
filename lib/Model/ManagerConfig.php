@@ -66,7 +66,7 @@ class ManagerConfig implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'schemaVersion' => null
+        'schemaVersion' => 'int64'
     ];
 
     /**

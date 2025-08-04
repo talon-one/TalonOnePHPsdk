@@ -73,7 +73,7 @@ class ChangeLoyaltyTierLevelEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'ruleTitle' => null,
-        'programId' => null,
+        'programId' => 'int64',
         'subLedgerId' => null,
         'previousTierName' => null,
         'newTierName' => null,

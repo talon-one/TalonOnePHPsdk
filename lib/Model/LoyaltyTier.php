@@ -73,9 +73,9 @@ class LoyaltyTier implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'programID' => null,
+        'programID' => 'int64',
         'programName' => null,
         'programTitle' => null,
         'name' => null,
@@ -277,7 +277,7 @@ class LoyaltyTier implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

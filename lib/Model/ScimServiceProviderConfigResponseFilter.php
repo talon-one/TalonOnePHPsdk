@@ -68,7 +68,7 @@ class ScimServiceProviderConfigResponseFilter implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'maxResults' => null,
+        'maxResults' => 'int64',
         'supported' => null
     ];
 

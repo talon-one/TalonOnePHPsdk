@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * LedgerTransactionLogEntryIntegrationAPI Class Doc Comment
  *
  * @category Class
- * @description Log entry for a given loyalty card transaction.
+ * @description Log entry for a given loyalty profile transaction.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,6 +58,7 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPITypes = [
+        'transactionUUID' => 'string',
         'created' => '\DateTime',
         'programId' => 'int',
         'customerSessionId' => 'string',
@@ -79,8 +80,9 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'transactionUUID' => null,
         'created' => 'date-time',
-        'programId' => null,
+        'programId' => 'int64',
         'customerSessionId' => null,
         'type' => null,
         'name' => null,
@@ -88,8 +90,8 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
         'expiryDate' => null,
         'subledgerId' => null,
         'amount' => null,
-        'id' => null,
-        'rulesetId' => null,
+        'id' => 'int64',
+        'rulesetId' => 'int64',
         'ruleName' => null,
         'flags' => null
     ];
@@ -121,6 +123,7 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
+        'transactionUUID' => 'transactionUUID',
         'created' => 'created',
         'programId' => 'programId',
         'customerSessionId' => 'customerSessionId',
@@ -142,6 +145,7 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
+        'transactionUUID' => 'setTransactionUUID',
         'created' => 'setCreated',
         'programId' => 'setProgramId',
         'customerSessionId' => 'setCustomerSessionId',
@@ -163,6 +167,7 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
+        'transactionUUID' => 'getTransactionUUID',
         'created' => 'getCreated',
         'programId' => 'getProgramId',
         'customerSessionId' => 'getCustomerSessionId',
@@ -253,6 +258,7 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
+        $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
         $this->container['customerSessionId'] = isset($data['customerSessionId']) ? $data['customerSessionId'] : null;
@@ -277,6 +283,9 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
+        if ($this->container['transactionUUID'] === null) {
+            $invalidProperties[] = "'transactionUUID' can't be null";
+        }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
@@ -346,6 +355,30 @@ class LedgerTransactionLogEntryIntegrationAPI implements ModelInterface, ArrayAc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets transactionUUID
+     *
+     * @return string
+     */
+    public function getTransactionUUID()
+    {
+        return $this->container['transactionUUID'];
+    }
+
+    /**
+     * Sets transactionUUID
+     *
+     * @param string $transactionUUID Unique identifier of the transaction in the UUID format.
+     *
+     * @return $this
+     */
+    public function setTransactionUUID($transactionUUID)
+    {
+        $this->container['transactionUUID'] = $transactionUUID;
+
+        return $this;
+    }
 
     /**
      * Gets created

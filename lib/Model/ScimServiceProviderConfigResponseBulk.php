@@ -69,8 +69,8 @@ class ScimServiceProviderConfigResponseBulk implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'maxOperations' => null,
-        'maxPayloadSize' => null,
+        'maxOperations' => 'int64',
+        'maxPayloadSize' => 'int64',
         'supported' => null
     ];
 

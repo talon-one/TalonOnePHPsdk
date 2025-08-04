@@ -69,7 +69,7 @@ class BulkOperationOnCampaigns implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'operation' => null,
-        'campaignIds' => null,
+        'campaignIds' => 'int64',
         'activateAt' => 'date-time'
     ];
 

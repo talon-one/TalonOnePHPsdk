@@ -72,7 +72,12 @@ class CartItem implements ModelInterface, ArrayAccess
         'position' => 'float',
         'attributes' => 'object',
         'additionalCosts' => 'map[string,\TalonOne\Client\Model\AdditionalCost]',
-        'catalogItemID' => 'int'
+        'catalogItemID' => 'int',
+        'selectedPriceType' => 'string',
+        'adjustmentReferenceId' => 'string',
+        'adjustmentEffectiveFrom' => '\DateTime',
+        'adjustmentEffectiveUntil' => '\DateTime',
+        'prices' => 'map[string,\TalonOne\Client\Model\PriceDetail]'
     ];
 
     /**
@@ -83,9 +88,9 @@ class CartItem implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'sku' => null,
-        'quantity' => null,
-        'returnedQuantity' => null,
-        'remainingQuantity' => null,
+        'quantity' => 'int64',
+        'returnedQuantity' => 'int64',
+        'remainingQuantity' => 'int64',
         'price' => null,
         'category' => null,
         'product' => null,
@@ -96,7 +101,12 @@ class CartItem implements ModelInterface, ArrayAccess
         'position' => null,
         'attributes' => null,
         'additionalCosts' => null,
-        'catalogItemID' => null
+        'catalogItemID' => 'int64',
+        'selectedPriceType' => null,
+        'adjustmentReferenceId' => 'uuid',
+        'adjustmentEffectiveFrom' => 'date-time',
+        'adjustmentEffectiveUntil' => 'date-time',
+        'prices' => null
     ];
 
     /**
@@ -141,7 +151,12 @@ class CartItem implements ModelInterface, ArrayAccess
         'position' => 'position',
         'attributes' => 'attributes',
         'additionalCosts' => 'additionalCosts',
-        'catalogItemID' => 'catalogItemID'
+        'catalogItemID' => 'catalogItemID',
+        'selectedPriceType' => 'selectedPriceType',
+        'adjustmentReferenceId' => 'adjustmentReferenceId',
+        'adjustmentEffectiveFrom' => 'adjustmentEffectiveFrom',
+        'adjustmentEffectiveUntil' => 'adjustmentEffectiveUntil',
+        'prices' => 'prices'
     ];
 
     /**
@@ -165,7 +180,12 @@ class CartItem implements ModelInterface, ArrayAccess
         'position' => 'setPosition',
         'attributes' => 'setAttributes',
         'additionalCosts' => 'setAdditionalCosts',
-        'catalogItemID' => 'setCatalogItemID'
+        'catalogItemID' => 'setCatalogItemID',
+        'selectedPriceType' => 'setSelectedPriceType',
+        'adjustmentReferenceId' => 'setAdjustmentReferenceId',
+        'adjustmentEffectiveFrom' => 'setAdjustmentEffectiveFrom',
+        'adjustmentEffectiveUntil' => 'setAdjustmentEffectiveUntil',
+        'prices' => 'setPrices'
     ];
 
     /**
@@ -189,7 +209,12 @@ class CartItem implements ModelInterface, ArrayAccess
         'position' => 'getPosition',
         'attributes' => 'getAttributes',
         'additionalCosts' => 'getAdditionalCosts',
-        'catalogItemID' => 'getCatalogItemID'
+        'catalogItemID' => 'getCatalogItemID',
+        'selectedPriceType' => 'getSelectedPriceType',
+        'adjustmentReferenceId' => 'getAdjustmentReferenceId',
+        'adjustmentEffectiveFrom' => 'getAdjustmentEffectiveFrom',
+        'adjustmentEffectiveUntil' => 'getAdjustmentEffectiveUntil',
+        'prices' => 'getPrices'
     ];
 
     /**
@@ -268,6 +293,11 @@ class CartItem implements ModelInterface, ArrayAccess
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['additionalCosts'] = isset($data['additionalCosts']) ? $data['additionalCosts'] : null;
         $this->container['catalogItemID'] = isset($data['catalogItemID']) ? $data['catalogItemID'] : null;
+        $this->container['selectedPriceType'] = isset($data['selectedPriceType']) ? $data['selectedPriceType'] : null;
+        $this->container['adjustmentReferenceId'] = isset($data['adjustmentReferenceId']) ? $data['adjustmentReferenceId'] : null;
+        $this->container['adjustmentEffectiveFrom'] = isset($data['adjustmentEffectiveFrom']) ? $data['adjustmentEffectiveFrom'] : null;
+        $this->container['adjustmentEffectiveUntil'] = isset($data['adjustmentEffectiveUntil']) ? $data['adjustmentEffectiveUntil'] : null;
+        $this->container['prices'] = isset($data['prices']) ? $data['prices'] : null;
     }
 
     /**
@@ -691,13 +721,133 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets catalogItemID
      *
-     * @param int|null $catalogItemID The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog).
+     * @param int|null $catalogItemID The catalog item ID.
      *
      * @return $this
      */
     public function setCatalogItemID($catalogItemID)
     {
         $this->container['catalogItemID'] = $catalogItemID;
+
+        return $this;
+    }
+
+    /**
+     * Gets selectedPriceType
+     *
+     * @return string|null
+     */
+    public function getSelectedPriceType()
+    {
+        return $this->container['selectedPriceType'];
+    }
+
+    /**
+     * Sets selectedPriceType
+     *
+     * @param string|null $selectedPriceType The selected price type for this cart item (e.g. the price for members only).
+     *
+     * @return $this
+     */
+    public function setSelectedPriceType($selectedPriceType)
+    {
+        $this->container['selectedPriceType'] = $selectedPriceType;
+
+        return $this;
+    }
+
+    /**
+     * Gets adjustmentReferenceId
+     *
+     * @return string|null
+     */
+    public function getAdjustmentReferenceId()
+    {
+        return $this->container['adjustmentReferenceId'];
+    }
+
+    /**
+     * Sets adjustmentReferenceId
+     *
+     * @param string|null $adjustmentReferenceId The reference ID of the selected price adjustment for this cart item. Only returned if the selected price resulted from a price adjustment.
+     *
+     * @return $this
+     */
+    public function setAdjustmentReferenceId($adjustmentReferenceId)
+    {
+        $this->container['adjustmentReferenceId'] = $adjustmentReferenceId;
+
+        return $this;
+    }
+
+    /**
+     * Gets adjustmentEffectiveFrom
+     *
+     * @return \DateTime|null
+     */
+    public function getAdjustmentEffectiveFrom()
+    {
+        return $this->container['adjustmentEffectiveFrom'];
+    }
+
+    /**
+     * Sets adjustmentEffectiveFrom
+     *
+     * @param \DateTime|null $adjustmentEffectiveFrom The date and time from which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.
+     *
+     * @return $this
+     */
+    public function setAdjustmentEffectiveFrom($adjustmentEffectiveFrom)
+    {
+        $this->container['adjustmentEffectiveFrom'] = $adjustmentEffectiveFrom;
+
+        return $this;
+    }
+
+    /**
+     * Gets adjustmentEffectiveUntil
+     *
+     * @return \DateTime|null
+     */
+    public function getAdjustmentEffectiveUntil()
+    {
+        return $this->container['adjustmentEffectiveUntil'];
+    }
+
+    /**
+     * Sets adjustmentEffectiveUntil
+     *
+     * @param \DateTime|null $adjustmentEffectiveUntil The date and time until which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.
+     *
+     * @return $this
+     */
+    public function setAdjustmentEffectiveUntil($adjustmentEffectiveUntil)
+    {
+        $this->container['adjustmentEffectiveUntil'] = $adjustmentEffectiveUntil;
+
+        return $this;
+    }
+
+    /**
+     * Gets prices
+     *
+     * @return map[string,\TalonOne\Client\Model\PriceDetail]|null
+     */
+    public function getPrices()
+    {
+        return $this->container['prices'];
+    }
+
+    /**
+     * Sets prices
+     *
+     * @param map[string,\TalonOne\Client\Model\PriceDetail]|null $prices A map of keys and values representing the price types and related price adjustment details for this cart item. The keys correspond to the `priceType` names.
+     *
+     * @return $this
+     */
+    public function setPrices($prices)
+    {
+        $this->container['prices'] = $prices;
 
         return $this;
     }

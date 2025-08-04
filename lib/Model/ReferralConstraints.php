@@ -70,7 +70,7 @@ class ReferralConstraints implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'usageLimit' => null
+        'usageLimit' => 'int64'
     ];
 
     /**

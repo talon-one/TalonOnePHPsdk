@@ -68,7 +68,7 @@ class CampaignSetLeafNode implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'type' => null,
-        'campaignId' => null
+        'campaignId' => 'int64'
     ];
 
     /**

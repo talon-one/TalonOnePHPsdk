@@ -79,18 +79,18 @@ class InventoryReferral implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'usageLimit' => null,
-        'campaignId' => null,
+        'usageLimit' => 'int64',
+        'campaignId' => 'int64',
         'advocateProfileIntegrationId' => null,
         'friendProfileIntegrationId' => null,
         'attributes' => null,
-        'importId' => null,
+        'importId' => 'int64',
         'code' => null,
-        'usageCounter' => null,
+        'usageCounter' => 'int64',
         'batchId' => null,
         'referredCustomers' => null
     ];
@@ -335,7 +335,7 @@ class InventoryReferral implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

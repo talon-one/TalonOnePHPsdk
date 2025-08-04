@@ -5558,6 +5558,8 @@ class IntegrationApi
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
@@ -5565,9 +5567,9 @@ class IntegrationApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2003|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getLoyaltyCardTransactions($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyCardTransactions($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null)
     {
-        list($response) = $this->getLoyaltyCardTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
+        list($response) = $this->getLoyaltyCardTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip);
         return $response;
     }
 
@@ -5582,6 +5584,8 @@ class IntegrationApi
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
@@ -5589,9 +5593,9 @@ class IntegrationApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2003|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyCardTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyCardTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null)
     {
-        $request = $this->getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
+        $request = $this->getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5737,15 +5741,17 @@ class IntegrationApi
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyCardTransactionsAsync($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyCardTransactionsAsync($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null)
     {
-        return $this->getLoyaltyCardTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip)
+        return $this->getLoyaltyCardTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5764,16 +5770,18 @@ class IntegrationApi
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyCardTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyCardTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2003';
-        $request = $this->getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
+        $request = $this->getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5818,13 +5826,15 @@ class IntegrationApi
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    protected function getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -5888,6 +5898,28 @@ class IntegrationApi
         }
         if ($endDate !== null) {
             $queryParams['endDate'] = $endDate;
+        }
+        // query params
+        if ($customerSessionIDs !== null) {
+            if('form' === 'form' && is_array($customerSessionIDs)) {
+                foreach($customerSessionIDs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['customerSessionIDs'] = $customerSessionIDs;
+            }
+        }
+        // query params
+        if ($transactionUUIDs !== null) {
+            if('form' === 'form' && is_array($transactionUUIDs)) {
+                foreach($transactionUUIDs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['transactionUUIDs'] = $transactionUUIDs;
+            }
         }
         // query params
         if (is_array($pageSize)) {
@@ -6410,6 +6442,8 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
@@ -6421,9 +6455,9 @@ class IntegrationApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2004|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getLoyaltyProgramProfileTransactions($loyaltyProgramId, $integrationId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramProfileTransactions($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
-        list($response) = $this->getLoyaltyProgramProfileTransactionsWithHttpInfo($loyaltyProgramId, $integrationId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
+        list($response) = $this->getLoyaltyProgramProfileTransactionsWithHttpInfo($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
         return $response;
     }
 
@@ -6434,6 +6468,8 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
@@ -6445,9 +6481,9 @@ class IntegrationApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2004|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyProgramProfileTransactionsWithHttpInfo($loyaltyProgramId, $integrationId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramProfileTransactionsWithHttpInfo($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
-        $request = $this->getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
+        $request = $this->getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6589,6 +6625,8 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
@@ -6599,9 +6637,9 @@ class IntegrationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyProgramProfileTransactionsAsync($loyaltyProgramId, $integrationId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramProfileTransactionsAsync($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
-        return $this->getLoyaltyProgramProfileTransactionsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip)
+        return $this->getLoyaltyProgramProfileTransactionsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6616,6 +6654,8 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
@@ -6626,10 +6666,10 @@ class IntegrationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyProgramProfileTransactionsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramProfileTransactionsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2004';
-        $request = $this->getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
+        $request = $this->getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6670,6 +6710,8 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
@@ -6680,7 +6722,7 @@ class IntegrationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    protected function getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -6709,6 +6751,28 @@ class IntegrationApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($customerSessionIDs !== null) {
+            if('form' === 'form' && is_array($customerSessionIDs)) {
+                foreach($customerSessionIDs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['customerSessionIDs'] = $customerSessionIDs;
+            }
+        }
+        // query params
+        if ($transactionUUIDs !== null) {
+            if('form' === 'form' && is_array($transactionUUIDs)) {
+                foreach($transactionUUIDs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['transactionUUIDs'] = $transactionUUIDs;
+            }
+        }
         // query params
         if (is_array($subledgerId)) {
             $subledgerId = ObjectSerializer::serializeCollection($subledgerId, '', true);

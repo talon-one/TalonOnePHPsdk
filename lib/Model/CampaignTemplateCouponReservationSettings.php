@@ -67,7 +67,7 @@ class CampaignTemplateCouponReservationSettings implements ModelInterface, Array
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'reservationLimit' => null,
+        'reservationLimit' => 'int64',
         'isReservationMandatory' => null
     ];
 

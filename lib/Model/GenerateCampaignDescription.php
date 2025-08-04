@@ -57,6 +57,7 @@ class GenerateCampaignDescription implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'campaignID' => 'int',
         'rulesetID' => 'int',
         'currency' => 'string'
     ];
@@ -67,7 +68,8 @@ class GenerateCampaignDescription implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'rulesetID' => null,
+        'campaignID' => 'int64',
+        'rulesetID' => 'int64',
         'currency' => null
     ];
 
@@ -98,6 +100,7 @@ class GenerateCampaignDescription implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'campaignID' => 'campaignID',
         'rulesetID' => 'rulesetID',
         'currency' => 'currency'
     ];
@@ -108,6 +111,7 @@ class GenerateCampaignDescription implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'campaignID' => 'setCampaignID',
         'rulesetID' => 'setRulesetID',
         'currency' => 'setCurrency'
     ];
@@ -118,6 +122,7 @@ class GenerateCampaignDescription implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'campaignID' => 'getCampaignID',
         'rulesetID' => 'getRulesetID',
         'currency' => 'getCurrency'
     ];
@@ -182,6 +187,7 @@ class GenerateCampaignDescription implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['campaignID'] = isset($data['campaignID']) ? $data['campaignID'] : null;
         $this->container['rulesetID'] = isset($data['rulesetID']) ? $data['rulesetID'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
     }
@@ -195,6 +201,9 @@ class GenerateCampaignDescription implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['campaignID'] === null) {
+            $invalidProperties[] = "'campaignID' can't be null";
+        }
         if ($this->container['rulesetID'] === null) {
             $invalidProperties[] = "'rulesetID' can't be null";
         }
@@ -215,6 +224,30 @@ class GenerateCampaignDescription implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets campaignID
+     *
+     * @return int
+     */
+    public function getCampaignID()
+    {
+        return $this->container['campaignID'];
+    }
+
+    /**
+     * Sets campaignID
+     *
+     * @param int $campaignID ID of a campaign.
+     *
+     * @return $this
+     */
+    public function setCampaignID($campaignID)
+    {
+        $this->container['campaignID'] = $campaignID;
+
+        return $this;
+    }
 
     /**
      * Gets rulesetID

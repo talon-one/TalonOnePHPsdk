@@ -76,17 +76,17 @@ class Giveaway implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'code' => null,
-        'poolId' => null,
+        'poolId' => 'int64',
         'startDate' => 'date-time',
         'endDate' => 'date-time',
         'attributes' => null,
         'used' => null,
-        'importId' => null,
+        'importId' => 'int64',
         'profileIntegrationId' => null,
-        'profileId' => null
+        'profileId' => 'int64'
     ];
 
     /**
@@ -289,7 +289,7 @@ class Giveaway implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

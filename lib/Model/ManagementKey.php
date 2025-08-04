@@ -77,10 +77,10 @@ class ManagementKey implements ModelInterface, ArrayAccess
         'name' => null,
         'expiryDate' => 'date-time',
         'endpoints' => null,
-        'allowedApplicationIds' => null,
-        'id' => null,
-        'createdBy' => null,
-        'accountID' => null,
+        'allowedApplicationIds' => 'int64',
+        'id' => 'int64',
+        'createdBy' => 'int64',
+        'accountID' => 'int64',
         'created' => 'date-time',
         'disabled' => null
     ];

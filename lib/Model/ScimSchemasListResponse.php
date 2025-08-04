@@ -71,7 +71,7 @@ class ScimSchemasListResponse implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'resources' => null,
         'schemas' => null,
-        'totalResults' => null
+        'totalResults' => 'int64'
     ];
 
     /**

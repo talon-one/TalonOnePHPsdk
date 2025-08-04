@@ -72,7 +72,7 @@ class EventV2 implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'profileId' => null,
         'storeIntegrationId' => null,
-        'evaluableCampaignIds' => null,
+        'evaluableCampaignIds' => 'int64',
         'type' => null,
         'attributes' => null
     ];

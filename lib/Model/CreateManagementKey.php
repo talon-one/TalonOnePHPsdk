@@ -72,7 +72,7 @@ class CreateManagementKey implements ModelInterface, ArrayAccess
         'name' => null,
         'expiryDate' => 'date-time',
         'endpoints' => null,
-        'allowedApplicationIds' => null
+        'allowedApplicationIds' => 'int64'
     ];
 
     /**

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
 **name** | **string** | The human-friendly display name for this audience. | 
 **integrationId** | **string** | The ID of this audience in the third-party integration. | 

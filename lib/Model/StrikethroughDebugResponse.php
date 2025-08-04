@@ -67,7 +67,7 @@ class StrikethroughDebugResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignsIDs' => null,
+        'campaignsIDs' => 'int64',
         'effects' => null
     ];
 

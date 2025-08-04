@@ -76,7 +76,7 @@ class NewSamlConnection implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'x509certificate' => null,
-        'accountId' => null,
+        'accountId' => 'int64',
         'name' => null,
         'enabled' => null,
         'issuer' => null,

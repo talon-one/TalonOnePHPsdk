@@ -72,12 +72,12 @@ class TimePoint implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'month' => null,
-        'dayOfMonth' => null,
-        'dayOfWeek' => null,
-        'hour' => null,
-        'minute' => null,
-        'second' => null
+        'month' => 'int64',
+        'dayOfMonth' => 'int64',
+        'dayOfWeek' => 'int64',
+        'hour' => 'int64',
+        'minute' => 'int64',
+        'second' => 'int64'
     ];
 
     /**

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CampaignCreatedNotificationTest Class Doc Comment
  *
  * @category    Class
- * @description A notification regarding a campaign that was created.
+ * @description CampaignCreatedNotification
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -79,23 +79,23 @@ class CampaignCreatedNotificationTest extends TestCase
     }
 
     /**
-     * Test attribute "campaign"
+     * Test attribute "notificationType"
      */
-    public function testPropertyCampaign()
+    public function testPropertyNotificationType()
     {
     }
 
     /**
-     * Test attribute "ruleset"
+     * Test attribute "totalResultSize"
      */
-    public function testPropertyRuleset()
+    public function testPropertyTotalResultSize()
     {
     }
 
     /**
-     * Test attribute "evaluationPosition"
+     * Test attribute "data"
      */
-    public function testPropertyEvaluationPosition()
+    public function testPropertyData()
     {
     }
 }

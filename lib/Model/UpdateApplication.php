@@ -96,8 +96,8 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         'sandbox' => null,
         'enablePartialDiscounts' => null,
         'defaultDiscountAdditionalCostPerItemScope' => null,
-        'defaultEvaluationGroupId' => null,
-        'defaultCartItemFilterId' => null,
+        'defaultEvaluationGroupId' => 'int64',
+        'defaultCartItemFilterId' => 'int64',
         'enableCampaignStateManagement' => null
     ];
 

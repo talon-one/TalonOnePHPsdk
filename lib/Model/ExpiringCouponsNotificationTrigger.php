@@ -67,7 +67,7 @@ class ExpiringCouponsNotificationTrigger implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'amount' => null,
+        'amount' => 'int64',
         'period' => null
     ];
 

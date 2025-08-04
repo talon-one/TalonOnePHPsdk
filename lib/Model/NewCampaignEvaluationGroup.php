@@ -72,7 +72,7 @@ class NewCampaignEvaluationGroup implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'parentId' => null,
+        'parentId' => 'int64',
         'description' => null,
         'evaluationMode' => null,
         'evaluationScope' => null,

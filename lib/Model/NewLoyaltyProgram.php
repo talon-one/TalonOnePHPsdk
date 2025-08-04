@@ -87,11 +87,11 @@ class NewLoyaltyProgram implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'title' => null,
         'description' => null,
-        'subscribedApplications' => null,
+        'subscribedApplications' => 'int64',
         'defaultValidity' => null,
         'defaultPending' => null,
         'allowSubledger' => null,
-        'usersPerCardLimit' => null,
+        'usersPerCardLimit' => 'int64',
         'sandbox' => null,
         'programJoinPolicy' => null,
         'tiersExpirationPolicy' => null,

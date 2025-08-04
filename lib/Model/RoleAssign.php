@@ -67,8 +67,8 @@ class RoleAssign implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'users' => null,
-        'roles' => null
+        'users' => 'int64',
+        'roles' => 'int64'
     ];
 
     /**

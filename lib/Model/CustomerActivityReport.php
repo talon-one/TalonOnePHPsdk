@@ -82,15 +82,15 @@ class CustomerActivityReport implements ModelInterface, ArrayAccess
         'integrationId' => 'string',
         'created' => 'date-time',
         'name' => null,
-        'customerId' => null,
+        'customerId' => 'int64',
         'lastActivity' => 'date-time',
-        'couponRedemptions' => null,
-        'couponUseAttempts' => null,
-        'couponFailedAttempts' => null,
+        'couponRedemptions' => 'int64',
+        'couponUseAttempts' => 'int64',
+        'couponFailedAttempts' => 'int64',
         'accruedDiscounts' => null,
         'accruedRevenue' => null,
-        'totalOrders' => null,
-        'totalOrdersNoCoupon' => null,
+        'totalOrders' => 'int64',
+        'totalOrdersNoCoupon' => 'int64',
         'campaignName' => null
     ];
 

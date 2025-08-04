@@ -95,7 +95,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         'limits' => null,
         'templateParams' => null,
         'campaignCollections' => null,
-        'defaultCampaignGroupId' => null,
+        'defaultCampaignGroupId' => 'int64',
         'campaignType' => null
     ];
 

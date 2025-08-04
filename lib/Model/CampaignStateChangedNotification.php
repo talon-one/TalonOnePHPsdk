@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * CampaignStateChangedNotification Class Doc Comment
  *
  * @category Class
- * @description A notification regarding a campaign whose state changed.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,10 +57,9 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'campaign' => '\TalonOne\Client\Model\Campaign',
-        'oldState' => 'string',
-        'newState' => 'string',
-        'ruleset' => '\TalonOne\Client\Model\Ruleset'
+        'notificationType' => 'string',
+        'totalResultSize' => 'int',
+        'data' => '\TalonOne\Client\Model\CampaignStateChangedNotificationItem[]'
     ];
 
     /**
@@ -70,10 +68,9 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaign' => null,
-        'oldState' => null,
-        'newState' => null,
-        'ruleset' => null
+        'notificationType' => null,
+        'totalResultSize' => 'int64',
+        'data' => null
     ];
 
     /**
@@ -103,10 +100,9 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'campaign' => 'campaign',
-        'oldState' => 'oldState',
-        'newState' => 'newState',
-        'ruleset' => 'ruleset'
+        'notificationType' => 'NotificationType',
+        'totalResultSize' => 'TotalResultSize',
+        'data' => 'Data'
     ];
 
     /**
@@ -115,10 +111,9 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'campaign' => 'setCampaign',
-        'oldState' => 'setOldState',
-        'newState' => 'setNewState',
-        'ruleset' => 'setRuleset'
+        'notificationType' => 'setNotificationType',
+        'totalResultSize' => 'setTotalResultSize',
+        'data' => 'setData'
     ];
 
     /**
@@ -127,10 +122,9 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'campaign' => 'getCampaign',
-        'oldState' => 'getOldState',
-        'newState' => 'getNewState',
-        'ruleset' => 'getRuleset'
+        'notificationType' => 'getNotificationType',
+        'totalResultSize' => 'getTotalResultSize',
+        'data' => 'getData'
     ];
 
     /**
@@ -193,10 +187,9 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
-        $this->container['oldState'] = isset($data['oldState']) ? $data['oldState'] : null;
-        $this->container['newState'] = isset($data['newState']) ? $data['newState'] : null;
-        $this->container['ruleset'] = isset($data['ruleset']) ? $data['ruleset'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
+        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -208,14 +201,8 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['campaign'] === null) {
-            $invalidProperties[] = "'campaign' can't be null";
-        }
-        if ($this->container['oldState'] === null) {
-            $invalidProperties[] = "'oldState' can't be null";
-        }
-        if ($this->container['newState'] === null) {
-            $invalidProperties[] = "'newState' can't be null";
+        if ($this->container['totalResultSize'] === null) {
+            $invalidProperties[] = "'totalResultSize' can't be null";
         }
         return $invalidProperties;
     }
@@ -233,97 +220,73 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets campaign
+     * Gets notificationType
      *
-     * @return \TalonOne\Client\Model\Campaign
+     * @return string|null
      */
-    public function getCampaign()
+    public function getNotificationType()
     {
-        return $this->container['campaign'];
+        return $this->container['notificationType'];
     }
 
     /**
-     * Sets campaign
+     * Sets notificationType
      *
-     * @param \TalonOne\Client\Model\Campaign $campaign campaign
+     * @param string|null $notificationType The type of the notification
      *
      * @return $this
      */
-    public function setCampaign($campaign)
+    public function setNotificationType($notificationType)
     {
-        $this->container['campaign'] = $campaign;
+        $this->container['notificationType'] = $notificationType;
 
         return $this;
     }
 
     /**
-     * Gets oldState
+     * Gets totalResultSize
      *
-     * @return string
+     * @return int
      */
-    public function getOldState()
+    public function getTotalResultSize()
     {
-        return $this->container['oldState'];
+        return $this->container['totalResultSize'];
     }
 
     /**
-     * Sets oldState
+     * Sets totalResultSize
      *
-     * @param string $oldState The campaign's old state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'archived']
+     * @param int $totalResultSize The total size of the result set.
      *
      * @return $this
      */
-    public function setOldState($oldState)
+    public function setTotalResultSize($totalResultSize)
     {
-        $this->container['oldState'] = $oldState;
+        $this->container['totalResultSize'] = $totalResultSize;
 
         return $this;
     }
 
     /**
-     * Gets newState
+     * Gets data
      *
-     * @return string
+     * @return \TalonOne\Client\Model\CampaignStateChangedNotificationItem[]|null
      */
-    public function getNewState()
+    public function getData()
     {
-        return $this->container['newState'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets newState
+     * Sets data
      *
-     * @param string $newState The campaign's new state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'archived']
+     * @param \TalonOne\Client\Model\CampaignStateChangedNotificationItem[]|null $data A list of campaign notification data.
      *
      * @return $this
      */
-    public function setNewState($newState)
+    public function setData($data)
     {
-        $this->container['newState'] = $newState;
-
-        return $this;
-    }
-
-    /**
-     * Gets ruleset
-     *
-     * @return \TalonOne\Client\Model\Ruleset|null
-     */
-    public function getRuleset()
-    {
-        return $this->container['ruleset'];
-    }
-
-    /**
-     * Sets ruleset
-     *
-     * @param \TalonOne\Client\Model\Ruleset|null $ruleset ruleset
-     *
-     * @return $this
-     */
-    public function setRuleset($ruleset)
-    {
-        $this->container['ruleset'] = $ruleset;
+        $this->container['data'] = $data;
 
         return $this;
     }

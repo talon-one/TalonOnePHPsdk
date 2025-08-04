@@ -72,7 +72,7 @@ class LoyaltyProgramLedgers implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'title' => null,
         'name' => null,
         'joinDate' => 'date-time',

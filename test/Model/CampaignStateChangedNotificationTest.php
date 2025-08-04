@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CampaignStateChangedNotificationTest Class Doc Comment
  *
  * @category    Class
- * @description A notification regarding a campaign whose state changed.
+ * @description CampaignStateChangedNotification
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -79,30 +79,23 @@ class CampaignStateChangedNotificationTest extends TestCase
     }
 
     /**
-     * Test attribute "campaign"
+     * Test attribute "notificationType"
      */
-    public function testPropertyCampaign()
+    public function testPropertyNotificationType()
     {
     }
 
     /**
-     * Test attribute "oldState"
+     * Test attribute "totalResultSize"
      */
-    public function testPropertyOldState()
+    public function testPropertyTotalResultSize()
     {
     }
 
     /**
-     * Test attribute "newState"
+     * Test attribute "data"
      */
-    public function testPropertyNewState()
-    {
-    }
-
-    /**
-     * Test attribute "ruleset"
-     */
-    public function testPropertyRuleset()
+    public function testPropertyData()
     {
     }
 }

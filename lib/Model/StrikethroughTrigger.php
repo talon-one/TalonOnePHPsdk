@@ -71,7 +71,7 @@ class StrikethroughTrigger implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'type' => null,
         'triggeredAt' => 'date-time',
         'totalAffectedItems' => 'date-time',

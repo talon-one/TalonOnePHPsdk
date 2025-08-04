@@ -70,10 +70,10 @@ class AddToAudienceEffectProps implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'audienceId' => null,
+        'audienceId' => 'int64',
         'audienceName' => null,
         'profileIntegrationId' => null,
-        'profileId' => null
+        'profileId' => 'int64'
     ];
 
     /**

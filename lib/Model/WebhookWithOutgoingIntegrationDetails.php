@@ -63,12 +63,14 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
         'applicationIds' => 'int[]',
         'title' => 'string',
         'description' => 'string',
+        'draft' => 'bool',
         'verb' => 'string',
         'url' => 'string',
         'headers' => 'string[]',
         'payload' => 'string',
         'params' => '\TalonOne\Client\Model\TemplateArgDef[]',
         'enabled' => 'bool',
+        'authenticationId' => 'int',
         'outgoingIntegrationTemplateId' => 'int',
         'outgoingIntegrationTypeId' => 'int',
         'outgoingIntegrationTypeName' => 'string'
@@ -80,20 +82,22 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'modified' => 'date-time',
-        'applicationIds' => null,
+        'applicationIds' => 'int64',
         'title' => null,
         'description' => null,
+        'draft' => null,
         'verb' => null,
         'url' => null,
         'headers' => null,
         'payload' => null,
         'params' => null,
         'enabled' => null,
-        'outgoingIntegrationTemplateId' => null,
-        'outgoingIntegrationTypeId' => null,
+        'authenticationId' => 'int64',
+        'outgoingIntegrationTemplateId' => 'int64',
+        'outgoingIntegrationTypeId' => 'int64',
         'outgoingIntegrationTypeName' => null
     ];
 
@@ -130,12 +134,14 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
         'applicationIds' => 'applicationIds',
         'title' => 'title',
         'description' => 'description',
+        'draft' => 'draft',
         'verb' => 'verb',
         'url' => 'url',
         'headers' => 'headers',
         'payload' => 'payload',
         'params' => 'params',
         'enabled' => 'enabled',
+        'authenticationId' => 'authenticationId',
         'outgoingIntegrationTemplateId' => 'outgoingIntegrationTemplateId',
         'outgoingIntegrationTypeId' => 'outgoingIntegrationTypeId',
         'outgoingIntegrationTypeName' => 'outgoingIntegrationTypeName'
@@ -153,12 +159,14 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
         'applicationIds' => 'setApplicationIds',
         'title' => 'setTitle',
         'description' => 'setDescription',
+        'draft' => 'setDraft',
         'verb' => 'setVerb',
         'url' => 'setUrl',
         'headers' => 'setHeaders',
         'payload' => 'setPayload',
         'params' => 'setParams',
         'enabled' => 'setEnabled',
+        'authenticationId' => 'setAuthenticationId',
         'outgoingIntegrationTemplateId' => 'setOutgoingIntegrationTemplateId',
         'outgoingIntegrationTypeId' => 'setOutgoingIntegrationTypeId',
         'outgoingIntegrationTypeName' => 'setOutgoingIntegrationTypeName'
@@ -176,12 +184,14 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
         'applicationIds' => 'getApplicationIds',
         'title' => 'getTitle',
         'description' => 'getDescription',
+        'draft' => 'getDraft',
         'verb' => 'getVerb',
         'url' => 'getUrl',
         'headers' => 'getHeaders',
         'payload' => 'getPayload',
         'params' => 'getParams',
         'enabled' => 'getEnabled',
+        'authenticationId' => 'getAuthenticationId',
         'outgoingIntegrationTemplateId' => 'getOutgoingIntegrationTemplateId',
         'outgoingIntegrationTypeId' => 'getOutgoingIntegrationTypeId',
         'outgoingIntegrationTypeName' => 'getOutgoingIntegrationTypeName'
@@ -274,12 +284,14 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
         $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['draft'] = isset($data['draft']) ? $data['draft'] : null;
         $this->container['verb'] = isset($data['verb']) ? $data['verb'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['headers'] = isset($data['headers']) ? $data['headers'] : null;
         $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
         $this->container['params'] = isset($data['params']) ? $data['params'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['authenticationId'] = isset($data['authenticationId']) ? $data['authenticationId'] : null;
         $this->container['outgoingIntegrationTemplateId'] = isset($data['outgoingIntegrationTemplateId']) ? $data['outgoingIntegrationTemplateId'] : null;
         $this->container['outgoingIntegrationTypeId'] = isset($data['outgoingIntegrationTypeId']) ? $data['outgoingIntegrationTypeId'] : null;
         $this->container['outgoingIntegrationTypeName'] = isset($data['outgoingIntegrationTypeName']) ? $data['outgoingIntegrationTypeName'] : null;
@@ -313,6 +325,9 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
             $invalidProperties[] = "invalid value for 'title', must be conform to the pattern /^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/.";
         }
 
+        if ($this->container['draft'] === null) {
+            $invalidProperties[] = "'draft' can't be null";
+        }
         if ($this->container['verb'] === null) {
             $invalidProperties[] = "'verb' can't be null";
         }
@@ -364,7 +379,7 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */
@@ -496,6 +511,30 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets draft
+     *
+     * @return bool
+     */
+    public function getDraft()
+    {
+        return $this->container['draft'];
+    }
+
+    /**
+     * Sets draft
+     *
+     * @param bool $draft Indicates if the webhook is a draft.
+     *
+     * @return $this
+     */
+    public function setDraft($draft)
+    {
+        $this->container['draft'] = $draft;
 
         return $this;
     }
@@ -649,6 +688,30 @@ class WebhookWithOutgoingIntegrationDetails implements ModelInterface, ArrayAcce
     public function setEnabled($enabled)
     {
         $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets authenticationId
+     *
+     * @return int|null
+     */
+    public function getAuthenticationId()
+    {
+        return $this->container['authenticationId'];
+    }
+
+    /**
+     * Sets authenticationId
+     *
+     * @param int|null $authenticationId The ID of the credential that this webhook is using.
+     *
+     * @return $this
+     */
+    public function setAuthenticationId($authenticationId)
+    {
+        $this->container['authenticationId'] = $authenticationId;
 
         return $this;
     }

@@ -75,15 +75,15 @@ class Revision implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'activateAt' => 'date-time',
-        'accountId' => null,
-        'applicationId' => null,
-        'campaignId' => null,
+        'accountId' => 'int64',
+        'applicationId' => 'int64',
+        'campaignId' => 'int64',
         'created' => 'date-time',
-        'createdBy' => null,
+        'createdBy' => 'int64',
         'activatedAt' => 'date-time',
-        'activatedBy' => null,
+        'activatedBy' => 'int64',
         'currentVersion' => null
     ];
 

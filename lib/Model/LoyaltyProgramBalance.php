@@ -238,9 +238,6 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
         if ($this->container['pendingBalance'] === null) {
             $invalidProperties[] = "'pendingBalance' can't be null";
         }
-        if ($this->container['negativeBalance'] === null) {
-            $invalidProperties[] = "'negativeBalance' can't be null";
-        }
         if ($this->container['expiredBalance'] === null) {
             $invalidProperties[] = "'expiredBalance' can't be null";
         }
@@ -249,9 +246,6 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
         }
         if ($this->container['tentativeCurrentBalance'] === null) {
             $invalidProperties[] = "'tentativeCurrentBalance' can't be null";
-        }
-        if ($this->container['tentativeNegativeBalance'] === null) {
-            $invalidProperties[] = "'tentativeNegativeBalance' can't be null";
         }
         return $invalidProperties;
     }
@@ -319,7 +313,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
     /**
      * Gets negativeBalance
      *
-     * @return float
+     * @return float|null
      */
     public function getNegativeBalance()
     {
@@ -329,7 +323,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
     /**
      * Sets negativeBalance
      *
-     * @param float $negativeBalance Sum of negative points. This implies that `currentBalance` is `0`.
+     * @param float|null $negativeBalance Sum of negative points. This implies that `currentBalance` is `0`.
      *
      * @return $this
      */
@@ -439,7 +433,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
     /**
      * Gets tentativeNegativeBalance
      *
-     * @return float
+     * @return float|null
      */
     public function getTentativeNegativeBalance()
     {
@@ -449,7 +443,7 @@ class LoyaltyProgramBalance implements ModelInterface, ArrayAccess
     /**
      * Sets tentativeNegativeBalance
      *
-     * @param float $tentativeNegativeBalance The tentative negative balance after all additions and deductions from the current customer session are applied to `negativeBalance`. When the session is closed, the tentative effects are applied and `negativeBalance` is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer.
+     * @param float|null $tentativeNegativeBalance The tentative negative balance after all additions and deductions from the current customer session are applied to `negativeBalance`. When the session is closed, the tentative effects are applied and `negativeBalance` is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer.
      *
      * @return $this
      */

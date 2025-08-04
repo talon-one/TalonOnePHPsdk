@@ -74,7 +74,7 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
         'scopes' => null,
         'batchingEnabled' => null,
         'includeData' => null,
-        'batchSize' => null
+        'batchSize' => 'int64'
     ];
 
     /**
@@ -220,7 +220,7 @@ class CouponsNotificationPolicy implements ModelInterface, ArrayAccess
         $this->container['scopes'] = isset($data['scopes']) ? $data['scopes'] : null;
         $this->container['batchingEnabled'] = isset($data['batchingEnabled']) ? $data['batchingEnabled'] : true;
         $this->container['includeData'] = isset($data['includeData']) ? $data['includeData'] : null;
-        $this->container['batchSize'] = isset($data['batchSize']) ? $data['batchSize'] : null;
+        $this->container['batchSize'] = isset($data['batchSize']) ? $data['batchSize'] : 1000;
     }
 
     /**

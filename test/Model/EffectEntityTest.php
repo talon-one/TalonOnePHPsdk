@@ -161,4 +161,25 @@ class EffectEntityTest extends TestCase
     public function testPropertyCampaignRevisionVersionId()
     {
     }
+
+    /**
+     * Test attribute "selectedPriceType"
+     */
+    public function testPropertySelectedPriceType()
+    {
+    }
+
+    /**
+     * Test attribute "selectedPrice"
+     */
+    public function testPropertySelectedPrice()
+    {
+    }
+
+    /**
+     * Test attribute "adjustmentReferenceId"
+     */
+    public function testPropertyAdjustmentReferenceId()
+    {
+    }
 }

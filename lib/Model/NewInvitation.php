@@ -74,7 +74,7 @@ class NewInvitation implements ModelInterface, ArrayAccess
         'name' => null,
         'email' => 'email',
         'isAdmin' => null,
-        'roles' => null,
+        'roles' => 'int64',
         'acl' => null
     ];
 

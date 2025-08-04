@@ -91,17 +91,17 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'accountId' => null,
-        'userId' => null,
+        'accountId' => 'int64',
+        'userId' => 'int64',
         'name' => null,
         'description' => null,
         'instructions' => null,
         'campaignAttributes' => null,
         'couponAttributes' => null,
         'state' => null,
-        'activeRulesetId' => null,
+        'activeRulesetId' => 'int64',
         'tags' => null,
         'features' => null,
         'couponSettings' => null,
@@ -109,13 +109,13 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'referralSettings' => null,
         'limits' => null,
         'templateParams' => null,
-        'applicationsIds' => null,
+        'applicationsIds' => 'int64',
         'campaignCollections' => null,
-        'defaultCampaignGroupId' => null,
+        'defaultCampaignGroupId' => 'int64',
         'campaignType' => null,
         'updated' => 'date-time',
         'updatedBy' => null,
-        'validApplicationIds' => null,
+        'validApplicationIds' => 'int64',
         'isUserFavorite' => null
     ];
 
@@ -475,7 +475,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

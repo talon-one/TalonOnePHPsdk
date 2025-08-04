@@ -70,9 +70,9 @@ class CampaignSet implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'applicationId' => null,
-        'id' => null,
-        'version' => null,
+        'applicationId' => 'int64',
+        'id' => 'int64',
+        'version' => 'int64',
         'set' => null,
         'updatedBy' => null
     ];
@@ -281,7 +281,7 @@ class CampaignSet implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

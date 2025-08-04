@@ -87,28 +87,28 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'campaignId' => null,
-        'applicationId' => null,
-        'accountId' => null,
-        'usageLimit' => null,
+        'campaignId' => 'int64',
+        'applicationId' => 'int64',
+        'accountId' => 'int64',
+        'usageLimit' => 'int64',
         'discountLimit' => null,
-        'reservationLimit' => null,
+        'reservationLimit' => 'int64',
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'numberOfCoupons' => null,
+        'numberOfCoupons' => 'int64',
         'couponSettings' => null,
         'attributes' => null,
         'batchId' => null,
         'status' => null,
-        'createdAmount' => null,
-        'failCount' => null,
+        'createdAmount' => 'int64',
+        'failCount' => 'int64',
         'errors' => null,
-        'createdBy' => null,
+        'createdBy' => 'int64',
         'communicated' => null,
-        'chunkExecutionCount' => null,
-        'chunkSize' => null
+        'chunkExecutionCount' => 'int64',
+        'chunkSize' => 'int64'
     ];
 
     /**
@@ -341,8 +341,8 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'usageLimit', must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] > 999999)) {
-            $invalidProperties[] = "invalid value for 'discountLimit', must be smaller than or equal to 999999.";
+        if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] > 1E+15)) {
+            $invalidProperties[] = "invalid value for 'discountLimit', must be smaller than or equal to 1E+15.";
         }
 
         if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] < 0)) {
@@ -423,7 +423,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */
@@ -582,8 +582,8 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     public function setDiscountLimit($discountLimit)
     {
 
-        if (!is_null($discountLimit) && ($discountLimit > 999999)) {
-            throw new \InvalidArgumentException('invalid value for $discountLimit when calling CouponCreationJob., must be smaller than or equal to 999999.');
+        if (!is_null($discountLimit) && ($discountLimit > 1E+15)) {
+            throw new \InvalidArgumentException('invalid value for $discountLimit when calling CouponCreationJob., must be smaller than or equal to 1E+15.');
         }
         if (!is_null($discountLimit) && ($discountLimit < 0)) {
             throw new \InvalidArgumentException('invalid value for $discountLimit when calling CouponCreationJob., must be bigger than or equal to 0.');

@@ -68,7 +68,7 @@ class LoyaltyMembership implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'joined' => 'date-time',
-        'loyaltyProgramId' => null
+        'loyaltyProgramId' => 'int64'
     ];
 
     /**

@@ -3154,6 +3154,290 @@ class ManagementApi
     }
 
     /**
+     * Operation createCampaignStoreBudget
+     *
+     * Create campaign store budget
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  \TalonOne\Client\Model\NewCampaignStoreBudget $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function createCampaignStoreBudget($applicationId, $campaignId, $body)
+    {
+        $this->createCampaignStoreBudgetWithHttpInfo($applicationId, $campaignId, $body);
+    }
+
+    /**
+     * Operation createCampaignStoreBudgetWithHttpInfo
+     *
+     * Create campaign store budget
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  \TalonOne\Client\Model\NewCampaignStoreBudget $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createCampaignStoreBudgetWithHttpInfo($applicationId, $campaignId, $body)
+    {
+        $request = $this->createCampaignStoreBudgetRequest($applicationId, $campaignId, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createCampaignStoreBudgetAsync
+     *
+     * Create campaign store budget
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  \TalonOne\Client\Model\NewCampaignStoreBudget $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createCampaignStoreBudgetAsync($applicationId, $campaignId, $body)
+    {
+        return $this->createCampaignStoreBudgetAsyncWithHttpInfo($applicationId, $campaignId, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createCampaignStoreBudgetAsyncWithHttpInfo
+     *
+     * Create campaign store budget
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  \TalonOne\Client\Model\NewCampaignStoreBudget $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createCampaignStoreBudgetAsyncWithHttpInfo($applicationId, $campaignId, $body)
+    {
+        $returnType = '';
+        $request = $this->createCampaignStoreBudgetRequest($applicationId, $campaignId, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createCampaignStoreBudget'
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  \TalonOne\Client\Model\NewCampaignStoreBudget $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createCampaignStoreBudgetRequest($applicationId, $campaignId, $body)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling createCampaignStoreBudget'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling createCampaignStoreBudget'
+            );
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling createCampaignStoreBudget'
+            );
+        }
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation createCollection
      *
      * Create campaign-level collection
@@ -3831,7 +4115,7 @@ class ManagementApi
      */
     public function createCouponsAsynchronouslyWithHttpInfo($applicationId, $campaignId, $body)
     {
-        $request = $this->createCouponsAsyncRequest($applicationId, $campaignId, $body);
+        $request = $this->createCouponsAsynchronouslyRequest($applicationId, $campaignId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7454,6 +7738,292 @@ class ManagementApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteCampaignStoreBudgets
+     *
+     * Delete campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteCampaignStoreBudgets($applicationId, $campaignId, $action = null, $period = null)
+    {
+        $this->deleteCampaignStoreBudgetsWithHttpInfo($applicationId, $campaignId, $action, $period);
+    }
+
+    /**
+     * Operation deleteCampaignStoreBudgetsWithHttpInfo
+     *
+     * Delete campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteCampaignStoreBudgetsWithHttpInfo($applicationId, $campaignId, $action = null, $period = null)
+    {
+        $request = $this->deleteCampaignStoreBudgetsRequest($applicationId, $campaignId, $action, $period);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteCampaignStoreBudgetsAsync
+     *
+     * Delete campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteCampaignStoreBudgetsAsync($applicationId, $campaignId, $action = null, $period = null)
+    {
+        return $this->deleteCampaignStoreBudgetsAsyncWithHttpInfo($applicationId, $campaignId, $action, $period)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteCampaignStoreBudgetsAsyncWithHttpInfo
+     *
+     * Delete campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteCampaignStoreBudgetsAsyncWithHttpInfo($applicationId, $campaignId, $action = null, $period = null)
+    {
+        $returnType = '';
+        $request = $this->deleteCampaignStoreBudgetsRequest($applicationId, $campaignId, $action, $period);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteCampaignStoreBudgets'
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteCampaignStoreBudgetsRequest($applicationId, $campaignId, $action = null, $period = null)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling deleteCampaignStoreBudgets'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling deleteCampaignStoreBudgets'
+            );
+        }
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (is_array($action)) {
+            $action = ObjectSerializer::serializeCollection($action, '', true);
+        }
+        if ($action !== null) {
+            $queryParams['action'] = $action;
+        }
+        // query params
+        if (is_array($period)) {
+            $period = ObjectSerializer::serializeCollection($period, '', true);
+        }
+        if ($period !== null) {
+            $queryParams['period'] = $period;
+        }
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
                 []
             );
         }
@@ -11298,6 +11868,392 @@ class ManagementApi
     }
 
     /**
+     * Operation exportCampaignStoreBudgets
+     *
+     * Export campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponse
+     */
+    public function exportCampaignStoreBudgets($applicationId, $campaignId, $action = null, $period = null)
+    {
+        list($response) = $this->exportCampaignStoreBudgetsWithHttpInfo($applicationId, $campaignId, $action, $period);
+        return $response;
+    }
+
+    /**
+     * Operation exportCampaignStoreBudgetsWithHttpInfo
+     *
+     * Export campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function exportCampaignStoreBudgetsWithHttpInfo($applicationId, $campaignId, $action = null, $period = null)
+    {
+        $request = $this->exportCampaignStoreBudgetsRequest($applicationId, $campaignId, $action, $period);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('string' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'string', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'string';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation exportCampaignStoreBudgetsAsync
+     *
+     * Export campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function exportCampaignStoreBudgetsAsync($applicationId, $campaignId, $action = null, $period = null)
+    {
+        return $this->exportCampaignStoreBudgetsAsyncWithHttpInfo($applicationId, $campaignId, $action, $period)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation exportCampaignStoreBudgetsAsyncWithHttpInfo
+     *
+     * Export campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function exportCampaignStoreBudgetsAsyncWithHttpInfo($applicationId, $campaignId, $action = null, $period = null)
+    {
+        $returnType = 'string';
+        $request = $this->exportCampaignStoreBudgetsRequest($applicationId, $campaignId, $action, $period);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'exportCampaignStoreBudgets'
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function exportCampaignStoreBudgetsRequest($applicationId, $campaignId, $action = null, $period = null)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling exportCampaignStoreBudgets'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling exportCampaignStoreBudgets'
+            );
+        }
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets/export';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (is_array($action)) {
+            $action = ObjectSerializer::serializeCollection($action, '', true);
+        }
+        if ($action !== null) {
+            $queryParams['action'] = $action;
+        }
+        // query params
+        if (is_array($period)) {
+            $period = ObjectSerializer::serializeCollection($period, '', true);
+        }
+        if ($period !== null) {
+            $queryParams['period'] = $period;
+        }
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/csv']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/csv'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation exportCampaignStores
      *
      * Export stores
@@ -14858,15 +15814,17 @@ class ManagementApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $batchId Filter results by loyalty card batch ID. (optional)
+     * @param  \DateTime $createdBefore Only return loyalty cards created before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $createdAfter Only return loyalty cards created after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. (optional)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function exportLoyaltyCards($loyaltyProgramId, $batchId = null, $dateFormat = null)
+    public function exportLoyaltyCards($loyaltyProgramId, $batchId = null, $createdBefore = null, $createdAfter = null, $dateFormat = null)
     {
-        list($response) = $this->exportLoyaltyCardsWithHttpInfo($loyaltyProgramId, $batchId, $dateFormat);
+        list($response) = $this->exportLoyaltyCardsWithHttpInfo($loyaltyProgramId, $batchId, $createdBefore, $createdAfter, $dateFormat);
         return $response;
     }
 
@@ -14877,15 +15835,17 @@ class ManagementApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $batchId Filter results by loyalty card batch ID. (optional)
+     * @param  \DateTime $createdBefore Only return loyalty cards created before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $createdAfter Only return loyalty cards created after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. (optional)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function exportLoyaltyCardsWithHttpInfo($loyaltyProgramId, $batchId = null, $dateFormat = null)
+    public function exportLoyaltyCardsWithHttpInfo($loyaltyProgramId, $batchId = null, $createdBefore = null, $createdAfter = null, $dateFormat = null)
     {
-        $request = $this->exportLoyaltyCardsRequest($loyaltyProgramId, $batchId, $dateFormat);
+        $request = $this->exportLoyaltyCardsRequest($loyaltyProgramId, $batchId, $createdBefore, $createdAfter, $dateFormat);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15007,14 +15967,16 @@ class ManagementApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $batchId Filter results by loyalty card batch ID. (optional)
+     * @param  \DateTime $createdBefore Only return loyalty cards created before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $createdAfter Only return loyalty cards created after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. (optional)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function exportLoyaltyCardsAsync($loyaltyProgramId, $batchId = null, $dateFormat = null)
+    public function exportLoyaltyCardsAsync($loyaltyProgramId, $batchId = null, $createdBefore = null, $createdAfter = null, $dateFormat = null)
     {
-        return $this->exportLoyaltyCardsAsyncWithHttpInfo($loyaltyProgramId, $batchId, $dateFormat)
+        return $this->exportLoyaltyCardsAsyncWithHttpInfo($loyaltyProgramId, $batchId, $createdBefore, $createdAfter, $dateFormat)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15029,15 +15991,17 @@ class ManagementApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $batchId Filter results by loyalty card batch ID. (optional)
+     * @param  \DateTime $createdBefore Only return loyalty cards created before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $createdAfter Only return loyalty cards created after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. (optional)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function exportLoyaltyCardsAsyncWithHttpInfo($loyaltyProgramId, $batchId = null, $dateFormat = null)
+    public function exportLoyaltyCardsAsyncWithHttpInfo($loyaltyProgramId, $batchId = null, $createdBefore = null, $createdAfter = null, $dateFormat = null)
     {
         $returnType = 'string';
-        $request = $this->exportLoyaltyCardsRequest($loyaltyProgramId, $batchId, $dateFormat);
+        $request = $this->exportLoyaltyCardsRequest($loyaltyProgramId, $batchId, $createdBefore, $createdAfter, $dateFormat);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15078,12 +16042,14 @@ class ManagementApi
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $batchId Filter results by loyalty card batch ID. (optional)
+     * @param  \DateTime $createdBefore Only return loyalty cards created before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. (optional)
+     * @param  \DateTime $createdAfter Only return loyalty cards created after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. (optional)
      * @param  string $dateFormat Determines the format of dates in the export document. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function exportLoyaltyCardsRequest($loyaltyProgramId, $batchId = null, $dateFormat = null)
+    protected function exportLoyaltyCardsRequest($loyaltyProgramId, $batchId = null, $createdBefore = null, $createdAfter = null, $dateFormat = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -15105,6 +16071,20 @@ class ManagementApi
         }
         if ($batchId !== null) {
             $queryParams['batchId'] = $batchId;
+        }
+        // query params
+        if (is_array($createdBefore)) {
+            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
+        }
+        if ($createdBefore !== null) {
+            $queryParams['createdBefore'] = $createdBefore;
+        }
+        // query params
+        if (is_array($createdAfter)) {
+            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
+        }
+        if ($createdAfter !== null) {
+            $queryParams['createdAfter'] = $createdAfter;
         }
         // query params
         if (is_array($dateFormat)) {
@@ -26169,7 +27149,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20044
+     * @return \TalonOne\Client\Model\InlineResponse20042
      */
     public function getChanges($pageSize = 1000, $skip = null, $sort = null, $applicationId = null, $entityPath = null, $userId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $managementKeyId = null, $includeOld = null)
     {
@@ -26196,7 +27176,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20044, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20042, HTTP status code, HTTP response headers (array of strings)
      */
     public function getChangesWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $applicationId = null, $entityPath = null, $userId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $managementKeyId = null, $includeOld = null)
     {
@@ -26233,20 +27213,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20044' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20042' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20044', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20042', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20044';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20042';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -26265,7 +27245,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20044',
+                        '\TalonOne\Client\Model\InlineResponse20042',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26327,7 +27307,7 @@ class ManagementApi
      */
     public function getChangesAsyncWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $applicationId = null, $entityPath = null, $userId = null, $createdBefore = null, $createdAfter = null, $withTotalResultSize = null, $managementKeyId = null, $includeOld = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20044';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20042';
         $request = $this->getChangesRequest($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $managementKeyId, $includeOld);
 
         return $this->client
@@ -30529,7 +31509,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20042
+     * @return \TalonOne\Client\Model\InlineResponse20040
      */
     public function getEventTypes($name = null, $includeOldVersions = false, $pageSize = 1000, $skip = null, $sort = null)
     {
@@ -30550,7 +31530,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20042, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20040, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEventTypesWithHttpInfo($name = null, $includeOldVersions = false, $pageSize = 1000, $skip = null, $sort = null)
     {
@@ -30587,20 +31567,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20042' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20040' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20042', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20040', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20042';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20040';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -30619,7 +31599,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20042',
+                        '\TalonOne\Client\Model\InlineResponse20040',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30669,7 +31649,7 @@ class ManagementApi
      */
     public function getEventTypesAsyncWithHttpInfo($name = null, $includeOldVersions = false, $pageSize = 1000, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20042';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20040';
         $request = $this->getEventTypesRequest($name, $includeOldVersions, $pageSize, $skip, $sort);
 
         return $this->client
@@ -30860,7 +31840,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20045
+     * @return \TalonOne\Client\Model\InlineResponse20043
      */
     public function getExports($pageSize = 1000, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
@@ -30881,7 +31861,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20045, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20043, HTTP status code, HTTP response headers (array of strings)
      */
     public function getExportsWithHttpInfo($pageSize = 1000, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
@@ -30918,20 +31898,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20045' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20043' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20045', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20043', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20045';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20043';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -30950,7 +31930,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20045',
+                        '\TalonOne\Client\Model\InlineResponse20043',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31000,7 +31980,7 @@ class ManagementApi
      */
     public function getExportsAsyncWithHttpInfo($pageSize = 1000, $skip = null, $applicationId = null, $campaignId = null, $entity = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20045';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20043';
         $request = $this->getExportsRequest($pageSize, $skip, $applicationId, $campaignId, $entity);
 
         return $this->client
@@ -31556,14 +32536,16 @@ class ManagementApi
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20019|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getLoyaltyCardTransactionLogs($loyaltyProgramId, $loyaltyCardId, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null, $subledgerId = null)
+    public function getLoyaltyCardTransactionLogs($loyaltyProgramId, $loyaltyCardId, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null, $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null)
     {
-        list($response) = $this->getLoyaltyCardTransactionLogsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $startDate, $endDate, $pageSize, $skip, $subledgerId);
+        list($response) = $this->getLoyaltyCardTransactionLogsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $startDate, $endDate, $pageSize, $skip, $subledgerId, $customerSessionIDs, $transactionUUIDs);
         return $response;
     }
 
@@ -31579,14 +32561,16 @@ class ManagementApi
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20019|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyCardTransactionLogsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null, $subledgerId = null)
+    public function getLoyaltyCardTransactionLogsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null, $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null)
     {
-        $request = $this->getLoyaltyCardTransactionLogsRequest($loyaltyProgramId, $loyaltyCardId, $startDate, $endDate, $pageSize, $skip, $subledgerId);
+        $request = $this->getLoyaltyCardTransactionLogsRequest($loyaltyProgramId, $loyaltyCardId, $startDate, $endDate, $pageSize, $skip, $subledgerId, $customerSessionIDs, $transactionUUIDs);
 
         try {
             $options = $this->createHttpClientOption();
@@ -31713,13 +32697,15 @@ class ManagementApi
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyCardTransactionLogsAsync($loyaltyProgramId, $loyaltyCardId, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null, $subledgerId = null)
+    public function getLoyaltyCardTransactionLogsAsync($loyaltyProgramId, $loyaltyCardId, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null, $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null)
     {
-        return $this->getLoyaltyCardTransactionLogsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $startDate, $endDate, $pageSize, $skip, $subledgerId)
+        return $this->getLoyaltyCardTransactionLogsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $startDate, $endDate, $pageSize, $skip, $subledgerId, $customerSessionIDs, $transactionUUIDs)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -31739,14 +32725,16 @@ class ManagementApi
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyCardTransactionLogsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null, $subledgerId = null)
+    public function getLoyaltyCardTransactionLogsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null, $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20019';
-        $request = $this->getLoyaltyCardTransactionLogsRequest($loyaltyProgramId, $loyaltyCardId, $startDate, $endDate, $pageSize, $skip, $subledgerId);
+        $request = $this->getLoyaltyCardTransactionLogsRequest($loyaltyProgramId, $loyaltyCardId, $startDate, $endDate, $pageSize, $skip, $subledgerId, $customerSessionIDs, $transactionUUIDs);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -31792,11 +32780,13 @@ class ManagementApi
      * @param  int $pageSize The number of items in the response. (optional, default to 1000)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyCardTransactionLogsRequest($loyaltyProgramId, $loyaltyCardId, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null, $subledgerId = null)
+    protected function getLoyaltyCardTransactionLogsRequest($loyaltyProgramId, $loyaltyCardId, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null, $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -31863,6 +32853,28 @@ class ManagementApi
         }
         if ($subledgerId !== null) {
             $queryParams['subledgerId'] = $subledgerId;
+        }
+        // query params
+        if ($customerSessionIDs !== null) {
+            if('form' === 'form' && is_array($customerSessionIDs)) {
+                foreach($customerSessionIDs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['customerSessionIDs'] = $customerSessionIDs;
+            }
+        }
+        // query params
+        if ($transactionUUIDs !== null) {
+            if('form' === 'form' && is_array($transactionUUIDs)) {
+                foreach($transactionUUIDs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['transactionUUIDs'] = $transactionUUIDs;
+            }
         }
 
 
@@ -32960,6 +33972,8 @@ class ManagementApi
      * @param  int $loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
@@ -32969,9 +33983,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse20017|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getLoyaltyProgramTransactions($loyaltyProgramId, $loyaltyTransactionType = null, $subledgerId = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramTransactions($loyaltyProgramId, $loyaltyTransactionType = null, $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
-        list($response) = $this->getLoyaltyProgramTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyTransactionType, $subledgerId, $startDate, $endDate, $pageSize, $skip);
+        list($response) = $this->getLoyaltyProgramTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyTransactionType, $subledgerId, $customerSessionIDs, $transactionUUIDs, $startDate, $endDate, $pageSize, $skip);
         return $response;
     }
 
@@ -32983,6 +33997,8 @@ class ManagementApi
      * @param  int $loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
@@ -32992,9 +34008,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse20017|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyProgramTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyTransactionType = null, $subledgerId = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyTransactionType = null, $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
-        $request = $this->getLoyaltyProgramTransactionsRequest($loyaltyProgramId, $loyaltyTransactionType, $subledgerId, $startDate, $endDate, $pageSize, $skip);
+        $request = $this->getLoyaltyProgramTransactionsRequest($loyaltyProgramId, $loyaltyTransactionType, $subledgerId, $customerSessionIDs, $transactionUUIDs, $startDate, $endDate, $pageSize, $skip);
 
         try {
             $options = $this->createHttpClientOption();
@@ -33137,6 +34153,8 @@ class ManagementApi
      * @param  int $loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
@@ -33145,9 +34163,9 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyProgramTransactionsAsync($loyaltyProgramId, $loyaltyTransactionType = null, $subledgerId = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramTransactionsAsync($loyaltyProgramId, $loyaltyTransactionType = null, $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
-        return $this->getLoyaltyProgramTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyTransactionType, $subledgerId, $startDate, $endDate, $pageSize, $skip)
+        return $this->getLoyaltyProgramTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyTransactionType, $subledgerId, $customerSessionIDs, $transactionUUIDs, $startDate, $endDate, $pageSize, $skip)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -33163,6 +34181,8 @@ class ManagementApi
      * @param  int $loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
@@ -33171,10 +34191,10 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyProgramTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyTransactionType = null, $subledgerId = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyTransactionType = null, $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse20017';
-        $request = $this->getLoyaltyProgramTransactionsRequest($loyaltyProgramId, $loyaltyTransactionType, $subledgerId, $startDate, $endDate, $pageSize, $skip);
+        $request = $this->getLoyaltyProgramTransactionsRequest($loyaltyProgramId, $loyaltyTransactionType, $subledgerId, $customerSessionIDs, $transactionUUIDs, $startDate, $endDate, $pageSize, $skip);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -33216,6 +34236,8 @@ class ManagementApi
      * @param  int $loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
@@ -33224,7 +34246,7 @@ class ManagementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyProgramTransactionsRequest($loyaltyProgramId, $loyaltyTransactionType = null, $subledgerId = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    protected function getLoyaltyProgramTransactionsRequest($loyaltyProgramId, $loyaltyTransactionType = null, $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -33232,8 +34254,8 @@ class ManagementApi
                 'Missing the required parameter $loyaltyProgramId when calling getLoyaltyProgramTransactions'
             );
         }
-        if ($pageSize !== null && $pageSize > 50) {
-            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getLoyaltyProgramTransactions, must be smaller than or equal to 50.');
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getLoyaltyProgramTransactions, must be smaller than or equal to 1000.');
         }
         if ($pageSize !== null && $pageSize < 1) {
             throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getLoyaltyProgramTransactions, must be bigger than or equal to 1.');
@@ -33260,6 +34282,28 @@ class ManagementApi
         }
         if ($subledgerId !== null) {
             $queryParams['subledgerId'] = $subledgerId;
+        }
+        // query params
+        if ($customerSessionIDs !== null) {
+            if('form' === 'form' && is_array($customerSessionIDs)) {
+                foreach($customerSessionIDs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['customerSessionIDs'] = $customerSessionIDs;
+            }
+        }
+        // query params
+        if ($transactionUUIDs !== null) {
+            if('form' === 'form' && is_array($transactionUUIDs)) {
+                foreach($transactionUUIDs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['transactionUUIDs'] = $transactionUUIDs;
+            }
         }
         // query params
         if (is_array($startDate)) {
@@ -36341,7 +37385,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20043
+     * @return \TalonOne\Client\Model\InlineResponse20041
      */
     public function getUsers($pageSize = 1000, $skip = null, $sort = null)
     {
@@ -36360,7 +37404,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20043, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20041, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUsersWithHttpInfo($pageSize = 1000, $skip = null, $sort = null)
     {
@@ -36397,20 +37441,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20043' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20041' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20043', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20041', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20043';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20041';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -36429,7 +37473,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20043',
+                        '\TalonOne\Client\Model\InlineResponse20041',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36475,7 +37519,7 @@ class ManagementApi
      */
     public function getUsersAsyncWithHttpInfo($pageSize = 1000, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20043';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20041';
         $request = $this->getUsersRequest($pageSize, $skip, $sort);
 
         return $this->client
@@ -36845,776 +37889,6 @@ class ManagementApi
                 $resourcePath
             );
         }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getWebhookActivationLogs
-     *
-     * List webhook activation log entries
-     *
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. (optional)
-     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by webhook id. (optional)
-     * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign ID. (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20040
-     */
-    public function getWebhookActivationLogs($pageSize = 1000, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
-    {
-        list($response) = $this->getWebhookActivationLogsWithHttpInfo($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter);
-        return $response;
-    }
-
-    /**
-     * Operation getWebhookActivationLogsWithHttpInfo
-     *
-     * List webhook activation log entries
-     *
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. (optional)
-     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by webhook id. (optional)
-     * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign ID. (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20040, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getWebhookActivationLogsWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
-    {
-        $request = $this->getWebhookActivationLogsRequest($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20040' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20040', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\InlineResponse20040';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20040',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getWebhookActivationLogsAsync
-     *
-     * List webhook activation log entries
-     *
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. (optional)
-     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by webhook id. (optional)
-     * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign ID. (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getWebhookActivationLogsAsync($pageSize = 1000, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
-    {
-        return $this->getWebhookActivationLogsAsyncWithHttpInfo($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getWebhookActivationLogsAsyncWithHttpInfo
-     *
-     * List webhook activation log entries
-     *
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. (optional)
-     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by webhook id. (optional)
-     * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign ID. (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getWebhookActivationLogsAsyncWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
-    {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20040';
-        $request = $this->getWebhookActivationLogsRequest($pageSize, $skip, $sort, $integrationRequestUuid, $webhookId, $applicationId, $campaignId, $createdBefore, $createdAfter);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getWebhookActivationLogs'
-     *
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. (optional)
-     * @param  string $integrationRequestUuid Filter results by integration request UUID. (optional)
-     * @param  float $webhookId Filter results by webhook id. (optional)
-     * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign ID. (optional)
-     * @param  \DateTime $createdBefore Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getWebhookActivationLogsRequest($pageSize = 1000, $skip = null, $sort = null, $integrationRequestUuid = null, $webhookId = null, $applicationId = null, $campaignId = null, $createdBefore = null, $createdAfter = null)
-    {
-        if ($pageSize !== null && $pageSize > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getWebhookActivationLogs, must be smaller than or equal to 1000.');
-        }
-        if ($pageSize !== null && $pageSize < 1) {
-            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getWebhookActivationLogs, must be bigger than or equal to 1.');
-        }
-
-
-        $resourcePath = '/v1/webhook_activation_logs';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
-        if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
-        }
-        // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
-        if ($skip !== null) {
-            $queryParams['skip'] = $skip;
-        }
-        // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
-        if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-        // query params
-        if (is_array($integrationRequestUuid)) {
-            $integrationRequestUuid = ObjectSerializer::serializeCollection($integrationRequestUuid, '', true);
-        }
-        if ($integrationRequestUuid !== null) {
-            $queryParams['integrationRequestUuid'] = $integrationRequestUuid;
-        }
-        // query params
-        if (is_array($webhookId)) {
-            $webhookId = ObjectSerializer::serializeCollection($webhookId, '', true);
-        }
-        if ($webhookId !== null) {
-            $queryParams['webhookId'] = $webhookId;
-        }
-        // query params
-        if (is_array($applicationId)) {
-            $applicationId = ObjectSerializer::serializeCollection($applicationId, '', true);
-        }
-        if ($applicationId !== null) {
-            $queryParams['applicationId'] = $applicationId;
-        }
-        // query params
-        if (is_array($campaignId)) {
-            $campaignId = ObjectSerializer::serializeCollection($campaignId, '', true);
-        }
-        if ($campaignId !== null) {
-            $queryParams['campaignId'] = $campaignId;
-        }
-        // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
-        if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
-        }
-        // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
-        if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
-        }
-
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getWebhookLogs
-     *
-     * List webhook log entries
-     *
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by webhook id. (optional)
-     * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign ID. (optional)
-     * @param  string $requestUuid Filter results by request UUID. (optional)
-     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20041
-     */
-    public function getWebhookLogs($pageSize = 1000, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
-    {
-        list($response) = $this->getWebhookLogsWithHttpInfo($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
-        return $response;
-    }
-
-    /**
-     * Operation getWebhookLogsWithHttpInfo
-     *
-     * List webhook log entries
-     *
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by webhook id. (optional)
-     * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign ID. (optional)
-     * @param  string $requestUuid Filter results by request UUID. (optional)
-     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \TalonOne\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20041, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getWebhookLogsWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
-    {
-        $request = $this->getWebhookLogsRequest($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20041' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20041', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\TalonOne\Client\Model\InlineResponse20041';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20041',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getWebhookLogsAsync
-     *
-     * List webhook log entries
-     *
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by webhook id. (optional)
-     * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign ID. (optional)
-     * @param  string $requestUuid Filter results by request UUID. (optional)
-     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getWebhookLogsAsync($pageSize = 1000, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
-    {
-        return $this->getWebhookLogsAsyncWithHttpInfo($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getWebhookLogsAsyncWithHttpInfo
-     *
-     * List webhook log entries
-     *
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by webhook id. (optional)
-     * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign ID. (optional)
-     * @param  string $requestUuid Filter results by request UUID. (optional)
-     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getWebhookLogsAsyncWithHttpInfo($pageSize = 1000, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
-    {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20041';
-        $request = $this->getWebhookLogsRequest($pageSize, $skip, $sort, $status, $webhookId, $applicationId, $campaignId, $requestUuid, $createdBefore, $createdAfter);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getWebhookLogs'
-     *
-     * @param  int $pageSize The number of items in the response. (optional, default to 1000)
-     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. (optional)
-     * @param  string $status Filter results by HTTP status codes. (optional)
-     * @param  float $webhookId Filter results by webhook id. (optional)
-     * @param  float $applicationId Filter results by Application ID. (optional)
-     * @param  float $campaignId Filter results by campaign ID. (optional)
-     * @param  string $requestUuid Filter results by request UUID. (optional)
-     * @param  \DateTime $createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     * @param  \DateTime $createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getWebhookLogsRequest($pageSize = 1000, $skip = null, $sort = null, $status = null, $webhookId = null, $applicationId = null, $campaignId = null, $requestUuid = null, $createdBefore = null, $createdAfter = null)
-    {
-        if ($pageSize !== null && $pageSize > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getWebhookLogs, must be smaller than or equal to 1000.');
-        }
-        if ($pageSize !== null && $pageSize < 1) {
-            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling ManagementApi.getWebhookLogs, must be bigger than or equal to 1.');
-        }
-
-
-        $resourcePath = '/v1/webhook_logs';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if (is_array($pageSize)) {
-            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
-        }
-        if ($pageSize !== null) {
-            $queryParams['pageSize'] = $pageSize;
-        }
-        // query params
-        if (is_array($skip)) {
-            $skip = ObjectSerializer::serializeCollection($skip, '', true);
-        }
-        if ($skip !== null) {
-            $queryParams['skip'] = $skip;
-        }
-        // query params
-        if (is_array($sort)) {
-            $sort = ObjectSerializer::serializeCollection($sort, '', true);
-        }
-        if ($sort !== null) {
-            $queryParams['sort'] = $sort;
-        }
-        // query params
-        if (is_array($status)) {
-            $status = ObjectSerializer::serializeCollection($status, '', true);
-        }
-        if ($status !== null) {
-            $queryParams['status'] = $status;
-        }
-        // query params
-        if (is_array($webhookId)) {
-            $webhookId = ObjectSerializer::serializeCollection($webhookId, '', true);
-        }
-        if ($webhookId !== null) {
-            $queryParams['webhookId'] = $webhookId;
-        }
-        // query params
-        if (is_array($applicationId)) {
-            $applicationId = ObjectSerializer::serializeCollection($applicationId, '', true);
-        }
-        if ($applicationId !== null) {
-            $queryParams['applicationId'] = $applicationId;
-        }
-        // query params
-        if (is_array($campaignId)) {
-            $campaignId = ObjectSerializer::serializeCollection($campaignId, '', true);
-        }
-        if ($campaignId !== null) {
-            $queryParams['campaignId'] = $campaignId;
-        }
-        // query params
-        if (is_array($requestUuid)) {
-            $requestUuid = ObjectSerializer::serializeCollection($requestUuid, '', true);
-        }
-        if ($requestUuid !== null) {
-            $queryParams['requestUuid'] = $requestUuid;
-        }
-        // query params
-        if (is_array($createdBefore)) {
-            $createdBefore = ObjectSerializer::serializeCollection($createdBefore, '', true);
-        }
-        if ($createdBefore !== null) {
-            $queryParams['createdBefore'] = $createdBefore;
-        }
-        // query params
-        if (is_array($createdAfter)) {
-            $createdAfter = ObjectSerializer::serializeCollection($createdAfter, '', true);
-        }
-        if ($createdAfter !== null) {
-            $queryParams['createdAfter'] = $createdAfter;
-        }
-
-
 
         // body params
         $_tempBody = null;
@@ -39011,6 +39285,361 @@ class ManagementApi
             $resourcePath = str_replace(
                 '{' . 'audienceId' . '}',
                 ObjectSerializer::toPathValue($audienceId),
+                $resourcePath
+            );
+        }
+
+        // form params
+        if ($upFile !== null) {
+            $formParams['upFile'] = ObjectSerializer::toFormValue($upFile);
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation importCampaignStoreBudget
+     *
+     * Import campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     * @param  string $upFile The file containing the data that is being imported. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\Import|\TalonOne\Client\Model\ErrorResponse
+     */
+    public function importCampaignStoreBudget($applicationId, $campaignId, $action = null, $period = null, $upFile = null)
+    {
+        list($response) = $this->importCampaignStoreBudgetWithHttpInfo($applicationId, $campaignId, $action, $period, $upFile);
+        return $response;
+    }
+
+    /**
+     * Operation importCampaignStoreBudgetWithHttpInfo
+     *
+     * Import campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     * @param  string $upFile The file containing the data that is being imported. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\Import|\TalonOne\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function importCampaignStoreBudgetWithHttpInfo($applicationId, $campaignId, $action = null, $period = null, $upFile = null)
+    {
+        $request = $this->importCampaignStoreBudgetRequest($applicationId, $campaignId, $action, $period, $upFile);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\TalonOne\Client\Model\Import' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\Import', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\Import';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\Import',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation importCampaignStoreBudgetAsync
+     *
+     * Import campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     * @param  string $upFile The file containing the data that is being imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importCampaignStoreBudgetAsync($applicationId, $campaignId, $action = null, $period = null, $upFile = null)
+    {
+        return $this->importCampaignStoreBudgetAsyncWithHttpInfo($applicationId, $campaignId, $action, $period, $upFile)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation importCampaignStoreBudgetAsyncWithHttpInfo
+     *
+     * Import campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     * @param  string $upFile The file containing the data that is being imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importCampaignStoreBudgetAsyncWithHttpInfo($applicationId, $campaignId, $action = null, $period = null, $upFile = null)
+    {
+        $returnType = '\TalonOne\Client\Model\Import';
+        $request = $this->importCampaignStoreBudgetRequest($applicationId, $campaignId, $action, $period, $upFile);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'importCampaignStoreBudget'
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     * @param  string $upFile The file containing the data that is being imported. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function importCampaignStoreBudgetRequest($applicationId, $campaignId, $action = null, $period = null, $upFile = null)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling importCampaignStoreBudget'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling importCampaignStoreBudget'
+            );
+        }
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets/import';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (is_array($action)) {
+            $action = ObjectSerializer::serializeCollection($action, '', true);
+        }
+        if ($action !== null) {
+            $queryParams['action'] = $action;
+        }
+        // query params
+        if (is_array($period)) {
+            $period = ObjectSerializer::serializeCollection($period, '', true);
+        }
+        if ($period !== null) {
+            $queryParams['period'] = $period;
+        }
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
                 $resourcePath
             );
         }
@@ -40827,15 +41456,16 @@ class ManagementApi
      * Import loyalty points
      *
      * @param  int $loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  bool $notificationsEnabled Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;. (optional)
      * @param  string $upFile The file containing the data that is being imported. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\Import
      */
-    public function importLoyaltyPoints($loyaltyProgramId, $upFile = null)
+    public function importLoyaltyPoints($loyaltyProgramId, $notificationsEnabled = null, $upFile = null)
     {
-        list($response) = $this->importLoyaltyPointsWithHttpInfo($loyaltyProgramId, $upFile);
+        list($response) = $this->importLoyaltyPointsWithHttpInfo($loyaltyProgramId, $notificationsEnabled, $upFile);
         return $response;
     }
 
@@ -40845,15 +41475,16 @@ class ManagementApi
      * Import loyalty points
      *
      * @param  int $loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  bool $notificationsEnabled Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;. (optional)
      * @param  string $upFile The file containing the data that is being imported. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\Import, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importLoyaltyPointsWithHttpInfo($loyaltyProgramId, $upFile = null)
+    public function importLoyaltyPointsWithHttpInfo($loyaltyProgramId, $notificationsEnabled = null, $upFile = null)
     {
-        $request = $this->importLoyaltyPointsRequest($loyaltyProgramId, $upFile);
+        $request = $this->importLoyaltyPointsRequest($loyaltyProgramId, $notificationsEnabled, $upFile);
 
         try {
             $options = $this->createHttpClientOption();
@@ -40934,14 +41565,15 @@ class ManagementApi
      * Import loyalty points
      *
      * @param  int $loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  bool $notificationsEnabled Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;. (optional)
      * @param  string $upFile The file containing the data that is being imported. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importLoyaltyPointsAsync($loyaltyProgramId, $upFile = null)
+    public function importLoyaltyPointsAsync($loyaltyProgramId, $notificationsEnabled = null, $upFile = null)
     {
-        return $this->importLoyaltyPointsAsyncWithHttpInfo($loyaltyProgramId, $upFile)
+        return $this->importLoyaltyPointsAsyncWithHttpInfo($loyaltyProgramId, $notificationsEnabled, $upFile)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -40955,15 +41587,16 @@ class ManagementApi
      * Import loyalty points
      *
      * @param  int $loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  bool $notificationsEnabled Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;. (optional)
      * @param  string $upFile The file containing the data that is being imported. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importLoyaltyPointsAsyncWithHttpInfo($loyaltyProgramId, $upFile = null)
+    public function importLoyaltyPointsAsyncWithHttpInfo($loyaltyProgramId, $notificationsEnabled = null, $upFile = null)
     {
         $returnType = '\TalonOne\Client\Model\Import';
-        $request = $this->importLoyaltyPointsRequest($loyaltyProgramId, $upFile);
+        $request = $this->importLoyaltyPointsRequest($loyaltyProgramId, $notificationsEnabled, $upFile);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -41003,12 +41636,13 @@ class ManagementApi
      * Create request for operation 'importLoyaltyPoints'
      *
      * @param  int $loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  bool $notificationsEnabled Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;. (optional)
      * @param  string $upFile The file containing the data that is being imported. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function importLoyaltyPointsRequest($loyaltyProgramId, $upFile = null)
+    protected function importLoyaltyPointsRequest($loyaltyProgramId, $notificationsEnabled = null, $upFile = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -41024,6 +41658,13 @@ class ManagementApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if (is_array($notificationsEnabled)) {
+            $notificationsEnabled = ObjectSerializer::serializeCollection($notificationsEnabled, '', true);
+        }
+        if ($notificationsEnabled !== null) {
+            $queryParams['notificationsEnabled'] = $notificationsEnabled;
+        }
 
 
         // path params
@@ -42690,7 +43331,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20046
+     * @return \TalonOne\Client\Model\InlineResponse20044
      */
     public function listAllRolesV2()
     {
@@ -42706,7 +43347,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20046, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20044, HTTP status code, HTTP response headers (array of strings)
      */
     public function listAllRolesV2WithHttpInfo()
     {
@@ -42743,20 +43384,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20046' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20044' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20046', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20044', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20046';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20044';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -42775,7 +43416,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20046',
+                        '\TalonOne\Client\Model\InlineResponse20044',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -42815,7 +43456,7 @@ class ManagementApi
      */
     public function listAllRolesV2AsyncWithHttpInfo()
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20046';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20044';
         $request = $this->listAllRolesV2Request();
 
         return $this->client
@@ -42871,6 +43512,392 @@ class ManagementApi
 
 
 
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listCampaignStoreBudgetLimits
+     *
+     * List campaign store budget limits
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse20046|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponse
+     */
+    public function listCampaignStoreBudgetLimits($applicationId, $campaignId, $action = null, $period = null)
+    {
+        list($response) = $this->listCampaignStoreBudgetLimitsWithHttpInfo($applicationId, $campaignId, $action, $period);
+        return $response;
+    }
+
+    /**
+     * Operation listCampaignStoreBudgetLimitsWithHttpInfo
+     *
+     * List campaign store budget limits
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse20046|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listCampaignStoreBudgetLimitsWithHttpInfo($applicationId, $campaignId, $action = null, $period = null)
+    {
+        $request = $this->listCampaignStoreBudgetLimitsRequest($applicationId, $campaignId, $action, $period);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse20046' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20046', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse20046';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse20046',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listCampaignStoreBudgetLimitsAsync
+     *
+     * List campaign store budget limits
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listCampaignStoreBudgetLimitsAsync($applicationId, $campaignId, $action = null, $period = null)
+    {
+        return $this->listCampaignStoreBudgetLimitsAsyncWithHttpInfo($applicationId, $campaignId, $action, $period)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listCampaignStoreBudgetLimitsAsyncWithHttpInfo
+     *
+     * List campaign store budget limits
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listCampaignStoreBudgetLimitsAsyncWithHttpInfo($applicationId, $campaignId, $action = null, $period = null)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse20046';
+        $request = $this->listCampaignStoreBudgetLimitsRequest($applicationId, $campaignId, $action, $period);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listCampaignStoreBudgetLimits'
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param  string $action The action that this budget is limiting. (optional)
+     * @param  string $period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listCampaignStoreBudgetLimitsRequest($applicationId, $campaignId, $action = null, $period = null)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling listCampaignStoreBudgetLimits'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling listCampaignStoreBudgetLimits'
+            );
+        }
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (is_array($action)) {
+            $action = ObjectSerializer::serializeCollection($action, '', true);
+        }
+        if ($action !== null) {
+            $queryParams['action'] = $action;
+        }
+        // query params
+        if (is_array($period)) {
+            $period = ObjectSerializer::serializeCollection($period, '', true);
+        }
+        if ($period !== null) {
+            $queryParams['period'] = $period;
+        }
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
@@ -43198,18 +44225,26 @@ class ManagementApi
             $queryParams['withTotalResultSize'] = $withTotalResultSize;
         }
         // query params
-        if (is_array($sku)) {
-            $sku = ObjectSerializer::serializeCollection($sku, 'form', true);
-        }
         if ($sku !== null) {
-            $queryParams['sku'] = $sku;
+            if('form' === 'form' && is_array($sku)) {
+                foreach($sku as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sku'] = $sku;
+            }
         }
         // query params
-        if (is_array($productNames)) {
-            $productNames = ObjectSerializer::serializeCollection($productNames, 'form', true);
-        }
         if ($productNames !== null) {
-            $queryParams['productNames'] = $productNames;
+            if('form' === 'form' && is_array($productNames)) {
+                foreach($productNames as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['productNames'] = $productNames;
+            }
         }
 
 
@@ -44072,7 +45107,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse20047
+     * @return \TalonOne\Client\Model\InlineResponse20045
      */
     public function listStores($applicationId, $pageSize = 1000, $skip = null, $sort = null, $withTotalResultSize = null, $campaignId = null, $name = null, $integrationId = null, $query = null)
     {
@@ -44097,7 +45132,7 @@ class ManagementApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse20047, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse20045, HTTP status code, HTTP response headers (array of strings)
      */
     public function listStoresWithHttpInfo($applicationId, $pageSize = 1000, $skip = null, $sort = null, $withTotalResultSize = null, $campaignId = null, $name = null, $integrationId = null, $query = null)
     {
@@ -44134,20 +45169,20 @@ class ManagementApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse20047' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse20045' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20047', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20045', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse20047';
+            $returnType = '\TalonOne\Client\Model\InlineResponse20045';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -44166,7 +45201,7 @@ class ManagementApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse20047',
+                        '\TalonOne\Client\Model\InlineResponse20045',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -44224,7 +45259,7 @@ class ManagementApi
      */
     public function listStoresAsyncWithHttpInfo($applicationId, $pageSize = 1000, $skip = null, $sort = null, $withTotalResultSize = null, $campaignId = null, $name = null, $integrationId = null, $query = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse20047';
+        $returnType = '\TalonOne\Client\Model\InlineResponse20045';
         $request = $this->listStoresRequest($applicationId, $pageSize, $skip, $sort, $withTotalResultSize, $campaignId, $name, $integrationId, $query);
 
         return $this->client
@@ -45228,6 +46263,284 @@ class ManagementApi
     }
 
     /**
+     * Operation scimCreateGroup
+     *
+     * Create SCIM group
+     *
+     * @param  \TalonOne\Client\Model\ScimBaseGroup $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\ScimGroup
+     */
+    public function scimCreateGroup($body)
+    {
+        list($response) = $this->scimCreateGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation scimCreateGroupWithHttpInfo
+     *
+     * Create SCIM group
+     *
+     * @param  \TalonOne\Client\Model\ScimBaseGroup $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\ScimGroup, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimCreateGroupWithHttpInfo($body)
+    {
+        $request = $this->scimCreateGroupRequest($body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\TalonOne\Client\Model\ScimGroup' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ScimGroup', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\ScimGroup';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ScimGroup',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimCreateGroupAsync
+     *
+     * Create SCIM group
+     *
+     * @param  \TalonOne\Client\Model\ScimBaseGroup $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimCreateGroupAsync($body)
+    {
+        return $this->scimCreateGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimCreateGroupAsyncWithHttpInfo
+     *
+     * Create SCIM group
+     *
+     * @param  \TalonOne\Client\Model\ScimBaseGroup $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimCreateGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\TalonOne\Client\Model\ScimGroup';
+        $request = $this->scimCreateGroupRequest($body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimCreateGroup'
+     *
+     * @param  \TalonOne\Client\Model\ScimBaseGroup $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimCreateGroupRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling scimCreateGroup'
+            );
+        }
+
+        $resourcePath = '/v1/provisioning/scim/Groups';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation scimCreateUser
      *
      * Create SCIM user
@@ -45506,6 +46819,241 @@ class ManagementApi
     }
 
     /**
+     * Operation scimDeleteGroup
+     *
+     * Delete SCIM group
+     *
+     * @param  int $groupId The ID of the group. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function scimDeleteGroup($groupId)
+    {
+        $this->scimDeleteGroupWithHttpInfo($groupId);
+    }
+
+    /**
+     * Operation scimDeleteGroupWithHttpInfo
+     *
+     * Delete SCIM group
+     *
+     * @param  int $groupId The ID of the group. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimDeleteGroupWithHttpInfo($groupId)
+    {
+        $request = $this->scimDeleteGroupRequest($groupId);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimDeleteGroupAsync
+     *
+     * Delete SCIM group
+     *
+     * @param  int $groupId The ID of the group. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimDeleteGroupAsync($groupId)
+    {
+        return $this->scimDeleteGroupAsyncWithHttpInfo($groupId)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimDeleteGroupAsyncWithHttpInfo
+     *
+     * Delete SCIM group
+     *
+     * @param  int $groupId The ID of the group. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimDeleteGroupAsyncWithHttpInfo($groupId)
+    {
+        $returnType = '';
+        $request = $this->scimDeleteGroupRequest($groupId);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimDeleteGroup'
+     *
+     * @param  int $groupId The ID of the group. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimDeleteGroupRequest($groupId)
+    {
+        // verify the required parameter 'groupId' is set
+        if ($groupId === null || (is_array($groupId) && count($groupId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $groupId when calling scimDeleteGroup'
+            );
+        }
+
+        $resourcePath = '/v1/provisioning/scim/Groups/{groupId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($groupId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'groupId' . '}',
+                ObjectSerializer::toPathValue($groupId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation scimDeleteUser
      *
      * Delete SCIM user
@@ -45734,6 +47282,553 @@ class ManagementApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation scimGetGroup
+     *
+     * Get SCIM group
+     *
+     * @param  int $groupId The ID of the group. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\ScimGroup
+     */
+    public function scimGetGroup($groupId)
+    {
+        list($response) = $this->scimGetGroupWithHttpInfo($groupId);
+        return $response;
+    }
+
+    /**
+     * Operation scimGetGroupWithHttpInfo
+     *
+     * Get SCIM group
+     *
+     * @param  int $groupId The ID of the group. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\ScimGroup, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimGetGroupWithHttpInfo($groupId)
+    {
+        $request = $this->scimGetGroupRequest($groupId);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\ScimGroup' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ScimGroup', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\ScimGroup';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ScimGroup',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimGetGroupAsync
+     *
+     * Get SCIM group
+     *
+     * @param  int $groupId The ID of the group. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetGroupAsync($groupId)
+    {
+        return $this->scimGetGroupAsyncWithHttpInfo($groupId)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimGetGroupAsyncWithHttpInfo
+     *
+     * Get SCIM group
+     *
+     * @param  int $groupId The ID of the group. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetGroupAsyncWithHttpInfo($groupId)
+    {
+        $returnType = '\TalonOne\Client\Model\ScimGroup';
+        $request = $this->scimGetGroupRequest($groupId);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimGetGroup'
+     *
+     * @param  int $groupId The ID of the group. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimGetGroupRequest($groupId)
+    {
+        // verify the required parameter 'groupId' is set
+        if ($groupId === null || (is_array($groupId) && count($groupId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $groupId when calling scimGetGroup'
+            );
+        }
+
+        $resourcePath = '/v1/provisioning/scim/Groups/{groupId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($groupId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'groupId' . '}',
+                ObjectSerializer::toPathValue($groupId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation scimGetGroups
+     *
+     * List SCIM groups
+     *
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\ScimGroupsListResponse
+     */
+    public function scimGetGroups()
+    {
+        list($response) = $this->scimGetGroupsWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation scimGetGroupsWithHttpInfo
+     *
+     * List SCIM groups
+     *
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\ScimGroupsListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimGetGroupsWithHttpInfo()
+    {
+        $request = $this->scimGetGroupsRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\ScimGroupsListResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ScimGroupsListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\ScimGroupsListResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ScimGroupsListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimGetGroupsAsync
+     *
+     * List SCIM groups
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetGroupsAsync()
+    {
+        return $this->scimGetGroupsAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimGetGroupsAsyncWithHttpInfo
+     *
+     * List SCIM groups
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimGetGroupsAsyncWithHttpInfo()
+    {
+        $returnType = '\TalonOne\Client\Model\ScimGroupsListResponse';
+        $request = $this->scimGetGroupsRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimGetGroups'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimGetGroupsRequest()
+    {
+
+        $resourcePath = '/v1/provisioning/scim/Groups';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -47080,6 +49175,303 @@ class ManagementApi
     }
 
     /**
+     * Operation scimPatchGroup
+     *
+     * Update SCIM group attributes
+     *
+     * @param  int $groupId The ID of the group. (required)
+     * @param  \TalonOne\Client\Model\ScimPatchRequest $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\ScimGroup
+     */
+    public function scimPatchGroup($groupId, $body)
+    {
+        list($response) = $this->scimPatchGroupWithHttpInfo($groupId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation scimPatchGroupWithHttpInfo
+     *
+     * Update SCIM group attributes
+     *
+     * @param  int $groupId The ID of the group. (required)
+     * @param  \TalonOne\Client\Model\ScimPatchRequest $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\ScimGroup, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimPatchGroupWithHttpInfo($groupId, $body)
+    {
+        $request = $this->scimPatchGroupRequest($groupId, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\ScimGroup' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ScimGroup', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\ScimGroup';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ScimGroup',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimPatchGroupAsync
+     *
+     * Update SCIM group attributes
+     *
+     * @param  int $groupId The ID of the group. (required)
+     * @param  \TalonOne\Client\Model\ScimPatchRequest $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimPatchGroupAsync($groupId, $body)
+    {
+        return $this->scimPatchGroupAsyncWithHttpInfo($groupId, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimPatchGroupAsyncWithHttpInfo
+     *
+     * Update SCIM group attributes
+     *
+     * @param  int $groupId The ID of the group. (required)
+     * @param  \TalonOne\Client\Model\ScimPatchRequest $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimPatchGroupAsyncWithHttpInfo($groupId, $body)
+    {
+        $returnType = '\TalonOne\Client\Model\ScimGroup';
+        $request = $this->scimPatchGroupRequest($groupId, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimPatchGroup'
+     *
+     * @param  int $groupId The ID of the group. (required)
+     * @param  \TalonOne\Client\Model\ScimPatchRequest $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimPatchGroupRequest($groupId, $body)
+    {
+        // verify the required parameter 'groupId' is set
+        if ($groupId === null || (is_array($groupId) && count($groupId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $groupId when calling scimPatchGroup'
+            );
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling scimPatchGroup'
+            );
+        }
+
+        $resourcePath = '/v1/provisioning/scim/Groups/{groupId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($groupId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'groupId' . '}',
+                ObjectSerializer::toPathValue($groupId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation scimPatchUser
      *
      * Update SCIM user attributes
@@ -47370,6 +49762,303 @@ class ManagementApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PATCH',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation scimReplaceGroupAttributes
+     *
+     * Update SCIM group
+     *
+     * @param  int $groupId The ID of the group. (required)
+     * @param  \TalonOne\Client\Model\ScimBaseGroup $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\ScimGroup
+     */
+    public function scimReplaceGroupAttributes($groupId, $body)
+    {
+        list($response) = $this->scimReplaceGroupAttributesWithHttpInfo($groupId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation scimReplaceGroupAttributesWithHttpInfo
+     *
+     * Update SCIM group
+     *
+     * @param  int $groupId The ID of the group. (required)
+     * @param  \TalonOne\Client\Model\ScimBaseGroup $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\ScimGroup, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function scimReplaceGroupAttributesWithHttpInfo($groupId, $body)
+    {
+        $request = $this->scimReplaceGroupAttributesRequest($groupId, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\ScimGroup' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ScimGroup', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\ScimGroup';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ScimGroup',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation scimReplaceGroupAttributesAsync
+     *
+     * Update SCIM group
+     *
+     * @param  int $groupId The ID of the group. (required)
+     * @param  \TalonOne\Client\Model\ScimBaseGroup $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimReplaceGroupAttributesAsync($groupId, $body)
+    {
+        return $this->scimReplaceGroupAttributesAsyncWithHttpInfo($groupId, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation scimReplaceGroupAttributesAsyncWithHttpInfo
+     *
+     * Update SCIM group
+     *
+     * @param  int $groupId The ID of the group. (required)
+     * @param  \TalonOne\Client\Model\ScimBaseGroup $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function scimReplaceGroupAttributesAsyncWithHttpInfo($groupId, $body)
+    {
+        $returnType = '\TalonOne\Client\Model\ScimGroup';
+        $request = $this->scimReplaceGroupAttributesRequest($groupId, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'scimReplaceGroupAttributes'
+     *
+     * @param  int $groupId The ID of the group. (required)
+     * @param  \TalonOne\Client\Model\ScimBaseGroup $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function scimReplaceGroupAttributesRequest($groupId, $body)
+    {
+        // verify the required parameter 'groupId' is set
+        if ($groupId === null || (is_array($groupId) && count($groupId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $groupId when calling scimReplaceGroupAttributes'
+            );
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling scimReplaceGroupAttributes'
+            );
+        }
+
+        $resourcePath = '/v1/provisioning/scim/Groups/{groupId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($groupId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'groupId' . '}',
+                ObjectSerializer::toPathValue($groupId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -48594,6 +51283,368 @@ class ManagementApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation summarizeCampaignStoreBudget
+     *
+     * Get summary of campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse20047|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponse
+     */
+    public function summarizeCampaignStoreBudget($applicationId, $campaignId)
+    {
+        list($response) = $this->summarizeCampaignStoreBudgetWithHttpInfo($applicationId, $campaignId);
+        return $response;
+    }
+
+    /**
+     * Operation summarizeCampaignStoreBudgetWithHttpInfo
+     *
+     * Get summary of campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse20047|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function summarizeCampaignStoreBudgetWithHttpInfo($applicationId, $campaignId)
+    {
+        $request = $this->summarizeCampaignStoreBudgetRequest($applicationId, $campaignId);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse20047' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse20047', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\TalonOne\Client\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse20047';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse20047',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation summarizeCampaignStoreBudgetAsync
+     *
+     * Get summary of campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function summarizeCampaignStoreBudgetAsync($applicationId, $campaignId)
+    {
+        return $this->summarizeCampaignStoreBudgetAsyncWithHttpInfo($applicationId, $campaignId)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation summarizeCampaignStoreBudgetAsyncWithHttpInfo
+     *
+     * Get summary of campaign store budgets
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function summarizeCampaignStoreBudgetAsyncWithHttpInfo($applicationId, $campaignId)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse20047';
+        $request = $this->summarizeCampaignStoreBudgetRequest($applicationId, $campaignId);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'summarizeCampaignStoreBudget'
+     *
+     * @param  int $applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param  int $campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function summarizeCampaignStoreBudgetRequest($applicationId, $campaignId)
+    {
+        // verify the required parameter 'applicationId' is set
+        if ($applicationId === null || (is_array($applicationId) && count($applicationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $applicationId when calling summarizeCampaignStoreBudget'
+            );
+        }
+        // verify the required parameter 'campaignId' is set
+        if ($campaignId === null || (is_array($campaignId) && count($campaignId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaignId when calling summarizeCampaignStoreBudget'
+            );
+        }
+
+        $resourcePath = '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets/summary';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($applicationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'applicationId' . '}',
+                ObjectSerializer::toPathValue($applicationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($campaignId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaignId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

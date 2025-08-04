@@ -70,7 +70,7 @@ class UpdateCatalog implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'description' => null,
         'name' => null,
-        'subscribedApplicationsIds' => null
+        'subscribedApplicationsIds' => 'int64'
     ];
 
     /**

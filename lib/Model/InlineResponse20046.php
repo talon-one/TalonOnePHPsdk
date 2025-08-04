@@ -57,8 +57,7 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\RoleV2[]'
+        'data' => '\TalonOne\Client\Model\ListCampaignStoreBudgets[]'
     ];
 
     /**
@@ -67,7 +66,6 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'totalResultSize' => null,
         'data' => null
     ];
 
@@ -98,7 +96,6 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'totalResultSize' => 'totalResultSize',
         'data' => 'data'
     ];
 
@@ -108,7 +105,6 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'totalResultSize' => 'setTotalResultSize',
         'data' => 'setData'
     ];
 
@@ -118,7 +114,6 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'totalResultSize' => 'getTotalResultSize',
         'data' => 'getData'
     ];
 
@@ -182,7 +177,6 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -195,12 +189,6 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['totalResultSize'] === null) {
-            $invalidProperties[] = "'totalResultSize' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -217,33 +205,9 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets totalResultSize
-     *
-     * @return int
-     */
-    public function getTotalResultSize()
-    {
-        return $this->container['totalResultSize'];
-    }
-
-    /**
-     * Sets totalResultSize
-     *
-     * @param int $totalResultSize totalResultSize
-     *
-     * @return $this
-     */
-    public function setTotalResultSize($totalResultSize)
-    {
-        $this->container['totalResultSize'] = $totalResultSize;
-
-        return $this;
-    }
-
-    /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\RoleV2[]
+     * @return \TalonOne\Client\Model\ListCampaignStoreBudgets[]|null
      */
     public function getData()
     {
@@ -253,7 +217,7 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\RoleV2[] $data data
+     * @param \TalonOne\Client\Model\ListCampaignStoreBudgets[]|null $data data
      *
      * @return $this
      */

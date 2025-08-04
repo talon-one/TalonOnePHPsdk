@@ -70,8 +70,8 @@ class AchievementAdditionalProperties implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignId' => null,
-        'userId' => null,
+        'campaignId' => 'int64',
+        'userId' => 'int64',
         'createdBy' => null,
         'hasProgress' => null,
         'status' => null

@@ -81,7 +81,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'integrationId' => 'string',
         'created' => 'date-time',
-        'applicationId' => null,
+        'applicationId' => 'int64',
         'profileId' => null,
         'coupon' => null,
         'referral' => null,

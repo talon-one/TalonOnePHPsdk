@@ -71,8 +71,8 @@ class UpdateCampaignGroup implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'description' => null,
-        'subscribedApplicationsIds' => null,
-        'campaignIds' => null
+        'subscribedApplicationsIds' => 'int64',
+        'campaignIds' => 'int64'
     ];
 
     /**

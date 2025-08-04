@@ -74,7 +74,7 @@ class DeductLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'ruleTitle' => null,
-        'programId' => null,
+        'programId' => 'int64',
         'subLedgerId' => null,
         'value' => null,
         'transactionUUID' => null,

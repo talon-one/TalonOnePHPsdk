@@ -66,7 +66,7 @@ class AccountEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'accountId' => null
+        'accountId' => 'int64'
     ];
 
     /**

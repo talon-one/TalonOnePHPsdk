@@ -72,7 +72,7 @@ class NewRole implements ModelInterface, ArrayAccess
         'name' => null,
         'description' => null,
         'acl' => null,
-        'members' => null
+        'members' => 'int64'
     ];
 
     /**

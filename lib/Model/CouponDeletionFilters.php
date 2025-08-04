@@ -90,7 +90,7 @@ class CouponDeletionFilters implements ModelInterface, ArrayAccess
         'exactMatch' => null,
         'value' => null,
         'batchId' => null,
-        'referralId' => null,
+        'referralId' => 'int64',
         'expiresAfter' => 'date-time',
         'expiresBefore' => 'date-time'
     ];

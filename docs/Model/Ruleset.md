@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
 **userId** | **int** | The ID of the user associated with this entity. | 
 **rules** | [**\TalonOne\Client\Model\Rule[]**](Rule.md) | Set of rules to apply. | 

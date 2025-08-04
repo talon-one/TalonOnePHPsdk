@@ -74,7 +74,7 @@ class AccessLogEntry implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'uuid' => null,
-        'status' => null,
+        'status' => 'int64',
         'method' => null,
         'requestUri' => null,
         'time' => 'date-time',

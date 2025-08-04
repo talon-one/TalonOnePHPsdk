@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * CampaignDeletedNotification Class Doc Comment
  *
  * @category Class
- * @description A notification regarding a campaign that was deleted.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,8 +57,9 @@ class CampaignDeletedNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'campaign' => '\TalonOne\Client\Model\Campaign',
-        'deletedAt' => '\DateTime'
+        'notificationType' => 'string',
+        'totalResultSize' => 'int',
+        'data' => '\TalonOne\Client\Model\CampaignDeletedNotificationItem[]'
     ];
 
     /**
@@ -68,8 +68,9 @@ class CampaignDeletedNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaign' => null,
-        'deletedAt' => 'date-time'
+        'notificationType' => null,
+        'totalResultSize' => 'int64',
+        'data' => null
     ];
 
     /**
@@ -99,8 +100,9 @@ class CampaignDeletedNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'campaign' => 'campaign',
-        'deletedAt' => 'deletedAt'
+        'notificationType' => 'NotificationType',
+        'totalResultSize' => 'TotalResultSize',
+        'data' => 'Data'
     ];
 
     /**
@@ -109,8 +111,9 @@ class CampaignDeletedNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'campaign' => 'setCampaign',
-        'deletedAt' => 'setDeletedAt'
+        'notificationType' => 'setNotificationType',
+        'totalResultSize' => 'setTotalResultSize',
+        'data' => 'setData'
     ];
 
     /**
@@ -119,8 +122,9 @@ class CampaignDeletedNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'campaign' => 'getCampaign',
-        'deletedAt' => 'getDeletedAt'
+        'notificationType' => 'getNotificationType',
+        'totalResultSize' => 'getTotalResultSize',
+        'data' => 'getData'
     ];
 
     /**
@@ -183,8 +187,9 @@ class CampaignDeletedNotification implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
-        $this->container['deletedAt'] = isset($data['deletedAt']) ? $data['deletedAt'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
+        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -196,11 +201,8 @@ class CampaignDeletedNotification implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['campaign'] === null) {
-            $invalidProperties[] = "'campaign' can't be null";
-        }
-        if ($this->container['deletedAt'] === null) {
-            $invalidProperties[] = "'deletedAt' can't be null";
+        if ($this->container['totalResultSize'] === null) {
+            $invalidProperties[] = "'totalResultSize' can't be null";
         }
         return $invalidProperties;
     }
@@ -218,49 +220,73 @@ class CampaignDeletedNotification implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets campaign
+     * Gets notificationType
      *
-     * @return \TalonOne\Client\Model\Campaign
+     * @return string|null
      */
-    public function getCampaign()
+    public function getNotificationType()
     {
-        return $this->container['campaign'];
+        return $this->container['notificationType'];
     }
 
     /**
-     * Sets campaign
+     * Sets notificationType
      *
-     * @param \TalonOne\Client\Model\Campaign $campaign campaign
+     * @param string|null $notificationType The type of the notification
      *
      * @return $this
      */
-    public function setCampaign($campaign)
+    public function setNotificationType($notificationType)
     {
-        $this->container['campaign'] = $campaign;
+        $this->container['notificationType'] = $notificationType;
 
         return $this;
     }
 
     /**
-     * Gets deletedAt
+     * Gets totalResultSize
      *
-     * @return \DateTime
+     * @return int
      */
-    public function getDeletedAt()
+    public function getTotalResultSize()
     {
-        return $this->container['deletedAt'];
+        return $this->container['totalResultSize'];
     }
 
     /**
-     * Sets deletedAt
+     * Sets totalResultSize
      *
-     * @param \DateTime $deletedAt Time when the campaign was deleted.
+     * @param int $totalResultSize The total size of the result set.
      *
      * @return $this
      */
-    public function setDeletedAt($deletedAt)
+    public function setTotalResultSize($totalResultSize)
     {
-        $this->container['deletedAt'] = $deletedAt;
+        $this->container['totalResultSize'] = $totalResultSize;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return \TalonOne\Client\Model\CampaignDeletedNotificationItem[]|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \TalonOne\Client\Model\CampaignDeletedNotificationItem[]|null $data A list of campaign notification data.
+     *
+     * @return $this
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
 
         return $this;
     }

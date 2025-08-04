@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**transactionUUID** | **string** | Unique identifier of the transaction in the UUID format. | 
 **created** | [**\DateTime**](\DateTime.md) | Date and time the loyalty transaction occurred. | 
 **programId** | **int** | ID of the loyalty program. | 
 **customerSessionId** | **string** | ID of the customer session where the transaction occurred. | [optional] 

@@ -121,6 +121,13 @@ class WebhookTest extends TestCase
     }
 
     /**
+     * Test attribute "draft"
+     */
+    public function testPropertyDraft()
+    {
+    }
+
+    /**
      * Test attribute "verb"
      */
     public function testPropertyVerb()
@@ -159,6 +166,13 @@ class WebhookTest extends TestCase
      * Test attribute "enabled"
      */
     public function testPropertyEnabled()
+    {
+    }
+
+    /**
+     * Test attribute "authenticationId"
+     */
+    public function testPropertyAuthenticationId()
     {
     }
 }

@@ -71,7 +71,8 @@ class Environment implements ModelInterface, ArrayAccess
         'additionalCosts' => '\TalonOne\Client\Model\AccountAdditionalCost[]',
         'audiences' => '\TalonOne\Client\Model\Audience[]',
         'collections' => '\TalonOne\Client\Model\Collection[]',
-        'applicationCartItemFilters' => '\TalonOne\Client\Model\ApplicationCIF[]'
+        'applicationCartItemFilters' => '\TalonOne\Client\Model\ApplicationCIF[]',
+        'priceTypes' => '\TalonOne\Client\Model\PriceType[]'
     ];
 
     /**
@@ -80,9 +81,9 @@ class Environment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'applicationId' => null,
+        'applicationId' => 'int64',
         'slots' => null,
         'functions' => null,
         'templates' => null,
@@ -94,7 +95,8 @@ class Environment implements ModelInterface, ArrayAccess
         'additionalCosts' => null,
         'audiences' => null,
         'collections' => null,
-        'applicationCartItemFilters' => null
+        'applicationCartItemFilters' => null,
+        'priceTypes' => null
     ];
 
     /**
@@ -138,7 +140,8 @@ class Environment implements ModelInterface, ArrayAccess
         'additionalCosts' => 'additionalCosts',
         'audiences' => 'audiences',
         'collections' => 'collections',
-        'applicationCartItemFilters' => 'applicationCartItemFilters'
+        'applicationCartItemFilters' => 'applicationCartItemFilters',
+        'priceTypes' => 'priceTypes'
     ];
 
     /**
@@ -161,7 +164,8 @@ class Environment implements ModelInterface, ArrayAccess
         'additionalCosts' => 'setAdditionalCosts',
         'audiences' => 'setAudiences',
         'collections' => 'setCollections',
-        'applicationCartItemFilters' => 'setApplicationCartItemFilters'
+        'applicationCartItemFilters' => 'setApplicationCartItemFilters',
+        'priceTypes' => 'setPriceTypes'
     ];
 
     /**
@@ -184,7 +188,8 @@ class Environment implements ModelInterface, ArrayAccess
         'additionalCosts' => 'getAdditionalCosts',
         'audiences' => 'getAudiences',
         'collections' => 'getCollections',
-        'applicationCartItemFilters' => 'getApplicationCartItemFilters'
+        'applicationCartItemFilters' => 'getApplicationCartItemFilters',
+        'priceTypes' => 'getPriceTypes'
     ];
 
     /**
@@ -262,6 +267,7 @@ class Environment implements ModelInterface, ArrayAccess
         $this->container['audiences'] = isset($data['audiences']) ? $data['audiences'] : null;
         $this->container['collections'] = isset($data['collections']) ? $data['collections'] : null;
         $this->container['applicationCartItemFilters'] = isset($data['applicationCartItemFilters']) ? $data['applicationCartItemFilters'] : null;
+        $this->container['priceTypes'] = isset($data['priceTypes']) ? $data['priceTypes'] : null;
     }
 
     /**
@@ -322,7 +328,7 @@ class Environment implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */
@@ -665,6 +671,30 @@ class Environment implements ModelInterface, ArrayAccess
     public function setApplicationCartItemFilters($applicationCartItemFilters)
     {
         $this->container['applicationCartItemFilters'] = $applicationCartItemFilters;
+
+        return $this;
+    }
+
+    /**
+     * Gets priceTypes
+     *
+     * @return \TalonOne\Client\Model\PriceType[]|null
+     */
+    public function getPriceTypes()
+    {
+        return $this->container['priceTypes'];
+    }
+
+    /**
+     * Sets priceTypes
+     *
+     * @param \TalonOne\Client\Model\PriceType[]|null $priceTypes The price types that this Application can use.
+     *
+     * @return $this
+     */
+    public function setPriceTypes($priceTypes)
+    {
+        $this->container['priceTypes'] = $priceTypes;
 
         return $this;
     }

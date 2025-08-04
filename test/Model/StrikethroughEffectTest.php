@@ -133,4 +133,32 @@ class StrikethroughEffectTest extends TestCase
     public function testPropertyEndTime()
     {
     }
+
+    /**
+     * Test attribute "selectedPriceType"
+     */
+    public function testPropertySelectedPriceType()
+    {
+    }
+
+    /**
+     * Test attribute "selectedPrice"
+     */
+    public function testPropertySelectedPrice()
+    {
+    }
+
+    /**
+     * Test attribute "adjustmentReferenceId"
+     */
+    public function testPropertyAdjustmentReferenceId()
+    {
+    }
+
+    /**
+     * Test attribute "targets"
+     */
+    public function testPropertyTargets()
+    {
+    }
 }

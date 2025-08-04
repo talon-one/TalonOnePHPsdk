@@ -67,8 +67,8 @@ class ReturnedCartItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'position' => null,
-        'quantity' => null
+        'position' => 'int64',
+        'quantity' => 'int64'
     ];
 
     /**

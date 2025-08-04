@@ -73,11 +73,11 @@ class CustomerAnalytics implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'acceptedCoupons' => null,
-        'createdCoupons' => null,
-        'freeItems' => null,
-        'totalOrders' => null,
-        'totalDiscountedOrders' => null,
+        'acceptedCoupons' => 'int64',
+        'createdCoupons' => 'int64',
+        'freeItems' => 'int64',
+        'totalOrders' => 'int64',
+        'totalDiscountedOrders' => 'int64',
         'totalRevenue' => null,
         'totalDiscounts' => null
     ];

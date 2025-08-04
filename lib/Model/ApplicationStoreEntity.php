@@ -66,7 +66,7 @@ class ApplicationStoreEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'storeId' => null
+        'storeId' => 'int64'
     ];
 
     /**
