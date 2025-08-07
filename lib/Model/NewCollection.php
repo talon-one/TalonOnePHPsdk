@@ -69,7 +69,7 @@ class NewCollection implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'description' => null,
-        'subscribedApplicationsIds' => null,
+        'subscribedApplicationsIds' => 'int64',
         'name' => null
     ];
 

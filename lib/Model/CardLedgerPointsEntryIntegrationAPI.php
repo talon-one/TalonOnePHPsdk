@@ -76,9 +76,9 @@ class CardLedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'programId' => null,
+        'programId' => 'int64',
         'customerProfileID' => null,
         'customerSessionId' => null,
         'name' => null,

@@ -73,7 +73,7 @@ class NewAdditionalCost implements ModelInterface, ArrayAccess
         'name' => null,
         'title' => null,
         'description' => null,
-        'subscribedApplicationsIds' => null,
+        'subscribedApplicationsIds' => 'int64',
         'type' => null
     ];
 

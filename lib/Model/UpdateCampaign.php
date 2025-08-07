@@ -87,16 +87,16 @@ class UpdateCampaign implements ModelInterface, ArrayAccess
         'endTime' => 'date-time',
         'attributes' => null,
         'state' => null,
-        'activeRulesetId' => null,
+        'activeRulesetId' => 'int64',
         'tags' => null,
         'features' => null,
         'couponSettings' => null,
         'referralSettings' => null,
         'limits' => null,
-        'campaignGroups' => null,
-        'evaluationGroupId' => null,
+        'campaignGroups' => 'int64',
+        'evaluationGroupId' => 'int64',
         'type' => null,
-        'linkedStoreIds' => null
+        'linkedStoreIds' => 'int64'
     ];
 
     /**

@@ -74,14 +74,14 @@ class Role implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'modified' => 'date-time',
-        'accountId' => null,
-        'campaignGroupID' => null,
+        'accountId' => 'int64',
+        'campaignGroupID' => 'int64',
         'name' => null,
         'description' => null,
-        'members' => null,
+        'members' => 'int64',
         'acl' => null
     ];
 
@@ -283,7 +283,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

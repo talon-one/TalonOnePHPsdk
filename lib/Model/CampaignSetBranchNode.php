@@ -78,7 +78,7 @@ class CampaignSetBranchNode implements ModelInterface, ArrayAccess
         'name' => null,
         'operator' => null,
         'elements' => null,
-        'groupId' => null,
+        'groupId' => 'int64',
         'locked' => null,
         'description' => null,
         'evaluationMode' => null,

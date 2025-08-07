@@ -70,7 +70,7 @@ class OutgoingIntegrationType implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'name' => null,
         'description' => null,
         'category' => null,

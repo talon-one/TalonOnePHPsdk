@@ -67,7 +67,7 @@ class ApplicationCIFReferences implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'applicationCartItemFilterId' => null,
+        'applicationCartItemFilterId' => 'int64',
         'campaigns' => null
     ];
 

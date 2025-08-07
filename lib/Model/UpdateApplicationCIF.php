@@ -70,8 +70,8 @@ class UpdateApplicationCIF implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'description' => null,
-        'activeExpressionId' => null,
-        'modifiedBy' => null,
+        'activeExpressionId' => 'int64',
+        'modifiedBy' => 'int64',
         'modified' => 'date-time'
     ];
 

@@ -86,11 +86,11 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         'startDate' => 'date-time',
         'completionDate' => 'date-time',
         'endDate' => 'date-time',
-        'achievementId' => null,
+        'achievementId' => 'int64',
         'name' => null,
         'title' => null,
         'description' => 'string',
-        'campaignId' => null,
+        'campaignId' => 'int64',
         'target' => null,
         'achievementRecurrencePolicy' => null,
         'achievementActivationPolicy' => null,
@@ -235,6 +235,7 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
     const STATUS_NOT_STARTED = 'not_started';
     const ACHIEVEMENT_RECURRENCE_POLICY_NO_RECURRENCE = 'no_recurrence';
     const ACHIEVEMENT_RECURRENCE_POLICY_ON_EXPIRATION = 'on_expiration';
+    const ACHIEVEMENT_RECURRENCE_POLICY_ON_COMPLETION = 'on_completion';
     const ACHIEVEMENT_ACTIVATION_POLICY_USER_ACTION = 'user_action';
     const ACHIEVEMENT_ACTIVATION_POLICY_FIXED_SCHEDULE = 'fixed_schedule';
     
@@ -265,6 +266,7 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         return [
             self::ACHIEVEMENT_RECURRENCE_POLICY_NO_RECURRENCE,
             self::ACHIEVEMENT_RECURRENCE_POLICY_ON_EXPIRATION,
+            self::ACHIEVEMENT_RECURRENCE_POLICY_ON_COMPLETION,
         ];
     }
     
@@ -697,7 +699,7 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
     /**
      * Sets achievementRecurrencePolicy
      *
-     * @param string $achievementRecurrencePolicy The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again.
+     * @param string $achievementRecurrencePolicy The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again. - `on_completion`: When the customer progress status reaches `completed`, the achievement resets and becomes available again.
      *
      * @return $this
      */

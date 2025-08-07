@@ -72,9 +72,9 @@ class RollbackIncreasedAchievementProgressEffectProps implements ModelInterface,
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'achievementId' => null,
+        'achievementId' => 'int64',
         'achievementName' => null,
-        'progressTrackerId' => null,
+        'progressTrackerId' => 'int64',
         'decreaseProgressBy' => null,
         'currentProgress' => null,
         'target' => null

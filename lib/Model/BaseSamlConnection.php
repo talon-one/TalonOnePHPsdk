@@ -73,7 +73,7 @@ class BaseSamlConnection implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'accountId' => null,
+        'accountId' => 'int64',
         'name' => null,
         'enabled' => null,
         'issuer' => null,

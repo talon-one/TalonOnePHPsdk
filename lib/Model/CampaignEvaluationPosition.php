@@ -69,9 +69,9 @@ class CampaignEvaluationPosition implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'groupId' => null,
+        'groupId' => 'int64',
         'groupName' => null,
-        'position' => null
+        'position' => 'int64'
     ];
 
     /**

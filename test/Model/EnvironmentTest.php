@@ -182,4 +182,11 @@ class EnvironmentTest extends TestCase
     public function testPropertyApplicationCartItemFilters()
     {
     }
+
+    /**
+     * Test attribute "priceTypes"
+     */
+    public function testPropertyPriceTypes()
+    {
+    }
 }

@@ -82,9 +82,9 @@ class Attribute implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'accountId' => null,
+        'accountId' => 'int64',
         'entity' => null,
         'eventType' => null,
         'name' => null,
@@ -95,10 +95,10 @@ class Attribute implements ModelInterface, ArrayAccess
         'hasAllowedList' => null,
         'restrictedBySuggestions' => null,
         'editable' => null,
-        'subscribedApplicationsIds' => null,
-        'subscribedCatalogsIds' => null,
+        'subscribedApplicationsIds' => 'int64',
+        'subscribedCatalogsIds' => 'int64',
         'allowedSubscriptions' => null,
-        'eventTypeId' => null
+        'eventTypeId' => 'int64'
     ];
 
     /**
@@ -442,7 +442,7 @@ class Attribute implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

@@ -71,7 +71,7 @@ class BaseNotificationWebhook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'modified' => 'date-time',
         'url' => null,
@@ -262,7 +262,7 @@ class BaseNotificationWebhook implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

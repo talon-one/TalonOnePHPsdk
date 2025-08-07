@@ -68,7 +68,7 @@ class LoyaltyProgramEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'programID' => null,
+        'programID' => 'int64',
         'programName' => null,
         'programTitle' => null
     ];

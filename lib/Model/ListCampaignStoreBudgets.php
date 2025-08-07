@@ -70,7 +70,7 @@ class ListCampaignStoreBudgets implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'store' => null,
-        'limit' => null,
+        'limit' => 'int64',
         'action' => null,
         'period' => null
     ];

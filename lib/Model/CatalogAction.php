@@ -169,6 +169,7 @@ class CatalogAction implements ModelInterface, ArrayAccess
     const TYPE_PATCH_MANY = 'PATCH_MANY';
     const TYPE_REMOVE = 'REMOVE';
     const TYPE_REMOVE_MANY = 'REMOVE_MANY';
+    const TYPE_ADD_PRICE_ADJUSTMENT = 'ADD_PRICE_ADJUSTMENT';
     
 
     
@@ -185,6 +186,7 @@ class CatalogAction implements ModelInterface, ArrayAccess
             self::TYPE_PATCH_MANY,
             self::TYPE_REMOVE,
             self::TYPE_REMOVE_MANY,
+            self::TYPE_ADD_PRICE_ADJUSTMENT,
         ];
     }
     

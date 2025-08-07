@@ -114,6 +114,13 @@ class IntegrationEventV2RequestTest extends TestCase
     }
 
     /**
+     * Test attribute "loyaltyCards"
+     */
+    public function testPropertyLoyaltyCards()
+    {
+    }
+
+    /**
      * Test attribute "responseContent"
      */
     public function testPropertyResponseContent()

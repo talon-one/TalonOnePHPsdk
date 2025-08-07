@@ -66,7 +66,7 @@ class ApplicationSessionEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'sessionId' => null
+        'sessionId' => 'int64'
     ];
 
     /**

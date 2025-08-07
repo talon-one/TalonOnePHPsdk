@@ -73,7 +73,7 @@ class UpdateReferral implements ModelInterface, ArrayAccess
         'friendProfileIntegrationId' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'usageLimit' => null,
+        'usageLimit' => 'int64',
         'attributes' => null
     ];
 

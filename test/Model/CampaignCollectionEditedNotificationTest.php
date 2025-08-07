@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CampaignCollectionEditedNotificationTest Class Doc Comment
  *
  * @category    Class
- * @description A notification regarding a collection that was edited.
+ * @description CampaignCollectionEditedNotification
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -79,23 +79,23 @@ class CampaignCollectionEditedNotificationTest extends TestCase
     }
 
     /**
-     * Test attribute "campaign"
+     * Test attribute "notificationType"
      */
-    public function testPropertyCampaign()
+    public function testPropertyNotificationType()
     {
     }
 
     /**
-     * Test attribute "ruleset"
+     * Test attribute "totalResultSize"
      */
-    public function testPropertyRuleset()
+    public function testPropertyTotalResultSize()
     {
     }
 
     /**
-     * Test attribute "collection"
+     * Test attribute "data"
      */
-    public function testPropertyCollection()
+    public function testPropertyData()
     {
     }
 }

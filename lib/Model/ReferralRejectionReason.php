@@ -69,8 +69,8 @@ class ReferralRejectionReason implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignId' => null,
-        'referralId' => null,
+        'campaignId' => 'int64',
+        'referralId' => 'int64',
         'reason' => null
     ];
 

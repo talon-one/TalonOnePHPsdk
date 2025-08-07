@@ -65,7 +65,11 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
         'type' => 'string',
         'props' => 'object',
         'startTime' => '\DateTime',
-        'endTime' => '\DateTime'
+        'endTime' => '\DateTime',
+        'selectedPriceType' => 'string',
+        'selectedPrice' => 'float',
+        'adjustmentReferenceId' => 'string',
+        'targets' => 'object[]'
     ];
 
     /**
@@ -74,14 +78,18 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignId' => null,
-        'rulesetId' => null,
-        'ruleIndex' => null,
+        'campaignId' => 'int64',
+        'rulesetId' => 'int64',
+        'ruleIndex' => 'int64',
         'ruleName' => null,
         'type' => null,
         'props' => null,
         'startTime' => 'date-time',
-        'endTime' => 'date-time'
+        'endTime' => 'date-time',
+        'selectedPriceType' => null,
+        'selectedPrice' => null,
+        'adjustmentReferenceId' => null,
+        'targets' => null
     ];
 
     /**
@@ -118,7 +126,11 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
         'type' => 'type',
         'props' => 'props',
         'startTime' => 'startTime',
-        'endTime' => 'endTime'
+        'endTime' => 'endTime',
+        'selectedPriceType' => 'selectedPriceType',
+        'selectedPrice' => 'selectedPrice',
+        'adjustmentReferenceId' => 'adjustmentReferenceId',
+        'targets' => 'targets'
     ];
 
     /**
@@ -134,7 +146,11 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
         'type' => 'setType',
         'props' => 'setProps',
         'startTime' => 'setStartTime',
-        'endTime' => 'setEndTime'
+        'endTime' => 'setEndTime',
+        'selectedPriceType' => 'setSelectedPriceType',
+        'selectedPrice' => 'setSelectedPrice',
+        'adjustmentReferenceId' => 'setAdjustmentReferenceId',
+        'targets' => 'setTargets'
     ];
 
     /**
@@ -150,7 +166,11 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
         'type' => 'getType',
         'props' => 'getProps',
         'startTime' => 'getStartTime',
-        'endTime' => 'getEndTime'
+        'endTime' => 'getEndTime',
+        'selectedPriceType' => 'getSelectedPriceType',
+        'selectedPrice' => 'getSelectedPrice',
+        'adjustmentReferenceId' => 'getAdjustmentReferenceId',
+        'targets' => 'getTargets'
     ];
 
     /**
@@ -221,6 +241,10 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
         $this->container['props'] = isset($data['props']) ? $data['props'] : null;
         $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
         $this->container['endTime'] = isset($data['endTime']) ? $data['endTime'] : null;
+        $this->container['selectedPriceType'] = isset($data['selectedPriceType']) ? $data['selectedPriceType'] : null;
+        $this->container['selectedPrice'] = isset($data['selectedPrice']) ? $data['selectedPrice'] : null;
+        $this->container['adjustmentReferenceId'] = isset($data['adjustmentReferenceId']) ? $data['adjustmentReferenceId'] : null;
+        $this->container['targets'] = isset($data['targets']) ? $data['targets'] : null;
     }
 
     /**
@@ -453,6 +477,102 @@ class StrikethroughEffect implements ModelInterface, ArrayAccess
     public function setEndTime($endTime)
     {
         $this->container['endTime'] = $endTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets selectedPriceType
+     *
+     * @return string|null
+     */
+    public function getSelectedPriceType()
+    {
+        return $this->container['selectedPriceType'];
+    }
+
+    /**
+     * Sets selectedPriceType
+     *
+     * @param string|null $selectedPriceType The selected price type for this cart item (e.g. the price for members only).
+     *
+     * @return $this
+     */
+    public function setSelectedPriceType($selectedPriceType)
+    {
+        $this->container['selectedPriceType'] = $selectedPriceType;
+
+        return $this;
+    }
+
+    /**
+     * Gets selectedPrice
+     *
+     * @return float|null
+     */
+    public function getSelectedPrice()
+    {
+        return $this->container['selectedPrice'];
+    }
+
+    /**
+     * Sets selectedPrice
+     *
+     * @param float|null $selectedPrice The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.
+     *
+     * @return $this
+     */
+    public function setSelectedPrice($selectedPrice)
+    {
+        $this->container['selectedPrice'] = $selectedPrice;
+
+        return $this;
+    }
+
+    /**
+     * Gets adjustmentReferenceId
+     *
+     * @return string|null
+     */
+    public function getAdjustmentReferenceId()
+    {
+        return $this->container['adjustmentReferenceId'];
+    }
+
+    /**
+     * Sets adjustmentReferenceId
+     *
+     * @param string|null $adjustmentReferenceId The reference identifier of the selected price adjustment for this cart item.
+     *
+     * @return $this
+     */
+    public function setAdjustmentReferenceId($adjustmentReferenceId)
+    {
+        $this->container['adjustmentReferenceId'] = $adjustmentReferenceId;
+
+        return $this;
+    }
+
+    /**
+     * Gets targets
+     *
+     * @return object[]|null
+     */
+    public function getTargets()
+    {
+        return $this->container['targets'];
+    }
+
+    /**
+     * Sets targets
+     *
+     * @param object[]|null $targets A list of entities (e.g. audiences) targeted by this effect.
+     *
+     * @return $this
+     */
+    public function setTargets($targets)
+    {
+        $this->container['targets'] = $targets;
 
         return $this;
     }

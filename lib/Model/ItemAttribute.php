@@ -68,7 +68,7 @@ class ItemAttribute implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'attributeid' => null,
+        'attributeid' => 'int64',
         'name' => null,
         'value' => null
     ];

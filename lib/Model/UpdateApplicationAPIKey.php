@@ -66,7 +66,7 @@ class UpdateApplicationAPIKey implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'timeOffset' => null
+        'timeOffset' => 'int64'
     ];
 
     /**

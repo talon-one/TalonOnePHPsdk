@@ -68,7 +68,7 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'aheadOfDaysTrigger' => null
+        'aheadOfDaysTrigger' => 'int64'
     ];
 
     /**

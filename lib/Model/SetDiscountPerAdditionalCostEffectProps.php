@@ -72,7 +72,7 @@ class SetDiscountPerAdditionalCostEffectProps implements ModelInterface, ArrayAc
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'additionalCostId' => null,
+        'additionalCostId' => 'int64',
         'additionalCost' => null,
         'value' => null,
         'desiredValue' => null

@@ -76,17 +76,17 @@ class CollectionWithoutPayload implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'accountId' => null,
+        'accountId' => 'int64',
         'modified' => 'date-time',
         'description' => null,
-        'subscribedApplicationsIds' => null,
+        'subscribedApplicationsIds' => 'int64',
         'name' => null,
-        'modifiedBy' => null,
-        'createdBy' => null,
-        'applicationId' => null,
-        'campaignId' => null
+        'modifiedBy' => 'int64',
+        'createdBy' => 'int64',
+        'applicationId' => 'int64',
+        'campaignId' => 'int64'
     ];
 
     /**
@@ -303,7 +303,7 @@ class CollectionWithoutPayload implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

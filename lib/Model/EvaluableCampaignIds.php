@@ -66,7 +66,7 @@ class EvaluableCampaignIds implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'evaluableCampaignIds' => null
+        'evaluableCampaignIds' => 'int64'
     ];
 
     /**

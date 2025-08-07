@@ -69,9 +69,9 @@ class OutgoingIntegrationConfiguration implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'accountId' => null,
-        'typeId' => null,
+        'id' => 'int64',
+        'accountId' => 'int64',
+        'typeId' => 'int64',
         'policy' => null
     ];
 

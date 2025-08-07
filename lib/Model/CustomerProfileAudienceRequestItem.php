@@ -70,7 +70,7 @@ class CustomerProfileAudienceRequestItem implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'action' => null,
         'profileIntegrationId' => null,
-        'audienceId' => null
+        'audienceId' => 'int64'
     ];
 
     /**

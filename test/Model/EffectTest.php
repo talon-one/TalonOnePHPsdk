@@ -163,6 +163,27 @@ class EffectTest extends TestCase
     }
 
     /**
+     * Test attribute "selectedPriceType"
+     */
+    public function testPropertySelectedPriceType()
+    {
+    }
+
+    /**
+     * Test attribute "selectedPrice"
+     */
+    public function testPropertySelectedPrice()
+    {
+    }
+
+    /**
+     * Test attribute "adjustmentReferenceId"
+     */
+    public function testPropertyAdjustmentReferenceId()
+    {
+    }
+
+    /**
      * Test attribute "props"
      */
     public function testPropertyProps()

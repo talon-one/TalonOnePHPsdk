@@ -68,8 +68,8 @@ class NewApplicationCIFExpression implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'cartItemFilterId' => null,
-        'createdBy' => null,
+        'cartItemFilterId' => 'int64',
+        'createdBy' => 'int64',
         'expression' => null
     ];
 

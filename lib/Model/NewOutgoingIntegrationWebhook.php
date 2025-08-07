@@ -70,7 +70,7 @@ class NewOutgoingIntegrationWebhook implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'title' => null,
         'description' => null,
-        'applicationIds' => null
+        'applicationIds' => 'int64'
     ];
 
     /**

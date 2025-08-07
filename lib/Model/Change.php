@@ -73,14 +73,14 @@ class Change implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'userId' => null,
-        'applicationId' => null,
+        'userId' => 'int64',
+        'applicationId' => 'int64',
         'entity' => null,
         'old' => null,
         'new' => null,
-        'managementKeyId' => null
+        'managementKeyId' => 'int64'
     ];
 
     /**
@@ -271,7 +271,7 @@ class Change implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

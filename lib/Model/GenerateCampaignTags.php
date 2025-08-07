@@ -66,7 +66,7 @@ class GenerateCampaignTags implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'rulesetID' => null
+        'rulesetID' => 'int64'
     ];
 
     /**

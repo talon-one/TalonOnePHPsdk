@@ -69,7 +69,7 @@ class CampaignEvaluationTreeChangedNotification implements ModelInterface, Array
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'applicationId' => null,
+        'applicationId' => 'int64',
         'oldEvaluationTree' => null,
         'evaluationTree' => null
     ];

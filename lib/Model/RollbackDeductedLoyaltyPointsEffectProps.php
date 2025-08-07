@@ -74,7 +74,7 @@ class RollbackDeductedLoyaltyPointsEffectProps implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'programId' => null,
+        'programId' => 'int64',
         'subLedgerId' => null,
         'value' => null,
         'recipientIntegrationId' => null,

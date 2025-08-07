@@ -76,16 +76,16 @@ class GiveawaysPool implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'accountId' => null,
+        'accountId' => 'int64',
         'name' => null,
         'description' => null,
-        'subscribedApplicationsIds' => null,
+        'subscribedApplicationsIds' => 'int64',
         'sandbox' => null,
         'modified' => 'date-time',
-        'createdBy' => null,
-        'modifiedBy' => null
+        'createdBy' => 'int64',
+        'modifiedBy' => 'int64'
     ];
 
     /**
@@ -290,7 +290,7 @@ class GiveawaysPool implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

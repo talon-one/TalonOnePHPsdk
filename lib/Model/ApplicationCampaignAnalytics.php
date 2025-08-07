@@ -79,7 +79,7 @@ class ApplicationCampaignAnalytics implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'startTime' => 'date-time',
         'endTime' => 'date-time',
-        'campaignId' => null,
+        'campaignId' => 'int64',
         'campaignName' => null,
         'campaignTags' => null,
         'campaignState' => null,

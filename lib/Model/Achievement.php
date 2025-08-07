@@ -82,7 +82,7 @@ class Achievement implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'name' => null,
         'title' => null,
@@ -94,8 +94,8 @@ class Achievement implements ModelInterface, ArrayAccess
         'activationPolicy' => null,
         'fixedStartDate' => 'date-time',
         'endDate' => 'date-time',
-        'campaignId' => null,
-        'userId' => null,
+        'campaignId' => 'int64',
+        'userId' => 'int64',
         'createdBy' => null,
         'hasProgress' => null,
         'status' => null
@@ -240,6 +240,7 @@ class Achievement implements ModelInterface, ArrayAccess
 
     const RECURRENCE_POLICY_NO_RECURRENCE = 'no_recurrence';
     const RECURRENCE_POLICY_ON_EXPIRATION = 'on_expiration';
+    const RECURRENCE_POLICY_ON_COMPLETION = 'on_completion';
     const ACTIVATION_POLICY_USER_ACTION = 'user_action';
     const ACTIVATION_POLICY_FIXED_SCHEDULE = 'fixed_schedule';
     const STATUS_INPROGRESS = 'inprogress';
@@ -259,6 +260,7 @@ class Achievement implements ModelInterface, ArrayAccess
         return [
             self::RECURRENCE_POLICY_NO_RECURRENCE,
             self::RECURRENCE_POLICY_ON_EXPIRATION,
+            self::RECURRENCE_POLICY_ON_COMPLETION,
         ];
     }
     
@@ -422,7 +424,7 @@ class Achievement implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */
@@ -624,7 +626,7 @@ class Achievement implements ModelInterface, ArrayAccess
     /**
      * Sets recurrencePolicy
      *
-     * @param string|null $recurrencePolicy The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again.
+     * @param string|null $recurrencePolicy The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again. - `on_completion`: When the customer progress status reaches `completed`, the achievement resets and becomes available again.
      *
      * @return $this
      */

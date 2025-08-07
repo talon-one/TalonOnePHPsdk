@@ -83,7 +83,7 @@ class Account implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'modified' => 'date-time',
         'companyName' => null,
@@ -92,14 +92,14 @@ class Account implements ModelInterface, ArrayAccess
         'billingEmail' => 'email',
         'planName' => null,
         'planExpires' => 'date-time',
-        'applicationLimit' => null,
-        'userLimit' => null,
-        'campaignLimit' => null,
-        'apiLimit' => null,
-        'applicationCount' => null,
-        'userCount' => null,
-        'campaignsActiveCount' => null,
-        'campaignsInactiveCount' => null,
+        'applicationLimit' => 'int64',
+        'userLimit' => 'int64',
+        'campaignLimit' => 'int64',
+        'apiLimit' => 'int64',
+        'applicationCount' => 'int64',
+        'userCount' => 'int64',
+        'campaignsActiveCount' => 'int64',
+        'campaignsInactiveCount' => 'int64',
         'attributes' => null
     ];
 
@@ -379,7 +379,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

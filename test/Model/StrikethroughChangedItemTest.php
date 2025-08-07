@@ -114,6 +114,13 @@ class StrikethroughChangedItemTest extends TestCase
     }
 
     /**
+     * Test attribute "prices"
+     */
+    public function testPropertyPrices()
+    {
+    }
+
+    /**
      * Test attribute "evaluatedAt"
      */
     public function testPropertyEvaluatedAt()

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**campaign** | [**\TalonOne\Client\Model\Campaign**](Campaign.md) |  | 
-**ruleset** | [**\TalonOne\Client\Model\Ruleset**](Ruleset.md) |  | [optional] 
-**collection** | [**\TalonOne\Client\Model\CollectionWithoutPayload**](CollectionWithoutPayload.md) |  | 
+**notificationType** | **string** | The type of the notification | [optional] 
+**totalResultSize** | **int** | The total size of the result set. | 
+**data** | [**\TalonOne\Client\Model\CampaignCollectionEditedNotificationItem[]**](CampaignCollectionEditedNotificationItem.md) | A list of campaign notification data. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

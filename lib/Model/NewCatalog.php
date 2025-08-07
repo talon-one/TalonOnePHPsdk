@@ -70,7 +70,7 @@ class NewCatalog implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'description' => null,
-        'subscribedApplicationsIds' => null
+        'subscribedApplicationsIds' => 'int64'
     ];
 
     /**

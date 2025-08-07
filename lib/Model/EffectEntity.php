@@ -69,7 +69,10 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'evaluationGroupID' => 'int',
         'evaluationGroupMode' => 'string',
         'campaignRevisionId' => 'int',
-        'campaignRevisionVersionId' => 'int'
+        'campaignRevisionVersionId' => 'int',
+        'selectedPriceType' => 'string',
+        'selectedPrice' => 'float',
+        'adjustmentReferenceId' => 'string'
     ];
 
     /**
@@ -78,18 +81,21 @@ class EffectEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignId' => null,
-        'rulesetId' => null,
-        'ruleIndex' => null,
+        'campaignId' => 'int64',
+        'rulesetId' => 'int64',
+        'ruleIndex' => 'int64',
         'ruleName' => null,
         'effectType' => null,
-        'triggeredByCoupon' => null,
-        'triggeredForCatalogItem' => null,
-        'conditionIndex' => null,
-        'evaluationGroupID' => null,
+        'triggeredByCoupon' => 'int64',
+        'triggeredForCatalogItem' => 'int64',
+        'conditionIndex' => 'int64',
+        'evaluationGroupID' => 'int64',
         'evaluationGroupMode' => null,
-        'campaignRevisionId' => null,
-        'campaignRevisionVersionId' => null
+        'campaignRevisionId' => 'int64',
+        'campaignRevisionVersionId' => 'int64',
+        'selectedPriceType' => null,
+        'selectedPrice' => null,
+        'adjustmentReferenceId' => 'uuid'
     ];
 
     /**
@@ -130,7 +136,10 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'evaluationGroupID' => 'evaluationGroupID',
         'evaluationGroupMode' => 'evaluationGroupMode',
         'campaignRevisionId' => 'campaignRevisionId',
-        'campaignRevisionVersionId' => 'campaignRevisionVersionId'
+        'campaignRevisionVersionId' => 'campaignRevisionVersionId',
+        'selectedPriceType' => 'selectedPriceType',
+        'selectedPrice' => 'selectedPrice',
+        'adjustmentReferenceId' => 'adjustmentReferenceId'
     ];
 
     /**
@@ -150,7 +159,10 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'evaluationGroupID' => 'setEvaluationGroupID',
         'evaluationGroupMode' => 'setEvaluationGroupMode',
         'campaignRevisionId' => 'setCampaignRevisionId',
-        'campaignRevisionVersionId' => 'setCampaignRevisionVersionId'
+        'campaignRevisionVersionId' => 'setCampaignRevisionVersionId',
+        'selectedPriceType' => 'setSelectedPriceType',
+        'selectedPrice' => 'setSelectedPrice',
+        'adjustmentReferenceId' => 'setAdjustmentReferenceId'
     ];
 
     /**
@@ -170,7 +182,10 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'evaluationGroupID' => 'getEvaluationGroupID',
         'evaluationGroupMode' => 'getEvaluationGroupMode',
         'campaignRevisionId' => 'getCampaignRevisionId',
-        'campaignRevisionVersionId' => 'getCampaignRevisionVersionId'
+        'campaignRevisionVersionId' => 'getCampaignRevisionVersionId',
+        'selectedPriceType' => 'getSelectedPriceType',
+        'selectedPrice' => 'getSelectedPrice',
+        'adjustmentReferenceId' => 'getAdjustmentReferenceId'
     ];
 
     /**
@@ -245,6 +260,9 @@ class EffectEntity implements ModelInterface, ArrayAccess
         $this->container['evaluationGroupMode'] = isset($data['evaluationGroupMode']) ? $data['evaluationGroupMode'] : null;
         $this->container['campaignRevisionId'] = isset($data['campaignRevisionId']) ? $data['campaignRevisionId'] : null;
         $this->container['campaignRevisionVersionId'] = isset($data['campaignRevisionVersionId']) ? $data['campaignRevisionVersionId'] : null;
+        $this->container['selectedPriceType'] = isset($data['selectedPriceType']) ? $data['selectedPriceType'] : null;
+        $this->container['selectedPrice'] = isset($data['selectedPrice']) ? $data['selectedPrice'] : null;
+        $this->container['adjustmentReferenceId'] = isset($data['adjustmentReferenceId']) ? $data['adjustmentReferenceId'] : null;
     }
 
     /**
@@ -570,6 +588,78 @@ class EffectEntity implements ModelInterface, ArrayAccess
     public function setCampaignRevisionVersionId($campaignRevisionVersionId)
     {
         $this->container['campaignRevisionVersionId'] = $campaignRevisionVersionId;
+
+        return $this;
+    }
+
+    /**
+     * Gets selectedPriceType
+     *
+     * @return string|null
+     */
+    public function getSelectedPriceType()
+    {
+        return $this->container['selectedPriceType'];
+    }
+
+    /**
+     * Sets selectedPriceType
+     *
+     * @param string|null $selectedPriceType The selected price type for the SKU targeted by this effect.
+     *
+     * @return $this
+     */
+    public function setSelectedPriceType($selectedPriceType)
+    {
+        $this->container['selectedPriceType'] = $selectedPriceType;
+
+        return $this;
+    }
+
+    /**
+     * Gets selectedPrice
+     *
+     * @return float|null
+     */
+    public function getSelectedPrice()
+    {
+        return $this->container['selectedPrice'];
+    }
+
+    /**
+     * Sets selectedPrice
+     *
+     * @param float|null $selectedPrice The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.
+     *
+     * @return $this
+     */
+    public function setSelectedPrice($selectedPrice)
+    {
+        $this->container['selectedPrice'] = $selectedPrice;
+
+        return $this;
+    }
+
+    /**
+     * Gets adjustmentReferenceId
+     *
+     * @return string|null
+     */
+    public function getAdjustmentReferenceId()
+    {
+        return $this->container['adjustmentReferenceId'];
+    }
+
+    /**
+     * Sets adjustmentReferenceId
+     *
+     * @param string|null $adjustmentReferenceId The reference identifier of the selected price adjustment for this SKU. This is only returned if the `selectedPrice` resulted from a price adjustment.
+     *
+     * @return $this
+     */
+    public function setAdjustmentReferenceId($adjustmentReferenceId)
+    {
+        $this->container['adjustmentReferenceId'] = $adjustmentReferenceId;
 
         return $this;
     }

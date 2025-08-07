@@ -36,7 +36,6 @@ use \TalonOne\Client\ObjectSerializer;
  * CampaignRulesetChangedNotification Class Doc Comment
  *
  * @category Class
- * @description A notification regarding a campaign whose ruleset was changed.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,9 +57,9 @@ class CampaignRulesetChangedNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'campaign' => '\TalonOne\Client\Model\Campaign',
-        'oldRuleset' => '\TalonOne\Client\Model\Ruleset',
-        'ruleset' => '\TalonOne\Client\Model\Ruleset'
+        'notificationType' => 'string',
+        'totalResultSize' => 'int',
+        'data' => '\TalonOne\Client\Model\CampaignRulesetChangedNotificationItem[]'
     ];
 
     /**
@@ -69,9 +68,9 @@ class CampaignRulesetChangedNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaign' => null,
-        'oldRuleset' => null,
-        'ruleset' => null
+        'notificationType' => null,
+        'totalResultSize' => 'int64',
+        'data' => null
     ];
 
     /**
@@ -101,9 +100,9 @@ class CampaignRulesetChangedNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'campaign' => 'campaign',
-        'oldRuleset' => 'oldRuleset',
-        'ruleset' => 'ruleset'
+        'notificationType' => 'NotificationType',
+        'totalResultSize' => 'TotalResultSize',
+        'data' => 'Data'
     ];
 
     /**
@@ -112,9 +111,9 @@ class CampaignRulesetChangedNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'campaign' => 'setCampaign',
-        'oldRuleset' => 'setOldRuleset',
-        'ruleset' => 'setRuleset'
+        'notificationType' => 'setNotificationType',
+        'totalResultSize' => 'setTotalResultSize',
+        'data' => 'setData'
     ];
 
     /**
@@ -123,9 +122,9 @@ class CampaignRulesetChangedNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'campaign' => 'getCampaign',
-        'oldRuleset' => 'getOldRuleset',
-        'ruleset' => 'getRuleset'
+        'notificationType' => 'getNotificationType',
+        'totalResultSize' => 'getTotalResultSize',
+        'data' => 'getData'
     ];
 
     /**
@@ -188,9 +187,9 @@ class CampaignRulesetChangedNotification implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
-        $this->container['oldRuleset'] = isset($data['oldRuleset']) ? $data['oldRuleset'] : null;
-        $this->container['ruleset'] = isset($data['ruleset']) ? $data['ruleset'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
+        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -202,8 +201,8 @@ class CampaignRulesetChangedNotification implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['campaign'] === null) {
-            $invalidProperties[] = "'campaign' can't be null";
+        if ($this->container['totalResultSize'] === null) {
+            $invalidProperties[] = "'totalResultSize' can't be null";
         }
         return $invalidProperties;
     }
@@ -221,73 +220,73 @@ class CampaignRulesetChangedNotification implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets campaign
+     * Gets notificationType
      *
-     * @return \TalonOne\Client\Model\Campaign
+     * @return string|null
      */
-    public function getCampaign()
+    public function getNotificationType()
     {
-        return $this->container['campaign'];
+        return $this->container['notificationType'];
     }
 
     /**
-     * Sets campaign
+     * Sets notificationType
      *
-     * @param \TalonOne\Client\Model\Campaign $campaign campaign
+     * @param string|null $notificationType The type of the notification
      *
      * @return $this
      */
-    public function setCampaign($campaign)
+    public function setNotificationType($notificationType)
     {
-        $this->container['campaign'] = $campaign;
+        $this->container['notificationType'] = $notificationType;
 
         return $this;
     }
 
     /**
-     * Gets oldRuleset
+     * Gets totalResultSize
      *
-     * @return \TalonOne\Client\Model\Ruleset|null
+     * @return int
      */
-    public function getOldRuleset()
+    public function getTotalResultSize()
     {
-        return $this->container['oldRuleset'];
+        return $this->container['totalResultSize'];
     }
 
     /**
-     * Sets oldRuleset
+     * Sets totalResultSize
      *
-     * @param \TalonOne\Client\Model\Ruleset|null $oldRuleset oldRuleset
+     * @param int $totalResultSize The total size of the result set.
      *
      * @return $this
      */
-    public function setOldRuleset($oldRuleset)
+    public function setTotalResultSize($totalResultSize)
     {
-        $this->container['oldRuleset'] = $oldRuleset;
+        $this->container['totalResultSize'] = $totalResultSize;
 
         return $this;
     }
 
     /**
-     * Gets ruleset
+     * Gets data
      *
-     * @return \TalonOne\Client\Model\Ruleset|null
+     * @return \TalonOne\Client\Model\CampaignRulesetChangedNotificationItem[]|null
      */
-    public function getRuleset()
+    public function getData()
     {
-        return $this->container['ruleset'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets ruleset
+     * Sets data
      *
-     * @param \TalonOne\Client\Model\Ruleset|null $ruleset ruleset
+     * @param \TalonOne\Client\Model\CampaignRulesetChangedNotificationItem[]|null $data A list of campaign notification data.
      *
      * @return $this
      */
-    public function setRuleset($ruleset)
+    public function setData($data)
     {
-        $this->container['ruleset'] = $ruleset;
+        $this->container['data'] = $data;
 
         return $this;
     }

@@ -58,7 +58,7 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\WebhookLogEntry[]'
+        'data' => '\TalonOne\Client\Model\User[]'
     ];
 
     /**
@@ -67,7 +67,7 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'totalResultSize' => null,
+        'totalResultSize' => 'int64',
         'data' => null
     ];
 
@@ -243,7 +243,7 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\WebhookLogEntry[]
+     * @return \TalonOne\Client\Model\User[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\WebhookLogEntry[] $data data
+     * @param \TalonOne\Client\Model\User[] $data data
      *
      * @return $this
      */

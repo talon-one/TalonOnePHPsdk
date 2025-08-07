@@ -66,7 +66,7 @@ class ApplicationCustomerEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'profileId' => null
+        'profileId' => 'int64'
     ];
 
     /**

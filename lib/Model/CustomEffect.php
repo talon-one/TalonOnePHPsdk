@@ -79,11 +79,11 @@ class CustomEffect implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'accountId' => null,
+        'accountId' => 'int64',
         'modified' => 'date-time',
-        'applicationIds' => null,
+        'applicationIds' => 'int64',
         'isPerItem' => null,
         'name' => null,
         'title' => null,
@@ -91,8 +91,8 @@ class CustomEffect implements ModelInterface, ArrayAccess
         'description' => null,
         'enabled' => null,
         'params' => null,
-        'modifiedBy' => null,
-        'createdBy' => null
+        'modifiedBy' => 'int64',
+        'createdBy' => 'int64'
     ];
 
     /**
@@ -333,7 +333,7 @@ class CustomEffect implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

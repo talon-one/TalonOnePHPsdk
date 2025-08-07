@@ -68,8 +68,8 @@ class NewCampaignSet implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'applicationId' => null,
-        'version' => null,
+        'applicationId' => 'int64',
+        'version' => 'int64',
         'set' => null
     ];
 

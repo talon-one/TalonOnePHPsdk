@@ -67,8 +67,8 @@ class ProfileAudiencesChanges implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'adds' => null,
-        'deletes' => null
+        'adds' => 'int64',
+        'deletes' => 'int64'
     ];
 
     /**

@@ -173,6 +173,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for createCampaignStoreBudget
+     *
+     * Create campaign store budget.
+     *
+     */
+    public function testCreateCampaignStoreBudget()
+    {
+    }
+
+    /**
      * Test case for createCollection
      *
      * Create campaign-level collection.
@@ -323,6 +333,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for deleteCampaignStoreBudgets
+     *
+     * Delete campaign store budgets.
+     *
+     */
+    public function testDeleteCampaignStoreBudgets()
+    {
+    }
+
+    /**
      * Test case for deleteCollection
      *
      * Delete campaign-level collection.
@@ -449,6 +469,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testExportAudiencesMemberships()
+    {
+    }
+
+    /**
+     * Test case for exportCampaignStoreBudgets
+     *
+     * Export campaign store budgets.
+     *
+     */
+    public function testExportCampaignStoreBudgets()
     {
     }
 
@@ -1203,26 +1233,6 @@ class ManagementApiTest extends TestCase
     }
 
     /**
-     * Test case for getWebhookActivationLogs
-     *
-     * List webhook activation log entries.
-     *
-     */
-    public function testGetWebhookActivationLogs()
-    {
-    }
-
-    /**
-     * Test case for getWebhookLogs
-     *
-     * List webhook log entries.
-     *
-     */
-    public function testGetWebhookLogs()
-    {
-    }
-
-    /**
      * Test case for getWebhooks
      *
      * List webhooks.
@@ -1259,6 +1269,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testImportAudiencesMemberships()
+    {
+    }
+
+    /**
+     * Test case for importCampaignStoreBudget
+     *
+     * Import campaign store budgets.
+     *
+     */
+    public function testImportCampaignStoreBudget()
     {
     }
 
@@ -1383,6 +1403,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for listCampaignStoreBudgetLimits
+     *
+     * List campaign store budget limits.
+     *
+     */
+    public function testListCampaignStoreBudgetLimits()
+    {
+    }
+
+    /**
      * Test case for listCatalogItems
      *
      * List items in a catalog.
@@ -1453,6 +1483,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for scimCreateGroup
+     *
+     * Create SCIM group.
+     *
+     */
+    public function testScimCreateGroup()
+    {
+    }
+
+    /**
      * Test case for scimCreateUser
      *
      * Create SCIM user.
@@ -1463,12 +1503,42 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for scimDeleteGroup
+     *
+     * Delete SCIM group.
+     *
+     */
+    public function testScimDeleteGroup()
+    {
+    }
+
+    /**
      * Test case for scimDeleteUser
      *
      * Delete SCIM user.
      *
      */
     public function testScimDeleteUser()
+    {
+    }
+
+    /**
+     * Test case for scimGetGroup
+     *
+     * Get SCIM group.
+     *
+     */
+    public function testScimGetGroup()
+    {
+    }
+
+    /**
+     * Test case for scimGetGroups
+     *
+     * List SCIM groups.
+     *
+     */
+    public function testScimGetGroups()
     {
     }
 
@@ -1523,12 +1593,32 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for scimPatchGroup
+     *
+     * Update SCIM group attributes.
+     *
+     */
+    public function testScimPatchGroup()
+    {
+    }
+
+    /**
      * Test case for scimPatchUser
      *
      * Update SCIM user attributes.
      *
      */
     public function testScimPatchUser()
+    {
+    }
+
+    /**
+     * Test case for scimReplaceGroupAttributes
+     *
+     * Update SCIM group.
+     *
+     */
+    public function testScimReplaceGroupAttributes()
     {
     }
 
@@ -1559,6 +1649,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testSearchCouponsAdvancedWithoutTotalCount()
+    {
+    }
+
+    /**
+     * Test case for summarizeCampaignStoreBudget
+     *
+     * Get summary of campaign store budgets.
+     *
+     */
+    public function testSummarizeCampaignStoreBudget()
     {
     }
 

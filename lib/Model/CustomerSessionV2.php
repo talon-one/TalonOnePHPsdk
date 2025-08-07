@@ -86,13 +86,13 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'integrationId' => 'string',
-        'applicationId' => null,
+        'applicationId' => 'int64',
         'profileId' => null,
         'storeIntegrationId' => null,
-        'evaluableCampaignIds' => null,
+        'evaluableCampaignIds' => 'int64',
         'couponCodes' => null,
         'referralCode' => null,
         'loyaltyCards' => null,
@@ -414,7 +414,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

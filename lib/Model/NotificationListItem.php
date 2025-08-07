@@ -69,9 +69,9 @@ class NotificationListItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'notificationId' => null,
+        'notificationId' => 'int64',
         'notificationName' => null,
-        'entityId' => null,
+        'entityId' => 'int64',
         'enabled' => null
     ];
 

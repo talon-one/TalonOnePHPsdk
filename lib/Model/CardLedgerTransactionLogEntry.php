@@ -58,6 +58,7 @@ class CardLedgerTransactionLogEntry implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'transactionUUID' => 'string',
         'created' => '\DateTime',
         'programId' => 'int',
         'cardIdentifier' => 'string',
@@ -79,11 +80,12 @@ class CardLedgerTransactionLogEntry implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'transactionUUID' => null,
         'created' => 'date-time',
-        'programId' => null,
+        'programId' => 'int64',
         'cardIdentifier' => null,
-        'applicationId' => null,
-        'sessionId' => null,
+        'applicationId' => 'int64',
+        'sessionId' => 'int64',
         'customerSessionId' => null,
         'type' => null,
         'name' => null,
@@ -91,7 +93,7 @@ class CardLedgerTransactionLogEntry implements ModelInterface, ArrayAccess
         'expiryDate' => null,
         'subledgerId' => null,
         'amount' => null,
-        'id' => null
+        'id' => 'int64'
     ];
 
     /**
@@ -121,6 +123,7 @@ class CardLedgerTransactionLogEntry implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'transactionUUID' => 'transactionUUID',
         'created' => 'created',
         'programId' => 'programId',
         'cardIdentifier' => 'cardIdentifier',
@@ -142,6 +145,7 @@ class CardLedgerTransactionLogEntry implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'transactionUUID' => 'setTransactionUUID',
         'created' => 'setCreated',
         'programId' => 'setProgramId',
         'cardIdentifier' => 'setCardIdentifier',
@@ -163,6 +167,7 @@ class CardLedgerTransactionLogEntry implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'transactionUUID' => 'getTransactionUUID',
         'created' => 'getCreated',
         'programId' => 'getProgramId',
         'cardIdentifier' => 'getCardIdentifier',
@@ -253,6 +258,7 @@ class CardLedgerTransactionLogEntry implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
         $this->container['cardIdentifier'] = isset($data['cardIdentifier']) ? $data['cardIdentifier'] : null;
@@ -277,6 +283,9 @@ class CardLedgerTransactionLogEntry implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['transactionUUID'] === null) {
+            $invalidProperties[] = "'transactionUUID' can't be null";
+        }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
         }
@@ -357,6 +366,30 @@ class CardLedgerTransactionLogEntry implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets transactionUUID
+     *
+     * @return string
+     */
+    public function getTransactionUUID()
+    {
+        return $this->container['transactionUUID'];
+    }
+
+    /**
+     * Sets transactionUUID
+     *
+     * @param string $transactionUUID Unique identifier of the transaction in the UUID format.
+     *
+     * @return $this
+     */
+    public function setTransactionUUID($transactionUUID)
+    {
+        $this->container['transactionUUID'] = $transactionUUID;
+
+        return $this;
+    }
 
     /**
      * Gets created

@@ -105,4 +105,32 @@ class BindingTest extends TestCase
     public function testPropertyValueType()
     {
     }
+
+    /**
+     * Test attribute "minValue"
+     */
+    public function testPropertyMinValue()
+    {
+    }
+
+    /**
+     * Test attribute "maxValue"
+     */
+    public function testPropertyMaxValue()
+    {
+    }
+
+    /**
+     * Test attribute "attributeId"
+     */
+    public function testPropertyAttributeId()
+    {
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+    }
 }

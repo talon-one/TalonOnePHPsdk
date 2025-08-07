@@ -93,15 +93,15 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'title' => null,
         'description' => null,
-        'subscribedApplications' => null,
+        'subscribedApplications' => 'int64',
         'defaultValidity' => null,
         'defaultPending' => null,
         'allowSubledger' => null,
-        'usersPerCardLimit' => null,
+        'usersPerCardLimit' => 'int64',
         'sandbox' => null,
         'programJoinPolicy' => null,
         'tiersExpirationPolicy' => null,
@@ -110,7 +110,7 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'tiersDowngradePolicy' => null,
         'cardCodeSettings' => null,
         'returnPolicy' => null,
-        'accountID' => null,
+        'accountID' => 'int64',
         'name' => null,
         'tiers' => null,
         'timezone' => null,

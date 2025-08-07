@@ -71,7 +71,7 @@ class MessageLogResponse implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'createdAt' => 'date-time',
         'response' => 'byte',
-        'status' => null
+        'status' => 'int64'
     ];
 
     /**

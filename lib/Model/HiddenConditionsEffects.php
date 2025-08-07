@@ -72,8 +72,8 @@ class HiddenConditionsEffects implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'builtInEffects' => null,
         'conditions' => null,
-        'customEffects' => null,
-        'webhooks' => null
+        'customEffects' => 'int64',
+        'webhooks' => 'int64'
     ];
 
     /**

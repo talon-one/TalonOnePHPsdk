@@ -76,13 +76,13 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'applicationId' => null,
-        'profileId' => null,
-        'storeId' => null,
+        'applicationId' => 'int64',
+        'profileId' => 'int64',
+        'storeId' => 'int64',
         'storeIntegrationId' => null,
-        'sessionId' => null,
+        'sessionId' => 'int64',
         'type' => null,
         'attributes' => null,
         'effects' => null,
@@ -303,7 +303,7 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

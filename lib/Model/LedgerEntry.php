@@ -76,16 +76,16 @@ class LedgerEntry implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'profileId' => null,
-        'accountId' => null,
-        'loyaltyProgramId' => null,
-        'eventId' => null,
-        'amount' => null,
+        'accountId' => 'int64',
+        'loyaltyProgramId' => 'int64',
+        'eventId' => 'int64',
+        'amount' => 'int64',
         'reason' => null,
         'expiryDate' => 'date-time',
-        'referenceId' => null
+        'referenceId' => 'int64'
     ];
 
     /**
@@ -299,7 +299,7 @@ class LedgerEntry implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

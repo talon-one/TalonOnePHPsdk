@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
 **applicationId** | **int** | The ID of the Application that owns this entity. | 
 **slots** | [**\TalonOne\Client\Model\SlotDef[]**](SlotDef.md) | The slots defined for this application. | 
@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **audiences** | [**\TalonOne\Client\Model\Audience[]**](Audience.md) | The audiences contained in the account which the application belongs to. | [optional] 
 **collections** | [**\TalonOne\Client\Model\Collection[]**](Collection.md) | The account-level collections that the application is subscribed to. | [optional] 
 **applicationCartItemFilters** | [**\TalonOne\Client\Model\ApplicationCIF[]**](ApplicationCIF.md) | The cart item filters belonging to the Application. | [optional] 
+**priceTypes** | [**\TalonOne\Client\Model\PriceType[]**](PriceType.md) | The price types that this Application can use. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

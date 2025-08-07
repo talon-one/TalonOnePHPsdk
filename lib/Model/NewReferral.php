@@ -74,8 +74,8 @@ class NewReferral implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'usageLimit' => null,
-        'campaignId' => null,
+        'usageLimit' => 'int64',
+        'campaignId' => 'int64',
         'advocateProfileIntegrationId' => null,
         'friendProfileIntegrationId' => null,
         'attributes' => null

@@ -72,7 +72,7 @@ class NewRoleV2 implements ModelInterface, ArrayAccess
         'name' => null,
         'description' => null,
         'permissions' => null,
-        'members' => null
+        'members' => 'int64'
     ];
 
     /**

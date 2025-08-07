@@ -78,7 +78,7 @@ class SamlConnection implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'assertionConsumerServiceURL' => null,
-        'accountId' => null,
+        'accountId' => 'int64',
         'name' => null,
         'enabled' => null,
         'issuer' => null,
@@ -86,7 +86,7 @@ class SamlConnection implements ModelInterface, ArrayAccess
         'signOutURL' => null,
         'metadataURL' => null,
         'audienceURI' => null,
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time'
     ];
 
@@ -548,7 +548,7 @@ class SamlConnection implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

@@ -67,7 +67,7 @@ class TierWillDowngradeNotificationTrigger implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'amount' => null,
+        'amount' => 'int64',
         'period' => null
     ];
 

@@ -68,9 +68,9 @@ class ProductSearchMatch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'productId' => null,
+        'productId' => 'int64',
         'value' => null,
-        'productSkuId' => null
+        'productSkuId' => 'int64'
     ];
 
     /**

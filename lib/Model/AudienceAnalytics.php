@@ -68,8 +68,8 @@ class AudienceAnalytics implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'audienceId' => null,
-        'membersCount' => null
+        'audienceId' => 'int64',
+        'membersCount' => 'int64'
     ];
 
     /**

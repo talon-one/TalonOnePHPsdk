@@ -71,7 +71,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'attributes' => null,
-        'evaluableCampaignIds' => null,
+        'evaluableCampaignIds' => 'int64',
         'audiencesChanges' => null,
         'responseContent' => null
     ];

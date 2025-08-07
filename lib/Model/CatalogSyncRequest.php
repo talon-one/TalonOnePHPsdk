@@ -68,7 +68,7 @@ class CatalogSyncRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'actions' => null,
-        'version' => null
+        'version' => 'int64'
     ];
 
     /**

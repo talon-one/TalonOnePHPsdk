@@ -69,7 +69,7 @@ class InlineResponse20035 implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'hasMore' => null,
-        'totalResultSize' => null,
+        'totalResultSize' => 'int64',
         'data' => null
     ];
 

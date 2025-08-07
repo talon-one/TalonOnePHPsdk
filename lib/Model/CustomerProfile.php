@@ -76,12 +76,12 @@ class CustomerProfile implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
         'integrationId' => 'string',
         'attributes' => null,
-        'accountId' => null,
-        'closedSessions' => null,
+        'accountId' => 'int64',
+        'closedSessions' => 'int64',
         'totalSales' => null,
         'loyaltyMemberships' => null,
         'audienceMemberships' => null,
@@ -305,7 +305,7 @@ class CustomerProfile implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of the customer profile.
      *
      * @return $this
      */
@@ -429,7 +429,7 @@ class CustomerProfile implements ModelInterface, ArrayAccess
     /**
      * Sets closedSessions
      *
-     * @param int $closedSessions The total amount of closed sessions by a customer. A closed session is a successful purchase.
+     * @param int $closedSessions The total number of closed sessions. Does not include closed sessions that have been cancelled or reopened. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states).
      *
      * @return $this
      */

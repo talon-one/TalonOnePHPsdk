@@ -69,9 +69,9 @@ class AnalyticsProduct implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'name' => null,
-        'catalogId' => null,
+        'catalogId' => 'int64',
         'unitsSold' => null
     ];
 

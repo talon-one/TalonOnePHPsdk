@@ -71,10 +71,10 @@ class AwardGiveawayEffectProps implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'poolId' => null,
+        'poolId' => 'int64',
         'poolName' => null,
         'recipientIntegrationId' => null,
-        'giveawayId' => null,
+        'giveawayId' => 'int64',
         'code' => null
     ];
 

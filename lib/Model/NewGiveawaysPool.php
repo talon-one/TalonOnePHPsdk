@@ -71,7 +71,7 @@ class NewGiveawaysPool implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'description' => null,
-        'subscribedApplicationsIds' => null,
+        'subscribedApplicationsIds' => 'int64',
         'sandbox' => null
     ];
 

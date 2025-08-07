@@ -75,7 +75,7 @@ class UpdateUser implements ModelInterface, ArrayAccess
         'state' => null,
         'isAdmin' => null,
         'policy' => null,
-        'roles' => null,
+        'roles' => 'int64',
         'applicationNotificationSubscriptions' => null
     ];
 

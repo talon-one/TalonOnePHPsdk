@@ -73,11 +73,11 @@ class CustomEffectProps implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'effectId' => null,
+        'effectId' => 'int64',
         'name' => null,
         'cartItemPosition' => null,
         'cartItemSubPosition' => null,
-        'bundleIndex' => null,
+        'bundleIndex' => 'int64',
         'bundleName' => null,
         'payload' => null
     ];

@@ -68,9 +68,9 @@ class AccountDashboardStatisticCampaigns implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'live' => null,
-        'endingSoon' => null,
-        'lowOnBudget' => null
+        'live' => 'int64',
+        'endingSoon' => 'int64',
+        'lowOnBudget' => 'int64'
     ];
 
     /**

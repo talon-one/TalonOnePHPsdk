@@ -71,7 +71,7 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'applicationId' => null,
+        'applicationId' => 'int64',
         'sessionId' => null,
         'advocateIntegrationId' => null,
         'friendIntegrationId' => null,

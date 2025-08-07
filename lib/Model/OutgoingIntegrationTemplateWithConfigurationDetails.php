@@ -74,8 +74,8 @@ class OutgoingIntegrationTemplateWithConfigurationDetails implements ModelInterf
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'integrationType' => null,
+        'id' => 'int64',
+        'integrationType' => 'int64',
         'title' => null,
         'description' => null,
         'payload' => null,

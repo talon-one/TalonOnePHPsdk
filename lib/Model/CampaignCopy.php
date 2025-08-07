@@ -73,12 +73,12 @@ class CampaignCopy implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'applicationIds' => null,
+        'applicationIds' => 'int64',
         'description' => null,
         'startTime' => 'date-time',
         'endTime' => 'date-time',
         'tags' => null,
-        'evaluationGroupId' => null
+        'evaluationGroupId' => 'int64'
     ];
 
     /**

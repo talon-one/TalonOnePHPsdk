@@ -68,7 +68,7 @@ class UpdateCollection implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'description' => null,
-        'subscribedApplicationsIds' => null
+        'subscribedApplicationsIds' => 'int64'
     ];
 
     /**

@@ -89,7 +89,7 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         'campaignAttributes' => null,
         'couponAttributes' => null,
         'state' => null,
-        'activeRulesetId' => null,
+        'activeRulesetId' => 'int64',
         'tags' => null,
         'features' => null,
         'couponSettings' => null,
@@ -97,9 +97,9 @@ class UpdateCampaignTemplate implements ModelInterface, ArrayAccess
         'referralSettings' => null,
         'limits' => null,
         'templateParams' => null,
-        'applicationsIds' => null,
+        'applicationsIds' => 'int64',
         'campaignCollections' => null,
-        'defaultCampaignGroupId' => null,
+        'defaultCampaignGroupId' => 'int64',
         'campaignType' => null
     ];
 

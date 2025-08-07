@@ -67,7 +67,7 @@ class LoyaltyCardBatchResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'numberOfCardsGenerated' => null,
+        'numberOfCardsGenerated' => 'int64',
         'batchId' => null
     ];
 

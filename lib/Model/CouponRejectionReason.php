@@ -69,8 +69,8 @@ class CouponRejectionReason implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignId' => null,
-        'couponId' => null,
+        'campaignId' => 'int64',
+        'couponId' => 'int64',
         'reason' => null
     ];
 

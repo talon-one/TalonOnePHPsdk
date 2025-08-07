@@ -79,6 +79,13 @@ class GenerateCampaignDescriptionTest extends TestCase
     }
 
     /**
+     * Test attribute "campaignID"
+     */
+    public function testPropertyCampaignID()
+    {
+    }
+
+    /**
      * Test attribute "rulesetID"
      */
     public function testPropertyRulesetID()

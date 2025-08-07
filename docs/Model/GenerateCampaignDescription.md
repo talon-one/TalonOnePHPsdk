@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**campaignID** | **int** | ID of a campaign. | 
 **rulesetID** | **int** | ID of a ruleset. | 
 **currency** | **string** | Currency for the campaign. | 
 

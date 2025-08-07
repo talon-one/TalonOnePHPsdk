@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CampaignRulesetChangedNotificationTest Class Doc Comment
  *
  * @category    Class
- * @description A notification regarding a campaign whose ruleset was changed.
+ * @description CampaignRulesetChangedNotification
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -79,23 +79,23 @@ class CampaignRulesetChangedNotificationTest extends TestCase
     }
 
     /**
-     * Test attribute "campaign"
+     * Test attribute "notificationType"
      */
-    public function testPropertyCampaign()
+    public function testPropertyNotificationType()
     {
     }
 
     /**
-     * Test attribute "oldRuleset"
+     * Test attribute "totalResultSize"
      */
-    public function testPropertyOldRuleset()
+    public function testPropertyTotalResultSize()
     {
     }
 
     /**
-     * Test attribute "ruleset"
+     * Test attribute "data"
      */
-    public function testPropertyRuleset()
+    public function testPropertyData()
     {
     }
 }

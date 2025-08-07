@@ -75,8 +75,8 @@ class NewReferralsForMultipleAdvocates implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'usageLimit' => null,
-        'campaignId' => null,
+        'usageLimit' => 'int64',
+        'campaignId' => 'int64',
         'advocateProfileIntegrationIds' => null,
         'attributes' => null,
         'validCharacters' => null,

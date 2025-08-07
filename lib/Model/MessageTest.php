@@ -68,7 +68,7 @@ class MessageTest implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'httpResponse' => null,
-        'httpStatus' => null
+        'httpStatus' => 'int64'
     ];
 
     /**

@@ -81,7 +81,7 @@ class TalangAttribute implements ModelInterface, ArrayAccess
         'description' => null,
         'visible' => null,
         'kind' => null,
-        'campaignsCount' => null,
+        'campaignsCount' => 'int64',
         'exampleValue' => null
     ];
 

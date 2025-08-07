@@ -86,7 +86,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'scope' => null,
         'totalDiscount' => null,
         'desiredTotalDiscount' => null,
-        'bundleIndex' => null,
+        'bundleIndex' => 'int64',
         'bundleName' => null,
         'targetedItemPosition' => null,
         'targetedItemSubPosition' => null

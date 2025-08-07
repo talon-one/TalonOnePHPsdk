@@ -73,7 +73,7 @@ class ProductUnitAnalyticsDataPoint implements ModelInterface, ArrayAccess
         'startTime' => 'date-time',
         'endTime' => 'date-time',
         'unitsSold' => null,
-        'productId' => null,
+        'productId' => 'int64',
         'productName' => null
     ];
 

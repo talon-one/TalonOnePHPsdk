@@ -69,7 +69,7 @@ class AnalyticsSKU implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'sku' => null,
         'lastUpdated' => 'date-time',
         'unitsSold' => null

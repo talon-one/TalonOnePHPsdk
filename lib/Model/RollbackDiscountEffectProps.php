@@ -77,7 +77,7 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
         'value' => null,
         'cartItemPosition' => null,
         'cartItemSubPosition' => null,
-        'additionalCostId' => null,
+        'additionalCostId' => 'int64',
         'additionalCost' => null,
         'scope' => null
     ];

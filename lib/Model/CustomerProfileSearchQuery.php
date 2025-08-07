@@ -70,7 +70,7 @@ class CustomerProfileSearchQuery implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'attributes' => null,
         'integrationIDs' => null,
-        'profileIDs' => null
+        'profileIDs' => 'int64'
     ];
 
     /**

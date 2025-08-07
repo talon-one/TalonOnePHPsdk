@@ -80,16 +80,16 @@ class LimitCounter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignId' => null,
-        'applicationId' => null,
-        'accountId' => null,
-        'id' => null,
+        'campaignId' => 'int64',
+        'applicationId' => 'int64',
+        'accountId' => 'int64',
+        'id' => 'int64',
         'action' => null,
-        'profileId' => null,
+        'profileId' => 'int64',
         'profileIntegrationId' => null,
-        'couponId' => null,
+        'couponId' => 'int64',
         'couponValue' => null,
-        'referralId' => null,
+        'referralId' => 'int64',
         'referralValue' => null,
         'identifier' => null,
         'period' => null,

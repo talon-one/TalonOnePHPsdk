@@ -73,9 +73,9 @@ class IncreaseAchievementProgressEffectProps implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'achievementId' => null,
+        'achievementId' => 'int64',
         'achievementName' => null,
-        'progressTrackerId' => null,
+        'progressTrackerId' => 'int64',
         'delta' => null,
         'value' => null,
         'target' => null,

@@ -76,16 +76,16 @@ class Ruleset implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'userId' => null,
+        'userId' => 'int64',
         'rules' => null,
         'strikethroughRules' => null,
         'bindings' => null,
         'rbVersion' => null,
         'activate' => null,
-        'campaignId' => null,
-        'templateId' => null,
+        'campaignId' => 'int64',
+        'templateId' => 'int64',
         'activatedAt' => 'date-time'
     ];
 
@@ -292,7 +292,7 @@ class Ruleset implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

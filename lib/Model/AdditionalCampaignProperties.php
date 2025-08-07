@@ -90,29 +90,29 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'budgets' => null,
-        'couponRedemptionCount' => null,
-        'referralRedemptionCount' => null,
+        'couponRedemptionCount' => 'int64',
+        'referralRedemptionCount' => 'int64',
         'discountCount' => null,
-        'discountEffectCount' => null,
-        'couponCreationCount' => null,
-        'customEffectCount' => null,
-        'referralCreationCount' => null,
-        'addFreeItemEffectCount' => null,
-        'awardedGiveawaysCount' => null,
+        'discountEffectCount' => 'int64',
+        'couponCreationCount' => 'int64',
+        'customEffectCount' => 'int64',
+        'referralCreationCount' => 'int64',
+        'addFreeItemEffectCount' => 'int64',
+        'awardedGiveawaysCount' => 'int64',
         'createdLoyaltyPointsCount' => null,
-        'createdLoyaltyPointsEffectCount' => null,
+        'createdLoyaltyPointsEffectCount' => 'int64',
         'redeemedLoyaltyPointsCount' => null,
-        'redeemedLoyaltyPointsEffectCount' => null,
-        'callApiEffectCount' => null,
-        'reservecouponEffectCount' => null,
+        'redeemedLoyaltyPointsEffectCount' => 'int64',
+        'callApiEffectCount' => 'int64',
+        'reservecouponEffectCount' => 'int64',
         'lastActivity' => 'date-time',
         'updated' => 'date-time',
         'createdBy' => null,
         'updatedBy' => null,
-        'templateId' => null,
+        'templateId' => 'int64',
         'frontendState' => null,
         'storesImported' => null,
-        'valueMapsIds' => null
+        'valueMapsIds' => 'int64'
     ];
 
     /**

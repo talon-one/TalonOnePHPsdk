@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | [**\DateTime**](\DateTime.md) | The time this entity was created. | 
 **programID** | **int** | The ID of the loyalty program that owns this entity. | 
 **programName** | **string** | The integration name of the loyalty program that owns this entity. | [optional] 

@@ -77,14 +77,14 @@ class CreateTemplateCampaign implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'description' => null,
-        'templateId' => null,
+        'templateId' => 'int64',
         'campaignAttributesOverrides' => null,
         'templateParamValues' => null,
         'limitOverrides' => null,
-        'campaignGroups' => null,
+        'campaignGroups' => 'int64',
         'tags' => null,
-        'evaluationGroupId' => null,
-        'linkedStoreIds' => null
+        'evaluationGroupId' => 'int64',
+        'linkedStoreIds' => 'int64'
     ];
 
     /**

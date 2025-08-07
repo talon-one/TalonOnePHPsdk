@@ -72,7 +72,7 @@ class ExpiringCouponsNotificationPolicy implements ModelInterface, ArrayAccess
         'name' => null,
         'triggers' => null,
         'batchingEnabled' => null,
-        'batchSize' => null
+        'batchSize' => 'int64'
     ];
 
     /**
@@ -195,7 +195,7 @@ class ExpiringCouponsNotificationPolicy implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['triggers'] = isset($data['triggers']) ? $data['triggers'] : null;
         $this->container['batchingEnabled'] = isset($data['batchingEnabled']) ? $data['batchingEnabled'] : true;
-        $this->container['batchSize'] = isset($data['batchSize']) ? $data['batchSize'] : null;
+        $this->container['batchSize'] = isset($data['batchSize']) ? $data['batchSize'] : 1000;
     }
 
     /**

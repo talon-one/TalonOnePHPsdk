@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CampaignEditedNotificationTest Class Doc Comment
  *
  * @category    Class
- * @description A notification regarding a campaign which was edited.
+ * @description CampaignEditedNotification
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -79,23 +79,23 @@ class CampaignEditedNotificationTest extends TestCase
     }
 
     /**
-     * Test attribute "campaign"
+     * Test attribute "notificationType"
      */
-    public function testPropertyCampaign()
+    public function testPropertyNotificationType()
     {
     }
 
     /**
-     * Test attribute "oldCampaign"
+     * Test attribute "totalResultSize"
      */
-    public function testPropertyOldCampaign()
+    public function testPropertyTotalResultSize()
     {
     }
 
     /**
-     * Test attribute "ruleset"
+     * Test attribute "data"
      */
-    public function testPropertyRuleset()
+    public function testPropertyData()
     {
     }
 }

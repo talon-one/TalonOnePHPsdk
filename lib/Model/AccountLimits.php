@@ -68,7 +68,9 @@ class AccountLimits implements ModelInterface, ArrayAccess
         'webhooks' => 'int',
         'users' => 'int',
         'apiVolume' => 'int',
-        'promotionTypes' => 'string[]'
+        'promotionTypes' => 'string[]',
+        'secondaryDeploymentPrice' => 'int',
+        'currencyCode' => 'string'
     ];
 
     /**
@@ -77,18 +79,20 @@ class AccountLimits implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'liveApplications' => null,
-        'sandboxApplications' => null,
-        'activeCampaigns' => null,
-        'coupons' => null,
-        'referralCodes' => null,
-        'activeRules' => null,
-        'liveLoyaltyPrograms' => null,
-        'sandboxLoyaltyPrograms' => null,
-        'webhooks' => null,
-        'users' => null,
-        'apiVolume' => null,
-        'promotionTypes' => null
+        'liveApplications' => 'int64',
+        'sandboxApplications' => 'int64',
+        'activeCampaigns' => 'int64',
+        'coupons' => 'int64',
+        'referralCodes' => 'int64',
+        'activeRules' => 'int64',
+        'liveLoyaltyPrograms' => 'int64',
+        'sandboxLoyaltyPrograms' => 'int64',
+        'webhooks' => 'int64',
+        'users' => 'int64',
+        'apiVolume' => 'int64',
+        'promotionTypes' => null,
+        'secondaryDeploymentPrice' => 'int64',
+        'currencyCode' => null
     ];
 
     /**
@@ -129,7 +133,9 @@ class AccountLimits implements ModelInterface, ArrayAccess
         'webhooks' => 'webhooks',
         'users' => 'users',
         'apiVolume' => 'apiVolume',
-        'promotionTypes' => 'promotionTypes'
+        'promotionTypes' => 'promotionTypes',
+        'secondaryDeploymentPrice' => 'SecondaryDeploymentPrice',
+        'currencyCode' => 'currencyCode'
     ];
 
     /**
@@ -149,7 +155,9 @@ class AccountLimits implements ModelInterface, ArrayAccess
         'webhooks' => 'setWebhooks',
         'users' => 'setUsers',
         'apiVolume' => 'setApiVolume',
-        'promotionTypes' => 'setPromotionTypes'
+        'promotionTypes' => 'setPromotionTypes',
+        'secondaryDeploymentPrice' => 'setSecondaryDeploymentPrice',
+        'currencyCode' => 'setCurrencyCode'
     ];
 
     /**
@@ -169,7 +177,9 @@ class AccountLimits implements ModelInterface, ArrayAccess
         'webhooks' => 'getWebhooks',
         'users' => 'getUsers',
         'apiVolume' => 'getApiVolume',
-        'promotionTypes' => 'getPromotionTypes'
+        'promotionTypes' => 'getPromotionTypes',
+        'secondaryDeploymentPrice' => 'getSecondaryDeploymentPrice',
+        'currencyCode' => 'getCurrencyCode'
     ];
 
     /**
@@ -244,6 +254,8 @@ class AccountLimits implements ModelInterface, ArrayAccess
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
         $this->container['apiVolume'] = isset($data['apiVolume']) ? $data['apiVolume'] : null;
         $this->container['promotionTypes'] = isset($data['promotionTypes']) ? $data['promotionTypes'] : null;
+        $this->container['secondaryDeploymentPrice'] = isset($data['secondaryDeploymentPrice']) ? $data['secondaryDeploymentPrice'] : null;
+        $this->container['currencyCode'] = isset($data['currencyCode']) ? $data['currencyCode'] : null;
     }
 
     /**
@@ -290,6 +302,12 @@ class AccountLimits implements ModelInterface, ArrayAccess
         }
         if ($this->container['promotionTypes'] === null) {
             $invalidProperties[] = "'promotionTypes' can't be null";
+        }
+        if ($this->container['secondaryDeploymentPrice'] === null) {
+            $invalidProperties[] = "'secondaryDeploymentPrice' can't be null";
+        }
+        if ($this->container['currencyCode'] === null) {
+            $invalidProperties[] = "'currencyCode' can't be null";
         }
         return $invalidProperties;
     }
@@ -590,6 +608,54 @@ class AccountLimits implements ModelInterface, ArrayAccess
     public function setPromotionTypes($promotionTypes)
     {
         $this->container['promotionTypes'] = $promotionTypes;
+
+        return $this;
+    }
+
+    /**
+     * Gets secondaryDeploymentPrice
+     *
+     * @return int
+     */
+    public function getSecondaryDeploymentPrice()
+    {
+        return $this->container['secondaryDeploymentPrice'];
+    }
+
+    /**
+     * Sets secondaryDeploymentPrice
+     *
+     * @param int $secondaryDeploymentPrice The price for a secondary deployment according to contractual agreements.
+     *
+     * @return $this
+     */
+    public function setSecondaryDeploymentPrice($secondaryDeploymentPrice)
+    {
+        $this->container['secondaryDeploymentPrice'] = $secondaryDeploymentPrice;
+
+        return $this;
+    }
+
+    /**
+     * Gets currencyCode
+     *
+     * @return string
+     */
+    public function getCurrencyCode()
+    {
+        return $this->container['currencyCode'];
+    }
+
+    /**
+     * Sets currencyCode
+     *
+     * @param string $currencyCode The currency of the contract.
+     *
+     * @return $this
+     */
+    public function setCurrencyCode($currencyCode)
+    {
+        $this->container['currencyCode'] = $currencyCode;
 
         return $this;
     }

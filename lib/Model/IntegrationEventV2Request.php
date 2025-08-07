@@ -62,6 +62,7 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'evaluableCampaignIds' => 'int[]',
         'type' => 'string',
         'attributes' => 'object',
+        'loyaltyCards' => 'string[]',
         'responseContent' => 'string[]'
     ];
 
@@ -73,9 +74,10 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'profileId' => null,
         'storeIntegrationId' => null,
-        'evaluableCampaignIds' => null,
+        'evaluableCampaignIds' => 'int64',
         'type' => null,
         'attributes' => null,
+        'loyaltyCards' => null,
         'responseContent' => null
     ];
 
@@ -111,6 +113,7 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'evaluableCampaignIds' => 'evaluableCampaignIds',
         'type' => 'type',
         'attributes' => 'attributes',
+        'loyaltyCards' => 'loyaltyCards',
         'responseContent' => 'responseContent'
     ];
 
@@ -125,6 +128,7 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'evaluableCampaignIds' => 'setEvaluableCampaignIds',
         'type' => 'setType',
         'attributes' => 'setAttributes',
+        'loyaltyCards' => 'setLoyaltyCards',
         'responseContent' => 'setResponseContent'
     ];
 
@@ -139,6 +143,7 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'evaluableCampaignIds' => 'getEvaluableCampaignIds',
         'type' => 'getType',
         'attributes' => 'getAttributes',
+        'loyaltyCards' => 'getLoyaltyCards',
         'responseContent' => 'getResponseContent'
     ];
 
@@ -230,6 +235,7 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         $this->container['evaluableCampaignIds'] = isset($data['evaluableCampaignIds']) ? $data['evaluableCampaignIds'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['loyaltyCards'] = isset($data['loyaltyCards']) ? $data['loyaltyCards'] : null;
         $this->container['responseContent'] = isset($data['responseContent']) ? $data['responseContent'] : null;
     }
 
@@ -400,6 +406,30 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
     public function setAttributes($attributes)
     {
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyaltyCards
+     *
+     * @return string[]|null
+     */
+    public function getLoyaltyCards()
+    {
+        return $this->container['loyaltyCards'];
+    }
+
+    /**
+     * Sets loyaltyCards
+     *
+     * @param string[]|null $loyaltyCards Identifier of the loyalty card used during this event.
+     *
+     * @return $this
+     */
+    public function setLoyaltyCards($loyaltyCards)
+    {
+        $this->container['loyaltyCards'] = $loyaltyCards;
 
         return $this;
     }

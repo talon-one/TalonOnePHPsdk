@@ -66,7 +66,7 @@ class CampaignGroupEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'campaignGroups' => null
+        'campaignGroups' => 'int64'
     ];
 
     /**

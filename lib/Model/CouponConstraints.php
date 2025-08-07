@@ -70,9 +70,9 @@ class CouponConstraints implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'usageLimit' => null,
+        'usageLimit' => 'int64',
         'discountLimit' => null,
-        'reservationLimit' => null,
+        'reservationLimit' => 'int64',
         'startDate' => 'date-time',
         'expiryDate' => 'date-time'
     ];
@@ -221,8 +221,8 @@ class CouponConstraints implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'usageLimit', must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] > 999999)) {
-            $invalidProperties[] = "invalid value for 'discountLimit', must be smaller than or equal to 999999.";
+        if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] > 1E+15)) {
+            $invalidProperties[] = "invalid value for 'discountLimit', must be smaller than or equal to 1E+15.";
         }
 
         if (!is_null($this->container['discountLimit']) && ($this->container['discountLimit'] < 0)) {
@@ -304,8 +304,8 @@ class CouponConstraints implements ModelInterface, ArrayAccess
     public function setDiscountLimit($discountLimit)
     {
 
-        if (!is_null($discountLimit) && ($discountLimit > 999999)) {
-            throw new \InvalidArgumentException('invalid value for $discountLimit when calling CouponConstraints., must be smaller than or equal to 999999.');
+        if (!is_null($discountLimit) && ($discountLimit > 1E+15)) {
+            throw new \InvalidArgumentException('invalid value for $discountLimit when calling CouponConstraints., must be smaller than or equal to 1E+15.');
         }
         if (!is_null($discountLimit) && ($discountLimit < 0)) {
             throw new \InvalidArgumentException('invalid value for $discountLimit when calling CouponConstraints., must be bigger than or equal to 0.');

@@ -69,8 +69,8 @@ class OneTimeCode implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'userId' => null,
-        'accountId' => null,
+        'userId' => 'int64',
+        'accountId' => 'int64',
         'token' => null,
         'code' => null
     ];

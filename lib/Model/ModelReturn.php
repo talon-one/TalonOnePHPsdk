@@ -76,17 +76,17 @@ class ModelReturn implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'created' => 'date-time',
-        'applicationId' => null,
-        'accountId' => null,
+        'applicationId' => 'int64',
+        'accountId' => 'int64',
         'returnedCartItems' => null,
-        'eventId' => null,
-        'sessionId' => null,
+        'eventId' => 'int64',
+        'sessionId' => 'int64',
         'sessionIntegrationId' => null,
-        'profileId' => null,
+        'profileId' => 'int64',
         'profileIntegrationId' => null,
-        'createdBy' => null
+        'createdBy' => 'int64'
     ];
 
     /**
@@ -309,7 +309,7 @@ class ModelReturn implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Internal ID of this entity.
+     * @param int $id The internal ID of this entity.
      *
      * @return $this
      */

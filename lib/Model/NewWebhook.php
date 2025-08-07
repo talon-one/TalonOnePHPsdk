@@ -60,12 +60,14 @@ class NewWebhook implements ModelInterface, ArrayAccess
         'applicationIds' => 'int[]',
         'title' => 'string',
         'description' => 'string',
+        'draft' => 'bool',
         'verb' => 'string',
         'url' => 'string',
         'headers' => 'string[]',
         'payload' => 'string',
         'params' => '\TalonOne\Client\Model\TemplateArgDef[]',
-        'enabled' => 'bool'
+        'enabled' => 'bool',
+        'authenticationId' => 'int'
     ];
 
     /**
@@ -74,15 +76,17 @@ class NewWebhook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'applicationIds' => null,
+        'applicationIds' => 'int64',
         'title' => null,
         'description' => null,
+        'draft' => null,
         'verb' => null,
         'url' => null,
         'headers' => null,
         'payload' => null,
         'params' => null,
-        'enabled' => null
+        'enabled' => null,
+        'authenticationId' => 'int64'
     ];
 
     /**
@@ -115,12 +119,14 @@ class NewWebhook implements ModelInterface, ArrayAccess
         'applicationIds' => 'applicationIds',
         'title' => 'title',
         'description' => 'description',
+        'draft' => 'draft',
         'verb' => 'verb',
         'url' => 'url',
         'headers' => 'headers',
         'payload' => 'payload',
         'params' => 'params',
-        'enabled' => 'enabled'
+        'enabled' => 'enabled',
+        'authenticationId' => 'authenticationId'
     ];
 
     /**
@@ -132,12 +138,14 @@ class NewWebhook implements ModelInterface, ArrayAccess
         'applicationIds' => 'setApplicationIds',
         'title' => 'setTitle',
         'description' => 'setDescription',
+        'draft' => 'setDraft',
         'verb' => 'setVerb',
         'url' => 'setUrl',
         'headers' => 'setHeaders',
         'payload' => 'setPayload',
         'params' => 'setParams',
-        'enabled' => 'setEnabled'
+        'enabled' => 'setEnabled',
+        'authenticationId' => 'setAuthenticationId'
     ];
 
     /**
@@ -149,12 +157,14 @@ class NewWebhook implements ModelInterface, ArrayAccess
         'applicationIds' => 'getApplicationIds',
         'title' => 'getTitle',
         'description' => 'getDescription',
+        'draft' => 'getDraft',
         'verb' => 'getVerb',
         'url' => 'getUrl',
         'headers' => 'getHeaders',
         'payload' => 'getPayload',
         'params' => 'getParams',
-        'enabled' => 'getEnabled'
+        'enabled' => 'getEnabled',
+        'authenticationId' => 'getAuthenticationId'
     ];
 
     /**
@@ -241,12 +251,14 @@ class NewWebhook implements ModelInterface, ArrayAccess
         $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['draft'] = isset($data['draft']) ? $data['draft'] : null;
         $this->container['verb'] = isset($data['verb']) ? $data['verb'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['headers'] = isset($data['headers']) ? $data['headers'] : null;
         $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
         $this->container['params'] = isset($data['params']) ? $data['params'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['authenticationId'] = isset($data['authenticationId']) ? $data['authenticationId'] : null;
     }
 
     /**
@@ -268,6 +280,9 @@ class NewWebhook implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'title', must be conform to the pattern /^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/.";
         }
 
+        if ($this->container['draft'] === null) {
+            $invalidProperties[] = "'draft' can't be null";
+        }
         if ($this->container['verb'] === null) {
             $invalidProperties[] = "'verb' can't be null";
         }
@@ -379,6 +394,30 @@ class NewWebhook implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets draft
+     *
+     * @return bool
+     */
+    public function getDraft()
+    {
+        return $this->container['draft'];
+    }
+
+    /**
+     * Sets draft
+     *
+     * @param bool $draft Indicates if the webhook is a draft.
+     *
+     * @return $this
+     */
+    public function setDraft($draft)
+    {
+        $this->container['draft'] = $draft;
 
         return $this;
     }
@@ -532,6 +571,30 @@ class NewWebhook implements ModelInterface, ArrayAccess
     public function setEnabled($enabled)
     {
         $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets authenticationId
+     *
+     * @return int|null
+     */
+    public function getAuthenticationId()
+    {
+        return $this->container['authenticationId'];
+    }
+
+    /**
+     * Sets authenticationId
+     *
+     * @param int|null $authenticationId The ID of the credential that this webhook is using.
+     *
+     * @return $this
+     */
+    public function setAuthenticationId($authenticationId)
+    {
+        $this->container['authenticationId'] = $authenticationId;
 
         return $this;
     }

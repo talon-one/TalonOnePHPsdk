@@ -66,7 +66,7 @@ class ApplicationEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'applicationId' => null
+        'applicationId' => 'int64'
     ];
 
     /**

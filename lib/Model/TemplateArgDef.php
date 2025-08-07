@@ -77,7 +77,7 @@ class TemplateArgDef implements ModelInterface, ArrayAccess
         'title' => null,
         'ui' => null,
         'key' => null,
-        'picklistID' => null,
+        'picklistID' => 'int64',
         'restrictedByPicklist' => null
     ];
 

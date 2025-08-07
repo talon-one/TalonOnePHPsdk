@@ -161,4 +161,18 @@ class AccountLimitsTest extends TestCase
     public function testPropertyPromotionTypes()
     {
     }
+
+    /**
+     * Test attribute "secondaryDeploymentPrice"
+     */
+    public function testPropertySecondaryDeploymentPrice()
+    {
+    }
+
+    /**
+     * Test attribute "currencyCode"
+     */
+    public function testPropertyCurrencyCode()
+    {
+    }
 }
