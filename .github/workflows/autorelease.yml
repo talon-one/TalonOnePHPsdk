@@ -20,9 +20,9 @@ jobs:
         id: get_version
         run: |
           msg='${{ github.event.head_commit.message }}'
-          if [[ "$msg" =~ update[[:space:]]+to[[:space:]]+([0-9]+\.[0-9]+\.[0-9]+) ]]; then
+          if [[ "$msg" =~ update-([0-9]+\.[0-9]+\.[0-9]+) ]]; then
             ver="${BASH_REMATCH[1]}"
-            echo "version=$ver" >> $GITHUB_OUTPUT
+            echo "version=v$ver" >> $GITHUB_OUTPUT
           else
             echo "Commit message does not match pattern - skipping release."
             echo "version=" >> $GITHUB_OUTPUT
