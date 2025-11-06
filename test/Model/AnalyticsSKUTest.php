@@ -100,6 +100,20 @@ class AnalyticsSKUTest extends TestCase
     }
 
     /**
+     * Test attribute "catalogId"
+     */
+    public function testPropertyCatalogId()
+    {
+    }
+
+    /**
+     * Test attribute "productId"
+     */
+    public function testPropertyProductId()
+    {
+    }
+
+    /**
      * Test attribute "unitsSold"
      */
     public function testPropertyUnitsSold()

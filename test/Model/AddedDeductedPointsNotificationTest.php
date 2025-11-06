@@ -161,4 +161,11 @@ class AddedDeductedPointsNotificationTest extends TestCase
     public function testPropertySessionIntegrationID()
     {
     }
+
+    /**
+     * Test attribute "notificationType"
+     */
+    public function testPropertyNotificationType()
+    {
+    }
 }

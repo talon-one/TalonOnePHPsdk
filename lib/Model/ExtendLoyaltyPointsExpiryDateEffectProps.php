@@ -61,9 +61,7 @@ class ExtendLoyaltyPointsExpiryDateEffectProps implements ModelInterface, ArrayA
         'programId' => 'int',
         'subLedgerId' => 'string',
         'extensionDuration' => 'string',
-        'transactionUUIDs' => 'string[]',
-        'previousExpirationDates' => '\DateTime[]',
-        'newExpirationDates' => '\DateTime[]'
+        'affectedTransactions' => '\TalonOne\Client\Model\LoyaltyLedgerEntryExpiryDateChange[]'
     ];
 
     /**
@@ -75,9 +73,7 @@ class ExtendLoyaltyPointsExpiryDateEffectProps implements ModelInterface, ArrayA
         'programId' => 'int64',
         'subLedgerId' => null,
         'extensionDuration' => null,
-        'transactionUUIDs' => null,
-        'previousExpirationDates' => 'date-time',
-        'newExpirationDates' => 'date-time'
+        'affectedTransactions' => null
     ];
 
     /**
@@ -110,9 +106,7 @@ class ExtendLoyaltyPointsExpiryDateEffectProps implements ModelInterface, ArrayA
         'programId' => 'programId',
         'subLedgerId' => 'subLedgerId',
         'extensionDuration' => 'extensionDuration',
-        'transactionUUIDs' => 'transactionUUIDs',
-        'previousExpirationDates' => 'previousExpirationDates',
-        'newExpirationDates' => 'newExpirationDates'
+        'affectedTransactions' => 'affectedTransactions'
     ];
 
     /**
@@ -124,9 +118,7 @@ class ExtendLoyaltyPointsExpiryDateEffectProps implements ModelInterface, ArrayA
         'programId' => 'setProgramId',
         'subLedgerId' => 'setSubLedgerId',
         'extensionDuration' => 'setExtensionDuration',
-        'transactionUUIDs' => 'setTransactionUUIDs',
-        'previousExpirationDates' => 'setPreviousExpirationDates',
-        'newExpirationDates' => 'setNewExpirationDates'
+        'affectedTransactions' => 'setAffectedTransactions'
     ];
 
     /**
@@ -138,9 +130,7 @@ class ExtendLoyaltyPointsExpiryDateEffectProps implements ModelInterface, ArrayA
         'programId' => 'getProgramId',
         'subLedgerId' => 'getSubLedgerId',
         'extensionDuration' => 'getExtensionDuration',
-        'transactionUUIDs' => 'getTransactionUUIDs',
-        'previousExpirationDates' => 'getPreviousExpirationDates',
-        'newExpirationDates' => 'getNewExpirationDates'
+        'affectedTransactions' => 'getAffectedTransactions'
     ];
 
     /**
@@ -206,9 +196,7 @@ class ExtendLoyaltyPointsExpiryDateEffectProps implements ModelInterface, ArrayA
         $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
         $this->container['subLedgerId'] = isset($data['subLedgerId']) ? $data['subLedgerId'] : null;
         $this->container['extensionDuration'] = isset($data['extensionDuration']) ? $data['extensionDuration'] : null;
-        $this->container['transactionUUIDs'] = isset($data['transactionUUIDs']) ? $data['transactionUUIDs'] : null;
-        $this->container['previousExpirationDates'] = isset($data['previousExpirationDates']) ? $data['previousExpirationDates'] : null;
-        $this->container['newExpirationDates'] = isset($data['newExpirationDates']) ? $data['newExpirationDates'] : null;
+        $this->container['affectedTransactions'] = isset($data['affectedTransactions']) ? $data['affectedTransactions'] : null;
     }
 
     /**
@@ -317,73 +305,25 @@ class ExtendLoyaltyPointsExpiryDateEffectProps implements ModelInterface, ArrayA
     }
 
     /**
-     * Gets transactionUUIDs
+     * Gets affectedTransactions
      *
-     * @return string[]|null
+     * @return \TalonOne\Client\Model\LoyaltyLedgerEntryExpiryDateChange[]|null
      */
-    public function getTransactionUUIDs()
+    public function getAffectedTransactions()
     {
-        return $this->container['transactionUUIDs'];
+        return $this->container['affectedTransactions'];
     }
 
     /**
-     * Sets transactionUUIDs
+     * Sets affectedTransactions
      *
-     * @param string[]|null $transactionUUIDs The list of identifiers of transactions affected affected by the extension.
+     * @param \TalonOne\Client\Model\LoyaltyLedgerEntryExpiryDateChange[]|null $affectedTransactions List of transactions affected by the expiry date update.
      *
      * @return $this
      */
-    public function setTransactionUUIDs($transactionUUIDs)
+    public function setAffectedTransactions($affectedTransactions)
     {
-        $this->container['transactionUUIDs'] = $transactionUUIDs;
-
-        return $this;
-    }
-
-    /**
-     * Gets previousExpirationDates
-     *
-     * @return \DateTime[]|null
-     */
-    public function getPreviousExpirationDates()
-    {
-        return $this->container['previousExpirationDates'];
-    }
-
-    /**
-     * Sets previousExpirationDates
-     *
-     * @param \DateTime[]|null $previousExpirationDates Expiry dates of all active and pending points transactions before applying the extension.
-     *
-     * @return $this
-     */
-    public function setPreviousExpirationDates($previousExpirationDates)
-    {
-        $this->container['previousExpirationDates'] = $previousExpirationDates;
-
-        return $this;
-    }
-
-    /**
-     * Gets newExpirationDates
-     *
-     * @return \DateTime[]|null
-     */
-    public function getNewExpirationDates()
-    {
-        return $this->container['newExpirationDates'];
-    }
-
-    /**
-     * Sets newExpirationDates
-     *
-     * @param \DateTime[]|null $newExpirationDates Expiry dates of all active and pending points transactions after applying the extension.
-     *
-     * @return $this
-     */
-    public function setNewExpirationDates($newExpirationDates)
-    {
-        $this->container['newExpirationDates'] = $newExpirationDates;
+        $this->container['affectedTransactions'] = $affectedTransactions;
 
         return $this;
     }

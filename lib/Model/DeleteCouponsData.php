@@ -63,7 +63,8 @@ class DeleteCouponsData implements ModelInterface, ArrayAccess
         'batchID' => 'string',
         'applicationID' => 'int',
         'campaignID' => 'int',
-        'totalResultSize' => 'int'
+        'totalResultSize' => 'int',
+        'notificationType' => 'string'
     ];
 
     /**
@@ -78,7 +79,8 @@ class DeleteCouponsData implements ModelInterface, ArrayAccess
         'batchID' => null,
         'applicationID' => 'int64',
         'campaignID' => 'int64',
-        'totalResultSize' => 'int64'
+        'totalResultSize' => 'int64',
+        'notificationType' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class DeleteCouponsData implements ModelInterface, ArrayAccess
         'batchID' => 'BatchID',
         'applicationID' => 'ApplicationID',
         'campaignID' => 'CampaignID',
-        'totalResultSize' => 'TotalResultSize'
+        'totalResultSize' => 'TotalResultSize',
+        'notificationType' => 'NotificationType'
     ];
 
     /**
@@ -129,7 +132,8 @@ class DeleteCouponsData implements ModelInterface, ArrayAccess
         'batchID' => 'setBatchID',
         'applicationID' => 'setApplicationID',
         'campaignID' => 'setCampaignID',
-        'totalResultSize' => 'setTotalResultSize'
+        'totalResultSize' => 'setTotalResultSize',
+        'notificationType' => 'setNotificationType'
     ];
 
     /**
@@ -144,7 +148,8 @@ class DeleteCouponsData implements ModelInterface, ArrayAccess
         'batchID' => 'getBatchID',
         'applicationID' => 'getApplicationID',
         'campaignID' => 'getCampaignID',
-        'totalResultSize' => 'getTotalResultSize'
+        'totalResultSize' => 'getTotalResultSize',
+        'notificationType' => 'getNotificationType'
     ];
 
     /**
@@ -214,6 +219,7 @@ class DeleteCouponsData implements ModelInterface, ArrayAccess
         $this->container['applicationID'] = isset($data['applicationID']) ? $data['applicationID'] : null;
         $this->container['campaignID'] = isset($data['campaignID']) ? $data['campaignID'] : null;
         $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
     }
 
     /**
@@ -245,6 +251,9 @@ class DeleteCouponsData implements ModelInterface, ArrayAccess
         }
         if ($this->container['totalResultSize'] === null) {
             $invalidProperties[] = "'totalResultSize' can't be null";
+        }
+        if ($this->container['notificationType'] === null) {
+            $invalidProperties[] = "'notificationType' can't be null";
         }
         return $invalidProperties;
     }
@@ -425,6 +434,30 @@ class DeleteCouponsData implements ModelInterface, ArrayAccess
     public function setTotalResultSize($totalResultSize)
     {
         $this->container['totalResultSize'] = $totalResultSize;
+
+        return $this;
+    }
+
+    /**
+     * Gets notificationType
+     *
+     * @return string
+     */
+    public function getNotificationType()
+    {
+        return $this->container['notificationType'];
+    }
+
+    /**
+     * Sets notificationType
+     *
+     * @param string $notificationType The type of the notification
+     *
+     * @return $this
+     */
+    public function setNotificationType($notificationType)
+    {
+        $this->container['notificationType'] = $notificationType;
 
         return $this;
     }

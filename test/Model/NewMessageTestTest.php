@@ -79,20 +79,6 @@ class NewMessageTestTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-    }
-
-    /**
-     * Test attribute "queryParams"
-     */
-    public function testPropertyQueryParams()
-    {
-    }
-
-    /**
      * Test attribute "headers"
      */
     public function testPropertyHeaders()
@@ -117,6 +103,20 @@ class NewMessageTestTest extends TestCase
      * Test attribute "payload"
      */
     public function testPropertyPayload()
+    {
+    }
+
+    /**
+     * Test attribute "params"
+     */
+    public function testPropertyParams()
+    {
+    }
+
+    /**
+     * Test attribute "applicationIds"
+     */
+    public function testPropertyApplicationIds()
     {
     }
 }

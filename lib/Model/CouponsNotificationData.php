@@ -61,7 +61,8 @@ class CouponsNotificationData implements ModelInterface, ArrayAccess
         'operation' => 'string',
         'employeeName' => 'string',
         'data' => '\TalonOne\Client\Model\ExtendedCoupon[]',
-        'totalResultSize' => 'int'
+        'totalResultSize' => 'int',
+        'notificationType' => 'string'
     ];
 
     /**
@@ -74,7 +75,8 @@ class CouponsNotificationData implements ModelInterface, ArrayAccess
         'operation' => null,
         'employeeName' => null,
         'data' => null,
-        'totalResultSize' => 'int64'
+        'totalResultSize' => 'int64',
+        'notificationType' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class CouponsNotificationData implements ModelInterface, ArrayAccess
         'operation' => 'Operation',
         'employeeName' => 'EmployeeName',
         'data' => 'data',
-        'totalResultSize' => 'totalResultSize'
+        'totalResultSize' => 'totalResultSize',
+        'notificationType' => 'NotificationType'
     ];
 
     /**
@@ -121,7 +124,8 @@ class CouponsNotificationData implements ModelInterface, ArrayAccess
         'operation' => 'setOperation',
         'employeeName' => 'setEmployeeName',
         'data' => 'setData',
-        'totalResultSize' => 'setTotalResultSize'
+        'totalResultSize' => 'setTotalResultSize',
+        'notificationType' => 'setNotificationType'
     ];
 
     /**
@@ -134,7 +138,8 @@ class CouponsNotificationData implements ModelInterface, ArrayAccess
         'operation' => 'getOperation',
         'employeeName' => 'getEmployeeName',
         'data' => 'getData',
-        'totalResultSize' => 'getTotalResultSize'
+        'totalResultSize' => 'getTotalResultSize',
+        'notificationType' => 'getNotificationType'
     ];
 
     /**
@@ -202,6 +207,7 @@ class CouponsNotificationData implements ModelInterface, ArrayAccess
         $this->container['employeeName'] = isset($data['employeeName']) ? $data['employeeName'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
         $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
     }
 
     /**
@@ -221,6 +227,9 @@ class CouponsNotificationData implements ModelInterface, ArrayAccess
         }
         if ($this->container['employeeName'] === null) {
             $invalidProperties[] = "'employeeName' can't be null";
+        }
+        if ($this->container['notificationType'] === null) {
+            $invalidProperties[] = "'notificationType' can't be null";
         }
         return $invalidProperties;
     }
@@ -353,6 +362,30 @@ class CouponsNotificationData implements ModelInterface, ArrayAccess
     public function setTotalResultSize($totalResultSize)
     {
         $this->container['totalResultSize'] = $totalResultSize;
+
+        return $this;
+    }
+
+    /**
+     * Gets notificationType
+     *
+     * @return string
+     */
+    public function getNotificationType()
+    {
+        return $this->container['notificationType'];
+    }
+
+    /**
+     * Sets notificationType
+     *
+     * @param string $notificationType The type of the notification
+     *
+     * @return $this
+     */
+    public function setNotificationType($notificationType)
+    {
+        $this->container['notificationType'] = $notificationType;
 
         return $this;
     }

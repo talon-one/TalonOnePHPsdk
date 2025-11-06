@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **totalPendingPoints** | **float** | Total of pending points for this loyalty program. | 
 **totalSpentPoints** | **float** | Total of spent points for this loyalty program. | 
 **totalExpiredPoints** | **float** | Total of expired points for this loyalty program. | 
+**totalNegativePoints** | **float** | Total of negative points for this loyalty program. | 
 **totalMembers** | **float** | Number of loyalty program members. | 
 **newMembers** | **float** | Number of members who joined on this day. | 
 **spentPoints** | [**\TalonOne\Client\Model\LoyaltyDashboardPointsBreakdown**](LoyaltyDashboardPointsBreakdown.md) |  | 

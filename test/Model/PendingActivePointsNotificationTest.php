@@ -91,4 +91,11 @@ class PendingActivePointsNotificationTest extends TestCase
     public function testPropertyData()
     {
     }
+
+    /**
+     * Test attribute "notificationType"
+     */
+    public function testPropertyNotificationType()
+    {
+    }
 }

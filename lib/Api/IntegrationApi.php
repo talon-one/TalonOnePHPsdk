@@ -116,6 +116,289 @@ class IntegrationApi
     }
 
     /**
+     * Operation bestPriorPrice
+     *
+     * Fetch best prior price
+     *
+     * @param  \TalonOne\Client\Model\BestPriorPriceRequest $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\BestPriorPrice[]
+     */
+    public function bestPriorPrice($body)
+    {
+        list($response) = $this->bestPriorPriceWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation bestPriorPriceWithHttpInfo
+     *
+     * Fetch best prior price
+     *
+     * @param  \TalonOne\Client\Model\BestPriorPriceRequest $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\BestPriorPrice[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function bestPriorPriceWithHttpInfo($body)
+    {
+        $request = $this->bestPriorPriceRequest($body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\BestPriorPrice[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\BestPriorPrice[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\BestPriorPrice[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\BestPriorPrice[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation bestPriorPriceAsync
+     *
+     * Fetch best prior price
+     *
+     * @param  \TalonOne\Client\Model\BestPriorPriceRequest $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bestPriorPriceAsync($body)
+    {
+        return $this->bestPriorPriceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation bestPriorPriceAsyncWithHttpInfo
+     *
+     * Fetch best prior price
+     *
+     * @param  \TalonOne\Client\Model\BestPriorPriceRequest $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bestPriorPriceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\TalonOne\Client\Model\BestPriorPrice[]';
+        $request = $this->bestPriorPriceRequest($body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'bestPriorPrice'
+     *
+     * @param  \TalonOne\Client\Model\BestPriorPriceRequest $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function bestPriorPriceRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling bestPriorPrice'
+            );
+        }
+
+        $resourcePath = '/v1/best_prior_price';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation createAudienceV2
      *
      * Create audience
@@ -5136,16 +5419,19 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2005|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getLoyaltyCardPoints($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyCardPoints($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
-        list($response) = $this->getLoyaltyCardPointsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $pageSize, $skip);
+        list($response) = $this->getLoyaltyCardPointsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort);
         return $response;
     }
 
@@ -5158,16 +5444,19 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2005|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyCardPointsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyCardPointsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
-        $request = $this->getLoyaltyCardPointsRequest($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $pageSize, $skip);
+        $request = $this->getLoyaltyCardPointsRequest($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5311,15 +5600,18 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyCardPointsAsync($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyCardPointsAsync($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
-        return $this->getLoyaltyCardPointsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $pageSize, $skip)
+        return $this->getLoyaltyCardPointsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5336,16 +5628,19 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyCardPointsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyCardPointsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2005';
-        $request = $this->getLoyaltyCardPointsRequest($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $pageSize, $skip);
+        $request = $this->getLoyaltyCardPointsRequest($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5388,13 +5683,16 @@ class IntegrationApi
      * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyCardPointsRequest($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
+    protected function getLoyaltyCardPointsRequest($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -5446,6 +5744,28 @@ class IntegrationApi
             }
         }
         // query params
+        if ($customerSessionIDs !== null) {
+            if('form' === 'form' && is_array($customerSessionIDs)) {
+                foreach($customerSessionIDs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['customerSessionIDs'] = $customerSessionIDs;
+            }
+        }
+        // query params
+        if ($transactionUUIDs !== null) {
+            if('form' === 'form' && is_array($transactionUUIDs)) {
+                foreach($transactionUUIDs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['transactionUUIDs'] = $transactionUUIDs;
+            }
+        }
+        // query params
         if (is_array($pageSize)) {
             $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
         }
@@ -5458,6 +5778,13 @@ class IntegrationApi
         }
         if ($skip !== null) {
             $queryParams['skip'] = $skip;
+        }
+        // query params
+        if (is_array($sort)) {
+            $sort = ObjectSerializer::serializeCollection($sort, '', true);
+        }
+        if ($sort !== null) {
+            $queryParams['sort'] = $sort;
         }
 
 
@@ -6032,16 +6359,19 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\InlineResponse2006|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getLoyaltyProgramProfilePoints($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramProfilePoints($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
-        list($response) = $this->getLoyaltyProgramProfilePointsWithHttpInfo($loyaltyProgramId, $integrationId, $status, $subledgerId, $pageSize, $skip);
+        list($response) = $this->getLoyaltyProgramProfilePointsWithHttpInfo($loyaltyProgramId, $integrationId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort);
         return $response;
     }
 
@@ -6054,16 +6384,19 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse2006|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyProgramProfilePointsWithHttpInfo($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramProfilePointsWithHttpInfo($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
-        $request = $this->getLoyaltyProgramProfilePointsRequest($loyaltyProgramId, $integrationId, $status, $subledgerId, $pageSize, $skip);
+        $request = $this->getLoyaltyProgramProfilePointsRequest($loyaltyProgramId, $integrationId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6207,15 +6540,18 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyProgramProfilePointsAsync($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramProfilePointsAsync($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
-        return $this->getLoyaltyProgramProfilePointsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $status, $subledgerId, $pageSize, $skip)
+        return $this->getLoyaltyProgramProfilePointsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6232,16 +6568,19 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyProgramProfilePointsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramProfilePointsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse2006';
-        $request = $this->getLoyaltyProgramProfilePointsRequest($loyaltyProgramId, $integrationId, $status, $subledgerId, $pageSize, $skip);
+        $request = $this->getLoyaltyProgramProfilePointsRequest($loyaltyProgramId, $integrationId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6284,13 +6623,16 @@ class IntegrationApi
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyProgramProfilePointsRequest($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $pageSize = 50, $skip = null)
+    protected function getLoyaltyProgramProfilePointsRequest($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -6334,6 +6676,28 @@ class IntegrationApi
             $queryParams['subledgerId'] = $subledgerId;
         }
         // query params
+        if ($customerSessionIDs !== null) {
+            if('form' === 'form' && is_array($customerSessionIDs)) {
+                foreach($customerSessionIDs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['customerSessionIDs'] = $customerSessionIDs;
+            }
+        }
+        // query params
+        if ($transactionUUIDs !== null) {
+            if('form' === 'form' && is_array($transactionUUIDs)) {
+                foreach($transactionUUIDs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['transactionUUIDs'] = $transactionUUIDs;
+            }
+        }
+        // query params
         if (is_array($pageSize)) {
             $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
         }
@@ -6346,6 +6710,13 @@ class IntegrationApi
         }
         if ($skip !== null) {
             $queryParams['skip'] = $skip;
+        }
+        // query params
+        if (is_array($sort)) {
+            $sort = ObjectSerializer::serializeCollection($sort, '', true);
+        }
+        if ($sort !== null) {
+            $queryParams['sort'] = $sort;
         }
 
 

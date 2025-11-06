@@ -58,6 +58,7 @@ class PriceDetail implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'price' => 'float',
+        'adjustmentContextId' => 'string',
         'adjustmentReferenceId' => 'string',
         'adjustmentEffectiveFrom' => '\DateTime',
         'adjustmentEffectiveUntil' => '\DateTime'
@@ -70,6 +71,7 @@ class PriceDetail implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'price' => 'float',
+        'adjustmentContextId' => null,
         'adjustmentReferenceId' => 'uuid',
         'adjustmentEffectiveFrom' => 'date-time',
         'adjustmentEffectiveUntil' => 'date-time'
@@ -103,6 +105,7 @@ class PriceDetail implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'price' => 'price',
+        'adjustmentContextId' => 'adjustmentContextId',
         'adjustmentReferenceId' => 'adjustmentReferenceId',
         'adjustmentEffectiveFrom' => 'adjustmentEffectiveFrom',
         'adjustmentEffectiveUntil' => 'adjustmentEffectiveUntil'
@@ -115,6 +118,7 @@ class PriceDetail implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'price' => 'setPrice',
+        'adjustmentContextId' => 'setAdjustmentContextId',
         'adjustmentReferenceId' => 'setAdjustmentReferenceId',
         'adjustmentEffectiveFrom' => 'setAdjustmentEffectiveFrom',
         'adjustmentEffectiveUntil' => 'setAdjustmentEffectiveUntil'
@@ -127,6 +131,7 @@ class PriceDetail implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'price' => 'getPrice',
+        'adjustmentContextId' => 'getAdjustmentContextId',
         'adjustmentReferenceId' => 'getAdjustmentReferenceId',
         'adjustmentEffectiveFrom' => 'getAdjustmentEffectiveFrom',
         'adjustmentEffectiveUntil' => 'getAdjustmentEffectiveUntil'
@@ -193,6 +198,7 @@ class PriceDetail implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['adjustmentContextId'] = isset($data['adjustmentContextId']) ? $data['adjustmentContextId'] : null;
         $this->container['adjustmentReferenceId'] = isset($data['adjustmentReferenceId']) ? $data['adjustmentReferenceId'] : null;
         $this->container['adjustmentEffectiveFrom'] = isset($data['adjustmentEffectiveFrom']) ? $data['adjustmentEffectiveFrom'] : null;
         $this->container['adjustmentEffectiveUntil'] = isset($data['adjustmentEffectiveUntil']) ? $data['adjustmentEffectiveUntil'] : null;
@@ -242,6 +248,30 @@ class PriceDetail implements ModelInterface, ArrayAccess
     public function setPrice($price)
     {
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets adjustmentContextId
+     *
+     * @return string|null
+     */
+    public function getAdjustmentContextId()
+    {
+        return $this->container['adjustmentContextId'];
+    }
+
+    /**
+     * Sets adjustmentContextId
+     *
+     * @param string|null $adjustmentContextId The context identifier of the selected price adjustment.
+     *
+     * @return $this
+     */
+    public function setAdjustmentContextId($adjustmentContextId)
+    {
+        $this->container['adjustmentContextId'] = $adjustmentContextId;
 
         return $this;
     }

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **startDate** | [**\DateTime**](\DateTime.md) | The start date for loyalty points. | [optional] 
 **expiryDate** | [**\DateTime**](\DateTime.md) | The expiration date for loyalty points. | [optional] 
 **sessionIntegrationID** | **string** | The integration ID of the session through which the points were earned or lost. | 
+**notificationType** | **string** | The type of notification. | 
 **cardIdentifier** | **string** | Loyalty card identification number. | 
 **usersPerCardLimit** | **int** | The max amount of user profiles with whom a card can be shared. This can be set to &#x60;0&#x60; for no limit. | 
 

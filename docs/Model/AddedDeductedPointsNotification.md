@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **startDate** | [**\DateTime**](\DateTime.md) | The start date for loyalty points. | [optional] 
 **expiryDate** | [**\DateTime**](\DateTime.md) | The expiration date for loyalty points. | [optional] 
 **sessionIntegrationID** | **string** | The integration ID of the session through which the points were earned or lost. | 
+**notificationType** | **string** | The type of notification. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

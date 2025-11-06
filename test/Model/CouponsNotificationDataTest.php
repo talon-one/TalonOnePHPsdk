@@ -112,4 +112,11 @@ class CouponsNotificationDataTest extends TestCase
     public function testPropertyTotalResultSize()
     {
     }
+
+    /**
+     * Test attribute "notificationType"
+     */
+    public function testPropertyNotificationType()
+    {
+    }
 }

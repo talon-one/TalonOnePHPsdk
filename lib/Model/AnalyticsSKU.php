@@ -60,6 +60,8 @@ class AnalyticsSKU implements ModelInterface, ArrayAccess
         'id' => 'int',
         'sku' => 'string',
         'lastUpdated' => '\DateTime',
+        'catalogId' => 'int',
+        'productId' => 'int',
         'unitsSold' => '\TalonOne\Client\Model\AnalyticsDataPointWithTrend'
     ];
 
@@ -72,6 +74,8 @@ class AnalyticsSKU implements ModelInterface, ArrayAccess
         'id' => 'int64',
         'sku' => null,
         'lastUpdated' => 'date-time',
+        'catalogId' => 'int64',
+        'productId' => 'int64',
         'unitsSold' => null
     ];
 
@@ -105,6 +109,8 @@ class AnalyticsSKU implements ModelInterface, ArrayAccess
         'id' => 'id',
         'sku' => 'sku',
         'lastUpdated' => 'lastUpdated',
+        'catalogId' => 'catalogId',
+        'productId' => 'productId',
         'unitsSold' => 'unitsSold'
     ];
 
@@ -117,6 +123,8 @@ class AnalyticsSKU implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'sku' => 'setSku',
         'lastUpdated' => 'setLastUpdated',
+        'catalogId' => 'setCatalogId',
+        'productId' => 'setProductId',
         'unitsSold' => 'setUnitsSold'
     ];
 
@@ -129,6 +137,8 @@ class AnalyticsSKU implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'sku' => 'getSku',
         'lastUpdated' => 'getLastUpdated',
+        'catalogId' => 'getCatalogId',
+        'productId' => 'getProductId',
         'unitsSold' => 'getUnitsSold'
     ];
 
@@ -195,6 +205,8 @@ class AnalyticsSKU implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
         $this->container['lastUpdated'] = isset($data['lastUpdated']) ? $data['lastUpdated'] : null;
+        $this->container['catalogId'] = isset($data['catalogId']) ? $data['catalogId'] : null;
+        $this->container['productId'] = isset($data['productId']) ? $data['productId'] : null;
         $this->container['unitsSold'] = isset($data['unitsSold']) ? $data['unitsSold'] : null;
     }
 
@@ -241,7 +253,7 @@ class AnalyticsSKU implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id The ID of the SKU linked to the application.
+     * @param int $id The ID of the SKU linked to the Application.
      *
      * @return $this
      */
@@ -265,7 +277,7 @@ class AnalyticsSKU implements ModelInterface, ArrayAccess
     /**
      * Sets sku
      *
-     * @param string $sku The SKU linked to the application.
+     * @param string $sku The SKU linked to the Application.
      *
      * @return $this
      */
@@ -296,6 +308,54 @@ class AnalyticsSKU implements ModelInterface, ArrayAccess
     public function setLastUpdated($lastUpdated)
     {
         $this->container['lastUpdated'] = $lastUpdated;
+
+        return $this;
+    }
+
+    /**
+     * Gets catalogId
+     *
+     * @return int|null
+     */
+    public function getCatalogId()
+    {
+        return $this->container['catalogId'];
+    }
+
+    /**
+     * Sets catalogId
+     *
+     * @param int|null $catalogId The ID of the catalog that contains the SKU.
+     *
+     * @return $this
+     */
+    public function setCatalogId($catalogId)
+    {
+        $this->container['catalogId'] = $catalogId;
+
+        return $this;
+    }
+
+    /**
+     * Gets productId
+     *
+     * @return int|null
+     */
+    public function getProductId()
+    {
+        return $this->container['productId'];
+    }
+
+    /**
+     * Sets productId
+     *
+     * @param int|null $productId The ID of the product that the SKU belongs to.
+     *
+     * @return $this
+     */
+    public function setProductId($productId)
+    {
+        $this->container['productId'] = $productId;
 
         return $this;
     }

@@ -119,4 +119,11 @@ class CreateCouponDataTest extends TestCase
     public function testPropertyEmployeeName()
     {
     }
+
+    /**
+     * Test attribute "notificationType"
+     */
+    public function testPropertyNotificationType()
+    {
+    }
 }

@@ -64,7 +64,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         'currentBatch' => 'int',
         'totalBatches' => 'int',
         'trigger' => '\TalonOne\Client\Model\StrikethroughTrigger',
-        'changedItems' => '\TalonOne\Client\Model\StrikethroughChangedItem[]'
+        'changedItems' => '\TalonOne\Client\Model\StrikethroughChangedItem[]',
+        'notificationType' => 'string'
     ];
 
     /**
@@ -79,7 +80,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         'currentBatch' => 'int64',
         'totalBatches' => 'int64',
         'trigger' => null,
-        'changedItems' => null
+        'changedItems' => null,
+        'notificationType' => null
     ];
 
     /**
@@ -115,7 +117,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         'currentBatch' => 'currentBatch',
         'totalBatches' => 'totalBatches',
         'trigger' => 'trigger',
-        'changedItems' => 'changedItems'
+        'changedItems' => 'changedItems',
+        'notificationType' => 'NotificationType'
     ];
 
     /**
@@ -130,7 +133,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         'currentBatch' => 'setCurrentBatch',
         'totalBatches' => 'setTotalBatches',
         'trigger' => 'setTrigger',
-        'changedItems' => 'setChangedItems'
+        'changedItems' => 'setChangedItems',
+        'notificationType' => 'setNotificationType'
     ];
 
     /**
@@ -145,7 +149,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         'currentBatch' => 'getCurrentBatch',
         'totalBatches' => 'getTotalBatches',
         'trigger' => 'getTrigger',
-        'changedItems' => 'getChangedItems'
+        'changedItems' => 'getChangedItems',
+        'notificationType' => 'getNotificationType'
     ];
 
     /**
@@ -228,6 +233,7 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         $this->container['totalBatches'] = isset($data['totalBatches']) ? $data['totalBatches'] : null;
         $this->container['trigger'] = isset($data['trigger']) ? $data['trigger'] : null;
         $this->container['changedItems'] = isset($data['changedItems']) ? $data['changedItems'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
     }
 
     /**
@@ -261,6 +267,9 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         }
         if ($this->container['changedItems'] === null) {
             $invalidProperties[] = "'changedItems' can't be null";
+        }
+        if ($this->container['notificationType'] === null) {
+            $invalidProperties[] = "'notificationType' can't be null";
         }
         return $invalidProperties;
     }
@@ -450,6 +459,30 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
     public function setChangedItems($changedItems)
     {
         $this->container['changedItems'] = $changedItems;
+
+        return $this;
+    }
+
+    /**
+     * Gets notificationType
+     *
+     * @return string
+     */
+    public function getNotificationType()
+    {
+        return $this->container['notificationType'];
+    }
+
+    /**
+     * Sets notificationType
+     *
+     * @param string $notificationType The type of the notification
+     *
+     * @return $this
+     */
+    public function setNotificationType($notificationType)
+    {
+        $this->container['notificationType'] = $notificationType;
 
         return $this;
     }

@@ -126,4 +126,11 @@ class StrikethroughLabelingNotificationTest extends TestCase
     public function testPropertyChangedItems()
     {
     }
+
+    /**
+     * Test attribute "notificationType"
+     */
+    public function testPropertyNotificationType()
+    {
+    }
 }

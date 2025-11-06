@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **applicationID** | **int** |  | 
 **campaignID** | **int** |  | 
 **totalResultSize** | **int** |  | 
+**notificationType** | **string** | The type of the notification | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

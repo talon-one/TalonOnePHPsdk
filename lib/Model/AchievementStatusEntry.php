@@ -69,6 +69,7 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
         'activationPolicy' => 'string',
         'fixedStartDate' => '\DateTime',
         'endDate' => '\DateTime',
+        'allowRollbackAfterCompletion' => 'bool',
         'campaignId' => 'int',
         'status' => 'string',
         'currentProgress' => '\TalonOne\Client\Model\AchievementProgress'
@@ -92,6 +93,7 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
         'activationPolicy' => null,
         'fixedStartDate' => 'date-time',
         'endDate' => 'date-time',
+        'allowRollbackAfterCompletion' => null,
         'campaignId' => 'int64',
         'status' => null,
         'currentProgress' => null
@@ -136,6 +138,7 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
         'activationPolicy' => 'activationPolicy',
         'fixedStartDate' => 'fixedStartDate',
         'endDate' => 'endDate',
+        'allowRollbackAfterCompletion' => 'allowRollbackAfterCompletion',
         'campaignId' => 'campaignId',
         'status' => 'status',
         'currentProgress' => 'currentProgress'
@@ -159,6 +162,7 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
         'activationPolicy' => 'setActivationPolicy',
         'fixedStartDate' => 'setFixedStartDate',
         'endDate' => 'setEndDate',
+        'allowRollbackAfterCompletion' => 'setAllowRollbackAfterCompletion',
         'campaignId' => 'setCampaignId',
         'status' => 'setStatus',
         'currentProgress' => 'setCurrentProgress'
@@ -182,6 +186,7 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
         'activationPolicy' => 'getActivationPolicy',
         'fixedStartDate' => 'getFixedStartDate',
         'endDate' => 'getEndDate',
+        'allowRollbackAfterCompletion' => 'getAllowRollbackAfterCompletion',
         'campaignId' => 'getCampaignId',
         'status' => 'getStatus',
         'currentProgress' => 'getCurrentProgress'
@@ -306,6 +311,7 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
         $this->container['activationPolicy'] = isset($data['activationPolicy']) ? $data['activationPolicy'] : null;
         $this->container['fixedStartDate'] = isset($data['fixedStartDate']) ? $data['fixedStartDate'] : null;
         $this->container['endDate'] = isset($data['endDate']) ? $data['endDate'] : null;
+        $this->container['allowRollbackAfterCompletion'] = isset($data['allowRollbackAfterCompletion']) ? $data['allowRollbackAfterCompletion'] : null;
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['currentProgress'] = isset($data['currentProgress']) ? $data['currentProgress'] : null;
@@ -701,6 +707,30 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
     public function setEndDate($endDate)
     {
         $this->container['endDate'] = $endDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets allowRollbackAfterCompletion
+     *
+     * @return bool|null
+     */
+    public function getAllowRollbackAfterCompletion()
+    {
+        return $this->container['allowRollbackAfterCompletion'];
+    }
+
+    /**
+     * Sets allowRollbackAfterCompletion
+     *
+     * @param bool|null $allowRollbackAfterCompletion When `true`, customer progress can be rolled back in completed achievements.
+     *
+     * @return $this
+     */
+    public function setAllowRollbackAfterCompletion($allowRollbackAfterCompletion)
+    {
+        $this->container['allowRollbackAfterCompletion'] = $allowRollbackAfterCompletion;
 
         return $this;
     }

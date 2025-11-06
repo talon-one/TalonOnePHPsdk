@@ -274,7 +274,7 @@ class NewPriceType implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title The title of the price type.
+     * @param string $title The name displayed in the Campaign Manager for the price type.
      *
      * @return $this
      */
@@ -298,7 +298,7 @@ class NewPriceType implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description The description of the price type.
+     * @param string|null $description A description of the price type.
      *
      * @return $this
      */
@@ -322,7 +322,7 @@ class NewPriceType implements ModelInterface, ArrayAccess
     /**
      * Sets targetedAudiencesIds
      *
-     * @param int[]|null $targetedAudiencesIds A list of the IDs of the audiences that are targeted by this price type.
+     * @param int[]|null $targetedAudiencesIds A list of the IDs of the audiences targeted by this price type.
      *
      * @return $this
      */

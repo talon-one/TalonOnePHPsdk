@@ -98,4 +98,11 @@ class RoleV2RolesGroupTest extends TestCase
     public function testPropertyCampaignAccessGroups()
     {
     }
+
+    /**
+     * Test attribute "account"
+     */
+    public function testPropertyAccount()
+    {
+    }
 }

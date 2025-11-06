@@ -172,6 +172,7 @@ All URLs are relative to `https://yourbaseurl.talon.one`.
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*IntegrationApi* | [**bestPriorPrice**](docs/Api/IntegrationApi.md#bestpriorprice) | **POST** /v1/best_prior_price | Fetch best prior price
 *IntegrationApi* | [**createAudienceV2**](docs/Api/IntegrationApi.md#createaudiencev2) | **POST** /v2/audiences | Create audience
 *IntegrationApi* | [**createCouponReservation**](docs/Api/IntegrationApi.md#createcouponreservation) | **POST** /v1/coupon_reservations/{couponValue} | Create coupon reservation
 *IntegrationApi* | [**createReferral**](docs/Api/IntegrationApi.md#createreferral) | **POST** /v1/referrals | Create referral code for an advocate
@@ -455,6 +456,10 @@ Class | Method | HTTP request | Description
 - [BaseNotificationWebhook](docs/Model/BaseNotificationWebhook.md)
 - [BaseNotifications](docs/Model/BaseNotifications.md)
 - [BaseSamlConnection](docs/Model/BaseSamlConnection.md)
+- [BestPriorPrice](docs/Model/BestPriorPrice.md)
+- [BestPriorPriceMetadata](docs/Model/BestPriorPriceMetadata.md)
+- [BestPriorPriceRequest](docs/Model/BestPriorPriceRequest.md)
+- [BestPriorPriceRequestTarget](docs/Model/BestPriorPriceRequestTarget.md)
 - [Binding](docs/Model/Binding.md)
 - [BulkApplicationNotification](docs/Model/BulkApplicationNotification.md)
 - [BulkOperationOnCampaigns](docs/Model/BulkOperationOnCampaigns.md)
@@ -595,12 +600,16 @@ Class | Method | HTTP request | Description
 - [FeaturesFeed](docs/Model/FeaturesFeed.md)
 - [FuncArgDef](docs/Model/FuncArgDef.md)
 - [FunctionDef](docs/Model/FunctionDef.md)
+- [GenerateAuditLogSummary](docs/Model/GenerateAuditLogSummary.md)
 - [GenerateCampaignDescription](docs/Model/GenerateCampaignDescription.md)
 - [GenerateCampaignTags](docs/Model/GenerateCampaignTags.md)
+- [GenerateCouponFailureDetailedSummary](docs/Model/GenerateCouponFailureDetailedSummary.md)
+- [GenerateCouponFailureSummary](docs/Model/GenerateCouponFailureSummary.md)
 - [GenerateItemFilterDescription](docs/Model/GenerateItemFilterDescription.md)
 - [GenerateLoyaltyCard](docs/Model/GenerateLoyaltyCard.md)
 - [GenerateRuleTitle](docs/Model/GenerateRuleTitle.md)
 - [GenerateRuleTitleRule](docs/Model/GenerateRuleTitleRule.md)
+- [GenerateUserSessionSummary](docs/Model/GenerateUserSessionSummary.md)
 - [GetIntegrationCouponRequest](docs/Model/GetIntegrationCouponRequest.md)
 - [Giveaway](docs/Model/Giveaway.md)
 - [GiveawaysPool](docs/Model/GiveawaysPool.md)
@@ -675,6 +684,7 @@ Class | Method | HTTP request | Description
 - [InventoryCoupon](docs/Model/InventoryCoupon.md)
 - [InventoryReferral](docs/Model/InventoryReferral.md)
 - [ItemAttribute](docs/Model/ItemAttribute.md)
+- [JWT](docs/Model/JWT.md)
 - [LabelTargetAudience](docs/Model/LabelTargetAudience.md)
 - [LabelTargetNone](docs/Model/LabelTargetNone.md)
 - [LedgerEntry](docs/Model/LedgerEntry.md)
@@ -702,6 +712,7 @@ Class | Method | HTTP request | Description
 - [LoyaltyDashboardPointsBreakdown](docs/Model/LoyaltyDashboardPointsBreakdown.md)
 - [LoyaltyLedger](docs/Model/LoyaltyLedger.md)
 - [LoyaltyLedgerEntry](docs/Model/LoyaltyLedgerEntry.md)
+- [LoyaltyLedgerEntryExpiryDateChange](docs/Model/LoyaltyLedgerEntryExpiryDateChange.md)
 - [LoyaltyLedgerEntryFlags](docs/Model/LoyaltyLedgerEntryFlags.md)
 - [LoyaltyLedgerTransactions](docs/Model/LoyaltyLedgerTransactions.md)
 - [LoyaltyMembership](docs/Model/LoyaltyMembership.md)
@@ -818,6 +829,8 @@ Class | Method | HTTP request | Description
 - [Picklist](docs/Model/Picklist.md)
 - [PriceDetail](docs/Model/PriceDetail.md)
 - [PriceType](docs/Model/PriceType.md)
+- [PriceTypeReferenceDetail](docs/Model/PriceTypeReferenceDetail.md)
+- [PriceTypeReferences](docs/Model/PriceTypeReferences.md)
 - [Product](docs/Model/Product.md)
 - [ProductSearchMatch](docs/Model/ProductSearchMatch.md)
 - [ProductUnitAnalytics](docs/Model/ProductUnitAnalytics.md)
@@ -893,6 +906,7 @@ Class | Method | HTTP request | Description
 - [SetDiscountPerAdditionalCostEffectProps](docs/Model/SetDiscountPerAdditionalCostEffectProps.md)
 - [SetDiscountPerAdditionalCostPerItemEffectProps](docs/Model/SetDiscountPerAdditionalCostPerItemEffectProps.md)
 - [SetDiscountPerItemEffectProps](docs/Model/SetDiscountPerItemEffectProps.md)
+- [SetLoyaltyPointsExpiryDateEffectProps](docs/Model/SetLoyaltyPointsExpiryDateEffectProps.md)
 - [ShowBundleMetadataEffectProps](docs/Model/ShowBundleMetadataEffectProps.md)
 - [ShowNotificationEffectProps](docs/Model/ShowNotificationEffectProps.md)
 - [SkuUnitAnalytics](docs/Model/SkuUnitAnalytics.md)
@@ -949,6 +963,7 @@ Class | Method | HTTP request | Description
 - [UpdateLoyaltyProgram](docs/Model/UpdateLoyaltyProgram.md)
 - [UpdateLoyaltyProgramTier](docs/Model/UpdateLoyaltyProgramTier.md)
 - [UpdatePicklist](docs/Model/UpdatePicklist.md)
+- [UpdatePriceType](docs/Model/UpdatePriceType.md)
 - [UpdateReferral](docs/Model/UpdateReferral.md)
 - [UpdateReferralBatch](docs/Model/UpdateReferralBatch.md)
 - [UpdateRole](docs/Model/UpdateRole.md)

@@ -105,4 +105,11 @@ class AsyncCouponsDataTest extends TestCase
     public function testPropertyEmployeeName()
     {
     }
+
+    /**
+     * Test attribute "notificationType"
+     */
+    public function testPropertyNotificationType()
+    {
+    }
 }

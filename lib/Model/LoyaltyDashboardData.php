@@ -63,6 +63,7 @@ class LoyaltyDashboardData implements ModelInterface, ArrayAccess
         'totalPendingPoints' => 'float',
         'totalSpentPoints' => 'float',
         'totalExpiredPoints' => 'float',
+        'totalNegativePoints' => 'float',
         'totalMembers' => 'float',
         'newMembers' => 'float',
         'spentPoints' => '\TalonOne\Client\Model\LoyaltyDashboardPointsBreakdown',
@@ -80,6 +81,7 @@ class LoyaltyDashboardData implements ModelInterface, ArrayAccess
         'totalPendingPoints' => null,
         'totalSpentPoints' => null,
         'totalExpiredPoints' => null,
+        'totalNegativePoints' => null,
         'totalMembers' => null,
         'newMembers' => null,
         'spentPoints' => null,
@@ -118,6 +120,7 @@ class LoyaltyDashboardData implements ModelInterface, ArrayAccess
         'totalPendingPoints' => 'totalPendingPoints',
         'totalSpentPoints' => 'totalSpentPoints',
         'totalExpiredPoints' => 'totalExpiredPoints',
+        'totalNegativePoints' => 'totalNegativePoints',
         'totalMembers' => 'totalMembers',
         'newMembers' => 'newMembers',
         'spentPoints' => 'spentPoints',
@@ -135,6 +138,7 @@ class LoyaltyDashboardData implements ModelInterface, ArrayAccess
         'totalPendingPoints' => 'setTotalPendingPoints',
         'totalSpentPoints' => 'setTotalSpentPoints',
         'totalExpiredPoints' => 'setTotalExpiredPoints',
+        'totalNegativePoints' => 'setTotalNegativePoints',
         'totalMembers' => 'setTotalMembers',
         'newMembers' => 'setNewMembers',
         'spentPoints' => 'setSpentPoints',
@@ -152,6 +156,7 @@ class LoyaltyDashboardData implements ModelInterface, ArrayAccess
         'totalPendingPoints' => 'getTotalPendingPoints',
         'totalSpentPoints' => 'getTotalSpentPoints',
         'totalExpiredPoints' => 'getTotalExpiredPoints',
+        'totalNegativePoints' => 'getTotalNegativePoints',
         'totalMembers' => 'getTotalMembers',
         'newMembers' => 'getNewMembers',
         'spentPoints' => 'getSpentPoints',
@@ -223,6 +228,7 @@ class LoyaltyDashboardData implements ModelInterface, ArrayAccess
         $this->container['totalPendingPoints'] = isset($data['totalPendingPoints']) ? $data['totalPendingPoints'] : null;
         $this->container['totalSpentPoints'] = isset($data['totalSpentPoints']) ? $data['totalSpentPoints'] : null;
         $this->container['totalExpiredPoints'] = isset($data['totalExpiredPoints']) ? $data['totalExpiredPoints'] : null;
+        $this->container['totalNegativePoints'] = isset($data['totalNegativePoints']) ? $data['totalNegativePoints'] : null;
         $this->container['totalMembers'] = isset($data['totalMembers']) ? $data['totalMembers'] : null;
         $this->container['newMembers'] = isset($data['newMembers']) ? $data['newMembers'] : null;
         $this->container['spentPoints'] = isset($data['spentPoints']) ? $data['spentPoints'] : null;
@@ -252,6 +258,9 @@ class LoyaltyDashboardData implements ModelInterface, ArrayAccess
         }
         if ($this->container['totalExpiredPoints'] === null) {
             $invalidProperties[] = "'totalExpiredPoints' can't be null";
+        }
+        if ($this->container['totalNegativePoints'] === null) {
+            $invalidProperties[] = "'totalNegativePoints' can't be null";
         }
         if ($this->container['totalMembers'] === null) {
             $invalidProperties[] = "'totalMembers' can't be null";
@@ -396,6 +405,30 @@ class LoyaltyDashboardData implements ModelInterface, ArrayAccess
     public function setTotalExpiredPoints($totalExpiredPoints)
     {
         $this->container['totalExpiredPoints'] = $totalExpiredPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalNegativePoints
+     *
+     * @return float
+     */
+    public function getTotalNegativePoints()
+    {
+        return $this->container['totalNegativePoints'];
+    }
+
+    /**
+     * Sets totalNegativePoints
+     *
+     * @param float $totalNegativePoints Total of negative points for this loyalty program.
+     *
+     * @return $this
+     */
+    public function setTotalNegativePoints($totalNegativePoints)
+    {
+        $this->container['totalNegativePoints'] = $totalNegativePoints;
 
         return $this;
     }

@@ -114,6 +114,13 @@ class LoyaltyDashboardDataTest extends TestCase
     }
 
     /**
+     * Test attribute "totalNegativePoints"
+     */
+    public function testPropertyTotalNegativePoints()
+    {
+    }
+
+    /**
      * Test attribute "totalMembers"
      */
     public function testPropertyTotalMembers()

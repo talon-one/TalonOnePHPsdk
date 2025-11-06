@@ -72,7 +72,8 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         'achievementRecurrencePolicy' => 'string',
         'achievementActivationPolicy' => 'string',
         'achievementFixedStartDate' => '\DateTime',
-        'achievementEndDate' => '\DateTime'
+        'achievementEndDate' => '\DateTime',
+        'achievementAllowRollbackAfterCompletion' => 'bool'
     ];
 
     /**
@@ -95,7 +96,8 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         'achievementRecurrencePolicy' => null,
         'achievementActivationPolicy' => null,
         'achievementFixedStartDate' => 'date-time',
-        'achievementEndDate' => 'date-time'
+        'achievementEndDate' => 'date-time',
+        'achievementAllowRollbackAfterCompletion' => null
     ];
 
     /**
@@ -139,7 +141,8 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         'achievementRecurrencePolicy' => 'achievementRecurrencePolicy',
         'achievementActivationPolicy' => 'achievementActivationPolicy',
         'achievementFixedStartDate' => 'achievementFixedStartDate',
-        'achievementEndDate' => 'achievementEndDate'
+        'achievementEndDate' => 'achievementEndDate',
+        'achievementAllowRollbackAfterCompletion' => 'achievementAllowRollbackAfterCompletion'
     ];
 
     /**
@@ -162,7 +165,8 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         'achievementRecurrencePolicy' => 'setAchievementRecurrencePolicy',
         'achievementActivationPolicy' => 'setAchievementActivationPolicy',
         'achievementFixedStartDate' => 'setAchievementFixedStartDate',
-        'achievementEndDate' => 'setAchievementEndDate'
+        'achievementEndDate' => 'setAchievementEndDate',
+        'achievementAllowRollbackAfterCompletion' => 'setAchievementAllowRollbackAfterCompletion'
     ];
 
     /**
@@ -185,7 +189,8 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         'achievementRecurrencePolicy' => 'getAchievementRecurrencePolicy',
         'achievementActivationPolicy' => 'getAchievementActivationPolicy',
         'achievementFixedStartDate' => 'getAchievementFixedStartDate',
-        'achievementEndDate' => 'getAchievementEndDate'
+        'achievementEndDate' => 'getAchievementEndDate',
+        'achievementAllowRollbackAfterCompletion' => 'getAchievementAllowRollbackAfterCompletion'
     ];
 
     /**
@@ -314,6 +319,7 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         $this->container['achievementActivationPolicy'] = isset($data['achievementActivationPolicy']) ? $data['achievementActivationPolicy'] : null;
         $this->container['achievementFixedStartDate'] = isset($data['achievementFixedStartDate']) ? $data['achievementFixedStartDate'] : null;
         $this->container['achievementEndDate'] = isset($data['achievementEndDate']) ? $data['achievementEndDate'] : null;
+        $this->container['achievementAllowRollbackAfterCompletion'] = isset($data['achievementAllowRollbackAfterCompletion']) ? $data['achievementAllowRollbackAfterCompletion'] : null;
     }
 
     /**
@@ -796,6 +802,30 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
     public function setAchievementEndDate($achievementEndDate)
     {
         $this->container['achievementEndDate'] = $achievementEndDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets achievementAllowRollbackAfterCompletion
+     *
+     * @return bool|null
+     */
+    public function getAchievementAllowRollbackAfterCompletion()
+    {
+        return $this->container['achievementAllowRollbackAfterCompletion'];
+    }
+
+    /**
+     * Sets achievementAllowRollbackAfterCompletion
+     *
+     * @param bool|null $achievementAllowRollbackAfterCompletion When `true`, customer progress can be rolled back in completed achievements.
+     *
+     * @return $this
+     */
+    public function setAchievementAllowRollbackAfterCompletion($achievementAllowRollbackAfterCompletion)
+    {
+        $this->container['achievementAllowRollbackAfterCompletion'] = $achievementAllowRollbackAfterCompletion;
 
         return $this;
     }

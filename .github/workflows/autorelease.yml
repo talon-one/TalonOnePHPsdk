@@ -2,7 +2,7 @@ name: Auto-release on master
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 permissions:
   contents: write
@@ -14,13 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # get full history so we can diff
+          fetch-depth: 0 # get full history so we can diff
 
       - name: Extract version from commit message
         id: get_version
         run: |
           msg='${{ github.event.head_commit.message }}'
-          if [[ "$msg" =~ update-([0-9]+\.[0-9]+\.[0-9]+) ]]; then
+          if [[ "$msg" =~ update[[:space:]]+to[[:space:]]+([0-9]+\.[0-9]+\.[0-9]+) ]]; then
             ver="${BASH_REMATCH[1]}"
             echo "version=v$ver" >> $GITHUB_OUTPUT
           else

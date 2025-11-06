@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **typeOfChange** | **string** |  | 
 **operation** | **string** |  | 
 **employeeName** | **string** |  | 
+**notificationType** | **string** | The type of the notification | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
