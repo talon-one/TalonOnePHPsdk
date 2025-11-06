@@ -58,7 +58,8 @@ class TierUpgradeNotification implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\TierUpgradeData[]'
+        'data' => '\TalonOne\Client\Model\TierUpgradeData[]',
+        'notificationType' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class TierUpgradeNotification implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'totalResultSize' => 'int64',
-        'data' => null
+        'data' => null,
+        'notificationType' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class TierUpgradeNotification implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'totalResultSize' => 'TotalResultSize',
-        'data' => 'Data'
+        'data' => 'Data',
+        'notificationType' => 'NotificationType'
     ];
 
     /**
@@ -109,7 +112,8 @@ class TierUpgradeNotification implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'totalResultSize' => 'setTotalResultSize',
-        'data' => 'setData'
+        'data' => 'setData',
+        'notificationType' => 'setNotificationType'
     ];
 
     /**
@@ -119,7 +123,8 @@ class TierUpgradeNotification implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'totalResultSize' => 'getTotalResultSize',
-        'data' => 'getData'
+        'data' => 'getData',
+        'notificationType' => 'getNotificationType'
     ];
 
     /**
@@ -163,8 +168,21 @@ class TierUpgradeNotification implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const NOTIFICATION_TYPE_TIER_UPGRADE = 'TierUpgrade';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNotificationTypeAllowableValues()
+    {
+        return [
+            self::NOTIFICATION_TYPE_TIER_UPGRADE,
+        ];
+    }
     
 
     /**
@@ -184,6 +202,7 @@ class TierUpgradeNotification implements ModelInterface, ArrayAccess
     {
         $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
     }
 
     /**
@@ -201,6 +220,17 @@ class TierUpgradeNotification implements ModelInterface, ArrayAccess
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
+        if ($this->container['notificationType'] === null) {
+            $invalidProperties[] = "'notificationType' can't be null";
+        }
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!is_null($this->container['notificationType']) && !in_array($this->container['notificationType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'notificationType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -260,6 +290,39 @@ class TierUpgradeNotification implements ModelInterface, ArrayAccess
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets notificationType
+     *
+     * @return string
+     */
+    public function getNotificationType()
+    {
+        return $this->container['notificationType'];
+    }
+
+    /**
+     * Sets notificationType
+     *
+     * @param string $notificationType The type of notification.
+     *
+     * @return $this
+     */
+    public function setNotificationType($notificationType)
+    {
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!in_array($notificationType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'notificationType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['notificationType'] = $notificationType;
 
         return $this;
     }

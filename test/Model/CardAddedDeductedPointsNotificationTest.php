@@ -163,6 +163,13 @@ class CardAddedDeductedPointsNotificationTest extends TestCase
     }
 
     /**
+     * Test attribute "notificationType"
+     */
+    public function testPropertyNotificationType()
+    {
+    }
+
+    /**
      * Test attribute "cardIdentifier"
      */
     public function testPropertyCardIdentifier()

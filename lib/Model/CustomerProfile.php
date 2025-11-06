@@ -477,7 +477,7 @@ class CustomerProfile implements ModelInterface, ArrayAccess
     /**
      * Sets loyaltyMemberships
      *
-     * @param \TalonOne\Client\Model\LoyaltyMembership[]|null $loyaltyMemberships **DEPRECATED** A list of loyalty programs joined by the customer.
+     * @param \TalonOne\Client\Model\LoyaltyMembership[]|null $loyaltyMemberships **DEPRECATED. Always returns `null`.** A list of loyalty programs joined by the customer.
      *
      * @return $this
      */

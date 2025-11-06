@@ -59,7 +59,8 @@ class RoleV2RolesGroup implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'applications' => 'map[string,\TalonOne\Client\Model\RoleV2ApplicationDetails]',
         'loyaltyPrograms' => 'map[string,string]',
-        'campaignAccessGroups' => 'map[string,string]'
+        'campaignAccessGroups' => 'map[string,string]',
+        'account' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class RoleV2RolesGroup implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'applications' => null,
         'loyaltyPrograms' => null,
-        'campaignAccessGroups' => null
+        'campaignAccessGroups' => null,
+        'account' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class RoleV2RolesGroup implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'applications' => 'applications',
         'loyaltyPrograms' => 'loyaltyPrograms',
-        'campaignAccessGroups' => 'campaignAccessGroups'
+        'campaignAccessGroups' => 'campaignAccessGroups',
+        'account' => 'account'
     ];
 
     /**
@@ -113,7 +116,8 @@ class RoleV2RolesGroup implements ModelInterface, ArrayAccess
     protected static $setters = [
         'applications' => 'setApplications',
         'loyaltyPrograms' => 'setLoyaltyPrograms',
-        'campaignAccessGroups' => 'setCampaignAccessGroups'
+        'campaignAccessGroups' => 'setCampaignAccessGroups',
+        'account' => 'setAccount'
     ];
 
     /**
@@ -124,7 +128,8 @@ class RoleV2RolesGroup implements ModelInterface, ArrayAccess
     protected static $getters = [
         'applications' => 'getApplications',
         'loyaltyPrograms' => 'getLoyaltyPrograms',
-        'campaignAccessGroups' => 'getCampaignAccessGroups'
+        'campaignAccessGroups' => 'getCampaignAccessGroups',
+        'account' => 'getAccount'
     ];
 
     /**
@@ -190,6 +195,7 @@ class RoleV2RolesGroup implements ModelInterface, ArrayAccess
         $this->container['applications'] = isset($data['applications']) ? $data['applications'] : null;
         $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
         $this->container['campaignAccessGroups'] = isset($data['campaignAccessGroups']) ? $data['campaignAccessGroups'] : null;
+        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
     }
 
     /**
@@ -284,6 +290,30 @@ class RoleV2RolesGroup implements ModelInterface, ArrayAccess
     public function setCampaignAccessGroups($campaignAccessGroups)
     {
         $this->container['campaignAccessGroups'] = $campaignAccessGroups;
+
+        return $this;
+    }
+
+    /**
+     * Gets account
+     *
+     * @return string|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param string|null $account Name of the account-level permission set
+     *
+     * @return $this
+     */
+    public function setAccount($account)
+    {
+        $this->container['account'] = $account;
 
         return $this;
     }

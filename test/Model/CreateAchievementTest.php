@@ -147,4 +147,11 @@ class CreateAchievementTest extends TestCase
     public function testPropertyEndDate()
     {
     }
+
+    /**
+     * Test attribute "allowRollbackAfterCompletion"
+     */
+    public function testPropertyAllowRollbackAfterCompletion()
+    {
+    }
 }

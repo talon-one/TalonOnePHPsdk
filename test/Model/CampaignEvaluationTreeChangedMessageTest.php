@@ -79,9 +79,9 @@ class CampaignEvaluationTreeChangedMessageTest extends TestCase
     }
 
     /**
-     * Test attribute "data"
+     * Test attribute "notificationType"
      */
-    public function testPropertyData()
+    public function testPropertyNotificationType()
     {
     }
 
@@ -89,6 +89,13 @@ class CampaignEvaluationTreeChangedMessageTest extends TestCase
      * Test attribute "totalResultSize"
      */
     public function testPropertyTotalResultSize()
+    {
+    }
+
+    /**
+     * Test attribute "data"
+     */
+    public function testPropertyData()
     {
     }
 }

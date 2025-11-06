@@ -57,12 +57,12 @@ class NewMessageTest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'queryParams' => 'map[string,string]',
         'headers' => 'map[string,string]',
         'verb' => 'string',
         'url' => 'string',
-        'payload' => 'string'
+        'payload' => 'string',
+        'params' => '\TalonOne\Client\Model\TemplateArgDef[]',
+        'applicationIds' => 'int[]'
     ];
 
     /**
@@ -71,12 +71,12 @@ class NewMessageTest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'queryParams' => null,
         'headers' => null,
         'verb' => null,
         'url' => null,
-        'payload' => null
+        'payload' => null,
+        'params' => null,
+        'applicationIds' => 'int64'
     ];
 
     /**
@@ -106,12 +106,12 @@ class NewMessageTest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'queryParams' => 'queryParams',
         'headers' => 'headers',
         'verb' => 'verb',
         'url' => 'url',
-        'payload' => 'payload'
+        'payload' => 'payload',
+        'params' => 'params',
+        'applicationIds' => 'applicationIds'
     ];
 
     /**
@@ -120,12 +120,12 @@ class NewMessageTest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'queryParams' => 'setQueryParams',
         'headers' => 'setHeaders',
         'verb' => 'setVerb',
         'url' => 'setUrl',
-        'payload' => 'setPayload'
+        'payload' => 'setPayload',
+        'params' => 'setParams',
+        'applicationIds' => 'setApplicationIds'
     ];
 
     /**
@@ -134,12 +134,12 @@ class NewMessageTest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'queryParams' => 'getQueryParams',
         'headers' => 'getHeaders',
         'verb' => 'getVerb',
         'url' => 'getUrl',
-        'payload' => 'getPayload'
+        'payload' => 'getPayload',
+        'params' => 'getParams',
+        'applicationIds' => 'getApplicationIds'
     ];
 
     /**
@@ -183,21 +183,6 @@ class NewMessageTest implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const TYPE_CAMPAIGN = 'campaign';
-    const TYPE_LOYALTY_ADDED_DEDUCTED_POINTS = 'loyalty_added_deducted_points';
-    const TYPE_CARD_ADDED_DEDUCTED_POINTS = 'card_added_deducted_points';
-    const TYPE_LOYALTY_ADDED_DEDUCTED_POINTS_BALANCES = 'loyalty_added_deducted_points_balances';
-    const TYPE_LOYALTY_CARD_ADDED_DEDUCTED_POINTS_BALANCES = 'loyalty_card_added_deducted_points_balances';
-    const TYPE_COUPON = 'coupon';
-    const TYPE_EXPIRING_COUPONS = 'expiring_coupons';
-    const TYPE_EXPIRING_POINTS = 'expiring_points';
-    const TYPE_PENDING_TO_ACTIVE_POINTS = 'pending_to_active_points';
-    const TYPE_STRIKETHROUGH_PRICING = 'strikethrough_pricing';
-    const TYPE_TIER_DOWNGRADE = 'tier_downgrade';
-    const TYPE_TIER_UPGRADE = 'tier_upgrade';
-    const TYPE_TIER_WILL_DOWNGRADE = 'tier_will_downgrade';
-    const TYPE_CARD_EXPIRING_POINTS = 'card_expiring_points';
-    const TYPE_RULE_ENGINE_WEBHOOK = 'rule_engine_webhook';
     const VERB_POST = 'POST';
     const VERB_PUT = 'PUT';
     const VERB_GET = 'GET';
@@ -205,32 +190,6 @@ class NewMessageTest implements ModelInterface, ArrayAccess
     const VERB_PATCH = 'PATCH';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_CAMPAIGN,
-            self::TYPE_LOYALTY_ADDED_DEDUCTED_POINTS,
-            self::TYPE_CARD_ADDED_DEDUCTED_POINTS,
-            self::TYPE_LOYALTY_ADDED_DEDUCTED_POINTS_BALANCES,
-            self::TYPE_LOYALTY_CARD_ADDED_DEDUCTED_POINTS_BALANCES,
-            self::TYPE_COUPON,
-            self::TYPE_EXPIRING_COUPONS,
-            self::TYPE_EXPIRING_POINTS,
-            self::TYPE_PENDING_TO_ACTIVE_POINTS,
-            self::TYPE_STRIKETHROUGH_PRICING,
-            self::TYPE_TIER_DOWNGRADE,
-            self::TYPE_TIER_UPGRADE,
-            self::TYPE_TIER_WILL_DOWNGRADE,
-            self::TYPE_CARD_EXPIRING_POINTS,
-            self::TYPE_RULE_ENGINE_WEBHOOK,
-        ];
-    }
     
     /**
      * Gets allowable values of the enum
@@ -264,12 +223,12 @@ class NewMessageTest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['queryParams'] = isset($data['queryParams']) ? $data['queryParams'] : null;
         $this->container['headers'] = isset($data['headers']) ? $data['headers'] : null;
         $this->container['verb'] = isset($data['verb']) ? $data['verb'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['params'] = isset($data['params']) ? $data['params'] : null;
+        $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
     }
 
     /**
@@ -280,17 +239,6 @@ class NewMessageTest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         if ($this->container['verb'] === null) {
             $invalidProperties[] = "'verb' can't be null";
@@ -320,63 +268,6 @@ class NewMessageTest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type The message type.
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets queryParams
-     *
-     * @return map[string,string]|null
-     */
-    public function getQueryParams()
-    {
-        return $this->container['queryParams'];
-    }
-
-    /**
-     * Sets queryParams
-     *
-     * @param map[string,string]|null $queryParams Array of query parameters.
-     *
-     * @return $this
-     */
-    public function setQueryParams($queryParams)
-    {
-        $this->container['queryParams'] = $queryParams;
-
-        return $this;
-    }
 
     /**
      * Gets headers
@@ -479,6 +370,54 @@ class NewMessageTest implements ModelInterface, ArrayAccess
     public function setPayload($payload)
     {
         $this->container['payload'] = $payload;
+
+        return $this;
+    }
+
+    /**
+     * Gets params
+     *
+     * @return \TalonOne\Client\Model\TemplateArgDef[]|null
+     */
+    public function getParams()
+    {
+        return $this->container['params'];
+    }
+
+    /**
+     * Sets params
+     *
+     * @param \TalonOne\Client\Model\TemplateArgDef[]|null $params Array of template argument definitions.
+     *
+     * @return $this
+     */
+    public function setParams($params)
+    {
+        $this->container['params'] = $params;
+
+        return $this;
+    }
+
+    /**
+     * Gets applicationIds
+     *
+     * @return int[]|null
+     */
+    public function getApplicationIds()
+    {
+        return $this->container['applicationIds'];
+    }
+
+    /**
+     * Sets applicationIds
+     *
+     * @param int[]|null $applicationIds The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in `All Applications`.
+     *
+     * @return $this
+     */
+    public function setApplicationIds($applicationIds)
+    {
+        $this->container['applicationIds'] = $applicationIds;
 
         return $this;
     }

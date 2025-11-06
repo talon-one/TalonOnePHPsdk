@@ -91,4 +91,11 @@ class CatalogsStrikethroughNotificationPolicyTest extends TestCase
     public function testPropertyAheadOfDaysTrigger()
     {
     }
+
+    /**
+     * Test attribute "batchSize"
+     */
+    public function testPropertyBatchSize()
+    {
+    }
 }

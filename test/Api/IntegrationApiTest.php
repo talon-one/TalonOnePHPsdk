@@ -73,6 +73,16 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for bestPriorPrice
+     *
+     * Fetch best prior price.
+     *
+     */
+    public function testBestPriorPrice()
+    {
+    }
+
+    /**
      * Test case for createAudienceV2
      *
      * Create audience.

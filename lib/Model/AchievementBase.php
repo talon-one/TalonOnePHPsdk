@@ -66,7 +66,8 @@ class AchievementBase implements ModelInterface, ArrayAccess
         'recurrencePolicy' => 'string',
         'activationPolicy' => 'string',
         'fixedStartDate' => '\DateTime',
-        'endDate' => '\DateTime'
+        'endDate' => '\DateTime',
+        'allowRollbackAfterCompletion' => 'bool'
     ];
 
     /**
@@ -84,7 +85,8 @@ class AchievementBase implements ModelInterface, ArrayAccess
         'recurrencePolicy' => null,
         'activationPolicy' => null,
         'fixedStartDate' => 'date-time',
-        'endDate' => 'date-time'
+        'endDate' => 'date-time',
+        'allowRollbackAfterCompletion' => null
     ];
 
     /**
@@ -123,7 +125,8 @@ class AchievementBase implements ModelInterface, ArrayAccess
         'recurrencePolicy' => 'recurrencePolicy',
         'activationPolicy' => 'activationPolicy',
         'fixedStartDate' => 'fixedStartDate',
-        'endDate' => 'endDate'
+        'endDate' => 'endDate',
+        'allowRollbackAfterCompletion' => 'allowRollbackAfterCompletion'
     ];
 
     /**
@@ -141,7 +144,8 @@ class AchievementBase implements ModelInterface, ArrayAccess
         'recurrencePolicy' => 'setRecurrencePolicy',
         'activationPolicy' => 'setActivationPolicy',
         'fixedStartDate' => 'setFixedStartDate',
-        'endDate' => 'setEndDate'
+        'endDate' => 'setEndDate',
+        'allowRollbackAfterCompletion' => 'setAllowRollbackAfterCompletion'
     ];
 
     /**
@@ -159,7 +163,8 @@ class AchievementBase implements ModelInterface, ArrayAccess
         'recurrencePolicy' => 'getRecurrencePolicy',
         'activationPolicy' => 'getActivationPolicy',
         'fixedStartDate' => 'getFixedStartDate',
-        'endDate' => 'getEndDate'
+        'endDate' => 'getEndDate',
+        'allowRollbackAfterCompletion' => 'getAllowRollbackAfterCompletion'
     ];
 
     /**
@@ -264,6 +269,7 @@ class AchievementBase implements ModelInterface, ArrayAccess
         $this->container['activationPolicy'] = isset($data['activationPolicy']) ? $data['activationPolicy'] : null;
         $this->container['fixedStartDate'] = isset($data['fixedStartDate']) ? $data['fixedStartDate'] : null;
         $this->container['endDate'] = isset($data['endDate']) ? $data['endDate'] : null;
+        $this->container['allowRollbackAfterCompletion'] = isset($data['allowRollbackAfterCompletion']) ? $data['allowRollbackAfterCompletion'] : null;
     }
 
     /**
@@ -582,6 +588,30 @@ class AchievementBase implements ModelInterface, ArrayAccess
     public function setEndDate($endDate)
     {
         $this->container['endDate'] = $endDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets allowRollbackAfterCompletion
+     *
+     * @return bool|null
+     */
+    public function getAllowRollbackAfterCompletion()
+    {
+        return $this->container['allowRollbackAfterCompletion'];
+    }
+
+    /**
+     * Sets allowRollbackAfterCompletion
+     *
+     * @param bool|null $allowRollbackAfterCompletion When `true`, customer progress can be rolled back in completed achievements.
+     *
+     * @return $this
+     */
+    public function setAllowRollbackAfterCompletion($allowRollbackAfterCompletion)
+    {
+        $this->container['allowRollbackAfterCompletion'] = $allowRollbackAfterCompletion;
 
         return $this;
     }

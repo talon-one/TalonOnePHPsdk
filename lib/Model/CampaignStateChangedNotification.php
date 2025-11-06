@@ -201,6 +201,9 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['notificationType'] === null) {
+            $invalidProperties[] = "'notificationType' can't be null";
+        }
         if ($this->container['totalResultSize'] === null) {
             $invalidProperties[] = "'totalResultSize' can't be null";
         }
@@ -222,7 +225,7 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
     /**
      * Gets notificationType
      *
-     * @return string|null
+     * @return string
      */
     public function getNotificationType()
     {
@@ -232,7 +235,7 @@ class CampaignStateChangedNotification implements ModelInterface, ArrayAccess
     /**
      * Sets notificationType
      *
-     * @param string|null $notificationType The type of the notification
+     * @param string $notificationType The type of the notification
      *
      * @return $this
      */

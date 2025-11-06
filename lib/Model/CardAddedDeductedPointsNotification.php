@@ -69,6 +69,7 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
         'sessionIntegrationID' => 'string',
+        'notificationType' => 'string',
         'cardIdentifier' => 'string',
         'usersPerCardLimit' => 'int'
     ];
@@ -91,6 +92,7 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
         'sessionIntegrationID' => null,
+        'notificationType' => null,
         'cardIdentifier' => null,
         'usersPerCardLimit' => 'int64'
     ];
@@ -134,6 +136,7 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         'startDate' => 'StartDate',
         'expiryDate' => 'ExpiryDate',
         'sessionIntegrationID' => 'SessionIntegrationID',
+        'notificationType' => 'NotificationType',
         'cardIdentifier' => 'CardIdentifier',
         'usersPerCardLimit' => 'UsersPerCardLimit'
     ];
@@ -156,6 +159,7 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
         'sessionIntegrationID' => 'setSessionIntegrationID',
+        'notificationType' => 'setNotificationType',
         'cardIdentifier' => 'setCardIdentifier',
         'usersPerCardLimit' => 'setUsersPerCardLimit'
     ];
@@ -178,6 +182,7 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
         'sessionIntegrationID' => 'getSessionIntegrationID',
+        'notificationType' => 'getNotificationType',
         'cardIdentifier' => 'getCardIdentifier',
         'usersPerCardLimit' => 'getUsersPerCardLimit'
     ];
@@ -228,6 +233,8 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
     const TYPE_OF_CHANGE_MANAGEMENT_API = 'management_api';
     const OPERATION_ADDITION = 'addition';
     const OPERATION_DEDUCTION = 'deduction';
+    const NOTIFICATION_TYPE_LOYALTY_CARD_POINTS_DEDUCTED = 'LoyaltyCardPointsDeducted';
+    const NOTIFICATION_TYPE_LOYALTY_CARD_POINTS_ADDED = 'LoyaltyCardPointsAdded';
     
 
     
@@ -255,6 +262,19 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         return [
             self::OPERATION_ADDITION,
             self::OPERATION_DEDUCTION,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNotificationTypeAllowableValues()
+    {
+        return [
+            self::NOTIFICATION_TYPE_LOYALTY_CARD_POINTS_DEDUCTED,
+            self::NOTIFICATION_TYPE_LOYALTY_CARD_POINTS_ADDED,
         ];
     }
     
@@ -286,6 +306,7 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['sessionIntegrationID'] = isset($data['sessionIntegrationID']) ? $data['sessionIntegrationID'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
         $this->container['cardIdentifier'] = isset($data['cardIdentifier']) ? $data['cardIdentifier'] : null;
         $this->container['usersPerCardLimit'] = isset($data['usersPerCardLimit']) ? $data['usersPerCardLimit'] : null;
     }
@@ -353,6 +374,17 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         if ($this->container['sessionIntegrationID'] === null) {
             $invalidProperties[] = "'sessionIntegrationID' can't be null";
         }
+        if ($this->container['notificationType'] === null) {
+            $invalidProperties[] = "'notificationType' can't be null";
+        }
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!is_null($this->container['notificationType']) && !in_array($this->container['notificationType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'notificationType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['cardIdentifier'] === null) {
             $invalidProperties[] = "'cardIdentifier' can't be null";
         }
@@ -686,6 +718,39 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
     public function setSessionIntegrationID($sessionIntegrationID)
     {
         $this->container['sessionIntegrationID'] = $sessionIntegrationID;
+
+        return $this;
+    }
+
+    /**
+     * Gets notificationType
+     *
+     * @return string
+     */
+    public function getNotificationType()
+    {
+        return $this->container['notificationType'];
+    }
+
+    /**
+     * Sets notificationType
+     *
+     * @param string $notificationType The type of notification.
+     *
+     * @return $this
+     */
+    public function setNotificationType($notificationType)
+    {
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!in_array($notificationType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'notificationType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['notificationType'] = $notificationType;
 
         return $this;
     }

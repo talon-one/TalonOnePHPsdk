@@ -68,7 +68,8 @@ class AddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         'operation' => 'string',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
-        'sessionIntegrationID' => 'string'
+        'sessionIntegrationID' => 'string',
+        'notificationType' => 'string'
     ];
 
     /**
@@ -88,7 +89,8 @@ class AddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         'operation' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'sessionIntegrationID' => null
+        'sessionIntegrationID' => null,
+        'notificationType' => null
     ];
 
     /**
@@ -129,7 +131,8 @@ class AddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         'operation' => 'Operation',
         'startDate' => 'StartDate',
         'expiryDate' => 'ExpiryDate',
-        'sessionIntegrationID' => 'SessionIntegrationID'
+        'sessionIntegrationID' => 'SessionIntegrationID',
+        'notificationType' => 'NotificationType'
     ];
 
     /**
@@ -149,7 +152,8 @@ class AddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         'operation' => 'setOperation',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
-        'sessionIntegrationID' => 'setSessionIntegrationID'
+        'sessionIntegrationID' => 'setSessionIntegrationID',
+        'notificationType' => 'setNotificationType'
     ];
 
     /**
@@ -169,7 +173,8 @@ class AddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         'operation' => 'getOperation',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
-        'sessionIntegrationID' => 'getSessionIntegrationID'
+        'sessionIntegrationID' => 'getSessionIntegrationID',
+        'notificationType' => 'getNotificationType'
     ];
 
     /**
@@ -218,6 +223,8 @@ class AddedDeductedPointsNotification implements ModelInterface, ArrayAccess
     const TYPE_OF_CHANGE_MANAGEMENT_API = 'management_api';
     const OPERATION_ADDITION = 'addition';
     const OPERATION_DEDUCTION = 'deduction';
+    const NOTIFICATION_TYPE_LOYALTY_POINTS_DEDUCTED = 'LoyaltyPointsDeducted';
+    const NOTIFICATION_TYPE_LOYALTY_POINTS_ADDED = 'LoyaltyPointsAdded';
     
 
     
@@ -245,6 +252,19 @@ class AddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         return [
             self::OPERATION_ADDITION,
             self::OPERATION_DEDUCTION,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNotificationTypeAllowableValues()
+    {
+        return [
+            self::NOTIFICATION_TYPE_LOYALTY_POINTS_DEDUCTED,
+            self::NOTIFICATION_TYPE_LOYALTY_POINTS_ADDED,
         ];
     }
     
@@ -276,6 +296,7 @@ class AddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['sessionIntegrationID'] = isset($data['sessionIntegrationID']) ? $data['sessionIntegrationID'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
     }
 
     /**
@@ -341,6 +362,17 @@ class AddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         if ($this->container['sessionIntegrationID'] === null) {
             $invalidProperties[] = "'sessionIntegrationID' can't be null";
         }
+        if ($this->container['notificationType'] === null) {
+            $invalidProperties[] = "'notificationType' can't be null";
+        }
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!is_null($this->container['notificationType']) && !in_array($this->container['notificationType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'notificationType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -668,6 +700,39 @@ class AddedDeductedPointsNotification implements ModelInterface, ArrayAccess
     public function setSessionIntegrationID($sessionIntegrationID)
     {
         $this->container['sessionIntegrationID'] = $sessionIntegrationID;
+
+        return $this;
+    }
+
+    /**
+     * Gets notificationType
+     *
+     * @return string
+     */
+    public function getNotificationType()
+    {
+        return $this->container['notificationType'];
+    }
+
+    /**
+     * Sets notificationType
+     *
+     * @param string $notificationType The type of notification.
+     *
+     * @return $this
+     */
+    public function setNotificationType($notificationType)
+    {
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!in_array($notificationType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'notificationType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['notificationType'] = $notificationType;
 
         return $this;
     }

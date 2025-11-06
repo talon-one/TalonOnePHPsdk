@@ -100,23 +100,9 @@ class ExtendLoyaltyPointsExpiryDateEffectPropsTest extends TestCase
     }
 
     /**
-     * Test attribute "transactionUUIDs"
+     * Test attribute "affectedTransactions"
      */
-    public function testPropertyTransactionUUIDs()
-    {
-    }
-
-    /**
-     * Test attribute "previousExpirationDates"
-     */
-    public function testPropertyPreviousExpirationDates()
-    {
-    }
-
-    /**
-     * Test attribute "newExpirationDates"
-     */
-    public function testPropertyNewExpirationDates()
+    public function testPropertyAffectedTransactions()
     {
     }
 }

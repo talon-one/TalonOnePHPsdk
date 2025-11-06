@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**notificationType** | **string** | The type of the notification | [optional] 
+**notificationType** | **string** | The type of the notification | 
 **totalResultSize** | **int** | The total size of the result set. | 
 **data** | [**\TalonOne\Client\Model\CampaignCollectionEditedNotificationItem[]**](CampaignCollectionEditedNotificationItem.md) | A list of campaign notification data. | [optional] 
 

@@ -60,7 +60,8 @@ class AsyncCouponsData implements ModelInterface, ArrayAccess
         'batchID' => 'string',
         'typeOfChange' => 'string',
         'operation' => 'string',
-        'employeeName' => 'string'
+        'employeeName' => 'string',
+        'notificationType' => 'string'
     ];
 
     /**
@@ -72,7 +73,8 @@ class AsyncCouponsData implements ModelInterface, ArrayAccess
         'batchID' => null,
         'typeOfChange' => null,
         'operation' => null,
-        'employeeName' => null
+        'employeeName' => null,
+        'notificationType' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class AsyncCouponsData implements ModelInterface, ArrayAccess
         'batchID' => 'BatchID',
         'typeOfChange' => 'TypeOfChange',
         'operation' => 'Operation',
-        'employeeName' => 'EmployeeName'
+        'employeeName' => 'EmployeeName',
+        'notificationType' => 'NotificationType'
     ];
 
     /**
@@ -117,7 +120,8 @@ class AsyncCouponsData implements ModelInterface, ArrayAccess
         'batchID' => 'setBatchID',
         'typeOfChange' => 'setTypeOfChange',
         'operation' => 'setOperation',
-        'employeeName' => 'setEmployeeName'
+        'employeeName' => 'setEmployeeName',
+        'notificationType' => 'setNotificationType'
     ];
 
     /**
@@ -129,7 +133,8 @@ class AsyncCouponsData implements ModelInterface, ArrayAccess
         'batchID' => 'getBatchID',
         'typeOfChange' => 'getTypeOfChange',
         'operation' => 'getOperation',
-        'employeeName' => 'getEmployeeName'
+        'employeeName' => 'getEmployeeName',
+        'notificationType' => 'getNotificationType'
     ];
 
     /**
@@ -196,6 +201,7 @@ class AsyncCouponsData implements ModelInterface, ArrayAccess
         $this->container['typeOfChange'] = isset($data['typeOfChange']) ? $data['typeOfChange'] : null;
         $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
         $this->container['employeeName'] = isset($data['employeeName']) ? $data['employeeName'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
     }
 
     /**
@@ -218,6 +224,9 @@ class AsyncCouponsData implements ModelInterface, ArrayAccess
         }
         if ($this->container['employeeName'] === null) {
             $invalidProperties[] = "'employeeName' can't be null";
+        }
+        if ($this->container['notificationType'] === null) {
+            $invalidProperties[] = "'notificationType' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,6 +335,30 @@ class AsyncCouponsData implements ModelInterface, ArrayAccess
     public function setEmployeeName($employeeName)
     {
         $this->container['employeeName'] = $employeeName;
+
+        return $this;
+    }
+
+    /**
+     * Gets notificationType
+     *
+     * @return string
+     */
+    public function getNotificationType()
+    {
+        return $this->container['notificationType'];
+    }
+
+    /**
+     * Sets notificationType
+     *
+     * @param string $notificationType The type of the notification
+     *
+     * @return $this
+     */
+    public function setNotificationType($notificationType)
+    {
+        $this->container['notificationType'] = $notificationType;
 
         return $this;
     }

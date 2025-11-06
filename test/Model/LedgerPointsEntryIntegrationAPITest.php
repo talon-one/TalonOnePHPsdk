@@ -86,6 +86,13 @@ class LedgerPointsEntryIntegrationAPITest extends TestCase
     }
 
     /**
+     * Test attribute "transactionUUID"
+     */
+    public function testPropertyTransactionUUID()
+    {
+    }
+
+    /**
      * Test attribute "created"
      */
     public function testPropertyCreated()

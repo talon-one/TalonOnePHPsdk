@@ -86,6 +86,13 @@ class PriceDetailTest extends TestCase
     }
 
     /**
+     * Test attribute "adjustmentContextId"
+     */
+    public function testPropertyAdjustmentContextId()
+    {
+    }
+
+    /**
      * Test attribute "adjustmentReferenceId"
      */
     public function testPropertyAdjustmentReferenceId()

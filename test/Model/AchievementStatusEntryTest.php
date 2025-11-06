@@ -163,6 +163,13 @@ class AchievementStatusEntryTest extends TestCase
     }
 
     /**
+     * Test attribute "allowRollbackAfterCompletion"
+     */
+    public function testPropertyAllowRollbackAfterCompletion()
+    {
+    }
+
+    /**
      * Test attribute "campaignId"
      */
     public function testPropertyCampaignId()

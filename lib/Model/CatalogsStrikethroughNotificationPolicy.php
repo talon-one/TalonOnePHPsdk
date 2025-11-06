@@ -58,7 +58,8 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'aheadOfDaysTrigger' => 'int'
+        'aheadOfDaysTrigger' => 'int',
+        'batchSize' => 'int'
     ];
 
     /**
@@ -68,7 +69,8 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'aheadOfDaysTrigger' => 'int64'
+        'aheadOfDaysTrigger' => 'int64',
+        'batchSize' => 'int64'
     ];
 
     /**
@@ -99,7 +101,8 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'aheadOfDaysTrigger' => 'aheadOfDaysTrigger'
+        'aheadOfDaysTrigger' => 'aheadOfDaysTrigger',
+        'batchSize' => 'batchSize'
     ];
 
     /**
@@ -109,7 +112,8 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
      */
     protected static $setters = [
         'name' => 'setName',
-        'aheadOfDaysTrigger' => 'setAheadOfDaysTrigger'
+        'aheadOfDaysTrigger' => 'setAheadOfDaysTrigger',
+        'batchSize' => 'setBatchSize'
     ];
 
     /**
@@ -119,7 +123,8 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
      */
     protected static $getters = [
         'name' => 'getName',
-        'aheadOfDaysTrigger' => 'getAheadOfDaysTrigger'
+        'aheadOfDaysTrigger' => 'getAheadOfDaysTrigger',
+        'batchSize' => 'getBatchSize'
     ];
 
     /**
@@ -184,6 +189,7 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['aheadOfDaysTrigger'] = isset($data['aheadOfDaysTrigger']) ? $data['aheadOfDaysTrigger'] : null;
+        $this->container['batchSize'] = isset($data['batchSize']) ? $data['batchSize'] : 1000;
     }
 
     /**
@@ -282,6 +288,30 @@ class CatalogsStrikethroughNotificationPolicy implements ModelInterface, ArrayAc
         }
 
         $this->container['aheadOfDaysTrigger'] = $aheadOfDaysTrigger;
+
+        return $this;
+    }
+
+    /**
+     * Gets batchSize
+     *
+     * @return int|null
+     */
+    public function getBatchSize()
+    {
+        return $this->container['batchSize'];
+    }
+
+    /**
+     * Sets batchSize
+     *
+     * @param int|null $batchSize The required size of each batch of data.
+     *
+     * @return $this
+     */
+    public function setBatchSize($batchSize)
+    {
+        $this->container['batchSize'] = $batchSize;
 
         return $this;
     }

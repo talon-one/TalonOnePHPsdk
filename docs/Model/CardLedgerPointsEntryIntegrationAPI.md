@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | ID of the transaction that adds loyalty points. | 
+**transactionUUID** | **string** | Unique identifier of the transaction in the UUID format. | 
 **created** | [**\DateTime**](\DateTime.md) | Date and time the loyalty card points were added. | 
 **programId** | **int** | ID of the loyalty program. | 
 **customerProfileID** | **string** | Integration ID of the customer profile linked to the card. | [optional] 

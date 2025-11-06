@@ -182,4 +182,11 @@ class AchievementProgressWithDefinitionTest extends TestCase
     public function testPropertyAchievementEndDate()
     {
     }
+
+    /**
+     * Test attribute "achievementAllowRollbackAfterCompletion"
+     */
+    public function testPropertyAchievementAllowRollbackAfterCompletion()
+    {
+    }
 }

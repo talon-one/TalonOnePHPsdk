@@ -57,8 +57,9 @@ class CampaignEvaluationTreeChangedMessage implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\TalonOne\Client\Model\ApplicationNotification[]',
-        'totalResultSize' => 'int'
+        'notificationType' => 'string',
+        'totalResultSize' => 'int',
+        'data' => '\TalonOne\Client\Model\ApplicationNotification[]'
     ];
 
     /**
@@ -67,8 +68,9 @@ class CampaignEvaluationTreeChangedMessage implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'totalResultSize' => 'int64'
+        'notificationType' => null,
+        'totalResultSize' => 'int64',
+        'data' => null
     ];
 
     /**
@@ -98,8 +100,9 @@ class CampaignEvaluationTreeChangedMessage implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'Data',
-        'totalResultSize' => 'TotalResultSize'
+        'notificationType' => 'NotificationType',
+        'totalResultSize' => 'TotalResultSize',
+        'data' => 'Data'
     ];
 
     /**
@@ -108,8 +111,9 @@ class CampaignEvaluationTreeChangedMessage implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'totalResultSize' => 'setTotalResultSize'
+        'notificationType' => 'setNotificationType',
+        'totalResultSize' => 'setTotalResultSize',
+        'data' => 'setData'
     ];
 
     /**
@@ -118,8 +122,9 @@ class CampaignEvaluationTreeChangedMessage implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'totalResultSize' => 'getTotalResultSize'
+        'notificationType' => 'getNotificationType',
+        'totalResultSize' => 'getTotalResultSize',
+        'data' => 'getData'
     ];
 
     /**
@@ -182,8 +187,9 @@ class CampaignEvaluationTreeChangedMessage implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
         $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -195,6 +201,12 @@ class CampaignEvaluationTreeChangedMessage implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
+        if ($this->container['notificationType'] === null) {
+            $invalidProperties[] = "'notificationType' can't be null";
+        }
+        if ($this->container['totalResultSize'] === null) {
+            $invalidProperties[] = "'totalResultSize' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -209,6 +221,54 @@ class CampaignEvaluationTreeChangedMessage implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets notificationType
+     *
+     * @return string
+     */
+    public function getNotificationType()
+    {
+        return $this->container['notificationType'];
+    }
+
+    /**
+     * Sets notificationType
+     *
+     * @param string $notificationType The type of the notification
+     *
+     * @return $this
+     */
+    public function setNotificationType($notificationType)
+    {
+        $this->container['notificationType'] = $notificationType;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalResultSize
+     *
+     * @return int
+     */
+    public function getTotalResultSize()
+    {
+        return $this->container['totalResultSize'];
+    }
+
+    /**
+     * Sets totalResultSize
+     *
+     * @param int $totalResultSize The total size of the result set.
+     *
+     * @return $this
+     */
+    public function setTotalResultSize($totalResultSize)
+    {
+        $this->container['totalResultSize'] = $totalResultSize;
+
+        return $this;
+    }
 
     /**
      * Gets data
@@ -230,30 +290,6 @@ class CampaignEvaluationTreeChangedMessage implements ModelInterface, ArrayAcces
     public function setData($data)
     {
         $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets totalResultSize
-     *
-     * @return int|null
-     */
-    public function getTotalResultSize()
-    {
-        return $this->container['totalResultSize'];
-    }
-
-    /**
-     * Sets totalResultSize
-     *
-     * @param int|null $totalResultSize totalResultSize
-     *
-     * @return $this
-     */
-    public function setTotalResultSize($totalResultSize)
-    {
-        $this->container['totalResultSize'] = $totalResultSize;
 
         return $this;
     }

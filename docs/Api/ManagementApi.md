@@ -195,6 +195,11 @@ Enable a [disabled user](https://docs.talon.one/docs/product/account/account-set
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -235,7 +240,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -261,6 +266,11 @@ Add points to the given loyalty card in the specified card-based loyalty program
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -306,7 +316,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -332,6 +342,11 @@ Add points in the specified loyalty program for the given customer.  To get the 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -377,7 +392,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -403,6 +418,11 @@ Copy the campaign into all specified Applications.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -449,7 +469,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -475,6 +495,11 @@ Create an account-level collection.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -517,7 +542,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -543,6 +568,11 @@ Create a new achievement in a specific campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -589,7 +619,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -615,6 +645,11 @@ Create an [additional cost](https://docs.talon.one/docs/product/account/dev-tool
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -657,7 +692,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -683,6 +718,11 @@ Create a _custom attribute_ in this account. [Custom attributes](https://docs.ta
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -725,7 +765,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -751,6 +791,11 @@ Create a batch of loyalty cards in a specified [card-based loyalty program](http
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -795,7 +840,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -821,6 +866,11 @@ Use the campaign template referenced in the request body to create a new campaig
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -865,7 +915,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -891,6 +941,11 @@ Create a new store budget for a given campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -936,7 +991,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -962,6 +1017,11 @@ Create a campaign-level collection in a given campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1008,7 +1068,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1034,6 +1094,11 @@ Create coupons according to some pattern. Up to 20.000 coupons can be created wi
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1082,7 +1147,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1108,6 +1173,11 @@ Create up to 5,000,000 coupons asynchronously. You should typically use this enp
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1154,7 +1224,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1180,6 +1250,11 @@ This endpoint handles creating a job to delete coupons asynchronously.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1226,7 +1301,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1252,6 +1327,11 @@ Create coupons according to some pattern for up to 1000 recipients.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1300,7 +1380,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1326,6 +1406,11 @@ Resend an email invitation to an existing user.  **Note:** The invitation token 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1368,7 +1453,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1394,6 +1479,11 @@ Create a new user in the account and send an invitation to their email address. 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1436,7 +1526,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1462,6 +1552,11 @@ Send an email with a password recovery link to the email address of an existing 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1504,7 +1599,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1530,6 +1625,11 @@ Create a session to use the Management API endpoints. Use the value of the `toke
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1572,7 +1672,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1598,6 +1698,11 @@ Create a new store in a specific Application.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1642,7 +1747,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1668,6 +1773,11 @@ Disable user by email address
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1709,7 +1819,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1735,6 +1845,11 @@ Deduct points from the given loyalty card in the specified card-based loyalty pr
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1780,7 +1895,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1806,6 +1921,11 @@ Delete a given account-level collection.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1847,7 +1967,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1873,6 +1993,11 @@ Delete the specified achievement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1918,7 +2043,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1944,6 +2069,11 @@ Delete the given campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -1987,7 +2117,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2013,6 +2143,11 @@ Delete the store budgets for a given campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2060,7 +2195,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2086,6 +2221,11 @@ Delete a given campaign-level collection.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2131,7 +2271,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2157,6 +2297,11 @@ Delete the specified coupon.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2202,7 +2347,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2228,6 +2373,11 @@ Deletes all the coupons matching the specified criteria.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2297,7 +2447,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2323,6 +2473,11 @@ Delete the given loyalty card.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2366,7 +2521,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2392,6 +2547,11 @@ Delete the specified referral.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2437,7 +2597,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2463,6 +2623,11 @@ Delete the specified store.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2506,7 +2671,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2532,6 +2697,11 @@ Delete a specific user.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2573,7 +2743,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2599,6 +2769,11 @@ Delete user by email address
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2640,7 +2815,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2666,6 +2841,11 @@ Destroys the session.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2703,7 +2883,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2729,6 +2909,11 @@ Disconnect the stores linked to a specific campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2772,7 +2957,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2798,6 +2983,11 @@ Download a CSV file containing items from a given account-level collection.  **T
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2840,7 +3030,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2866,6 +3056,11 @@ Download a CSV file containing a list of all the customers who have participated
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2912,7 +3107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2938,6 +3133,11 @@ Download a CSV file containing the integration IDs of the members of an audience
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -2980,7 +3180,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3006,6 +3206,11 @@ Download a CSV file containing the store budgets for a given campaign.  **Tip:**
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3054,7 +3259,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3080,6 +3285,11 @@ Download a CSV file containing the stores linked to a specific campaign.  **Tip:
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3124,7 +3334,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3150,6 +3360,11 @@ Download a CSV file containing items from a given campaign-level collection.  **
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3196,7 +3411,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3222,6 +3437,11 @@ Download a CSV file containing the coupons that match the given properties.  **T
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3292,7 +3512,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3318,6 +3538,11 @@ Download a CSV file containing the customer sessions that match the request.  **
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3370,7 +3595,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3396,6 +3621,11 @@ Download a CSV file containing the tier information for customers of the specifi
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3442,7 +3672,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3468,6 +3698,11 @@ Download a CSV file containing the triggered effects that match the given attrib
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3518,7 +3753,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3544,6 +3779,11 @@ Export customer loyalty balance to CSV
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3588,7 +3828,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3614,6 +3854,11 @@ Download a CSV file containing the balance of each customer in the loyalty progr
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3658,7 +3903,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3684,6 +3929,11 @@ Download a CSV file containing the balances of all cards in the loyalty program.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3728,7 +3978,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3754,6 +4004,11 @@ Download a CSV file containing a loyalty card ledger log of the loyalty program.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3804,7 +4059,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3830,6 +4085,11 @@ Download a CSV file containing the loyalty cards from a specified loyalty progra
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3880,7 +4140,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3906,6 +4166,11 @@ Download a CSV file containing a customer's transaction logs in the loyalty prog
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -3956,7 +4221,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3982,6 +4247,11 @@ Download a CSV file containing the giveaway codes of a specific giveaway pool.  
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4028,7 +4298,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4054,6 +4324,11 @@ Download a CSV file containing the referrals that match the given parameters.  *
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4110,7 +4385,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4136,6 +4411,11 @@ Retrieve the list of API calls sent to the specified Application.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4194,7 +4474,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4220,6 +4500,11 @@ Return the details of your companies Talon.One account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4262,7 +4547,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4288,6 +4573,11 @@ Return the analytics of your Talon.One account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4330,7 +4620,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4356,6 +4646,11 @@ Retrieve a given account-level collection.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4398,7 +4693,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4424,6 +4719,11 @@ Get the details of a specific achievement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4470,7 +4770,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4496,6 +4796,11 @@ Returns the additional cost.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4538,7 +4843,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4564,6 +4869,11 @@ Returns all the defined additional costs for the account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4610,7 +4920,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4636,6 +4946,11 @@ Get the application specified by the ID.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4678,7 +4993,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4704,6 +5019,11 @@ Display the health of the Application and show the last time the Application was
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4746,7 +5066,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4772,6 +5092,11 @@ Retrieve the customers of the specified application.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4816,7 +5141,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4842,6 +5167,11 @@ List the friends referred by the specified customer profile in this Application.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4894,7 +5224,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4920,6 +5250,11 @@ List all the customers of the specified application.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -4970,7 +5305,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4996,6 +5331,11 @@ Get a list of the application customers matching the provided criteria.  The mat
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5046,7 +5386,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5072,6 +5412,11 @@ Get all of the distinct values of the Event `type` property for events recorded 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5120,7 +5465,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5134,7 +5479,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20030 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery)
+> \TalonOne\Client\Model\InlineResponse20030 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery, $effectType)
 
 List Applications events
 
@@ -5146,6 +5491,11 @@ Lists all events recorded for an application. Instead of having the total number
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5179,9 +5529,10 @@ $couponCode = 'couponCode_example'; // string | Coupon code
 $referralCode = 'referralCode_example'; // string | Referral code
 $ruleQuery = 'ruleQuery_example'; // string | Rule name filter for events
 $campaignQuery = 'campaignQuery_example'; // string | Campaign name filter for events
+$effectType = 'effectType_example'; // string | The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
 
 try {
-    $result = $apiInstance->getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery);
+    $result = $apiInstance->getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery, $effectType);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationEventsWithoutTotalCount: ', $e->getMessage(), PHP_EOL;
@@ -5209,6 +5560,7 @@ Name | Type | Description  | Notes
  **referralCode** | **string**| Referral code | [optional]
  **ruleQuery** | **string**| Rule name filter for events | [optional]
  **campaignQuery** | **string**| Campaign name filter for events | [optional]
+ **effectType** | **string**| The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). | [optional]
 
 ### Return type
 
@@ -5216,7 +5568,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5242,6 +5594,11 @@ Get the details of the given session. You can list the sessions with the [List A
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5286,7 +5643,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5312,6 +5669,11 @@ List all the sessions of the specified Application.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5376,7 +5738,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5402,6 +5764,11 @@ List all applications in the current account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5448,7 +5815,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5474,6 +5841,11 @@ Retrieve the specified custom attribute.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5516,7 +5888,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5542,6 +5914,11 @@ Return all the custom attributes for the account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5590,7 +5967,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5616,6 +5993,11 @@ Get a paginated list of the customer profiles in a given audience.  A maximum of
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5666,7 +6048,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5692,6 +6074,11 @@ Get all audiences created in the account. To create an audience, use [Create aud
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5740,7 +6127,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5766,6 +6153,11 @@ Get a list of audience IDs and their member count.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5810,7 +6202,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5836,6 +6228,11 @@ Retrieve the given campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5880,7 +6277,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5906,6 +6303,11 @@ Retrieve statistical data about the performance of the given campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -5956,7 +6358,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5982,6 +6384,11 @@ Get a list of all the campaigns that match a set of attributes.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6034,7 +6441,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6060,6 +6467,11 @@ Get a campaign access group specified by its ID.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6102,7 +6514,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6128,6 +6540,11 @@ List the campaign access groups in the current account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6174,7 +6591,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6200,6 +6617,11 @@ Retrieve a list of campaign templates.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6254,7 +6676,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6280,6 +6702,11 @@ List the campaigns of the specified application that match your filter criteria.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6344,7 +6771,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6370,6 +6797,11 @@ Retrieve the audit logs displayed in **Accounts > Audit logs**.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6432,7 +6864,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6458,6 +6890,11 @@ Retrieve a given campaign-level collection.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6504,7 +6941,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6530,6 +6967,11 @@ Retrieve items from a given collection.  You can retrieve items from both accoun
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6576,7 +7018,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6602,6 +7044,11 @@ List all the coupons matching the specified criteria.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6682,7 +7129,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6708,6 +7155,11 @@ Fetch the summary report of a given customer in the given application, in a time
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6760,7 +7212,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6786,6 +7238,11 @@ Fetch summary reports for all application customers based on a time range. Inste
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6846,7 +7303,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6872,6 +7329,11 @@ Fetch analytics for a given customer in the given application.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6922,7 +7384,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6948,6 +7410,11 @@ Return the details of the specified customer profile.  <div class=\"redoc-sectio
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -6990,7 +7457,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7016,6 +7483,11 @@ For the given customer profile, list all the achievements that match your filter
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7068,7 +7540,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7094,6 +7566,11 @@ List all customer profiles.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7140,7 +7617,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7166,6 +7643,11 @@ Get a list of the customer profiles matching the provided criteria.  The match i
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7214,7 +7696,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7240,6 +7722,11 @@ Retrieve the statistics displayed on the specified loyalty program's dashboard, 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7288,7 +7775,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7314,6 +7801,11 @@ Fetch all event type definitions for your account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7364,7 +7856,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7390,6 +7882,11 @@ List all past exports
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7440,7 +7937,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7466,6 +7963,11 @@ Get the given loyalty card.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7510,7 +8012,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7536,6 +8038,11 @@ Retrieve the transaction logs for the given [loyalty card](https://docs.talon.on
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7594,7 +8101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7620,6 +8127,11 @@ For the given card-based loyalty program, list the loyalty cards that match your
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7674,7 +8186,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7700,6 +8212,11 @@ Get the loyalty ledger for this profile integration ID.  To get the `integration
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7744,7 +8261,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7770,6 +8287,11 @@ Get the specified [loyalty program](https://docs.talon.one/docs/product/loyalty-
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7812,7 +8334,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7838,6 +8360,11 @@ Retrieve loyalty program transaction logs in a given loyalty program with filter
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7896,7 +8423,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7922,6 +8449,11 @@ List the loyalty programs of the account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -7960,7 +8492,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7986,6 +8518,11 @@ Get loyalty program statistics
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8028,7 +8565,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8055,6 +8592,11 @@ Retrieve all message log entries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -8076,8 +8618,8 @@ $entityType = 'entityType_example'; // string | The entity type the log is relat
 $messageID = 'messageID_example'; // string | Filter results by message ID.
 $changeType = 'changeType_example'; // string | Filter results by change type.
 $notificationIDs = 'notificationIDs_example'; // string | Filter results by notification ID (include up to 30 values, separated by a comma).
-$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
-$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time.
 $cursor = 'cursor_example'; // string | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.
 $period = 'period_example'; // string | Filter results by time period. Choose between the available relative time frames.
 $isSuccessful = True; // bool | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned.
@@ -8105,8 +8647,8 @@ Name | Type | Description  | Notes
  **messageID** | **string**| Filter results by message ID. | [optional]
  **changeType** | **string**| Filter results by change type. | [optional]
  **notificationIDs** | **string**| Filter results by notification ID (include up to 30 values, separated by a comma). | [optional]
- **createdBefore** | **\DateTime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
- **createdAfter** | **\DateTime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
+ **createdBefore** | **\DateTime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. | [optional]
+ **createdAfter** | **\DateTime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. | [optional]
  **cursor** | **string**| A specific unique value in the database. If this value is not given, the server fetches results starting with the first record. | [optional]
  **period** | **string**| Filter results by time period. Choose between the available relative time frames. | [optional]
  **isSuccessful** | **bool**| Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned. | [optional]
@@ -8122,7 +8664,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8148,6 +8690,11 @@ List all referrals of the specified campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8210,7 +8757,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8236,6 +8783,11 @@ Get the details of a specific role. To see all the roles, use the [List roles](/
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8278,7 +8830,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8304,6 +8856,11 @@ Retrieve the specified ruleset.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8350,7 +8907,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8376,6 +8933,11 @@ List all rulesets of this campaign. A ruleset is a revision of the rules of a ca
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8426,7 +8988,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8452,6 +9014,11 @@ Get store details for a specific store ID.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8496,7 +9063,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8522,6 +9089,11 @@ Retrieve the data (including an invitation code) for a user. Non-admin users can
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8564,7 +9136,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8590,6 +9162,11 @@ Retrieve all users in your account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8636,7 +9213,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8662,6 +9239,11 @@ Returns a webhook by its id.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8704,7 +9286,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8730,6 +9312,11 @@ List all webhooks.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8786,7 +9373,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8812,6 +9399,11 @@ Upload a CSV file containing the collection of string values that should be atta
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8856,7 +9448,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8882,6 +9474,11 @@ Upload a CSV file containing a list of [picklist values](https://docs.talon.one/
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8926,7 +9523,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8952,6 +9549,11 @@ Upload a CSV file containing the integration IDs of the members you want to add 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -8996,7 +9598,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9022,6 +9624,11 @@ Upload a CSV file containing store budgets for a given campaign.  Send the file 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9072,7 +9679,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9098,6 +9705,11 @@ Upload a CSV file containing the stores you want to link to a specific campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9144,7 +9756,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9170,6 +9782,11 @@ Upload a CSV file containing the collection of string values that should be atta
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9218,7 +9835,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9244,6 +9861,11 @@ Upload a CSV file containing the coupons that should be created. The file should
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9292,7 +9914,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9318,6 +9940,11 @@ Upload a CSV file containing the loyalty cards that you want to use in your card
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9362,7 +9989,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9388,6 +10015,11 @@ Upload a CSV file containing existing customers to be assigned to existing tiers
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9432,7 +10064,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9458,6 +10090,11 @@ Upload a CSV file containing the loyalty points you want to import into a given 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9504,7 +10141,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9530,6 +10167,11 @@ Upload a CSV file containing the giveaway codes that should be created. Send the
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9574,7 +10216,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9600,6 +10242,11 @@ Upload a CSV file containing the referrals that should be created. The file shou
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9646,7 +10293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9672,6 +10319,11 @@ Invite user from identity provider
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9713,7 +10365,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9739,6 +10391,11 @@ List account-level collections in the account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9789,7 +10446,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9815,6 +10472,11 @@ List all the achievements for a specific campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9865,7 +10527,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9891,6 +10553,11 @@ List all roles.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -9929,7 +10596,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9955,6 +10622,11 @@ Return the store budget limits for a given campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10003,7 +10675,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10029,6 +10701,11 @@ Return a paginated list of cart items in the given catalog.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10081,7 +10758,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10107,6 +10784,11 @@ List collections in a given campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10161,7 +10843,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10187,6 +10869,11 @@ List campaign-level collections from all campaigns in a given Application.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10239,7 +10926,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10265,6 +10952,11 @@ List all stores for a specific Application.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10323,7 +11015,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10349,6 +11041,11 @@ Validate the ownership of the API through a challenge-response mechanism.  This 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10386,7 +11083,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10412,6 +11109,11 @@ Deduct points from the specified loyalty program and specified customer profile.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10457,7 +11159,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10483,6 +11185,11 @@ Consumes the supplied password reset token and updates the password for the asso
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10525,7 +11232,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10551,6 +11258,11 @@ Create a new Talon.One group using the SCIM Group provisioning protocol with an 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10593,7 +11305,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10619,6 +11331,11 @@ Create a new Talon.One user using the SCIM provisioning protocol with an identit
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10661,7 +11378,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10687,6 +11404,11 @@ Delete a specific group created using the SCIM provisioning protocol with an ide
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10728,7 +11450,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10754,6 +11476,11 @@ Delete a specific Talon.One user created using the SCIM provisioning protocol wi
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10795,7 +11522,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10821,6 +11548,11 @@ Retrieve data for a specific group created using the SCIM provisioning protocol 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10863,7 +11595,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10889,6 +11621,11 @@ Retrieve a paginated list of groups created using the SCIM protocol with an iden
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10927,7 +11664,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10953,6 +11690,11 @@ Retrieve a list of resource types supported by the SCIM provisioning protocol.  
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -10991,7 +11733,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11017,6 +11759,11 @@ Retrieve a list of schemas supported by the SCIM provisioning protocol.  Schemas
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11055,7 +11802,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11081,6 +11828,11 @@ Retrieve the configuration settings of the SCIM service provider. It provides de
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11119,7 +11871,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11145,6 +11897,11 @@ Retrieve data for a specific Talon.One user created using the SCIM provisioning 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11187,7 +11944,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11213,6 +11970,11 @@ Retrieve a paginated list of users that have been provisioned using the SCIM pro
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11251,7 +12013,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11277,6 +12039,11 @@ Update certain attributes of a group created using the SCIM provisioning protoco
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11321,7 +12088,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11347,6 +12114,11 @@ Update certain attributes of a specific Talon.One user created using the SCIM pr
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11391,7 +12163,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11417,6 +12189,11 @@ Update the details of a specific group created using the SCIM provisioning proto
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11461,7 +12238,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11487,6 +12264,11 @@ Update the details of a specific Talon.One user created using the SCIM provision
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11531,7 +12313,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11557,6 +12339,11 @@ List the coupons whose attributes match the query criteria in all the campaigns 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11627,7 +12414,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11653,6 +12440,11 @@ List the coupons whose attributes match the query criteria in the given campaign
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11723,7 +12515,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11749,6 +12541,11 @@ Fetch a summary of all store budget information for a given campaign.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11793,7 +12590,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11819,6 +12616,11 @@ Transfer loyalty card data, such as linked customers, loyalty balances and trans
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11864,7 +12666,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11890,6 +12692,11 @@ Edit the description of a given account-level collection and enable or disable t
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -11934,7 +12741,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11960,6 +12767,11 @@ Update the details of a specific achievement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -12008,7 +12820,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12034,6 +12846,11 @@ Updates an existing additional cost. Once created, the only property of an addit
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -12078,7 +12895,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12104,6 +12921,11 @@ Update an existing custom attribute. Once created, the only property of a custom
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -12148,7 +12970,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12174,6 +12996,11 @@ Update the given campaign.  **Important:** You cannot use this endpoint to updat
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -12220,7 +13047,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12246,6 +13073,11 @@ Edit the description of a given campaign-level collection.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -12294,7 +13126,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12320,6 +13152,11 @@ Update the specified coupon.  <div class=\"redoc-section\">   <p class=\"title\"
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -12368,7 +13205,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12394,6 +13231,11 @@ Update all coupons or a specific batch of coupons in the given campaign. You can
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -12439,7 +13281,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12465,6 +13307,11 @@ Update the status of the given loyalty card. A card can be _active_ or _inactive
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -12511,7 +13358,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12537,6 +13384,11 @@ Update the specified referral.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -12585,7 +13437,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12611,6 +13463,11 @@ Update a specific role.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -12655,7 +13512,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12681,6 +13538,11 @@ Update store details for a specific store ID.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -12727,7 +13589,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12753,6 +13615,11 @@ Update the details of a specific user.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure API key authorization: management_key
 $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
@@ -12797,7 +13664,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
 
 ### HTTP request headers
 

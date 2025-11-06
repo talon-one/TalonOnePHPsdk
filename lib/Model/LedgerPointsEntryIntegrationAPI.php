@@ -59,6 +59,7 @@ class LedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
+        'transactionUUID' => 'string',
         'created' => '\DateTime',
         'programId' => 'int',
         'customerSessionId' => 'string',
@@ -76,6 +77,7 @@ class LedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => 'int64',
+        'transactionUUID' => null,
         'created' => 'date-time',
         'programId' => 'int64',
         'customerSessionId' => null,
@@ -114,6 +116,7 @@ class LedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'transactionUUID' => 'transactionUUID',
         'created' => 'created',
         'programId' => 'programId',
         'customerSessionId' => 'customerSessionId',
@@ -131,6 +134,7 @@ class LedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'transactionUUID' => 'setTransactionUUID',
         'created' => 'setCreated',
         'programId' => 'setProgramId',
         'customerSessionId' => 'setCustomerSessionId',
@@ -148,6 +152,7 @@ class LedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'transactionUUID' => 'getTransactionUUID',
         'created' => 'getCreated',
         'programId' => 'getProgramId',
         'customerSessionId' => 'getCustomerSessionId',
@@ -219,6 +224,7 @@ class LedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['programId'] = isset($data['programId']) ? $data['programId'] : null;
         $this->container['customerSessionId'] = isset($data['customerSessionId']) ? $data['customerSessionId'] : null;
@@ -240,6 +246,9 @@ class LedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
 
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['transactionUUID'] === null) {
+            $invalidProperties[] = "'transactionUUID' can't be null";
         }
         if ($this->container['created'] === null) {
             $invalidProperties[] = "'created' can't be null";
@@ -313,6 +322,30 @@ class LedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transactionUUID
+     *
+     * @return string
+     */
+    public function getTransactionUUID()
+    {
+        return $this->container['transactionUUID'];
+    }
+
+    /**
+     * Sets transactionUUID
+     *
+     * @param string $transactionUUID Unique identifier of the transaction in the UUID format.
+     *
+     * @return $this
+     */
+    public function setTransactionUUID($transactionUUID)
+    {
+        $this->container['transactionUUID'] = $transactionUUID;
 
         return $this;
     }
