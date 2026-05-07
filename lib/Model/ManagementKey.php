@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -65,7 +65,8 @@ class ManagementKey implements ModelInterface, ArrayAccess
         'createdBy' => 'int',
         'accountID' => 'int',
         'created' => '\DateTime',
-        'disabled' => 'bool'
+        'disabled' => 'bool',
+        'lastUsed' => '\DateTime'
     ];
 
     /**
@@ -82,7 +83,8 @@ class ManagementKey implements ModelInterface, ArrayAccess
         'createdBy' => 'int64',
         'accountID' => 'int64',
         'created' => 'date-time',
-        'disabled' => null
+        'disabled' => null,
+        'lastUsed' => 'date-time'
     ];
 
     /**
@@ -120,7 +122,8 @@ class ManagementKey implements ModelInterface, ArrayAccess
         'createdBy' => 'createdBy',
         'accountID' => 'accountID',
         'created' => 'created',
-        'disabled' => 'disabled'
+        'disabled' => 'disabled',
+        'lastUsed' => 'lastUsed'
     ];
 
     /**
@@ -137,7 +140,8 @@ class ManagementKey implements ModelInterface, ArrayAccess
         'createdBy' => 'setCreatedBy',
         'accountID' => 'setAccountID',
         'created' => 'setCreated',
-        'disabled' => 'setDisabled'
+        'disabled' => 'setDisabled',
+        'lastUsed' => 'setLastUsed'
     ];
 
     /**
@@ -154,7 +158,8 @@ class ManagementKey implements ModelInterface, ArrayAccess
         'createdBy' => 'getCreatedBy',
         'accountID' => 'getAccountID',
         'created' => 'getCreated',
-        'disabled' => 'getDisabled'
+        'disabled' => 'getDisabled',
+        'lastUsed' => 'getLastUsed'
     ];
 
     /**
@@ -226,6 +231,7 @@ class ManagementKey implements ModelInterface, ArrayAccess
         $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['disabled'] = isset($data['disabled']) ? $data['disabled'] : null;
+        $this->container['lastUsed'] = isset($data['lastUsed']) ? $data['lastUsed'] : null;
     }
 
     /**
@@ -485,6 +491,30 @@ class ManagementKey implements ModelInterface, ArrayAccess
     public function setDisabled($disabled)
     {
         $this->container['disabled'] = $disabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets lastUsed
+     *
+     * @return \DateTime|null
+     */
+    public function getLastUsed()
+    {
+        return $this->container['lastUsed'];
+    }
+
+    /**
+     * Sets lastUsed
+     *
+     * @param \DateTime|null $lastUsed The last time the management key was used.
+     *
+     * @return $this
+     */
+    public function setLastUsed($lastUsed)
+    {
+        $this->container['lastUsed'] = $lastUsed;
 
         return $this;
     }

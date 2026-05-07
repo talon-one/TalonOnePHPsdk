@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -57,21 +57,22 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profileIntegrationIDs' => 'string[]',
-        'loyaltyProgramID' => 'int',
-        'subledgerID' => 'string',
-        'amount' => 'float',
-        'reason' => 'string',
-        'typeOfChange' => 'string',
-        'employeeName' => 'string',
-        'userID' => 'int',
-        'operation' => 'string',
-        'startDate' => '\DateTime',
-        'expiryDate' => '\DateTime',
-        'sessionIntegrationID' => 'string',
-        'notificationType' => 'string',
         'cardIdentifier' => 'string',
-        'usersPerCardLimit' => 'int'
+        'employeeName' => 'string',
+        'loyaltyProgramID' => 'int',
+        'notificationType' => 'string',
+        'profileIntegrationIDs' => 'string[]',
+        'sessionIntegrationID' => 'string',
+        'subledgerID' => 'string',
+        'typeOfChange' => 'string',
+        'userID' => 'int',
+        'usersPerCardLimit' => 'int',
+        'amount' => 'float',
+        'expiryDate' => '\DateTime',
+        'operation' => 'string',
+        'reason' => 'string',
+        'startDate' => '\DateTime',
+        'transactionUUID' => 'string'
     ];
 
     /**
@@ -80,21 +81,22 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'profileIntegrationIDs' => null,
-        'loyaltyProgramID' => 'int64',
-        'subledgerID' => null,
-        'amount' => null,
-        'reason' => null,
-        'typeOfChange' => null,
-        'employeeName' => null,
-        'userID' => 'int64',
-        'operation' => null,
-        'startDate' => 'date-time',
-        'expiryDate' => 'date-time',
-        'sessionIntegrationID' => null,
-        'notificationType' => null,
         'cardIdentifier' => null,
-        'usersPerCardLimit' => 'int64'
+        'employeeName' => null,
+        'loyaltyProgramID' => 'int64',
+        'notificationType' => null,
+        'profileIntegrationIDs' => null,
+        'sessionIntegrationID' => null,
+        'subledgerID' => null,
+        'typeOfChange' => null,
+        'userID' => 'int64',
+        'usersPerCardLimit' => 'int64',
+        'amount' => null,
+        'expiryDate' => 'date-time',
+        'operation' => null,
+        'reason' => null,
+        'startDate' => 'date-time',
+        'transactionUUID' => 'uuid'
     ];
 
     /**
@@ -124,21 +126,22 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'profileIntegrationIDs' => 'ProfileIntegrationIDs',
-        'loyaltyProgramID' => 'LoyaltyProgramID',
-        'subledgerID' => 'SubledgerID',
-        'amount' => 'Amount',
-        'reason' => 'Reason',
-        'typeOfChange' => 'TypeOfChange',
-        'employeeName' => 'EmployeeName',
-        'userID' => 'UserID',
-        'operation' => 'Operation',
-        'startDate' => 'StartDate',
-        'expiryDate' => 'ExpiryDate',
-        'sessionIntegrationID' => 'SessionIntegrationID',
-        'notificationType' => 'NotificationType',
         'cardIdentifier' => 'CardIdentifier',
-        'usersPerCardLimit' => 'UsersPerCardLimit'
+        'employeeName' => 'EmployeeName',
+        'loyaltyProgramID' => 'LoyaltyProgramID',
+        'notificationType' => 'NotificationType',
+        'profileIntegrationIDs' => 'ProfileIntegrationIDs',
+        'sessionIntegrationID' => 'SessionIntegrationID',
+        'subledgerID' => 'SubledgerID',
+        'typeOfChange' => 'TypeOfChange',
+        'userID' => 'UserID',
+        'usersPerCardLimit' => 'UsersPerCardLimit',
+        'amount' => 'Amount',
+        'expiryDate' => 'ExpiryDate',
+        'operation' => 'Operation',
+        'reason' => 'Reason',
+        'startDate' => 'StartDate',
+        'transactionUUID' => 'TransactionUUID'
     ];
 
     /**
@@ -147,21 +150,22 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'profileIntegrationIDs' => 'setProfileIntegrationIDs',
-        'loyaltyProgramID' => 'setLoyaltyProgramID',
-        'subledgerID' => 'setSubledgerID',
-        'amount' => 'setAmount',
-        'reason' => 'setReason',
-        'typeOfChange' => 'setTypeOfChange',
-        'employeeName' => 'setEmployeeName',
-        'userID' => 'setUserID',
-        'operation' => 'setOperation',
-        'startDate' => 'setStartDate',
-        'expiryDate' => 'setExpiryDate',
-        'sessionIntegrationID' => 'setSessionIntegrationID',
-        'notificationType' => 'setNotificationType',
         'cardIdentifier' => 'setCardIdentifier',
-        'usersPerCardLimit' => 'setUsersPerCardLimit'
+        'employeeName' => 'setEmployeeName',
+        'loyaltyProgramID' => 'setLoyaltyProgramID',
+        'notificationType' => 'setNotificationType',
+        'profileIntegrationIDs' => 'setProfileIntegrationIDs',
+        'sessionIntegrationID' => 'setSessionIntegrationID',
+        'subledgerID' => 'setSubledgerID',
+        'typeOfChange' => 'setTypeOfChange',
+        'userID' => 'setUserID',
+        'usersPerCardLimit' => 'setUsersPerCardLimit',
+        'amount' => 'setAmount',
+        'expiryDate' => 'setExpiryDate',
+        'operation' => 'setOperation',
+        'reason' => 'setReason',
+        'startDate' => 'setStartDate',
+        'transactionUUID' => 'setTransactionUUID'
     ];
 
     /**
@@ -170,21 +174,22 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'profileIntegrationIDs' => 'getProfileIntegrationIDs',
-        'loyaltyProgramID' => 'getLoyaltyProgramID',
-        'subledgerID' => 'getSubledgerID',
-        'amount' => 'getAmount',
-        'reason' => 'getReason',
-        'typeOfChange' => 'getTypeOfChange',
-        'employeeName' => 'getEmployeeName',
-        'userID' => 'getUserID',
-        'operation' => 'getOperation',
-        'startDate' => 'getStartDate',
-        'expiryDate' => 'getExpiryDate',
-        'sessionIntegrationID' => 'getSessionIntegrationID',
-        'notificationType' => 'getNotificationType',
         'cardIdentifier' => 'getCardIdentifier',
-        'usersPerCardLimit' => 'getUsersPerCardLimit'
+        'employeeName' => 'getEmployeeName',
+        'loyaltyProgramID' => 'getLoyaltyProgramID',
+        'notificationType' => 'getNotificationType',
+        'profileIntegrationIDs' => 'getProfileIntegrationIDs',
+        'sessionIntegrationID' => 'getSessionIntegrationID',
+        'subledgerID' => 'getSubledgerID',
+        'typeOfChange' => 'getTypeOfChange',
+        'userID' => 'getUserID',
+        'usersPerCardLimit' => 'getUsersPerCardLimit',
+        'amount' => 'getAmount',
+        'expiryDate' => 'getExpiryDate',
+        'operation' => 'getOperation',
+        'reason' => 'getReason',
+        'startDate' => 'getStartDate',
+        'transactionUUID' => 'getTransactionUUID'
     ];
 
     /**
@@ -228,15 +233,28 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const NOTIFICATION_TYPE_LOYALTY_CARD_POINTS_DEDUCTED = 'LoyaltyCardPointsDeducted';
+    const NOTIFICATION_TYPE_LOYALTY_CARD_POINTS_ADDED = 'LoyaltyCardPointsAdded';
     const TYPE_OF_CHANGE_CAMPAIGN_MANAGER = 'campaign_manager';
     const TYPE_OF_CHANGE_RULE_ENGINE = 'rule_engine';
     const TYPE_OF_CHANGE_MANAGEMENT_API = 'management_api';
     const OPERATION_ADDITION = 'addition';
-    const OPERATION_DEDUCTION = 'deduction';
-    const NOTIFICATION_TYPE_LOYALTY_CARD_POINTS_DEDUCTED = 'LoyaltyCardPointsDeducted';
-    const NOTIFICATION_TYPE_LOYALTY_CARD_POINTS_ADDED = 'LoyaltyCardPointsAdded';
+    const OPERATION_SUBTRACTION = 'subtraction';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNotificationTypeAllowableValues()
+    {
+        return [
+            self::NOTIFICATION_TYPE_LOYALTY_CARD_POINTS_DEDUCTED,
+            self::NOTIFICATION_TYPE_LOYALTY_CARD_POINTS_ADDED,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -261,20 +279,7 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
     {
         return [
             self::OPERATION_ADDITION,
-            self::OPERATION_DEDUCTION,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getNotificationTypeAllowableValues()
-    {
-        return [
-            self::NOTIFICATION_TYPE_LOYALTY_CARD_POINTS_DEDUCTED,
-            self::NOTIFICATION_TYPE_LOYALTY_CARD_POINTS_ADDED,
+            self::OPERATION_SUBTRACTION,
         ];
     }
     
@@ -294,21 +299,22 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['profileIntegrationIDs'] = isset($data['profileIntegrationIDs']) ? $data['profileIntegrationIDs'] : null;
-        $this->container['loyaltyProgramID'] = isset($data['loyaltyProgramID']) ? $data['loyaltyProgramID'] : null;
-        $this->container['subledgerID'] = isset($data['subledgerID']) ? $data['subledgerID'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
-        $this->container['typeOfChange'] = isset($data['typeOfChange']) ? $data['typeOfChange'] : null;
-        $this->container['employeeName'] = isset($data['employeeName']) ? $data['employeeName'] : null;
-        $this->container['userID'] = isset($data['userID']) ? $data['userID'] : null;
-        $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
-        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
-        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
-        $this->container['sessionIntegrationID'] = isset($data['sessionIntegrationID']) ? $data['sessionIntegrationID'] : null;
-        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
         $this->container['cardIdentifier'] = isset($data['cardIdentifier']) ? $data['cardIdentifier'] : null;
+        $this->container['employeeName'] = isset($data['employeeName']) ? $data['employeeName'] : null;
+        $this->container['loyaltyProgramID'] = isset($data['loyaltyProgramID']) ? $data['loyaltyProgramID'] : null;
+        $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
+        $this->container['profileIntegrationIDs'] = isset($data['profileIntegrationIDs']) ? $data['profileIntegrationIDs'] : null;
+        $this->container['sessionIntegrationID'] = isset($data['sessionIntegrationID']) ? $data['sessionIntegrationID'] : null;
+        $this->container['subledgerID'] = isset($data['subledgerID']) ? $data['subledgerID'] : null;
+        $this->container['typeOfChange'] = isset($data['typeOfChange']) ? $data['typeOfChange'] : null;
+        $this->container['userID'] = isset($data['userID']) ? $data['userID'] : null;
         $this->container['usersPerCardLimit'] = isset($data['usersPerCardLimit']) ? $data['usersPerCardLimit'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
+        $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
     }
 
     /**
@@ -320,8 +326,11 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['profileIntegrationIDs'] === null) {
-            $invalidProperties[] = "'profileIntegrationIDs' can't be null";
+        if ($this->container['cardIdentifier'] === null) {
+            $invalidProperties[] = "'cardIdentifier' can't be null";
+        }
+        if ($this->container['employeeName'] === null) {
+            $invalidProperties[] = "'employeeName' can't be null";
         }
         if ($this->container['loyaltyProgramID'] === null) {
             $invalidProperties[] = "'loyaltyProgramID' can't be null";
@@ -330,14 +339,25 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'loyaltyProgramID', must be bigger than or equal to 1.";
         }
 
+        if ($this->container['notificationType'] === null) {
+            $invalidProperties[] = "'notificationType' can't be null";
+        }
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!is_null($this->container['notificationType']) && !in_array($this->container['notificationType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'notificationType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['profileIntegrationIDs'] === null) {
+            $invalidProperties[] = "'profileIntegrationIDs' can't be null";
+        }
+        if ($this->container['sessionIntegrationID'] === null) {
+            $invalidProperties[] = "'sessionIntegrationID' can't be null";
+        }
         if ($this->container['subledgerID'] === null) {
             $invalidProperties[] = "'subledgerID' can't be null";
-        }
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['reason'] === null) {
-            $invalidProperties[] = "'reason' can't be null";
         }
         if ($this->container['typeOfChange'] === null) {
             $invalidProperties[] = "'typeOfChange' can't be null";
@@ -350,16 +370,15 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['employeeName'] === null) {
-            $invalidProperties[] = "'employeeName' can't be null";
-        }
         if ($this->container['userID'] === null) {
             $invalidProperties[] = "'userID' can't be null";
         }
-        if (($this->container['userID'] < 1)) {
-            $invalidProperties[] = "invalid value for 'userID', must be bigger than or equal to 1.";
+        if ($this->container['usersPerCardLimit'] === null) {
+            $invalidProperties[] = "'usersPerCardLimit' can't be null";
         }
-
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
         if ($this->container['operation'] === null) {
             $invalidProperties[] = "'operation' can't be null";
         }
@@ -371,25 +390,11 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['sessionIntegrationID'] === null) {
-            $invalidProperties[] = "'sessionIntegrationID' can't be null";
+        if ($this->container['reason'] === null) {
+            $invalidProperties[] = "'reason' can't be null";
         }
-        if ($this->container['notificationType'] === null) {
-            $invalidProperties[] = "'notificationType' can't be null";
-        }
-        $allowedValues = $this->getNotificationTypeAllowableValues();
-        if (!is_null($this->container['notificationType']) && !in_array($this->container['notificationType'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'notificationType', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['cardIdentifier'] === null) {
-            $invalidProperties[] = "'cardIdentifier' can't be null";
-        }
-        if ($this->container['usersPerCardLimit'] === null) {
-            $invalidProperties[] = "'usersPerCardLimit' can't be null";
+        if ($this->container['transactionUUID'] === null) {
+            $invalidProperties[] = "'transactionUUID' can't be null";
         }
         return $invalidProperties;
     }
@@ -407,159 +412,25 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets profileIntegrationIDs
-     *
-     * @return string[]
-     */
-    public function getProfileIntegrationIDs()
-    {
-        return $this->container['profileIntegrationIDs'];
-    }
-
-    /**
-     * Sets profileIntegrationIDs
-     *
-     * @param string[] $profileIntegrationIDs The integration ID of the customer profile to whom points were added or deducted.
-     *
-     * @return $this
-     */
-    public function setProfileIntegrationIDs($profileIntegrationIDs)
-    {
-        $this->container['profileIntegrationIDs'] = $profileIntegrationIDs;
-
-        return $this;
-    }
-
-    /**
-     * Gets loyaltyProgramID
-     *
-     * @return int
-     */
-    public function getLoyaltyProgramID()
-    {
-        return $this->container['loyaltyProgramID'];
-    }
-
-    /**
-     * Sets loyaltyProgramID
-     *
-     * @param int $loyaltyProgramID The ID of the loyalty program.
-     *
-     * @return $this
-     */
-    public function setLoyaltyProgramID($loyaltyProgramID)
-    {
-
-        if (($loyaltyProgramID < 1)) {
-            throw new \InvalidArgumentException('invalid value for $loyaltyProgramID when calling CardAddedDeductedPointsNotification., must be bigger than or equal to 1.');
-        }
-
-        $this->container['loyaltyProgramID'] = $loyaltyProgramID;
-
-        return $this;
-    }
-
-    /**
-     * Gets subledgerID
+     * Gets cardIdentifier
      *
      * @return string
      */
-    public function getSubledgerID()
+    public function getCardIdentifier()
     {
-        return $this->container['subledgerID'];
+        return $this->container['cardIdentifier'];
     }
 
     /**
-     * Sets subledgerID
+     * Sets cardIdentifier
      *
-     * @param string $subledgerID The ID of the subledger within the loyalty program where these points were added or deducted.
+     * @param string $cardIdentifier Loyalty card identification number.
      *
      * @return $this
      */
-    public function setSubledgerID($subledgerID)
+    public function setCardIdentifier($cardIdentifier)
     {
-        $this->container['subledgerID'] = $subledgerID;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return float
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param float $amount The amount of added or deducted loyalty points.
-     *
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets reason
-     *
-     * @return string
-     */
-    public function getReason()
-    {
-        return $this->container['reason'];
-    }
-
-    /**
-     * Sets reason
-     *
-     * @param string $reason The reason for the points addition or deduction.
-     *
-     * @return $this
-     */
-    public function setReason($reason)
-    {
-        $this->container['reason'] = $reason;
-
-        return $this;
-    }
-
-    /**
-     * Gets typeOfChange
-     *
-     * @return string
-     */
-    public function getTypeOfChange()
-    {
-        return $this->container['typeOfChange'];
-    }
-
-    /**
-     * Sets typeOfChange
-     *
-     * @param string $typeOfChange The notification source, that is, it indicates whether the points were added or deducted via one of the following routes:  - [The Campaign Manager](/docs/product/getting-started)  - [Management API](/management-api#tag/Loyalty)  - [Rule Engine](/docs/product/applications/evaluation-order-for-rules-and-filters)
-     *
-     * @return $this
-     */
-    public function setTypeOfChange($typeOfChange)
-    {
-        $allowedValues = $this->getTypeOfChangeAllowableValues();
-        if (!in_array($typeOfChange, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'typeOfChange', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['typeOfChange'] = $typeOfChange;
+        $this->container['cardIdentifier'] = $cardIdentifier;
 
         return $this;
     }
@@ -589,135 +460,30 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets userID
+     * Gets loyaltyProgramID
      *
      * @return int
      */
-    public function getUserID()
+    public function getLoyaltyProgramID()
     {
-        return $this->container['userID'];
+        return $this->container['loyaltyProgramID'];
     }
 
     /**
-     * Sets userID
+     * Sets loyaltyProgramID
      *
-     * @param int $userID The ID of the employee who added or deducted points.
+     * @param int $loyaltyProgramID The ID of the loyalty program.
      *
      * @return $this
      */
-    public function setUserID($userID)
+    public function setLoyaltyProgramID($loyaltyProgramID)
     {
 
-        if (($userID < 1)) {
-            throw new \InvalidArgumentException('invalid value for $userID when calling CardAddedDeductedPointsNotification., must be bigger than or equal to 1.');
+        if (($loyaltyProgramID < 1)) {
+            throw new \InvalidArgumentException('invalid value for $loyaltyProgramID when calling CardAddedDeductedPointsNotification., must be bigger than or equal to 1.');
         }
 
-        $this->container['userID'] = $userID;
-
-        return $this;
-    }
-
-    /**
-     * Gets operation
-     *
-     * @return string
-     */
-    public function getOperation()
-    {
-        return $this->container['operation'];
-    }
-
-    /**
-     * Sets operation
-     *
-     * @param string $operation The action (addition or deduction) made with loyalty points.
-     *
-     * @return $this
-     */
-    public function setOperation($operation)
-    {
-        $allowedValues = $this->getOperationAllowableValues();
-        if (!in_array($operation, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'operation', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['operation'] = $operation;
-
-        return $this;
-    }
-
-    /**
-     * Gets startDate
-     *
-     * @return \DateTime|null
-     */
-    public function getStartDate()
-    {
-        return $this->container['startDate'];
-    }
-
-    /**
-     * Sets startDate
-     *
-     * @param \DateTime|null $startDate The start date for loyalty points.
-     *
-     * @return $this
-     */
-    public function setStartDate($startDate)
-    {
-        $this->container['startDate'] = $startDate;
-
-        return $this;
-    }
-
-    /**
-     * Gets expiryDate
-     *
-     * @return \DateTime|null
-     */
-    public function getExpiryDate()
-    {
-        return $this->container['expiryDate'];
-    }
-
-    /**
-     * Sets expiryDate
-     *
-     * @param \DateTime|null $expiryDate The expiration date for loyalty points.
-     *
-     * @return $this
-     */
-    public function setExpiryDate($expiryDate)
-    {
-        $this->container['expiryDate'] = $expiryDate;
-
-        return $this;
-    }
-
-    /**
-     * Gets sessionIntegrationID
-     *
-     * @return string
-     */
-    public function getSessionIntegrationID()
-    {
-        return $this->container['sessionIntegrationID'];
-    }
-
-    /**
-     * Sets sessionIntegrationID
-     *
-     * @param string $sessionIntegrationID The integration ID of the session through which the points were earned or lost.
-     *
-     * @return $this
-     */
-    public function setSessionIntegrationID($sessionIntegrationID)
-    {
-        $this->container['sessionIntegrationID'] = $sessionIntegrationID;
+        $this->container['loyaltyProgramID'] = $loyaltyProgramID;
 
         return $this;
     }
@@ -756,25 +522,130 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cardIdentifier
+     * Gets profileIntegrationIDs
      *
-     * @return string
+     * @return string[]
      */
-    public function getCardIdentifier()
+    public function getProfileIntegrationIDs()
     {
-        return $this->container['cardIdentifier'];
+        return $this->container['profileIntegrationIDs'];
     }
 
     /**
-     * Sets cardIdentifier
+     * Sets profileIntegrationIDs
      *
-     * @param string $cardIdentifier Loyalty card identification number.
+     * @param string[] $profileIntegrationIDs The integration ID of the customer profile to whom points were added or deducted.
      *
      * @return $this
      */
-    public function setCardIdentifier($cardIdentifier)
+    public function setProfileIntegrationIDs($profileIntegrationIDs)
     {
-        $this->container['cardIdentifier'] = $cardIdentifier;
+        $this->container['profileIntegrationIDs'] = $profileIntegrationIDs;
+
+        return $this;
+    }
+
+    /**
+     * Gets sessionIntegrationID
+     *
+     * @return string
+     */
+    public function getSessionIntegrationID()
+    {
+        return $this->container['sessionIntegrationID'];
+    }
+
+    /**
+     * Sets sessionIntegrationID
+     *
+     * @param string $sessionIntegrationID The integration ID of the session through which the points were earned or lost.
+     *
+     * @return $this
+     */
+    public function setSessionIntegrationID($sessionIntegrationID)
+    {
+        $this->container['sessionIntegrationID'] = $sessionIntegrationID;
+
+        return $this;
+    }
+
+    /**
+     * Gets subledgerID
+     *
+     * @return string
+     */
+    public function getSubledgerID()
+    {
+        return $this->container['subledgerID'];
+    }
+
+    /**
+     * Sets subledgerID
+     *
+     * @param string $subledgerID The ID of the subledger within the loyalty program where these points were added or deducted.
+     *
+     * @return $this
+     */
+    public function setSubledgerID($subledgerID)
+    {
+        $this->container['subledgerID'] = $subledgerID;
+
+        return $this;
+    }
+
+    /**
+     * Gets typeOfChange
+     *
+     * @return string
+     */
+    public function getTypeOfChange()
+    {
+        return $this->container['typeOfChange'];
+    }
+
+    /**
+     * Sets typeOfChange
+     *
+     * @param string $typeOfChange The notification source, that is, it indicates whether the points were added or deducted via one of the following routes:  - [The Campaign Manager](/docs/product/getting-started)  - [Management API](/management-api#tag/Loyalty)  - [Rule Engine](/docs/product/applications/evaluation-order-for-rules-and-filters)
+     *
+     * @return $this
+     */
+    public function setTypeOfChange($typeOfChange)
+    {
+        $allowedValues = $this->getTypeOfChangeAllowableValues();
+        if (!in_array($typeOfChange, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'typeOfChange', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['typeOfChange'] = $typeOfChange;
+
+        return $this;
+    }
+
+    /**
+     * Gets userID
+     *
+     * @return int
+     */
+    public function getUserID()
+    {
+        return $this->container['userID'];
+    }
+
+    /**
+     * Sets userID
+     *
+     * @param int $userID The ID of the employee who added or deducted points.
+     *
+     * @return $this
+     */
+    public function setUserID($userID)
+    {
+        $this->container['userID'] = $userID;
 
         return $this;
     }
@@ -799,6 +670,159 @@ class CardAddedDeductedPointsNotification implements ModelInterface, ArrayAccess
     public function setUsersPerCardLimit($usersPerCardLimit)
     {
         $this->container['usersPerCardLimit'] = $usersPerCardLimit;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount
+     *
+     * @return float
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param float $amount The amount of added or deducted loyalty points.
+     *
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiryDate
+     *
+     * @return \DateTime|null
+     */
+    public function getExpiryDate()
+    {
+        return $this->container['expiryDate'];
+    }
+
+    /**
+     * Sets expiryDate
+     *
+     * @param \DateTime|null $expiryDate The expiration date for loyalty points.
+     *
+     * @return $this
+     */
+    public function setExpiryDate($expiryDate)
+    {
+        $this->container['expiryDate'] = $expiryDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets operation
+     *
+     * @return string
+     */
+    public function getOperation()
+    {
+        return $this->container['operation'];
+    }
+
+    /**
+     * Sets operation
+     *
+     * @param string $operation The action (addition or subtraction) made with loyalty points.
+     *
+     * @return $this
+     */
+    public function setOperation($operation)
+    {
+        $allowedValues = $this->getOperationAllowableValues();
+        if (!in_array($operation, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'operation', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['operation'] = $operation;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string $reason The reason for the points addition or deduction.
+     *
+     * @return $this
+     */
+    public function setReason($reason)
+    {
+        $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets startDate
+     *
+     * @return \DateTime|null
+     */
+    public function getStartDate()
+    {
+        return $this->container['startDate'];
+    }
+
+    /**
+     * Sets startDate
+     *
+     * @param \DateTime|null $startDate The start date for loyalty points.
+     *
+     * @return $this
+     */
+    public function setStartDate($startDate)
+    {
+        $this->container['startDate'] = $startDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets transactionUUID
+     *
+     * @return string
+     */
+    public function getTransactionUUID()
+    {
+        return $this->container['transactionUUID'];
+    }
+
+    /**
+     * Sets transactionUUID
+     *
+     * @param string $transactionUUID The identifier of the transaction in the loyalty ledger.
+     *
+     * @return $this
+     */
+    public function setTransactionUUID($transactionUUID)
+    {
+        $this->container['transactionUUID'] = $transactionUUID;
 
         return $this;
     }

@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -57,6 +57,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'int',
         'sku' => 'string',
         'observedAt' => '\DateTime',
         'contextId' => 'string',
@@ -71,6 +72,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'id' => 'int64',
         'sku' => null,
         'observedAt' => 'date-time',
         'contextId' => null,
@@ -106,6 +108,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'sku' => 'sku',
         'observedAt' => 'observedAt',
         'contextId' => 'contextId',
@@ -120,6 +123,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'sku' => 'setSku',
         'observedAt' => 'setObservedAt',
         'contextId' => 'setContextId',
@@ -134,6 +138,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'sku' => 'getSku',
         'observedAt' => 'getObservedAt',
         'contextId' => 'getContextId',
@@ -202,6 +207,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
         $this->container['observedAt'] = isset($data['observedAt']) ? $data['observedAt'] : null;
         $this->container['contextId'] = isset($data['contextId']) ? $data['contextId'] : null;
@@ -219,6 +225,9 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['sku'] === null) {
             $invalidProperties[] = "'sku' can't be null";
         }
@@ -251,6 +260,30 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id The ID of the historical price.
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets sku
@@ -289,7 +322,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
     /**
      * Sets observedAt
      *
-     * @param \DateTime $observedAt The date and time when the best price was observed.
+     * @param \DateTime $observedAt The date and time when the price was observed.
      *
      * @return $this
      */

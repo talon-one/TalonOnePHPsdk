@@ -12,7 +12,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -69,6 +69,16 @@ class IntegrationApiTest extends TestCase
      * Clean up after running all test cases
      */
     public static function tearDownAfterClass()
+    {
+    }
+
+    /**
+     * Test case for activateLoyaltyPoints
+     *
+     * Activate loyalty points.
+     *
+     */
+    public function testActivateLoyaltyPoints()
     {
     }
 
@@ -159,6 +169,16 @@ class IntegrationApiTest extends TestCase
      *
      */
     public function testDeleteCustomerData()
+    {
+    }
+
+    /**
+     * Test case for deleteLoyaltyTransactionsFromLedgers
+     *
+     * Delete customer's transactions from loyalty ledgers.
+     *
+     */
+    public function testDeleteLoyaltyTransactionsFromLedgers()
     {
     }
 
@@ -283,6 +303,16 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for integrationGetAllCampaigns
+     *
+     * List all running campaigns.
+     *
+     */
+    public function testIntegrationGetAllCampaigns()
+    {
+    }
+
+    /**
      * Test case for linkLoyaltyCardToProfile
      *
      * Link customer profile to card.
@@ -329,6 +359,16 @@ class IntegrationApiTest extends TestCase
      *
      */
     public function testTrackEventV2()
+    {
+    }
+
+    /**
+     * Test case for unlinkLoyaltyCardFromProfile
+     *
+     * Unlink customer profile from a loyalty card.
+     *
+     */
+    public function testUnlinkLoyaltyCardFromProfile()
     {
     }
 

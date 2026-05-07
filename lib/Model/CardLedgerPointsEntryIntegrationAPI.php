@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -68,7 +68,8 @@ class CardLedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
         'startDate' => 'string',
         'expiryDate' => 'string',
         'subledgerId' => 'string',
-        'amount' => 'float'
+        'amount' => 'float',
+        'validityDuration' => 'string'
     ];
 
     /**
@@ -87,7 +88,8 @@ class CardLedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
         'startDate' => null,
         'expiryDate' => null,
         'subledgerId' => null,
-        'amount' => null
+        'amount' => null,
+        'validityDuration' => null
     ];
 
     /**
@@ -127,7 +129,8 @@ class CardLedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
         'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
         'subledgerId' => 'subledgerId',
-        'amount' => 'amount'
+        'amount' => 'amount',
+        'validityDuration' => 'validityDuration'
     ];
 
     /**
@@ -146,7 +149,8 @@ class CardLedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
         'subledgerId' => 'setSubledgerId',
-        'amount' => 'setAmount'
+        'amount' => 'setAmount',
+        'validityDuration' => 'setValidityDuration'
     ];
 
     /**
@@ -165,7 +169,8 @@ class CardLedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
         'subledgerId' => 'getSubledgerId',
-        'amount' => 'getAmount'
+        'amount' => 'getAmount',
+        'validityDuration' => 'getValidityDuration'
     ];
 
     /**
@@ -239,6 +244,7 @@ class CardLedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['subledgerId'] = isset($data['subledgerId']) ? $data['subledgerId'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['validityDuration'] = isset($data['validityDuration']) ? $data['validityDuration'] : null;
     }
 
     /**
@@ -584,6 +590,30 @@ class CardLedgerPointsEntryIntegrationAPI implements ModelInterface, ArrayAccess
     public function setAmount($amount)
     {
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets validityDuration
+     *
+     * @return string|null
+     */
+    public function getValidityDuration()
+    {
+        return $this->container['validityDuration'];
+    }
+
+    /**
+     * Sets validityDuration
+     *
+     * @param string|null $validityDuration The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.
+     *
+     * @return $this
+     */
+    public function setValidityDuration($validityDuration)
+    {
+        $this->container['validityDuration'] = $validityDuration;
 
         return $this;
     }

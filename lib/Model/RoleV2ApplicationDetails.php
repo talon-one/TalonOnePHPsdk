@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -60,7 +60,8 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         'application' => 'string',
         'campaign' => 'string',
         'draftCampaign' => 'string',
-        'tools' => 'string'
+        'tools' => 'string',
+        'thresholds' => '\TalonOne\Client\Model\RolesV2Thresholds'
     ];
 
     /**
@@ -72,7 +73,8 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         'application' => null,
         'campaign' => null,
         'draftCampaign' => null,
-        'tools' => null
+        'tools' => null,
+        'thresholds' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         'application' => 'application',
         'campaign' => 'campaign',
         'draftCampaign' => 'draftCampaign',
-        'tools' => 'tools'
+        'tools' => 'tools',
+        'thresholds' => 'thresholds'
     ];
 
     /**
@@ -117,7 +120,8 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         'application' => 'setApplication',
         'campaign' => 'setCampaign',
         'draftCampaign' => 'setDraftCampaign',
-        'tools' => 'setTools'
+        'tools' => 'setTools',
+        'thresholds' => 'setThresholds'
     ];
 
     /**
@@ -129,7 +133,8 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         'application' => 'getApplication',
         'campaign' => 'getCampaign',
         'draftCampaign' => 'getDraftCampaign',
-        'tools' => 'getTools'
+        'tools' => 'getTools',
+        'thresholds' => 'getThresholds'
     ];
 
     /**
@@ -196,6 +201,7 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
         $this->container['draftCampaign'] = isset($data['draftCampaign']) ? $data['draftCampaign'] : null;
         $this->container['tools'] = isset($data['tools']) ? $data['tools'] : null;
+        $this->container['thresholds'] = isset($data['thresholds']) ? $data['thresholds'] : null;
     }
 
     /**
@@ -314,6 +320,30 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
     public function setTools($tools)
     {
         $this->container['tools'] = $tools;
+
+        return $this;
+    }
+
+    /**
+     * Gets thresholds
+     *
+     * @return \TalonOne\Client\Model\RolesV2Thresholds|null
+     */
+    public function getThresholds()
+    {
+        return $this->container['thresholds'];
+    }
+
+    /**
+     * Sets thresholds
+     *
+     * @param \TalonOne\Client\Model\RolesV2Thresholds|null $thresholds thresholds
+     *
+     * @return $this
+     */
+    public function setThresholds($thresholds)
+    {
+        $this->container['thresholds'] = $thresholds;
 
         return $this;
     }

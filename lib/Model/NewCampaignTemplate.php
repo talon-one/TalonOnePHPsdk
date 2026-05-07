@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -64,6 +64,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         'couponAttributes' => 'object',
         'state' => 'string',
         'tags' => 'string[]',
+        'reevaluateOnReturn' => 'bool',
         'features' => 'string[]',
         'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'couponReservationSettings' => '\TalonOne\Client\Model\CampaignTemplateCouponReservationSettings',
@@ -88,6 +89,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         'couponAttributes' => null,
         'state' => null,
         'tags' => null,
+        'reevaluateOnReturn' => null,
         'features' => null,
         'couponSettings' => null,
         'couponReservationSettings' => null,
@@ -133,6 +135,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         'couponAttributes' => 'couponAttributes',
         'state' => 'state',
         'tags' => 'tags',
+        'reevaluateOnReturn' => 'reevaluateOnReturn',
         'features' => 'features',
         'couponSettings' => 'couponSettings',
         'couponReservationSettings' => 'couponReservationSettings',
@@ -157,6 +160,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         'couponAttributes' => 'setCouponAttributes',
         'state' => 'setState',
         'tags' => 'setTags',
+        'reevaluateOnReturn' => 'setReevaluateOnReturn',
         'features' => 'setFeatures',
         'couponSettings' => 'setCouponSettings',
         'couponReservationSettings' => 'setCouponReservationSettings',
@@ -181,6 +185,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         'couponAttributes' => 'getCouponAttributes',
         'state' => 'getState',
         'tags' => 'getTags',
+        'reevaluateOnReturn' => 'getReevaluateOnReturn',
         'features' => 'getFeatures',
         'couponSettings' => 'getCouponSettings',
         'couponReservationSettings' => 'getCouponReservationSettings',
@@ -314,6 +319,7 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
         $this->container['couponAttributes'] = isset($data['couponAttributes']) ? $data['couponAttributes'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['reevaluateOnReturn'] = isset($data['reevaluateOnReturn']) ? $data['reevaluateOnReturn'] : null;
         $this->container['features'] = isset($data['features']) ? $data['features'] : null;
         $this->container['couponSettings'] = isset($data['couponSettings']) ? $data['couponSettings'] : null;
         $this->container['couponReservationSettings'] = isset($data['couponReservationSettings']) ? $data['couponReservationSettings'] : null;
@@ -562,6 +568,30 @@ class NewCampaignTemplate implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets reevaluateOnReturn
+     *
+     * @return bool|null
+     */
+    public function getReevaluateOnReturn()
+    {
+        return $this->container['reevaluateOnReturn'];
+    }
+
+    /**
+     * Sets reevaluateOnReturn
+     *
+     * @param bool|null $reevaluateOnReturn Indicates whether campaigns created from this template should be reevaluated when a customer returns an item.
+     *
+     * @return $this
+     */
+    public function setReevaluateOnReturn($reevaluateOnReturn)
+    {
+        $this->container['reevaluateOnReturn'] = $reevaluateOnReturn;
 
         return $this;
     }

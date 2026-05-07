@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -58,7 +58,8 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\CustomerProfile[]'
+        'totalResultSize' => 'int',
+        'data' => '\TalonOne\Client\Model\Audience[]'
     ];
 
     /**
@@ -68,6 +69,7 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'hasMore' => null,
+        'totalResultSize' => 'int64',
         'data' => null
     ];
 
@@ -99,6 +101,7 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'hasMore' => 'hasMore',
+        'totalResultSize' => 'totalResultSize',
         'data' => 'data'
     ];
 
@@ -109,6 +112,7 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'hasMore' => 'setHasMore',
+        'totalResultSize' => 'setTotalResultSize',
         'data' => 'setData'
     ];
 
@@ -119,6 +123,7 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'hasMore' => 'getHasMore',
+        'totalResultSize' => 'getTotalResultSize',
         'data' => 'getData'
     ];
 
@@ -183,6 +188,7 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
+        $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -238,9 +244,33 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets totalResultSize
+     *
+     * @return int|null
+     */
+    public function getTotalResultSize()
+    {
+        return $this->container['totalResultSize'];
+    }
+
+    /**
+     * Sets totalResultSize
+     *
+     * @param int|null $totalResultSize totalResultSize
+     *
+     * @return $this
+     */
+    public function setTotalResultSize($totalResultSize)
+    {
+        $this->container['totalResultSize'] = $totalResultSize;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\CustomerProfile[]
+     * @return \TalonOne\Client\Model\Audience[]
      */
     public function getData()
     {
@@ -250,7 +280,7 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\CustomerProfile[] $data data
+     * @param \TalonOne\Client\Model\Audience[] $data data
      *
      * @return $this
      */

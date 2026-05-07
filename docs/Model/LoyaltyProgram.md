@@ -27,7 +27,6 @@ Name | Type | Description | Notes
 **timezone** | **string** | A string containing an IANA timezone descriptor. | 
 **cardBased** | **bool** | Defines the type of loyalty program: - &#x60;true&#x60;: the program is a card-based. - &#x60;false&#x60;: the program is profile-based. | [default to false]
 **canUpdateTiers** | **bool** | &#x60;True&#x60; if the tier definitions can be updated. | [optional] [default to false]
-**canUpdateJoinPolicy** | **bool** | &#x60;True&#x60; if the program join policy can be updated. | [optional] 
 **canUpdateTierExpirationPolicy** | **bool** | &#x60;True&#x60; if the tier expiration policy can be updated. | [optional] 
 **canUpgradeToAdvancedTiers** | **bool** | &#x60;True&#x60; if the program can be upgraded to use the &#x60;tiersExpireIn&#x60; and &#x60;tiersDowngradePolicy&#x60; properties. | [optional] [default to false]
 **canUpdateSubledgers** | **bool** | &#x60;True&#x60; if the &#x60;allowSubledger&#x60; property can be updated in the loyalty program. | [optional] [default to false]

@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -60,8 +60,8 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'attributes' => 'object',
         'evaluableCampaignIds' => 'int[]',
-        'audiencesChanges' => '\TalonOne\Client\Model\ProfileAudiencesChanges',
-        'responseContent' => 'string[]'
+        'responseContent' => 'string[]',
+        'audiencesChanges' => '\TalonOne\Client\Model\ProfileAudiencesChanges'
     ];
 
     /**
@@ -72,8 +72,8 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'attributes' => null,
         'evaluableCampaignIds' => 'int64',
-        'audiencesChanges' => null,
-        'responseContent' => null
+        'responseContent' => null,
+        'audiencesChanges' => null
     ];
 
     /**
@@ -105,8 +105,8 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'attributes' => 'attributes',
         'evaluableCampaignIds' => 'evaluableCampaignIds',
-        'audiencesChanges' => 'audiencesChanges',
-        'responseContent' => 'responseContent'
+        'responseContent' => 'responseContent',
+        'audiencesChanges' => 'audiencesChanges'
     ];
 
     /**
@@ -117,8 +117,8 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     protected static $setters = [
         'attributes' => 'setAttributes',
         'evaluableCampaignIds' => 'setEvaluableCampaignIds',
-        'audiencesChanges' => 'setAudiencesChanges',
-        'responseContent' => 'setResponseContent'
+        'responseContent' => 'setResponseContent',
+        'audiencesChanges' => 'setAudiencesChanges'
     ];
 
     /**
@@ -129,8 +129,8 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     protected static $getters = [
         'attributes' => 'getAttributes',
         'evaluableCampaignIds' => 'getEvaluableCampaignIds',
-        'audiencesChanges' => 'getAudiencesChanges',
-        'responseContent' => 'getResponseContent'
+        'responseContent' => 'getResponseContent',
+        'audiencesChanges' => 'getAudiencesChanges'
     ];
 
     /**
@@ -218,8 +218,8 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     {
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['evaluableCampaignIds'] = isset($data['evaluableCampaignIds']) ? $data['evaluableCampaignIds'] : null;
-        $this->container['audiencesChanges'] = isset($data['audiencesChanges']) ? $data['audiencesChanges'] : null;
         $this->container['responseContent'] = isset($data['responseContent']) ? $data['responseContent'] : null;
+        $this->container['audiencesChanges'] = isset($data['audiencesChanges']) ? $data['audiencesChanges'] : null;
     }
 
     /**
@@ -295,6 +295,39 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets responseContent
+     *
+     * @return string[]|null
+     */
+    public function getResponseContent()
+    {
+        return $this->container['responseContent'];
+    }
+
+    /**
+     * Sets responseContent
+     *
+     * @param string[]|null $responseContent Extends the response with the chosen data entities. Use this property to get as much data back as needed from one request instead of sending extra requests to other endpoints.
+     *
+     * @return $this
+     */
+    public function setResponseContent($responseContent)
+    {
+        $allowedValues = $this->getResponseContentAllowableValues();
+        if (!is_null($responseContent) && array_diff($responseContent, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'responseContent', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['responseContent'] = $responseContent;
+
+        return $this;
+    }
+
+    /**
      * Gets audiencesChanges
      *
      * @return \TalonOne\Client\Model\ProfileAudiencesChanges|null
@@ -314,39 +347,6 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     public function setAudiencesChanges($audiencesChanges)
     {
         $this->container['audiencesChanges'] = $audiencesChanges;
-
-        return $this;
-    }
-
-    /**
-     * Gets responseContent
-     *
-     * @return string[]|null
-     */
-    public function getResponseContent()
-    {
-        return $this->container['responseContent'];
-    }
-
-    /**
-     * Sets responseContent
-     *
-     * @param string[]|null $responseContent Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer profile_ request instead of sending extra requests to other endpoints.
-     *
-     * @return $this
-     */
-    public function setResponseContent($responseContent)
-    {
-        $allowedValues = $this->getResponseContentAllowableValues();
-        if (!is_null($responseContent) && array_diff($responseContent, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'responseContent', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['responseContent'] = $responseContent;
 
         return $this;
     }

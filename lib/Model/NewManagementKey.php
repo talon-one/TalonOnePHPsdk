@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -66,6 +66,7 @@ class NewManagementKey implements ModelInterface, ArrayAccess
         'accountID' => 'int',
         'created' => '\DateTime',
         'disabled' => 'bool',
+        'lastUsed' => '\DateTime',
         'key' => 'string'
     ];
 
@@ -84,6 +85,7 @@ class NewManagementKey implements ModelInterface, ArrayAccess
         'accountID' => 'int64',
         'created' => 'date-time',
         'disabled' => null,
+        'lastUsed' => 'date-time',
         'key' => null
     ];
 
@@ -123,6 +125,7 @@ class NewManagementKey implements ModelInterface, ArrayAccess
         'accountID' => 'accountID',
         'created' => 'created',
         'disabled' => 'disabled',
+        'lastUsed' => 'lastUsed',
         'key' => 'key'
     ];
 
@@ -141,6 +144,7 @@ class NewManagementKey implements ModelInterface, ArrayAccess
         'accountID' => 'setAccountID',
         'created' => 'setCreated',
         'disabled' => 'setDisabled',
+        'lastUsed' => 'setLastUsed',
         'key' => 'setKey'
     ];
 
@@ -159,6 +163,7 @@ class NewManagementKey implements ModelInterface, ArrayAccess
         'accountID' => 'getAccountID',
         'created' => 'getCreated',
         'disabled' => 'getDisabled',
+        'lastUsed' => 'getLastUsed',
         'key' => 'getKey'
     ];
 
@@ -231,6 +236,7 @@ class NewManagementKey implements ModelInterface, ArrayAccess
         $this->container['accountID'] = isset($data['accountID']) ? $data['accountID'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['disabled'] = isset($data['disabled']) ? $data['disabled'] : null;
+        $this->container['lastUsed'] = isset($data['lastUsed']) ? $data['lastUsed'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
     }
 
@@ -494,6 +500,30 @@ class NewManagementKey implements ModelInterface, ArrayAccess
     public function setDisabled($disabled)
     {
         $this->container['disabled'] = $disabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets lastUsed
+     *
+     * @return \DateTime|null
+     */
+    public function getLastUsed()
+    {
+        return $this->container['lastUsed'];
+    }
+
+    /**
+     * Sets lastUsed
+     *
+     * @param \DateTime|null $lastUsed The last time the management key was used.
+     *
+     * @return $this
+     */
+    public function setLastUsed($lastUsed)
+    {
+        $this->container['lastUsed'] = $lastUsed;
 
         return $this;
     }

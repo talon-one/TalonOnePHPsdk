@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -69,7 +69,8 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'bundleIndex' => 'int',
         'bundleName' => 'string',
         'targetedItemPosition' => 'float',
-        'targetedItemSubPosition' => 'float'
+        'targetedItemSubPosition' => 'float',
+        'excludedFromPriceHistory' => 'bool'
     ];
 
     /**
@@ -89,7 +90,8 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'bundleIndex' => 'int64',
         'bundleName' => null,
         'targetedItemPosition' => null,
-        'targetedItemSubPosition' => null
+        'targetedItemSubPosition' => null,
+        'excludedFromPriceHistory' => null
     ];
 
     /**
@@ -130,7 +132,8 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'bundleIndex' => 'bundleIndex',
         'bundleName' => 'bundleName',
         'targetedItemPosition' => 'targetedItemPosition',
-        'targetedItemSubPosition' => 'targetedItemSubPosition'
+        'targetedItemSubPosition' => 'targetedItemSubPosition',
+        'excludedFromPriceHistory' => 'excludedFromPriceHistory'
     ];
 
     /**
@@ -150,7 +153,8 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'bundleIndex' => 'setBundleIndex',
         'bundleName' => 'setBundleName',
         'targetedItemPosition' => 'setTargetedItemPosition',
-        'targetedItemSubPosition' => 'setTargetedItemSubPosition'
+        'targetedItemSubPosition' => 'setTargetedItemSubPosition',
+        'excludedFromPriceHistory' => 'setExcludedFromPriceHistory'
     ];
 
     /**
@@ -170,7 +174,8 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         'bundleIndex' => 'getBundleIndex',
         'bundleName' => 'getBundleName',
         'targetedItemPosition' => 'getTargetedItemPosition',
-        'targetedItemSubPosition' => 'getTargetedItemSubPosition'
+        'targetedItemSubPosition' => 'getTargetedItemSubPosition',
+        'excludedFromPriceHistory' => 'getExcludedFromPriceHistory'
     ];
 
     /**
@@ -245,6 +250,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
         $this->container['bundleName'] = isset($data['bundleName']) ? $data['bundleName'] : null;
         $this->container['targetedItemPosition'] = isset($data['targetedItemPosition']) ? $data['targetedItemPosition'] : null;
         $this->container['targetedItemSubPosition'] = isset($data['targetedItemSubPosition']) ? $data['targetedItemSubPosition'] : null;
+        $this->container['excludedFromPriceHistory'] = isset($data['excludedFromPriceHistory']) ? $data['excludedFromPriceHistory'] : null;
     }
 
     /**
@@ -564,6 +570,30 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     public function setTargetedItemSubPosition($targetedItemSubPosition)
     {
         $this->container['targetedItemSubPosition'] = $targetedItemSubPosition;
+
+        return $this;
+    }
+
+    /**
+     * Gets excludedFromPriceHistory
+     *
+     * @return bool|null
+     */
+    public function getExcludedFromPriceHistory()
+    {
+        return $this->container['excludedFromPriceHistory'];
+    }
+
+    /**
+     * Sets excludedFromPriceHistory
+     *
+     * @param bool|null $excludedFromPriceHistory When set to `true`, the applied discount is excluded from the item's price history.
+     *
+     * @return $this
+     */
+    public function setExcludedFromPriceHistory($excludedFromPriceHistory)
+    {
+        $this->container['excludedFromPriceHistory'] = $excludedFromPriceHistory;
 
         return $this;
     }

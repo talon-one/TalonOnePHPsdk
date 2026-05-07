@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -64,7 +64,8 @@ class RoleV2 implements ModelInterface, ArrayAccess
         'name' => 'string',
         'description' => 'string',
         'permissions' => '\TalonOne\Client\Model\RoleV2Permissions',
-        'members' => 'int[]'
+        'members' => 'int[]',
+        'isReadonly' => 'bool'
     ];
 
     /**
@@ -80,7 +81,8 @@ class RoleV2 implements ModelInterface, ArrayAccess
         'name' => null,
         'description' => null,
         'permissions' => null,
-        'members' => 'int64'
+        'members' => 'int64',
+        'isReadonly' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class RoleV2 implements ModelInterface, ArrayAccess
         'name' => 'name',
         'description' => 'description',
         'permissions' => 'permissions',
-        'members' => 'members'
+        'members' => 'members',
+        'isReadonly' => 'isReadonly'
     ];
 
     /**
@@ -133,7 +136,8 @@ class RoleV2 implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'description' => 'setDescription',
         'permissions' => 'setPermissions',
-        'members' => 'setMembers'
+        'members' => 'setMembers',
+        'isReadonly' => 'setIsReadonly'
     ];
 
     /**
@@ -149,7 +153,8 @@ class RoleV2 implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'description' => 'getDescription',
         'permissions' => 'getPermissions',
-        'members' => 'getMembers'
+        'members' => 'getMembers',
+        'isReadonly' => 'getIsReadonly'
     ];
 
     /**
@@ -220,6 +225,7 @@ class RoleV2 implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
         $this->container['members'] = isset($data['members']) ? $data['members'] : null;
+        $this->container['isReadonly'] = isset($data['isReadonly']) ? $data['isReadonly'] : false;
     }
 
     /**
@@ -446,6 +452,30 @@ class RoleV2 implements ModelInterface, ArrayAccess
     public function setMembers($members)
     {
         $this->container['members'] = $members;
+
+        return $this;
+    }
+
+    /**
+     * Gets isReadonly
+     *
+     * @return bool|null
+     */
+    public function getIsReadonly()
+    {
+        return $this->container['isReadonly'];
+    }
+
+    /**
+     * Sets isReadonly
+     *
+     * @param bool|null $isReadonly Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. The 'isReadonly' property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.
+     *
+     * @return $this
+     */
+    public function setIsReadonly($isReadonly)
+    {
+        $this->container['isReadonly'] = $isReadonly;
 
         return $this;
     }

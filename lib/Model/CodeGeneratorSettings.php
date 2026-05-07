@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -209,8 +209,8 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'couponPattern', the character length must be bigger than or equal to 3.";
         }
 
-        if (!preg_match("/^[A-Za-z0-9_#-]*$/", $this->container['couponPattern'])) {
-            $invalidProperties[] = "invalid value for 'couponPattern', must be conform to the pattern /^[A-Za-z0-9_#-]*$/.";
+        if (!preg_match("/^[A-Za-z0-9._%+@#-]+$/", $this->container['couponPattern'])) {
+            $invalidProperties[] = "invalid value for 'couponPattern', must be conform to the pattern /^[A-Za-z0-9._%+@#-]+$/.";
         }
 
         return $invalidProperties;
@@ -277,8 +277,8 @@ class CodeGeneratorSettings implements ModelInterface, ArrayAccess
         if ((mb_strlen($couponPattern) < 3)) {
             throw new \InvalidArgumentException('invalid length for $couponPattern when calling CodeGeneratorSettings., must be bigger than or equal to 3.');
         }
-        if ((!preg_match("/^[A-Za-z0-9_#-]*$/", $couponPattern))) {
-            throw new \InvalidArgumentException("invalid value for $couponPattern when calling CodeGeneratorSettings., must conform to the pattern /^[A-Za-z0-9_#-]*$/.");
+        if ((!preg_match("/^[A-Za-z0-9._%+@#-]+$/", $couponPattern))) {
+            throw new \InvalidArgumentException("invalid value for $couponPattern when calling CodeGeneratorSettings., must conform to the pattern /^[A-Za-z0-9._%+@#-]+$/.");
         }
 
         $this->container['couponPattern'] = $couponPattern;

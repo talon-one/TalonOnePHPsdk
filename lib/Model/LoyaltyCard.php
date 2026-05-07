@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -298,8 +298,12 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'identifier', the character length must be smaller than or equal to 108.";
         }
 
-        if (!preg_match("/^[A-Za-z0-9_-]*$/", $this->container['identifier'])) {
-            $invalidProperties[] = "invalid value for 'identifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
+        if ((mb_strlen($this->container['identifier']) < 4)) {
+            $invalidProperties[] = "invalid value for 'identifier', the character length must be bigger than or equal to 4.";
+        }
+
+        if (!preg_match("/^[A-Za-z0-9._%+@-]+$/", $this->container['identifier'])) {
+            $invalidProperties[] = "invalid value for 'identifier', must be conform to the pattern /^[A-Za-z0-9._%+@-]+$/.";
         }
 
         if ($this->container['usersPerCardLimit'] === null) {
@@ -313,16 +317,24 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'oldCardIdentifier', the character length must be smaller than or equal to 108.";
         }
 
-        if (!is_null($this->container['oldCardIdentifier']) && !preg_match("/^[A-Za-z0-9_-]*$/", $this->container['oldCardIdentifier'])) {
-            $invalidProperties[] = "invalid value for 'oldCardIdentifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
+        if (!is_null($this->container['oldCardIdentifier']) && (mb_strlen($this->container['oldCardIdentifier']) < 4)) {
+            $invalidProperties[] = "invalid value for 'oldCardIdentifier', the character length must be bigger than or equal to 4.";
+        }
+
+        if (!is_null($this->container['oldCardIdentifier']) && !preg_match("/^[A-Za-z0-9._%+@-]+$/", $this->container['oldCardIdentifier'])) {
+            $invalidProperties[] = "invalid value for 'oldCardIdentifier', must be conform to the pattern /^[A-Za-z0-9._%+@-]+$/.";
         }
 
         if (!is_null($this->container['newCardIdentifier']) && (mb_strlen($this->container['newCardIdentifier']) > 108)) {
             $invalidProperties[] = "invalid value for 'newCardIdentifier', the character length must be smaller than or equal to 108.";
         }
 
-        if (!is_null($this->container['newCardIdentifier']) && !preg_match("/^[A-Za-z0-9_-]*$/", $this->container['newCardIdentifier'])) {
-            $invalidProperties[] = "invalid value for 'newCardIdentifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
+        if (!is_null($this->container['newCardIdentifier']) && (mb_strlen($this->container['newCardIdentifier']) < 4)) {
+            $invalidProperties[] = "invalid value for 'newCardIdentifier', the character length must be bigger than or equal to 4.";
+        }
+
+        if (!is_null($this->container['newCardIdentifier']) && !preg_match("/^[A-Za-z0-9._%+@-]+$/", $this->container['newCardIdentifier'])) {
+            $invalidProperties[] = "invalid value for 'newCardIdentifier', must be conform to the pattern /^[A-Za-z0-9._%+@-]+$/.";
         }
 
         return $invalidProperties;
@@ -521,7 +533,7 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     /**
      * Sets identifier
      *
-     * @param string $identifier The alphanumeric identifier of the loyalty card.
+     * @param string $identifier The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`.
      *
      * @return $this
      */
@@ -530,8 +542,11 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         if ((mb_strlen($identifier) > 108)) {
             throw new \InvalidArgumentException('invalid length for $identifier when calling LoyaltyCard., must be smaller than or equal to 108.');
         }
-        if ((!preg_match("/^[A-Za-z0-9_-]*$/", $identifier))) {
-            throw new \InvalidArgumentException("invalid value for $identifier when calling LoyaltyCard., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
+        if ((mb_strlen($identifier) < 4)) {
+            throw new \InvalidArgumentException('invalid length for $identifier when calling LoyaltyCard., must be bigger than or equal to 4.');
+        }
+        if ((!preg_match("/^[A-Za-z0-9._%+@-]+$/", $identifier))) {
+            throw new \InvalidArgumentException("invalid value for $identifier when calling LoyaltyCard., must conform to the pattern /^[A-Za-z0-9._%+@-]+$/.");
         }
 
         $this->container['identifier'] = $identifier;
@@ -677,7 +692,7 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     /**
      * Sets oldCardIdentifier
      *
-     * @param string|null $oldCardIdentifier The alphanumeric identifier of the loyalty card.
+     * @param string|null $oldCardIdentifier The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`.
      *
      * @return $this
      */
@@ -686,8 +701,11 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         if (!is_null($oldCardIdentifier) && (mb_strlen($oldCardIdentifier) > 108)) {
             throw new \InvalidArgumentException('invalid length for $oldCardIdentifier when calling LoyaltyCard., must be smaller than or equal to 108.');
         }
-        if (!is_null($oldCardIdentifier) && (!preg_match("/^[A-Za-z0-9_-]*$/", $oldCardIdentifier))) {
-            throw new \InvalidArgumentException("invalid value for $oldCardIdentifier when calling LoyaltyCard., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
+        if (!is_null($oldCardIdentifier) && (mb_strlen($oldCardIdentifier) < 4)) {
+            throw new \InvalidArgumentException('invalid length for $oldCardIdentifier when calling LoyaltyCard., must be bigger than or equal to 4.');
+        }
+        if (!is_null($oldCardIdentifier) && (!preg_match("/^[A-Za-z0-9._%+@-]+$/", $oldCardIdentifier))) {
+            throw new \InvalidArgumentException("invalid value for $oldCardIdentifier when calling LoyaltyCard., must conform to the pattern /^[A-Za-z0-9._%+@-]+$/.");
         }
 
         $this->container['oldCardIdentifier'] = $oldCardIdentifier;
@@ -708,7 +726,7 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
     /**
      * Sets newCardIdentifier
      *
-     * @param string|null $newCardIdentifier The alphanumeric identifier of the loyalty card.
+     * @param string|null $newCardIdentifier The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`.
      *
      * @return $this
      */
@@ -717,8 +735,11 @@ class LoyaltyCard implements ModelInterface, ArrayAccess
         if (!is_null($newCardIdentifier) && (mb_strlen($newCardIdentifier) > 108)) {
             throw new \InvalidArgumentException('invalid length for $newCardIdentifier when calling LoyaltyCard., must be smaller than or equal to 108.');
         }
-        if (!is_null($newCardIdentifier) && (!preg_match("/^[A-Za-z0-9_-]*$/", $newCardIdentifier))) {
-            throw new \InvalidArgumentException("invalid value for $newCardIdentifier when calling LoyaltyCard., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
+        if (!is_null($newCardIdentifier) && (mb_strlen($newCardIdentifier) < 4)) {
+            throw new \InvalidArgumentException('invalid length for $newCardIdentifier when calling LoyaltyCard., must be bigger than or equal to 4.');
+        }
+        if (!is_null($newCardIdentifier) && (!preg_match("/^[A-Za-z0-9._%+@-]+$/", $newCardIdentifier))) {
+            throw new \InvalidArgumentException("invalid value for $newCardIdentifier when calling LoyaltyCard., must conform to the pattern /^[A-Za-z0-9._%+@-]+$/.");
         }
 
         $this->container['newCardIdentifier'] = $newCardIdentifier;

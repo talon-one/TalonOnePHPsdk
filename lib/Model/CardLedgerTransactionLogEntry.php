@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -299,8 +299,12 @@ class CardLedgerTransactionLogEntry implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'cardIdentifier', the character length must be smaller than or equal to 108.";
         }
 
-        if (!preg_match("/^[A-Za-z0-9_-]*$/", $this->container['cardIdentifier'])) {
-            $invalidProperties[] = "invalid value for 'cardIdentifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
+        if ((mb_strlen($this->container['cardIdentifier']) < 4)) {
+            $invalidProperties[] = "invalid value for 'cardIdentifier', the character length must be bigger than or equal to 4.";
+        }
+
+        if (!preg_match("/^[A-Za-z0-9._%+@-]+$/", $this->container['cardIdentifier'])) {
+            $invalidProperties[] = "invalid value for 'cardIdentifier', must be conform to the pattern /^[A-Za-z0-9._%+@-]+$/.";
         }
 
         if (!is_null($this->container['customerSessionId']) && (mb_strlen($this->container['customerSessionId']) > 255)) {
@@ -452,7 +456,7 @@ class CardLedgerTransactionLogEntry implements ModelInterface, ArrayAccess
     /**
      * Sets cardIdentifier
      *
-     * @param string $cardIdentifier The alphanumeric identifier of the loyalty card.
+     * @param string $cardIdentifier The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`.
      *
      * @return $this
      */
@@ -461,8 +465,11 @@ class CardLedgerTransactionLogEntry implements ModelInterface, ArrayAccess
         if ((mb_strlen($cardIdentifier) > 108)) {
             throw new \InvalidArgumentException('invalid length for $cardIdentifier when calling CardLedgerTransactionLogEntry., must be smaller than or equal to 108.');
         }
-        if ((!preg_match("/^[A-Za-z0-9_-]*$/", $cardIdentifier))) {
-            throw new \InvalidArgumentException("invalid value for $cardIdentifier when calling CardLedgerTransactionLogEntry., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
+        if ((mb_strlen($cardIdentifier) < 4)) {
+            throw new \InvalidArgumentException('invalid length for $cardIdentifier when calling CardLedgerTransactionLogEntry., must be bigger than or equal to 4.');
+        }
+        if ((!preg_match("/^[A-Za-z0-9._%+@-]+$/", $cardIdentifier))) {
+            throw new \InvalidArgumentException("invalid value for $cardIdentifier when calling CardLedgerTransactionLogEntry., must conform to the pattern /^[A-Za-z0-9._%+@-]+$/.");
         }
 
         $this->container['cardIdentifier'] = $cardIdentifier;

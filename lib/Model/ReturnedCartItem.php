@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -58,7 +58,8 @@ class ReturnedCartItem implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'position' => 'int',
-        'quantity' => 'int'
+        'quantity' => 'int',
+        'sku' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class ReturnedCartItem implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'position' => 'int64',
-        'quantity' => 'int64'
+        'quantity' => 'int64',
+        'sku' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class ReturnedCartItem implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'position' => 'position',
-        'quantity' => 'quantity'
+        'quantity' => 'quantity',
+        'sku' => 'sku'
     ];
 
     /**
@@ -109,7 +112,8 @@ class ReturnedCartItem implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'position' => 'setPosition',
-        'quantity' => 'setQuantity'
+        'quantity' => 'setQuantity',
+        'sku' => 'setSku'
     ];
 
     /**
@@ -119,7 +123,8 @@ class ReturnedCartItem implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'position' => 'getPosition',
-        'quantity' => 'getQuantity'
+        'quantity' => 'getQuantity',
+        'sku' => 'getSku'
     ];
 
     /**
@@ -184,6 +189,7 @@ class ReturnedCartItem implements ModelInterface, ArrayAccess
     {
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
+        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
     }
 
     /**
@@ -195,9 +201,10 @@ class ReturnedCartItem implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['position'] === null) {
-            $invalidProperties[] = "'position' can't be null";
+        if (!is_null($this->container['sku']) && (mb_strlen($this->container['sku']) < 1)) {
+            $invalidProperties[] = "invalid value for 'sku', the character length must be bigger than or equal to 1.";
         }
+
         return $invalidProperties;
     }
 
@@ -216,7 +223,7 @@ class ReturnedCartItem implements ModelInterface, ArrayAccess
     /**
      * Gets position
      *
-     * @return int
+     * @return int|null
      */
     public function getPosition()
     {
@@ -226,7 +233,7 @@ class ReturnedCartItem implements ModelInterface, ArrayAccess
     /**
      * Sets position
      *
-     * @param int $position The index of the cart item in the provided customer session's `cartItems` property.
+     * @param int|null $position The index of the cart item in the provided customer session's `cartItems` property.
      *
      * @return $this
      */
@@ -257,6 +264,35 @@ class ReturnedCartItem implements ModelInterface, ArrayAccess
     public function setQuantity($quantity)
     {
         $this->container['quantity'] = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets sku
+     *
+     * @return string|null
+     */
+    public function getSku()
+    {
+        return $this->container['sku'];
+    }
+
+    /**
+     * Sets sku
+     *
+     * @param string|null $sku The SKU of the cart item in the provided customer session's `cartItems` property.
+     *
+     * @return $this
+     */
+    public function setSku($sku)
+    {
+
+        if (!is_null($sku) && (mb_strlen($sku) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $sku when calling ReturnedCartItem., must be bigger than or equal to 1.');
+        }
+
+        $this->container['sku'] = $sku;
 
         return $this;
     }

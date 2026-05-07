@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -58,7 +58,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\RoleV2[]'
+        'hasMore' => 'bool',
+        'data' => '\TalonOne\Client\Model\Change[]'
     ];
 
     /**
@@ -68,6 +69,7 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'totalResultSize' => 'int64',
+        'hasMore' => null,
         'data' => null
     ];
 
@@ -99,6 +101,7 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'totalResultSize' => 'totalResultSize',
+        'hasMore' => 'hasMore',
         'data' => 'data'
     ];
 
@@ -109,6 +112,7 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'totalResultSize' => 'setTotalResultSize',
+        'hasMore' => 'setHasMore',
         'data' => 'setData'
     ];
 
@@ -119,6 +123,7 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'totalResultSize' => 'getTotalResultSize',
+        'hasMore' => 'getHasMore',
         'data' => 'getData'
     ];
 
@@ -183,6 +188,7 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
+        $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -195,9 +201,6 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['totalResultSize'] === null) {
-            $invalidProperties[] = "'totalResultSize' can't be null";
-        }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
@@ -219,7 +222,7 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
     /**
      * Gets totalResultSize
      *
-     * @return int
+     * @return int|null
      */
     public function getTotalResultSize()
     {
@@ -229,7 +232,7 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
     /**
      * Sets totalResultSize
      *
-     * @param int $totalResultSize totalResultSize
+     * @param int|null $totalResultSize totalResultSize
      *
      * @return $this
      */
@@ -241,9 +244,33 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets hasMore
+     *
+     * @return bool|null
+     */
+    public function getHasMore()
+    {
+        return $this->container['hasMore'];
+    }
+
+    /**
+     * Sets hasMore
+     *
+     * @param bool|null $hasMore hasMore
+     *
+     * @return $this
+     */
+    public function setHasMore($hasMore)
+    {
+        $this->container['hasMore'] = $hasMore;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\RoleV2[]
+     * @return \TalonOne\Client\Model\Change[]
      */
     public function getData()
     {
@@ -253,7 +280,7 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\RoleV2[] $data data
+     * @param \TalonOne\Client\Model\Change[] $data data
      *
      * @return $this
      */

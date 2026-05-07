@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **numberOfCoupons** | **int** | The number of new coupon codes to generate for the campaign. | 
 **couponSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **attributes** | [**object**](.md) | Arbitrary properties associated with coupons. | 
+**isReservationMandatory** | **bool** | An indication of whether the code can be redeemed only if it has been reserved first. | [optional] [default to false]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

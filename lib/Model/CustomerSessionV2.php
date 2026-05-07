@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -70,10 +70,12 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'loyaltyCards' => 'string[]',
         'state' => 'string',
         'cartItems' => '\TalonOne\Client\Model\CartItem[]',
+        'experimentVariantAllocations' => '\TalonOne\Client\Model\ExperimentVariantAllocation[]',
         'additionalCosts' => 'map[string,\TalonOne\Client\Model\AdditionalCost]',
         'identifiers' => 'string[]',
         'attributes' => 'object',
         'firstSession' => 'bool',
+        'updateCount' => 'int',
         'total' => 'float',
         'cartItemTotal' => 'float',
         'additionalCostTotal' => 'float',
@@ -98,10 +100,12 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'loyaltyCards' => null,
         'state' => null,
         'cartItems' => null,
+        'experimentVariantAllocations' => null,
         'additionalCosts' => null,
         'identifiers' => null,
         'attributes' => null,
         'firstSession' => null,
+        'updateCount' => 'int64',
         'total' => null,
         'cartItemTotal' => null,
         'additionalCostTotal' => null,
@@ -147,10 +151,12 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'loyaltyCards' => 'loyaltyCards',
         'state' => 'state',
         'cartItems' => 'cartItems',
+        'experimentVariantAllocations' => 'experimentVariantAllocations',
         'additionalCosts' => 'additionalCosts',
         'identifiers' => 'identifiers',
         'attributes' => 'attributes',
         'firstSession' => 'firstSession',
+        'updateCount' => 'updateCount',
         'total' => 'total',
         'cartItemTotal' => 'cartItemTotal',
         'additionalCostTotal' => 'additionalCostTotal',
@@ -175,10 +181,12 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'loyaltyCards' => 'setLoyaltyCards',
         'state' => 'setState',
         'cartItems' => 'setCartItems',
+        'experimentVariantAllocations' => 'setExperimentVariantAllocations',
         'additionalCosts' => 'setAdditionalCosts',
         'identifiers' => 'setIdentifiers',
         'attributes' => 'setAttributes',
         'firstSession' => 'setFirstSession',
+        'updateCount' => 'setUpdateCount',
         'total' => 'setTotal',
         'cartItemTotal' => 'setCartItemTotal',
         'additionalCostTotal' => 'setAdditionalCostTotal',
@@ -203,10 +211,12 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'loyaltyCards' => 'getLoyaltyCards',
         'state' => 'getState',
         'cartItems' => 'getCartItems',
+        'experimentVariantAllocations' => 'getExperimentVariantAllocations',
         'additionalCosts' => 'getAdditionalCosts',
         'identifiers' => 'getIdentifiers',
         'attributes' => 'getAttributes',
         'firstSession' => 'getFirstSession',
+        'updateCount' => 'getUpdateCount',
         'total' => 'getTotal',
         'cartItemTotal' => 'getCartItemTotal',
         'additionalCostTotal' => 'getAdditionalCostTotal',
@@ -304,10 +314,12 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         $this->container['loyaltyCards'] = isset($data['loyaltyCards']) ? $data['loyaltyCards'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'open';
         $this->container['cartItems'] = isset($data['cartItems']) ? $data['cartItems'] : null;
+        $this->container['experimentVariantAllocations'] = isset($data['experimentVariantAllocations']) ? $data['experimentVariantAllocations'] : null;
         $this->container['additionalCosts'] = isset($data['additionalCosts']) ? $data['additionalCosts'] : null;
         $this->container['identifiers'] = isset($data['identifiers']) ? $data['identifiers'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['firstSession'] = isset($data['firstSession']) ? $data['firstSession'] : null;
+        $this->container['updateCount'] = isset($data['updateCount']) ? $data['updateCount'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['cartItemTotal'] = isset($data['cartItemTotal']) ? $data['cartItemTotal'] : null;
         $this->container['additionalCostTotal'] = isset($data['additionalCostTotal']) ? $data['additionalCostTotal'] : null;
@@ -373,6 +385,9 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         }
         if ($this->container['firstSession'] === null) {
             $invalidProperties[] = "'firstSession' can't be null";
+        }
+        if ($this->container['updateCount'] === null) {
+            $invalidProperties[] = "'updateCount' can't be null";
         }
         if ($this->container['total'] === null) {
             $invalidProperties[] = "'total' can't be null";
@@ -714,6 +729,30 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets experimentVariantAllocations
+     *
+     * @return \TalonOne\Client\Model\ExperimentVariantAllocation[]|null
+     */
+    public function getExperimentVariantAllocations()
+    {
+        return $this->container['experimentVariantAllocations'];
+    }
+
+    /**
+     * Sets experimentVariantAllocations
+     *
+     * @param \TalonOne\Client\Model\ExperimentVariantAllocation[]|null $experimentVariantAllocations The experiment variant allocations to add to this session.
+     *
+     * @return $this
+     */
+    public function setExperimentVariantAllocations($experimentVariantAllocations)
+    {
+        $this->container['experimentVariantAllocations'] = $experimentVariantAllocations;
+
+        return $this;
+    }
+
+    /**
      * Gets additionalCosts
      *
      * @return map[string,\TalonOne\Client\Model\AdditionalCost]|null
@@ -805,6 +844,30 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     public function setFirstSession($firstSession)
     {
         $this->container['firstSession'] = $firstSession;
+
+        return $this;
+    }
+
+    /**
+     * Gets updateCount
+     *
+     * @return int
+     */
+    public function getUpdateCount()
+    {
+        return $this->container['updateCount'];
+    }
+
+    /**
+     * Sets updateCount
+     *
+     * @param int $updateCount The number of times the session was updated. When the session is created, this value is initialized to `1`.
+     *
+     * @return $this
+     */
+    public function setUpdateCount($updateCount)
+    {
+        $this->container['updateCount'] = $updateCount;
 
         return $this;
     }

@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -65,6 +65,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'state' => 'string',
         'activeRulesetId' => 'int',
         'tags' => 'string[]',
+        'reevaluateOnReturn' => 'bool',
         'features' => 'string[]',
         'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
@@ -72,6 +73,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'campaignGroups' => 'int[]',
         'type' => 'string',
         'linkedStoreIds' => 'int[]',
+        'couponAttributes' => 'object',
         'evaluationGroupId' => 'int'
     ];
 
@@ -89,6 +91,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'state' => null,
         'activeRulesetId' => 'int64',
         'tags' => null,
+        'reevaluateOnReturn' => null,
         'features' => null,
         'couponSettings' => null,
         'referralSettings' => null,
@@ -96,6 +99,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'campaignGroups' => 'int64',
         'type' => null,
         'linkedStoreIds' => 'int64',
+        'couponAttributes' => null,
         'evaluationGroupId' => 'int64'
     ];
 
@@ -134,6 +138,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'state' => 'state',
         'activeRulesetId' => 'activeRulesetId',
         'tags' => 'tags',
+        'reevaluateOnReturn' => 'reevaluateOnReturn',
         'features' => 'features',
         'couponSettings' => 'couponSettings',
         'referralSettings' => 'referralSettings',
@@ -141,6 +146,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'campaignGroups' => 'campaignGroups',
         'type' => 'type',
         'linkedStoreIds' => 'linkedStoreIds',
+        'couponAttributes' => 'couponAttributes',
         'evaluationGroupId' => 'evaluationGroupId'
     ];
 
@@ -158,6 +164,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'state' => 'setState',
         'activeRulesetId' => 'setActiveRulesetId',
         'tags' => 'setTags',
+        'reevaluateOnReturn' => 'setReevaluateOnReturn',
         'features' => 'setFeatures',
         'couponSettings' => 'setCouponSettings',
         'referralSettings' => 'setReferralSettings',
@@ -165,6 +172,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'campaignGroups' => 'setCampaignGroups',
         'type' => 'setType',
         'linkedStoreIds' => 'setLinkedStoreIds',
+        'couponAttributes' => 'setCouponAttributes',
         'evaluationGroupId' => 'setEvaluationGroupId'
     ];
 
@@ -182,6 +190,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'state' => 'getState',
         'activeRulesetId' => 'getActiveRulesetId',
         'tags' => 'getTags',
+        'reevaluateOnReturn' => 'getReevaluateOnReturn',
         'features' => 'getFeatures',
         'couponSettings' => 'getCouponSettings',
         'referralSettings' => 'getReferralSettings',
@@ -189,6 +198,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
         'campaignGroups' => 'getCampaignGroups',
         'type' => 'getType',
         'linkedStoreIds' => 'getLinkedStoreIds',
+        'couponAttributes' => 'getCouponAttributes',
         'evaluationGroupId' => 'getEvaluationGroupId'
     ];
 
@@ -315,6 +325,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'enabled';
         $this->container['activeRulesetId'] = isset($data['activeRulesetId']) ? $data['activeRulesetId'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['reevaluateOnReturn'] = isset($data['reevaluateOnReturn']) ? $data['reevaluateOnReturn'] : null;
         $this->container['features'] = isset($data['features']) ? $data['features'] : null;
         $this->container['couponSettings'] = isset($data['couponSettings']) ? $data['couponSettings'] : null;
         $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
@@ -322,6 +333,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
         $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : 'advanced';
         $this->container['linkedStoreIds'] = isset($data['linkedStoreIds']) ? $data['linkedStoreIds'] : null;
+        $this->container['couponAttributes'] = isset($data['couponAttributes']) ? $data['couponAttributes'] : null;
         $this->container['evaluationGroupId'] = isset($data['evaluationGroupId']) ? $data['evaluationGroupId'] : null;
     }
 
@@ -555,7 +567,7 @@ class NewCampaign implements ModelInterface, ArrayAccess
     /**
      * Sets activeRulesetId
      *
-     * @param int|null $activeRulesetId [ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation.
+     * @param int|null $activeRulesetId [ID of Ruleset](https://docs.talon.one/management-api#tag/Campaigns/operation/getRulesets) this campaign applies on customer session evaluation.
      *
      * @return $this
      */
@@ -586,6 +598,30 @@ class NewCampaign implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets reevaluateOnReturn
+     *
+     * @return bool|null
+     */
+    public function getReevaluateOnReturn()
+    {
+        return $this->container['reevaluateOnReturn'];
+    }
+
+    /**
+     * Sets reevaluateOnReturn
+     *
+     * @param bool|null $reevaluateOnReturn Indicates whether this campaign should be reevaluated when a customer returns an item.
+     *
+     * @return $this
+     */
+    public function setReevaluateOnReturn($reevaluateOnReturn)
+    {
+        $this->container['reevaluateOnReturn'] = $reevaluateOnReturn;
 
         return $this;
     }
@@ -772,6 +808,30 @@ class NewCampaign implements ModelInterface, ArrayAccess
     public function setLinkedStoreIds($linkedStoreIds)
     {
         $this->container['linkedStoreIds'] = $linkedStoreIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets couponAttributes
+     *
+     * @return object|null
+     */
+    public function getCouponAttributes()
+    {
+        return $this->container['couponAttributes'];
+    }
+
+    /**
+     * Sets couponAttributes
+     *
+     * @param object|null $couponAttributes Arbitrary properties associated with coupons in this campaign.
+     *
+     * @return $this
+     */
+    public function setCouponAttributes($couponAttributes)
+    {
+        $this->container['couponAttributes'] = $couponAttributes;
 
         return $this;
     }

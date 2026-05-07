@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -70,6 +70,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
         'numberOfCoupons' => 'int',
         'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'attributes' => 'object',
+        'isReservationMandatory' => 'bool',
         'batchId' => 'string',
         'status' => 'string',
         'createdAmount' => 'int',
@@ -100,6 +101,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
         'numberOfCoupons' => 'int64',
         'couponSettings' => null,
         'attributes' => null,
+        'isReservationMandatory' => null,
         'batchId' => null,
         'status' => null,
         'createdAmount' => 'int64',
@@ -151,6 +153,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
         'numberOfCoupons' => 'numberOfCoupons',
         'couponSettings' => 'couponSettings',
         'attributes' => 'attributes',
+        'isReservationMandatory' => 'isReservationMandatory',
         'batchId' => 'batchId',
         'status' => 'status',
         'createdAmount' => 'createdAmount',
@@ -181,6 +184,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
         'numberOfCoupons' => 'setNumberOfCoupons',
         'couponSettings' => 'setCouponSettings',
         'attributes' => 'setAttributes',
+        'isReservationMandatory' => 'setIsReservationMandatory',
         'batchId' => 'setBatchId',
         'status' => 'setStatus',
         'createdAmount' => 'setCreatedAmount',
@@ -211,6 +215,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
         'numberOfCoupons' => 'getNumberOfCoupons',
         'couponSettings' => 'getCouponSettings',
         'attributes' => 'getAttributes',
+        'isReservationMandatory' => 'getIsReservationMandatory',
         'batchId' => 'getBatchId',
         'status' => 'getStatus',
         'createdAmount' => 'getCreatedAmount',
@@ -295,6 +300,7 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
         $this->container['numberOfCoupons'] = isset($data['numberOfCoupons']) ? $data['numberOfCoupons'] : null;
         $this->container['couponSettings'] = isset($data['couponSettings']) ? $data['couponSettings'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : false;
         $this->container['batchId'] = isset($data['batchId']) ? $data['batchId'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['createdAmount'] = isset($data['createdAmount']) ? $data['createdAmount'] : null;
@@ -750,6 +756,30 @@ class CouponCreationJob implements ModelInterface, ArrayAccess
     public function setAttributes($attributes)
     {
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets isReservationMandatory
+     *
+     * @return bool|null
+     */
+    public function getIsReservationMandatory()
+    {
+        return $this->container['isReservationMandatory'];
+    }
+
+    /**
+     * Sets isReservationMandatory
+     *
+     * @param bool|null $isReservationMandatory An indication of whether the code can be redeemed only if it has been reserved first.
+     *
+     * @return $this
+     */
+    public function setIsReservationMandatory($isReservationMandatory)
+    {
+        $this->container['isReservationMandatory'] = $isReservationMandatory;
 
         return $this;
     }

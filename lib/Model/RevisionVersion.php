@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -75,7 +75,9 @@ class RevisionVersion implements ModelInterface, ArrayAccess
         'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
-        'features' => 'string[]'
+        'reevaluateOnReturn' => 'bool',
+        'features' => 'string[]',
+        'couponAttributes' => 'object'
     ];
 
     /**
@@ -102,7 +104,9 @@ class RevisionVersion implements ModelInterface, ArrayAccess
         'couponSettings' => null,
         'referralSettings' => null,
         'limits' => null,
-        'features' => null
+        'reevaluateOnReturn' => null,
+        'features' => null,
+        'couponAttributes' => null
     ];
 
     /**
@@ -150,7 +154,9 @@ class RevisionVersion implements ModelInterface, ArrayAccess
         'couponSettings' => 'couponSettings',
         'referralSettings' => 'referralSettings',
         'limits' => 'limits',
-        'features' => 'features'
+        'reevaluateOnReturn' => 'reevaluateOnReturn',
+        'features' => 'features',
+        'couponAttributes' => 'couponAttributes'
     ];
 
     /**
@@ -177,7 +183,9 @@ class RevisionVersion implements ModelInterface, ArrayAccess
         'couponSettings' => 'setCouponSettings',
         'referralSettings' => 'setReferralSettings',
         'limits' => 'setLimits',
-        'features' => 'setFeatures'
+        'reevaluateOnReturn' => 'setReevaluateOnReturn',
+        'features' => 'setFeatures',
+        'couponAttributes' => 'setCouponAttributes'
     ];
 
     /**
@@ -204,7 +212,9 @@ class RevisionVersion implements ModelInterface, ArrayAccess
         'couponSettings' => 'getCouponSettings',
         'referralSettings' => 'getReferralSettings',
         'limits' => 'getLimits',
-        'features' => 'getFeatures'
+        'reevaluateOnReturn' => 'getReevaluateOnReturn',
+        'features' => 'getFeatures',
+        'couponAttributes' => 'getCouponAttributes'
     ];
 
     /**
@@ -308,7 +318,9 @@ class RevisionVersion implements ModelInterface, ArrayAccess
         $this->container['couponSettings'] = isset($data['couponSettings']) ? $data['couponSettings'] : null;
         $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
+        $this->container['reevaluateOnReturn'] = isset($data['reevaluateOnReturn']) ? $data['reevaluateOnReturn'] : null;
         $this->container['features'] = isset($data['features']) ? $data['features'] : null;
+        $this->container['couponAttributes'] = isset($data['couponAttributes']) ? $data['couponAttributes'] : null;
     }
 
     /**
@@ -693,7 +705,7 @@ class RevisionVersion implements ModelInterface, ArrayAccess
     /**
      * Sets activeRulesetId
      *
-     * @param int|null $activeRulesetId The ID of the ruleset this campaign template will use.
+     * @param int|null $activeRulesetId The ID of the ruleset this campaign will use.
      *
      * @return $this
      */
@@ -717,7 +729,7 @@ class RevisionVersion implements ModelInterface, ArrayAccess
     /**
      * Sets tags
      *
-     * @param string[]|null $tags A list of tags for the campaign template.
+     * @param string[]|null $tags A list of tags for the campaign.
      *
      * @return $this
      */
@@ -801,6 +813,30 @@ class RevisionVersion implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets reevaluateOnReturn
+     *
+     * @return bool|null
+     */
+    public function getReevaluateOnReturn()
+    {
+        return $this->container['reevaluateOnReturn'];
+    }
+
+    /**
+     * Sets reevaluateOnReturn
+     *
+     * @param bool|null $reevaluateOnReturn Indicates whether this campaign should be reevaluated when a customer returns an item.
+     *
+     * @return $this
+     */
+    public function setReevaluateOnReturn($reevaluateOnReturn)
+    {
+        $this->container['reevaluateOnReturn'] = $reevaluateOnReturn;
+
+        return $this;
+    }
+
+    /**
      * Gets features
      *
      * @return string[]|null
@@ -813,7 +849,7 @@ class RevisionVersion implements ModelInterface, ArrayAccess
     /**
      * Sets features
      *
-     * @param string[]|null $features A list of features for the campaign template.
+     * @param string[]|null $features A list of features for the campaign.
      *
      * @return $this
      */
@@ -829,6 +865,30 @@ class RevisionVersion implements ModelInterface, ArrayAccess
             );
         }
         $this->container['features'] = $features;
+
+        return $this;
+    }
+
+    /**
+     * Gets couponAttributes
+     *
+     * @return object|null
+     */
+    public function getCouponAttributes()
+    {
+        return $this->container['couponAttributes'];
+    }
+
+    /**
+     * Sets couponAttributes
+     *
+     * @param object|null $couponAttributes Arbitrary properties associated with coupons in this campaign.
+     *
+     * @return $this
+     */
+    public function setCouponAttributes($couponAttributes)
+    {
+        $this->container['couponAttributes'] = $couponAttributes;
 
         return $this;
     }

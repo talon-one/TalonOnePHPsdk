@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -61,6 +61,7 @@ class CampaignCreatedNotificationItem implements ModelInterface, ArrayAccess
         'event' => 'string',
         'campaign' => '\TalonOne\Client\Model\Campaign',
         'ruleset' => '\TalonOne\Client\Model\Ruleset',
+        'placeholders' => '\TalonOne\Client\Model\PlaceholderDetails[]',
         'evaluationPosition' => '\TalonOne\Client\Model\CampaignEvaluationPosition'
     ];
 
@@ -73,6 +74,7 @@ class CampaignCreatedNotificationItem implements ModelInterface, ArrayAccess
         'event' => null,
         'campaign' => null,
         'ruleset' => null,
+        'placeholders' => null,
         'evaluationPosition' => null
     ];
 
@@ -106,6 +108,7 @@ class CampaignCreatedNotificationItem implements ModelInterface, ArrayAccess
         'event' => 'Event',
         'campaign' => 'campaign',
         'ruleset' => 'ruleset',
+        'placeholders' => 'placeholders',
         'evaluationPosition' => 'evaluationPosition'
     ];
 
@@ -118,6 +121,7 @@ class CampaignCreatedNotificationItem implements ModelInterface, ArrayAccess
         'event' => 'setEvent',
         'campaign' => 'setCampaign',
         'ruleset' => 'setRuleset',
+        'placeholders' => 'setPlaceholders',
         'evaluationPosition' => 'setEvaluationPosition'
     ];
 
@@ -130,6 +134,7 @@ class CampaignCreatedNotificationItem implements ModelInterface, ArrayAccess
         'event' => 'getEvent',
         'campaign' => 'getCampaign',
         'ruleset' => 'getRuleset',
+        'placeholders' => 'getPlaceholders',
         'evaluationPosition' => 'getEvaluationPosition'
     ];
 
@@ -196,6 +201,7 @@ class CampaignCreatedNotificationItem implements ModelInterface, ArrayAccess
         $this->container['event'] = isset($data['event']) ? $data['event'] : null;
         $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
         $this->container['ruleset'] = isset($data['ruleset']) ? $data['ruleset'] : null;
+        $this->container['placeholders'] = isset($data['placeholders']) ? $data['placeholders'] : null;
         $this->container['evaluationPosition'] = isset($data['evaluationPosition']) ? $data['evaluationPosition'] : null;
     }
 
@@ -300,6 +306,30 @@ class CampaignCreatedNotificationItem implements ModelInterface, ArrayAccess
     public function setRuleset($ruleset)
     {
         $this->container['ruleset'] = $ruleset;
+
+        return $this;
+    }
+
+    /**
+     * Gets placeholders
+     *
+     * @return \TalonOne\Client\Model\PlaceholderDetails[]|null
+     */
+    public function getPlaceholders()
+    {
+        return $this->container['placeholders'];
+    }
+
+    /**
+     * Sets placeholders
+     *
+     * @param \TalonOne\Client\Model\PlaceholderDetails[]|null $placeholders The current details of the [placeholders](https://docs.talon.one/docs/product/campaigns/templates/create-templates#use-placeholders) in the campaign.
+     *
+     * @return $this
+     */
+    public function setPlaceholders($placeholders)
+    {
+        $this->container['placeholders'] = $placeholders;
 
         return $this;
     }

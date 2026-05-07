@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -58,8 +58,8 @@ class BestPriorPriceMetadata implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'influencingCampaignIDs' => 'int[]',
-        'adjustmentReferenceID' => 'string'
+        'influencingCampaignDetails' => '\TalonOne\Client\Model\InfluencingCampaignDetails[]',
+        'adjustmentDetails' => '\TalonOne\Client\Model\AdjustmentDetails'
     ];
 
     /**
@@ -68,8 +68,8 @@ class BestPriorPriceMetadata implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'influencingCampaignIDs' => 'int64',
-        'adjustmentReferenceID' => null
+        'influencingCampaignDetails' => null,
+        'adjustmentDetails' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class BestPriorPriceMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'influencingCampaignIDs' => 'influencingCampaignIDs',
-        'adjustmentReferenceID' => 'adjustmentReferenceID'
+        'influencingCampaignDetails' => 'influencingCampaignDetails',
+        'adjustmentDetails' => 'adjustmentDetails'
     ];
 
     /**
@@ -109,8 +109,8 @@ class BestPriorPriceMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'influencingCampaignIDs' => 'setInfluencingCampaignIDs',
-        'adjustmentReferenceID' => 'setAdjustmentReferenceID'
+        'influencingCampaignDetails' => 'setInfluencingCampaignDetails',
+        'adjustmentDetails' => 'setAdjustmentDetails'
     ];
 
     /**
@@ -119,8 +119,8 @@ class BestPriorPriceMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'influencingCampaignIDs' => 'getInfluencingCampaignIDs',
-        'adjustmentReferenceID' => 'getAdjustmentReferenceID'
+        'influencingCampaignDetails' => 'getInfluencingCampaignDetails',
+        'adjustmentDetails' => 'getAdjustmentDetails'
     ];
 
     /**
@@ -183,8 +183,8 @@ class BestPriorPriceMetadata implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['influencingCampaignIDs'] = isset($data['influencingCampaignIDs']) ? $data['influencingCampaignIDs'] : null;
-        $this->container['adjustmentReferenceID'] = isset($data['adjustmentReferenceID']) ? $data['adjustmentReferenceID'] : null;
+        $this->container['influencingCampaignDetails'] = isset($data['influencingCampaignDetails']) ? $data['influencingCampaignDetails'] : null;
+        $this->container['adjustmentDetails'] = isset($data['adjustmentDetails']) ? $data['adjustmentDetails'] : null;
     }
 
     /**
@@ -196,6 +196,9 @@ class BestPriorPriceMetadata implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['influencingCampaignDetails'] === null) {
+            $invalidProperties[] = "'influencingCampaignDetails' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -212,49 +215,49 @@ class BestPriorPriceMetadata implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets influencingCampaignIDs
+     * Gets influencingCampaignDetails
      *
-     * @return int[]|null
+     * @return \TalonOne\Client\Model\InfluencingCampaignDetails[]
      */
-    public function getInfluencingCampaignIDs()
+    public function getInfluencingCampaignDetails()
     {
-        return $this->container['influencingCampaignIDs'];
+        return $this->container['influencingCampaignDetails'];
     }
 
     /**
-     * Sets influencingCampaignIDs
+     * Sets influencingCampaignDetails
      *
-     * @param int[]|null $influencingCampaignIDs influencingCampaignIDs
+     * @param \TalonOne\Client\Model\InfluencingCampaignDetails[] $influencingCampaignDetails Details about campaigns that influenced the final price.
      *
      * @return $this
      */
-    public function setInfluencingCampaignIDs($influencingCampaignIDs)
+    public function setInfluencingCampaignDetails($influencingCampaignDetails)
     {
-        $this->container['influencingCampaignIDs'] = $influencingCampaignIDs;
+        $this->container['influencingCampaignDetails'] = $influencingCampaignDetails;
 
         return $this;
     }
 
     /**
-     * Gets adjustmentReferenceID
+     * Gets adjustmentDetails
      *
-     * @return string|null
+     * @return \TalonOne\Client\Model\AdjustmentDetails|null
      */
-    public function getAdjustmentReferenceID()
+    public function getAdjustmentDetails()
     {
-        return $this->container['adjustmentReferenceID'];
+        return $this->container['adjustmentDetails'];
     }
 
     /**
-     * Sets adjustmentReferenceID
+     * Sets adjustmentDetails
      *
-     * @param string|null $adjustmentReferenceID Identifier related to the `referenceId` used during a `ADD_PRICE_ADJUSTMENT` action  using the [Sync cart item catalog endpoint](https://docs.talon.one/integration-api#tag/Catalogs/operation/syncCatalog).
+     * @param \TalonOne\Client\Model\AdjustmentDetails|null $adjustmentDetails adjustmentDetails
      *
      * @return $this
      */
-    public function setAdjustmentReferenceID($adjustmentReferenceID)
+    public function setAdjustmentDetails($adjustmentDetails)
     {
-        $this->container['adjustmentReferenceID'] = $adjustmentReferenceID;
+        $this->container['adjustmentDetails'] = $adjustmentDetails;
 
         return $this;
     }

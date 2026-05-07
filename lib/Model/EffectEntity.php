@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -58,6 +58,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'experimentId' => 'int',
         'campaignId' => 'int',
         'rulesetId' => 'int',
         'ruleIndex' => 'int',
@@ -81,6 +82,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'experimentId' => 'int64',
         'campaignId' => 'int64',
         'rulesetId' => 'int64',
         'ruleIndex' => 'int64',
@@ -125,6 +127,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'experimentId' => 'experimentId',
         'campaignId' => 'campaignId',
         'rulesetId' => 'rulesetId',
         'ruleIndex' => 'ruleIndex',
@@ -148,6 +151,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'experimentId' => 'setExperimentId',
         'campaignId' => 'setCampaignId',
         'rulesetId' => 'setRulesetId',
         'ruleIndex' => 'setRuleIndex',
@@ -171,6 +175,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'experimentId' => 'getExperimentId',
         'campaignId' => 'getCampaignId',
         'rulesetId' => 'getRulesetId',
         'ruleIndex' => 'getRuleIndex',
@@ -248,6 +253,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['experimentId'] = isset($data['experimentId']) ? $data['experimentId'] : null;
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
         $this->container['rulesetId'] = isset($data['rulesetId']) ? $data['rulesetId'] : null;
         $this->container['ruleIndex'] = isset($data['ruleIndex']) ? $data['ruleIndex'] : null;
@@ -303,6 +309,30 @@ class EffectEntity implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets experimentId
+     *
+     * @return int|null
+     */
+    public function getExperimentId()
+    {
+        return $this->container['experimentId'];
+    }
+
+    /**
+     * Sets experimentId
+     *
+     * @param int|null $experimentId The ID of the experiment that campaign belongs to.
+     *
+     * @return $this
+     */
+    public function setExperimentId($experimentId)
+    {
+        $this->container['experimentId'] = $experimentId;
+
+        return $this;
+    }
 
     /**
      * Gets campaignId

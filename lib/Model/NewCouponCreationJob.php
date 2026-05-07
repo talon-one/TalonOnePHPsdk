@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -64,7 +64,8 @@ class NewCouponCreationJob implements ModelInterface, ArrayAccess
         'expiryDate' => '\DateTime',
         'numberOfCoupons' => 'int',
         'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
-        'attributes' => 'object'
+        'attributes' => 'object',
+        'isReservationMandatory' => 'bool'
     ];
 
     /**
@@ -80,7 +81,8 @@ class NewCouponCreationJob implements ModelInterface, ArrayAccess
         'expiryDate' => 'date-time',
         'numberOfCoupons' => 'int64',
         'couponSettings' => null,
-        'attributes' => null
+        'attributes' => null,
+        'isReservationMandatory' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class NewCouponCreationJob implements ModelInterface, ArrayAccess
         'expiryDate' => 'expiryDate',
         'numberOfCoupons' => 'numberOfCoupons',
         'couponSettings' => 'couponSettings',
-        'attributes' => 'attributes'
+        'attributes' => 'attributes',
+        'isReservationMandatory' => 'isReservationMandatory'
     ];
 
     /**
@@ -133,7 +136,8 @@ class NewCouponCreationJob implements ModelInterface, ArrayAccess
         'expiryDate' => 'setExpiryDate',
         'numberOfCoupons' => 'setNumberOfCoupons',
         'couponSettings' => 'setCouponSettings',
-        'attributes' => 'setAttributes'
+        'attributes' => 'setAttributes',
+        'isReservationMandatory' => 'setIsReservationMandatory'
     ];
 
     /**
@@ -149,7 +153,8 @@ class NewCouponCreationJob implements ModelInterface, ArrayAccess
         'expiryDate' => 'getExpiryDate',
         'numberOfCoupons' => 'getNumberOfCoupons',
         'couponSettings' => 'getCouponSettings',
-        'attributes' => 'getAttributes'
+        'attributes' => 'getAttributes',
+        'isReservationMandatory' => 'getIsReservationMandatory'
     ];
 
     /**
@@ -220,6 +225,7 @@ class NewCouponCreationJob implements ModelInterface, ArrayAccess
         $this->container['numberOfCoupons'] = isset($data['numberOfCoupons']) ? $data['numberOfCoupons'] : null;
         $this->container['couponSettings'] = isset($data['couponSettings']) ? $data['couponSettings'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : false;
     }
 
     /**
@@ -507,6 +513,30 @@ class NewCouponCreationJob implements ModelInterface, ArrayAccess
     public function setAttributes($attributes)
     {
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets isReservationMandatory
+     *
+     * @return bool|null
+     */
+    public function getIsReservationMandatory()
+    {
+        return $this->container['isReservationMandatory'];
+    }
+
+    /**
+     * Sets isReservationMandatory
+     *
+     * @param bool|null $isReservationMandatory An indication of whether the code can be redeemed only if it has been reserved first.
+     *
+     * @return $this
+     */
+    public function setIsReservationMandatory($isReservationMandatory)
+    {
+        $this->container['isReservationMandatory'] = $isReservationMandatory;
 
         return $this;
     }

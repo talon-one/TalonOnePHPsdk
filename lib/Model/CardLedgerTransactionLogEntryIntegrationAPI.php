@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -71,7 +71,8 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
         'amount' => 'float',
         'id' => 'int',
         'rulesetId' => 'int',
-        'ruleName' => 'string'
+        'ruleName' => 'string',
+        'validityDuration' => 'string'
     ];
 
     /**
@@ -93,7 +94,8 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
         'amount' => null,
         'id' => 'int64',
         'rulesetId' => 'int64',
-        'ruleName' => null
+        'ruleName' => null,
+        'validityDuration' => null
     ];
 
     /**
@@ -136,7 +138,8 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
         'amount' => 'amount',
         'id' => 'id',
         'rulesetId' => 'rulesetId',
-        'ruleName' => 'ruleName'
+        'ruleName' => 'ruleName',
+        'validityDuration' => 'validityDuration'
     ];
 
     /**
@@ -158,7 +161,8 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
         'amount' => 'setAmount',
         'id' => 'setId',
         'rulesetId' => 'setRulesetId',
-        'ruleName' => 'setRuleName'
+        'ruleName' => 'setRuleName',
+        'validityDuration' => 'setValidityDuration'
     ];
 
     /**
@@ -180,7 +184,8 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
         'amount' => 'getAmount',
         'id' => 'getId',
         'rulesetId' => 'getRulesetId',
-        'ruleName' => 'getRuleName'
+        'ruleName' => 'getRuleName',
+        'validityDuration' => 'getValidityDuration'
     ];
 
     /**
@@ -272,6 +277,7 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['rulesetId'] = isset($data['rulesetId']) ? $data['rulesetId'] : null;
         $this->container['ruleName'] = isset($data['ruleName']) ? $data['ruleName'] : null;
+        $this->container['validityDuration'] = isset($data['validityDuration']) ? $data['validityDuration'] : null;
     }
 
     /**
@@ -299,8 +305,12 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
             $invalidProperties[] = "invalid value for 'cardIdentifier', the character length must be smaller than or equal to 108.";
         }
 
-        if (!preg_match("/^[A-Za-z0-9_-]*$/", $this->container['cardIdentifier'])) {
-            $invalidProperties[] = "invalid value for 'cardIdentifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
+        if ((mb_strlen($this->container['cardIdentifier']) < 4)) {
+            $invalidProperties[] = "invalid value for 'cardIdentifier', the character length must be bigger than or equal to 4.";
+        }
+
+        if (!preg_match("/^[A-Za-z0-9._%+@-]+$/", $this->container['cardIdentifier'])) {
+            $invalidProperties[] = "invalid value for 'cardIdentifier', must be conform to the pattern /^[A-Za-z0-9._%+@-]+$/.";
         }
 
         if (!is_null($this->container['customerSessionId']) && (mb_strlen($this->container['customerSessionId']) > 255)) {
@@ -452,7 +462,7 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
     /**
      * Sets cardIdentifier
      *
-     * @param string $cardIdentifier The alphanumeric identifier of the loyalty card.
+     * @param string $cardIdentifier The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`.
      *
      * @return $this
      */
@@ -461,8 +471,11 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
         if ((mb_strlen($cardIdentifier) > 108)) {
             throw new \InvalidArgumentException('invalid length for $cardIdentifier when calling CardLedgerTransactionLogEntryIntegrationAPI., must be smaller than or equal to 108.');
         }
-        if ((!preg_match("/^[A-Za-z0-9_-]*$/", $cardIdentifier))) {
-            throw new \InvalidArgumentException("invalid value for $cardIdentifier when calling CardLedgerTransactionLogEntryIntegrationAPI., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
+        if ((mb_strlen($cardIdentifier) < 4)) {
+            throw new \InvalidArgumentException('invalid length for $cardIdentifier when calling CardLedgerTransactionLogEntryIntegrationAPI., must be bigger than or equal to 4.');
+        }
+        if ((!preg_match("/^[A-Za-z0-9._%+@-]+$/", $cardIdentifier))) {
+            throw new \InvalidArgumentException("invalid value for $cardIdentifier when calling CardLedgerTransactionLogEntryIntegrationAPI., must conform to the pattern /^[A-Za-z0-9._%+@-]+$/.");
         }
 
         $this->container['cardIdentifier'] = $cardIdentifier;
@@ -576,7 +589,7 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
     /**
      * Sets startDate
      *
-     * @param string $startDate When points become active. Possible values:   - `immediate`: Points are active immediately.   - a timestamp value: Points become active at a given date and time.
+     * @param string $startDate When points become active. Possible values:   - `immediate`: Points are active immediately.   - `on_action`: Points become active based on the customer's action.   - a timestamp value: Points become active at a given date and time.
      *
      * @return $this
      */
@@ -735,6 +748,30 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
     public function setRuleName($ruleName)
     {
         $this->container['ruleName'] = $ruleName;
+
+        return $this;
+    }
+
+    /**
+     * Gets validityDuration
+     *
+     * @return string|null
+     */
+    public function getValidityDuration()
+    {
+        return $this->container['validityDuration'];
+    }
+
+    /**
+     * Sets validityDuration
+     *
+     * @param string|null $validityDuration The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.
+     *
+     * @return $this
+     */
+    public function setValidityDuration($validityDuration)
+    {
+        $this->container['validityDuration'] = $validityDuration;
 
         return $this;
     }
