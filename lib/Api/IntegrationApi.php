@@ -12,7 +12,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -113,6 +113,358 @@ class IntegrationApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation activateLoyaltyPoints
+     *
+     * Activate loyalty points
+     *
+     * @param  int $loyaltyProgramId The identifier for the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  \TalonOne\Client\Model\ActivateLoyaltyPoints $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\ActivateLoyaltyPointsResponse|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     */
+    public function activateLoyaltyPoints($loyaltyProgramId, $body)
+    {
+        list($response) = $this->activateLoyaltyPointsWithHttpInfo($loyaltyProgramId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation activateLoyaltyPointsWithHttpInfo
+     *
+     * Activate loyalty points
+     *
+     * @param  int $loyaltyProgramId The identifier for the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  \TalonOne\Client\Model\ActivateLoyaltyPoints $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\ActivateLoyaltyPointsResponse|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function activateLoyaltyPointsWithHttpInfo($loyaltyProgramId, $body)
+    {
+        $request = $this->activateLoyaltyPointsRequest($loyaltyProgramId, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\ActivateLoyaltyPointsResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ActivateLoyaltyPointsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\ActivateLoyaltyPointsResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ActivateLoyaltyPointsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation activateLoyaltyPointsAsync
+     *
+     * Activate loyalty points
+     *
+     * @param  int $loyaltyProgramId The identifier for the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  \TalonOne\Client\Model\ActivateLoyaltyPoints $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function activateLoyaltyPointsAsync($loyaltyProgramId, $body)
+    {
+        return $this->activateLoyaltyPointsAsyncWithHttpInfo($loyaltyProgramId, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation activateLoyaltyPointsAsyncWithHttpInfo
+     *
+     * Activate loyalty points
+     *
+     * @param  int $loyaltyProgramId The identifier for the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  \TalonOne\Client\Model\ActivateLoyaltyPoints $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function activateLoyaltyPointsAsyncWithHttpInfo($loyaltyProgramId, $body)
+    {
+        $returnType = '\TalonOne\Client\Model\ActivateLoyaltyPointsResponse';
+        $request = $this->activateLoyaltyPointsRequest($loyaltyProgramId, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'activateLoyaltyPoints'
+     *
+     * @param  int $loyaltyProgramId The identifier for the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  \TalonOne\Client\Model\ActivateLoyaltyPoints $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function activateLoyaltyPointsRequest($loyaltyProgramId, $body)
+    {
+        // verify the required parameter 'loyaltyProgramId' is set
+        if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $loyaltyProgramId when calling activateLoyaltyPoints'
+            );
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling activateLoyaltyPoints'
+            );
+        }
+
+        $resourcePath = '/v1/loyalty_programs/{loyaltyProgramId}/activate_points';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($loyaltyProgramId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'loyaltyProgramId' . '}',
+                ObjectSerializer::toPathValue($loyaltyProgramId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -736,7 +1088,7 @@ class IntegrationApi
      *
      * Create coupon reservation
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -754,7 +1106,7 @@ class IntegrationApi
      *
      * Create coupon reservation
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -903,7 +1255,7 @@ class IntegrationApi
      *
      * Create coupon reservation
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -924,7 +1276,7 @@ class IntegrationApi
      *
      * Create coupon reservation
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -972,7 +1324,7 @@ class IntegrationApi
     /**
      * Create request for operation 'createCouponReservation'
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -2226,7 +2578,7 @@ class IntegrationApi
      *
      * Delete coupon reservations
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -2243,7 +2595,7 @@ class IntegrationApi
      *
      * Delete coupon reservations
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -2320,7 +2672,7 @@ class IntegrationApi
      *
      * Delete coupon reservations
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -2341,7 +2693,7 @@ class IntegrationApi
      *
      * Delete coupon reservations
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -2378,7 +2730,7 @@ class IntegrationApi
     /**
      * Create request for operation 'deleteCouponReservation'
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
      * @param  \TalonOne\Client\Model\CouponReservations $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -2494,7 +2846,7 @@ class IntegrationApi
      *
      * Delete customer's personal data
      *
-     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2510,7 +2862,7 @@ class IntegrationApi
      *
      * Delete customer's personal data
      *
-     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2578,7 +2930,7 @@ class IntegrationApi
      *
      * Delete customer's personal data
      *
-     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2598,7 +2950,7 @@ class IntegrationApi
      *
      * Delete customer's personal data
      *
-     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2634,7 +2986,7 @@ class IntegrationApi
     /**
      * Create request for operation 'deleteCustomerData'
      *
-     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2729,6 +3081,293 @@ class IntegrationApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteLoyaltyTransactionsFromLedgers
+     *
+     * Delete customer's transactions from loyalty ledgers
+     *
+     * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
+     * @param  \TalonOne\Client\Model\DeleteLoyaltyTransactionsRequest $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteLoyaltyTransactionsFromLedgers($loyaltyProgramId, $integrationId, $body)
+    {
+        $this->deleteLoyaltyTransactionsFromLedgersWithHttpInfo($loyaltyProgramId, $integrationId, $body);
+    }
+
+    /**
+     * Operation deleteLoyaltyTransactionsFromLedgersWithHttpInfo
+     *
+     * Delete customer's transactions from loyalty ledgers
+     *
+     * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
+     * @param  \TalonOne\Client\Model\DeleteLoyaltyTransactionsRequest $body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteLoyaltyTransactionsFromLedgersWithHttpInfo($loyaltyProgramId, $integrationId, $body)
+    {
+        $request = $this->deleteLoyaltyTransactionsFromLedgersRequest($loyaltyProgramId, $integrationId, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteLoyaltyTransactionsFromLedgersAsync
+     *
+     * Delete customer's transactions from loyalty ledgers
+     *
+     * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
+     * @param  \TalonOne\Client\Model\DeleteLoyaltyTransactionsRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteLoyaltyTransactionsFromLedgersAsync($loyaltyProgramId, $integrationId, $body)
+    {
+        return $this->deleteLoyaltyTransactionsFromLedgersAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteLoyaltyTransactionsFromLedgersAsyncWithHttpInfo
+     *
+     * Delete customer's transactions from loyalty ledgers
+     *
+     * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
+     * @param  \TalonOne\Client\Model\DeleteLoyaltyTransactionsRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteLoyaltyTransactionsFromLedgersAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $body)
+    {
+        $returnType = '';
+        $request = $this->deleteLoyaltyTransactionsFromLedgersRequest($loyaltyProgramId, $integrationId, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteLoyaltyTransactionsFromLedgers'
+     *
+     * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
+     * @param  \TalonOne\Client\Model\DeleteLoyaltyTransactionsRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteLoyaltyTransactionsFromLedgersRequest($loyaltyProgramId, $integrationId, $body)
+    {
+        // verify the required parameter 'loyaltyProgramId' is set
+        if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $loyaltyProgramId when calling deleteLoyaltyTransactionsFromLedgers'
+            );
+        }
+        // verify the required parameter 'integrationId' is set
+        if ($integrationId === null || (is_array($integrationId) && count($integrationId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $integrationId when calling deleteLoyaltyTransactionsFromLedgers'
+            );
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling deleteLoyaltyTransactionsFromLedgers'
+            );
+        }
+
+        $resourcePath = '/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/delete_transactions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($loyaltyProgramId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'loyaltyProgramId' . '}',
+                ObjectSerializer::toPathValue($loyaltyProgramId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($integrationId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'integrationId' . '}',
+                ObjectSerializer::toPathValue($integrationId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -3082,7 +3721,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2002|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse2003|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
     public function getCustomerAchievementHistory($integrationId, $achievementId, $progressStatus = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
     {
@@ -3105,7 +3744,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2002|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2003|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomerAchievementHistoryWithHttpInfo($integrationId, $achievementId, $progressStatus = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
     {
@@ -3142,14 +3781,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2002' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2003' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2002', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2003', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3191,7 +3830,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2002';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2003';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3210,7 +3849,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2002',
+                        '\TalonOne\Client\Model\InlineResponse2003',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3288,7 +3927,7 @@ class IntegrationApi
      */
     public function getCustomerAchievementHistoryAsyncWithHttpInfo($integrationId, $achievementId, $progressStatus = null, $startDate = null, $endDate = null, $pageSize = 1000, $skip = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2002';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2003';
         $request = $this->getCustomerAchievementHistoryRequest($integrationId, $achievementId, $progressStatus, $startDate, $endDate, $pageSize, $skip);
 
         return $this->client
@@ -3506,7 +4145,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2001|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse2002|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
     public function getCustomerAchievements($integrationId, $campaignIds = null, $achievementIds = null, $achievementStatus = null, $currentProgressStatus = null, $pageSize = 1000, $skip = null)
     {
@@ -3529,7 +4168,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2001|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2002|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomerAchievementsWithHttpInfo($integrationId, $campaignIds = null, $achievementIds = null, $achievementStatus = null, $currentProgressStatus = null, $pageSize = 1000, $skip = null)
     {
@@ -3566,14 +4205,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2002' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2002', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3615,7 +4254,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2002';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3634,7 +4273,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2001',
+                        '\TalonOne\Client\Model\InlineResponse2002',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3712,7 +4351,7 @@ class IntegrationApi
      */
     public function getCustomerAchievementsAsyncWithHttpInfo($integrationId, $campaignIds = null, $achievementIds = null, $achievementStatus = null, $currentProgressStatus = null, $pageSize = 1000, $skip = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2002';
         $request = $this->getCustomerAchievementsRequest($integrationId, $campaignIds, $achievementIds, $achievementStatus, $currentProgressStatus, $pageSize, $skip);
 
         return $this->client
@@ -3913,7 +4552,7 @@ class IntegrationApi
      *
      * List customer data
      *
-     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
      * @param  bool $profile Set to &#x60;true&#x60; to include customer profile information in the response. (optional)
      * @param  bool $referrals Set to &#x60;true&#x60; to include referral information in the response. (optional)
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
@@ -3936,7 +4575,7 @@ class IntegrationApi
      *
      * List customer data
      *
-     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
      * @param  bool $profile Set to &#x60;true&#x60; to include customer profile information in the response. (optional)
      * @param  bool $referrals Set to &#x60;true&#x60; to include referral information in the response. (optional)
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
@@ -4070,7 +4709,7 @@ class IntegrationApi
      *
      * List customer data
      *
-     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
      * @param  bool $profile Set to &#x60;true&#x60; to include customer profile information in the response. (optional)
      * @param  bool $referrals Set to &#x60;true&#x60; to include referral information in the response. (optional)
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
@@ -4096,7 +4735,7 @@ class IntegrationApi
      *
      * List customer data
      *
-     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
      * @param  bool $profile Set to &#x60;true&#x60; to include customer profile information in the response. (optional)
      * @param  bool $referrals Set to &#x60;true&#x60; to include referral information in the response. (optional)
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
@@ -4149,7 +4788,7 @@ class IntegrationApi
     /**
      * Create request for operation 'getCustomerInventory'
      *
-     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. (required)
+     * @param  string $integrationId The integration ID of the customer profile. You can get the &#x60;integrationId&#x60; of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. (required)
      * @param  bool $profile Set to &#x60;true&#x60; to include customer profile information in the response. (optional)
      * @param  bool $referrals Set to &#x60;true&#x60; to include referral information in the response. (optional)
      * @param  bool $coupons Set to &#x60;true&#x60; to include coupon information in the response. (optional)
@@ -4303,7 +4942,7 @@ class IntegrationApi
      *
      * Get customer session
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4320,7 +4959,7 @@ class IntegrationApi
      *
      * Get customer session
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4448,7 +5087,7 @@ class IntegrationApi
      *
      * Get customer session
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4468,7 +5107,7 @@ class IntegrationApi
      *
      * Get customer session
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4515,7 +5154,7 @@ class IntegrationApi
     /**
      * Create request for operation 'getCustomerSession'
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4623,7 +5262,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  bool $includeTiers Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier. (optional, default to false)
      * @param  bool $includeProjectedTier Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance. (optional, default to false)
@@ -4645,7 +5284,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  bool $includeTiers Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier. (optional, default to false)
      * @param  bool $includeProjectedTier Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance. (optional, default to false)
@@ -4798,7 +5437,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  bool $includeTiers Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier. (optional, default to false)
      * @param  bool $includeProjectedTier Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance. (optional, default to false)
@@ -4823,7 +5462,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  bool $includeTiers Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier. (optional, default to false)
      * @param  bool $includeProjectedTier Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance. (optional, default to false)
@@ -4875,7 +5514,7 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  bool $includeTiers Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier. (optional, default to false)
      * @param  bool $includeProjectedTier Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance. (optional, default to false)
@@ -5027,8 +5666,8 @@ class IntegrationApi
      * Get card's point balances
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -5047,8 +5686,8 @@ class IntegrationApi
      * Get card's point balances
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -5198,8 +5837,8 @@ class IntegrationApi
      * Get card's point balances
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      *
      * @throws \InvalidArgumentException
@@ -5221,8 +5860,8 @@ class IntegrationApi
      * Get card's point balances
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      *
      * @throws \InvalidArgumentException
@@ -5271,8 +5910,8 @@ class IntegrationApi
      * Create request for operation 'getLoyaltyCardBalances'
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
-     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
+     * @param  \DateTime $endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      *
      * @throws \InvalidArgumentException
@@ -5294,6 +5933,9 @@ class IntegrationApi
         }
         if (strlen($loyaltyCardId) > 108) {
             throw new \InvalidArgumentException('invalid length for "$loyaltyCardId" when calling IntegrationApi.getLoyaltyCardBalances, must be smaller than or equal to 108.');
+        }
+        if (strlen($loyaltyCardId) < 4) {
+            throw new \InvalidArgumentException('invalid length for "$loyaltyCardId" when calling IntegrationApi.getLoyaltyCardBalances, must be bigger than or equal to 4.');
         }
 
 
@@ -5416,18 +6058,18 @@ class IntegrationApi
      * List card's unused loyalty points
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2005|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse2006|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
     public function getLoyaltyCardPoints($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
@@ -5441,18 +6083,18 @@ class IntegrationApi
      * List card's unused loyalty points
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2005|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2006|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLoyaltyCardPointsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
@@ -5489,14 +6131,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2005' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2006' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2005', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2006', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5538,7 +6180,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2005';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2006';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -5557,7 +6199,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2005',
+                        '\TalonOne\Client\Model\InlineResponse2006',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5597,14 +6239,14 @@ class IntegrationApi
      * List card's unused loyalty points
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5625,21 +6267,21 @@ class IntegrationApi
      * List card's unused loyalty points
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getLoyaltyCardPointsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2005';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2006';
         $request = $this->getLoyaltyCardPointsRequest($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort);
 
         return $this->client
@@ -5680,14 +6322,14 @@ class IntegrationApi
      * Create request for operation 'getLoyaltyCardPoints'
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  string $status Filter points based on their status. (optional, default to 'active')
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
-     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
+     * @param  string $sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5708,6 +6350,9 @@ class IntegrationApi
         }
         if (strlen($loyaltyCardId) > 108) {
             throw new \InvalidArgumentException('invalid length for "$loyaltyCardId" when calling IntegrationApi.getLoyaltyCardPoints, must be smaller than or equal to 108.');
+        }
+        if (strlen($loyaltyCardId) < 4) {
+            throw new \InvalidArgumentException('invalid length for "$loyaltyCardId" when calling IntegrationApi.getLoyaltyCardPoints, must be bigger than or equal to 4.');
         }
 
         if ($pageSize !== null && $pageSize > 1000) {
@@ -5880,23 +6525,24 @@ class IntegrationApi
      * List card's transactions
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  bool $awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2003|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse2004|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getLoyaltyCardTransactions($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyCardTransactions($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $awaitsActivation = null)
     {
-        list($response) = $this->getLoyaltyCardTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip);
+        list($response) = $this->getLoyaltyCardTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $awaitsActivation);
         return $response;
     }
 
@@ -5906,23 +6552,24 @@ class IntegrationApi
      * List card's transactions
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  bool $awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2003|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2004|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyCardTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyCardTransactionsWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $awaitsActivation = null)
     {
-        $request = $this->getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip);
+        $request = $this->getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $awaitsActivation);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5955,14 +6602,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2003' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2004' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2003', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2004', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6004,7 +6651,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2003';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2004';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -6023,7 +6670,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2003',
+                        '\TalonOne\Client\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6063,22 +6710,23 @@ class IntegrationApi
      * List card's transactions
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  bool $awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyCardTransactionsAsync($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyCardTransactionsAsync($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $awaitsActivation = null)
     {
-        return $this->getLoyaltyCardTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip)
+        return $this->getLoyaltyCardTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $awaitsActivation)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6092,23 +6740,24 @@ class IntegrationApi
      * List card's transactions
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  bool $awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyCardTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyCardTransactionsAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $awaitsActivation = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2003';
-        $request = $this->getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip);
+        $returnType = '\TalonOne\Client\Model\InlineResponse2004';
+        $request = $this->getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $awaitsActivation);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6148,20 +6797,21 @@ class IntegrationApi
      * Create request for operation 'getLoyaltyCardTransactions'
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  string[] $subledgerId Filter results by one or more subledger IDs. Must be exact match. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  bool $awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null)
+    protected function getLoyaltyCardTransactionsRequest($loyaltyProgramId, $loyaltyCardId, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $awaitsActivation = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -6177,6 +6827,9 @@ class IntegrationApi
         }
         if (strlen($loyaltyCardId) > 108) {
             throw new \InvalidArgumentException('invalid length for "$loyaltyCardId" when calling IntegrationApi.getLoyaltyCardTransactions, must be smaller than or equal to 108.');
+        }
+        if (strlen($loyaltyCardId) < 4) {
+            throw new \InvalidArgumentException('invalid length for "$loyaltyCardId" when calling IntegrationApi.getLoyaltyCardTransactions, must be bigger than or equal to 4.');
         }
 
         if ($pageSize !== null && $pageSize > 1000) {
@@ -6261,6 +6914,13 @@ class IntegrationApi
         }
         if ($skip !== null) {
             $queryParams['skip'] = $skip;
+        }
+        // query params
+        if (is_array($awaitsActivation)) {
+            $awaitsActivation = ObjectSerializer::serializeCollection($awaitsActivation, '', true);
+        }
+        if ($awaitsActivation !== null) {
+            $queryParams['awaitsActivation'] = $awaitsActivation;
         }
 
 
@@ -6367,7 +7027,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2006|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse2007|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
     public function getLoyaltyProgramProfilePoints($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
@@ -6392,7 +7052,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2006|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2007|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLoyaltyProgramProfilePointsWithHttpInfo($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
@@ -6429,14 +7089,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2006' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2007' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2006', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2007', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6478,7 +7138,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2006';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2007';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -6497,7 +7157,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2006',
+                        '\TalonOne\Client\Model\InlineResponse2007',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6579,7 +7239,7 @@ class IntegrationApi
      */
     public function getLoyaltyProgramProfilePointsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $status = 'active', $subledgerId = null, $customerSessionIDs = null, $transactionUUIDs = null, $pageSize = 50, $skip = null, $sort = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2006';
+        $returnType = '\TalonOne\Client\Model\InlineResponse2007';
         $request = $this->getLoyaltyProgramProfilePointsRequest($loyaltyProgramId, $integrationId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort);
 
         return $this->client
@@ -6813,22 +7473,23 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  bool $awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse2004|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse2005|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function getLoyaltyProgramProfileTransactions($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramProfileTransactions($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null, $awaitsActivation = null)
     {
-        list($response) = $this->getLoyaltyProgramProfileTransactionsWithHttpInfo($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
+        list($response) = $this->getLoyaltyProgramProfileTransactionsWithHttpInfo($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip, $awaitsActivation);
         return $response;
     }
 
@@ -6839,22 +7500,23 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  bool $awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\InlineResponse2004|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\InlineResponse2005|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyProgramProfileTransactionsWithHttpInfo($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramProfileTransactionsWithHttpInfo($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null, $awaitsActivation = null)
     {
-        $request = $this->getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
+        $request = $this->getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip, $awaitsActivation);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6887,14 +7549,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\InlineResponse2004' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\InlineResponse2005' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2004', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2005', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6936,7 +7598,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\InlineResponse2004';
+            $returnType = '\TalonOne\Client\Model\InlineResponse2005';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -6955,7 +7617,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\InlineResponse2004',
+                        '\TalonOne\Client\Model\InlineResponse2005',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6996,21 +7658,22 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  bool $awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyProgramProfileTransactionsAsync($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramProfileTransactionsAsync($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null, $awaitsActivation = null)
     {
-        return $this->getLoyaltyProgramProfileTransactionsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip)
+        return $this->getLoyaltyProgramProfileTransactionsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip, $awaitsActivation)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7025,22 +7688,23 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  bool $awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyProgramProfileTransactionsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    public function getLoyaltyProgramProfileTransactionsAsyncWithHttpInfo($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null, $awaitsActivation = null)
     {
-        $returnType = '\TalonOne\Client\Model\InlineResponse2004';
-        $request = $this->getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip);
+        $returnType = '\TalonOne\Client\Model\InlineResponse2005';
+        $request = $this->getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip, $awaitsActivation);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7081,19 +7745,20 @@ class IntegrationApi
      *
      * @param  int $loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
      * @param  string $integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. (required)
-     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
-     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
+     * @param  string[] $customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. (optional)
+     * @param  string[] $transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. (optional)
      * @param  string $subledgerId The ID of the subledger by which we filter the data. (optional)
      * @param  string $loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. (optional)
-     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
-     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      * @param  int $pageSize The number of items in the response. (optional, default to 50)
      * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  bool $awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null)
+    protected function getLoyaltyProgramProfileTransactionsRequest($loyaltyProgramId, $integrationId, $customerSessionIDs = null, $transactionUUIDs = null, $subledgerId = null, $loyaltyTransactionType = null, $startDate = null, $endDate = null, $pageSize = 50, $skip = null, $awaitsActivation = null)
     {
         // verify the required parameter 'loyaltyProgramId' is set
         if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
@@ -7185,6 +7850,13 @@ class IntegrationApi
         }
         if ($skip !== null) {
             $queryParams['skip'] = $skip;
+        }
+        // query params
+        if (is_array($awaitsActivation)) {
+            $awaitsActivation = ObjectSerializer::serializeCollection($awaitsActivation, '', true);
+        }
+        if ($awaitsActivation !== null) {
+            $queryParams['awaitsActivation'] = $awaitsActivation;
         }
 
 
@@ -7279,11 +7951,11 @@ class IntegrationApi
      *
      * List customers that have this coupon reserved
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\InlineResponse200|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     * @return \TalonOne\Client\Model\InlineResponse2001|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
     public function getReservedCustomers($couponValue)
     {
@@ -7296,15 +7968,365 @@ class IntegrationApi
      *
      * List customers that have this coupon reserved
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\InlineResponse2001|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getReservedCustomersWithHttpInfo($couponValue)
+    {
+        $request = $this->getReservedCustomersRequest($couponValue);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\InlineResponse2001', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\InlineResponse2001',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getReservedCustomersAsync
+     *
+     * List customers that have this coupon reserved
+     *
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getReservedCustomersAsync($couponValue)
+    {
+        return $this->getReservedCustomersAsyncWithHttpInfo($couponValue)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getReservedCustomersAsyncWithHttpInfo
+     *
+     * List customers that have this coupon reserved
+     *
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getReservedCustomersAsyncWithHttpInfo($couponValue)
+    {
+        $returnType = '\TalonOne\Client\Model\InlineResponse2001';
+        $request = $this->getReservedCustomersRequest($couponValue);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getReservedCustomers'
+     *
+     * @param  string $couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getReservedCustomersRequest($couponValue)
+    {
+        // verify the required parameter 'couponValue' is set
+        if ($couponValue === null || (is_array($couponValue) && count($couponValue) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $couponValue when calling getReservedCustomers'
+            );
+        }
+
+        $resourcePath = '/v1/coupon_reservations/customerprofiles/{couponValue}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($couponValue !== null) {
+            $resourcePath = str_replace(
+                '{' . 'couponValue' . '}',
+                ObjectSerializer::toPathValue($couponValue),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation integrationGetAllCampaigns
+     *
+     * List all running campaigns
+     *
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string[] $campaignIds Filter by one or more campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. (optional)
+     * @param  \DateTime $startAfter Filter results to only include campaigns that start on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $startBefore Filter results to only include campaigns that start on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endAfter Filter results to only include campaigns that end on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endBefore Filter results to only include campaigns that end on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\InlineResponse200|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     */
+    public function integrationGetAllCampaigns($pageSize = 50, $skip = null, $campaignIds = null, $startAfter = null, $startBefore = null, $endAfter = null, $endBefore = null)
+    {
+        list($response) = $this->integrationGetAllCampaignsWithHttpInfo($pageSize, $skip, $campaignIds, $startAfter, $startBefore, $endAfter, $endBefore);
+        return $response;
+    }
+
+    /**
+     * Operation integrationGetAllCampaignsWithHttpInfo
+     *
+     * List all running campaigns
+     *
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string[] $campaignIds Filter by one or more campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. (optional)
+     * @param  \DateTime $startAfter Filter results to only include campaigns that start on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $startBefore Filter results to only include campaigns that start on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endAfter Filter results to only include campaigns that end on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endBefore Filter results to only include campaigns that end on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\InlineResponse200|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReservedCustomersWithHttpInfo($couponValue)
+    public function integrationGetAllCampaignsWithHttpInfo($pageSize = 50, $skip = null, $campaignIds = null, $startAfter = null, $startBefore = null, $endAfter = null, $endBefore = null)
     {
-        $request = $this->getReservedCustomersRequest($couponValue);
+        $request = $this->integrationGetAllCampaignsRequest($pageSize, $skip, $campaignIds, $startAfter, $startBefore, $endAfter, $endBefore);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7440,18 +8462,24 @@ class IntegrationApi
     }
 
     /**
-     * Operation getReservedCustomersAsync
+     * Operation integrationGetAllCampaignsAsync
      *
-     * List customers that have this coupon reserved
+     * List all running campaigns
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string[] $campaignIds Filter by one or more campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. (optional)
+     * @param  \DateTime $startAfter Filter results to only include campaigns that start on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $startBefore Filter results to only include campaigns that start on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endAfter Filter results to only include campaigns that end on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endBefore Filter results to only include campaigns that end on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReservedCustomersAsync($couponValue)
+    public function integrationGetAllCampaignsAsync($pageSize = 50, $skip = null, $campaignIds = null, $startAfter = null, $startBefore = null, $endAfter = null, $endBefore = null)
     {
-        return $this->getReservedCustomersAsyncWithHttpInfo($couponValue)
+        return $this->integrationGetAllCampaignsAsyncWithHttpInfo($pageSize, $skip, $campaignIds, $startAfter, $startBefore, $endAfter, $endBefore)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7460,19 +8488,25 @@ class IntegrationApi
     }
 
     /**
-     * Operation getReservedCustomersAsyncWithHttpInfo
+     * Operation integrationGetAllCampaignsAsyncWithHttpInfo
      *
-     * List customers that have this coupon reserved
+     * List all running campaigns
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string[] $campaignIds Filter by one or more campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. (optional)
+     * @param  \DateTime $startAfter Filter results to only include campaigns that start on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $startBefore Filter results to only include campaigns that start on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endAfter Filter results to only include campaigns that end on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endBefore Filter results to only include campaigns that end on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReservedCustomersAsyncWithHttpInfo($couponValue)
+    public function integrationGetAllCampaignsAsyncWithHttpInfo($pageSize = 50, $skip = null, $campaignIds = null, $startAfter = null, $startBefore = null, $endAfter = null, $endBefore = null)
     {
         $returnType = '\TalonOne\Client\Model\InlineResponse200';
-        $request = $this->getReservedCustomersRequest($couponValue);
+        $request = $this->integrationGetAllCampaignsRequest($pageSize, $skip, $campaignIds, $startAfter, $startBefore, $endAfter, $endBefore);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7509,39 +8543,87 @@ class IntegrationApi
     }
 
     /**
-     * Create request for operation 'getReservedCustomers'
+     * Create request for operation 'integrationGetAllCampaigns'
      *
-     * @param  string $couponValue The code of the coupon. (required)
+     * @param  int $pageSize The number of items in the response. (optional, default to 50)
+     * @param  int $skip The number of items to skip when paging through large result sets. (optional)
+     * @param  string[] $campaignIds Filter by one or more campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. (optional)
+     * @param  \DateTime $startAfter Filter results to only include campaigns that start on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $startBefore Filter results to only include campaigns that start on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endAfter Filter results to only include campaigns that end on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
+     * @param  \DateTime $endBefore Filter results to only include campaigns that end on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReservedCustomersRequest($couponValue)
+    protected function integrationGetAllCampaignsRequest($pageSize = 50, $skip = null, $campaignIds = null, $startAfter = null, $startBefore = null, $endAfter = null, $endBefore = null)
     {
-        // verify the required parameter 'couponValue' is set
-        if ($couponValue === null || (is_array($couponValue) && count($couponValue) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $couponValue when calling getReservedCustomers'
-            );
+        if ($pageSize !== null && $pageSize > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.integrationGetAllCampaigns, must be smaller than or equal to 1000.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling IntegrationApi.integrationGetAllCampaigns, must be bigger than or equal to 1.');
         }
 
-        $resourcePath = '/v1/coupon_reservations/customerprofiles/{couponValue}';
+
+        $resourcePath = '/v1/integration/campaigns';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-
-
-        // path params
-        if ($couponValue !== null) {
-            $resourcePath = str_replace(
-                '{' . 'couponValue' . '}',
-                ObjectSerializer::toPathValue($couponValue),
-                $resourcePath
-            );
+        // query params
+        if (is_array($pageSize)) {
+            $pageSize = ObjectSerializer::serializeCollection($pageSize, '', true);
         }
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = $pageSize;
+        }
+        // query params
+        if (is_array($skip)) {
+            $skip = ObjectSerializer::serializeCollection($skip, '', true);
+        }
+        if ($skip !== null) {
+            $queryParams['skip'] = $skip;
+        }
+        // query params
+        if (is_array($campaignIds)) {
+            $campaignIds = ObjectSerializer::serializeCollection($campaignIds, 'form', true);
+        }
+        if ($campaignIds !== null) {
+            $queryParams['campaignIds'] = $campaignIds;
+        }
+        // query params
+        if (is_array($startAfter)) {
+            $startAfter = ObjectSerializer::serializeCollection($startAfter, '', true);
+        }
+        if ($startAfter !== null) {
+            $queryParams['startAfter'] = $startAfter;
+        }
+        // query params
+        if (is_array($startBefore)) {
+            $startBefore = ObjectSerializer::serializeCollection($startBefore, '', true);
+        }
+        if ($startBefore !== null) {
+            $queryParams['startBefore'] = $startBefore;
+        }
+        // query params
+        if (is_array($endAfter)) {
+            $endAfter = ObjectSerializer::serializeCollection($endAfter, '', true);
+        }
+        if ($endAfter !== null) {
+            $queryParams['endAfter'] = $endAfter;
+        }
+        // query params
+        if (is_array($endBefore)) {
+            $endBefore = ObjectSerializer::serializeCollection($endBefore, '', true);
+        }
+        if ($endBefore !== null) {
+            $queryParams['endBefore'] = $endBefore;
+        }
+
+
 
         // body params
         $_tempBody = null;
@@ -7618,7 +8700,7 @@ class IntegrationApi
      * Link customer profile to card
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  \TalonOne\Client\Model\LoyaltyCardRegistration $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -7637,7 +8719,7 @@ class IntegrationApi
      * Link customer profile to card
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  \TalonOne\Client\Model\LoyaltyCardRegistration $body body (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
@@ -7787,7 +8869,7 @@ class IntegrationApi
      * Link customer profile to card
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  \TalonOne\Client\Model\LoyaltyCardRegistration $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -7809,7 +8891,7 @@ class IntegrationApi
      * Link customer profile to card
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  \TalonOne\Client\Model\LoyaltyCardRegistration $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -7858,7 +8940,7 @@ class IntegrationApi
      * Create request for operation 'linkLoyaltyCardToProfile'
      *
      * @param  int $loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
-     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. (required)
+     * @param  string $loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
      * @param  \TalonOne\Client\Model\LoyaltyCardRegistration $body body (required)
      *
      * @throws \InvalidArgumentException
@@ -7880,6 +8962,9 @@ class IntegrationApi
         }
         if (strlen($loyaltyCardId) > 108) {
             throw new \InvalidArgumentException('invalid length for "$loyaltyCardId" when calling IntegrationApi.linkLoyaltyCardToProfile, must be smaller than or equal to 108.');
+        }
+        if (strlen($loyaltyCardId) < 4) {
+            throw new \InvalidArgumentException('invalid length for "$loyaltyCardId" when calling IntegrationApi.linkLoyaltyCardToProfile, must be bigger than or equal to 4.');
         }
 
         // verify the required parameter 'body' is set
@@ -7992,7 +9077,7 @@ class IntegrationApi
      *
      * Reopen customer session
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8009,7 +9094,7 @@ class IntegrationApi
      *
      * Reopen customer session
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8137,7 +9222,7 @@ class IntegrationApi
      *
      * Reopen customer session
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8157,7 +9242,7 @@ class IntegrationApi
      *
      * Reopen customer session
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8204,7 +9289,7 @@ class IntegrationApi
     /**
      * Create request for operation 'reopenCustomerSession'
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8310,17 +9395,18 @@ class IntegrationApi
      *
      * Return cart items
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\ReturnIntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     * @param  bool $runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TalonOne\Client\Model\IntegrationStateV2|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponseWithStatus
      */
-    public function returnCartItems($customerSessionId, $body, $dry = null)
+    public function returnCartItems($customerSessionId, $body, $dry = null, $runRuleEngine = null)
     {
-        list($response) = $this->returnCartItemsWithHttpInfo($customerSessionId, $body, $dry);
+        list($response) = $this->returnCartItemsWithHttpInfo($customerSessionId, $body, $dry, $runRuleEngine);
         return $response;
     }
 
@@ -8329,17 +9415,18 @@ class IntegrationApi
      *
      * Return cart items
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\ReturnIntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     * @param  bool $runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TalonOne\Client\Model\IntegrationStateV2|\TalonOne\Client\Model\ErrorResponse|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function returnCartItemsWithHttpInfo($customerSessionId, $body, $dry = null)
+    public function returnCartItemsWithHttpInfo($customerSessionId, $body, $dry = null, $runRuleEngine = null)
     {
-        $request = $this->returnCartItemsRequest($customerSessionId, $body, $dry);
+        $request = $this->returnCartItemsRequest($customerSessionId, $body, $dry, $runRuleEngine);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8459,16 +9546,17 @@ class IntegrationApi
      *
      * Return cart items
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\ReturnIntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     * @param  bool $runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function returnCartItemsAsync($customerSessionId, $body, $dry = null)
+    public function returnCartItemsAsync($customerSessionId, $body, $dry = null, $runRuleEngine = null)
     {
-        return $this->returnCartItemsAsyncWithHttpInfo($customerSessionId, $body, $dry)
+        return $this->returnCartItemsAsyncWithHttpInfo($customerSessionId, $body, $dry, $runRuleEngine)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8481,17 +9569,18 @@ class IntegrationApi
      *
      * Return cart items
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\ReturnIntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     * @param  bool $runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function returnCartItemsAsyncWithHttpInfo($customerSessionId, $body, $dry = null)
+    public function returnCartItemsAsyncWithHttpInfo($customerSessionId, $body, $dry = null, $runRuleEngine = null)
     {
         $returnType = '\TalonOne\Client\Model\IntegrationStateV2';
-        $request = $this->returnCartItemsRequest($customerSessionId, $body, $dry);
+        $request = $this->returnCartItemsRequest($customerSessionId, $body, $dry, $runRuleEngine);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8530,14 +9619,15 @@ class IntegrationApi
     /**
      * Create request for operation 'returnCartItems'
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\ReturnIntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)
+     * @param  bool $runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function returnCartItemsRequest($customerSessionId, $body, $dry = null)
+    protected function returnCartItemsRequest($customerSessionId, $body, $dry = null, $runRuleEngine = null)
     {
         // verify the required parameter 'customerSessionId' is set
         if ($customerSessionId === null || (is_array($customerSessionId) && count($customerSessionId) === 0)) {
@@ -8565,6 +9655,13 @@ class IntegrationApi
         }
         if ($dry !== null) {
             $queryParams['dry'] = $dry;
+        }
+        // query params
+        if (is_array($runRuleEngine)) {
+            $runRuleEngine = ObjectSerializer::serializeCollection($runRuleEngine, '', true);
+        }
+        if ($runRuleEngine !== null) {
+            $queryParams['runRuleEngine'] = $runRuleEngine;
         }
 
 
@@ -9013,7 +10110,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TalonOne\Client\Model\TrackEventV2Response|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|object
+     * @return \TalonOne\Client\Model\IntegrationEventV2Response|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|object
      */
     public function trackEventV2($body, $silent = 'yes', $dry = null, $forceCompleteEvaluation = false)
     {
@@ -9033,7 +10130,7 @@ class IntegrationApi
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TalonOne\Client\Model\TrackEventV2Response|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TalonOne\Client\Model\IntegrationEventV2Response|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function trackEventV2WithHttpInfo($body, $silent = 'yes', $dry = null, $forceCompleteEvaluation = false)
     {
@@ -9070,14 +10167,14 @@ class IntegrationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\TalonOne\Client\Model\TrackEventV2Response' === '\SplFileObject') {
+                    if ('\TalonOne\Client\Model\IntegrationEventV2Response' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\TrackEventV2Response', []),
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\IntegrationEventV2Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9119,7 +10216,7 @@ class IntegrationApi
                     ];
             }
 
-            $returnType = '\TalonOne\Client\Model\TrackEventV2Response';
+            $returnType = '\TalonOne\Client\Model\IntegrationEventV2Response';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -9138,7 +10235,7 @@ class IntegrationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TalonOne\Client\Model\TrackEventV2Response',
+                        '\TalonOne\Client\Model\IntegrationEventV2Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9210,7 +10307,7 @@ class IntegrationApi
      */
     public function trackEventV2AsyncWithHttpInfo($body, $silent = 'yes', $dry = null, $forceCompleteEvaluation = false)
     {
-        $returnType = '\TalonOne\Client\Model\TrackEventV2Response';
+        $returnType = '\TalonOne\Client\Model\IntegrationEventV2Response';
         $request = $this->trackEventV2Request($body, $silent, $dry, $forceCompleteEvaluation);
 
         return $this->client
@@ -9297,6 +10394,384 @@ class IntegrationApi
         }
 
 
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation unlinkLoyaltyCardFromProfile
+     *
+     * Unlink customer profile from a loyalty card
+     *
+     * @param  int $loyaltyProgramId The identifier of the card-based loyalty program containing the loyalty card. You can get this ID using the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  string $loyaltyCardId The identifier of the loyalty card. You can get this ID using the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
+     * @param  \TalonOne\Client\Model\LoyaltyCardRegistration $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TalonOne\Client\Model\LoyaltyCard|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus
+     */
+    public function unlinkLoyaltyCardFromProfile($loyaltyProgramId, $loyaltyCardId, $body)
+    {
+        list($response) = $this->unlinkLoyaltyCardFromProfileWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation unlinkLoyaltyCardFromProfileWithHttpInfo
+     *
+     * Unlink customer profile from a loyalty card
+     *
+     * @param  int $loyaltyProgramId The identifier of the card-based loyalty program containing the loyalty card. You can get this ID using the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  string $loyaltyCardId The identifier of the loyalty card. You can get this ID using the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
+     * @param  \TalonOne\Client\Model\LoyaltyCardRegistration $body body (required)
+     *
+     * @throws \TalonOne\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TalonOne\Client\Model\LoyaltyCard|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus|\TalonOne\Client\Model\ErrorResponseWithStatus, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function unlinkLoyaltyCardFromProfileWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $body)
+    {
+        $request = $this->unlinkLoyaltyCardFromProfileRequest($loyaltyProgramId, $loyaltyCardId, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\TalonOne\Client\Model\LoyaltyCard' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\LoyaltyCard', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\TalonOne\Client\Model\ErrorResponseWithStatus' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\TalonOne\Client\Model\ErrorResponseWithStatus', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\TalonOne\Client\Model\LoyaltyCard';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\LoyaltyCard',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TalonOne\Client\Model\ErrorResponseWithStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation unlinkLoyaltyCardFromProfileAsync
+     *
+     * Unlink customer profile from a loyalty card
+     *
+     * @param  int $loyaltyProgramId The identifier of the card-based loyalty program containing the loyalty card. You can get this ID using the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  string $loyaltyCardId The identifier of the loyalty card. You can get this ID using the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
+     * @param  \TalonOne\Client\Model\LoyaltyCardRegistration $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function unlinkLoyaltyCardFromProfileAsync($loyaltyProgramId, $loyaltyCardId, $body)
+    {
+        return $this->unlinkLoyaltyCardFromProfileAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation unlinkLoyaltyCardFromProfileAsyncWithHttpInfo
+     *
+     * Unlink customer profile from a loyalty card
+     *
+     * @param  int $loyaltyProgramId The identifier of the card-based loyalty program containing the loyalty card. You can get this ID using the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  string $loyaltyCardId The identifier of the loyalty card. You can get this ID using the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
+     * @param  \TalonOne\Client\Model\LoyaltyCardRegistration $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function unlinkLoyaltyCardFromProfileAsyncWithHttpInfo($loyaltyProgramId, $loyaltyCardId, $body)
+    {
+        $returnType = '\TalonOne\Client\Model\LoyaltyCard';
+        $request = $this->unlinkLoyaltyCardFromProfileRequest($loyaltyProgramId, $loyaltyCardId, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'unlinkLoyaltyCardFromProfile'
+     *
+     * @param  int $loyaltyProgramId The identifier of the card-based loyalty program containing the loyalty card. You can get this ID using the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. (required)
+     * @param  string $loyaltyCardId The identifier of the loyalty card. You can get this ID using the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. (required)
+     * @param  \TalonOne\Client\Model\LoyaltyCardRegistration $body body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function unlinkLoyaltyCardFromProfileRequest($loyaltyProgramId, $loyaltyCardId, $body)
+    {
+        // verify the required parameter 'loyaltyProgramId' is set
+        if ($loyaltyProgramId === null || (is_array($loyaltyProgramId) && count($loyaltyProgramId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $loyaltyProgramId when calling unlinkLoyaltyCardFromProfile'
+            );
+        }
+        // verify the required parameter 'loyaltyCardId' is set
+        if ($loyaltyCardId === null || (is_array($loyaltyCardId) && count($loyaltyCardId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $loyaltyCardId when calling unlinkLoyaltyCardFromProfile'
+            );
+        }
+        if (strlen($loyaltyCardId) > 108) {
+            throw new \InvalidArgumentException('invalid length for "$loyaltyCardId" when calling IntegrationApi.unlinkLoyaltyCardFromProfile, must be smaller than or equal to 108.');
+        }
+        if (strlen($loyaltyCardId) < 4) {
+            throw new \InvalidArgumentException('invalid length for "$loyaltyCardId" when calling IntegrationApi.unlinkLoyaltyCardFromProfile, must be bigger than or equal to 4.');
+        }
+
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling unlinkLoyaltyCardFromProfile'
+            );
+        }
+
+        $resourcePath = '/v2/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/unlink_profile';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($loyaltyProgramId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'loyaltyProgramId' . '}',
+                ObjectSerializer::toPathValue($loyaltyProgramId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($loyaltyCardId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'loyaltyCardId' . '}',
+                ObjectSerializer::toPathValue($loyaltyCardId),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
@@ -10917,10 +12392,10 @@ class IntegrationApi
      *
      * Update customer session
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint considers **only** the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests). (optional)
-     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  **Note:**  - It must be an RFC3339 timestamp string. - It can **only** be a date in the future. - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
+     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  &gt; [!note] **Note** &gt; - It must be an RFC3339 timestamp string. &gt; - It can **only** be a date in the future. &gt; - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -10937,10 +12412,10 @@ class IntegrationApi
      *
      * Update customer session
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint considers **only** the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests). (optional)
-     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  **Note:**  - It must be an RFC3339 timestamp string. - It can **only** be a date in the future. - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
+     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  &gt; [!note] **Note** &gt; - It must be an RFC3339 timestamp string. &gt; - It can **only** be a date in the future. &gt; - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
      *
      * @throws \TalonOne\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -11088,10 +12563,10 @@ class IntegrationApi
      *
      * Update customer session
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint considers **only** the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests). (optional)
-     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  **Note:**  - It must be an RFC3339 timestamp string. - It can **only** be a date in the future. - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
+     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  &gt; [!note] **Note** &gt; - It must be an RFC3339 timestamp string. &gt; - It can **only** be a date in the future. &gt; - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -11111,10 +12586,10 @@ class IntegrationApi
      *
      * Update customer session
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint considers **only** the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests). (optional)
-     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  **Note:**  - It must be an RFC3339 timestamp string. - It can **only** be a date in the future. - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
+     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  &gt; [!note] **Note** &gt; - It must be an RFC3339 timestamp string. &gt; - It can **only** be a date in the future. &gt; - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -11161,10 +12636,10 @@ class IntegrationApi
     /**
      * Create request for operation 'updateCustomerSessionV2'
      *
-     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. (required)
+     * @param  string $customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. (required)
      * @param  \TalonOne\Client\Model\IntegrationRequest $body body (required)
      * @param  bool $dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint considers **only** the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests). (optional)
-     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  **Note:**  - It must be an RFC3339 timestamp string. - It can **only** be a date in the future. - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
+     * @param  \DateTime $now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  &gt; [!note] **Note** &gt; - It must be an RFC3339 timestamp string. &gt; - It can **only** be a date in the future. &gt; - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

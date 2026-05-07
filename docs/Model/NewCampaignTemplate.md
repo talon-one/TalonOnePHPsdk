@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **couponAttributes** | [**object**](.md) | The campaign attributes that coupons created from this template will have by default. | [optional] 
 **state** | **string** | Only Campaign Templates in &#39;available&#39; state may be used to create Campaigns. | 
 **tags** | **string[]** | A list of tags for the campaign template. | [optional] 
+**reevaluateOnReturn** | **bool** | Indicates whether campaigns created from this template should be reevaluated when a customer returns an item. | [optional] 
 **features** | **string[]** | A list of features for the campaign template. | [optional] 
 **couponSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **couponReservationSettings** | [**\TalonOne\Client\Model\CampaignTemplateCouponReservationSettings**](CampaignTemplateCouponReservationSettings.md) |  | [optional] 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **campaign** | **string** | Name of the campaign-related permission set for the given Application. | [optional] 
 **draftCampaign** | **string** | Name of the draft campaign-related permission set for the given Application. | [optional] 
 **tools** | **string** | Name of the tools-related permission set. | [optional] 
+**thresholds** | [**\TalonOne\Client\Model\RolesV2Thresholds**](RolesV2Thresholds.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

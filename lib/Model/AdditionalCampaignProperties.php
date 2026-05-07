@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -80,7 +80,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'templateId' => 'int',
         'frontendState' => 'string',
         'storesImported' => 'bool',
-        'valueMapsIds' => 'int[]'
+        'valueMapsIds' => 'int[]',
+        'experimentId' => 'int'
     ];
 
     /**
@@ -112,7 +113,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'templateId' => 'int64',
         'frontendState' => null,
         'storesImported' => null,
-        'valueMapsIds' => 'int64'
+        'valueMapsIds' => 'int64',
+        'experimentId' => 'int64'
     ];
 
     /**
@@ -165,7 +167,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'templateId' => 'templateId',
         'frontendState' => 'frontendState',
         'storesImported' => 'storesImported',
-        'valueMapsIds' => 'valueMapsIds'
+        'valueMapsIds' => 'valueMapsIds',
+        'experimentId' => 'experimentId'
     ];
 
     /**
@@ -197,7 +200,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'templateId' => 'setTemplateId',
         'frontendState' => 'setFrontendState',
         'storesImported' => 'setStoresImported',
-        'valueMapsIds' => 'setValueMapsIds'
+        'valueMapsIds' => 'setValueMapsIds',
+        'experimentId' => 'setExperimentId'
     ];
 
     /**
@@ -229,7 +233,8 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         'templateId' => 'getTemplateId',
         'frontendState' => 'getFrontendState',
         'storesImported' => 'getStoresImported',
-        'valueMapsIds' => 'getValueMapsIds'
+        'valueMapsIds' => 'getValueMapsIds',
+        'experimentId' => 'getExperimentId'
     ];
 
     /**
@@ -339,6 +344,7 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
         $this->container['frontendState'] = isset($data['frontendState']) ? $data['frontendState'] : null;
         $this->container['storesImported'] = isset($data['storesImported']) ? $data['storesImported'] : null;
         $this->container['valueMapsIds'] = isset($data['valueMapsIds']) ? $data['valueMapsIds'] : null;
+        $this->container['experimentId'] = isset($data['experimentId']) ? $data['experimentId'] : null;
     }
 
     /**
@@ -960,6 +966,30 @@ class AdditionalCampaignProperties implements ModelInterface, ArrayAccess
     public function setValueMapsIds($valueMapsIds)
     {
         $this->container['valueMapsIds'] = $valueMapsIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets experimentId
+     *
+     * @return int|null
+     */
+    public function getExperimentId()
+    {
+        return $this->container['experimentId'];
+    }
+
+    /**
+     * Sets experimentId
+     *
+     * @param int|null $experimentId The ID of the Experiment this Campaign is part of.
+     *
+     * @return $this
+     */
+    public function setExperimentId($experimentId)
+    {
+        $this->container['experimentId'] = $experimentId;
 
         return $this;
     }

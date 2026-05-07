@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -65,7 +65,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         'totalBatches' => 'int',
         'trigger' => '\TalonOne\Client\Model\StrikethroughTrigger',
         'changedItems' => '\TalonOne\Client\Model\StrikethroughChangedItem[]',
-        'notificationType' => 'string'
+        'notificationType' => 'string',
+        'sentAt' => '\DateTime'
     ];
 
     /**
@@ -81,7 +82,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         'totalBatches' => 'int64',
         'trigger' => null,
         'changedItems' => null,
-        'notificationType' => null
+        'notificationType' => null,
+        'sentAt' => 'date-time'
     ];
 
     /**
@@ -118,7 +120,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         'totalBatches' => 'totalBatches',
         'trigger' => 'trigger',
         'changedItems' => 'changedItems',
-        'notificationType' => 'NotificationType'
+        'notificationType' => 'NotificationType',
+        'sentAt' => 'sentAt'
     ];
 
     /**
@@ -134,7 +137,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         'totalBatches' => 'setTotalBatches',
         'trigger' => 'setTrigger',
         'changedItems' => 'setChangedItems',
-        'notificationType' => 'setNotificationType'
+        'notificationType' => 'setNotificationType',
+        'sentAt' => 'setSentAt'
     ];
 
     /**
@@ -150,7 +154,8 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         'totalBatches' => 'getTotalBatches',
         'trigger' => 'getTrigger',
         'changedItems' => 'getChangedItems',
-        'notificationType' => 'getNotificationType'
+        'notificationType' => 'getNotificationType',
+        'sentAt' => 'getSentAt'
     ];
 
     /**
@@ -195,6 +200,7 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
     }
 
     const VERSION_V2 = 'v2';
+    const NOTIFICATION_TYPE_STRIKETHROUGH_PRICE = 'StrikethroughPrice';
     
 
     
@@ -207,6 +213,18 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
     {
         return [
             self::VERSION_V2,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNotificationTypeAllowableValues()
+    {
+        return [
+            self::NOTIFICATION_TYPE_STRIKETHROUGH_PRICE,
         ];
     }
     
@@ -234,6 +252,7 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         $this->container['trigger'] = isset($data['trigger']) ? $data['trigger'] : null;
         $this->container['changedItems'] = isset($data['changedItems']) ? $data['changedItems'] : null;
         $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
+        $this->container['sentAt'] = isset($data['sentAt']) ? $data['sentAt'] : null;
     }
 
     /**
@@ -270,6 +289,17 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
         }
         if ($this->container['notificationType'] === null) {
             $invalidProperties[] = "'notificationType' can't be null";
+        }
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!is_null($this->container['notificationType']) && !in_array($this->container['notificationType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'notificationType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['sentAt'] === null) {
+            $invalidProperties[] = "'sentAt' can't be null";
         }
         return $invalidProperties;
     }
@@ -476,13 +506,46 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
     /**
      * Sets notificationType
      *
-     * @param string $notificationType The type of the notification
+     * @param string $notificationType The type of notification.
      *
      * @return $this
      */
     public function setNotificationType($notificationType)
     {
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!in_array($notificationType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'notificationType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['notificationType'] = $notificationType;
+
+        return $this;
+    }
+
+    /**
+     * Gets sentAt
+     *
+     * @return \DateTime
+     */
+    public function getSentAt()
+    {
+        return $this->container['sentAt'];
+    }
+
+    /**
+     * Sets sentAt
+     *
+     * @param \DateTime $sentAt Timestamp at which the notification was sent.
+     *
+     * @return $this
+     */
+    public function setSentAt($sentAt)
+    {
+        $this->container['sentAt'] = $sentAt;
 
         return $this;
     }

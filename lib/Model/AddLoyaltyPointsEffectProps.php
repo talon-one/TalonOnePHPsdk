@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -71,7 +71,9 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'cartItemSubPosition' => 'float',
         'cardIdentifier' => 'string',
         'bundleIndex' => 'int',
-        'bundleName' => 'string'
+        'bundleName' => 'string',
+        'awaitsActivation' => 'bool',
+        'validityDuration' => 'string'
     ];
 
     /**
@@ -93,7 +95,9 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'cartItemSubPosition' => null,
         'cardIdentifier' => null,
         'bundleIndex' => 'int64',
-        'bundleName' => null
+        'bundleName' => null,
+        'awaitsActivation' => null,
+        'validityDuration' => null
     ];
 
     /**
@@ -136,7 +140,9 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'cartItemSubPosition' => 'cartItemSubPosition',
         'cardIdentifier' => 'cardIdentifier',
         'bundleIndex' => 'bundleIndex',
-        'bundleName' => 'bundleName'
+        'bundleName' => 'bundleName',
+        'awaitsActivation' => 'awaitsActivation',
+        'validityDuration' => 'validityDuration'
     ];
 
     /**
@@ -158,7 +164,9 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'cartItemSubPosition' => 'setCartItemSubPosition',
         'cardIdentifier' => 'setCardIdentifier',
         'bundleIndex' => 'setBundleIndex',
-        'bundleName' => 'setBundleName'
+        'bundleName' => 'setBundleName',
+        'awaitsActivation' => 'setAwaitsActivation',
+        'validityDuration' => 'setValidityDuration'
     ];
 
     /**
@@ -180,7 +188,9 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         'cartItemSubPosition' => 'getCartItemSubPosition',
         'cardIdentifier' => 'getCardIdentifier',
         'bundleIndex' => 'getBundleIndex',
-        'bundleName' => 'getBundleName'
+        'bundleName' => 'getBundleName',
+        'awaitsActivation' => 'getAwaitsActivation',
+        'validityDuration' => 'getValidityDuration'
     ];
 
     /**
@@ -257,6 +267,8 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         $this->container['cardIdentifier'] = isset($data['cardIdentifier']) ? $data['cardIdentifier'] : null;
         $this->container['bundleIndex'] = isset($data['bundleIndex']) ? $data['bundleIndex'] : null;
         $this->container['bundleName'] = isset($data['bundleName']) ? $data['bundleName'] : null;
+        $this->container['awaitsActivation'] = isset($data['awaitsActivation']) ? $data['awaitsActivation'] : null;
+        $this->container['validityDuration'] = isset($data['validityDuration']) ? $data['validityDuration'] : null;
     }
 
     /**
@@ -294,8 +306,12 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'cardIdentifier', the character length must be smaller than or equal to 108.";
         }
 
-        if (!is_null($this->container['cardIdentifier']) && !preg_match("/^[A-Za-z0-9_-]*$/", $this->container['cardIdentifier'])) {
-            $invalidProperties[] = "invalid value for 'cardIdentifier', must be conform to the pattern /^[A-Za-z0-9_-]*$/.";
+        if (!is_null($this->container['cardIdentifier']) && (mb_strlen($this->container['cardIdentifier']) < 4)) {
+            $invalidProperties[] = "invalid value for 'cardIdentifier', the character length must be bigger than or equal to 4.";
+        }
+
+        if (!is_null($this->container['cardIdentifier']) && !preg_match("/^[A-Za-z0-9._%+@-]+$/", $this->container['cardIdentifier'])) {
+            $invalidProperties[] = "invalid value for 'cardIdentifier', must be conform to the pattern /^[A-Za-z0-9._%+@-]+$/.";
         }
 
         return $invalidProperties;
@@ -594,7 +610,7 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets cardIdentifier
      *
-     * @param string|null $cardIdentifier The alphanumeric identifier of the loyalty card.
+     * @param string|null $cardIdentifier The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`.
      *
      * @return $this
      */
@@ -603,8 +619,11 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
         if (!is_null($cardIdentifier) && (mb_strlen($cardIdentifier) > 108)) {
             throw new \InvalidArgumentException('invalid length for $cardIdentifier when calling AddLoyaltyPointsEffectProps., must be smaller than or equal to 108.');
         }
-        if (!is_null($cardIdentifier) && (!preg_match("/^[A-Za-z0-9_-]*$/", $cardIdentifier))) {
-            throw new \InvalidArgumentException("invalid value for $cardIdentifier when calling AddLoyaltyPointsEffectProps., must conform to the pattern /^[A-Za-z0-9_-]*$/.");
+        if (!is_null($cardIdentifier) && (mb_strlen($cardIdentifier) < 4)) {
+            throw new \InvalidArgumentException('invalid length for $cardIdentifier when calling AddLoyaltyPointsEffectProps., must be bigger than or equal to 4.');
+        }
+        if (!is_null($cardIdentifier) && (!preg_match("/^[A-Za-z0-9._%+@-]+$/", $cardIdentifier))) {
+            throw new \InvalidArgumentException("invalid value for $cardIdentifier when calling AddLoyaltyPointsEffectProps., must conform to the pattern /^[A-Za-z0-9._%+@-]+$/.");
         }
 
         $this->container['cardIdentifier'] = $cardIdentifier;
@@ -656,6 +675,54 @@ class AddLoyaltyPointsEffectProps implements ModelInterface, ArrayAccess
     public function setBundleName($bundleName)
     {
         $this->container['bundleName'] = $bundleName;
+
+        return $this;
+    }
+
+    /**
+     * Gets awaitsActivation
+     *
+     * @return bool|null
+     */
+    public function getAwaitsActivation()
+    {
+        return $this->container['awaitsActivation'];
+    }
+
+    /**
+     * Sets awaitsActivation
+     *
+     * @param bool|null $awaitsActivation If `true`, the loyalty points remain pending until a specific action is complete. The `startDate` parameter automatically sets to `on_action`.
+     *
+     * @return $this
+     */
+    public function setAwaitsActivation($awaitsActivation)
+    {
+        $this->container['awaitsActivation'] = $awaitsActivation;
+
+        return $this;
+    }
+
+    /**
+     * Gets validityDuration
+     *
+     * @return string|null
+     */
+    public function getValidityDuration()
+    {
+        return $this->container['validityDuration'];
+    }
+
+    /**
+     * Sets validityDuration
+     *
+     * @param string|null $validityDuration The duration for which the points remain active, calculated relative to the  activation date.    **Note**: This value is returned only if `awaitsActivation` is `true`  and `expiryDate` is not set.
+     *
+     * @return $this
+     */
+    public function setValidityDuration($validityDuration)
+    {
+        $this->container['validityDuration'] = $validityDuration;
 
         return $this;
     }

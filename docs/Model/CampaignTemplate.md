@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **state** | **string** | Only campaign templates in &#39;available&#39; state may be used to create campaigns. | 
 **activeRulesetId** | **int** | The ID of the ruleset this campaign template will use. | [optional] 
 **tags** | **string[]** | A list of tags for the campaign template. | [optional] 
+**reevaluateOnReturn** | **bool** | Indicates whether campaigns created from this template should be reevaluated when a customer returns an item. | 
 **features** | **string[]** | A list of features for the campaign template. | [optional] 
 **couponSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **couponReservationSettings** | [**\TalonOne\Client\Model\CampaignTemplateCouponReservationSettings**](CampaignTemplateCouponReservationSettings.md) |  | [optional] 
@@ -26,6 +27,7 @@ Name | Type | Description | Notes
 **campaignCollections** | [**\TalonOne\Client\Model\CampaignTemplateCollection[]**](CampaignTemplateCollection.md) | The campaign collections from the blueprint campaign for the template. | [optional] 
 **defaultCampaignGroupId** | **int** | The default campaign group ID. | [optional] 
 **campaignType** | **string** | The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. | [default to 'advanced']
+**campaignsCount** | **int** | The number of Campaigns created from this template. | [optional] 
 **updated** | [**\DateTime**](\DateTime.md) | Timestamp of the most recent update to the campaign template or any of its elements. | [optional] 
 **updatedBy** | **string** | Name of the user who last updated this campaign template, if available. | [optional] 
 **validApplicationIds** | **int[]** | The IDs of the Applications that are related to this entity. | 

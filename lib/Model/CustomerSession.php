@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -69,6 +69,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
         'total' => 'float',
         'attributes' => 'object',
         'firstSession' => 'bool',
+        'updateCount' => 'int',
         'discounts' => 'map[string,float]',
         'updated' => '\DateTime'
     ];
@@ -91,6 +92,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
         'total' => null,
         'attributes' => null,
         'firstSession' => null,
+        'updateCount' => 'int64',
         'discounts' => null,
         'updated' => 'date-time'
     ];
@@ -134,6 +136,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
         'total' => 'total',
         'attributes' => 'attributes',
         'firstSession' => 'firstSession',
+        'updateCount' => 'updateCount',
         'discounts' => 'discounts',
         'updated' => 'updated'
     ];
@@ -156,6 +159,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
         'total' => 'setTotal',
         'attributes' => 'setAttributes',
         'firstSession' => 'setFirstSession',
+        'updateCount' => 'setUpdateCount',
         'discounts' => 'setDiscounts',
         'updated' => 'setUpdated'
     ];
@@ -178,6 +182,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
         'total' => 'getTotal',
         'attributes' => 'getAttributes',
         'firstSession' => 'getFirstSession',
+        'updateCount' => 'getUpdateCount',
         'discounts' => 'getDiscounts',
         'updated' => 'getUpdated'
     ];
@@ -273,6 +278,7 @@ class CustomerSession implements ModelInterface, ArrayAccess
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['firstSession'] = isset($data['firstSession']) ? $data['firstSession'] : null;
+        $this->container['updateCount'] = isset($data['updateCount']) ? $data['updateCount'] : null;
         $this->container['discounts'] = isset($data['discounts']) ? $data['discounts'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
     }
@@ -338,6 +344,9 @@ class CustomerSession implements ModelInterface, ArrayAccess
         }
         if ($this->container['firstSession'] === null) {
             $invalidProperties[] = "'firstSession' can't be null";
+        }
+        if ($this->container['updateCount'] === null) {
+            $invalidProperties[] = "'updateCount' can't be null";
         }
         if ($this->container['discounts'] === null) {
             $invalidProperties[] = "'discounts' can't be null";
@@ -665,6 +674,30 @@ class CustomerSession implements ModelInterface, ArrayAccess
     public function setFirstSession($firstSession)
     {
         $this->container['firstSession'] = $firstSession;
+
+        return $this;
+    }
+
+    /**
+     * Gets updateCount
+     *
+     * @return int
+     */
+    public function getUpdateCount()
+    {
+        return $this->container['updateCount'];
+    }
+
+    /**
+     * Sets updateCount
+     *
+     * @param int $updateCount The number of times the session was updated. When the session is created, this value is initialized to `1`.
+     *
+     * @return $this
+     */
+    public function setUpdateCount($updateCount)
+    {
+        $this->container['updateCount'] = $updateCount;
 
         return $this;
     }

@@ -43,9 +43,11 @@ Method | HTTP request | Description
 [**disconnectCampaignStores**](ManagementApi.md#disconnectCampaignStores) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/stores | Disconnect stores
 [**exportAccountCollectionItems**](ManagementApi.md#exportAccountCollectionItems) | **GET** /v1/collections/{collectionId}/export | Export account-level collection&#39;s items
 [**exportAchievements**](ManagementApi.md#exportAchievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}/export | Export achievement customer data
+[**exportApplicationCampaignAnalytics**](ManagementApi.md#exportApplicationCampaignAnalytics) | **GET** /v1/applications/{applicationId}/campaign_analytics/export | Export Application analytics aggregated by campaign
 [**exportAudiencesMemberships**](ManagementApi.md#exportAudiencesMemberships) | **GET** /v1/audiences/{audienceId}/memberships/export | Export audience members
 [**exportCampaignStoreBudgets**](ManagementApi.md#exportCampaignStoreBudgets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets/export | Export campaign store budgets
 [**exportCampaignStores**](ManagementApi.md#exportCampaignStores) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/stores/export | Export stores
+[**exportCampaignValueMap**](ManagementApi.md#exportCampaignValueMap) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/value_maps/{valueMapId}/export | Export campaign value map
 [**exportCollectionItems**](ManagementApi.md#exportCollectionItems) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/export | Export campaign-level collection&#39;s items
 [**exportCoupons**](ManagementApi.md#exportCoupons) | **GET** /v1/applications/{applicationId}/export_coupons | Export coupons
 [**exportCustomerSessions**](ManagementApi.md#exportCustomerSessions) | **GET** /v1/applications/{applicationId}/export_customer_sessions | Export customer sessions
@@ -56,9 +58,11 @@ Method | HTTP request | Description
 [**exportLoyaltyCardBalances**](ManagementApi.md#exportLoyaltyCardBalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/export_card_balances | Export all card transaction logs
 [**exportLoyaltyCardLedger**](ManagementApi.md#exportLoyaltyCardLedger) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/export_log | Export card&#39;s ledger log
 [**exportLoyaltyCards**](ManagementApi.md#exportLoyaltyCards) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/export | Export loyalty cards
+[**exportLoyaltyJoinDates**](ManagementApi.md#exportLoyaltyJoinDates) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/export_join_dates | Export customers&#39; loyalty program join dates
 [**exportLoyaltyLedger**](ManagementApi.md#exportLoyaltyLedger) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/export_log | Export customer&#39;s transaction logs
 [**exportPoolGiveaways**](ManagementApi.md#exportPoolGiveaways) | **GET** /v1/giveaways/pools/{poolId}/export | Export giveaway codes of a giveaway pool
 [**exportReferrals**](ManagementApi.md#exportReferrals) | **GET** /v1/applications/{applicationId}/export_referrals | Export referrals
+[**generateCouponRejections**](ManagementApi.md#generateCouponRejections) | **GET** /v1/coupon_rejections | Summarize coupon redemption failures in session
 [**getAccessLogsWithoutTotalCount**](ManagementApi.md#getAccessLogsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/access_logs/no_total | Get access logs for Application
 [**getAccount**](ManagementApi.md#getAccount) | **GET** /v1/accounts/{accountId} | Get account details
 [**getAccountAnalytics**](ManagementApi.md#getAccountAnalytics) | **GET** /v1/accounts/{accountId}/analytics | Get account analytics
@@ -68,6 +72,7 @@ Method | HTTP request | Description
 [**getAdditionalCosts**](ManagementApi.md#getAdditionalCosts) | **GET** /v1/additional_costs | List additional costs
 [**getApplication**](ManagementApi.md#getApplication) | **GET** /v1/applications/{applicationId} | Get Application
 [**getApplicationApiHealth**](ManagementApi.md#getApplicationApiHealth) | **GET** /v1/applications/{applicationId}/health_report | Get Application health
+[**getApplicationCartItemFilterExpression**](ManagementApi.md#getApplicationCartItemFilterExpression) | **GET** /v1/applications/{applicationId}/cart_item_filters/{cartItemFilterId}/expressions/{expressionId} | Get Application cart item filter expression
 [**getApplicationCustomer**](ManagementApi.md#getApplicationCustomer) | **GET** /v1/applications/{applicationId}/customers/{customerId} | Get application&#39;s customer
 [**getApplicationCustomerFriends**](ManagementApi.md#getApplicationCustomerFriends) | **GET** /v1/applications/{applicationId}/profile/{integrationId}/friends | List friends referred by customer profile
 [**getApplicationCustomers**](ManagementApi.md#getApplicationCustomers) | **GET** /v1/applications/{applicationId}/customers | List application&#39;s customers
@@ -102,12 +107,15 @@ Method | HTTP request | Description
 [**getCustomersByAttributes**](ManagementApi.md#getCustomersByAttributes) | **POST** /v1/customer_search/no_total | List customer profiles matching the given attributes
 [**getDashboardStatistics**](ManagementApi.md#getDashboardStatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/dashboard | Get statistics for loyalty dashboard
 [**getEventTypes**](ManagementApi.md#getEventTypes) | **GET** /v1/event_types | List event types
+[**getExperiment**](ManagementApi.md#getExperiment) | **GET** /v1/applications/{applicationId}/experiments/{experimentId} | Get experiment in Application
 [**getExports**](ManagementApi.md#getExports) | **GET** /v1/exports | Get exports
 [**getLoyaltyCard**](ManagementApi.md#getLoyaltyCard) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Get loyalty card
 [**getLoyaltyCardTransactionLogs**](ManagementApi.md#getLoyaltyCardTransactionLogs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card&#39;s transactions
 [**getLoyaltyCards**](ManagementApi.md#getLoyaltyCards) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards | List loyalty cards
+[**getLoyaltyLedgerBalances**](ManagementApi.md#getLoyaltyLedgerBalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_balances | Get customer&#39;s loyalty balances
 [**getLoyaltyPoints**](ManagementApi.md#getLoyaltyPoints) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId} | Get customer&#39;s full loyalty ledger
 [**getLoyaltyProgram**](ManagementApi.md#getLoyaltyProgram) | **GET** /v1/loyalty_programs/{loyaltyProgramId} | Get loyalty program
+[**getLoyaltyProgramProfileLedgerTransactions**](ManagementApi.md#getLoyaltyProgramProfileLedgerTransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_transactions | List customer&#39;s loyalty transactions
 [**getLoyaltyProgramTransactions**](ManagementApi.md#getLoyaltyProgramTransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/transactions | List loyalty program transactions
 [**getLoyaltyPrograms**](ManagementApi.md#getLoyaltyPrograms) | **GET** /v1/loyalty_programs | List loyalty programs
 [**getLoyaltyStatistics**](ManagementApi.md#getLoyaltyStatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
@@ -137,12 +145,15 @@ Method | HTTP request | Description
 [**listAccountCollections**](ManagementApi.md#listAccountCollections) | **GET** /v1/collections | List collections in account
 [**listAchievements**](ManagementApi.md#listAchievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | List achievements
 [**listAllRolesV2**](ManagementApi.md#listAllRolesV2) | **GET** /v2/roles | List roles
+[**listApplicationCartItemFilters**](ManagementApi.md#listApplicationCartItemFilters) | **GET** /v1/applications/{applicationId}/cart_item_filters | List Application cart item filters
 [**listCampaignStoreBudgetLimits**](ManagementApi.md#listCampaignStoreBudgetLimits) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets | List campaign store budget limits
 [**listCatalogItems**](ManagementApi.md#listCatalogItems) | **GET** /v1/catalogs/{catalogId}/items | List items in a catalog
 [**listCollections**](ManagementApi.md#listCollections) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | List collections in campaign
 [**listCollectionsInApplication**](ManagementApi.md#listCollectionsInApplication) | **GET** /v1/applications/{applicationId}/collections | List collections in Application
+[**listExperiments**](ManagementApi.md#listExperiments) | **GET** /v1/applications/{applicationId}/experiments | List experiments
 [**listStores**](ManagementApi.md#listStores) | **GET** /v1/applications/{applicationId}/stores | List stores
 [**oktaEventHandlerChallenge**](ManagementApi.md#oktaEventHandlerChallenge) | **GET** /v1/provisioning/okta | Validate Okta API ownership
+[**priceHistory**](ManagementApi.md#priceHistory) | **POST** /v1/applications/{applicationId}/price_history | Get summary of price history
 [**removeLoyaltyPoints**](ManagementApi.md#removeLoyaltyPoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/deduct_points | Deduct points from customer profile
 [**resetPassword**](ManagementApi.md#resetPassword) | **POST** /v1/reset_password | Reset password
 [**scimCreateGroup**](ManagementApi.md#scimCreateGroup) | **POST** /v1/provisioning/scim/Groups | Create SCIM group
@@ -172,7 +183,7 @@ Method | HTTP request | Description
 [**updateCollection**](ManagementApi.md#updateCollection) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Update campaign-level collection&#39;s description
 [**updateCoupon**](ManagementApi.md#updateCoupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update coupon
 [**updateCouponBatch**](ManagementApi.md#updateCouponBatch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update coupons
-[**updateLoyaltyCard**](ManagementApi.md#updateLoyaltyCard) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Update loyalty card status
+[**updateLoyaltyCard**](ManagementApi.md#updateLoyaltyCard) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Update loyalty card
 [**updateReferral**](ManagementApi.md#updateReferral) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Update referral
 [**updateRoleV2**](ManagementApi.md#updateRoleV2) | **PUT** /v2/roles/{roleId} | Update role
 [**updateStore**](ManagementApi.md#updateStore) | **PUT** /v1/applications/{applicationId}/stores/{storeId} | Update store
@@ -289,7 +300,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
+$loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `NewCard2026%` as `NewCard2026%25`.
 $loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.
 $body = new \TalonOne\Client\Model\AddLoyaltyPoints(); // \TalonOne\Client\Model\AddLoyaltyPoints | body
 
@@ -306,7 +317,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
+ **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. |
  **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. |
  **body** | [**\TalonOne\Client\Model\AddLoyaltyPoints**](../Model/AddLoyaltyPoints.md)| body |
 
@@ -334,7 +345,7 @@ void (empty response body)
 
 Add points to customer profile
 
-Add points in the specified loyalty program for the given customer.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint.
+Add points in the specified loyalty program for the given customer.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.
 
 ### Example
 
@@ -406,7 +417,7 @@ void (empty response body)
 
 ## copyCampaignToApplications
 
-> \TalonOne\Client\Model\InlineResponse2008 copyCampaignToApplications($applicationId, $campaignId, $body)
+> \TalonOne\Client\Model\InlineResponse2009 copyCampaignToApplications($applicationId, $campaignId, $body)
 
 Copy the campaign into the specified Application
 
@@ -465,7 +476,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\TalonOne\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
 
 ### Authorization
 
@@ -783,7 +794,7 @@ Name | Type | Description  | Notes
 
 Create loyalty cards
 
-Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  **Important:**  - The specified card-based loyalty program must have a defined card code format that is used to generate the loyalty card codes. - Trying to create more than 20,000 loyalty cards in a single request returns an error message with a `400` status code.
+Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  > [!important] **Note** > - The specified card-based loyalty program must have a defined card code >   format that is used to generate the loyalty card codes. > - Trying to create more than 20,000 loyalty cards in a single request >   returns an error message with a `400` status code.
 
 ### Example
 
@@ -1082,7 +1093,7 @@ Name | Type | Description  | Notes
 
 ## createCoupons
 
-> \TalonOne\Client\Model\InlineResponse20010 createCoupons($applicationId, $campaignId, $body, $silent)
+> \TalonOne\Client\Model\InlineResponse20011 createCoupons($applicationId, $campaignId, $body, $silent)
 
 Create coupons
 
@@ -1143,7 +1154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
+[**\TalonOne\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -1315,7 +1326,7 @@ Name | Type | Description  | Notes
 
 ## createCouponsForMultipleRecipients
 
-> \TalonOne\Client\Model\InlineResponse20010 createCouponsForMultipleRecipients($applicationId, $campaignId, $body, $silent)
+> \TalonOne\Client\Model\InlineResponse20011 createCouponsForMultipleRecipients($applicationId, $campaignId, $body, $silent)
 
 Create coupons for multiple recipients
 
@@ -1376,7 +1387,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
+[**\TalonOne\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -1398,7 +1409,7 @@ Name | Type | Description  | Notes
 
 Resend invitation email
 
-Resend an email invitation to an existing user.  **Note:** The invitation token is valid for 24 hours after the email has been sent.
+Resend an email invitation to an existing user.  > [!note] The invitation token is valid for 24 hours after the email has been sent.
 
 ### Example
 
@@ -1471,7 +1482,7 @@ Name | Type | Description  | Notes
 
 Invite user
 
-Create a new user in the account and send an invitation to their email address.  **Note**: The invitation token is valid for 24 hours after the email has been sent. You can resend an invitation to a user with the [Resend invitation email](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/createInviteEmail) endpoint.
+Create a new user in the account and send an invitation to their email address.  > [!note] The invitation token is valid for 24 hours after the email has > been sent. You can resend an invitation to a user with the [Resend > invitation email](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/createInviteEmail) > endpoint.
 
 ### Example
 
@@ -1544,7 +1555,7 @@ Name | Type | Description  | Notes
 
 Request a password reset
 
-Send an email with a password recovery link to the email address of an existing account.  **Note:** The password recovery link expires 30 minutes after this endpoint is triggered.
+Send an email with a password recovery link to the email address of an existing account.  > [!note] The password recovery link expires 30 minutes after this endpoint is triggered.
 
 ### Example
 
@@ -1617,7 +1628,7 @@ Name | Type | Description  | Notes
 
 Create session
 
-Create a session to use the Management API endpoints. Use the value of the `token` property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup.  <div class=\"redoc-section\">   <p class=\"title\">Granular API key</p>   Instead of using a session, you can also use the <a href=\"https://docs.talon.one/docs/product/account/dev-tools/managing-mapi-keys\">Management API key feature</a>   in the Campaign Manager to decide which endpoints can be used with a given key. </div>
+Create a session to use the Management API endpoints.  Use the value of the `token` property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup.  > [!note] > Instead of using a session, you can also use the <a href=\"https://docs.talon.one/docs/product/account/dev-tools/managing-mapi-keys\">Management API key feature</a> > in the Campaign Manager to decide which endpoints can be used with a given key.
 
 ### Example
 
@@ -1869,7 +1880,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
-$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.
+$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `NewCard2026%` as `NewCard2026%25`.
 $body = new \TalonOne\Client\Model\DeductLoyaltyPoints(); // \TalonOne\Client\Model\DeductLoyaltyPoints | body
 
 try {
@@ -1886,7 +1897,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
- **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. |
+ **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. |
  **body** | [**\TalonOne\Client\Model\DeductLoyaltyPoints**](../Model/DeductLoyaltyPoints.md)| body |
 
 ### Return type
@@ -1944,7 +1955,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
 
 try {
     $apiInstance->deleteAccountCollection($collectionId);
@@ -1959,7 +1970,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. |
+ **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. |
 
 ### Return type
 
@@ -2246,7 +2257,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
 
 try {
     $apiInstance->deleteCollection($applicationId, $campaignId, $collectionId);
@@ -2263,7 +2274,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
- **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. |
+ **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. |
 
 ### Return type
 
@@ -2497,7 +2508,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
-$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.
+$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `NewCard2026%` as `NewCard2026%25`.
 
 try {
     $apiInstance->deleteLoyaltyCard($loyaltyProgramId, $loyaltyCardId);
@@ -2513,7 +2524,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
- **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. |
+ **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. |
 
 ### Return type
 
@@ -2975,7 +2986,7 @@ void (empty response body)
 
 Export account-level collection's items
 
-Download a CSV file containing items from a given account-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).
+Download a CSV file containing items from a given account-level collection.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).
 
 ### Example
 
@@ -3006,7 +3017,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
 
 try {
     $result = $apiInstance->exportAccountCollectionItems($collectionId);
@@ -3022,7 +3033,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. |
+ **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. |
 
 ### Return type
 
@@ -3119,13 +3130,92 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## exportApplicationCampaignAnalytics
+
+> string exportApplicationCampaignAnalytics($applicationId, $rangeStart, $rangeEnd, $campaignIds)
+
+Export Application analytics aggregated by campaign
+
+Download a CSV file containing analytics data aggregated by campaign for the campaigns of an Application.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following columns:  - `campaign_id`: The ID of the campaign. This column also contains labels   for the [total and influenced values](https://docs.talon.one/docs/product/campaigns/analytics/application-dashboard#display-the-analytics-data). - `start_date`: The start of the aggregation time frame in UTC. - `end_date`: The end of the aggregation time frame in UTC. - `revenue`: The total, pre-discount value of all items purchased in a customer session. - `sessions`: The number of all closed sessions. - `average_session_value`: The average customer session value, calculated by dividing the revenue value by the number of sessions. - `average_items_per_session`: The number of items from sessions divided by the number of sessions. - `coupons`: The number of times a coupon was successfully redeemed in sessions. - `discounts`: The total value of discounts given for cart items in sessions.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$campaignIds = array('campaignIds_example'); // string[] | Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.
+
+try {
+    $result = $apiInstance->exportApplicationCampaignAnalytics($applicationId, $rangeStart, $rangeEnd, $campaignIds);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->exportApplicationCampaignAnalytics: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **campaignIds** | [**string[]**](../Model/string.md)| Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. | [optional]
+
+### Return type
+
+**string**
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/csv
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## exportAudiencesMemberships
 
 > string exportAudiencesMemberships($audienceId)
 
 Export audience members
 
-Download a CSV file containing the integration IDs of the members of an audience.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The file contains the following column: - `profileintegrationid`: The integration ID of the customer profile.
+Download a CSV file containing the integration IDs of the members of an audience.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The file contains the following column:  - `profileintegrationid`: The integration ID of the customer profile.
 
 ### Example
 
@@ -3198,7 +3288,7 @@ Name | Type | Description  | Notes
 
 Export campaign store budgets
 
-Download a CSV file containing the store budgets for a given campaign.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - `store_integration_id`: The identifier of the store. - `limit`: The budget limit for the store.
+Download a CSV file containing the store budgets for a given campaign.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following columns:  - `store_integration_id`: The identifier of the store. - `limit`: The budget limit for the store.
 
 ### Example
 
@@ -3277,7 +3367,7 @@ Name | Type | Description  | Notes
 
 Export stores
 
-Download a CSV file containing the stores linked to a specific campaign.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following column:  - `store_integration_id`: The identifier of the store.
+Download a CSV file containing the stores linked to a specific campaign.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following column:  - `store_integration_id`: The identifier of the store.
 
 ### Example
 
@@ -3346,13 +3436,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## exportCollectionItems
+## exportCampaignValueMap
 
-> string exportCollectionItems($applicationId, $campaignId, $collectionId)
+> string exportCampaignValueMap($applicationId, $campaignId, $valueMapId)
 
-Export campaign-level collection's items
+Export campaign value map
 
-Download a CSV file containing items from a given campaign-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).
+Download a CSV file containing all the value map items in a campaign. If there are multiple versions of the value map, only the items of the current version are exported.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The generated file can contain the following columns:  - `identifier`: The value of the attribute in the targeted item, for example, an item's SKU. - `value`: The value that is associated with the identifier, for example, the item's price.
 
 ### Example
 
@@ -3385,7 +3475,84 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+$valueMapId = 56; // int | The ID of the value map.
+
+try {
+    $result = $apiInstance->exportCampaignValueMap($applicationId, $campaignId, $valueMapId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->exportCampaignValueMap: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
+ **valueMapId** | **int**| The ID of the value map. |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/csv, application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## exportCollectionItems
+
+> string exportCollectionItems($applicationId, $campaignId, $collectionId)
+
+Export campaign-level collection's items
+
+Download a CSV file containing items from a given campaign-level collection.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
 
 try {
     $result = $apiInstance->exportCollectionItems($applicationId, $campaignId, $collectionId);
@@ -3403,7 +3570,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
- **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. |
+ **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. |
 
 ### Return type
 
@@ -3429,7 +3596,7 @@ Name | Type | Description  | Notes
 
 Export coupons
 
-Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date in RFC3339 of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon can be reserved for multiple customers. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code.
+Download a CSV file containing the coupons that match the given properties.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file can contain the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date in RFC3339 of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the recipient of the coupon.    Only the customer with this integration ID can redeem this code. Available only for personal codes. - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon can be reserved for multiple customers. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code.
 
 ### Example
 
@@ -3530,7 +3697,7 @@ Name | Type | Description  | Notes
 
 Export customer sessions
 
-Download a CSV file containing the customer sessions that match the request.  **Important:** Archived sessions cannot be exported. See the [retention policy](https://docs.talon.one/docs/dev/server-infrastructure-and-data-retention).  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  - `id`: The internal ID of the session. - `firstsession`: Whether this is a first session. - `integrationid`: The integration ID of the session. - `applicationid`: The ID of the Application. - `profileid`: The internal ID of the customer profile. - `profileintegrationid`: The integration ID of the customer profile. - `created`: The timestamp when the session was created. - `state`: The [state](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) of the session. - `cartitems`: The cart items in the session. - `discounts`: The discounts in the session. - `total`: The total value of cart items and additional costs in the session, before any discounts are applied. - `attributes`: The attributes set in the session. - `closedat`: Timestamp when the session was closed. - `cancelledat`: Timestamp when the session was cancelled. - `referral`: The referral code in the session. - `identifiers`: The identifiers in the session. - `additional_costs`: The [additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs) in the session. - `updated`: Timestamp of the last session update. - `store_integration_id`: The integration ID of the store. - `coupons`: Coupon codes in the session.
+Download a CSV file containing the customer sessions that match the request.  > [!important] Archived sessions cannot be exported. See the [retention > policy](https://docs.talon.one/docs/dev/server-infrastructure-and-data-retention).  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  - `id`: The internal ID of the session. - `firstsession`: Whether this is a first session. - `integrationid`: The integration ID of the session. - `applicationid`: The ID of the Application. - `profileid`: The internal ID of the customer profile. - `profileintegrationid`: The integration ID of the customer profile. - `created`: The timestamp when the session was created. - `state`: The [state](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states)    of the session. - `cartitems`: The cart items in the session. - `discounts`: The discounts in the session. - `total`: The total value of cart items and additional costs in the session, before any discounts are applied. - `attributes`: The attributes set in the session. - `closedat`: Timestamp when the session was closed. - `cancelledat`: Timestamp when the session was cancelled. - `referral`: The referral code in the session. - `identifiers`: The identifiers in the session. - `additional_costs`: The [additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs)    in the session. - `updated`: Timestamp of the last session update. - `store_integration_id`: The integration ID of the store. - `coupons`: Coupon codes in the session.
 
 ### Example
 
@@ -3690,7 +3857,7 @@ Name | Type | Description  | Notes
 
 Export triggered effects
 
-Download a CSV file containing the triggered effects that match the given attributes.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `applicationid`: The ID of the Application. - `campaignid`: The ID of the campaign. - `couponid`: The ID of the coupon, when applicable to the effect. - `created`: The timestamp of the effect. - `event_type`: The name of the event. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/events). - `eventid`: The internal ID of the effect. - `name`: The effect name. See the [docs](https://docs.talon.one/docs/dev/integration-api/api-effects). - `profileintegrationid`: The ID of the customer profile, when applicable. - `props`: The [properties](https://docs.talon.one/docs/dev/integration-api/api-effects) of the effect. - `ruleindex`: The index of the rule. - `rulesetid`: The ID of the rule set. - `sessionid`: The internal ID of the session that triggered the effect. - `profileid`: The internal ID of the customer profile. - `sessionintegrationid`: The integration ID of the session. - `total_revenue`: The total revenue. - `store_integration_id`: The integration ID of the store. You choose this ID when you create a store.
+Download a CSV file containing the triggered effects that match the given attributes.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The generated file can contain the following columns:  - `applicationid`: The ID of the Application. - `campaignid`: The ID of the campaign. - `couponid`: The ID of the coupon, when applicable to the effect. - `created`: The timestamp of the effect. - `event_type`: The name of the event. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/events). - `eventid`: The internal ID of the effect. - `name`: The effect name. See the [docs](https://docs.talon.one/docs/dev/integration-api/api-effects). - `profileintegrationid`: The ID of the customer profile, when applicable. - `props`: The [properties](https://docs.talon.one/docs/dev/integration-api/api-effects) of the effect. - `ruleindex`: The index of the rule. - `rulesetid`: The ID of the rule set. - `sessionid`: The internal ID of the session that triggered the effect. - `profileid`: The internal ID of the customer profile. - `sessionintegrationid`: The integration ID of the session. - `total_revenue`: The total revenue. - `store_integration_id`: The integration ID of the store. You choose this ID when you create a store.
 
 ### Example
 
@@ -3771,7 +3938,7 @@ Name | Type | Description  | Notes
 
 Export customer loyalty balance to CSV
 
-⚠️ Deprecation notice: Support for requests to this endpoint will end soon. To export customer loyalty balances to CSV, use the [Export customer loyalty balances to CSV](/management-api#tag/Loyalty/operation/exportLoyaltyBalances) endpoint.  Download a CSV file containing the balance of each customer in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).
+To export customer loyalty balances to CSV, use the [Export customer loyalty balances to CSV](/management-api#tag/Loyalty/operation/exportLoyaltyBalances) endpoint.  Download a CSV file containing the balance of each customer in the loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).
 
 ### Example
 
@@ -3803,7 +3970,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 'loyaltyProgramId_example'; // string | The identifier for the loyalty program.
-$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
 
 try {
     $result = $apiInstance->exportLoyaltyBalance($loyaltyProgramId, $endDate);
@@ -3820,7 +3987,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **string**| The identifier for the loyalty program. |
- **endDate** | **\DateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
+ **endDate** | **\DateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
 
 ### Return type
 
@@ -3846,7 +4013,7 @@ Name | Type | Description  | Notes
 
 Export customer loyalty balances
 
-Download a CSV file containing the balance of each customer in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `loyaltyProgramID`: The ID of the loyalty program. - `loyaltySubledger`: The name of the subdleger, when applicatble. - `profileIntegrationID`: The integration ID of the customer profile. - `currentBalance`: The current point balance. - `pendingBalance`: The number of pending points. - `expiredBalance`: The number of expired points. - `spentBalance`: The number of spent points. - `currentTier`: The tier that the customer is in at the time of the export.
+Download a CSV file containing the balance of each customer in the loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The generated file can contain the following columns:  - `loyaltyProgramID`: The ID of the loyalty program. - `loyaltySubledger`: The name of the subledger, when applicable. - `profileIntegrationID`: The integration ID of the customer profile. - `currentBalance`: The current point balance. - `pendingBalance`: The number of pending points. - `expiredBalance`: The number of expired points. - `spentBalance`: The number of spent points. - `currentTier`: The tier that the customer is in at the time of the export.
 
 ### Example
 
@@ -3878,7 +4045,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 'loyaltyProgramId_example'; // string | The identifier for the loyalty program.
-$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. > - This parameter does not affect the `currentTier` field in the CSV file, which shows the customer's tier at the time of export.
 
 try {
     $result = $apiInstance->exportLoyaltyBalances($loyaltyProgramId, $endDate);
@@ -3895,7 +4062,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **string**| The identifier for the loyalty program. |
- **endDate** | **\DateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
+ **endDate** | **\DateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export. | [optional]
 
 ### Return type
 
@@ -3921,7 +4088,7 @@ Name | Type | Description  | Notes
 
 Export all card transaction logs
 
-Download a CSV file containing the balances of all cards in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - `loyaltyProgramID`: The ID of the loyalty program. - `loyaltySubledger`: The name of the subdleger, when applicatble. - `cardIdentifier`: The alphanumeric identifier of the loyalty card. - `cardState`:The state of the loyalty card. It can be `active` or `inactive`. - `currentBalance`: The current point balance. - `pendingBalance`: The number of pending points. - `expiredBalance`: The number of expired points. - `spentBalance`: The number of spent points.
+Download a CSV file containing the balances of all cards in the loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following columns: - `loyaltyProgramID`: The ID of the loyalty program. - `loyaltySubledger`: The name of the subdleger, when applicatble. - `cardIdentifier`: The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`. - `cardState`:The state of the loyalty card. It can be `active` or `inactive`. - `currentBalance`: The current point balance. - `pendingBalance`: The number of pending points. - `expiredBalance`: The number of expired points. - `spentBalance`: The number of spent points.
 
 ### Example
 
@@ -3953,7 +4120,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
-$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
 
 try {
     $result = $apiInstance->exportLoyaltyCardBalances($loyaltyProgramId, $endDate);
@@ -3970,7 +4137,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
- **endDate** | **\DateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
+ **endDate** | **\DateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
 
 ### Return type
 
@@ -3996,7 +4163,7 @@ Name | Type | Description  | Notes
 
 Export card's ledger log
 
-Download a CSV file containing a loyalty card ledger log of the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).
+Download a CSV file containing a loyalty card ledger log of the loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).
 
 ### Example
 
@@ -4028,9 +4195,9 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
-$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `NewCard2026%` as `NewCard2026%25`.
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
 $dateFormat = 'dateFormat_example'; // string | Determines the format of dates in the export document.
 
 try {
@@ -4048,9 +4215,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
- **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. |
- **rangeStart** | **\DateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
  **dateFormat** | **string**| Determines the format of dates in the export document. | [optional]
 
 ### Return type
@@ -4077,7 +4244,7 @@ Name | Type | Description  | Notes
 
 Export loyalty cards
 
-Download a CSV file containing the loyalty cards from a specified loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - `identifier`: The unique identifier of the loyalty card. - `created`: The date and time the loyalty card was created. - `status`: The status of the loyalty card. - `userpercardlimit`: The maximum number of customer profiles that can be linked to the card. - `customerprofileids`: Integration IDs of the customer profiles linked to the card. - `blockreason`: The reason for transferring and blocking the loyalty card. - `generated`: An indicator of whether the loyalty card was generated. - `batchid`: The ID of the batch the loyalty card is in.
+Download a CSV file containing the loyalty cards from a specified loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following columns:  - `identifier`: The unique identifier of the loyalty card. - `created`: The date and time the loyalty card was created. - `status`: The status of the loyalty card. - `userpercardlimit`: The maximum number of customer profiles that can be linked to the card. - `customerprofileids`: Integration IDs of the customer profiles linked to the card. - `blockreason`: The reason for transferring and blocking the loyalty card. - `generated`: An indicator of whether the loyalty card was generated. - `batchid`: The ID of the batch the loyalty card is in. - `attributes`: The custom attributes of this loyalty card. Currently, this feature is only available upon request.
 
 ### Example
 
@@ -4110,8 +4277,8 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
 $batchId = 'batchId_example'; // string | Filter results by loyalty card batch ID.
-$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return loyalty cards created before this timestamp.  **Note:** - This must be an RFC3339 timestamp string.
-$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return loyalty cards created after this timestamp.  **Note:** - This must be an RFC3339 timestamp string.
+$createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return loyalty cards created before this timestamp.  **Note:** This must be an RFC3339 timestamp string.
+$createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return loyalty cards created after this timestamp.  **Note:** This must be an RFC3339 timestamp string.
 $dateFormat = 'dateFormat_example'; // string | Determines the format of dates in the export document.
 
 try {
@@ -4130,8 +4297,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
  **batchId** | **string**| Filter results by loyalty card batch ID. | [optional]
- **createdBefore** | **\DateTime**| Only return loyalty cards created before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. | [optional]
- **createdAfter** | **\DateTime**| Only return loyalty cards created after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. | [optional]
+ **createdBefore** | **\DateTime**| Only return loyalty cards created before this timestamp.  **Note:** This must be an RFC3339 timestamp string. | [optional]
+ **createdAfter** | **\DateTime**| Only return loyalty cards created after this timestamp.  **Note:** This must be an RFC3339 timestamp string. | [optional]
  **dateFormat** | **string**| Determines the format of dates in the export document. | [optional]
 
 ### Return type
@@ -4152,13 +4319,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## exportLoyaltyLedger
+## exportLoyaltyJoinDates
 
-> string exportLoyaltyLedger($rangeStart, $rangeEnd, $loyaltyProgramId, $integrationId, $dateFormat)
+> string exportLoyaltyJoinDates($loyaltyProgramId)
 
-Export customer's transaction logs
+Export customers' loyalty program join dates
 
-Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance. - `transactionUUID`: Unique identifier of the transaction in the UUID format.
+Download a CSV file containing the join dates of all customers in the loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The generated file can contain the following columns:  - `loyaltyProgramID`: The ID of the loyalty program. - `profileIntegrationID`: The integration ID of the customer profile. - `joinDate`: The customer's loyalty program join date in RFC3339 format.
 
 ### Example
 
@@ -4189,8 +4356,81 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$loyaltyProgramId = 'loyaltyProgramId_example'; // string | The identifier of the loyalty program.
+
+try {
+    $result = $apiInstance->exportLoyaltyJoinDates($loyaltyProgramId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->exportLoyaltyJoinDates: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loyaltyProgramId** | **string**| The identifier of the loyalty program. |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/csv
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## exportLoyaltyLedger
+
+> string exportLoyaltyLedger($rangeStart, $rangeEnd, $loyaltyProgramId, $integrationId, $dateFormat)
+
+Export customer's transaction logs
+
+Download a CSV file containing a customer's transaction logs in the loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance. - `transactionUUID`: Unique identifier of the transaction in the UUID format.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
 $loyaltyProgramId = 'loyaltyProgramId_example'; // string | The identifier for the loyalty program.
 $integrationId = 'integrationId_example'; // string | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.
 $dateFormat = 'dateFormat_example'; // string | Determines the format of dates in the export document.
@@ -4209,8 +4449,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rangeStart** | **\DateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
  **loyaltyProgramId** | **string**| The identifier for the loyalty program. |
  **integrationId** | **string**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. |
  **dateFormat** | **string**| Determines the format of dates in the export document. | [optional]
@@ -4239,7 +4479,7 @@ Name | Type | Description  | Notes
 
 Export giveaway codes of a giveaway pool
 
-Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - `id`: The internal ID of the giveaway. - `poolid`: The internal ID of the giveaway pool. - `code`: The giveaway code. - `startdate`: The validity start date in RFC3339 of the giveaway (can be empty). - `enddate`: The validity end date in RFC3339 of the giveaway (can be empty). - `attributes`: Any custom attributes associated with the giveaway code (can be empty). - `used`: An indication of whether the giveaway is already awarded. - `importid`: The ID of the import which created the giveaway. - `created`: The creation time of the giveaway code. - `profileintegrationid`: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - `profileid`: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist.
+Download a CSV file containing the giveaway codes of a specific giveaway pool.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following columns:  - `id`: The internal ID of the giveaway. - `poolid`: The internal ID of the giveaway pool. - `code`: The giveaway code. - `startdate`: The validity start date in RFC3339 of the giveaway (can be empty). - `enddate`: The validity end date in RFC3339 of the giveaway (can be empty). - `attributes`: Any custom attributes associated with the giveaway code (can be empty). - `used`: An indication of whether the giveaway is already awarded. - `importid`: The ID of the import which created the giveaway. - `created`: The creation time of the giveaway code. - `profileintegrationid`: The third-party integration ID of the customer    profile that was awarded the giveaway. Can be empty if the giveaway was not    awarded. - `profileid`: The internal ID of the customer profile that was awarded the    giveaway. Can be empty if the giveaway was not awarded or an internal ID    does not exist.
 
 ### Example
 
@@ -4316,7 +4556,7 @@ Name | Type | Description  | Notes
 
 Export referrals
 
-Download a CSV file containing the referrals that match the given parameters.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - `code`: The referral code. - `advocateprofileintegrationid`: The profile ID of the advocate. - `startdate`: The start date in RFC3339 of the code redemption period. - `expirydate`: The end date in RFC3339 of the code redemption period. - `limitval`: The maximum number of redemptions of this code. Defaults to `1` when left blank. - `attributes`: A json object describing _custom_ referral attribute names and their values.
+Download a CSV file containing the referrals that match the given parameters.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following columns:  - `code`: The referral code. - `advocateprofileintegrationid`: The profile ID of the advocate. - `startdate`: The start date in RFC3339 of the code redemption period. - `expirydate`: The end date in RFC3339 of the code redemption period. - `limitval`: The maximum number of redemptions of this code. Defaults to `1` when left blank. - `attributes`: A json object describing _custom_ referral attribute names and their values.
 
 ### Example
 
@@ -4397,9 +4637,88 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## generateCouponRejections
+
+> \TalonOne\Client\Model\InlineResponse20053 generateCouponRejections($sessionIntegrationId, $applicationId, $language, $couponCode)
+
+Summarize coupon redemption failures in session
+
+Create a summary of the reasons for coupon redemption failures in a given customer session.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$sessionIntegrationId = 'sessionIntegrationId_example'; // string | The integration ID of the session to summarize.
+$applicationId = 3.4; // float | Filter results by Application ID.
+$language = 'language_example'; // string | The [ISO-639](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) code of the language in which the summary will be generated.
+$couponCode = 'couponCode_example'; // string | The coupon code for which to get the rejection reason.
+
+try {
+    $result = $apiInstance->generateCouponRejections($sessionIntegrationId, $applicationId, $language, $couponCode);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->generateCouponRejections: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sessionIntegrationId** | **string**| The integration ID of the session to summarize. |
+ **applicationId** | **float**| Filter results by Application ID. | [optional]
+ **language** | **string**| The [ISO-639](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) code of the language in which the summary will be generated. | [optional]
+ **couponCode** | **string**| The coupon code for which to get the rejection reason. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\InlineResponse20053**](../Model/InlineResponse20053.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## getAccessLogsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20022 getAccessLogsWithoutTotalCount($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20024 getAccessLogsWithoutTotalCount($applicationId, $rangeStart, $rangeEnd, $path, $method, $status, $pageSize, $skip, $sort)
 
 Get access logs for Application
 
@@ -4435,8 +4754,8 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
 $path = 'path_example'; // string | Only return results where the request path matches the given regular expression.
 $method = 'method_example'; // string | Only return results where the request method matches the given regular expression.
 $status = 'status_example'; // string | Filter results by HTTP status codes.
@@ -4459,8 +4778,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **rangeStart** | **\DateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
  **path** | **string**| Only return results where the request path matches the given regular expression. | [optional]
  **method** | **string**| Only return results where the request method matches the given regular expression. | [optional]
  **status** | **string**| Filter results by HTTP status codes. | [optional]
@@ -4470,7 +4789,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
+[**\TalonOne\Client\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
 
 ### Authorization
 
@@ -4523,7 +4842,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$accountId = 56; // int | The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#operation/getUsers) endpoint in the `accountId` property.
+$accountId = 56; // int | The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/getUsers) endpoint in the `accountId` property.
 
 try {
     $result = $apiInstance->getAccount($accountId);
@@ -4539,7 +4858,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **int**| The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#operation/getUsers) endpoint in the &#x60;accountId&#x60; property. |
+ **accountId** | **int**| The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/getUsers) endpoint in the &#x60;accountId&#x60; property. |
 
 ### Return type
 
@@ -4596,7 +4915,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$accountId = 56; // int | The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#operation/getUsers) endpoint in the `accountId` property.
+$accountId = 56; // int | The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/getUsers) endpoint in the `accountId` property.
 
 try {
     $result = $apiInstance->getAccountAnalytics($accountId);
@@ -4612,7 +4931,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **int**| The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#operation/getUsers) endpoint in the &#x60;accountId&#x60; property. |
+ **accountId** | **int**| The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/getUsers) endpoint in the &#x60;accountId&#x60; property. |
 
 ### Return type
 
@@ -4669,7 +4988,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
 
 try {
     $result = $apiInstance->getAccountCollection($collectionId);
@@ -4685,7 +5004,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. |
+ **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. |
 
 ### Return type
 
@@ -4857,7 +5176,7 @@ Name | Type | Description  | Notes
 
 ## getAdditionalCosts
 
-> \TalonOne\Client\Model\InlineResponse20038 getAdditionalCosts($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20040 getAdditionalCosts($pageSize, $skip, $sort)
 
 List additional costs
 
@@ -4916,7 +5235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20038**](../Model/InlineResponse20038.md)
+[**\TalonOne\Client\Model\InlineResponse20040**](../Model/InlineResponse20040.md)
 
 ### Authorization
 
@@ -4938,7 +5257,7 @@ Name | Type | Description  | Notes
 
 Get Application
 
-Get the application specified by the ID.
+Get the Application specified by the ID.
 
 ### Example
 
@@ -5078,6 +5397,83 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## getApplicationCartItemFilterExpression
+
+> \TalonOne\Client\Model\ApplicationCIFExpression getApplicationCartItemFilterExpression($applicationId, $cartItemFilterId, $expressionId)
+
+Get Application cart item filter expression
+
+Get an Application cart item filter expression for a specific Application.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$cartItemFilterId = 56; // int | The ID of the Application cart item filter. You can get this ID with the [List Application cart item filters](https://docs.talon.one/management-api#tag/Applications/operation/listApplicationCartItemFilters) endpoint.
+$expressionId = 56; // int | The ID of the Application cart item filter expression.
+
+try {
+    $result = $apiInstance->getApplicationCartItemFilterExpression($applicationId, $cartItemFilterId, $expressionId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getApplicationCartItemFilterExpression: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **cartItemFilterId** | **int**| The ID of the Application cart item filter. You can get this ID with the [List Application cart item filters](https://docs.talon.one/management-api#tag/Applications/operation/listApplicationCartItemFilters) endpoint. |
+ **expressionId** | **int**| The ID of the Application cart item filter expression. |
+
+### Return type
+
+[**\TalonOne\Client\Model\ApplicationCIFExpression**](../Model/ApplicationCIFExpression.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## getApplicationCustomer
 
 > \TalonOne\Client\Model\ApplicationCustomer getApplicationCustomer($applicationId, $customerId)
@@ -5116,7 +5512,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.
+$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint.
 
 try {
     $result = $apiInstance->getApplicationCustomer($applicationId, $customerId);
@@ -5133,7 +5529,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. |
+ **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. |
 
 ### Return type
 
@@ -5155,7 +5551,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomerFriends
 
-> \TalonOne\Client\Model\InlineResponse20035 getApplicationCustomerFriends($applicationId, $integrationId, $pageSize, $skip, $sort, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20037 getApplicationCustomerFriends($applicationId, $integrationId, $pageSize, $skip, $sort, $withTotalResultSize)
 
 List friends referred by customer profile
 
@@ -5195,7 +5591,7 @@ $integrationId = 'integrationId_example'; // string | The Integration ID of the 
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
-$withTotalResultSize = True; // bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.
+$withTotalResultSize = True; // bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.
 
 try {
     $result = $apiInstance->getApplicationCustomerFriends($applicationId, $integrationId, $pageSize, $skip, $sort, $withTotalResultSize);
@@ -5216,11 +5612,11 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
- **withTotalResultSize** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
+[**\TalonOne\Client\Model\InlineResponse20037**](../Model/InlineResponse20037.md)
 
 ### Authorization
 
@@ -5238,7 +5634,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomers
 
-> \TalonOne\Client\Model\InlineResponse20024 getApplicationCustomers($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20026 getApplicationCustomers($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize)
 
 List application's customers
 
@@ -5277,7 +5673,7 @@ $applicationId = 56; // int | The ID of the Application. It is displayed in your
 $integrationId = 'integrationId_example'; // string | Filter results performing an exact matching against the profile integration identifier.
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
-$withTotalResultSize = True; // bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.
+$withTotalResultSize = True; // bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.
 
 try {
     $result = $apiInstance->getApplicationCustomers($applicationId, $integrationId, $pageSize, $skip, $withTotalResultSize);
@@ -5297,11 +5693,11 @@ Name | Type | Description  | Notes
  **integrationId** | **string**| Filter results performing an exact matching against the profile integration identifier. | [optional]
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
- **withTotalResultSize** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
+[**\TalonOne\Client\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
 
 ### Authorization
 
@@ -5319,7 +5715,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomersByAttributes
 
-> \TalonOne\Client\Model\InlineResponse20025 getApplicationCustomersByAttributes($applicationId, $body, $pageSize, $skip, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20027 getApplicationCustomersByAttributes($applicationId, $body, $pageSize, $skip, $withTotalResultSize)
 
 List application customers matching the given attributes
 
@@ -5358,7 +5754,7 @@ $applicationId = 56; // int | The ID of the Application. It is displayed in your
 $body = new \TalonOne\Client\Model\CustomerProfileSearchQuery(); // \TalonOne\Client\Model\CustomerProfileSearchQuery | body
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
-$withTotalResultSize = True; // bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.
+$withTotalResultSize = True; // bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.
 
 try {
     $result = $apiInstance->getApplicationCustomersByAttributes($applicationId, $body, $pageSize, $skip, $withTotalResultSize);
@@ -5378,11 +5774,11 @@ Name | Type | Description  | Notes
  **body** | [**\TalonOne\Client\Model\CustomerProfileSearchQuery**](../Model/CustomerProfileSearchQuery.md)| body |
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
- **withTotalResultSize** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
+[**\TalonOne\Client\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
 
 ### Authorization
 
@@ -5400,7 +5796,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventTypes
 
-> \TalonOne\Client\Model\InlineResponse20031 getApplicationEventTypes($applicationId, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20033 getApplicationEventTypes($applicationId, $pageSize, $skip, $sort)
 
 List Applications event types
 
@@ -5461,7 +5857,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
+[**\TalonOne\Client\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
 
 ### Authorization
 
@@ -5479,7 +5875,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20030 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery, $effectType)
+> \TalonOne\Client\Model\InlineResponse20032 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery, $effectType)
 
 List Applications events
 
@@ -5564,7 +5960,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
+[**\TalonOne\Client\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
 
 ### Authorization
 
@@ -5657,7 +6053,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationSessions
 
-> \TalonOne\Client\Model\InlineResponse20029 getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId, $storeIntegrationId)
+> \TalonOne\Client\Model\InlineResponse20031 getApplicationSessions($applicationId, $pageSize, $skip, $sort, $partialMatch, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId, $storeIntegrationId)
 
 List Application sessions
 
@@ -5696,17 +6092,18 @@ $applicationId = 56; // int | The ID of the Application. It is displayed in your
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
-$profile = 'profile_example'; // string | Profile integration ID filter for sessions. Must be exact match.
+$partialMatch = false; // bool | Enables partial matching for a single text search field. When enabled, the search term matches anywhere within the field value (case-insensitive). Minimum 3 characters required for partial matches; shorter inputs automatically fall back to exact match.  **Note:** Use with one of: `integrationId`, `profile`, `coupon`, `referral`, or `storeIntegrationId`.
+$profile = 'profile_example'; // string | Filter by sessions with this profile integration ID. By default, requires exact match. Use `partialMatch=true` to search for partial matches (minimum 3 characters).
 $state = 'state_example'; // string | Filter by sessions with this state. Must be exact match.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
-$coupon = 'coupon_example'; // string | Filter by sessions with this coupon. Must be exact match.
-$referral = 'referral_example'; // string | Filter by sessions with this referral. Must be exact match.
-$integrationId = 'integrationId_example'; // string | Filter by sessions with this integration ID. Must be exact match.
-$storeIntegrationId = 'storeIntegrationId_example'; // string | The integration ID of the store. You choose this ID when you create a store.
+$coupon = 'coupon_example'; // string | Filter by sessions with this coupon. By default, requires exact match. Use `partialMatch=true` to search for partial matches (minimum 3 characters).
+$referral = 'referral_example'; // string | Filter by sessions with this referral. By default, requires exact match. Use `partialMatch=true` to search for partial matches (minimum 3 characters).
+$integrationId = 'integrationId_example'; // string | Filter by sessions with this integration ID. By default, requires exact match. Use `partialMatch=true` to search for partial matches (minimum 3 characters).
+$storeIntegrationId = 'storeIntegrationId_example'; // string | The integration ID of the store. You choose this ID when you create a store. By default, requires exact match. Use `partialMatch=true` to search for partial matches (minimum 3 characters).
 
 try {
-    $result = $apiInstance->getApplicationSessions($applicationId, $pageSize, $skip, $sort, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId, $storeIntegrationId);
+    $result = $apiInstance->getApplicationSessions($applicationId, $pageSize, $skip, $sort, $partialMatch, $profile, $state, $createdBefore, $createdAfter, $coupon, $referral, $integrationId, $storeIntegrationId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getApplicationSessions: ', $e->getMessage(), PHP_EOL;
@@ -5723,18 +6120,19 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
- **profile** | **string**| Profile integration ID filter for sessions. Must be exact match. | [optional]
+ **partialMatch** | **bool**| Enables partial matching for a single text search field. When enabled, the search term matches anywhere within the field value (case-insensitive). Minimum 3 characters required for partial matches; shorter inputs automatically fall back to exact match.  **Note:** Use with one of: &#x60;integrationId&#x60;, &#x60;profile&#x60;, &#x60;coupon&#x60;, &#x60;referral&#x60;, or &#x60;storeIntegrationId&#x60;. | [optional] [default to false]
+ **profile** | **string**| Filter by sessions with this profile integration ID. By default, requires exact match. Use &#x60;partialMatch&#x3D;true&#x60; to search for partial matches (minimum 3 characters). | [optional]
  **state** | **string**| Filter by sessions with this state. Must be exact match. | [optional]
  **createdBefore** | **\DateTime**| Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
- **coupon** | **string**| Filter by sessions with this coupon. Must be exact match. | [optional]
- **referral** | **string**| Filter by sessions with this referral. Must be exact match. | [optional]
- **integrationId** | **string**| Filter by sessions with this integration ID. Must be exact match. | [optional]
- **storeIntegrationId** | **string**| The integration ID of the store. You choose this ID when you create a store. | [optional]
+ **coupon** | **string**| Filter by sessions with this coupon. By default, requires exact match. Use &#x60;partialMatch&#x3D;true&#x60; to search for partial matches (minimum 3 characters). | [optional]
+ **referral** | **string**| Filter by sessions with this referral. By default, requires exact match. Use &#x60;partialMatch&#x3D;true&#x60; to search for partial matches (minimum 3 characters). | [optional]
+ **integrationId** | **string**| Filter by sessions with this integration ID. By default, requires exact match. Use &#x60;partialMatch&#x3D;true&#x60; to search for partial matches (minimum 3 characters). | [optional]
+ **storeIntegrationId** | **string**| The integration ID of the store. You choose this ID when you create a store. By default, requires exact match. Use &#x60;partialMatch&#x3D;true&#x60; to search for partial matches (minimum 3 characters). | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
+[**\TalonOne\Client\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
 
 ### Authorization
 
@@ -5752,11 +6150,11 @@ Name | Type | Description  | Notes
 
 ## getApplications
 
-> \TalonOne\Client\Model\InlineResponse2007 getApplications($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2008 getApplications($pageSize, $skip, $sort)
 
 List Applications
 
-List all applications in the current account.
+List all the Applications in the current account.
 
 ### Example
 
@@ -5811,7 +6209,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
 
 ### Authorization
 
@@ -5902,7 +6300,7 @@ Name | Type | Description  | Notes
 
 ## getAttributes
 
-> \TalonOne\Client\Model\InlineResponse20036 getAttributes($pageSize, $skip, $sort, $entity)
+> \TalonOne\Client\Model\InlineResponse20038 getAttributes($pageSize, $skip, $sort, $entity, $applicationIds, $type, $kind, $search)
 
 List custom attributes
 
@@ -5941,9 +6339,13 @@ $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
 $entity = 'entity_example'; // string | Returned attributes will be filtered by supplied entity.
+$applicationIds = 'applicationIds_example'; // string | Returned attributes will be filtered by supplied application ids
+$type = 'type_example'; // string | Returned attributes will be filtered by supplied type
+$kind = 'kind_example'; // string | Returned attributes will be filtered by supplied kind (builtin or custom)
+$search = 'search_example'; // string | Returned attributes will be filtered by searching case insensitive through Attribute name, description and type
 
 try {
-    $result = $apiInstance->getAttributes($pageSize, $skip, $sort, $entity);
+    $result = $apiInstance->getAttributes($pageSize, $skip, $sort, $entity, $applicationIds, $type, $kind, $search);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getAttributes: ', $e->getMessage(), PHP_EOL;
@@ -5960,10 +6362,14 @@ Name | Type | Description  | Notes
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
  **entity** | **string**| Returned attributes will be filtered by supplied entity. | [optional]
+ **applicationIds** | **string**| Returned attributes will be filtered by supplied application ids | [optional]
+ **type** | **string**| Returned attributes will be filtered by supplied type | [optional]
+ **kind** | **string**| Returned attributes will be filtered by supplied kind (builtin or custom) | [optional]
+ **search** | **string**| Returned attributes will be filtered by searching case insensitive through Attribute name, description and type | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20036**](../Model/InlineResponse20036.md)
+[**\TalonOne\Client\Model\InlineResponse20038**](../Model/InlineResponse20038.md)
 
 ### Authorization
 
@@ -5981,7 +6387,7 @@ Name | Type | Description  | Notes
 
 ## getAudienceMemberships
 
-> \TalonOne\Client\Model\InlineResponse20034 getAudienceMemberships($audienceId, $pageSize, $skip, $sort, $profileQuery)
+> \TalonOne\Client\Model\InlineResponse20036 getAudienceMemberships($audienceId, $pageSize, $skip, $sort, $profileQuery)
 
 List audience members
 
@@ -6044,7 +6450,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
+[**\TalonOne\Client\Model\InlineResponse20036**](../Model/InlineResponse20036.md)
 
 ### Authorization
 
@@ -6062,7 +6468,7 @@ Name | Type | Description  | Notes
 
 ## getAudiences
 
-> \TalonOne\Client\Model\InlineResponse20032 getAudiences($pageSize, $skip, $sort, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20034 getAudiences($pageSize, $skip, $sort, $withTotalResultSize)
 
 List audiences
 
@@ -6100,7 +6506,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
-$withTotalResultSize = True; // bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.
+$withTotalResultSize = True; // bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.
 
 try {
     $result = $apiInstance->getAudiences($pageSize, $skip, $sort, $withTotalResultSize);
@@ -6119,11 +6525,11 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
- **withTotalResultSize** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
+[**\TalonOne\Client\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
 
 ### Authorization
 
@@ -6141,7 +6547,7 @@ Name | Type | Description  | Notes
 
 ## getAudiencesAnalytics
 
-> \TalonOne\Client\Model\InlineResponse20033 getAudiencesAnalytics($audienceIds, $sort)
+> \TalonOne\Client\Model\InlineResponse20035 getAudiencesAnalytics($audienceIds, $sort)
 
 List audience analytics
 
@@ -6198,7 +6604,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
+[**\TalonOne\Client\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
 
 ### Authorization
 
@@ -6291,7 +6697,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignAnalytics
 
-> \TalonOne\Client\Model\InlineResponse20023 getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity)
+> \TalonOne\Client\Model\InlineResponse20025 getCampaignAnalytics($applicationId, $campaignId, $rangeStart, $rangeEnd, $granularity)
 
 Get analytics of campaigns
 
@@ -6328,8 +6734,8 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
 $granularity = 'granularity_example'; // string | The time interval between the results in the returned time-series.
 
 try {
@@ -6348,13 +6754,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
- **rangeStart** | **\DateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
  **granularity** | **string**| The time interval between the results in the returned time-series. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
+[**\TalonOne\Client\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
 
 ### Authorization
 
@@ -6372,7 +6778,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignByAttributes
 
-> \TalonOne\Client\Model\InlineResponse2008 getCampaignByAttributes($applicationId, $body, $pageSize, $skip, $sort, $campaignState)
+> \TalonOne\Client\Model\InlineResponse2009 getCampaignByAttributes($applicationId, $body, $pageSize, $skip, $sort, $campaignState)
 
 List campaigns that match the given attributes
 
@@ -6437,7 +6843,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\TalonOne\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
 
 ### Authorization
 
@@ -6528,7 +6934,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignGroups
 
-> \TalonOne\Client\Model\InlineResponse20013 getCampaignGroups($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20014 getCampaignGroups($pageSize, $skip, $sort)
 
 List campaign access groups
 
@@ -6587,7 +6993,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\TalonOne\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
 
 ### Authorization
 
@@ -6605,7 +7011,7 @@ Name | Type | Description  | Notes
 
 ## getCampaignTemplates
 
-> \TalonOne\Client\Model\InlineResponse20014 getCampaignTemplates($pageSize, $skip, $sort, $state, $name, $tags, $userId)
+> \TalonOne\Client\Model\InlineResponse20015 getCampaignTemplates($pageSize, $skip, $sort, $state, $name, $tags, $userId)
 
 List campaign templates
 
@@ -6672,7 +7078,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
+[**\TalonOne\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
 
 ### Authorization
 
@@ -6690,7 +7096,7 @@ Name | Type | Description  | Notes
 
 ## getCampaigns
 
-> \TalonOne\Client\Model\InlineResponse2008 getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $campaignGroupId, $templateId, $storeId)
+> \TalonOne\Client\Model\InlineResponse2009 getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $startBefore, $startAfter, $endBefore, $endAfter, $campaignGroupId, $templateId, $storeId)
 
 List campaigns
 
@@ -6734,12 +7140,16 @@ $name = 'name_example'; // string | Filter results performing case-insensitive m
 $tags = 'tags_example'; // string | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+$startBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+$startAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+$endBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign end time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+$endAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign end time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
 $campaignGroupId = 56; // int | Filter results to campaigns owned by the specified campaign access group ID.
 $templateId = 56; // int | The ID of the campaign template this campaign was created from.
 $storeId = 56; // int | Filter results to campaigns linked to the specified store ID.
 
 try {
-    $result = $apiInstance->getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $campaignGroupId, $templateId, $storeId);
+    $result = $apiInstance->getCampaigns($applicationId, $pageSize, $skip, $sort, $campaignState, $name, $tags, $createdBefore, $createdAfter, $startBefore, $startAfter, $endBefore, $endAfter, $campaignGroupId, $templateId, $storeId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getCampaigns: ', $e->getMessage(), PHP_EOL;
@@ -6761,13 +7171,17 @@ Name | Type | Description  | Notes
  **tags** | **string**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
+ **startBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
+ **startAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
+ **endBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign end time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
+ **endAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign end time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **campaignGroupId** | **int**| Filter results to campaigns owned by the specified campaign access group ID. | [optional]
  **templateId** | **int**| The ID of the campaign template this campaign was created from. | [optional]
  **storeId** | **int**| Filter results to campaigns linked to the specified store ID. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\TalonOne\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
 
 ### Authorization
 
@@ -6785,7 +7199,7 @@ Name | Type | Description  | Notes
 
 ## getChanges
 
-> \TalonOne\Client\Model\InlineResponse20042 getChanges($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $managementKeyId, $includeOld)
+> \TalonOne\Client\Model\InlineResponse20044 getChanges($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $managementKeyId, $includeOld)
 
 Get audit logs for an account
 
@@ -6828,7 +7242,7 @@ $entityPath = 'entityPath_example'; // string | Filter results on a case insensi
 $userId = 56; // int | Filter results by user ID.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
-$withTotalResultSize = True; // bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.
+$withTotalResultSize = True; // bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.
 $managementKeyId = 56; // int | Filter results that match the given management key ID.
 $includeOld = True; // bool | When this flag is set to false, the state without the change will not be returned. The default value is true.
 
@@ -6854,13 +7268,13 @@ Name | Type | Description  | Notes
  **userId** | **int**| Filter results by user ID. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
- **withTotalResultSize** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page. | [optional]
  **managementKeyId** | **int**| Filter results that match the given management key ID. | [optional]
  **includeOld** | **bool**| When this flag is set to false, the state without the change will not be returned. The default value is true. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20042**](../Model/InlineResponse20042.md)
+[**\TalonOne\Client\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
 
 ### Authorization
 
@@ -6915,7 +7329,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
 
 try {
     $result = $apiInstance->getCollection($applicationId, $campaignId, $collectionId);
@@ -6933,7 +7347,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
- **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. |
+ **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. |
 
 ### Return type
 
@@ -6955,7 +7369,7 @@ Name | Type | Description  | Notes
 
 ## getCollectionItems
 
-> \TalonOne\Client\Model\InlineResponse20021 getCollectionItems($collectionId, $pageSize, $skip)
+> \TalonOne\Client\Model\InlineResponse20023 getCollectionItems($collectionId, $pageSize, $skip)
 
 Get collection items
 
@@ -6990,7 +7404,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 
@@ -7008,13 +7422,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. |
+ **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. |
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
+[**\TalonOne\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
 
 ### Authorization
 
@@ -7032,7 +7446,7 @@ Name | Type | Description  | Notes
 
 ## getCouponsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20011 getCouponsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $redeemed, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $expiresBefore, $expiresAfter, $startsBefore, $startsAfter, $valuesOnly)
+> \TalonOne\Client\Model\InlineResponse20012 getCouponsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $redeemed, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $expiresBefore, $expiresAfter, $startsBefore, $startsAfter, $valuesOnly)
 
 List coupons
 
@@ -7125,7 +7539,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\TalonOne\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
@@ -7178,10 +7592,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.
+$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint.
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 
@@ -7199,10 +7613,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rangeStart** | **\DateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. |
+ **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. |
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
 
@@ -7226,7 +7640,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerActivityReportsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20028 getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
+> \TalonOne\Client\Model\InlineResponse20030 getCustomerActivityReportsWithoutTotalCount($rangeStart, $rangeEnd, $applicationId, $pageSize, $skip, $sort, $name, $integrationId, $campaignName, $advocateName)
 
 Get Activity Reports for Application Customers
 
@@ -7261,8 +7675,8 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
@@ -7286,8 +7700,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rangeStart** | **\DateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
@@ -7299,7 +7713,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
+[**\TalonOne\Client\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
 
 ### Authorization
 
@@ -7353,7 +7767,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.
+$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint.
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
@@ -7373,7 +7787,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
- **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. |
+ **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. |
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
@@ -7402,7 +7816,7 @@ Name | Type | Description  | Notes
 
 Get customer profile
 
-Return the details of the specified customer profile.  <div class=\"redoc-section\">   <p class=\"title\">Performance tips</p>    You can retrieve the same information via the Integration API, which can save you extra API requests. consider these options:    - Request the customer profile to be part of the response content using     [Update Customer Session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2).   - Send an empty update with the [Update Customer Profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint with `runRuleEngine=false`. </div>
+Return the details of the specified customer profile.  > [!note] > You can retrieve the same information via the Integration API, which can save you extra API requests. Consider these options: > - Request the customer profile to be part of the response content using >   [Update Customer Session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2). > - Send an empty update with the [Update Customer Profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint with `runRuleEngine=false`.
 
 ### Example
 
@@ -7433,7 +7847,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.
+$customerId = 56; // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint.
 
 try {
     $result = $apiInstance->getCustomerProfile($customerId);
@@ -7449,7 +7863,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. |
+ **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. |
 
 ### Return type
 
@@ -7471,7 +7885,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerProfileAchievementProgress
 
-> \TalonOne\Client\Model\InlineResponse20049 getCustomerProfileAchievementProgress($applicationId, $integrationId, $pageSize, $skip, $achievementId, $title)
+> \TalonOne\Client\Model\InlineResponse20052 getCustomerProfileAchievementProgress($applicationId, $integrationId, $pageSize, $skip, $achievementId, $title)
 
 List customer achievements
 
@@ -7536,7 +7950,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20049**](../Model/InlineResponse20049.md)
+[**\TalonOne\Client\Model\InlineResponse20052**](../Model/InlineResponse20052.md)
 
 ### Authorization
 
@@ -7554,7 +7968,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerProfiles
 
-> \TalonOne\Client\Model\InlineResponse20027 getCustomerProfiles($pageSize, $skip, $sandbox)
+> \TalonOne\Client\Model\InlineResponse20029 getCustomerProfiles($pageSize, $skip, $sandbox)
 
 List customer profiles
 
@@ -7613,7 +8027,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
+[**\TalonOne\Client\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
 
 ### Authorization
 
@@ -7631,7 +8045,7 @@ Name | Type | Description  | Notes
 
 ## getCustomersByAttributes
 
-> \TalonOne\Client\Model\InlineResponse20026 getCustomersByAttributes($body, $pageSize, $skip, $sandbox)
+> \TalonOne\Client\Model\InlineResponse20028 getCustomersByAttributes($body, $pageSize, $skip, $sandbox)
 
 List customer profiles matching the given attributes
 
@@ -7692,7 +8106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\TalonOne\Client\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
 
 ### Authorization
 
@@ -7710,11 +8124,11 @@ Name | Type | Description  | Notes
 
 ## getDashboardStatistics
 
-> \TalonOne\Client\Model\InlineResponse20016 getDashboardStatistics($loyaltyProgramId, $rangeStart, $rangeEnd, $subledgerId)
+> \TalonOne\Client\Model\InlineResponse20018 getDashboardStatistics($loyaltyProgramId, $rangeStart, $rangeEnd, $subledgerId)
 
 Get statistics for loyalty dashboard
 
-Retrieve the statistics displayed on the specified loyalty program's dashboard, such as the total active points, pending points, spent points, and expired points.  **Important:** The returned data does not include the current day. All statistics are updated daily at 11:59 PM in the loyalty program time zone.
+Retrieve the statistics displayed on the specified loyalty program's dashboard, such as the total active points, pending points, spent points, and expired points.  > [!important] The returned data does not include the current day. All statistics > are updated daily at 11:59 PM in the loyalty program time zone.
 
 ### Example
 
@@ -7746,8 +8160,8 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 56; // int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
-$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
-$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeStart = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$rangeEnd = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
 $subledgerId = 'subledgerId_example'; // string | The ID of the subledger by which we filter the data.
 
 try {
@@ -7765,13 +8179,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
- **rangeStart** | **\DateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
- **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeStart** | **\DateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
+ **rangeEnd** | **\DateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. |
  **subledgerId** | **string**| The ID of the subledger by which we filter the data. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
+[**\TalonOne\Client\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
 
 ### Authorization
 
@@ -7789,7 +8203,7 @@ Name | Type | Description  | Notes
 
 ## getEventTypes
 
-> \TalonOne\Client\Model\InlineResponse20040 getEventTypes($name, $includeOldVersions, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20042 getEventTypes($name, $includeOldVersions, $pageSize, $skip, $sort)
 
 List event types
 
@@ -7852,7 +8266,82 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20040**](../Model/InlineResponse20040.md)
+[**\TalonOne\Client\Model\InlineResponse20042**](../Model/InlineResponse20042.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getExperiment
+
+> \TalonOne\Client\Model\Experiment getExperiment($applicationId, $experimentId)
+
+Get experiment in Application
+
+Retrieve the given experiment associated with the Application.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$experimentId = 56; // int | The ID of the experiment.
+
+try {
+    $result = $apiInstance->getExperiment($applicationId, $experimentId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getExperiment: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **experimentId** | **int**| The ID of the experiment. |
+
+### Return type
+
+[**\TalonOne\Client\Model\Experiment**](../Model/Experiment.md)
 
 ### Authorization
 
@@ -7870,7 +8359,7 @@ Name | Type | Description  | Notes
 
 ## getExports
 
-> \TalonOne\Client\Model\InlineResponse20043 getExports($pageSize, $skip, $applicationId, $campaignId, $entity)
+> \TalonOne\Client\Model\InlineResponse20045 getExports($pageSize, $skip, $applicationId, $campaignId, $entity)
 
 Get exports
 
@@ -7933,7 +8422,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20043**](../Model/InlineResponse20043.md)
+[**\TalonOne\Client\Model\InlineResponse20045**](../Model/InlineResponse20045.md)
 
 ### Authorization
 
@@ -7987,7 +8476,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
-$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.
+$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `NewCard2026%` as `NewCard2026%25`.
 
 try {
     $result = $apiInstance->getLoyaltyCard($loyaltyProgramId, $loyaltyCardId);
@@ -8004,7 +8493,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
- **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. |
+ **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. |
 
 ### Return type
 
@@ -8026,7 +8515,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyCardTransactionLogs
 
-> \TalonOne\Client\Model\InlineResponse20019 getLoyaltyCardTransactionLogs($loyaltyProgramId, $loyaltyCardId, $startDate, $endDate, $pageSize, $skip, $subledgerId, $customerSessionIDs, $transactionUUIDs)
+> \TalonOne\Client\Model\InlineResponse20021 getLoyaltyCardTransactionLogs($loyaltyProgramId, $loyaltyCardId, $startDate, $endDate, $pageSize, $skip, $subledgerId, $customerSessionIDs, $transactionUUIDs)
 
 List card's transactions
 
@@ -8062,14 +8551,14 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
-$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.
-$startDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
-$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `NewCard2026%` as `NewCard2026%25`.
+$startDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Date and time from which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $subledgerId = 'subledgerId_example'; // string | The ID of the subledger by which we filter the data.
-$customerSessionIDs = array('customerSessionIDs_example'); // string[] | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.
-$transactionUUIDs = array('transactionUUIDs_example'); // string[] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.
+$customerSessionIDs = array('customerSessionIDs_example'); // string[] | Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.
+$transactionUUIDs = array('transactionUUIDs_example'); // string[] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.
 
 try {
     $result = $apiInstance->getLoyaltyCardTransactionLogs($loyaltyProgramId, $loyaltyCardId, $startDate, $endDate, $pageSize, $skip, $subledgerId, $customerSessionIDs, $transactionUUIDs);
@@ -8086,18 +8575,18 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
- **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. |
- **startDate** | **\DateTime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
- **endDate** | **\DateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
+ **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. |
+ **startDate** | **\DateTime**| Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
+ **endDate** | **\DateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **subledgerId** | **string**| The ID of the subledger by which we filter the data. | [optional]
- **customerSessionIDs** | [**string[]**](../Model/string.md)| Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. | [optional]
- **transactionUUIDs** | [**string[]**](../Model/string.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. | [optional]
+ **customerSessionIDs** | [**string[]**](../Model/string.md)| Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. | [optional]
+ **transactionUUIDs** | [**string[]**](../Model/string.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20019**](../Model/InlineResponse20019.md)
+[**\TalonOne\Client\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
 
 ### Authorization
 
@@ -8115,7 +8604,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyCards
 
-> \TalonOne\Client\Model\InlineResponse20018 getLoyaltyCards($loyaltyProgramId, $pageSize, $skip, $sort, $identifier, $profileId, $batchId)
+> \TalonOne\Client\Model\InlineResponse20020 getLoyaltyCards($loyaltyProgramId, $pageSize, $skip, $sort, $identifier, $profileId, $batchId)
 
 List loyalty cards
 
@@ -8154,7 +8643,7 @@ $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program co
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
-$identifier = 'identifier_example'; // string | The card code by which to filter loyalty cards in the response.
+$identifier = 'identifier_example'; // string | The card code by which to filter loyalty cards in the response.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `NewCard2026%` as `NewCard2026%25`.
 $profileId = 56; // int | Filter results by customer profile ID.
 $batchId = 'batchId_example'; // string | Filter results by loyalty card batch ID.
 
@@ -8176,13 +8665,96 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
- **identifier** | **string**| The card code by which to filter loyalty cards in the response. | [optional]
+ **identifier** | **string**| The card code by which to filter loyalty cards in the response.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. | [optional]
  **profileId** | **int**| Filter results by customer profile ID. | [optional]
  **batchId** | **string**| Filter results by loyalty card batch ID. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
+[**\TalonOne\Client\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getLoyaltyLedgerBalances
+
+> \TalonOne\Client\Model\LoyaltyBalancesWithTiers getLoyaltyLedgerBalances($loyaltyProgramId, $integrationId, $endDate, $subledgerId, $includeTiers, $includeProjectedTier)
+
+Get customer's loyalty balances
+
+Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  > [!note] If no filtering options are applied, you retrieve all loyalty > balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$loyaltyProgramId = 56; // int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
+$integrationId = 'integrationId_example'; // string | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.
+$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$subledgerId = 'subledgerId_example'; // string | The ID of the subledger used to filter the data. Leave this value empty (\"\") to query the main ledger.
+$includeTiers = false; // bool | Indicates whether tier information is included in the response.  When set to `true`, the response includes information about the current tier and the number of points required to move to next tier.
+$includeProjectedTier = false; // bool | Indicates whether the customer's projected tier information is included in the response.  When set to `true`, the response includes information about the customer's active points and the name of the projected tier.  **Note** We recommend filtering by `subledgerId` for better performance.
+
+try {
+    $result = $apiInstance->getLoyaltyLedgerBalances($loyaltyProgramId, $integrationId, $endDate, $subledgerId, $includeTiers, $includeProjectedTier);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getLoyaltyLedgerBalances: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loyaltyProgramId** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
+ **integrationId** | **string**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. |
+ **endDate** | **\DateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
+ **subledgerId** | **string**| The ID of the subledger used to filter the data. Leave this value empty (\&quot;\&quot;) to query the main ledger. | [optional]
+ **includeTiers** | **bool**| Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier. | [optional] [default to false]
+ **includeProjectedTier** | **bool**| Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance. | [optional] [default to false]
+
+### Return type
+
+[**\TalonOne\Client\Model\LoyaltyBalancesWithTiers**](../Model/LoyaltyBalancesWithTiers.md)
 
 ### Authorization
 
@@ -8204,7 +8776,7 @@ Name | Type | Description  | Notes
 
 Get customer's full loyalty ledger
 
-Get the loyalty ledger for this profile integration ID.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API's [Get customer's loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions).
+Get the loyalty ledger for this profile integration ID.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API's [Get customer's loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions).
 
 ### Example
 
@@ -8279,7 +8851,7 @@ Name | Type | Description  | Notes
 
 Get loyalty program
 
-Get the specified [loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview). To list all loyalty programs in your Application, use [List loyalty programs](#operation/getLoyaltyPrograms).  To list the loyalty programs that a customer profile is part of, use the [List customer data](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/getCustomerInventory)
+Get the specified [loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview).  To list all loyalty programs in your Application, use [List loyalty programs](#tag/Loyalty/operation/getLoyaltyPrograms).  To list the loyalty programs that a customer profile is part of, use [List customer data](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/getCustomerInventory).
 
 ### Example
 
@@ -8346,13 +8918,106 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## getLoyaltyProgramProfileLedgerTransactions
+
+> \TalonOne\Client\Model\InlineResponse2005 getLoyaltyProgramProfileLedgerTransactions($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip, $awaitsActivation)
+
+List customer's loyalty transactions
+
+Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  > [!note] To retrieve all loyalty program transaction logs in a given > loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) > endpoint.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$loyaltyProgramId = 56; // int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
+$integrationId = 'integrationId_example'; // string | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.
+$customerSessionIDs = array('customerSessionIDs_example'); // string[] | Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.
+$transactionUUIDs = array('transactionUUIDs_example'); // string[] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.
+$subledgerId = 'subledgerId_example'; // string | The ID of the subledger used to filter the data. Leave this value empty (\"\") to query the main ledger.
+$loyaltyTransactionType = 'loyaltyTransactionType_example'; // string | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.
+$startDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Date and time from which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$pageSize = 50; // int | The number of items in the response.
+$skip = 56; // int | The number of items to skip when paging through large result sets.
+$awaitsActivation = True; // bool | If `true`: Filters results to include only point transactions that have action-based activation and have not expired.  If `false`: Returns a `400` response.
+
+try {
+    $result = $apiInstance->getLoyaltyProgramProfileLedgerTransactions($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip, $awaitsActivation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getLoyaltyProgramProfileLedgerTransactions: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loyaltyProgramId** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
+ **integrationId** | **string**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. |
+ **customerSessionIDs** | [**string[]**](../Model/string.md)| Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. | [optional]
+ **transactionUUIDs** | [**string[]**](../Model/string.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. | [optional]
+ **subledgerId** | **string**| The ID of the subledger used to filter the data. Leave this value empty (\&quot;\&quot;) to query the main ledger. | [optional]
+ **loyaltyTransactionType** | **string**| Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. | [optional]
+ **startDate** | **\DateTime**| Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
+ **endDate** | **\DateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
+ **pageSize** | **int**| The number of items in the response. | [optional] [default to 50]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
+ **awaitsActivation** | **bool**| If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## getLoyaltyProgramTransactions
 
-> \TalonOne\Client\Model\InlineResponse20017 getLoyaltyProgramTransactions($loyaltyProgramId, $loyaltyTransactionType, $subledgerId, $customerSessionIDs, $transactionUUIDs, $startDate, $endDate, $pageSize, $skip)
+> \TalonOne\Client\Model\InlineResponse20019 getLoyaltyProgramTransactions($loyaltyProgramId, $loyaltyTransactionType, $subledgerId, $customerSessionIDs, $transactionUUIDs, $startDate, $endDate, $pageSize, $skip, $awaitsActivation)
 
 List loyalty program transactions
 
-Retrieve loyalty program transaction logs in a given loyalty program with filtering options applied. Manual and imported transactions are also included. **Note:** If no filters are applied, the last 50 loyalty transactions for the given loyalty program are returned.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API's [Get customer's loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions).
+Retrieve loyalty program transaction logs in a given loyalty program with filtering options applied. Manual and imported transactions are also included.  > [!note] **Note** > - If no filters are applied, the last 50 loyalty transactions for the given loyalty program are returned. > - To get loyalty transaction logs for a given Integration ID in >   a loyalty program, we recommend using the Integration API's [Get customer's loyalty >   logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions).
 
 ### Example
 
@@ -8386,15 +9051,16 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $loyaltyProgramId = 56; // int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
 $loyaltyTransactionType = 'loyaltyTransactionType_example'; // string | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.
 $subledgerId = 'subledgerId_example'; // string | The ID of the subledger by which we filter the data.
-$customerSessionIDs = array('customerSessionIDs_example'); // string[] | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.
-$transactionUUIDs = array('transactionUUIDs_example'); // string[] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.
-$startDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
-$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$customerSessionIDs = array('customerSessionIDs_example'); // string[] | Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.
+$transactionUUIDs = array('transactionUUIDs_example'); // string[] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.
+$startDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Date and time from which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
 $pageSize = 50; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
+$awaitsActivation = True; // bool | If `true`: Filters results to include only point transactions that have action-based activation and have not expired.  If `false`: Returns a `400` response.
 
 try {
-    $result = $apiInstance->getLoyaltyProgramTransactions($loyaltyProgramId, $loyaltyTransactionType, $subledgerId, $customerSessionIDs, $transactionUUIDs, $startDate, $endDate, $pageSize, $skip);
+    $result = $apiInstance->getLoyaltyProgramTransactions($loyaltyProgramId, $loyaltyTransactionType, $subledgerId, $customerSessionIDs, $transactionUUIDs, $startDate, $endDate, $pageSize, $skip, $awaitsActivation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getLoyaltyProgramTransactions: ', $e->getMessage(), PHP_EOL;
@@ -8410,16 +9076,17 @@ Name | Type | Description  | Notes
  **loyaltyProgramId** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
  **loyaltyTransactionType** | **string**| Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file. | [optional]
  **subledgerId** | **string**| The ID of the subledger by which we filter the data. | [optional]
- **customerSessionIDs** | [**string[]**](../Model/string.md)| Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. | [optional]
- **transactionUUIDs** | [**string[]**](../Model/string.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. | [optional]
- **startDate** | **\DateTime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
- **endDate** | **\DateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
+ **customerSessionIDs** | [**string[]**](../Model/string.md)| Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions. | [optional]
+ **transactionUUIDs** | [**string[]**](../Model/string.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions. | [optional]
+ **startDate** | **\DateTime**| Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
+ **endDate** | **\DateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 50]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
+ **awaitsActivation** | **bool**| If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20017**](../Model/InlineResponse20017.md)
+[**\TalonOne\Client\Model\InlineResponse20019**](../Model/InlineResponse20019.md)
 
 ### Authorization
 
@@ -8437,7 +9104,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyPrograms
 
-> \TalonOne\Client\Model\InlineResponse20015 getLoyaltyPrograms()
+> \TalonOne\Client\Model\InlineResponse20017 getLoyaltyPrograms()
 
 List loyalty programs
 
@@ -8488,7 +9155,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
+[**\TalonOne\Client\Model\InlineResponse20017**](../Model/InlineResponse20017.md)
 
 ### Authorization
 
@@ -8510,7 +9177,7 @@ This endpoint does not need any parameter.
 
 Get loyalty program statistics
 
-⚠️ Deprecation notice: Support for requests to this endpoint will end soon. To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points.
+> [warning] This endpoint is deprecated.  To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points.
 
 ### Example
 
@@ -8678,7 +9345,7 @@ Name | Type | Description  | Notes
 
 ## getReferralsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20012 getReferralsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
+> \TalonOne\Client\Model\InlineResponse20013 getReferralsWithoutTotalCount($applicationId, $campaignId, $pageSize, $skip, $sort, $code, $createdBefore, $createdAfter, $valid, $usable, $advocate)
 
 List referrals
 
@@ -8753,7 +9420,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
+[**\TalonOne\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
 
 ### Authorization
 
@@ -8921,7 +9588,7 @@ Name | Type | Description  | Notes
 
 ## getRulesets
 
-> \TalonOne\Client\Model\InlineResponse2009 getRulesets($applicationId, $campaignId, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20010 getRulesets($applicationId, $campaignId, $pageSize, $skip, $sort)
 
 List campaign rulesets
 
@@ -8984,7 +9651,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
+[**\TalonOne\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
 
 ### Authorization
 
@@ -9150,7 +9817,7 @@ Name | Type | Description  | Notes
 
 ## getUsers
 
-> \TalonOne\Client\Model\InlineResponse20041 getUsers($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20043 getUsers($pageSize, $skip, $sort)
 
 List users in account
 
@@ -9209,7 +9876,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20041**](../Model/InlineResponse20041.md)
+[**\TalonOne\Client\Model\InlineResponse20043**](../Model/InlineResponse20043.md)
 
 ### Authorization
 
@@ -9300,7 +9967,7 @@ Name | Type | Description  | Notes
 
 ## getWebhooks
 
-> \TalonOne\Client\Model\InlineResponse20039 getWebhooks($applicationIds, $sort, $pageSize, $skip, $creationType, $visibility, $outgoingIntegrationsTypeId, $title)
+> \TalonOne\Client\Model\InlineResponse20041 getWebhooks($applicationIds, $sort, $pageSize, $skip, $creationType, $visibility, $outgoingIntegrationsTypeId, $title)
 
 List webhooks
 
@@ -9369,7 +10036,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20039**](../Model/InlineResponse20039.md)
+[**\TalonOne\Client\Model\InlineResponse20041**](../Model/InlineResponse20041.md)
 
 ### Authorization
 
@@ -9391,7 +10058,7 @@ Name | Type | Description  | Notes
 
 Import data into existing account-level collection
 
-Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  Example:  ``` item Addidas Nike Asics ```  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection.
+Upload a CSV file containing the collection of string values that should be attached as payload for collection.  The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  ## Example  ``` item Adidas Nike Asics ```  > [!note] Before sending a request to this endpoint, ensure the data in the > CSV to import is different from the data currently stored in the collection.
 
 ### Example
 
@@ -9422,7 +10089,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
 $upFile = 'upFile_example'; // string | The file containing the data that is being imported.
 
 try {
@@ -9439,7 +10106,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. |
+ **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. |
  **upFile** | **string**| The file containing the data that is being imported. | [optional]
 
 ### Return type
@@ -9466,7 +10133,7 @@ Name | Type | Description  | Notes
 
 Import allowed values for attribute
 
-Upload a CSV file containing a list of [picklist values](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#picklist-values) for the specified attribute.  The file should be sent as multipart data.  The import **replaces** the previous list of allowed values for this attribute, if any.  The CSV file **must** only contain the following column: - `item` (required): the values in your allowed list, for example a list of SKU's.  An allowed list is limited to 500,000 items.  Example:  ```text item CS-VG-04032021-UP-50D-10 CS-DV-04042021-UP-49D-12 CS-DG-02082021-UP-50G-07 ```
+Upload a CSV file containing a list of [picklist values](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#picklist-values) for the specified attribute.  The file should be sent as multipart data.  The import **replaces** the previous list of allowed values for this attribute, if any.  The CSV file **must** only contain the following column:  - `item`: The values in your allowed list, for example a list of SKUs.  An allowed list is limited to 500,000 items.  ## Example  ```text item CS-VG-04032021-UP-50D-10 CS-DV-04042021-UP-49D-12 CS-DG-02082021-UP-50G-07 ```
 
 ### Example
 
@@ -9541,7 +10208,7 @@ Name | Type | Description  | Notes
 
 Import audience members
 
-Upload a CSV file containing the integration IDs of the members you want to add to an audience.  The file should be sent as multipart data and should contain only the following column (required): - `profileintegrationid`: The integration ID of the customer profile.  The import **replaces** the previous list of audience members.  **Note:** We recommend limiting your file size to 500MB.  Example:  ```text profileintegrationid charles alexa ```
+Upload a CSV file containing the integration IDs of the members you want to add to an audience.  The file should be sent as multipart data and should contain only the following column (required):  - `profileintegrationid`: The integration ID of the customer profile.  The import **replaces** the previous list of audience members.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```text profileintegrationid charles alexa ```
 
 ### Example
 
@@ -9774,7 +10441,7 @@ Name | Type | Description  | Notes
 
 Import data into existing campaign-level collection
 
-Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  Example:  ``` item Addidas Nike Asics ```  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection.
+Upload a CSV file containing the collection of string values that should be attached as payload for collection.  The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  ## Example  ``` item Adidas Nike Asics ```  > [!note] Before sending a request to this endpoint, ensure the data in the > CSV to import is different from the data currently stored in the collection.
 
 ### Example
 
@@ -9807,7 +10474,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
 $upFile = 'upFile_example'; // string | The file containing the data that is being imported.
 
 try {
@@ -9826,7 +10493,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
- **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. |
+ **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. |
  **upFile** | **string**| The file containing the data that is being imported. | [optional]
 
 ### Return type
@@ -9853,7 +10520,7 @@ Name | Type | Description  | Notes
 
 Import coupons
 
-Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `value` (required): The coupon code. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `recipientintegrationid`: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - `limitval`: The maximum number of redemptions of this code. For unlimited redemptions, use `0`. Defaults to `1` when not provided. - `discountlimit`: The total discount value that the code can give. This is typically used to represent a gift card value. - `attributes`: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"category\": \"10_off\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\",\"discountlimit\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\",2.4 ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount).
+Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `value` (required): The coupon code. Must be at least 3 characters long. We recommend using alphanumeric characters.   There is no maximum length but limiting the code to 30 characters   ensures it is fully readable in the Campaign Manager.   The code should be unique unless you set `skipDuplicates` to `true`. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `recipientintegrationid`: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - `limitval`: The maximum number of redemptions of this code. For unlimited redemptions, use `0`. Defaults to `1` when not provided. - `discountlimit`: The total discount value that the code can give. This is typically used to represent a gift card value. - `attributes`: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.<br />   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"category\": \"10_off\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```text \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\",\"discountlimit\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\",2.4 ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount).
 
 ### Example
 
@@ -9932,7 +10599,7 @@ Name | Type | Description  | Notes
 
 Import loyalty cards
 
-Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program. Send the file as multipart data.  It contains the following columns for each card:  - `identifier` (required): The alphanumeric identifier of the loyalty card. - `state` (required): The state of the loyalty card. It can be `active` or `inactive`. - `customerprofileids` (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA ```
+Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - `identifier` (required): The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`. - `state` (required): The state of the loyalty card. It can be `active` or `inactive`. - `customerprofileids` (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  > [!note] We recommend limiting your file size to 500MB.  ## Example  ```csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA ```
 
 ### Example
 
@@ -10007,7 +10674,7 @@ Name | Type | Description  | Notes
 
 Import customers into loyalty tiers
 
-Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - `subledgerid` (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - `customerprofileid`: The integration ID of the customer profile to whom the tier should be assigned. - `tiername`: The name of an existing tier to assign to the customer. - `expirydate`: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier: - If the customer isn't already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that's specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer's tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** ```csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z ```
+Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  > [!important] This endpoint only works with loyalty programs with advanced > tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - `subledgerid` (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - `customerprofileid`: The integration ID of the customer profile to whom the tier should be assigned. - `tiername`: The name of an existing tier to assign to the customer. - `expirydate`: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn't already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that's specified in the CSV file, only the expiration date is updated.  > [!note] We recommend not using this endpoint to update the tier of a customer.  To update a customer's tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z ```
 
 ### Example
 
@@ -10082,7 +10749,7 @@ Name | Type | Description  | Notes
 
 Import loyalty points
 
-Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - `customerprofileid` (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported.    **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - `identifier` (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - `amount`: The amount of points to award to the customer profile. - `startdate` (optional): The earliest date when the points can be redeemed. The points are `active` from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string `immediate`. Empty or missing values are considered `immediate`. - `expirydate` (optional): The latest date when the points can be redeemed. The points are `expired` after this date.    **Note**: It must be an RFC3339 timestamp string or string `unlimited`. Empty or missing values are considered `unlimited`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for `startdate`. If `startdate` matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for `startdate` is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```  **Example for card-based programs:**  ```text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```
+Upload a CSV file containing the loyalty points you want to import into a given loyalty program.  Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - `customerprofileid` (optional): For profile-based loyalty programs, the   integration ID of the customer profile where the loyalty points are   imported.   **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - `identifier` (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - `amount`: The amount of points to award to the customer profile. - `startdate` (optional): The earliest date when the points can be redeemed. The points are `active` from this date until the expiration date.   This parameter accepts one of the following values:     - A timestamp string in RFC3339 format.     - `immediate`     - `on_action`   **Note**: Empty or missing values default to `immediate`. - `expirydate` (optional): The latest date when the points can be redeemed.   The points are `expired` after this date.   **Note**: It must be an RFC3339 timestamp string or string `unlimited`. Empty or missing values are considered `unlimited`.   If passed, `validityDuration` should be omitted. - `validityDuration` (optional): The duration for which the points remain active, relative to the   activation date. The time format is an **integer** followed by one letter indicating the time unit.<br />   Examples: `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`.    Available units:    - `s`: seconds   - `m`: minutes   - `h`: hours   - `D`: days   - `W`: weeks   - `M`: months   - `Y`: years    You can round certain units up or down:    - `_D` for rounding down days only. Signifies the start of the day.   - `_U` for rounding up days, weeks, months and years. Signifies the end of   the day, week, month or year.    If passed, `expirydate` should be omitted. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  > [!note] For existing customer profiles and loyalty cards, the imported > points are added to any previous active or pending points, depending on the > value provided for `startdate`. If `startdate` matches the current date, the > imported points are _active_. If it is later, the points are _pending_ until > the date provided for `startdate` is reached.  > [!note] We recommend limiting your file size to 500 MB.  ## Example for profile-based programs  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```  ## Example for card-based programs  ```text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```
 
 ### Example
 
@@ -10159,7 +10826,7 @@ Name | Type | Description  | Notes
 
 Import giveaway codes into a giveaway pool
 
-Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns: - `code` (required): The code of your giveaway, for instance, a gift card redemption code. - `startdate`:  The start date in RFC3339 of the code redemption period. - `enddate`: The last date in RFC3339 of the code redemption period. - `attributes`: A JSON object describing _custom_ giveaway attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `provider` associated with the giveaway entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"provider\": \"myPartnerCompany\"}\"`.  The `startdate` and `enddate` have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not. You can use the time zone setting of your choice. The values are converted to UTC internally by Talon.One.  **Note:**  - We recommend limiting your file size to 500MB. - You can import the same code multiple times. Duplicate codes are treated and distributed to customers as unique codes.  **Example:**  ```text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Aliexpress\"\"}\" ```
+Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns:  - `code` (required): The code of your giveaway, for instance, a gift card redemption code. - `startdate`:  The start date in RFC3339 of the code redemption period. - `enddate`: The last date in RFC3339 of the code redemption period. - `attributes`: A JSON object describing _custom_ giveaway attribute names and their values, enclosed with double quotation marks.<br />   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `provider` associated with the giveaway entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"provider\": \"myPartnerCompany\"}\"`.  The `startdate` and `enddate` have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not.  You can use the time zone setting of your choice. The values are converted to UTC internally by Talon.One.  > [!note] **Note** > - We recommend limiting your file size to 500MB. > - You can import the same code multiple times. Duplicate codes are treated and distributed to customers as unique codes.  ## Example  ```text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Aliexpress\"\"}\" ```
 
 ### Example
 
@@ -10234,7 +10901,7 @@ Name | Type | Description  | Notes
 
 Import referrals
 
-Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `code` (required): The referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: The start date in RFC3339 of the code redemption period. - `expirydate`: The end date in RFC3339 of the code redemption period. - `limitval`: The maximum number of redemptions of this code. Defaults to `1` when left blank. - `attributes`: A JSON object describing _custom_ referral attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated with the referral entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"category\": \"10_off\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Important:** When you import a CSV file with referrals, a [customer profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) is **not** automatically created for each `advocateprofileintegrationid` column value. Use the [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint or the [Update multiple customer profiles](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfilesV2) endpoint to create the customer profiles.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\"{\"\"my_attribute\"\": \"\"10_off\"\"}\" REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\"{\"\"my_attribute\"\": \"\"20_off\"\"}\" ```
+Upload a CSV file containing the referrals that should be created.  The file should be sent as multipart data.  The CSV file contains the following columns:  - `code` (required): The referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: The start date in RFC3339 of the code redemption period. - `expirydate`: The end date in RFC3339 of the code redemption period. - `limitval`: The maximum number of redemptions of this code. Defaults to `1` when left blank. - `attributes`: A JSON object describing _custom_ referral attribute names and their values, enclosed with double quotation marks.<br />   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated with the referral entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"category\": \"10_off\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  > [!important] When you import a CSV file with referrals, > a [customer profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) > is **not** automatically created for each `advocateprofileintegrationid` > column value. Use the [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) > endpoint or the [Update multiple customer profiles](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfilesV2) > endpoint to create the customer profiles.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\"{\"\"my_attribute\"\": \"\"10_off\"\"}\" REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\"{\"\"my_attribute\"\": \"\"20_off\"\"}\" ```
 
 ### Example
 
@@ -10379,7 +11046,7 @@ void (empty response body)
 
 ## listAccountCollections
 
-> \TalonOne\Client\Model\InlineResponse20020 listAccountCollections($pageSize, $skip, $sort, $withTotalResultSize, $name)
+> \TalonOne\Client\Model\InlineResponse20022 listAccountCollections($pageSize, $skip, $sort, $withTotalResultSize, $name)
 
 List collections in account
 
@@ -10417,7 +11084,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
-$withTotalResultSize = True; // bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.
+$withTotalResultSize = True; // bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.
 $name = 'name_example'; // string | Filter by collection name.
 
 try {
@@ -10437,12 +11104,12 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
- **withTotalResultSize** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page. | [optional]
  **name** | **string**| Filter by collection name. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
+[**\TalonOne\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
 
 ### Authorization
 
@@ -10460,7 +11127,7 @@ Name | Type | Description  | Notes
 
 ## listAchievements
 
-> \TalonOne\Client\Model\InlineResponse20048 listAchievements($applicationId, $campaignId, $pageSize, $skip, $title)
+> \TalonOne\Client\Model\InlineResponse20051 listAchievements($applicationId, $campaignId, $pageSize, $skip, $title)
 
 List achievements
 
@@ -10523,7 +11190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20048**](../Model/InlineResponse20048.md)
+[**\TalonOne\Client\Model\InlineResponse20051**](../Model/InlineResponse20051.md)
 
 ### Authorization
 
@@ -10541,7 +11208,7 @@ Name | Type | Description  | Notes
 
 ## listAllRolesV2
 
-> \TalonOne\Client\Model\InlineResponse20044 listAllRolesV2()
+> \TalonOne\Client\Model\InlineResponse20046 listAllRolesV2()
 
 List roles
 
@@ -10592,7 +11259,86 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
+[**\TalonOne\Client\Model\InlineResponse20046**](../Model/InlineResponse20046.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listApplicationCartItemFilters
+
+> \TalonOne\Client\Model\InlineResponse20048 listApplicationCartItemFilters($applicationId, $pageSize, $skip, $title)
+
+List Application cart item filters
+
+Return all the Application cart item filters for a specific Application.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$pageSize = 50; // int | The number of items in the response.
+$skip = 56; // int | The number of items to skip when paging through large result sets.
+$title = 'title_example'; // string | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `title` is provided, all the Application cart item filters in the Application are returned.
+
+try {
+    $result = $apiInstance->listApplicationCartItemFilters($applicationId, $pageSize, $skip, $title);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->listApplicationCartItemFilters: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **pageSize** | **int**| The number of items in the response. | [optional] [default to 50]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
+ **title** | **string**| Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;title&#x60; is provided, all the Application cart item filters in the Application are returned. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\InlineResponse20048**](../Model/InlineResponse20048.md)
 
 ### Authorization
 
@@ -10610,7 +11356,7 @@ This endpoint does not need any parameter.
 
 ## listCampaignStoreBudgetLimits
 
-> \TalonOne\Client\Model\InlineResponse20046 listCampaignStoreBudgetLimits($applicationId, $campaignId, $action, $period)
+> \TalonOne\Client\Model\InlineResponse20049 listCampaignStoreBudgetLimits($applicationId, $campaignId, $action, $period)
 
 List campaign store budget limits
 
@@ -10671,7 +11417,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20046**](../Model/InlineResponse20046.md)
+[**\TalonOne\Client\Model\InlineResponse20049**](../Model/InlineResponse20049.md)
 
 ### Authorization
 
@@ -10689,7 +11435,7 @@ Name | Type | Description  | Notes
 
 ## listCatalogItems
 
-> \TalonOne\Client\Model\InlineResponse20037 listCatalogItems($catalogId, $pageSize, $skip, $withTotalResultSize, $sku, $productNames)
+> \TalonOne\Client\Model\InlineResponse20039 listCatalogItems($catalogId, $pageSize, $skip, $withTotalResultSize, $sku, $productNames)
 
 List items in a catalog
 
@@ -10727,7 +11473,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $catalogId = 56; // int | The ID of the catalog. You can find the ID in the Campaign Manager in **Account** > **Tools** > **Cart item catalogs**.
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
-$withTotalResultSize = True; // bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.
+$withTotalResultSize = True; // bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.
 $sku = array('sku_example'); // string[] | Filter results by one or more SKUs. Must be exact match.
 $productNames = array('productNames_example'); // string[] | Filter results by one or more product names. Must be exact match.
 
@@ -10748,13 +11494,13 @@ Name | Type | Description  | Notes
  **catalogId** | **int**| The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**. |
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
- **withTotalResultSize** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page. | [optional]
  **sku** | [**string[]**](../Model/string.md)| Filter results by one or more SKUs. Must be exact match. | [optional]
  **productNames** | [**string[]**](../Model/string.md)| Filter results by one or more product names. Must be exact match. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20037**](../Model/InlineResponse20037.md)
+[**\TalonOne\Client\Model\InlineResponse20039**](../Model/InlineResponse20039.md)
 
 ### Authorization
 
@@ -10772,7 +11518,7 @@ Name | Type | Description  | Notes
 
 ## listCollections
 
-> \TalonOne\Client\Model\InlineResponse20020 listCollections($applicationId, $campaignId, $pageSize, $skip, $sort, $withTotalResultSize, $name)
+> \TalonOne\Client\Model\InlineResponse20022 listCollections($applicationId, $campaignId, $pageSize, $skip, $sort, $withTotalResultSize, $name)
 
 List collections in campaign
 
@@ -10812,7 +11558,7 @@ $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
-$withTotalResultSize = True; // bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.
+$withTotalResultSize = True; // bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.
 $name = 'name_example'; // string | Filter by collection name.
 
 try {
@@ -10834,12 +11580,12 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
- **withTotalResultSize** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page. | [optional]
  **name** | **string**| Filter by collection name. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
+[**\TalonOne\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
 
 ### Authorization
 
@@ -10857,7 +11603,7 @@ Name | Type | Description  | Notes
 
 ## listCollectionsInApplication
 
-> \TalonOne\Client\Model\InlineResponse20020 listCollectionsInApplication($applicationId, $pageSize, $skip, $sort, $withTotalResultSize, $name)
+> \TalonOne\Client\Model\InlineResponse20022 listCollectionsInApplication($applicationId, $pageSize, $skip, $sort, $withTotalResultSize, $name)
 
 List collections in Application
 
@@ -10896,7 +11642,7 @@ $applicationId = 56; // int | The ID of the Application. It is displayed in your
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
-$withTotalResultSize = True; // bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.
+$withTotalResultSize = True; // bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.
 $name = 'name_example'; // string | Filter by collection name.
 
 try {
@@ -10917,12 +11663,91 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
- **withTotalResultSize** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page. | [optional]
  **name** | **string**| Filter by collection name. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
+[**\TalonOne\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listExperiments
+
+> \TalonOne\Client\Model\InlineResponse20016 listExperiments($applicationId, $pageSize, $skip, $sort)
+
+List experiments
+
+List all experiments of the specified Application that match your filter criteria.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$pageSize = 1000; // int | The number of items in the response.
+$skip = 56; // int | The number of items to skip when paging through large result sets.
+$sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
+
+try {
+    $result = $apiInstance->listExperiments($applicationId, $pageSize, $skip, $sort);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->listExperiments: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
 
 ### Authorization
 
@@ -10940,7 +11765,7 @@ Name | Type | Description  | Notes
 
 ## listStores
 
-> \TalonOne\Client\Model\InlineResponse20045 listStores($applicationId, $pageSize, $skip, $sort, $withTotalResultSize, $campaignId, $name, $integrationId, $query)
+> \TalonOne\Client\Model\InlineResponse20047 listStores($applicationId, $pageSize, $skip, $sort, $withTotalResultSize, $campaignId, $name, $integrationId, $query)
 
 List stores
 
@@ -10979,7 +11804,7 @@ $applicationId = 56; // int | The ID of the Application. It is displayed in your
 $pageSize = 1000; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
-$withTotalResultSize = True; // bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.
+$withTotalResultSize = True; // bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.
 $campaignId = 3.4; // float | Filter results by campaign ID.
 $name = 'name_example'; // string | The name of the store.
 $integrationId = 'integrationId_example'; // string | The integration ID of the store.
@@ -11003,7 +11828,7 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
- **withTotalResultSize** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page. | [optional]
  **campaignId** | **float**| Filter results by campaign ID. | [optional]
  **name** | **string**| The name of the store. | [optional]
  **integrationId** | **string**| The integration ID of the store. | [optional]
@@ -11011,7 +11836,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20045**](../Model/InlineResponse20045.md)
+[**\TalonOne\Client\Model\InlineResponse20047**](../Model/InlineResponse20047.md)
 
 ### Authorization
 
@@ -11095,13 +11920,88 @@ void (empty response body)
 [[Back to README]](../../README.md)
 
 
+## priceHistory
+
+> \TalonOne\Client\Model\PriceHistoryResponse priceHistory($applicationId, $body)
+
+Get summary of price history
+
+Fetch the historical price data for a given SKU within a defined timeframe.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$body = new \TalonOne\Client\Model\PriceHistoryRequest(); // \TalonOne\Client\Model\PriceHistoryRequest | body
+
+try {
+    $result = $apiInstance->priceHistory($applicationId, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->priceHistory: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **body** | [**\TalonOne\Client\Model\PriceHistoryRequest**](../Model/PriceHistoryRequest.md)| body |
+
+### Return type
+
+[**\TalonOne\Client\Model\PriceHistoryResponse**](../Model/PriceHistoryResponse.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## removeLoyaltyPoints
 
 > removeLoyaltyPoints($loyaltyProgramId, $integrationId, $body)
 
 Deduct points from customer profile
 
-Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint.
+Deduct points from the specified loyalty program and specified customer profile.  > [!note] **Note** > - Only active points can be deducted. > - Only pending points are rolled back when a session is cancelled or reopened.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.
 
 ### Example
 
@@ -12327,11 +13227,11 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvancedApplicationWideWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20011 searchCouponsAdvancedApplicationWideWithoutTotalCount($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
+> \TalonOne\Client\Model\InlineResponse20012 searchCouponsAdvancedApplicationWideWithoutTotalCount($applicationId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $campaignState)
 
 List coupons that match the given attributes (without total count)
 
-List the coupons whose attributes match the query criteria in all the campaigns of the given Application.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response.
+List the coupons whose attributes match the query criteria in all the campaigns of the given Application.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  > [!note] The total count is not included in the response.
 
 ### Example
 
@@ -12410,7 +13310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\TalonOne\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
@@ -12428,11 +13328,11 @@ Name | Type | Description  | Notes
 
 ## searchCouponsAdvancedWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20011 searchCouponsAdvancedWithoutTotalCount($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
+> \TalonOne\Client\Model\InlineResponse20012 searchCouponsAdvancedWithoutTotalCount($applicationId, $campaignId, $body, $pageSize, $skip, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $exactMatch, $batchId)
 
 List coupons that match the given attributes in campaign (without total count)
 
-List the coupons whose attributes match the query criteria in the given campaign.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response.
+List the coupons whose attributes match the query criteria in the given campaign.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  > [!note] The total count is not included in the response.
 
 ### Example
 
@@ -12511,7 +13411,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\TalonOne\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
@@ -12529,7 +13429,7 @@ Name | Type | Description  | Notes
 
 ## summarizeCampaignStoreBudget
 
-> \TalonOne\Client\Model\InlineResponse20047 summarizeCampaignStoreBudget($applicationId, $campaignId)
+> \TalonOne\Client\Model\InlineResponse20050 summarizeCampaignStoreBudget($applicationId, $campaignId)
 
 Get summary of campaign store budgets
 
@@ -12586,7 +13486,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20047**](../Model/InlineResponse20047.md)
+[**\TalonOne\Client\Model\InlineResponse20050**](../Model/InlineResponse20050.md)
 
 ### Authorization
 
@@ -12608,7 +13508,7 @@ Name | Type | Description  | Notes
 
 Transfer card data
 
-Transfer loyalty card data, such as linked customers, loyalty balances and transactions, from a given loyalty card to a new, automatically created loyalty card.  **Important:**  - The original card is automatically blocked once the new card is created, and it cannot be activated again. - The default status of the new card is _active_.
+Transfer loyalty card data, such as linked customers, loyalty balances and transactions, from a given loyalty card to a new, automatically created loyalty card.  > [!important] **Note** > - The original card is automatically blocked once the new card is created,     and it cannot be activated again. > - The default status of the new card is _active_.
 
 ### Example
 
@@ -12640,7 +13540,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
-$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.
+$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `NewCard2026%` as `NewCard2026%25`.
 $body = new \TalonOne\Client\Model\TransferLoyaltyCard(); // \TalonOne\Client\Model\TransferLoyaltyCard | body
 
 try {
@@ -12657,7 +13557,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
- **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. |
+ **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. |
  **body** | [**\TalonOne\Client\Model\TransferLoyaltyCard**](../Model/TransferLoyaltyCard.md)| body |
 
 ### Return type
@@ -12715,7 +13615,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
 $body = new \TalonOne\Client\Model\UpdateCollection(); // \TalonOne\Client\Model\UpdateCollection | body
 
 try {
@@ -12732,7 +13632,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. |
+ **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. |
  **body** | [**\TalonOne\Client\Model\UpdateCollection**](../Model/UpdateCollection.md)| body |
 
 ### Return type
@@ -12988,7 +13888,7 @@ Name | Type | Description  | Notes
 
 Update campaign
 
-Update the given campaign.  **Important:** You cannot use this endpoint to update campaigns if [campaign staging and revisions](https://docs.talon.one/docs/product/applications/managing-general-settings#campaign-staging-and-revisions) is enabled for your Application.
+Update the given campaign.  > [!important] You cannot use this endpoint to update campaigns if [campaign staging and > revisions](https://docs.talon.one/docs/product/applications/managing-general-settings#campaign-staging-and-revisions) > is enabled for your Application.
 
 ### Example
 
@@ -13098,7 +13998,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+$collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
 $body = new \TalonOne\Client\Model\UpdateCampaignCollection(); // \TalonOne\Client\Model\UpdateCampaignCollection | body
 
 try {
@@ -13117,7 +14017,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
- **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. |
+ **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. |
  **body** | [**\TalonOne\Client\Model\UpdateCampaignCollection**](../Model/UpdateCampaignCollection.md)| body |
 
 ### Return type
@@ -13144,7 +14044,7 @@ Name | Type | Description  | Notes
 
 Update coupon
 
-Update the specified coupon.  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <p>With this <code>PUT</code> endpoint, if you do not explicitly set a value for the <code>startDate</code>, <code>expiryDate</code>, and <code>recipientIntegrationId</code> properties in your request, it is automatically set to <code>null</code>.</p>  </div>
+Update the specified coupon.  > [!note] > With this `PUT` endpoint, if you do not explicitly set a value for the `startDate`, `expiryDate`, > and `recipientIntegrationId` properties in your request, it is automatically set to `null`.
 
 ### Example
 
@@ -13223,7 +14123,7 @@ Name | Type | Description  | Notes
 
 Update coupons
 
-Update all coupons or a specific batch of coupons in the given campaign. You can find the `batchId` on the **Coupons** page of your campaign in the Campaign Manager, or you can use [List coupons](#operation/getCouponsWithoutTotalCount).  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <ul>     <li>Only send sequential requests to this endpoint.</li>     <li>Requests to this endpoint time out after 30 minutes. If you hit a timeout, contact our support team.</li>     <li>With this <code>PUT</code> endpoint, if you do not explicitly set a value for the <code>startDate</code> and <code>expiryDate</code> properties in your request, it is automatically set to <code>null</code>.</li>   </ul>  </div>  To update a specific coupon, use [Update coupon](#operation/updateCoupon).
+Update all coupons or a specific batch of coupons in the given campaign.  You can find the `batchId` on the **Coupons** page of your campaign in the Campaign Manager, or you can use [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount).  > [!note] **Note** > - Only send sequential requests to this endpoint. > - Requests to this endpoint time out after 30 minutes. If you hit a timeout, contact our support team. > - With this `PUT` endpoint, if you do not explicitly set a value for the `startDate` and `expiryDate` properties in your request, it is automatically set to `null`.  To update a specific coupon, use [Update coupon](#tag/Coupons/operation/updateCoupon).
 
 ### Example
 
@@ -13297,9 +14197,9 @@ void (empty response body)
 
 > \TalonOne\Client\Model\LoyaltyCard updateLoyaltyCard($loyaltyProgramId, $loyaltyCardId, $body)
 
-Update loyalty card status
+Update loyalty card
 
-Update the status of the given loyalty card. A card can be _active_ or _inactive_.
+Update the details of a specific loyalty card. You can set the card's status to `active` or `inactive` through this endpoint. At least one of `status` or `attributes` must be provided.
 
 ### Example
 
@@ -13331,8 +14231,8 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
-$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.
-$body = new \TalonOne\Client\Model\UpdateLoyaltyCard(); // \TalonOne\Client\Model\UpdateLoyaltyCard | body
+$loyaltyCardId = 'loyaltyCardId_example'; // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `NewCard2026%` as `NewCard2026%25`.
+$body = new \TalonOne\Client\Model\UpdateLoyaltyCardRequest(); // \TalonOne\Client\Model\UpdateLoyaltyCardRequest | body
 
 try {
     $result = $apiInstance->updateLoyaltyCard($loyaltyProgramId, $loyaltyCardId, $body);
@@ -13349,8 +14249,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
- **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. |
- **body** | [**\TalonOne\Client\Model\UpdateLoyaltyCard**](../Model/UpdateLoyaltyCard.md)| body |
+ **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;. |
+ **body** | [**\TalonOne\Client\Model\UpdateLoyaltyCardRequest**](../Model/UpdateLoyaltyCardRequest.md)| body |
 
 ### Return type
 

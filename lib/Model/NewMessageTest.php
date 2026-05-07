@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -62,7 +62,8 @@ class NewMessageTest implements ModelInterface, ArrayAccess
         'url' => 'string',
         'payload' => 'string',
         'params' => '\TalonOne\Client\Model\TemplateArgDef[]',
-        'applicationIds' => 'int[]'
+        'applicationIds' => 'int[]',
+        'authenticationId' => 'int'
     ];
 
     /**
@@ -76,7 +77,8 @@ class NewMessageTest implements ModelInterface, ArrayAccess
         'url' => null,
         'payload' => null,
         'params' => null,
-        'applicationIds' => 'int64'
+        'applicationIds' => 'int64',
+        'authenticationId' => 'int64'
     ];
 
     /**
@@ -111,7 +113,8 @@ class NewMessageTest implements ModelInterface, ArrayAccess
         'url' => 'url',
         'payload' => 'payload',
         'params' => 'params',
-        'applicationIds' => 'applicationIds'
+        'applicationIds' => 'applicationIds',
+        'authenticationId' => 'authenticationId'
     ];
 
     /**
@@ -125,7 +128,8 @@ class NewMessageTest implements ModelInterface, ArrayAccess
         'url' => 'setUrl',
         'payload' => 'setPayload',
         'params' => 'setParams',
-        'applicationIds' => 'setApplicationIds'
+        'applicationIds' => 'setApplicationIds',
+        'authenticationId' => 'setAuthenticationId'
     ];
 
     /**
@@ -139,7 +143,8 @@ class NewMessageTest implements ModelInterface, ArrayAccess
         'url' => 'getUrl',
         'payload' => 'getPayload',
         'params' => 'getParams',
-        'applicationIds' => 'getApplicationIds'
+        'applicationIds' => 'getApplicationIds',
+        'authenticationId' => 'getAuthenticationId'
     ];
 
     /**
@@ -229,6 +234,7 @@ class NewMessageTest implements ModelInterface, ArrayAccess
         $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
         $this->container['params'] = isset($data['params']) ? $data['params'] : null;
         $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
+        $this->container['authenticationId'] = isset($data['authenticationId']) ? $data['authenticationId'] : null;
     }
 
     /**
@@ -418,6 +424,30 @@ class NewMessageTest implements ModelInterface, ArrayAccess
     public function setApplicationIds($applicationIds)
     {
         $this->container['applicationIds'] = $applicationIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets authenticationId
+     *
+     * @return int|null
+     */
+    public function getAuthenticationId()
+    {
+        return $this->container['authenticationId'];
+    }
+
+    /**
+     * Sets authenticationId
+     *
+     * @param int|null $authenticationId The ID of the credential that this webhook is using.
+     *
+     * @return $this
+     */
+    public function setAuthenticationId($authenticationId)
+    {
+        $this->container['authenticationId'] = $authenticationId;
 
         return $this;
     }

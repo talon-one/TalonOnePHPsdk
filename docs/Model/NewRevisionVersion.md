@@ -9,12 +9,14 @@ Name | Type | Description | Notes
 **endTime** | [**\DateTime**](\DateTime.md) | Timestamp when the campaign will become inactive. | [optional] 
 **attributes** | [**object**](.md) | Arbitrary properties associated with this campaign. | [optional] 
 **description** | **string** | A detailed description of the campaign. | [optional] 
-**activeRulesetId** | **int** | The ID of the ruleset this campaign template will use. | [optional] 
-**tags** | **string[]** | A list of tags for the campaign template. | [optional] 
+**activeRulesetId** | **int** | The ID of the ruleset this campaign will use. | [optional] 
+**tags** | **string[]** | A list of tags for the campaign. | [optional] 
 **couponSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **referralSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **limits** | [**\TalonOne\Client\Model\LimitConfig[]**](LimitConfig.md) | The set of limits that will operate for this campaign version. | [optional] 
-**features** | **string[]** | A list of features for the campaign template. | [optional] 
+**reevaluateOnReturn** | **bool** | Indicates whether this campaign should be reevaluated when a customer returns an item. | [optional] 
+**features** | **string[]** | A list of features for the campaign. | [optional] 
+**couponAttributes** | [**object**](.md) | Arbitrary properties associated with coupons in this campaign. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

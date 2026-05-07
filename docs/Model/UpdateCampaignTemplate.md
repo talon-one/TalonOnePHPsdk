@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **state** | **string** | Only campaign templates in &#39;available&#39; state may be used to create campaigns. | 
 **activeRulesetId** | **int** | The ID of the ruleset this campaign template will use. | [optional] 
 **tags** | **string[]** | A list of tags for the campaign template. | [optional] 
+**reevaluateOnReturn** | **bool** | Indicates whether campaigns created from this template should be reevaluated when a customer returns an item. | [optional] 
 **features** | **string[]** | A list of features for the campaign template. | [optional] 
 **couponSettings** | [**\TalonOne\Client\Model\CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **couponReservationSettings** | [**\TalonOne\Client\Model\CampaignTemplateCouponReservationSettings**](CampaignTemplateCouponReservationSettings.md) |  | [optional] 

@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -246,6 +246,7 @@ class Attribute implements ModelInterface, ArrayAccess
     const ENTITY_COUPON = 'Coupon';
     const ENTITY_EVENT = 'Event';
     const ENTITY_GIVEAWAY = 'Giveaway';
+    const ENTITY_LOYALTY_CARD = 'LoyaltyCard';
     const ENTITY_REFERRAL = 'Referral';
     const ENTITY_STORE = 'Store';
     const TYPE_STRING = 'string';
@@ -278,6 +279,7 @@ class Attribute implements ModelInterface, ArrayAccess
             self::ENTITY_COUPON,
             self::ENTITY_EVENT,
             self::ENTITY_GIVEAWAY,
+            self::ENTITY_LOYALTY_CARD,
             self::ENTITY_REFERRAL,
             self::ENTITY_STORE,
         ];

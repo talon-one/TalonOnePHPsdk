@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -81,7 +81,6 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'timezone' => 'string',
         'cardBased' => 'bool',
         'canUpdateTiers' => 'bool',
-        'canUpdateJoinPolicy' => 'bool',
         'canUpdateTierExpirationPolicy' => 'bool',
         'canUpgradeToAdvancedTiers' => 'bool',
         'canUpdateSubledgers' => 'bool'
@@ -116,7 +115,6 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'timezone' => null,
         'cardBased' => null,
         'canUpdateTiers' => null,
-        'canUpdateJoinPolicy' => null,
         'canUpdateTierExpirationPolicy' => null,
         'canUpgradeToAdvancedTiers' => null,
         'canUpdateSubledgers' => null
@@ -172,7 +170,6 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'timezone' => 'timezone',
         'cardBased' => 'cardBased',
         'canUpdateTiers' => 'canUpdateTiers',
-        'canUpdateJoinPolicy' => 'canUpdateJoinPolicy',
         'canUpdateTierExpirationPolicy' => 'canUpdateTierExpirationPolicy',
         'canUpgradeToAdvancedTiers' => 'canUpgradeToAdvancedTiers',
         'canUpdateSubledgers' => 'canUpdateSubledgers'
@@ -207,7 +204,6 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'timezone' => 'setTimezone',
         'cardBased' => 'setCardBased',
         'canUpdateTiers' => 'setCanUpdateTiers',
-        'canUpdateJoinPolicy' => 'setCanUpdateJoinPolicy',
         'canUpdateTierExpirationPolicy' => 'setCanUpdateTierExpirationPolicy',
         'canUpgradeToAdvancedTiers' => 'setCanUpgradeToAdvancedTiers',
         'canUpdateSubledgers' => 'setCanUpdateSubledgers'
@@ -242,7 +238,6 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         'timezone' => 'getTimezone',
         'cardBased' => 'getCardBased',
         'canUpdateTiers' => 'getCanUpdateTiers',
-        'canUpdateJoinPolicy' => 'getCanUpdateJoinPolicy',
         'canUpdateTierExpirationPolicy' => 'getCanUpdateTierExpirationPolicy',
         'canUpgradeToAdvancedTiers' => 'getCanUpgradeToAdvancedTiers',
         'canUpdateSubledgers' => 'getCanUpdateSubledgers'
@@ -399,7 +394,6 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
         $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
         $this->container['cardBased'] = isset($data['cardBased']) ? $data['cardBased'] : false;
         $this->container['canUpdateTiers'] = isset($data['canUpdateTiers']) ? $data['canUpdateTiers'] : false;
-        $this->container['canUpdateJoinPolicy'] = isset($data['canUpdateJoinPolicy']) ? $data['canUpdateJoinPolicy'] : null;
         $this->container['canUpdateTierExpirationPolicy'] = isset($data['canUpdateTierExpirationPolicy']) ? $data['canUpdateTierExpirationPolicy'] : null;
         $this->container['canUpgradeToAdvancedTiers'] = isset($data['canUpgradeToAdvancedTiers']) ? $data['canUpgradeToAdvancedTiers'] : false;
         $this->container['canUpdateSubledgers'] = isset($data['canUpdateSubledgers']) ? $data['canUpdateSubledgers'] : false;
@@ -1102,30 +1096,6 @@ class LoyaltyProgram implements ModelInterface, ArrayAccess
     public function setCanUpdateTiers($canUpdateTiers)
     {
         $this->container['canUpdateTiers'] = $canUpdateTiers;
-
-        return $this;
-    }
-
-    /**
-     * Gets canUpdateJoinPolicy
-     *
-     * @return bool|null
-     */
-    public function getCanUpdateJoinPolicy()
-    {
-        return $this->container['canUpdateJoinPolicy'];
-    }
-
-    /**
-     * Sets canUpdateJoinPolicy
-     *
-     * @param bool|null $canUpdateJoinPolicy `True` if the program join policy can be updated.
-     *
-     * @return $this
-     */
-    public function setCanUpdateJoinPolicy($canUpdateJoinPolicy)
-    {
-        $this->container['canUpdateJoinPolicy'] = $canUpdateJoinPolicy;
 
         return $this;
     }

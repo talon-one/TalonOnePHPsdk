@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -69,6 +69,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'state' => 'string',
         'activeRulesetId' => 'int',
         'tags' => 'string[]',
+        'reevaluateOnReturn' => 'bool',
         'features' => 'string[]',
         'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'couponReservationSettings' => '\TalonOne\Client\Model\CampaignTemplateCouponReservationSettings',
@@ -79,6 +80,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'campaignCollections' => '\TalonOne\Client\Model\CampaignTemplateCollection[]',
         'defaultCampaignGroupId' => 'int',
         'campaignType' => 'string',
+        'campaignsCount' => 'int',
         'updated' => '\DateTime',
         'updatedBy' => 'string',
         'validApplicationIds' => 'int[]',
@@ -103,6 +105,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'state' => null,
         'activeRulesetId' => 'int64',
         'tags' => null,
+        'reevaluateOnReturn' => null,
         'features' => null,
         'couponSettings' => null,
         'couponReservationSettings' => null,
@@ -113,6 +116,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'campaignCollections' => null,
         'defaultCampaignGroupId' => 'int64',
         'campaignType' => null,
+        'campaignsCount' => 'int64',
         'updated' => 'date-time',
         'updatedBy' => null,
         'validApplicationIds' => 'int64',
@@ -158,6 +162,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'state' => 'state',
         'activeRulesetId' => 'activeRulesetId',
         'tags' => 'tags',
+        'reevaluateOnReturn' => 'reevaluateOnReturn',
         'features' => 'features',
         'couponSettings' => 'couponSettings',
         'couponReservationSettings' => 'couponReservationSettings',
@@ -168,6 +173,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'campaignCollections' => 'campaignCollections',
         'defaultCampaignGroupId' => 'defaultCampaignGroupId',
         'campaignType' => 'campaignType',
+        'campaignsCount' => 'campaignsCount',
         'updated' => 'updated',
         'updatedBy' => 'updatedBy',
         'validApplicationIds' => 'validApplicationIds',
@@ -192,6 +198,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'state' => 'setState',
         'activeRulesetId' => 'setActiveRulesetId',
         'tags' => 'setTags',
+        'reevaluateOnReturn' => 'setReevaluateOnReturn',
         'features' => 'setFeatures',
         'couponSettings' => 'setCouponSettings',
         'couponReservationSettings' => 'setCouponReservationSettings',
@@ -202,6 +209,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'campaignCollections' => 'setCampaignCollections',
         'defaultCampaignGroupId' => 'setDefaultCampaignGroupId',
         'campaignType' => 'setCampaignType',
+        'campaignsCount' => 'setCampaignsCount',
         'updated' => 'setUpdated',
         'updatedBy' => 'setUpdatedBy',
         'validApplicationIds' => 'setValidApplicationIds',
@@ -226,6 +234,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'state' => 'getState',
         'activeRulesetId' => 'getActiveRulesetId',
         'tags' => 'getTags',
+        'reevaluateOnReturn' => 'getReevaluateOnReturn',
         'features' => 'getFeatures',
         'couponSettings' => 'getCouponSettings',
         'couponReservationSettings' => 'getCouponReservationSettings',
@@ -236,6 +245,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         'campaignCollections' => 'getCampaignCollections',
         'defaultCampaignGroupId' => 'getDefaultCampaignGroupId',
         'campaignType' => 'getCampaignType',
+        'campaignsCount' => 'getCampaignsCount',
         'updated' => 'getUpdated',
         'updatedBy' => 'getUpdatedBy',
         'validApplicationIds' => 'getValidApplicationIds',
@@ -369,6 +379,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['activeRulesetId'] = isset($data['activeRulesetId']) ? $data['activeRulesetId'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['reevaluateOnReturn'] = isset($data['reevaluateOnReturn']) ? $data['reevaluateOnReturn'] : null;
         $this->container['features'] = isset($data['features']) ? $data['features'] : null;
         $this->container['couponSettings'] = isset($data['couponSettings']) ? $data['couponSettings'] : null;
         $this->container['couponReservationSettings'] = isset($data['couponReservationSettings']) ? $data['couponReservationSettings'] : null;
@@ -379,6 +390,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
         $this->container['campaignCollections'] = isset($data['campaignCollections']) ? $data['campaignCollections'] : null;
         $this->container['defaultCampaignGroupId'] = isset($data['defaultCampaignGroupId']) ? $data['defaultCampaignGroupId'] : null;
         $this->container['campaignType'] = isset($data['campaignType']) ? $data['campaignType'] : 'advanced';
+        $this->container['campaignsCount'] = isset($data['campaignsCount']) ? $data['campaignsCount'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['updatedBy'] = isset($data['updatedBy']) ? $data['updatedBy'] : null;
         $this->container['validApplicationIds'] = isset($data['validApplicationIds']) ? $data['validApplicationIds'] : null;
@@ -430,6 +442,9 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
             );
         }
 
+        if ($this->container['reevaluateOnReturn'] === null) {
+            $invalidProperties[] = "'reevaluateOnReturn' can't be null";
+        }
         if ($this->container['applicationsIds'] === null) {
             $invalidProperties[] = "'applicationsIds' can't be null";
         }
@@ -765,6 +780,30 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets reevaluateOnReturn
+     *
+     * @return bool
+     */
+    public function getReevaluateOnReturn()
+    {
+        return $this->container['reevaluateOnReturn'];
+    }
+
+    /**
+     * Sets reevaluateOnReturn
+     *
+     * @param bool $reevaluateOnReturn Indicates whether campaigns created from this template should be reevaluated when a customer returns an item.
+     *
+     * @return $this
+     */
+    public function setReevaluateOnReturn($reevaluateOnReturn)
+    {
+        $this->container['reevaluateOnReturn'] = $reevaluateOnReturn;
+
+        return $this;
+    }
+
+    /**
      * Gets features
      *
      * @return string[]|null
@@ -1018,6 +1057,30 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
             );
         }
         $this->container['campaignType'] = $campaignType;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignsCount
+     *
+     * @return int|null
+     */
+    public function getCampaignsCount()
+    {
+        return $this->container['campaignsCount'];
+    }
+
+    /**
+     * Sets campaignsCount
+     *
+     * @param int|null $campaignsCount The number of Campaigns created from this template.
+     *
+     * @return $this
+     */
+    public function setCampaignsCount($campaignsCount)
+    {
+        $this->container['campaignsCount'] = $campaignsCount;
 
         return $this;
     }

@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -72,7 +72,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'subLedgerID' => 'string',
         'userID' => 'int',
         'archived' => 'bool',
-        'flags' => '\TalonOne\Client\Model\LoyaltyLedgerEntryFlags'
+        'flags' => '\TalonOne\Client\Model\LoyaltyLedgerEntryFlags',
+        'validityDuration' => 'string'
     ];
 
     /**
@@ -95,7 +96,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'subLedgerID' => null,
         'userID' => 'int64',
         'archived' => null,
-        'flags' => null
+        'flags' => null,
+        'validityDuration' => null
     ];
 
     /**
@@ -139,7 +141,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'subLedgerID' => 'subLedgerID',
         'userID' => 'userID',
         'archived' => 'archived',
-        'flags' => 'flags'
+        'flags' => 'flags',
+        'validityDuration' => 'validityDuration'
     ];
 
     /**
@@ -162,7 +165,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'subLedgerID' => 'setSubLedgerID',
         'userID' => 'setUserID',
         'archived' => 'setArchived',
-        'flags' => 'setFlags'
+        'flags' => 'setFlags',
+        'validityDuration' => 'setValidityDuration'
     ];
 
     /**
@@ -185,7 +189,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'subLedgerID' => 'getSubLedgerID',
         'userID' => 'getUserID',
         'archived' => 'getArchived',
-        'flags' => 'getFlags'
+        'flags' => 'getFlags',
+        'validityDuration' => 'getValidityDuration'
     ];
 
     /**
@@ -263,6 +268,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         $this->container['userID'] = isset($data['userID']) ? $data['userID'] : null;
         $this->container['archived'] = isset($data['archived']) ? $data['archived'] : null;
         $this->container['flags'] = isset($data['flags']) ? $data['flags'] : null;
+        $this->container['validityDuration'] = isset($data['validityDuration']) ? $data['validityDuration'] : null;
     }
 
     /**
@@ -663,6 +669,30 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     public function setFlags($flags)
     {
         $this->container['flags'] = $flags;
+
+        return $this;
+    }
+
+    /**
+     * Gets validityDuration
+     *
+     * @return string|null
+     */
+    public function getValidityDuration()
+    {
+        return $this->container['validityDuration'];
+    }
+
+    /**
+     * Sets validityDuration
+     *
+     * @param string|null $validityDuration The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.
+     *
+     * @return $this
+     */
+    public function setValidityDuration($validityDuration)
+    {
+        $this->container['validityDuration'] = $validityDuration;
 
         return $this;
     }

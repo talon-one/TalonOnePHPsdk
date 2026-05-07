@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -57,9 +57,9 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'hasMore' => 'bool',
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\CustomerProfile[]'
+        'hasMore' => 'bool',
+        'data' => '\TalonOne\Client\Model\ApplicationCustomer[]'
     ];
 
     /**
@@ -68,8 +68,8 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'hasMore' => null,
         'totalResultSize' => 'int64',
+        'hasMore' => null,
         'data' => null
     ];
 
@@ -100,8 +100,8 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'hasMore' => 'hasMore',
         'totalResultSize' => 'totalResultSize',
+        'hasMore' => 'hasMore',
         'data' => 'data'
     ];
 
@@ -111,8 +111,8 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'hasMore' => 'setHasMore',
         'totalResultSize' => 'setTotalResultSize',
+        'hasMore' => 'setHasMore',
         'data' => 'setData'
     ];
 
@@ -122,8 +122,8 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'hasMore' => 'getHasMore',
         'totalResultSize' => 'getTotalResultSize',
+        'hasMore' => 'getHasMore',
         'data' => 'getData'
     ];
 
@@ -187,8 +187,8 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
         $this->container['totalResultSize'] = isset($data['totalResultSize']) ? $data['totalResultSize'] : null;
+        $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -220,30 +220,6 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets hasMore
-     *
-     * @return bool|null
-     */
-    public function getHasMore()
-    {
-        return $this->container['hasMore'];
-    }
-
-    /**
-     * Sets hasMore
-     *
-     * @param bool|null $hasMore hasMore
-     *
-     * @return $this
-     */
-    public function setHasMore($hasMore)
-    {
-        $this->container['hasMore'] = $hasMore;
-
-        return $this;
-    }
-
-    /**
      * Gets totalResultSize
      *
      * @return int|null
@@ -268,9 +244,33 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets hasMore
+     *
+     * @return bool|null
+     */
+    public function getHasMore()
+    {
+        return $this->container['hasMore'];
+    }
+
+    /**
+     * Sets hasMore
+     *
+     * @param bool|null $hasMore hasMore
+     *
+     * @return $this
+     */
+    public function setHasMore($hasMore)
+    {
+        $this->container['hasMore'] = $hasMore;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\CustomerProfile[]
+     * @return \TalonOne\Client\Model\ApplicationCustomer[]
      */
     public function getData()
     {
@@ -280,7 +280,7 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\CustomerProfile[] $data data
+     * @param \TalonOne\Client\Model\ApplicationCustomer[] $data data
      *
      * @return $this
      */

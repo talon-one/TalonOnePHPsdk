@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -188,8 +188,21 @@ class UpdateCouponsData implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const NOTIFICATION_TYPE_COUPONS_UPDATED = 'CouponsUpdated';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNotificationTypeAllowableValues()
+    {
+        return [
+            self::NOTIFICATION_TYPE_COUPONS_UPDATED,
+        ];
+    }
     
 
     /**
@@ -246,6 +259,14 @@ class UpdateCouponsData implements ModelInterface, ArrayAccess
         if ($this->container['notificationType'] === null) {
             $invalidProperties[] = "'notificationType' can't be null";
         }
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!is_null($this->container['notificationType']) && !in_array($this->container['notificationType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'notificationType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -424,6 +445,15 @@ class UpdateCouponsData implements ModelInterface, ArrayAccess
      */
     public function setNotificationType($notificationType)
     {
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!in_array($notificationType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'notificationType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['notificationType'] = $notificationType;
 
         return $this;

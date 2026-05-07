@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -62,8 +62,8 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'evaluableCampaignIds' => 'int[]',
         'type' => 'string',
         'attributes' => 'object',
-        'loyaltyCards' => 'string[]',
-        'responseContent' => 'string[]'
+        'responseContent' => 'string[]',
+        'loyaltyCards' => 'string[]'
     ];
 
     /**
@@ -77,8 +77,8 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'evaluableCampaignIds' => 'int64',
         'type' => null,
         'attributes' => null,
-        'loyaltyCards' => null,
-        'responseContent' => null
+        'responseContent' => null,
+        'loyaltyCards' => null
     ];
 
     /**
@@ -113,8 +113,8 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'evaluableCampaignIds' => 'evaluableCampaignIds',
         'type' => 'type',
         'attributes' => 'attributes',
-        'loyaltyCards' => 'loyaltyCards',
-        'responseContent' => 'responseContent'
+        'responseContent' => 'responseContent',
+        'loyaltyCards' => 'loyaltyCards'
     ];
 
     /**
@@ -128,8 +128,8 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'evaluableCampaignIds' => 'setEvaluableCampaignIds',
         'type' => 'setType',
         'attributes' => 'setAttributes',
-        'loyaltyCards' => 'setLoyaltyCards',
-        'responseContent' => 'setResponseContent'
+        'responseContent' => 'setResponseContent',
+        'loyaltyCards' => 'setLoyaltyCards'
     ];
 
     /**
@@ -143,8 +143,8 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'evaluableCampaignIds' => 'getEvaluableCampaignIds',
         'type' => 'getType',
         'attributes' => 'getAttributes',
-        'loyaltyCards' => 'getLoyaltyCards',
-        'responseContent' => 'getResponseContent'
+        'responseContent' => 'getResponseContent',
+        'loyaltyCards' => 'getLoyaltyCards'
     ];
 
     /**
@@ -235,8 +235,8 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         $this->container['evaluableCampaignIds'] = isset($data['evaluableCampaignIds']) ? $data['evaluableCampaignIds'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['loyaltyCards'] = isset($data['loyaltyCards']) ? $data['loyaltyCards'] : null;
         $this->container['responseContent'] = isset($data['responseContent']) ? $data['responseContent'] : null;
+        $this->container['loyaltyCards'] = isset($data['loyaltyCards']) ? $data['loyaltyCards'] : null;
     }
 
     /**
@@ -411,30 +411,6 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets loyaltyCards
-     *
-     * @return string[]|null
-     */
-    public function getLoyaltyCards()
-    {
-        return $this->container['loyaltyCards'];
-    }
-
-    /**
-     * Sets loyaltyCards
-     *
-     * @param string[]|null $loyaltyCards Identifier of the loyalty card used during this event.
-     *
-     * @return $this
-     */
-    public function setLoyaltyCards($loyaltyCards)
-    {
-        $this->container['loyaltyCards'] = $loyaltyCards;
-
-        return $this;
-    }
-
-    /**
      * Gets responseContent
      *
      * @return string[]|null
@@ -447,7 +423,7 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
     /**
      * Sets responseContent
      *
-     * @param string[]|null $responseContent Optional list of requested information to be present on the response related to the tracking custom event.
+     * @param string[]|null $responseContent Extends the response with the chosen data entities. Use this property to get as much data back as needed from one request instead of sending extra requests to other endpoints.
      *
      * @return $this
      */
@@ -463,6 +439,30 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
             );
         }
         $this->container['responseContent'] = $responseContent;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyaltyCards
+     *
+     * @return string[]|null
+     */
+    public function getLoyaltyCards()
+    {
+        return $this->container['loyaltyCards'];
+    }
+
+    /**
+     * Sets loyaltyCards
+     *
+     * @param string[]|null $loyaltyCards Identifiers of the loyalty cards used during this event.
+     *
+     * @return $this
+     */
+    public function setLoyaltyCards($loyaltyCards)
+    {
+        $this->container['loyaltyCards'] = $loyaltyCards;
 
         return $this;
     }

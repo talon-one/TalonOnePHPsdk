@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -69,6 +69,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'state' => 'string',
         'activeRulesetId' => 'int',
         'tags' => 'string[]',
+        'reevaluateOnReturn' => 'bool',
         'features' => 'string[]',
         'couponSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
         'referralSettings' => '\TalonOne\Client\Model\CodeGeneratorSettings',
@@ -76,6 +77,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'campaignGroups' => 'int[]',
         'type' => 'string',
         'linkedStoreIds' => 'int[]',
+        'couponAttributes' => 'object',
         'budgets' => '\TalonOne\Client\Model\CampaignBudget[]',
         'couponRedemptionCount' => 'int',
         'referralRedemptionCount' => 'int',
@@ -100,6 +102,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'frontendState' => 'string',
         'storesImported' => 'bool',
         'valueMapsIds' => 'int[]',
+        'experimentId' => 'int',
         'revisionFrontendState' => 'string',
         'activeRevisionId' => 'int',
         'activeRevisionVersionId' => 'int',
@@ -127,6 +130,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'state' => null,
         'activeRulesetId' => 'int64',
         'tags' => null,
+        'reevaluateOnReturn' => null,
         'features' => null,
         'couponSettings' => null,
         'referralSettings' => null,
@@ -134,6 +138,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'campaignGroups' => 'int64',
         'type' => null,
         'linkedStoreIds' => 'int64',
+        'couponAttributes' => null,
         'budgets' => null,
         'couponRedemptionCount' => 'int64',
         'referralRedemptionCount' => 'int64',
@@ -158,6 +163,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'frontendState' => null,
         'storesImported' => null,
         'valueMapsIds' => 'int64',
+        'experimentId' => 'int64',
         'revisionFrontendState' => null,
         'activeRevisionId' => 'int64',
         'activeRevisionVersionId' => 'int64',
@@ -206,6 +212,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'state' => 'state',
         'activeRulesetId' => 'activeRulesetId',
         'tags' => 'tags',
+        'reevaluateOnReturn' => 'reevaluateOnReturn',
         'features' => 'features',
         'couponSettings' => 'couponSettings',
         'referralSettings' => 'referralSettings',
@@ -213,6 +220,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'campaignGroups' => 'campaignGroups',
         'type' => 'type',
         'linkedStoreIds' => 'linkedStoreIds',
+        'couponAttributes' => 'couponAttributes',
         'budgets' => 'budgets',
         'couponRedemptionCount' => 'couponRedemptionCount',
         'referralRedemptionCount' => 'referralRedemptionCount',
@@ -237,6 +245,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'frontendState' => 'frontendState',
         'storesImported' => 'storesImported',
         'valueMapsIds' => 'valueMapsIds',
+        'experimentId' => 'experimentId',
         'revisionFrontendState' => 'revisionFrontendState',
         'activeRevisionId' => 'activeRevisionId',
         'activeRevisionVersionId' => 'activeRevisionVersionId',
@@ -264,6 +273,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'state' => 'setState',
         'activeRulesetId' => 'setActiveRulesetId',
         'tags' => 'setTags',
+        'reevaluateOnReturn' => 'setReevaluateOnReturn',
         'features' => 'setFeatures',
         'couponSettings' => 'setCouponSettings',
         'referralSettings' => 'setReferralSettings',
@@ -271,6 +281,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'campaignGroups' => 'setCampaignGroups',
         'type' => 'setType',
         'linkedStoreIds' => 'setLinkedStoreIds',
+        'couponAttributes' => 'setCouponAttributes',
         'budgets' => 'setBudgets',
         'couponRedemptionCount' => 'setCouponRedemptionCount',
         'referralRedemptionCount' => 'setReferralRedemptionCount',
@@ -295,6 +306,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'frontendState' => 'setFrontendState',
         'storesImported' => 'setStoresImported',
         'valueMapsIds' => 'setValueMapsIds',
+        'experimentId' => 'setExperimentId',
         'revisionFrontendState' => 'setRevisionFrontendState',
         'activeRevisionId' => 'setActiveRevisionId',
         'activeRevisionVersionId' => 'setActiveRevisionVersionId',
@@ -322,6 +334,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'state' => 'getState',
         'activeRulesetId' => 'getActiveRulesetId',
         'tags' => 'getTags',
+        'reevaluateOnReturn' => 'getReevaluateOnReturn',
         'features' => 'getFeatures',
         'couponSettings' => 'getCouponSettings',
         'referralSettings' => 'getReferralSettings',
@@ -329,6 +342,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'campaignGroups' => 'getCampaignGroups',
         'type' => 'getType',
         'linkedStoreIds' => 'getLinkedStoreIds',
+        'couponAttributes' => 'getCouponAttributes',
         'budgets' => 'getBudgets',
         'couponRedemptionCount' => 'getCouponRedemptionCount',
         'referralRedemptionCount' => 'getReferralRedemptionCount',
@@ -353,6 +367,7 @@ class Campaign implements ModelInterface, ArrayAccess
         'frontendState' => 'getFrontendState',
         'storesImported' => 'getStoresImported',
         'valueMapsIds' => 'getValueMapsIds',
+        'experimentId' => 'getExperimentId',
         'revisionFrontendState' => 'getRevisionFrontendState',
         'activeRevisionId' => 'getActiveRevisionId',
         'activeRevisionVersionId' => 'getActiveRevisionVersionId',
@@ -527,6 +542,7 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'enabled';
         $this->container['activeRulesetId'] = isset($data['activeRulesetId']) ? $data['activeRulesetId'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['reevaluateOnReturn'] = isset($data['reevaluateOnReturn']) ? $data['reevaluateOnReturn'] : null;
         $this->container['features'] = isset($data['features']) ? $data['features'] : null;
         $this->container['couponSettings'] = isset($data['couponSettings']) ? $data['couponSettings'] : null;
         $this->container['referralSettings'] = isset($data['referralSettings']) ? $data['referralSettings'] : null;
@@ -534,6 +550,7 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['campaignGroups'] = isset($data['campaignGroups']) ? $data['campaignGroups'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : 'advanced';
         $this->container['linkedStoreIds'] = isset($data['linkedStoreIds']) ? $data['linkedStoreIds'] : null;
+        $this->container['couponAttributes'] = isset($data['couponAttributes']) ? $data['couponAttributes'] : null;
         $this->container['budgets'] = isset($data['budgets']) ? $data['budgets'] : null;
         $this->container['couponRedemptionCount'] = isset($data['couponRedemptionCount']) ? $data['couponRedemptionCount'] : null;
         $this->container['referralRedemptionCount'] = isset($data['referralRedemptionCount']) ? $data['referralRedemptionCount'] : null;
@@ -558,6 +575,7 @@ class Campaign implements ModelInterface, ArrayAccess
         $this->container['frontendState'] = isset($data['frontendState']) ? $data['frontendState'] : null;
         $this->container['storesImported'] = isset($data['storesImported']) ? $data['storesImported'] : null;
         $this->container['valueMapsIds'] = isset($data['valueMapsIds']) ? $data['valueMapsIds'] : null;
+        $this->container['experimentId'] = isset($data['experimentId']) ? $data['experimentId'] : null;
         $this->container['revisionFrontendState'] = isset($data['revisionFrontendState']) ? $data['revisionFrontendState'] : null;
         $this->container['activeRevisionId'] = isset($data['activeRevisionId']) ? $data['activeRevisionId'] : null;
         $this->container['activeRevisionVersionId'] = isset($data['activeRevisionVersionId']) ? $data['activeRevisionVersionId'] : null;
@@ -611,6 +629,9 @@ class Campaign implements ModelInterface, ArrayAccess
 
         if ($this->container['tags'] === null) {
             $invalidProperties[] = "'tags' can't be null";
+        }
+        if ($this->container['reevaluateOnReturn'] === null) {
+            $invalidProperties[] = "'reevaluateOnReturn' can't be null";
         }
         if ($this->container['features'] === null) {
             $invalidProperties[] = "'features' can't be null";
@@ -933,7 +954,7 @@ class Campaign implements ModelInterface, ArrayAccess
     /**
      * Sets activeRulesetId
      *
-     * @param int|null $activeRulesetId [ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation.
+     * @param int|null $activeRulesetId [ID of Ruleset](https://docs.talon.one/management-api#tag/Campaigns/operation/getRulesets) this campaign applies on customer session evaluation.
      *
      * @return $this
      */
@@ -964,6 +985,30 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets reevaluateOnReturn
+     *
+     * @return bool
+     */
+    public function getReevaluateOnReturn()
+    {
+        return $this->container['reevaluateOnReturn'];
+    }
+
+    /**
+     * Sets reevaluateOnReturn
+     *
+     * @param bool $reevaluateOnReturn Indicates whether this campaign should be reevaluated when a customer returns an item.
+     *
+     * @return $this
+     */
+    public function setReevaluateOnReturn($reevaluateOnReturn)
+    {
+        $this->container['reevaluateOnReturn'] = $reevaluateOnReturn;
 
         return $this;
     }
@@ -1150,6 +1195,30 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setLinkedStoreIds($linkedStoreIds)
     {
         $this->container['linkedStoreIds'] = $linkedStoreIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets couponAttributes
+     *
+     * @return object|null
+     */
+    public function getCouponAttributes()
+    {
+        return $this->container['couponAttributes'];
+    }
+
+    /**
+     * Sets couponAttributes
+     *
+     * @param object|null $couponAttributes Arbitrary properties associated with coupons in this campaign.
+     *
+     * @return $this
+     */
+    public function setCouponAttributes($couponAttributes)
+    {
+        $this->container['couponAttributes'] = $couponAttributes;
 
         return $this;
     }
@@ -1735,6 +1804,30 @@ class Campaign implements ModelInterface, ArrayAccess
     public function setValueMapsIds($valueMapsIds)
     {
         $this->container['valueMapsIds'] = $valueMapsIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets experimentId
+     *
+     * @return int|null
+     */
+    public function getExperimentId()
+    {
+        return $this->container['experimentId'];
+    }
+
+    /**
+     * Sets experimentId
+     *
+     * @param int|null $experimentId The ID of the Experiment this Campaign is part of.
+     *
+     * @return $this
+     */
+    public function setExperimentId($experimentId)
+    {
+        $this->container['experimentId'] = $experimentId;
 
         return $this;
     }

@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -58,18 +58,19 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'customerSession' => '\TalonOne\Client\Model\CustomerSessionV2',
         'customerProfile' => '\TalonOne\Client\Model\CustomerProfile',
-        'event' => '\TalonOne\Client\Model\Event',
         'loyalty' => '\TalonOne\Client\Model\Loyalty',
-        'referral' => '\TalonOne\Client\Model\InventoryReferral',
-        'coupons' => '\TalonOne\Client\Model\IntegrationCoupon[]',
         'triggeredCampaigns' => '\TalonOne\Client\Model\Campaign[]',
         'effects' => '\TalonOne\Client\Model\Effect[]',
         'ruleFailureReasons' => '\TalonOne\Client\Model\RuleFailureReason[]',
         'createdCoupons' => '\TalonOne\Client\Model\Coupon[]',
         'createdReferrals' => '\TalonOne\Client\Model\Referral[]',
         'awardedGiveaways' => '\TalonOne\Client\Model\Giveaway[]',
+        'referral' => '\TalonOne\Client\Model\InventoryReferral',
+        'coupons' => '\TalonOne\Client\Model\IntegrationCoupon[]',
+        'event' => '\TalonOne\Client\Model\Event',
+        'advancedEvent' => '\TalonOne\Client\Model\EventV3',
+        'customerSession' => '\TalonOne\Client\Model\CustomerSessionV2',
         'return' => '\TalonOne\Client\Model\ModelReturn',
         'previousReturns' => '\TalonOne\Client\Model\ModelReturn[]'
     ];
@@ -80,18 +81,19 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'customerSession' => null,
         'customerProfile' => null,
-        'event' => null,
         'loyalty' => null,
-        'referral' => null,
-        'coupons' => null,
         'triggeredCampaigns' => null,
         'effects' => null,
         'ruleFailureReasons' => null,
         'createdCoupons' => null,
         'createdReferrals' => null,
         'awardedGiveaways' => null,
+        'referral' => null,
+        'coupons' => null,
+        'event' => null,
+        'advancedEvent' => null,
+        'customerSession' => null,
         'return' => null,
         'previousReturns' => null
     ];
@@ -123,18 +125,19 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'customerSession' => 'customerSession',
         'customerProfile' => 'customerProfile',
-        'event' => 'event',
         'loyalty' => 'loyalty',
-        'referral' => 'referral',
-        'coupons' => 'coupons',
         'triggeredCampaigns' => 'triggeredCampaigns',
         'effects' => 'effects',
         'ruleFailureReasons' => 'ruleFailureReasons',
         'createdCoupons' => 'createdCoupons',
         'createdReferrals' => 'createdReferrals',
         'awardedGiveaways' => 'awardedGiveaways',
+        'referral' => 'referral',
+        'coupons' => 'coupons',
+        'event' => 'event',
+        'advancedEvent' => 'advancedEvent',
+        'customerSession' => 'customerSession',
         'return' => 'return',
         'previousReturns' => 'previousReturns'
     ];
@@ -145,18 +148,19 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'customerSession' => 'setCustomerSession',
         'customerProfile' => 'setCustomerProfile',
-        'event' => 'setEvent',
         'loyalty' => 'setLoyalty',
-        'referral' => 'setReferral',
-        'coupons' => 'setCoupons',
         'triggeredCampaigns' => 'setTriggeredCampaigns',
         'effects' => 'setEffects',
         'ruleFailureReasons' => 'setRuleFailureReasons',
         'createdCoupons' => 'setCreatedCoupons',
         'createdReferrals' => 'setCreatedReferrals',
         'awardedGiveaways' => 'setAwardedGiveaways',
+        'referral' => 'setReferral',
+        'coupons' => 'setCoupons',
+        'event' => 'setEvent',
+        'advancedEvent' => 'setAdvancedEvent',
+        'customerSession' => 'setCustomerSession',
         'return' => 'setReturn',
         'previousReturns' => 'setPreviousReturns'
     ];
@@ -167,18 +171,19 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'customerSession' => 'getCustomerSession',
         'customerProfile' => 'getCustomerProfile',
-        'event' => 'getEvent',
         'loyalty' => 'getLoyalty',
-        'referral' => 'getReferral',
-        'coupons' => 'getCoupons',
         'triggeredCampaigns' => 'getTriggeredCampaigns',
         'effects' => 'getEffects',
         'ruleFailureReasons' => 'getRuleFailureReasons',
         'createdCoupons' => 'getCreatedCoupons',
         'createdReferrals' => 'getCreatedReferrals',
         'awardedGiveaways' => 'getAwardedGiveaways',
+        'referral' => 'getReferral',
+        'coupons' => 'getCoupons',
+        'event' => 'getEvent',
+        'advancedEvent' => 'getAdvancedEvent',
+        'customerSession' => 'getCustomerSession',
         'return' => 'getReturn',
         'previousReturns' => 'getPreviousReturns'
     ];
@@ -243,18 +248,19 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['customerSession'] = isset($data['customerSession']) ? $data['customerSession'] : null;
         $this->container['customerProfile'] = isset($data['customerProfile']) ? $data['customerProfile'] : null;
-        $this->container['event'] = isset($data['event']) ? $data['event'] : null;
         $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
-        $this->container['referral'] = isset($data['referral']) ? $data['referral'] : null;
-        $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
         $this->container['triggeredCampaigns'] = isset($data['triggeredCampaigns']) ? $data['triggeredCampaigns'] : null;
         $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
         $this->container['ruleFailureReasons'] = isset($data['ruleFailureReasons']) ? $data['ruleFailureReasons'] : null;
         $this->container['createdCoupons'] = isset($data['createdCoupons']) ? $data['createdCoupons'] : null;
         $this->container['createdReferrals'] = isset($data['createdReferrals']) ? $data['createdReferrals'] : null;
         $this->container['awardedGiveaways'] = isset($data['awardedGiveaways']) ? $data['awardedGiveaways'] : null;
+        $this->container['referral'] = isset($data['referral']) ? $data['referral'] : null;
+        $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
+        $this->container['event'] = isset($data['event']) ? $data['event'] : null;
+        $this->container['advancedEvent'] = isset($data['advancedEvent']) ? $data['advancedEvent'] : null;
+        $this->container['customerSession'] = isset($data['customerSession']) ? $data['customerSession'] : null;
         $this->container['return'] = isset($data['return']) ? $data['return'] : null;
         $this->container['previousReturns'] = isset($data['previousReturns']) ? $data['previousReturns'] : null;
     }
@@ -293,30 +299,6 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets customerSession
-     *
-     * @return \TalonOne\Client\Model\CustomerSessionV2|null
-     */
-    public function getCustomerSession()
-    {
-        return $this->container['customerSession'];
-    }
-
-    /**
-     * Sets customerSession
-     *
-     * @param \TalonOne\Client\Model\CustomerSessionV2|null $customerSession customerSession
-     *
-     * @return $this
-     */
-    public function setCustomerSession($customerSession)
-    {
-        $this->container['customerSession'] = $customerSession;
-
-        return $this;
-    }
-
-    /**
      * Gets customerProfile
      *
      * @return \TalonOne\Client\Model\CustomerProfile|null
@@ -336,30 +318,6 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     public function setCustomerProfile($customerProfile)
     {
         $this->container['customerProfile'] = $customerProfile;
-
-        return $this;
-    }
-
-    /**
-     * Gets event
-     *
-     * @return \TalonOne\Client\Model\Event|null
-     */
-    public function getEvent()
-    {
-        return $this->container['event'];
-    }
-
-    /**
-     * Sets event
-     *
-     * @param \TalonOne\Client\Model\Event|null $event event
-     *
-     * @return $this
-     */
-    public function setEvent($event)
-    {
-        $this->container['event'] = $event;
 
         return $this;
     }
@@ -389,54 +347,6 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets referral
-     *
-     * @return \TalonOne\Client\Model\InventoryReferral|null
-     */
-    public function getReferral()
-    {
-        return $this->container['referral'];
-    }
-
-    /**
-     * Sets referral
-     *
-     * @param \TalonOne\Client\Model\InventoryReferral|null $referral referral
-     *
-     * @return $this
-     */
-    public function setReferral($referral)
-    {
-        $this->container['referral'] = $referral;
-
-        return $this;
-    }
-
-    /**
-     * Gets coupons
-     *
-     * @return \TalonOne\Client\Model\IntegrationCoupon[]|null
-     */
-    public function getCoupons()
-    {
-        return $this->container['coupons'];
-    }
-
-    /**
-     * Sets coupons
-     *
-     * @param \TalonOne\Client\Model\IntegrationCoupon[]|null $coupons coupons
-     *
-     * @return $this
-     */
-    public function setCoupons($coupons)
-    {
-        $this->container['coupons'] = $coupons;
-
-        return $this;
-    }
-
-    /**
      * Gets triggeredCampaigns
      *
      * @return \TalonOne\Client\Model\Campaign[]|null
@@ -449,7 +359,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets triggeredCampaigns
      *
-     * @param \TalonOne\Client\Model\Campaign[]|null $triggeredCampaigns triggeredCampaigns
+     * @param \TalonOne\Client\Model\Campaign[]|null $triggeredCampaigns The campaigns that were triggered as a result of processing the event.
      *
      * @return $this
      */
@@ -497,7 +407,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets ruleFailureReasons
      *
-     * @param \TalonOne\Client\Model\RuleFailureReason[]|null $ruleFailureReasons ruleFailureReasons
+     * @param \TalonOne\Client\Model\RuleFailureReason[]|null $ruleFailureReasons The reasons why certain rules were not triggered during the event processing.
      *
      * @return $this
      */
@@ -521,7 +431,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets createdCoupons
      *
-     * @param \TalonOne\Client\Model\Coupon[] $createdCoupons createdCoupons
+     * @param \TalonOne\Client\Model\Coupon[] $createdCoupons The coupons that were created during the event processing.
      *
      * @return $this
      */
@@ -545,7 +455,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets createdReferrals
      *
-     * @param \TalonOne\Client\Model\Referral[] $createdReferrals createdReferrals
+     * @param \TalonOne\Client\Model\Referral[] $createdReferrals The referrals that were created during the event processing.
      *
      * @return $this
      */
@@ -569,13 +479,133 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets awardedGiveaways
      *
-     * @param \TalonOne\Client\Model\Giveaway[]|null $awardedGiveaways awardedGiveaways
+     * @param \TalonOne\Client\Model\Giveaway[]|null $awardedGiveaways The giveaways that were awarded during the event processing.
      *
      * @return $this
      */
     public function setAwardedGiveaways($awardedGiveaways)
     {
         $this->container['awardedGiveaways'] = $awardedGiveaways;
+
+        return $this;
+    }
+
+    /**
+     * Gets referral
+     *
+     * @return \TalonOne\Client\Model\InventoryReferral|null
+     */
+    public function getReferral()
+    {
+        return $this->container['referral'];
+    }
+
+    /**
+     * Sets referral
+     *
+     * @param \TalonOne\Client\Model\InventoryReferral|null $referral referral
+     *
+     * @return $this
+     */
+    public function setReferral($referral)
+    {
+        $this->container['referral'] = $referral;
+
+        return $this;
+    }
+
+    /**
+     * Gets coupons
+     *
+     * @return \TalonOne\Client\Model\IntegrationCoupon[]|null
+     */
+    public function getCoupons()
+    {
+        return $this->container['coupons'];
+    }
+
+    /**
+     * Sets coupons
+     *
+     * @param \TalonOne\Client\Model\IntegrationCoupon[]|null $coupons The coupons that were processed.
+     *
+     * @return $this
+     */
+    public function setCoupons($coupons)
+    {
+        $this->container['coupons'] = $coupons;
+
+        return $this;
+    }
+
+    /**
+     * Gets event
+     *
+     * @return \TalonOne\Client\Model\Event|null
+     */
+    public function getEvent()
+    {
+        return $this->container['event'];
+    }
+
+    /**
+     * Sets event
+     *
+     * @param \TalonOne\Client\Model\Event|null $event event
+     *
+     * @return $this
+     */
+    public function setEvent($event)
+    {
+        $this->container['event'] = $event;
+
+        return $this;
+    }
+
+    /**
+     * Gets advancedEvent
+     *
+     * @return \TalonOne\Client\Model\EventV3|null
+     */
+    public function getAdvancedEvent()
+    {
+        return $this->container['advancedEvent'];
+    }
+
+    /**
+     * Sets advancedEvent
+     *
+     * @param \TalonOne\Client\Model\EventV3|null $advancedEvent advancedEvent
+     *
+     * @return $this
+     */
+    public function setAdvancedEvent($advancedEvent)
+    {
+        $this->container['advancedEvent'] = $advancedEvent;
+
+        return $this;
+    }
+
+    /**
+     * Gets customerSession
+     *
+     * @return \TalonOne\Client\Model\CustomerSessionV2|null
+     */
+    public function getCustomerSession()
+    {
+        return $this->container['customerSession'];
+    }
+
+    /**
+     * Sets customerSession
+     *
+     * @param \TalonOne\Client\Model\CustomerSessionV2|null $customerSession customerSession
+     *
+     * @return $this
+     */
+    public function setCustomerSession($customerSession)
+    {
+        $this->container['customerSession'] = $customerSession;
 
         return $this;
     }
@@ -617,7 +647,7 @@ class IntegrationStateV2 implements ModelInterface, ArrayAccess
     /**
      * Sets previousReturns
      *
-     * @param \TalonOne\Client\Model\ModelReturn[]|null $previousReturns previousReturns
+     * @param \TalonOne\Client\Model\ModelReturn[]|null $previousReturns The previous returns associated with the event.
      *
      * @return $this
      */

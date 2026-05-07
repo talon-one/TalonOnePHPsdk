@@ -12,7 +12,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -463,6 +463,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for exportApplicationCampaignAnalytics
+     *
+     * Export Application analytics aggregated by campaign.
+     *
+     */
+    public function testExportApplicationCampaignAnalytics()
+    {
+    }
+
+    /**
      * Test case for exportAudiencesMemberships
      *
      * Export audience members.
@@ -489,6 +499,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testExportCampaignStores()
+    {
+    }
+
+    /**
+     * Test case for exportCampaignValueMap
+     *
+     * Export campaign value map.
+     *
+     */
+    public function testExportCampaignValueMap()
     {
     }
 
@@ -593,6 +613,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for exportLoyaltyJoinDates
+     *
+     * Export customers' loyalty program join dates.
+     *
+     */
+    public function testExportLoyaltyJoinDates()
+    {
+    }
+
+    /**
      * Test case for exportLoyaltyLedger
      *
      * Export customer's transaction logs.
@@ -619,6 +649,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testExportReferrals()
+    {
+    }
+
+    /**
+     * Test case for generateCouponRejections
+     *
+     * Summarize coupon redemption failures in session.
+     *
+     */
+    public function testGenerateCouponRejections()
     {
     }
 
@@ -709,6 +749,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testGetApplicationApiHealth()
+    {
+    }
+
+    /**
+     * Test case for getApplicationCartItemFilterExpression
+     *
+     * Get Application cart item filter expression.
+     *
+     */
+    public function testGetApplicationCartItemFilterExpression()
     {
     }
 
@@ -1053,6 +1103,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for getExperiment
+     *
+     * Get experiment in Application.
+     *
+     */
+    public function testGetExperiment()
+    {
+    }
+
+    /**
      * Test case for getExports
      *
      * Get exports.
@@ -1093,6 +1153,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for getLoyaltyLedgerBalances
+     *
+     * Get customer's loyalty balances.
+     *
+     */
+    public function testGetLoyaltyLedgerBalances()
+    {
+    }
+
+    /**
      * Test case for getLoyaltyPoints
      *
      * Get customer's full loyalty ledger.
@@ -1109,6 +1179,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testGetLoyaltyProgram()
+    {
+    }
+
+    /**
+     * Test case for getLoyaltyProgramProfileLedgerTransactions
+     *
+     * List customer's loyalty transactions.
+     *
+     */
+    public function testGetLoyaltyProgramProfileLedgerTransactions()
     {
     }
 
@@ -1403,6 +1483,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for listApplicationCartItemFilters
+     *
+     * List Application cart item filters.
+     *
+     */
+    public function testListApplicationCartItemFilters()
+    {
+    }
+
+    /**
      * Test case for listCampaignStoreBudgetLimits
      *
      * List campaign store budget limits.
@@ -1443,6 +1533,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for listExperiments
+     *
+     * List experiments.
+     *
+     */
+    public function testListExperiments()
+    {
+    }
+
+    /**
      * Test case for listStores
      *
      * List stores.
@@ -1459,6 +1559,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testOktaEventHandlerChallenge()
+    {
+    }
+
+    /**
+     * Test case for priceHistory
+     *
+     * Get summary of price history.
+     *
+     */
+    public function testPriceHistory()
     {
     }
 
@@ -1755,7 +1865,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for updateLoyaltyCard
      *
-     * Update loyalty card status.
+     * Update loyalty card.
      *
      */
     public function testUpdateLoyaltyCard()

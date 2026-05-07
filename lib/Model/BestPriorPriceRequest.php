@@ -13,7 +13,7 @@
 /**
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`.
  *
  * The version of the OpenAPI document: 
  * 
@@ -59,9 +59,9 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'skus' => 'string[]',
         'timeframeEndDate' => '\DateTime',
-        'timeframe' => 'int',
-        'strictEndDate' => 'bool',
-        'target' => '\TalonOne\Client\Model\BestPriorPriceRequestTarget'
+        'timeframe' => 'string',
+        'timeframeEndDateType' => 'string',
+        'target' => '\TalonOne\Client\Model\BestPriorTarget'
     ];
 
     /**
@@ -72,8 +72,8 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'skus' => null,
         'timeframeEndDate' => 'date-time',
-        'timeframe' => 'integer',
-        'strictEndDate' => null,
+        'timeframe' => null,
+        'timeframeEndDateType' => null,
         'target' => null
     ];
 
@@ -107,7 +107,7 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
         'skus' => 'skus',
         'timeframeEndDate' => 'timeframeEndDate',
         'timeframe' => 'timeframe',
-        'strictEndDate' => 'strictEndDate',
+        'timeframeEndDateType' => 'timeframeEndDateType',
         'target' => 'target'
     ];
 
@@ -120,7 +120,7 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
         'skus' => 'setSkus',
         'timeframeEndDate' => 'setTimeframeEndDate',
         'timeframe' => 'setTimeframe',
-        'strictEndDate' => 'setStrictEndDate',
+        'timeframeEndDateType' => 'setTimeframeEndDateType',
         'target' => 'setTarget'
     ];
 
@@ -133,7 +133,7 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
         'skus' => 'getSkus',
         'timeframeEndDate' => 'getTimeframeEndDate',
         'timeframe' => 'getTimeframe',
-        'strictEndDate' => 'getStrictEndDate',
+        'timeframeEndDateType' => 'getTimeframeEndDateType',
         'target' => 'getTarget'
     ];
 
@@ -178,8 +178,25 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TIMEFRAME_END_DATE_TYPE_STRICT = 'strict';
+    const TIMEFRAME_END_DATE_TYPE_PRICE = 'price';
+    const TIMEFRAME_END_DATE_TYPE_SALE = 'sale';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTimeframeEndDateTypeAllowableValues()
+    {
+        return [
+            self::TIMEFRAME_END_DATE_TYPE_STRICT,
+            self::TIMEFRAME_END_DATE_TYPE_PRICE,
+            self::TIMEFRAME_END_DATE_TYPE_SALE,
+        ];
+    }
     
 
     /**
@@ -200,7 +217,7 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
         $this->container['skus'] = isset($data['skus']) ? $data['skus'] : null;
         $this->container['timeframeEndDate'] = isset($data['timeframeEndDate']) ? $data['timeframeEndDate'] : null;
         $this->container['timeframe'] = isset($data['timeframe']) ? $data['timeframe'] : null;
-        $this->container['strictEndDate'] = isset($data['strictEndDate']) ? $data['strictEndDate'] : null;
+        $this->container['timeframeEndDateType'] = isset($data['timeframeEndDateType']) ? $data['timeframeEndDateType'] : null;
         $this->container['target'] = isset($data['target']) ? $data['target'] : null;
     }
 
@@ -222,9 +239,17 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
         if ($this->container['timeframe'] === null) {
             $invalidProperties[] = "'timeframe' can't be null";
         }
-        if ($this->container['strictEndDate'] === null) {
-            $invalidProperties[] = "'strictEndDate' can't be null";
+        if ($this->container['timeframeEndDateType'] === null) {
+            $invalidProperties[] = "'timeframeEndDateType' can't be null";
         }
+        $allowedValues = $this->getTimeframeEndDateTypeAllowableValues();
+        if (!is_null($this->container['timeframeEndDateType']) && !in_array($this->container['timeframeEndDateType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'timeframeEndDateType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -291,7 +316,7 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
     /**
      * Gets timeframe
      *
-     * @return int
+     * @return string
      */
     public function getTimeframe()
     {
@@ -301,7 +326,7 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
     /**
      * Sets timeframe
      *
-     * @param int $timeframe The number of days prior to the timeframeEndDate. Only prices within this look back period are considered for the best prior price evaluation.
+     * @param string $timeframe The number of days prior to the timeframeEndDate. Only prices within this look back period are considered for the best prior price evaluation.
      *
      * @return $this
      */
@@ -313,25 +338,34 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets strictEndDate
+     * Gets timeframeEndDateType
      *
-     * @return bool
+     * @return string
      */
-    public function getStrictEndDate()
+    public function getTimeframeEndDateType()
     {
-        return $this->container['strictEndDate'];
+        return $this->container['timeframeEndDateType'];
     }
 
     /**
-     * Sets strictEndDate
+     * Sets timeframeEndDateType
      *
-     * @param bool $strictEndDate Indicates whether the timeframe includes the start of the current sale. - When `false`, the timeframe includes the start date of the current sale. - When `true`, the timeframe striclty uses the number of days specified in `timeframe`.
+     * @param string $timeframeEndDateType Sets the timeframe for retrieving historical pricing data. Can be one of the following values: - `strict`: The timeframe ends at the `timeframeEndDate` value. - `price`: The timeframe ends at the start of current price value and takes the prices prior to the start of the current price value into account. - `sale`:  The timeframe ends at the start of current `contextId` and takes the prices prior to the start of the `contextId` into account.
      *
      * @return $this
      */
-    public function setStrictEndDate($strictEndDate)
+    public function setTimeframeEndDateType($timeframeEndDateType)
     {
-        $this->container['strictEndDate'] = $strictEndDate;
+        $allowedValues = $this->getTimeframeEndDateTypeAllowableValues();
+        if (!in_array($timeframeEndDateType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'timeframeEndDateType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['timeframeEndDateType'] = $timeframeEndDateType;
 
         return $this;
     }
@@ -339,7 +373,7 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
     /**
      * Gets target
      *
-     * @return \TalonOne\Client\Model\BestPriorPriceRequestTarget|null
+     * @return \TalonOne\Client\Model\BestPriorTarget|null
      */
     public function getTarget()
     {
@@ -349,7 +383,7 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
     /**
      * Sets target
      *
-     * @param \TalonOne\Client\Model\BestPriorPriceRequestTarget|null $target target
+     * @param \TalonOne\Client\Model\BestPriorTarget|null $target target
      *
      * @return $this
      */
