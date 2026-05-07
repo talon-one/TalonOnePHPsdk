@@ -32,9 +32,18 @@
         "friendsofphp/php-cs-fixer": "~2.12"
     },
     "autoload": {
-        "psr-4": { "TalonOne\\Client\\" : "lib/" }
+        "psr-4": {
+            "TalonOne\\Client\\": "lib/"
+        }
     },
     "autoload-dev": {
-        "psr-4": { "TalonOne\\Client\\" : "test/" }
+        "psr-4": {
+            "TalonOne\\Client\\": "test/"
+        }
+    },
+    "config": {
+        "audit": {
+            "block-insecure": false
+        }
     }
 }
