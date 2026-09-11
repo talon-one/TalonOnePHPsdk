@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * SetDiscountPerAdditionalCostEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;setDiscountPerAdditionalCost\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set per additional cost discount\&quot; effect. This is a discount that should be applied on a specific additional cost.
+ * @description This effect indicates that a discount that should be applied on a specific additional cost. It is triggered whenever a rule containing a **Discount additional cost** effect is validated.  Enabling [partial rewards](https://docs.talon.one/docs/product/applications/manage-general-settings#partial-rewards) allows a rule that would fail because of insufficient budget to pass. The rule still fails when the budget reaches 0. Use the &#x60;desiredValue&#x60; property to identify the original amount of loyalty points.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -254,7 +254,7 @@ class SetDiscountPerAdditionalCostEffectProps implements ModelInterface, ArrayAc
     /**
      * Sets name
      *
-     * @param string $name The name / description of this discount
+     * @param string $name The name of the discount.
      *
      * @return $this
      */
@@ -278,7 +278,7 @@ class SetDiscountPerAdditionalCostEffectProps implements ModelInterface, ArrayAc
     /**
      * Sets additionalCostId
      *
-     * @param int $additionalCostId The ID of the additional cost.
+     * @param int $additionalCostId The identifier of the additional cost.
      *
      * @return $this
      */
@@ -302,7 +302,7 @@ class SetDiscountPerAdditionalCostEffectProps implements ModelInterface, ArrayAc
     /**
      * Sets additionalCost
      *
-     * @param string $additionalCost The name of the additional cost.
+     * @param string $additionalCost The API name of the additional cost.
      *
      * @return $this
      */
@@ -326,7 +326,7 @@ class SetDiscountPerAdditionalCostEffectProps implements ModelInterface, ArrayAc
     /**
      * Sets value
      *
-     * @param float $value The total monetary value of the discount.
+     * @param float $value The monetary value of the discount to apply.
      *
      * @return $this
      */
@@ -350,7 +350,7 @@ class SetDiscountPerAdditionalCostEffectProps implements ModelInterface, ArrayAc
     /**
      * Sets desiredValue
      *
-     * @param float|null $desiredValue The original value of the discount.
+     * @param float|null $desiredValue _(Partial discounts enabled only)_ The monetary value of the discount to be applied without considering budget limitations.
      *
      * @return $this
      */

@@ -79,6 +79,13 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificationTest e
     }
 
     /**
+     * Test attribute "eventId"
+     */
+    public function testPropertyEventId()
+    {
+    }
+
+    /**
      * Test attribute "profileIntegrationID"
      */
     public function testPropertyProfileIntegrationID()
@@ -89,6 +96,13 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificationTest e
      * Test attribute "loyaltyProgramID"
      */
     public function testPropertyLoyaltyProgramID()
+    {
+    }
+
+    /**
+     * Test attribute "loyaltyProgramName"
+     */
+    public function testPropertyLoyaltyProgramName()
     {
     }
 

@@ -86,6 +86,13 @@ class IntegrationHubFlowWithConfigTest extends TestCase
     }
 
     /**
+     * Test attribute "loyaltyProgramID"
+     */
+    public function testPropertyLoyaltyProgramID()
+    {
+    }
+
+    /**
      * Test attribute "eventType"
      */
     public function testPropertyEventType()

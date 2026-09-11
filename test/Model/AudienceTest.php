@@ -121,6 +121,13 @@ class AudienceTest extends TestCase
     }
 
     /**
+     * Test attribute "subscribedApplicationsIds"
+     */
+    public function testPropertySubscribedApplicationsIds()
+    {
+    }
+
+    /**
      * Test attribute "integration"
      */
     public function testPropertyIntegration()

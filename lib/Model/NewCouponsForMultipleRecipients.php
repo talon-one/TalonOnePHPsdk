@@ -62,6 +62,7 @@ class NewCouponsForMultipleRecipients implements ModelInterface, ArrayAccess
         'reservationLimit' => 'int',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
+        'batchId' => 'string',
         'attributes' => 'object',
         'recipientsIntegrationIds' => 'string[]',
         'validCharacters' => 'string[]',
@@ -79,6 +80,7 @@ class NewCouponsForMultipleRecipients implements ModelInterface, ArrayAccess
         'reservationLimit' => 'int64',
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
+        'batchId' => null,
         'attributes' => null,
         'recipientsIntegrationIds' => null,
         'validCharacters' => null,
@@ -117,6 +119,7 @@ class NewCouponsForMultipleRecipients implements ModelInterface, ArrayAccess
         'reservationLimit' => 'reservationLimit',
         'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
+        'batchId' => 'batchId',
         'attributes' => 'attributes',
         'recipientsIntegrationIds' => 'recipientsIntegrationIds',
         'validCharacters' => 'validCharacters',
@@ -134,6 +137,7 @@ class NewCouponsForMultipleRecipients implements ModelInterface, ArrayAccess
         'reservationLimit' => 'setReservationLimit',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
+        'batchId' => 'setBatchId',
         'attributes' => 'setAttributes',
         'recipientsIntegrationIds' => 'setRecipientsIntegrationIds',
         'validCharacters' => 'setValidCharacters',
@@ -151,6 +155,7 @@ class NewCouponsForMultipleRecipients implements ModelInterface, ArrayAccess
         'reservationLimit' => 'getReservationLimit',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
+        'batchId' => 'getBatchId',
         'attributes' => 'getAttributes',
         'recipientsIntegrationIds' => 'getRecipientsIntegrationIds',
         'validCharacters' => 'getValidCharacters',
@@ -222,6 +227,7 @@ class NewCouponsForMultipleRecipients implements ModelInterface, ArrayAccess
         $this->container['reservationLimit'] = isset($data['reservationLimit']) ? $data['reservationLimit'] : null;
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
+        $this->container['batchId'] = isset($data['batchId']) ? $data['batchId'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['recipientsIntegrationIds'] = isset($data['recipientsIntegrationIds']) ? $data['recipientsIntegrationIds'] : null;
         $this->container['validCharacters'] = isset($data['validCharacters']) ? $data['validCharacters'] : null;
@@ -430,6 +436,30 @@ class NewCouponsForMultipleRecipients implements ModelInterface, ArrayAccess
     public function setExpiryDate($expiryDate)
     {
         $this->container['expiryDate'] = $expiryDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets batchId
+     *
+     * @return string|null
+     */
+    public function getBatchId()
+    {
+        return $this->container['batchId'];
+    }
+
+    /**
+     * Sets batchId
+     *
+     * @param string|null $batchId The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically.
+     *
+     * @return $this
+     */
+    public function setBatchId($batchId)
+    {
+        $this->container['batchId'] = $batchId;
 
         return $this;
     }

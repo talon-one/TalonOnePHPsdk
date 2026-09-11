@@ -59,6 +59,7 @@ class AchievementAdditionalPropertiesV2 implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'userId' => 'int',
         'createdBy' => 'string',
+        'periodEndOverride' => '\TalonOne\Client\Model\TimePoint',
         'hasProgress' => 'bool',
         'status' => 'string'
     ];
@@ -71,6 +72,7 @@ class AchievementAdditionalPropertiesV2 implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'userId' => 'int64',
         'createdBy' => null,
+        'periodEndOverride' => null,
         'hasProgress' => null,
         'status' => null
     ];
@@ -104,6 +106,7 @@ class AchievementAdditionalPropertiesV2 implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'userId' => 'userId',
         'createdBy' => 'createdBy',
+        'periodEndOverride' => 'periodEndOverride',
         'hasProgress' => 'hasProgress',
         'status' => 'status'
     ];
@@ -116,6 +119,7 @@ class AchievementAdditionalPropertiesV2 implements ModelInterface, ArrayAccess
     protected static $setters = [
         'userId' => 'setUserId',
         'createdBy' => 'setCreatedBy',
+        'periodEndOverride' => 'setPeriodEndOverride',
         'hasProgress' => 'setHasProgress',
         'status' => 'setStatus'
     ];
@@ -128,6 +132,7 @@ class AchievementAdditionalPropertiesV2 implements ModelInterface, ArrayAccess
     protected static $getters = [
         'userId' => 'getUserId',
         'createdBy' => 'getCreatedBy',
+        'periodEndOverride' => 'getPeriodEndOverride',
         'hasProgress' => 'getHasProgress',
         'status' => 'getStatus'
     ];
@@ -173,10 +178,9 @@ class AchievementAdditionalPropertiesV2 implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATUS_INPROGRESS = 'inprogress';
+    const STATUS_ACTIVE = 'active';
+    const STATUS_SCHEDULED = 'scheduled';
     const STATUS_EXPIRED = 'expired';
-    const STATUS_NOT_STARTED = 'not_started';
-    const STATUS_COMPLETED = 'completed';
     
 
     
@@ -188,10 +192,9 @@ class AchievementAdditionalPropertiesV2 implements ModelInterface, ArrayAccess
     public function getStatusAllowableValues()
     {
         return [
-            self::STATUS_INPROGRESS,
+            self::STATUS_ACTIVE,
+            self::STATUS_SCHEDULED,
             self::STATUS_EXPIRED,
-            self::STATUS_NOT_STARTED,
-            self::STATUS_COMPLETED,
         ];
     }
     
@@ -213,6 +216,7 @@ class AchievementAdditionalPropertiesV2 implements ModelInterface, ArrayAccess
     {
         $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
+        $this->container['periodEndOverride'] = isset($data['periodEndOverride']) ? $data['periodEndOverride'] : null;
         $this->container['hasProgress'] = isset($data['hasProgress']) ? $data['hasProgress'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
@@ -301,6 +305,30 @@ class AchievementAdditionalPropertiesV2 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets periodEndOverride
+     *
+     * @return \TalonOne\Client\Model\TimePoint|null
+     */
+    public function getPeriodEndOverride()
+    {
+        return $this->container['periodEndOverride'];
+    }
+
+    /**
+     * Sets periodEndOverride
+     *
+     * @param \TalonOne\Client\Model\TimePoint|null $periodEndOverride periodEndOverride
+     *
+     * @return $this
+     */
+    public function setPeriodEndOverride($periodEndOverride)
+    {
+        $this->container['periodEndOverride'] = $periodEndOverride;
+
+        return $this;
+    }
+
+    /**
      * Gets hasProgress
      *
      * @return bool|null
@@ -337,7 +365,7 @@ class AchievementAdditionalPropertiesV2 implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status The status of the achievement.
+     * @param string|null $status The status of the achievement.                                                                                               - `active`: The achievement is available to customers. - `scheduled`: The achievement has a `fixedStartDate` set in the future. - `expired`: The achievement's `endDate` is in the past.
      *
      * @return $this
      */

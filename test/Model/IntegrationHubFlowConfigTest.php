@@ -105,4 +105,18 @@ class IntegrationHubFlowConfigTest extends TestCase
     public function testPropertyMaxRetries()
     {
     }
+
+    /**
+     * Test attribute "instanceName"
+     */
+    public function testPropertyInstanceName()
+    {
+    }
+
+    /**
+     * Test attribute "integrationName"
+     */
+    public function testPropertyIntegrationName()
+    {
+    }
 }

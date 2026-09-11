@@ -84,4 +84,11 @@ class UpdateAudienceTest extends TestCase
     public function testPropertyName()
     {
     }
+
+    /**
+     * Test attribute "subscribedApplicationsIds"
+     */
+    public function testPropertySubscribedApplicationsIds()
+    {
+    }
 }

@@ -65,6 +65,11 @@ class Reward implements ModelInterface, ArrayAccess
         'description' => 'string',
         'applicationIds' => 'int[]',
         'sandbox' => 'bool',
+        'eligibilityConditions' => '\TalonOne\Client\Model\Rule',
+        'rule' => '\TalonOne\Client\Model\Rule',
+        'bindings' => '\TalonOne\Client\Model\Binding[]',
+        'pointsRequired' => '\TalonOne\Client\Model\RewardPointsRequired[]',
+        'modified' => '\DateTime',
         'status' => 'string'
     ];
 
@@ -82,6 +87,11 @@ class Reward implements ModelInterface, ArrayAccess
         'description' => null,
         'applicationIds' => 'int64',
         'sandbox' => null,
+        'eligibilityConditions' => null,
+        'rule' => null,
+        'bindings' => null,
+        'pointsRequired' => null,
+        'modified' => 'date-time',
         'status' => null
     ];
 
@@ -120,6 +130,11 @@ class Reward implements ModelInterface, ArrayAccess
         'description' => 'description',
         'applicationIds' => 'applicationIds',
         'sandbox' => 'sandbox',
+        'eligibilityConditions' => 'eligibilityConditions',
+        'rule' => 'rule',
+        'bindings' => 'bindings',
+        'pointsRequired' => 'pointsRequired',
+        'modified' => 'modified',
         'status' => 'status'
     ];
 
@@ -137,6 +152,11 @@ class Reward implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'applicationIds' => 'setApplicationIds',
         'sandbox' => 'setSandbox',
+        'eligibilityConditions' => 'setEligibilityConditions',
+        'rule' => 'setRule',
+        'bindings' => 'setBindings',
+        'pointsRequired' => 'setPointsRequired',
+        'modified' => 'setModified',
         'status' => 'setStatus'
     ];
 
@@ -154,6 +174,11 @@ class Reward implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'applicationIds' => 'getApplicationIds',
         'sandbox' => 'getSandbox',
+        'eligibilityConditions' => 'getEligibilityConditions',
+        'rule' => 'getRule',
+        'bindings' => 'getBindings',
+        'pointsRequired' => 'getPointsRequired',
+        'modified' => 'getModified',
         'status' => 'getStatus'
     ];
 
@@ -240,6 +265,11 @@ class Reward implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
+        $this->container['eligibilityConditions'] = isset($data['eligibilityConditions']) ? $data['eligibilityConditions'] : null;
+        $this->container['rule'] = isset($data['rule']) ? $data['rule'] : null;
+        $this->container['bindings'] = isset($data['bindings']) ? $data['bindings'] : null;
+        $this->container['pointsRequired'] = isset($data['pointsRequired']) ? $data['pointsRequired'] : null;
+        $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -505,6 +535,126 @@ class Reward implements ModelInterface, ArrayAccess
     public function setSandbox($sandbox)
     {
         $this->container['sandbox'] = $sandbox;
+
+        return $this;
+    }
+
+    /**
+     * Gets eligibilityConditions
+     *
+     * @return \TalonOne\Client\Model\Rule|null
+     */
+    public function getEligibilityConditions()
+    {
+        return $this->container['eligibilityConditions'];
+    }
+
+    /**
+     * Sets eligibilityConditions
+     *
+     * @param \TalonOne\Client\Model\Rule|null $eligibilityConditions eligibilityConditions
+     *
+     * @return $this
+     */
+    public function setEligibilityConditions($eligibilityConditions)
+    {
+        $this->container['eligibilityConditions'] = $eligibilityConditions;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule
+     *
+     * @return \TalonOne\Client\Model\Rule|null
+     */
+    public function getRule()
+    {
+        return $this->container['rule'];
+    }
+
+    /**
+     * Sets rule
+     *
+     * @param \TalonOne\Client\Model\Rule|null $rule rule
+     *
+     * @return $this
+     */
+    public function setRule($rule)
+    {
+        $this->container['rule'] = $rule;
+
+        return $this;
+    }
+
+    /**
+     * Gets bindings
+     *
+     * @return \TalonOne\Client\Model\Binding[]|null
+     */
+    public function getBindings()
+    {
+        return $this->container['bindings'];
+    }
+
+    /**
+     * Sets bindings
+     *
+     * @param \TalonOne\Client\Model\Binding[]|null $bindings A list of named variables created before the reward's rules are evaluated. Each binding pairs a name with a talang expression. The expression is evaluated once and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules.
+     *
+     * @return $this
+     */
+    public function setBindings($bindings)
+    {
+        $this->container['bindings'] = $bindings;
+
+        return $this;
+    }
+
+    /**
+     * Gets pointsRequired
+     *
+     * @return \TalonOne\Client\Model\RewardPointsRequired[]|null
+     */
+    public function getPointsRequired()
+    {
+        return $this->container['pointsRequired'];
+    }
+
+    /**
+     * Sets pointsRequired
+     *
+     * @param \TalonOne\Client\Model\RewardPointsRequired[]|null $pointsRequired The loyalty points required to activate the reward. Each object defines the specific loyalty program and subledger from which points are deducted when activating the reward.  **Note:** When creating a reward, the `id` of each entry is ignored and a new entry is always created.
+     *
+     * @return $this
+     */
+    public function setPointsRequired($pointsRequired)
+    {
+        $this->container['pointsRequired'] = $pointsRequired;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified
+     *
+     * @return \DateTime|null
+     */
+    public function getModified()
+    {
+        return $this->container['modified'];
+    }
+
+    /**
+     * Sets modified
+     *
+     * @param \DateTime|null $modified The timestamp when the reward was last updated in RFC3339 format.
+     *
+     * @return $this
+     */
+    public function setModified($modified)
+    {
+        $this->container['modified'] = $modified;
 
         return $this;
     }

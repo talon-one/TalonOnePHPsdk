@@ -93,6 +93,13 @@ class ApplicationRefereeTest extends TestCase
     }
 
     /**
+     * Test attribute "advancedEventIntegrationId"
+     */
+    public function testPropertyAdvancedEventIntegrationId()
+    {
+    }
+
+    /**
      * Test attribute "advocateIntegrationId"
      */
     public function testPropertyAdvocateIntegrationId()

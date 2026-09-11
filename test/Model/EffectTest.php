@@ -191,6 +191,13 @@ class EffectTest extends TestCase
     }
 
     /**
+     * Test attribute "rewardId"
+     */
+    public function testPropertyRewardId()
+    {
+    }
+
+    /**
      * Test attribute "props"
      */
     public function testPropertyProps()

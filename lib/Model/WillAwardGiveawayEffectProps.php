@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * WillAwardGiveawayEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;awardGiveaway\&quot; effect when the session is not closed yet. This effect replaces \&quot;awardGiveaway\&quot; only when updating a session with any state other than \&quot;closed\&quot;. This is to ensure no giveaway codes are leaked when they are still not guaranteed to be awarded.
+ * @description The equivalent of the &#x60;awardGiveaway&#x60; effect but returned when updating a session with any state other than &#x60;closed&#x60;. This ensures no giveaway codes are leaked when they are still not guaranteed to be awarded.  For more information about session states, see [Manage the session&#39;s state](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#manage-the-sessions-state).
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -243,7 +243,7 @@ class WillAwardGiveawayEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets poolId
      *
-     * @param int $poolId The ID of the giveaways pool the code will be taken from.
+     * @param int $poolId The internal ID of the giveaway pool.
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class WillAwardGiveawayEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets poolName
      *
-     * @param string $poolName The name of the giveaways pool the code will be taken from.
+     * @param string $poolName The name of the giveaway pool.
      *
      * @return $this
      */
@@ -291,7 +291,7 @@ class WillAwardGiveawayEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets recipientIntegrationId
      *
-     * @param string $recipientIntegrationId The integration ID of the profile that will be awarded the giveaway.
+     * @param string $recipientIntegrationId The integration ID of the customer that receives the giveaway.
      *
      * @return $this
      */

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AwardGiveawayEffectPropsTest Class Doc Comment
  *
  * @category    Class
- * @description The properties specific to the \&quot;awardGiveaway\&quot; effect. This effect contains information on the giveaway item, and which profile it was awarded to.
+ * @description This effect indicates the awarded giveaway item and to which profile the item was awarded. Learn more about [giveaways](https://docs.talon.one/docs/product/giveaways/overview).
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

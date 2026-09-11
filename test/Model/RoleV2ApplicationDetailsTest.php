@@ -105,11 +105,4 @@ class RoleV2ApplicationDetailsTest extends TestCase
     public function testPropertyTools()
     {
     }
-
-    /**
-     * Test attribute "thresholds"
-     */
-    public function testPropertyThresholds()
-    {
-    }
 }

@@ -62,7 +62,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'referrals' => '\TalonOne\Client\Model\InventoryReferral[]',
         'coupons' => '\TalonOne\Client\Model\InventoryCoupon[]',
         'giveaways' => '\TalonOne\Client\Model\Giveaway[]',
-        'achievements' => '\TalonOne\Client\Model\AchievementProgressWithDefinition[]'
+        'achievements' => '\TalonOne\Client\Model\AchievementProgressWithDefinition[]',
+        'rewards' => '\TalonOne\Client\Model\RewardWithUnlocks[]'
     ];
 
     /**
@@ -76,7 +77,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'referrals' => null,
         'coupons' => null,
         'giveaways' => null,
-        'achievements' => null
+        'achievements' => null,
+        'rewards' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'referrals' => 'referrals',
         'coupons' => 'coupons',
         'giveaways' => 'giveaways',
-        'achievements' => 'achievements'
+        'achievements' => 'achievements',
+        'rewards' => 'rewards'
     ];
 
     /**
@@ -125,7 +128,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'referrals' => 'setReferrals',
         'coupons' => 'setCoupons',
         'giveaways' => 'setGiveaways',
-        'achievements' => 'setAchievements'
+        'achievements' => 'setAchievements',
+        'rewards' => 'setRewards'
     ];
 
     /**
@@ -139,7 +143,8 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         'referrals' => 'getReferrals',
         'coupons' => 'getCoupons',
         'giveaways' => 'getGiveaways',
-        'achievements' => 'getAchievements'
+        'achievements' => 'getAchievements',
+        'rewards' => 'getRewards'
     ];
 
     /**
@@ -208,6 +213,7 @@ class CustomerInventory implements ModelInterface, ArrayAccess
         $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
         $this->container['giveaways'] = isset($data['giveaways']) ? $data['giveaways'] : null;
         $this->container['achievements'] = isset($data['achievements']) ? $data['achievements'] : null;
+        $this->container['rewards'] = isset($data['rewards']) ? $data['rewards'] : null;
     }
 
     /**
@@ -374,6 +380,30 @@ class CustomerInventory implements ModelInterface, ArrayAccess
     public function setAchievements($achievements)
     {
         $this->container['achievements'] = $achievements;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewards
+     *
+     * @return \TalonOne\Client\Model\RewardWithUnlocks[]|null
+     */
+    public function getRewards()
+    {
+        return $this->container['rewards'];
+    }
+
+    /**
+     * Sets rewards
+     *
+     * @param \TalonOne\Client\Model\RewardWithUnlocks[]|null $rewards The customer rewards that are `unlocked` and not yet `used`.
+     *
+     * @return $this
+     */
+    public function setRewards($rewards)
+    {
+        $this->container['rewards'] = $rewards;
 
         return $this;
     }

@@ -59,6 +59,7 @@ class SamlConnection implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'assertionConsumerServiceURL' => 'string',
+        'certificateExpiry' => '\DateTime',
         'accountId' => 'int',
         'name' => 'string',
         'enabled' => 'bool',
@@ -78,6 +79,7 @@ class SamlConnection implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'assertionConsumerServiceURL' => null,
+        'certificateExpiry' => 'date-time',
         'accountId' => 'int64',
         'name' => null,
         'enabled' => null,
@@ -118,6 +120,7 @@ class SamlConnection implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'assertionConsumerServiceURL' => 'assertionConsumerServiceURL',
+        'certificateExpiry' => 'certificateExpiry',
         'accountId' => 'accountId',
         'name' => 'name',
         'enabled' => 'enabled',
@@ -137,6 +140,7 @@ class SamlConnection implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'assertionConsumerServiceURL' => 'setAssertionConsumerServiceURL',
+        'certificateExpiry' => 'setCertificateExpiry',
         'accountId' => 'setAccountId',
         'name' => 'setName',
         'enabled' => 'setEnabled',
@@ -156,6 +160,7 @@ class SamlConnection implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'assertionConsumerServiceURL' => 'getAssertionConsumerServiceURL',
+        'certificateExpiry' => 'getCertificateExpiry',
         'accountId' => 'getAccountId',
         'name' => 'getName',
         'enabled' => 'getEnabled',
@@ -229,6 +234,7 @@ class SamlConnection implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['assertionConsumerServiceURL'] = isset($data['assertionConsumerServiceURL']) ? $data['assertionConsumerServiceURL'] : null;
+        $this->container['certificateExpiry'] = isset($data['certificateExpiry']) ? $data['certificateExpiry'] : null;
         $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
@@ -324,6 +330,30 @@ class SamlConnection implements ModelInterface, ArrayAccess
     public function setAssertionConsumerServiceURL($assertionConsumerServiceURL)
     {
         $this->container['assertionConsumerServiceURL'] = $assertionConsumerServiceURL;
+
+        return $this;
+    }
+
+    /**
+     * Gets certificateExpiry
+     *
+     * @return \DateTime|null
+     */
+    public function getCertificateExpiry()
+    {
+        return $this->container['certificateExpiry'];
+    }
+
+    /**
+     * Sets certificateExpiry
+     *
+     * @param \DateTime|null $certificateExpiry The expiry date of the X.509 certificate.
+     *
+     * @return $this
+     */
+    public function setCertificateExpiry($certificateExpiry)
+    {
+        $this->container['certificateExpiry'] = $certificateExpiry;
 
         return $this;
     }

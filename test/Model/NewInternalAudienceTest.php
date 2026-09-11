@@ -98,4 +98,11 @@ class NewInternalAudienceTest extends TestCase
     public function testPropertyDescription()
     {
     }
+
+    /**
+     * Test attribute "subscribedApplicationsIds"
+     */
+    public function testPropertySubscribedApplicationsIds()
+    {
+    }
 }

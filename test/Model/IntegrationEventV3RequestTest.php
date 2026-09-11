@@ -100,13 +100,6 @@ class IntegrationEventV3RequestTest extends TestCase
     }
 
     /**
-     * Test attribute "integrationId"
-     */
-    public function testPropertyIntegrationId()
-    {
-    }
-
-    /**
      * Test attribute "type"
      */
     public function testPropertyType()
@@ -121,16 +114,23 @@ class IntegrationEventV3RequestTest extends TestCase
     }
 
     /**
-     * Test attribute "connectedSessionID"
+     * Test attribute "integrationId"
      */
-    public function testPropertyConnectedSessionID()
+    public function testPropertyIntegrationId()
     {
     }
 
     /**
-     * Test attribute "previousEventID"
+     * Test attribute "connectedSessionId"
      */
-    public function testPropertyPreviousEventID()
+    public function testPropertyConnectedSessionId()
+    {
+    }
+
+    /**
+     * Test attribute "referralCode"
+     */
+    public function testPropertyReferralCode()
     {
     }
 

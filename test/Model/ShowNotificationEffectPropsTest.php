@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ShowNotificationEffectPropsTest Class Doc Comment
  *
  * @category    Class
- * @description The properties specific to the \&quot;showNotification\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;show notification\&quot; effect.
+ * @description You can use notifications to inform customers of certain events. There are four types of notification messages:  - &#x60;Info&#x60; - &#x60;Offer&#x60; - &#x60;Error&#x60; - &#x60;Misc&#x60;  It is up to you to use the Rule Builder to decide why and when to show notifications. Notifications can be used as both rule effects and failure effects.  A common use case is to display the notification at the top of the cart view in your web app. You can use the notification type to vary the styling of the notification message.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

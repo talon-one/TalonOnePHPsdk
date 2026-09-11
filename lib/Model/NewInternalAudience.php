@@ -59,7 +59,8 @@ class NewInternalAudience implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'sandbox' => 'bool',
-        'description' => 'string'
+        'description' => 'string',
+        'subscribedApplicationsIds' => 'int[]'
     ];
 
     /**
@@ -70,7 +71,8 @@ class NewInternalAudience implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'sandbox' => null,
-        'description' => null
+        'description' => null,
+        'subscribedApplicationsIds' => 'int64'
     ];
 
     /**
@@ -102,7 +104,8 @@ class NewInternalAudience implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'sandbox' => 'sandbox',
-        'description' => 'description'
+        'description' => 'description',
+        'subscribedApplicationsIds' => 'subscribedApplicationsIds'
     ];
 
     /**
@@ -113,7 +116,8 @@ class NewInternalAudience implements ModelInterface, ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'sandbox' => 'setSandbox',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds'
     ];
 
     /**
@@ -124,7 +128,8 @@ class NewInternalAudience implements ModelInterface, ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'sandbox' => 'getSandbox',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds'
     ];
 
     /**
@@ -190,6 +195,7 @@ class NewInternalAudience implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['subscribedApplicationsIds'] = isset($data['subscribedApplicationsIds']) ? $data['subscribedApplicationsIds'] : null;
     }
 
     /**
@@ -296,6 +302,30 @@ class NewInternalAudience implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscribedApplicationsIds
+     *
+     * @return int[]|null
+     */
+    public function getSubscribedApplicationsIds()
+    {
+        return $this->container['subscribedApplicationsIds'];
+    }
+
+    /**
+     * Sets subscribedApplicationsIds
+     *
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the Applications that are connected to this audience.
+     *
+     * @return $this
+     */
+    public function setSubscribedApplicationsIds($subscribedApplicationsIds)
+    {
+        $this->container['subscribedApplicationsIds'] = $subscribedApplicationsIds;
 
         return $this;
     }

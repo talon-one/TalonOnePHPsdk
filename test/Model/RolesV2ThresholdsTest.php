@@ -79,6 +79,13 @@ class RolesV2ThresholdsTest extends TestCase
     }
 
     /**
+     * Test attribute "loyaltyProgramId"
+     */
+    public function testPropertyLoyaltyProgramId()
+    {
+    }
+
+    /**
      * Test attribute "loyaltyPointsLimit"
      */
     public function testPropertyLoyaltyPointsLimit()

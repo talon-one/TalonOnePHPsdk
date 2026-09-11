@@ -68,6 +68,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'couponCodes' => 'string[]',
         'referralCode' => 'string',
         'loyaltyCards' => 'string[]',
+        'rewardIntegrationIds' => 'string[]',
         'state' => 'string',
         'cartItems' => '\TalonOne\Client\Model\CartItem[]',
         'experimentVariantAllocations' => '\TalonOne\Client\Model\ExperimentVariantAllocation[]',
@@ -79,6 +80,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => 'float',
         'cartItemTotal' => 'float',
         'additionalCostTotal' => 'float',
+        'cartItemAdditionalCostTotal' => 'float',
         'updated' => '\DateTime'
     ];
 
@@ -98,6 +100,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'couponCodes' => null,
         'referralCode' => null,
         'loyaltyCards' => null,
+        'rewardIntegrationIds' => null,
         'state' => null,
         'cartItems' => null,
         'experimentVariantAllocations' => null,
@@ -109,6 +112,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => null,
         'cartItemTotal' => null,
         'additionalCostTotal' => null,
+        'cartItemAdditionalCostTotal' => null,
         'updated' => 'date-time'
     ];
 
@@ -149,6 +153,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'couponCodes' => 'couponCodes',
         'referralCode' => 'referralCode',
         'loyaltyCards' => 'loyaltyCards',
+        'rewardIntegrationIds' => 'rewardIntegrationIds',
         'state' => 'state',
         'cartItems' => 'cartItems',
         'experimentVariantAllocations' => 'experimentVariantAllocations',
@@ -160,6 +165,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => 'total',
         'cartItemTotal' => 'cartItemTotal',
         'additionalCostTotal' => 'additionalCostTotal',
+        'cartItemAdditionalCostTotal' => 'cartItemAdditionalCostTotal',
         'updated' => 'updated'
     ];
 
@@ -179,6 +185,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'couponCodes' => 'setCouponCodes',
         'referralCode' => 'setReferralCode',
         'loyaltyCards' => 'setLoyaltyCards',
+        'rewardIntegrationIds' => 'setRewardIntegrationIds',
         'state' => 'setState',
         'cartItems' => 'setCartItems',
         'experimentVariantAllocations' => 'setExperimentVariantAllocations',
@@ -190,6 +197,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => 'setTotal',
         'cartItemTotal' => 'setCartItemTotal',
         'additionalCostTotal' => 'setAdditionalCostTotal',
+        'cartItemAdditionalCostTotal' => 'setCartItemAdditionalCostTotal',
         'updated' => 'setUpdated'
     ];
 
@@ -209,6 +217,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'couponCodes' => 'getCouponCodes',
         'referralCode' => 'getReferralCode',
         'loyaltyCards' => 'getLoyaltyCards',
+        'rewardIntegrationIds' => 'getRewardIntegrationIds',
         'state' => 'getState',
         'cartItems' => 'getCartItems',
         'experimentVariantAllocations' => 'getExperimentVariantAllocations',
@@ -220,6 +229,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         'total' => 'getTotal',
         'cartItemTotal' => 'getCartItemTotal',
         'additionalCostTotal' => 'getAdditionalCostTotal',
+        'cartItemAdditionalCostTotal' => 'getCartItemAdditionalCostTotal',
         'updated' => 'getUpdated'
     ];
 
@@ -312,6 +322,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         $this->container['couponCodes'] = isset($data['couponCodes']) ? $data['couponCodes'] : null;
         $this->container['referralCode'] = isset($data['referralCode']) ? $data['referralCode'] : null;
         $this->container['loyaltyCards'] = isset($data['loyaltyCards']) ? $data['loyaltyCards'] : null;
+        $this->container['rewardIntegrationIds'] = isset($data['rewardIntegrationIds']) ? $data['rewardIntegrationIds'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'open';
         $this->container['cartItems'] = isset($data['cartItems']) ? $data['cartItems'] : null;
         $this->container['experimentVariantAllocations'] = isset($data['experimentVariantAllocations']) ? $data['experimentVariantAllocations'] : null;
@@ -323,6 +334,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['cartItemTotal'] = isset($data['cartItemTotal']) ? $data['cartItemTotal'] : null;
         $this->container['additionalCostTotal'] = isset($data['additionalCostTotal']) ? $data['additionalCostTotal'] : null;
+        $this->container['cartItemAdditionalCostTotal'] = isset($data['cartItemAdditionalCostTotal']) ? $data['cartItemAdditionalCostTotal'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
     }
 
@@ -397,6 +409,9 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
         }
         if ($this->container['additionalCostTotal'] === null) {
             $invalidProperties[] = "'additionalCostTotal' can't be null";
+        }
+        if ($this->container['cartItemAdditionalCostTotal'] === null) {
+            $invalidProperties[] = "'cartItemAdditionalCostTotal' can't be null";
         }
         if ($this->container['updated'] === null) {
             $invalidProperties[] = "'updated' can't be null";
@@ -672,6 +687,30 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets rewardIntegrationIds
+     *
+     * @return string[]|null
+     */
+    public function getRewardIntegrationIds()
+    {
+        return $this->container['rewardIntegrationIds'];
+    }
+
+    /**
+     * Sets rewardIntegrationIds
+     *
+     * @param string[]|null $rewardIntegrationIds The integration IDs of the unlocked rewards that can be used in this session.
+     *
+     * @return $this
+     */
+    public function setRewardIntegrationIds($rewardIntegrationIds)
+    {
+        $this->container['rewardIntegrationIds'] = $rewardIntegrationIds;
+
+        return $this;
+    }
+
+    /**
      * Gets state
      *
      * @return string
@@ -684,7 +723,7 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string $state Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. Either:    - `closed` → `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` → `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - `closed` → `open` (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).
+     * @param string $state Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` -> `closed` 2. `open` -> `cancelled` 3. Either:    - `closed` -> `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` -> `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - `closed` -> `open` (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. `partially_returned` -> `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).
      *
      * @return $this
      */
@@ -940,6 +979,30 @@ class CustomerSessionV2 implements ModelInterface, ArrayAccess
     public function setAdditionalCostTotal($additionalCostTotal)
     {
         $this->container['additionalCostTotal'] = $additionalCostTotal;
+
+        return $this;
+    }
+
+    /**
+     * Gets cartItemAdditionalCostTotal
+     *
+     * @return float
+     */
+    public function getCartItemAdditionalCostTotal()
+    {
+        return $this->container['cartItemAdditionalCostTotal'];
+    }
+
+    /**
+     * Sets cartItemAdditionalCostTotal
+     *
+     * @param float $cartItemAdditionalCostTotal The total value of additional costs applied to individual items, before any discounts are applied.
+     *
+     * @return $this
+     */
+    public function setCartItemAdditionalCostTotal($cartItemAdditionalCostTotal)
+    {
+        $this->container['cartItemAdditionalCostTotal'] = $cartItemAdditionalCostTotal;
 
         return $this;
     }

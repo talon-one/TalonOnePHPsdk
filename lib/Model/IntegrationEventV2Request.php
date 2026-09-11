@@ -194,6 +194,9 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
     const RESPONSE_CONTENT_EVENT = 'event';
     const RESPONSE_CONTENT_AWARDED_GIVEAWAYS = 'awardedGiveaways';
     const RESPONSE_CONTENT_RULE_FAILURE_REASONS = 'ruleFailureReasons';
+    const RESPONSE_CONTENT_CAMPAIGN_ELIGIBILITY = 'campaignEligibility';
+    const RESPONSE_CONTENT_ACHIEVEMENTS = 'achievements';
+    const RESPONSE_CONTENT_UNLOCKED_REWARDS = 'unlockedRewards';
     
 
     
@@ -211,6 +214,9 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
             self::RESPONSE_CONTENT_EVENT,
             self::RESPONSE_CONTENT_AWARDED_GIVEAWAYS,
             self::RESPONSE_CONTENT_RULE_FAILURE_REASONS,
+            self::RESPONSE_CONTENT_CAMPAIGN_ELIGIBILITY,
+            self::RESPONSE_CONTENT_ACHIEVEMENTS,
+            self::RESPONSE_CONTENT_UNLOCKED_REWARDS,
         ];
     }
     
@@ -370,7 +376,7 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.
+     * @param string $type The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
      *
      * @return $this
      */

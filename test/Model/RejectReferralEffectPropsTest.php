@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * RejectReferralEffectPropsTest Class Doc Comment
  *
  * @category    Class
- * @description The properties specific to the \&quot;rejectReferral\&quot; effect. This gets triggered whenever the referral code was rejected. See rejectionReason for more info on why.
+ * @description This effect indicates that the provided referral code is invalid.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

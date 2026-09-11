@@ -36,14 +36,14 @@ use \TalonOne\Client\ObjectSerializer;
  * CatalogAction Class Doc Comment
  *
  * @category Class
- * @description Definition of all the properties that are needed for a single catalog sync action.
+ * @description Definition of all the properties that are needed for a single catalog sync action. The &#x60;type&#x60; field selects the concrete action variant.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 class CatalogAction implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -208,6 +208,9 @@ class CatalogAction implements ModelInterface, ArrayAccess
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**
@@ -219,9 +222,6 @@ class CatalogAction implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -230,9 +230,6 @@ class CatalogAction implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['payload'] === null) {
-            $invalidProperties[] = "'payload' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -251,7 +248,7 @@ class CatalogAction implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -261,14 +258,14 @@ class CatalogAction implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type The type of sync action.
+     * @param string|null $type The type of sync action.
      *
      * @return $this
      */
     public function setType($type)
     {
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'type', must be one of '%s'",
@@ -284,7 +281,7 @@ class CatalogAction implements ModelInterface, ArrayAccess
     /**
      * Gets payload
      *
-     * @return object
+     * @return object|null
      */
     public function getPayload()
     {
@@ -294,7 +291,7 @@ class CatalogAction implements ModelInterface, ArrayAccess
     /**
      * Sets payload
      *
-     * @param object $payload payload
+     * @param object|null $payload payload
      *
      * @return $this
      */

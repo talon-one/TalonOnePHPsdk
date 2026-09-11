@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AddToAudienceEffectPropsTest Class Doc Comment
  *
  * @category    Class
- * @description The properties specific to the \&quot;addToAudience\&quot; effect. This gets triggered whenever a validated rule contains an \&quot;addToAudience\&quot; effect.
+ * @description This effect is triggered when a rule containing an [Update audience](https://docs.talon.one/docs/product/rules/effects/use-effects#update-an-audience) effect with **Add customer to an audience** selected is validated. It indicates that a customer was added to an audience and is returned when a customer session is opened, updated, or closed.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

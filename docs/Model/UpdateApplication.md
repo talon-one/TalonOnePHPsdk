@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **defaultEvaluationGroupId** | **int** | The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign. | [optional] 
 **defaultCartItemFilterId** | **int** | The ID of the default Cart-Item-Filter for this application. | [optional] 
 **enableCampaignStateManagement** | **bool** | Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled. | [optional] 
+**bestPriorPriceSettings** | [**\TalonOne\Client\Model\BestPriorPriceSettings**](BestPriorPriceSettings.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

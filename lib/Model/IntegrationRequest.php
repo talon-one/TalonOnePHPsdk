@@ -174,6 +174,9 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
     const RESPONSE_CONTENT_AWARDED_GIVEAWAYS = 'awardedGiveaways';
     const RESPONSE_CONTENT_RULE_FAILURE_REASONS = 'ruleFailureReasons';
     const RESPONSE_CONTENT_PREVIOUS_RETURNS = 'previousReturns';
+    const RESPONSE_CONTENT_CAMPAIGN_ELIGIBILITY = 'campaignEligibility';
+    const RESPONSE_CONTENT_ACHIEVEMENTS = 'achievements';
+    const RESPONSE_CONTENT_UNLOCKED_REWARDS = 'unlockedRewards';
     
 
     
@@ -195,6 +198,9 @@ class IntegrationRequest implements ModelInterface, ArrayAccess
             self::RESPONSE_CONTENT_AWARDED_GIVEAWAYS,
             self::RESPONSE_CONTENT_RULE_FAILURE_REASONS,
             self::RESPONSE_CONTENT_PREVIOUS_RETURNS,
+            self::RESPONSE_CONTENT_CAMPAIGN_ELIGIBILITY,
+            self::RESPONSE_CONTENT_ACHIEVEMENTS,
+            self::RESPONSE_CONTENT_UNLOCKED_REWARDS,
         ];
     }
     

@@ -73,7 +73,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'campaignRevisionVersionId' => 'int',
         'selectedPriceType' => 'string',
         'selectedPrice' => 'float',
-        'adjustmentReferenceId' => 'string'
+        'adjustmentReferenceId' => 'string',
+        'rewardId' => 'int'
     ];
 
     /**
@@ -97,7 +98,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'campaignRevisionVersionId' => 'int64',
         'selectedPriceType' => null,
         'selectedPrice' => null,
-        'adjustmentReferenceId' => 'uuid'
+        'adjustmentReferenceId' => 'uuid',
+        'rewardId' => 'int64'
     ];
 
     /**
@@ -142,7 +144,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'campaignRevisionVersionId' => 'campaignRevisionVersionId',
         'selectedPriceType' => 'selectedPriceType',
         'selectedPrice' => 'selectedPrice',
-        'adjustmentReferenceId' => 'adjustmentReferenceId'
+        'adjustmentReferenceId' => 'adjustmentReferenceId',
+        'rewardId' => 'rewardId'
     ];
 
     /**
@@ -166,7 +169,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'campaignRevisionVersionId' => 'setCampaignRevisionVersionId',
         'selectedPriceType' => 'setSelectedPriceType',
         'selectedPrice' => 'setSelectedPrice',
-        'adjustmentReferenceId' => 'setAdjustmentReferenceId'
+        'adjustmentReferenceId' => 'setAdjustmentReferenceId',
+        'rewardId' => 'setRewardId'
     ];
 
     /**
@@ -190,7 +194,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'campaignRevisionVersionId' => 'getCampaignRevisionVersionId',
         'selectedPriceType' => 'getSelectedPriceType',
         'selectedPrice' => 'getSelectedPrice',
-        'adjustmentReferenceId' => 'getAdjustmentReferenceId'
+        'adjustmentReferenceId' => 'getAdjustmentReferenceId',
+        'rewardId' => 'getRewardId'
     ];
 
     /**
@@ -269,6 +274,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
         $this->container['selectedPriceType'] = isset($data['selectedPriceType']) ? $data['selectedPriceType'] : null;
         $this->container['selectedPrice'] = isset($data['selectedPrice']) ? $data['selectedPrice'] : null;
         $this->container['adjustmentReferenceId'] = isset($data['adjustmentReferenceId']) ? $data['adjustmentReferenceId'] : null;
+        $this->container['rewardId'] = isset($data['rewardId']) ? $data['rewardId'] : null;
     }
 
     /**
@@ -690,6 +696,30 @@ class EffectEntity implements ModelInterface, ArrayAccess
     public function setAdjustmentReferenceId($adjustmentReferenceId)
     {
         $this->container['adjustmentReferenceId'] = $adjustmentReferenceId;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewardId
+     *
+     * @return int|null
+     */
+    public function getRewardId()
+    {
+        return $this->container['rewardId'];
+    }
+
+    /**
+     * Sets rewardId
+     *
+     * @param int|null $rewardId The ID of the reward that was being evaluated when this effect was triggered.
+     *
+     * @return $this
+     */
+    public function setRewardId($rewardId)
+    {
+        $this->container['rewardId'] = $rewardId;
 
         return $this;
     }

@@ -61,12 +61,16 @@ class IntegrationEventV3Response implements ModelInterface, ArrayAccess
         'customerProfile' => '\TalonOne\Client\Model\CustomerProfile',
         'loyalty' => '\TalonOne\Client\Model\Loyalty',
         'triggeredCampaigns' => '\TalonOne\Client\Model\Campaign[]',
+        'campaignEligibility' => '\TalonOne\Client\Model\CampaignEligibility[]',
         'effects' => '\TalonOne\Client\Model\Effect[]',
         'ruleFailureReasons' => '\TalonOne\Client\Model\RuleFailureReason[]',
         'createdCoupons' => '\TalonOne\Client\Model\Coupon[]',
         'createdReferrals' => '\TalonOne\Client\Model\Referral[]',
         'awardedGiveaways' => '\TalonOne\Client\Model\Giveaway[]',
-        'advancedEvent' => '\TalonOne\Client\Model\EventV3'
+        'achievements' => '\TalonOne\Client\Model\CustomerAchievement[]',
+        'rewards' => '\TalonOne\Client\Model\RewardWithUnlocks[]',
+        'advancedEvent' => '\TalonOne\Client\Model\EventV3',
+        'referral' => '\TalonOne\Client\Model\InventoryReferral'
     ];
 
     /**
@@ -78,12 +82,16 @@ class IntegrationEventV3Response implements ModelInterface, ArrayAccess
         'customerProfile' => null,
         'loyalty' => null,
         'triggeredCampaigns' => null,
+        'campaignEligibility' => null,
         'effects' => null,
         'ruleFailureReasons' => null,
         'createdCoupons' => null,
         'createdReferrals' => null,
         'awardedGiveaways' => null,
-        'advancedEvent' => null
+        'achievements' => null,
+        'rewards' => null,
+        'advancedEvent' => null,
+        'referral' => null
     ];
 
     /**
@@ -116,12 +124,16 @@ class IntegrationEventV3Response implements ModelInterface, ArrayAccess
         'customerProfile' => 'customerProfile',
         'loyalty' => 'loyalty',
         'triggeredCampaigns' => 'triggeredCampaigns',
+        'campaignEligibility' => 'campaignEligibility',
         'effects' => 'effects',
         'ruleFailureReasons' => 'ruleFailureReasons',
         'createdCoupons' => 'createdCoupons',
         'createdReferrals' => 'createdReferrals',
         'awardedGiveaways' => 'awardedGiveaways',
-        'advancedEvent' => 'advancedEvent'
+        'achievements' => 'achievements',
+        'rewards' => 'rewards',
+        'advancedEvent' => 'advancedEvent',
+        'referral' => 'referral'
     ];
 
     /**
@@ -133,12 +145,16 @@ class IntegrationEventV3Response implements ModelInterface, ArrayAccess
         'customerProfile' => 'setCustomerProfile',
         'loyalty' => 'setLoyalty',
         'triggeredCampaigns' => 'setTriggeredCampaigns',
+        'campaignEligibility' => 'setCampaignEligibility',
         'effects' => 'setEffects',
         'ruleFailureReasons' => 'setRuleFailureReasons',
         'createdCoupons' => 'setCreatedCoupons',
         'createdReferrals' => 'setCreatedReferrals',
         'awardedGiveaways' => 'setAwardedGiveaways',
-        'advancedEvent' => 'setAdvancedEvent'
+        'achievements' => 'setAchievements',
+        'rewards' => 'setRewards',
+        'advancedEvent' => 'setAdvancedEvent',
+        'referral' => 'setReferral'
     ];
 
     /**
@@ -150,12 +166,16 @@ class IntegrationEventV3Response implements ModelInterface, ArrayAccess
         'customerProfile' => 'getCustomerProfile',
         'loyalty' => 'getLoyalty',
         'triggeredCampaigns' => 'getTriggeredCampaigns',
+        'campaignEligibility' => 'getCampaignEligibility',
         'effects' => 'getEffects',
         'ruleFailureReasons' => 'getRuleFailureReasons',
         'createdCoupons' => 'getCreatedCoupons',
         'createdReferrals' => 'getCreatedReferrals',
         'awardedGiveaways' => 'getAwardedGiveaways',
-        'advancedEvent' => 'getAdvancedEvent'
+        'achievements' => 'getAchievements',
+        'rewards' => 'getRewards',
+        'advancedEvent' => 'getAdvancedEvent',
+        'referral' => 'getReferral'
     ];
 
     /**
@@ -221,12 +241,16 @@ class IntegrationEventV3Response implements ModelInterface, ArrayAccess
         $this->container['customerProfile'] = isset($data['customerProfile']) ? $data['customerProfile'] : null;
         $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
         $this->container['triggeredCampaigns'] = isset($data['triggeredCampaigns']) ? $data['triggeredCampaigns'] : null;
+        $this->container['campaignEligibility'] = isset($data['campaignEligibility']) ? $data['campaignEligibility'] : null;
         $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
         $this->container['ruleFailureReasons'] = isset($data['ruleFailureReasons']) ? $data['ruleFailureReasons'] : null;
         $this->container['createdCoupons'] = isset($data['createdCoupons']) ? $data['createdCoupons'] : null;
         $this->container['createdReferrals'] = isset($data['createdReferrals']) ? $data['createdReferrals'] : null;
         $this->container['awardedGiveaways'] = isset($data['awardedGiveaways']) ? $data['awardedGiveaways'] : null;
+        $this->container['achievements'] = isset($data['achievements']) ? $data['achievements'] : null;
+        $this->container['rewards'] = isset($data['rewards']) ? $data['rewards'] : null;
         $this->container['advancedEvent'] = isset($data['advancedEvent']) ? $data['advancedEvent'] : null;
+        $this->container['referral'] = isset($data['referral']) ? $data['referral'] : null;
     }
 
     /**
@@ -330,6 +354,30 @@ class IntegrationEventV3Response implements ModelInterface, ArrayAccess
     public function setTriggeredCampaigns($triggeredCampaigns)
     {
         $this->container['triggeredCampaigns'] = $triggeredCampaigns;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignEligibility
+     *
+     * @return \TalonOne\Client\Model\CampaignEligibility[]|null
+     */
+    public function getCampaignEligibility()
+    {
+        return $this->container['campaignEligibility'];
+    }
+
+    /**
+     * Sets campaignEligibility
+     *
+     * @param \TalonOne\Client\Model\CampaignEligibility[]|null $campaignEligibility A list of campaigns and their evaluation status for the current customer session.  **Note**:  - This response can **only** be included if the `dry` parameter in the query is set to `true`.  - Do not include `triggeredCampaigns` or `ruleFailureReasons` in `responseContent` to avoid duplicate results.
+     *
+     * @return $this
+     */
+    public function setCampaignEligibility($campaignEligibility)
+    {
+        $this->container['campaignEligibility'] = $campaignEligibility;
 
         return $this;
     }
@@ -455,6 +503,54 @@ class IntegrationEventV3Response implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets achievements
+     *
+     * @return \TalonOne\Client\Model\CustomerAchievement[]|null
+     */
+    public function getAchievements()
+    {
+        return $this->container['achievements'];
+    }
+
+    /**
+     * Sets achievements
+     *
+     * @param \TalonOne\Client\Model\CustomerAchievement[]|null $achievements The achievements progress of the customer.
+     *
+     * @return $this
+     */
+    public function setAchievements($achievements)
+    {
+        $this->container['achievements'] = $achievements;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewards
+     *
+     * @return \TalonOne\Client\Model\RewardWithUnlocks[]|null
+     */
+    public function getRewards()
+    {
+        return $this->container['rewards'];
+    }
+
+    /**
+     * Sets rewards
+     *
+     * @param \TalonOne\Client\Model\RewardWithUnlocks[]|null $rewards The rewards for the customer profile.
+     *
+     * @return $this
+     */
+    public function setRewards($rewards)
+    {
+        $this->container['rewards'] = $rewards;
+
+        return $this;
+    }
+
+    /**
      * Gets advancedEvent
      *
      * @return \TalonOne\Client\Model\EventV3|null
@@ -474,6 +570,30 @@ class IntegrationEventV3Response implements ModelInterface, ArrayAccess
     public function setAdvancedEvent($advancedEvent)
     {
         $this->container['advancedEvent'] = $advancedEvent;
+
+        return $this;
+    }
+
+    /**
+     * Gets referral
+     *
+     * @return \TalonOne\Client\Model\InventoryReferral|null
+     */
+    public function getReferral()
+    {
+        return $this->container['referral'];
+    }
+
+    /**
+     * Sets referral
+     *
+     * @param \TalonOne\Client\Model\InventoryReferral|null $referral referral
+     *
+     * @return $this
+     */
+    public function setReferral($referral)
+    {
+        $this->container['referral'] = $referral;
 
         return $this;
     }

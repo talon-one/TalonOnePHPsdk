@@ -63,6 +63,7 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         'profileId' => 'int',
         'storeId' => 'int',
         'storeIntegrationId' => 'string',
+        'integrationId' => 'string',
         'sessionId' => 'int',
         'type' => 'string',
         'attributes' => 'object',
@@ -82,6 +83,7 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         'profileId' => 'int64',
         'storeId' => 'int64',
         'storeIntegrationId' => null,
+        'integrationId' => null,
         'sessionId' => 'int64',
         'type' => null,
         'attributes' => null,
@@ -122,6 +124,7 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         'profileId' => 'profileId',
         'storeId' => 'storeId',
         'storeIntegrationId' => 'storeIntegrationId',
+        'integrationId' => 'integrationId',
         'sessionId' => 'sessionId',
         'type' => 'type',
         'attributes' => 'attributes',
@@ -141,6 +144,7 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         'profileId' => 'setProfileId',
         'storeId' => 'setStoreId',
         'storeIntegrationId' => 'setStoreIntegrationId',
+        'integrationId' => 'setIntegrationId',
         'sessionId' => 'setSessionId',
         'type' => 'setType',
         'attributes' => 'setAttributes',
@@ -160,6 +164,7 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         'profileId' => 'getProfileId',
         'storeId' => 'getStoreId',
         'storeIntegrationId' => 'getStoreIntegrationId',
+        'integrationId' => 'getIntegrationId',
         'sessionId' => 'getSessionId',
         'type' => 'getType',
         'attributes' => 'getAttributes',
@@ -233,6 +238,7 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
         $this->container['storeId'] = isset($data['storeId']) ? $data['storeId'] : null;
         $this->container['storeIntegrationId'] = isset($data['storeIntegrationId']) ? $data['storeIntegrationId'] : null;
+        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['sessionId'] = isset($data['sessionId']) ? $data['sessionId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
@@ -264,6 +270,10 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['storeIntegrationId']) && (mb_strlen($this->container['storeIntegrationId']) < 1)) {
             $invalidProperties[] = "invalid value for 'storeIntegrationId', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['integrationId']) && (mb_strlen($this->container['integrationId']) < 1)) {
+            $invalidProperties[] = "invalid value for 'integrationId', the character length must be bigger than or equal to 1.";
         }
 
         if ($this->container['type'] === null) {
@@ -442,6 +452,35 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets integrationId
+     *
+     * @return string|null
+     */
+    public function getIntegrationId()
+    {
+        return $this->container['integrationId'];
+    }
+
+    /**
+     * Sets integrationId
+     *
+     * @param string|null $integrationId The unique ID of the event. Only one event with this ID can be registered.
+     *
+     * @return $this
+     */
+    public function setIntegrationId($integrationId)
+    {
+
+        if (!is_null($integrationId) && (mb_strlen($integrationId) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $integrationId when calling ApplicationEvent., must be bigger than or equal to 1.');
+        }
+
+        $this->container['integrationId'] = $integrationId;
+
+        return $this;
+    }
+
+    /**
      * Gets sessionId
      *
      * @return int|null
@@ -478,7 +517,7 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type A string representing the event. Must not be a reserved event name.
+     * @param string $type The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
      *
      * @return $this
      */

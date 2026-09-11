@@ -58,7 +58,8 @@ class RoleV2Permissions implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'permissionSets' => '\TalonOne\Client\Model\RoleV2PermissionSet[]',
-        'roles' => '\TalonOne\Client\Model\RoleV2RolesGroup'
+        'roles' => '\TalonOne\Client\Model\RoleV2RolesGroup',
+        'thresholds' => '\TalonOne\Client\Model\RolesV2Thresholds[]'
     ];
 
     /**
@@ -68,7 +69,8 @@ class RoleV2Permissions implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'permissionSets' => null,
-        'roles' => null
+        'roles' => null,
+        'thresholds' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class RoleV2Permissions implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'permissionSets' => 'permissionSets',
-        'roles' => 'roles'
+        'roles' => 'roles',
+        'thresholds' => 'thresholds'
     ];
 
     /**
@@ -109,7 +112,8 @@ class RoleV2Permissions implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'permissionSets' => 'setPermissionSets',
-        'roles' => 'setRoles'
+        'roles' => 'setRoles',
+        'thresholds' => 'setThresholds'
     ];
 
     /**
@@ -119,7 +123,8 @@ class RoleV2Permissions implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'permissionSets' => 'getPermissionSets',
-        'roles' => 'getRoles'
+        'roles' => 'getRoles',
+        'thresholds' => 'getThresholds'
     ];
 
     /**
@@ -184,6 +189,7 @@ class RoleV2Permissions implements ModelInterface, ArrayAccess
     {
         $this->container['permissionSets'] = isset($data['permissionSets']) ? $data['permissionSets'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
+        $this->container['thresholds'] = isset($data['thresholds']) ? $data['thresholds'] : null;
     }
 
     /**
@@ -254,6 +260,30 @@ class RoleV2Permissions implements ModelInterface, ArrayAccess
     public function setRoles($roles)
     {
         $this->container['roles'] = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Gets thresholds
+     *
+     * @return \TalonOne\Client\Model\RolesV2Thresholds[]|null
+     */
+    public function getThresholds()
+    {
+        return $this->container['thresholds'];
+    }
+
+    /**
+     * Sets thresholds
+     *
+     * @param \TalonOne\Client\Model\RolesV2Thresholds[]|null $thresholds Support user limits for actions that require admin approval within the given application.
+     *
+     * @return $this
+     */
+    public function setThresholds($thresholds)
+    {
+        $this->container['thresholds'] = $thresholds;
 
         return $this;
     }

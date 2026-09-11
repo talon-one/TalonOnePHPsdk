@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * RejectCouponEffectPropsTest Class Doc Comment
  *
  * @category    Class
- * @description The properties specific to the \&quot;rejectCoupon\&quot; effect. This gets triggered whenever the coupon was rejected. See rejectionReason for more info on why.
+ * @description This effect indicates that the coupon code supplied couldn&#39;t be used.  You should handle this effect by informing their user the coupon code is invalid.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -79,13 +79,6 @@ class InlineResponse20051Test extends TestCase
     }
 
     /**
-     * Test attribute "hasMore"
-     */
-    public function testPropertyHasMore()
-    {
-    }
-
-    /**
      * Test attribute "data"
      */
     public function testPropertyData()

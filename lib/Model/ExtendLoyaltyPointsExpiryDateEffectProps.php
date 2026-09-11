@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * ExtendLoyaltyPointsExpiryDateEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;extendLoyaltyPointsExpiryDate\&quot; effect. This gets triggered when a validated rule contains the \&quot;extend expiry date\&quot; effect. The current expiry date gets extended by the time frame given in the effect.
+ * @description If loyalty points have an expiry date, this effect extends the expiry of all active and pending point transactions by a selected duration.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -269,7 +269,7 @@ class ExtendLoyaltyPointsExpiryDateEffectProps implements ModelInterface, ArrayA
     /**
      * Sets subLedgerId
      *
-     * @param string $subLedgerId API name of the loyalty program subledger that contains these points. added.
+     * @param string $subLedgerId API name of the loyalty program subledger that contains these points.
      *
      * @return $this
      */

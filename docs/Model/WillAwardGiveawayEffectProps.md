@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**poolId** | **int** | The ID of the giveaways pool the code will be taken from. | 
-**poolName** | **string** | The name of the giveaways pool the code will be taken from. | 
-**recipientIntegrationId** | **string** | The integration ID of the profile that will be awarded the giveaway. | 
+**poolId** | **int** | The internal ID of the giveaway pool. | 
+**poolName** | **string** | The name of the giveaway pool. | 
+**recipientIntegrationId** | **string** | The integration ID of the customer that receives the giveaway. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -133,6 +133,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for createAchievementV2
+     *
+     * Create achievement.
+     *
+     */
+    public function testCreateAchievementV2()
+    {
+    }
+
+    /**
      * Test case for createAdditionalCost
      *
      * Create additional cost.
@@ -263,6 +273,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for createRulesetV2
+     *
+     * Create ruleset (V2).
+     *
+     */
+    public function testCreateRulesetV2()
+    {
+    }
+
+    /**
      * Test case for createSession
      *
      * Create session.
@@ -319,6 +339,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testDeleteAchievement()
+    {
+    }
+
+    /**
+     * Test case for deleteAchievementV2
+     *
+     * Delete achievement.
+     *
+     */
+    public function testDeleteAchievementV2()
     {
     }
 
@@ -443,12 +473,32 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for excludePriceHistory
+     *
+     * Exclude price records from price history.
+     *
+     */
+    public function testExcludePriceHistory()
+    {
+    }
+
+    /**
      * Test case for exportAccountCollectionItems
      *
      * Export account-level collection's items.
      *
      */
     public function testExportAccountCollectionItems()
+    {
+    }
+
+    /**
+     * Test case for exportAchievementV2
+     *
+     * Export achievement customer data.
+     *
+     */
+    public function testExportAchievementV2()
     {
     }
 
@@ -713,6 +763,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for getAchievementV2
+     *
+     * Get achievement.
+     *
+     */
+    public function testGetAchievementV2()
+    {
+    }
+
+    /**
      * Test case for getAdditionalCost
      *
      * Get additional cost.
@@ -839,6 +899,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testGetApplicationSessions()
+    {
+    }
+
+    /**
+     * Test case for getApplicationSessionsByCustomerAttributes
+     *
+     * List Application sessions matching the given customer attributes.
+     *
+     */
+    public function testGetApplicationSessionsByCustomerAttributes()
     {
     }
 
@@ -1135,7 +1205,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getLoyaltyCardTransactionLogs
      *
-     * List card's transactions.
+     * List card's transactions (Management API).
      *
      */
     public function testGetLoyaltyCardTransactionLogs()
@@ -1155,7 +1225,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getLoyaltyLedgerBalances
      *
-     * Get customer's loyalty balances.
+     * Get customer's loyalty balances (Management API).
      *
      */
     public function testGetLoyaltyLedgerBalances()
@@ -1185,7 +1255,7 @@ class ManagementApiTest extends TestCase
     /**
      * Test case for getLoyaltyProgramProfileLedgerTransactions
      *
-     * List customer's loyalty transactions.
+     * List customer's loyalty transactions (Management API).
      *
      */
     public function testGetLoyaltyProgramProfileLedgerTransactions()
@@ -1259,6 +1329,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testGetRuleset()
+    {
+    }
+
+    /**
+     * Test case for getRulesetV2
+     *
+     * Get ruleset (V2).
+     *
+     */
+    public function testGetRulesetV2()
     {
     }
 
@@ -1413,6 +1493,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for importLoyaltyJoinDates
+     *
+     * Import join dates for a loyalty program.
+     *
+     */
+    public function testImportLoyaltyJoinDates()
+    {
+    }
+
+    /**
      * Test case for importLoyaltyPoints
      *
      * Import loyalty points.
@@ -1469,6 +1559,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testListAchievements()
+    {
+    }
+
+    /**
+     * Test case for listAchievementsV2
+     *
+     * List achievements.
+     *
+     */
+    public function testListAchievementsV2()
     {
     }
 
@@ -1799,6 +1899,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testUpdateAchievement()
+    {
+    }
+
+    /**
+     * Test case for updateAchievementV2
+     *
+     * Update achievement.
+     *
+     */
+    public function testUpdateAchievementV2()
     {
     }
 

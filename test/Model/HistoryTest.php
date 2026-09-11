@@ -93,9 +93,9 @@ class HistoryTest extends TestCase
     }
 
     /**
-     * Test attribute "contextId"
+     * Test attribute "contextIds"
      */
-    public function testPropertyContextId()
+    public function testPropertyContextIds()
     {
     }
 
@@ -117,6 +117,20 @@ class HistoryTest extends TestCase
      * Test attribute "target"
      */
     public function testPropertyTarget()
+    {
+    }
+
+    /**
+     * Test attribute "excludedAt"
+     */
+    public function testPropertyExcludedAt()
+    {
+    }
+
+    /**
+     * Test attribute "exclusionReason"
+     */
+    public function testPropertyExclusionReason()
     {
     }
 }

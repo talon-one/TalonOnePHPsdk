@@ -189,4 +189,11 @@ class EffectEntityTest extends TestCase
     public function testPropertyAdjustmentReferenceId()
     {
     }
+
+    /**
+     * Test attribute "rewardId"
+     */
+    public function testPropertyRewardId()
+    {
+    }
 }

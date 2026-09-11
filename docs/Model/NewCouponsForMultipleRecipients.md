@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **reservationLimit** | **int** | The number of reservations that can be made with this coupon code. | [optional] 
 **startDate** | [**\DateTime**](\DateTime.md) | Timestamp at which point the coupon becomes valid. | [optional] 
 **expiryDate** | [**\DateTime**](\DateTime.md) | Expiration date of the coupon. Coupon never expires if this is omitted. | [optional] 
+**batchId** | **string** | The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically. | [optional] 
 **attributes** | [**object**](.md) | Arbitrary properties associated with this item. | [optional] 
 **recipientsIntegrationIds** | **string[]** | The integration IDs for recipients. | 
 **validCharacters** | **string[]** | List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression. | [optional] 

@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * RollbackReferralEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;rollbackReferral\&quot; effect. This gets triggered whenever previously closed session is now cancelled and a referral redemption was cancelled on our internal usage limit counters.
+ * @description This effect indicates that the redemption of the referral code has been rolled back. It triggers when a closed session that redeemed a referral is gets cancelled. The code becomes redeemable again.  For more information about session states, see [Managing states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states).
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -221,7 +221,7 @@ class RollbackReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The referral code whose usage has been rolled back.
+     * @param string $value The referral code to be rolled back.
      *
      * @return $this
      */

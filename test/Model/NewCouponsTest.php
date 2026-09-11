@@ -128,6 +128,13 @@ class NewCouponsTest extends TestCase
     }
 
     /**
+     * Test attribute "batchId"
+     */
+    public function testPropertyBatchId()
+    {
+    }
+
+    /**
      * Test attribute "uniquePrefix"
      */
     public function testPropertyUniquePrefix()
@@ -173,6 +180,20 @@ class NewCouponsTest extends TestCase
      * Test attribute "implicitlyReserved"
      */
     public function testPropertyImplicitlyReserved()
+    {
+    }
+
+    /**
+     * Test attribute "supportRequestId"
+     */
+    public function testPropertySupportRequestId()
+    {
+    }
+
+    /**
+     * Test attribute "supportRequestNote"
+     */
+    public function testPropertySupportRequestNote()
     {
     }
 }

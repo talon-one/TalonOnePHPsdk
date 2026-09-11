@@ -78,6 +78,7 @@ class Application implements ModelInterface, ArrayAccess
         'defaultEvaluationGroupId' => 'int',
         'defaultCartItemFilterId' => 'int',
         'enableCampaignStateManagement' => 'bool',
+        'bestPriorPriceSettings' => '\TalonOne\Client\Model\BestPriorPriceSettings',
         'loyaltyPrograms' => '\TalonOne\Client\Model\LoyaltyProgram[]'
     ];
 
@@ -108,6 +109,7 @@ class Application implements ModelInterface, ArrayAccess
         'defaultEvaluationGroupId' => 'int64',
         'defaultCartItemFilterId' => 'int64',
         'enableCampaignStateManagement' => null,
+        'bestPriorPriceSettings' => null,
         'loyaltyPrograms' => null
     ];
 
@@ -159,6 +161,7 @@ class Application implements ModelInterface, ArrayAccess
         'defaultEvaluationGroupId' => 'defaultEvaluationGroupId',
         'defaultCartItemFilterId' => 'defaultCartItemFilterId',
         'enableCampaignStateManagement' => 'enableCampaignStateManagement',
+        'bestPriorPriceSettings' => 'bestPriorPriceSettings',
         'loyaltyPrograms' => 'loyaltyPrograms'
     ];
 
@@ -189,6 +192,7 @@ class Application implements ModelInterface, ArrayAccess
         'defaultEvaluationGroupId' => 'setDefaultEvaluationGroupId',
         'defaultCartItemFilterId' => 'setDefaultCartItemFilterId',
         'enableCampaignStateManagement' => 'setEnableCampaignStateManagement',
+        'bestPriorPriceSettings' => 'setBestPriorPriceSettings',
         'loyaltyPrograms' => 'setLoyaltyPrograms'
     ];
 
@@ -219,6 +223,7 @@ class Application implements ModelInterface, ArrayAccess
         'defaultEvaluationGroupId' => 'getDefaultEvaluationGroupId',
         'defaultCartItemFilterId' => 'getDefaultCartItemFilterId',
         'enableCampaignStateManagement' => 'getEnableCampaignStateManagement',
+        'bestPriorPriceSettings' => 'getBestPriorPriceSettings',
         'loyaltyPrograms' => 'getLoyaltyPrograms'
     ];
 
@@ -354,6 +359,7 @@ class Application implements ModelInterface, ArrayAccess
         $this->container['defaultEvaluationGroupId'] = isset($data['defaultEvaluationGroupId']) ? $data['defaultEvaluationGroupId'] : null;
         $this->container['defaultCartItemFilterId'] = isset($data['defaultCartItemFilterId']) ? $data['defaultCartItemFilterId'] : null;
         $this->container['enableCampaignStateManagement'] = isset($data['enableCampaignStateManagement']) ? $data['enableCampaignStateManagement'] : null;
+        $this->container['bestPriorPriceSettings'] = isset($data['bestPriorPriceSettings']) ? $data['bestPriorPriceSettings'] : null;
         $this->container['loyaltyPrograms'] = isset($data['loyaltyPrograms']) ? $data['loyaltyPrograms'] : null;
     }
 
@@ -983,6 +989,30 @@ class Application implements ModelInterface, ArrayAccess
     public function setEnableCampaignStateManagement($enableCampaignStateManagement)
     {
         $this->container['enableCampaignStateManagement'] = $enableCampaignStateManagement;
+
+        return $this;
+    }
+
+    /**
+     * Gets bestPriorPriceSettings
+     *
+     * @return \TalonOne\Client\Model\BestPriorPriceSettings|null
+     */
+    public function getBestPriorPriceSettings()
+    {
+        return $this->container['bestPriorPriceSettings'];
+    }
+
+    /**
+     * Sets bestPriorPriceSettings
+     *
+     * @param \TalonOne\Client\Model\BestPriorPriceSettings|null $bestPriorPriceSettings bestPriorPriceSettings
+     *
+     * @return $this
+     */
+    public function setBestPriorPriceSettings($bestPriorPriceSettings)
+    {
+        $this->container['bestPriorPriceSettings'] = $bestPriorPriceSettings;
 
         return $this;
     }

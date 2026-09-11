@@ -105,4 +105,18 @@ class AchievementReferenceTest extends TestCase
     public function testPropertyCampaignId()
     {
     }
+
+    /**
+     * Test attribute "campaignName"
+     */
+    public function testPropertyCampaignName()
+    {
+    }
+
+    /**
+     * Test attribute "campaignState"
+     */
+    public function testPropertyCampaignState()
+    {
+    }
 }

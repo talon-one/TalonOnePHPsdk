@@ -93,6 +93,13 @@ class AchievementAdditionalPropertiesV2Test extends TestCase
     }
 
     /**
+     * Test attribute "periodEndOverride"
+     */
+    public function testPropertyPeriodEndOverride()
+    {
+    }
+
+    /**
      * Test attribute "hasProgress"
      */
     public function testPropertyHasProgress()

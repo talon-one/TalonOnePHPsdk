@@ -57,6 +57,7 @@ class RolesV2Thresholds implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'loyaltyProgramId' => 'int',
         'loyaltyPointsLimit' => 'int'
     ];
 
@@ -66,6 +67,7 @@ class RolesV2Thresholds implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'loyaltyProgramId' => 'int64',
         'loyaltyPointsLimit' => 'int64'
     ];
 
@@ -96,6 +98,7 @@ class RolesV2Thresholds implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'loyaltyProgramId' => 'loyaltyProgramId',
         'loyaltyPointsLimit' => 'loyaltyPointsLimit'
     ];
 
@@ -105,6 +108,7 @@ class RolesV2Thresholds implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'loyaltyProgramId' => 'setLoyaltyProgramId',
         'loyaltyPointsLimit' => 'setLoyaltyPointsLimit'
     ];
 
@@ -114,6 +118,7 @@ class RolesV2Thresholds implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'loyaltyProgramId' => 'getLoyaltyProgramId',
         'loyaltyPointsLimit' => 'getLoyaltyPointsLimit'
     ];
 
@@ -177,6 +182,7 @@ class RolesV2Thresholds implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['loyaltyProgramId'] = isset($data['loyaltyProgramId']) ? $data['loyaltyProgramId'] : null;
         $this->container['loyaltyPointsLimit'] = isset($data['loyaltyPointsLimit']) ? $data['loyaltyPointsLimit'] : null;
     }
 
@@ -203,6 +209,30 @@ class RolesV2Thresholds implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets loyaltyProgramId
+     *
+     * @return int|null
+     */
+    public function getLoyaltyProgramId()
+    {
+        return $this->container['loyaltyProgramId'];
+    }
+
+    /**
+     * Sets loyaltyProgramId
+     *
+     * @param int|null $loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
+     *
+     * @return $this
+     */
+    public function setLoyaltyProgramId($loyaltyProgramId)
+    {
+        $this->container['loyaltyProgramId'] = $loyaltyProgramId;
+
+        return $this;
+    }
 
     /**
      * Gets loyaltyPointsLimit

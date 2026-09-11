@@ -149,23 +149,9 @@ class AchievementBaseV2Test extends TestCase
     }
 
     /**
-     * Test attribute "sandbox"
-     */
-    public function testPropertySandbox()
-    {
-    }
-
-    /**
      * Test attribute "subscribedApplications"
      */
     public function testPropertySubscribedApplications()
-    {
-    }
-
-    /**
-     * Test attribute "timezone"
-     */
-    public function testPropertyTimezone()
     {
     }
 }

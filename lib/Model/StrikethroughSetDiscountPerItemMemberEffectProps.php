@@ -230,7 +230,7 @@ class StrikethroughSetDiscountPerItemMemberEffectProps implements ModelInterface
     /**
      * Sets name
      *
-     * @param string $name effect name.
+     * @param string $name The effect name.
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class StrikethroughSetDiscountPerItemMemberEffectProps implements ModelInterface
     /**
      * Sets value
      *
-     * @param object $value discount value.
+     * @param object $value The discount value.
      *
      * @return $this
      */

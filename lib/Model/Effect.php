@@ -74,6 +74,7 @@ class Effect implements ModelInterface, ArrayAccess
         'selectedPriceType' => 'string',
         'selectedPrice' => 'float',
         'adjustmentReferenceId' => 'string',
+        'rewardId' => 'int',
         'props' => 'object'
     ];
 
@@ -99,6 +100,7 @@ class Effect implements ModelInterface, ArrayAccess
         'selectedPriceType' => null,
         'selectedPrice' => null,
         'adjustmentReferenceId' => 'uuid',
+        'rewardId' => 'int64',
         'props' => null
     ];
 
@@ -145,6 +147,7 @@ class Effect implements ModelInterface, ArrayAccess
         'selectedPriceType' => 'selectedPriceType',
         'selectedPrice' => 'selectedPrice',
         'adjustmentReferenceId' => 'adjustmentReferenceId',
+        'rewardId' => 'rewardId',
         'props' => 'props'
     ];
 
@@ -170,6 +173,7 @@ class Effect implements ModelInterface, ArrayAccess
         'selectedPriceType' => 'setSelectedPriceType',
         'selectedPrice' => 'setSelectedPrice',
         'adjustmentReferenceId' => 'setAdjustmentReferenceId',
+        'rewardId' => 'setRewardId',
         'props' => 'setProps'
     ];
 
@@ -195,6 +199,7 @@ class Effect implements ModelInterface, ArrayAccess
         'selectedPriceType' => 'getSelectedPriceType',
         'selectedPrice' => 'getSelectedPrice',
         'adjustmentReferenceId' => 'getAdjustmentReferenceId',
+        'rewardId' => 'getRewardId',
         'props' => 'getProps'
     ];
 
@@ -274,6 +279,7 @@ class Effect implements ModelInterface, ArrayAccess
         $this->container['selectedPriceType'] = isset($data['selectedPriceType']) ? $data['selectedPriceType'] : null;
         $this->container['selectedPrice'] = isset($data['selectedPrice']) ? $data['selectedPrice'] : null;
         $this->container['adjustmentReferenceId'] = isset($data['adjustmentReferenceId']) ? $data['adjustmentReferenceId'] : null;
+        $this->container['rewardId'] = isset($data['rewardId']) ? $data['rewardId'] : null;
         $this->container['props'] = isset($data['props']) ? $data['props'] : null;
     }
 
@@ -699,6 +705,30 @@ class Effect implements ModelInterface, ArrayAccess
     public function setAdjustmentReferenceId($adjustmentReferenceId)
     {
         $this->container['adjustmentReferenceId'] = $adjustmentReferenceId;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewardId
+     *
+     * @return int|null
+     */
+    public function getRewardId()
+    {
+        return $this->container['rewardId'];
+    }
+
+    /**
+     * Sets rewardId
+     *
+     * @param int|null $rewardId The ID of the reward that was being evaluated when this effect was triggered.
+     *
+     * @return $this
+     */
+    public function setRewardId($rewardId)
+    {
+        $this->container['rewardId'] = $rewardId;
 
         return $this;
     }

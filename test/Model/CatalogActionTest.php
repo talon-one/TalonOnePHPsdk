@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CatalogActionTest Class Doc Comment
  *
  * @category    Class
- * @description Definition of all the properties that are needed for a single catalog sync action.
+ * @description Definition of all the properties that are needed for a single catalog sync action. The &#x60;type&#x60; field selects the concrete action variant.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

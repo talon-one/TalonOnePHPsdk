@@ -60,7 +60,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
         'id' => 'int',
         'sku' => 'string',
         'observedAt' => '\DateTime',
-        'contextId' => 'string',
+        'contextIds' => 'string[]',
         'price' => 'float',
         'metadata' => '\TalonOne\Client\Model\BestPriorPriceMetadata',
         'target' => 'object'
@@ -75,7 +75,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
         'id' => 'int64',
         'sku' => null,
         'observedAt' => 'date-time',
-        'contextId' => null,
+        'contextIds' => null,
         'price' => null,
         'metadata' => null,
         'target' => null
@@ -111,7 +111,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
         'id' => 'id',
         'sku' => 'sku',
         'observedAt' => 'observedAt',
-        'contextId' => 'contextId',
+        'contextIds' => 'contextIds',
         'price' => 'price',
         'metadata' => 'metadata',
         'target' => 'target'
@@ -126,7 +126,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'sku' => 'setSku',
         'observedAt' => 'setObservedAt',
-        'contextId' => 'setContextId',
+        'contextIds' => 'setContextIds',
         'price' => 'setPrice',
         'metadata' => 'setMetadata',
         'target' => 'setTarget'
@@ -141,7 +141,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'sku' => 'getSku',
         'observedAt' => 'getObservedAt',
-        'contextId' => 'getContextId',
+        'contextIds' => 'getContextIds',
         'price' => 'getPrice',
         'metadata' => 'getMetadata',
         'target' => 'getTarget'
@@ -210,7 +210,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
         $this->container['observedAt'] = isset($data['observedAt']) ? $data['observedAt'] : null;
-        $this->container['contextId'] = isset($data['contextId']) ? $data['contextId'] : null;
+        $this->container['contextIds'] = isset($data['contextIds']) ? $data['contextIds'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['target'] = isset($data['target']) ? $data['target'] : null;
@@ -234,8 +234,8 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
         if ($this->container['observedAt'] === null) {
             $invalidProperties[] = "'observedAt' can't be null";
         }
-        if ($this->container['contextId'] === null) {
-            $invalidProperties[] = "'contextId' can't be null";
+        if ($this->container['contextIds'] === null) {
+            $invalidProperties[] = "'contextIds' can't be null";
         }
         if ($this->container['price'] === null) {
             $invalidProperties[] = "'price' can't be null";
@@ -334,25 +334,25 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets contextId
+     * Gets contextIds
      *
-     * @return string
+     * @return string[]
      */
-    public function getContextId()
+    public function getContextIds()
     {
-        return $this->container['contextId'];
+        return $this->container['contextIds'];
     }
 
     /**
-     * Sets contextId
+     * Sets contextIds
      *
-     * @param string $contextId The context ID of the context active at the time of observation.
+     * @param string[] $contextIds The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.
      *
      * @return $this
      */
-    public function setContextId($contextId)
+    public function setContextIds($contextIds)
     {
-        $this->container['contextId'] = $contextId;
+        $this->container['contextIds'] = $contextIds;
 
         return $this;
     }

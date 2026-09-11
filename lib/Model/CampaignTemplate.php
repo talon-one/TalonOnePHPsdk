@@ -302,6 +302,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
     const FEATURES_GIVEAWAYS = 'giveaways';
     const FEATURES_STRIKETHROUGH = 'strikethrough';
     const FEATURES_ACHIEVEMENTS = 'achievements';
+    const FEATURES_ADVANCED_EVENTS = 'advancedEvents';
     const CAMPAIGN_TYPE_CART_ITEM = 'cartItem';
     const CAMPAIGN_TYPE_ADVANCED = 'advanced';
     
@@ -335,6 +336,7 @@ class CampaignTemplate implements ModelInterface, ArrayAccess
             self::FEATURES_GIVEAWAYS,
             self::FEATURES_STRIKETHROUGH,
             self::FEATURES_ACHIEVEMENTS,
+            self::FEATURES_ADVANCED_EVENTS,
         ];
     }
     

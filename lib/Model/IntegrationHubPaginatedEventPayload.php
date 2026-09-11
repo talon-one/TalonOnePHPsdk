@@ -59,7 +59,7 @@ class IntegrationHubPaginatedEventPayload implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
         'batchedAt' => '\DateTime',
-        'eventType' => 'string',
+        'eventType' => '\TalonOne\Client\Model\IntegrationHubEventType',
         'data' => 'object[]'
     ];
 
@@ -173,31 +173,8 @@ class IntegrationHubPaginatedEventPayload implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const EVENT_TYPE_LOYALTY_POINTS_CHANGED = 'LoyaltyPointsChanged';
-    const EVENT_TYPE_LOYALTY_TIER_DOWNGRADE = 'LoyaltyTierDowngrade';
-    const EVENT_TYPE_LOYALTY_TIER_UPGRADE = 'LoyaltyTierUpgrade';
-    const EVENT_TYPE_COUPON_CREATED = 'CouponCreated';
-    const EVENT_TYPE_COUPON_UPDATED = 'CouponUpdated';
-    const EVENT_TYPE_COUPON_DELETED = 'CouponDeleted';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getEventTypeAllowableValues()
-    {
-        return [
-            self::EVENT_TYPE_LOYALTY_POINTS_CHANGED,
-            self::EVENT_TYPE_LOYALTY_TIER_DOWNGRADE,
-            self::EVENT_TYPE_LOYALTY_TIER_UPGRADE,
-            self::EVENT_TYPE_COUPON_CREATED,
-            self::EVENT_TYPE_COUPON_UPDATED,
-            self::EVENT_TYPE_COUPON_DELETED,
-        ];
-    }
     
 
     /**
@@ -236,14 +213,6 @@ class IntegrationHubPaginatedEventPayload implements ModelInterface, ArrayAccess
         if ($this->container['eventType'] === null) {
             $invalidProperties[] = "'eventType' can't be null";
         }
-        $allowedValues = $this->getEventTypeAllowableValues();
-        if (!is_null($this->container['eventType']) && !in_array($this->container['eventType'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'eventType', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
@@ -313,7 +282,7 @@ class IntegrationHubPaginatedEventPayload implements ModelInterface, ArrayAccess
     /**
      * Gets eventType
      *
-     * @return string
+     * @return \TalonOne\Client\Model\IntegrationHubEventType
      */
     public function getEventType()
     {
@@ -323,21 +292,12 @@ class IntegrationHubPaginatedEventPayload implements ModelInterface, ArrayAccess
     /**
      * Sets eventType
      *
-     * @param string $eventType eventType
+     * @param \TalonOne\Client\Model\IntegrationHubEventType $eventType eventType
      *
      * @return $this
      */
     public function setEventType($eventType)
     {
-        $allowedValues = $this->getEventTypeAllowableValues();
-        if (!in_array($eventType, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'eventType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['eventType'] = $eventType;
 
         return $this;

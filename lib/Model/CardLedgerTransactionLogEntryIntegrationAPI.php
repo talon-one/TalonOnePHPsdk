@@ -765,7 +765,7 @@ class CardLedgerTransactionLogEntryIntegrationAPI implements ModelInterface, Arr
     /**
      * Sets validityDuration
      *
-     * @param string|null $validityDuration The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.
+     * @param string|null $validityDuration The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.
      *
      * @return $this
      */

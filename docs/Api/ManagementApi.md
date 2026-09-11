@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**copyCampaignToApplications**](ManagementApi.md#copyCampaignToApplications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into the specified Application
 [**createAccountCollection**](ManagementApi.md#createAccountCollection) | **POST** /v1/collections | Create account-level collection
 [**createAchievement**](ManagementApi.md#createAchievement) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | Create achievement
+[**createAchievementV2**](ManagementApi.md#createAchievementV2) | **POST** /v2/achievements | Create achievement
 [**createAdditionalCost**](ManagementApi.md#createAdditionalCost) | **POST** /v1/additional_costs | Create additional cost
 [**createAttribute**](ManagementApi.md#createAttribute) | **POST** /v1/attributes | Create custom attribute
 [**createBatchLoyaltyCards**](ManagementApi.md#createBatchLoyaltyCards) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/cards/batch | Create loyalty cards
@@ -23,12 +24,14 @@ Method | HTTP request | Description
 [**createInviteEmail**](ManagementApi.md#createInviteEmail) | **POST** /v1/invite_emails | Resend invitation email
 [**createInviteV2**](ManagementApi.md#createInviteV2) | **POST** /v2/invites | Invite user
 [**createPasswordRecoveryEmail**](ManagementApi.md#createPasswordRecoveryEmail) | **POST** /v1/password_recovery_emails | Request a password reset
+[**createRulesetV2**](ManagementApi.md#createRulesetV2) | **POST** /v2/applications/{applicationId}/campaigns/{campaignId}/rulesets | Create ruleset (V2)
 [**createSession**](ManagementApi.md#createSession) | **POST** /v1/sessions | Create session
 [**createStore**](ManagementApi.md#createStore) | **POST** /v1/applications/{applicationId}/stores | Create store
 [**deactivateUserByEmail**](ManagementApi.md#deactivateUserByEmail) | **POST** /v1/users/deactivate | Disable user by email address
 [**deductLoyaltyCardPoints**](ManagementApi.md#deductLoyaltyCardPoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/deduct_points | Deduct points from card
 [**deleteAccountCollection**](ManagementApi.md#deleteAccountCollection) | **DELETE** /v1/collections/{collectionId} | Delete account-level collection
 [**deleteAchievement**](ManagementApi.md#deleteAchievement) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Delete achievement
+[**deleteAchievementV2**](ManagementApi.md#deleteAchievementV2) | **DELETE** /v2/achievements/{achievementId} | Delete achievement
 [**deleteCampaign**](ManagementApi.md#deleteCampaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete campaign
 [**deleteCampaignStoreBudgets**](ManagementApi.md#deleteCampaignStoreBudgets) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets | Delete campaign store budgets
 [**deleteCollection**](ManagementApi.md#deleteCollection) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Delete campaign-level collection
@@ -41,7 +44,9 @@ Method | HTTP request | Description
 [**deleteUserByEmail**](ManagementApi.md#deleteUserByEmail) | **POST** /v1/users/delete | Delete user by email address
 [**destroySession**](ManagementApi.md#destroySession) | **DELETE** /v1/sessions | Destroy session
 [**disconnectCampaignStores**](ManagementApi.md#disconnectCampaignStores) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/stores | Disconnect stores
+[**excludePriceHistory**](ManagementApi.md#excludePriceHistory) | **POST** /v1/applications/{applicationId}/price_history/exclusions | Exclude price records from price history
 [**exportAccountCollectionItems**](ManagementApi.md#exportAccountCollectionItems) | **GET** /v1/collections/{collectionId}/export | Export account-level collection&#39;s items
+[**exportAchievementV2**](ManagementApi.md#exportAchievementV2) | **GET** /v2/achievements/{achievementId}/export | Export achievement customer data
 [**exportAchievements**](ManagementApi.md#exportAchievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}/export | Export achievement customer data
 [**exportApplicationCampaignAnalytics**](ManagementApi.md#exportApplicationCampaignAnalytics) | **GET** /v1/applications/{applicationId}/campaign_analytics/export | Export Application analytics aggregated by campaign
 [**exportAudiencesMemberships**](ManagementApi.md#exportAudiencesMemberships) | **GET** /v1/audiences/{audienceId}/memberships/export | Export audience members
@@ -68,6 +73,7 @@ Method | HTTP request | Description
 [**getAccountAnalytics**](ManagementApi.md#getAccountAnalytics) | **GET** /v1/accounts/{accountId}/analytics | Get account analytics
 [**getAccountCollection**](ManagementApi.md#getAccountCollection) | **GET** /v1/collections/{collectionId} | Get account-level collection
 [**getAchievement**](ManagementApi.md#getAchievement) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Get achievement
+[**getAchievementV2**](ManagementApi.md#getAchievementV2) | **GET** /v2/achievements/{achievementId} | Get achievement
 [**getAdditionalCost**](ManagementApi.md#getAdditionalCost) | **GET** /v1/additional_costs/{additionalCostId} | Get additional cost
 [**getAdditionalCosts**](ManagementApi.md#getAdditionalCosts) | **GET** /v1/additional_costs | List additional costs
 [**getApplication**](ManagementApi.md#getApplication) | **GET** /v1/applications/{applicationId} | Get Application
@@ -81,6 +87,7 @@ Method | HTTP request | Description
 [**getApplicationEventsWithoutTotalCount**](ManagementApi.md#getApplicationEventsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/events/no_total | List Applications events
 [**getApplicationSession**](ManagementApi.md#getApplicationSession) | **GET** /v1/applications/{applicationId}/sessions/{sessionId} | Get Application session
 [**getApplicationSessions**](ManagementApi.md#getApplicationSessions) | **GET** /v1/applications/{applicationId}/sessions | List Application sessions
+[**getApplicationSessionsByCustomerAttributes**](ManagementApi.md#getApplicationSessionsByCustomerAttributes) | **POST** /v1/applications/{applicationId}/sessions_search | List Application sessions matching the given customer attributes
 [**getApplications**](ManagementApi.md#getApplications) | **GET** /v1/applications | List Applications
 [**getAttribute**](ManagementApi.md#getAttribute) | **GET** /v1/attributes/{attributeId} | Get custom attribute
 [**getAttributes**](ManagementApi.md#getAttributes) | **GET** /v1/attributes | List custom attributes
@@ -110,12 +117,12 @@ Method | HTTP request | Description
 [**getExperiment**](ManagementApi.md#getExperiment) | **GET** /v1/applications/{applicationId}/experiments/{experimentId} | Get experiment in Application
 [**getExports**](ManagementApi.md#getExports) | **GET** /v1/exports | Get exports
 [**getLoyaltyCard**](ManagementApi.md#getLoyaltyCard) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Get loyalty card
-[**getLoyaltyCardTransactionLogs**](ManagementApi.md#getLoyaltyCardTransactionLogs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card&#39;s transactions
+[**getLoyaltyCardTransactionLogs**](ManagementApi.md#getLoyaltyCardTransactionLogs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card&#39;s transactions (Management API)
 [**getLoyaltyCards**](ManagementApi.md#getLoyaltyCards) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards | List loyalty cards
-[**getLoyaltyLedgerBalances**](ManagementApi.md#getLoyaltyLedgerBalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_balances | Get customer&#39;s loyalty balances
+[**getLoyaltyLedgerBalances**](ManagementApi.md#getLoyaltyLedgerBalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_balances | Get customer&#39;s loyalty balances (Management API)
 [**getLoyaltyPoints**](ManagementApi.md#getLoyaltyPoints) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId} | Get customer&#39;s full loyalty ledger
 [**getLoyaltyProgram**](ManagementApi.md#getLoyaltyProgram) | **GET** /v1/loyalty_programs/{loyaltyProgramId} | Get loyalty program
-[**getLoyaltyProgramProfileLedgerTransactions**](ManagementApi.md#getLoyaltyProgramProfileLedgerTransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_transactions | List customer&#39;s loyalty transactions
+[**getLoyaltyProgramProfileLedgerTransactions**](ManagementApi.md#getLoyaltyProgramProfileLedgerTransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_transactions | List customer&#39;s loyalty transactions (Management API)
 [**getLoyaltyProgramTransactions**](ManagementApi.md#getLoyaltyProgramTransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/transactions | List loyalty program transactions
 [**getLoyaltyPrograms**](ManagementApi.md#getLoyaltyPrograms) | **GET** /v1/loyalty_programs | List loyalty programs
 [**getLoyaltyStatistics**](ManagementApi.md#getLoyaltyStatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
@@ -123,6 +130,7 @@ Method | HTTP request | Description
 [**getReferralsWithoutTotalCount**](ManagementApi.md#getReferralsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 [**getRoleV2**](ManagementApi.md#getRoleV2) | **GET** /v2/roles/{roleId} | Get role
 [**getRuleset**](ManagementApi.md#getRuleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
+[**getRulesetV2**](ManagementApi.md#getRulesetV2) | **GET** /v2/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset (V2)
 [**getRulesets**](ManagementApi.md#getRulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List campaign rulesets
 [**getStore**](ManagementApi.md#getStore) | **GET** /v1/applications/{applicationId}/stores/{storeId} | Get store
 [**getUser**](ManagementApi.md#getUser) | **GET** /v1/users/{userId} | Get user
@@ -138,12 +146,14 @@ Method | HTTP request | Description
 [**importCoupons**](ManagementApi.md#importCoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons | Import coupons
 [**importLoyaltyCards**](ManagementApi.md#importLoyaltyCards) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_cards | Import loyalty cards
 [**importLoyaltyCustomersTiers**](ManagementApi.md#importLoyaltyCustomersTiers) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_customers_tiers | Import customers into loyalty tiers
+[**importLoyaltyJoinDates**](ManagementApi.md#importLoyaltyJoinDates) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_join_dates | Import join dates for a loyalty program
 [**importLoyaltyPoints**](ManagementApi.md#importLoyaltyPoints) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_points | Import loyalty points
 [**importPoolGiveaways**](ManagementApi.md#importPoolGiveaways) | **POST** /v1/giveaways/pools/{poolId}/import | Import giveaway codes into a giveaway pool
 [**importReferrals**](ManagementApi.md#importReferrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals
 [**inviteUserExternal**](ManagementApi.md#inviteUserExternal) | **POST** /v1/users/invite | Invite user from identity provider
 [**listAccountCollections**](ManagementApi.md#listAccountCollections) | **GET** /v1/collections | List collections in account
 [**listAchievements**](ManagementApi.md#listAchievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | List achievements
+[**listAchievementsV2**](ManagementApi.md#listAchievementsV2) | **GET** /v2/achievements | List achievements
 [**listAllRolesV2**](ManagementApi.md#listAllRolesV2) | **GET** /v2/roles | List roles
 [**listApplicationCartItemFilters**](ManagementApi.md#listApplicationCartItemFilters) | **GET** /v1/applications/{applicationId}/cart_item_filters | List Application cart item filters
 [**listCampaignStoreBudgetLimits**](ManagementApi.md#listCampaignStoreBudgetLimits) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets | List campaign store budget limits
@@ -177,6 +187,7 @@ Method | HTTP request | Description
 [**transferLoyaltyCard**](ManagementApi.md#transferLoyaltyCard) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/transfer | Transfer card data
 [**updateAccountCollection**](ManagementApi.md#updateAccountCollection) | **PUT** /v1/collections/{collectionId} | Update account-level collection
 [**updateAchievement**](ManagementApi.md#updateAchievement) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Update achievement
+[**updateAchievementV2**](ManagementApi.md#updateAchievementV2) | **PUT** /v2/achievements/{achievementId} | Update achievement
 [**updateAdditionalCost**](ManagementApi.md#updateAdditionalCost) | **PUT** /v1/additional_costs/{additionalCostId} | Update additional cost
 [**updateAttribute**](ManagementApi.md#updateAttribute) | **PUT** /v1/attributes/{attributeId} | Update custom attribute
 [**updateCampaign**](ManagementApi.md#updateCampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update campaign
@@ -627,6 +638,79 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\TalonOne\Client\Model\Achievement**](../Model/Achievement.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## createAchievementV2
+
+> \TalonOne\Client\Model\AchievementV2 createAchievementV2($body)
+
+Create achievement
+
+Create a new account-level achievement.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \TalonOne\Client\Model\CreateAchievementV2(); // \TalonOne\Client\Model\CreateAchievementV2 | body
+
+try {
+    $result = $apiInstance->createAchievementV2($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->createAchievementV2: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\TalonOne\Client\Model\CreateAchievementV2**](../Model/CreateAchievementV2.md)| body |
+
+### Return type
+
+[**\TalonOne\Client\Model\AchievementV2**](../Model/AchievementV2.md)
 
 ### Authorization
 
@@ -1622,6 +1706,83 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## createRulesetV2
+
+> \TalonOne\Client\Model\RulesetV2 createRulesetV2($applicationId, $campaignId, $body)
+
+Create ruleset (V2)
+
+Create a ruleset from promotion and strikethrough rules in the V2 JSON block format. A ruleset is a revision of all the rules of a campaign.  Only `group` and `passthrough` blocks are currently writable, with optional `onFailure` blocks. A payload containing any other block type is rejected. Each rule's `blocks` array may contain at most one block.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+$body = new \TalonOne\Client\Model\RulesetV2(); // \TalonOne\Client\Model\RulesetV2 | body
+
+try {
+    $result = $apiInstance->createRulesetV2($applicationId, $campaignId, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->createRulesetV2: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
+ **body** | [**\TalonOne\Client\Model\RulesetV2**](../Model/RulesetV2.md)| body |
+
+### Return type
+
+[**\TalonOne\Client\Model\RulesetV2**](../Model/RulesetV2.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## createSession
 
 > \TalonOne\Client\Model\Session createSession($body)
@@ -2047,6 +2208,78 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
  **achievementId** | **int**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## deleteAchievementV2
+
+> deleteAchievementV2($achievementId)
+
+Delete achievement
+
+Delete a specific achievement.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$achievementId = 56; // int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+
+try {
+    $apiInstance->deleteAchievementV2($achievementId);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->deleteAchievementV2: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **achievementId** | **int**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. |
 
 ### Return type
 
@@ -2980,6 +3213,80 @@ void (empty response body)
 [[Back to README]](../../README.md)
 
 
+## excludePriceHistory
+
+> excludePriceHistory($applicationId, $body)
+
+Exclude price records from price history
+
+Select a batch of historical price IDs to exclude from [best prior price calculation](https://docs.talon.one/integration-api#tag/Catalogs/operation/bestPriorPrice). All IDs in the batch must be valid `id` values obtained from the [Get summary of price history](https://docs.talon.one/management-api#tag/Catalogs/operation/priceHistory.responses.200.history) endpoint, must belong to the specified Application, must not already be excluded from best prior price calculation, and must not be associated with a scheduled strikethrough pricing notification.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$body = new \TalonOne\Client\Model\ExcludePriceObservationsRequest(); // \TalonOne\Client\Model\ExcludePriceObservationsRequest | body
+
+try {
+    $apiInstance->excludePriceHistory($applicationId, $body);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->excludePriceHistory: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **body** | [**\TalonOne\Client\Model\ExcludePriceObservationsRequest**](../Model/ExcludePriceObservationsRequest.md)| body |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## exportAccountCollectionItems
 
 > string exportAccountCollectionItems($collectionId)
@@ -3034,6 +3341,79 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/csv
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## exportAchievementV2
+
+> string exportAchievementV2($achievementId)
+
+Export achievement customer data
+
+Download a CSV file containing a list of all the customers who have participated in and are currently participating in the given achievement.  The CSV file contains the following columns: - `profileIntegrationID`: The integration ID of the customer profile participating in the achievement. - `title`: The display name of the achievement in the Campaign Manager. - `target`: The required number of actions or the transactional milestone to complete the achievement. - `progress`: The current progress of the customer in the achievement. - `status`: The status of the achievement. Can be one of: ['inprogress', 'completed', 'expired']. - `startDate`: The date on which the customer profile started the achievement in RFC3339. - `endDate`: The date on which the achievement ends and resets for the customer profile in RFC3339. - `completionDate`: The date on which the customer profile completed the achievement in RFC3339.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$achievementId = 56; // int | The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+
+try {
+    $result = $apiInstance->exportAchievementV2($achievementId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->exportAchievementV2: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **achievementId** | **int**| The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. |
 
 ### Return type
 
@@ -3592,7 +3972,7 @@ Name | Type | Description  | Notes
 
 ## exportCoupons
 
-> string exportCoupons($applicationId, $campaignId, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $dateFormat, $campaignState, $valuesOnly)
+> string exportCoupons($applicationId, $campaignId, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $dateFormat, $campaignState, $valuesOnly, $deletedBefore, $deletedAfter)
 
 Export coupons
 
@@ -3642,9 +4022,11 @@ $exactMatch = false; // bool | Filter results to an exact case-insensitive match
 $dateFormat = 'dateFormat_example'; // string | Determines the format of dates in the export document.
 $campaignState = 'campaignState_example'; // string | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.
 $valuesOnly = false; // bool | Filter results to only return the coupon codes (`value` column) without the associated coupon data.
+$deletedBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results.
+$deletedAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results.
 
 try {
-    $result = $apiInstance->exportCoupons($applicationId, $campaignId, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $dateFormat, $campaignState, $valuesOnly);
+    $result = $apiInstance->exportCoupons($applicationId, $campaignId, $sort, $value, $createdBefore, $createdAfter, $valid, $usable, $referralId, $recipientIntegrationId, $batchId, $exactMatch, $dateFormat, $campaignState, $valuesOnly, $deletedBefore, $deletedAfter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->exportCoupons: ', $e->getMessage(), PHP_EOL;
@@ -3672,6 +4054,8 @@ Name | Type | Description  | Notes
  **dateFormat** | **string**| Determines the format of dates in the export document. | [optional]
  **campaignState** | **string**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. | [optional]
  **valuesOnly** | **bool**| Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. | [optional] [default to false]
+ **deletedBefore** | **\DateTime**| Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. | [optional]
+ **deletedAfter** | **\DateTime**| Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. | [optional]
 
 ### Return type
 
@@ -3693,7 +4077,7 @@ Name | Type | Description  | Notes
 
 ## exportCustomerSessions
 
-> string exportCustomerSessions($applicationId, $createdBefore, $createdAfter, $profileIntegrationId, $dateFormat, $customerSessionState)
+> string exportCustomerSessions($applicationId, $createdBefore, $createdAfter, $updatedBefore, $updatedAfter, $profileIntegrationId, $dateFormat, $customerSessionState)
 
 Export customer sessions
 
@@ -3731,12 +4115,14 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string.
+$updatedBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string.
+$updatedAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string.
 $profileIntegrationId = 'profileIntegrationId_example'; // string | Only return sessions for the customer that matches this customer integration ID.
 $dateFormat = 'dateFormat_example'; // string | Determines the format of dates in the export document.
 $customerSessionState = 'customerSessionState_example'; // string | Filter results by state.
 
 try {
-    $result = $apiInstance->exportCustomerSessions($applicationId, $createdBefore, $createdAfter, $profileIntegrationId, $dateFormat, $customerSessionState);
+    $result = $apiInstance->exportCustomerSessions($applicationId, $createdBefore, $createdAfter, $updatedBefore, $updatedAfter, $profileIntegrationId, $dateFormat, $customerSessionState);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->exportCustomerSessions: ', $e->getMessage(), PHP_EOL;
@@ -3752,6 +4138,8 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional]
+ **updatedBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional]
+ **updatedAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional]
  **profileIntegrationId** | **string**| Only return sessions for the customer that matches this customer integration ID. | [optional]
  **dateFormat** | **string**| Determines the format of dates in the export document. | [optional]
  **customerSessionState** | **string**| Filter results by state. | [optional]
@@ -3934,7 +4322,7 @@ Name | Type | Description  | Notes
 
 ## exportLoyaltyBalance
 
-> string exportLoyaltyBalance($loyaltyProgramId, $endDate)
+> string exportLoyaltyBalance($loyaltyProgramId, $endDate, $balances)
 
 Export customer loyalty balance to CSV
 
@@ -3971,9 +4359,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $loyaltyProgramId = 'loyaltyProgramId_example'; // string | The identifier for the loyalty program.
 $endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$balances = 'balances_example'; // string | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.
 
 try {
-    $result = $apiInstance->exportLoyaltyBalance($loyaltyProgramId, $endDate);
+    $result = $apiInstance->exportLoyaltyBalance($loyaltyProgramId, $endDate, $balances);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->exportLoyaltyBalance: ', $e->getMessage(), PHP_EOL;
@@ -3988,6 +4377,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **string**| The identifier for the loyalty program. |
  **endDate** | **\DateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
+ **balances** | **string**| Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list. | [optional]
 
 ### Return type
 
@@ -4009,7 +4399,7 @@ Name | Type | Description  | Notes
 
 ## exportLoyaltyBalances
 
-> string exportLoyaltyBalances($loyaltyProgramId, $endDate)
+> string exportLoyaltyBalances($loyaltyProgramId, $endDate, $balances)
 
 Export customer loyalty balances
 
@@ -4046,9 +4436,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $loyaltyProgramId = 'loyaltyProgramId_example'; // string | The identifier for the loyalty program.
 $endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. > - This parameter does not affect the `currentTier` field in the CSV file, which shows the customer's tier at the time of export.
+$balances = 'balances_example'; // string | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.
 
 try {
-    $result = $apiInstance->exportLoyaltyBalances($loyaltyProgramId, $endDate);
+    $result = $apiInstance->exportLoyaltyBalances($loyaltyProgramId, $endDate, $balances);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->exportLoyaltyBalances: ', $e->getMessage(), PHP_EOL;
@@ -4063,6 +4454,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **string**| The identifier for the loyalty program. |
  **endDate** | **\DateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export. | [optional]
+ **balances** | **string**| Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list. | [optional]
 
 ### Return type
 
@@ -4084,7 +4476,7 @@ Name | Type | Description  | Notes
 
 ## exportLoyaltyCardBalances
 
-> string exportLoyaltyCardBalances($loyaltyProgramId, $endDate)
+> string exportLoyaltyCardBalances($loyaltyProgramId, $endDate, $balances)
 
 Export all card transaction logs
 
@@ -4121,9 +4513,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
 $endDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+$balances = 'balances_example'; // string | Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  **Note:** - The `negativeBalance` value is not supported for card balance exports. - Providing an unsupported or invalid value returns a `400 Bad Request` error.
 
 try {
-    $result = $apiInstance->exportLoyaltyCardBalances($loyaltyProgramId, $endDate);
+    $result = $apiInstance->exportLoyaltyCardBalances($loyaltyProgramId, $endDate, $balances);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->exportLoyaltyCardBalances: ', $e->getMessage(), PHP_EOL;
@@ -4138,6 +4531,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
  **endDate** | **\DateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. | [optional]
+ **balances** | **string**| Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  **Note:** - The &#x60;negativeBalance&#x60; value is not supported for card balance exports. - Providing an unsupported or invalid value returns a &#x60;400 Bad Request&#x60; error. | [optional]
 
 ### Return type
 
@@ -4244,7 +4638,7 @@ Name | Type | Description  | Notes
 
 Export loyalty cards
 
-Download a CSV file containing the loyalty cards from a specified loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following columns:  - `identifier`: The unique identifier of the loyalty card. - `created`: The date and time the loyalty card was created. - `status`: The status of the loyalty card. - `userpercardlimit`: The maximum number of customer profiles that can be linked to the card. - `customerprofileids`: Integration IDs of the customer profiles linked to the card. - `blockreason`: The reason for transferring and blocking the loyalty card. - `generated`: An indicator of whether the loyalty card was generated. - `batchid`: The ID of the batch the loyalty card is in. - `attributes`: The custom attributes of this loyalty card. Currently, this feature is only available upon request.
+Download a CSV file containing the loyalty cards from a specified loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following columns:  - `identifier`: The unique identifier of the loyalty card. - `created`: The date and time the loyalty card was created. - `status`: The status of the loyalty card. - `userpercardlimit`: The maximum number of customer profiles that can be linked to the card. - `customerprofileids`: Integration IDs of the customer profiles linked to the card. - `blockreason`: The reason for transferring and blocking the loyalty card. - `generated`: An indicator of whether the loyalty card was generated. - `batchid`: The ID of the batch the loyalty card is in. - `attributes`: The custom attributes of this loyalty card.
 
 ### Example
 
@@ -4639,7 +5033,7 @@ Name | Type | Description  | Notes
 
 ## generateCouponRejections
 
-> \TalonOne\Client\Model\InlineResponse20053 generateCouponRejections($sessionIntegrationId, $applicationId, $language, $couponCode)
+> \TalonOne\Client\Model\InlineResponse20055 generateCouponRejections($sessionIntegrationId, $applicationId, $language, $couponCode)
 
 Summarize coupon redemption failures in session
 
@@ -4700,7 +5094,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20053**](../Model/InlineResponse20053.md)
+[**\TalonOne\Client\Model\InlineResponse20055**](../Model/InlineResponse20055.md)
 
 ### Authorization
 
@@ -5101,6 +5495,79 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## getAchievementV2
+
+> \TalonOne\Client\Model\AchievementV2 getAchievementV2($achievementId)
+
+Get achievement
+
+Retrieve the details of a specific achievement.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$achievementId = 56; // int | The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+
+try {
+    $result = $apiInstance->getAchievementV2($achievementId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getAchievementV2: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **achievementId** | **int**| The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. |
+
+### Return type
+
+[**\TalonOne\Client\Model\AchievementV2**](../Model/AchievementV2.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## getAdditionalCost
 
 > \TalonOne\Client\Model\AccountAdditionalCost getAdditionalCost($additionalCostId)
@@ -5176,7 +5643,7 @@ Name | Type | Description  | Notes
 
 ## getAdditionalCosts
 
-> \TalonOne\Client\Model\InlineResponse20040 getAdditionalCosts($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20041 getAdditionalCosts($pageSize, $skip, $sort)
 
 List additional costs
 
@@ -5235,7 +5702,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20040**](../Model/InlineResponse20040.md)
+[**\TalonOne\Client\Model\InlineResponse20041**](../Model/InlineResponse20041.md)
 
 ### Authorization
 
@@ -5551,7 +6018,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationCustomerFriends
 
-> \TalonOne\Client\Model\InlineResponse20037 getApplicationCustomerFriends($applicationId, $integrationId, $pageSize, $skip, $sort, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20038 getApplicationCustomerFriends($applicationId, $integrationId, $pageSize, $skip, $sort, $withTotalResultSize)
 
 List friends referred by customer profile
 
@@ -5616,7 +6083,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20037**](../Model/InlineResponse20037.md)
+[**\TalonOne\Client\Model\InlineResponse20038**](../Model/InlineResponse20038.md)
 
 ### Authorization
 
@@ -5796,7 +6263,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventTypes
 
-> \TalonOne\Client\Model\InlineResponse20033 getApplicationEventTypes($applicationId, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20034 getApplicationEventTypes($applicationId, $pageSize, $skip, $sort)
 
 List Applications event types
 
@@ -5857,7 +6324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
+[**\TalonOne\Client\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
 
 ### Authorization
 
@@ -5875,7 +6342,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationEventsWithoutTotalCount
 
-> \TalonOne\Client\Model\InlineResponse20032 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery, $effectType)
+> \TalonOne\Client\Model\InlineResponse20033 getApplicationEventsWithoutTotalCount($applicationId, $pageSize, $skip, $sort, $type, $createdBefore, $createdAfter, $session, $profile, $customerName, $customerEmail, $couponCode, $referralCode, $ruleQuery, $campaignQuery, $effectType)
 
 List Applications events
 
@@ -5960,7 +6427,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
+[**\TalonOne\Client\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
 
 ### Authorization
 
@@ -6148,6 +6615,87 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## getApplicationSessionsByCustomerAttributes
+
+> \TalonOne\Client\Model\InlineResponse20032 getApplicationSessionsByCustomerAttributes($applicationId, $body, $pageSize, $skip, $withTotalResultSize)
+
+List Application sessions matching the given customer attributes
+
+Get a list of the Application sessions matching the provided customer profile attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$body = new \TalonOne\Client\Model\CustomerProfileSearchQuery(); // \TalonOne\Client\Model\CustomerProfileSearchQuery | body
+$pageSize = 1000; // int | The number of items in the response.
+$skip = 56; // int | The number of items to skip when paging through large result sets.
+$withTotalResultSize = True; // bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.
+
+try {
+    $result = $apiInstance->getApplicationSessionsByCustomerAttributes($applicationId, $body, $pageSize, $skip, $withTotalResultSize);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getApplicationSessionsByCustomerAttributes: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **body** | [**\TalonOne\Client\Model\CustomerProfileSearchQuery**](../Model/CustomerProfileSearchQuery.md)| body |
+ **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## getApplications
 
 > \TalonOne\Client\Model\InlineResponse2008 getApplications($pageSize, $skip, $sort)
@@ -6300,7 +6848,7 @@ Name | Type | Description  | Notes
 
 ## getAttributes
 
-> \TalonOne\Client\Model\InlineResponse20038 getAttributes($pageSize, $skip, $sort, $entity, $applicationIds, $type, $kind, $search)
+> \TalonOne\Client\Model\InlineResponse20039 getAttributes($pageSize, $skip, $sort, $entity, $applicationIds, $loyaltyProgramIds, $type, $kind, $search)
 
 List custom attributes
 
@@ -6340,12 +6888,13 @@ $skip = 56; // int | The number of items to skip when paging through large resul
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
 $entity = 'entity_example'; // string | Returned attributes will be filtered by supplied entity.
 $applicationIds = 'applicationIds_example'; // string | Returned attributes will be filtered by supplied application ids
+$loyaltyProgramIds = 'loyaltyProgramIds_example'; // string | Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when `entity` is `LoyaltyCard`.
 $type = 'type_example'; // string | Returned attributes will be filtered by supplied type
 $kind = 'kind_example'; // string | Returned attributes will be filtered by supplied kind (builtin or custom)
 $search = 'search_example'; // string | Returned attributes will be filtered by searching case insensitive through Attribute name, description and type
 
 try {
-    $result = $apiInstance->getAttributes($pageSize, $skip, $sort, $entity, $applicationIds, $type, $kind, $search);
+    $result = $apiInstance->getAttributes($pageSize, $skip, $sort, $entity, $applicationIds, $loyaltyProgramIds, $type, $kind, $search);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getAttributes: ', $e->getMessage(), PHP_EOL;
@@ -6363,13 +6912,14 @@ Name | Type | Description  | Notes
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
  **entity** | **string**| Returned attributes will be filtered by supplied entity. | [optional]
  **applicationIds** | **string**| Returned attributes will be filtered by supplied application ids | [optional]
+ **loyaltyProgramIds** | **string**| Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when &#x60;entity&#x60; is &#x60;LoyaltyCard&#x60;. | [optional]
  **type** | **string**| Returned attributes will be filtered by supplied type | [optional]
  **kind** | **string**| Returned attributes will be filtered by supplied kind (builtin or custom) | [optional]
  **search** | **string**| Returned attributes will be filtered by searching case insensitive through Attribute name, description and type | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20038**](../Model/InlineResponse20038.md)
+[**\TalonOne\Client\Model\InlineResponse20039**](../Model/InlineResponse20039.md)
 
 ### Authorization
 
@@ -6387,7 +6937,7 @@ Name | Type | Description  | Notes
 
 ## getAudienceMemberships
 
-> \TalonOne\Client\Model\InlineResponse20036 getAudienceMemberships($audienceId, $pageSize, $skip, $sort, $profileQuery)
+> \TalonOne\Client\Model\InlineResponse20037 getAudienceMemberships($audienceId, $pageSize, $skip, $sort, $profileQuery)
 
 List audience members
 
@@ -6450,7 +7000,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20036**](../Model/InlineResponse20036.md)
+[**\TalonOne\Client\Model\InlineResponse20037**](../Model/InlineResponse20037.md)
 
 ### Authorization
 
@@ -6468,7 +7018,7 @@ Name | Type | Description  | Notes
 
 ## getAudiences
 
-> \TalonOne\Client\Model\InlineResponse20034 getAudiences($pageSize, $skip, $sort, $withTotalResultSize)
+> \TalonOne\Client\Model\InlineResponse20035 getAudiences($pageSize, $skip, $sort, $withTotalResultSize)
 
 List audiences
 
@@ -6529,7 +7079,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
+[**\TalonOne\Client\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
 
 ### Authorization
 
@@ -6547,7 +7097,7 @@ Name | Type | Description  | Notes
 
 ## getAudiencesAnalytics
 
-> \TalonOne\Client\Model\InlineResponse20035 getAudiencesAnalytics($audienceIds, $sort)
+> \TalonOne\Client\Model\InlineResponse20036 getAudiencesAnalytics($audienceIds, $sort)
 
 List audience analytics
 
@@ -6582,7 +7132,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audienceIds = 'audienceIds_example'; // string | The IDs of one or more audiences, separated by commas, by which to filter results.
+$audienceIds = 'audienceIds_example'; // string | The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs.
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
 
 try {
@@ -6599,12 +7149,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audienceIds** | **string**| The IDs of one or more audiences, separated by commas, by which to filter results. |
+ **audienceIds** | **string**| The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs. |
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
+[**\TalonOne\Client\Model\InlineResponse20036**](../Model/InlineResponse20036.md)
 
 ### Authorization
 
@@ -7137,7 +7687,7 @@ $skip = 56; // int | The number of items to skip when paging through large resul
 $sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
 $campaignState = 'campaignState_example'; // string | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.
 $name = 'name_example'; // string | Filter results performing case-insensitive matching against the name of the campaign.
-$tags = 'tags_example'; // string | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values
+$tags = array('tags_example'); // string[] | Filter results performing case-insensitive matching against the tags of the campaign.
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
 $startBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -7168,7 +7718,7 @@ Name | Type | Description  | Notes
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
  **campaignState** | **string**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. | [optional]
  **name** | **string**| Filter results performing case-insensitive matching against the name of the campaign. | [optional]
- **tags** | **string**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values | [optional]
+ **tags** | [**string[]**](../Model/string.md)| Filter results performing case-insensitive matching against the tags of the campaign. | [optional]
  **createdBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **createdAfter** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
  **startBefore** | **\DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional]
@@ -7199,7 +7749,7 @@ Name | Type | Description  | Notes
 
 ## getChanges
 
-> \TalonOne\Client\Model\InlineResponse20044 getChanges($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $managementKeyId, $includeOld)
+> \TalonOne\Client\Model\InlineResponse20045 getChanges($pageSize, $skip, $sort, $applicationId, $entityPath, $userId, $createdBefore, $createdAfter, $withTotalResultSize, $managementKeyId, $includeOld)
 
 Get audit logs for an account
 
@@ -7274,7 +7824,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
+[**\TalonOne\Client\Model\InlineResponse20045**](../Model/InlineResponse20045.md)
 
 ### Authorization
 
@@ -7885,7 +8435,7 @@ Name | Type | Description  | Notes
 
 ## getCustomerProfileAchievementProgress
 
-> \TalonOne\Client\Model\InlineResponse20052 getCustomerProfileAchievementProgress($applicationId, $integrationId, $pageSize, $skip, $achievementId, $title)
+> \TalonOne\Client\Model\InlineResponse20054 getCustomerProfileAchievementProgress($applicationId, $integrationId, $pageSize, $skip, $achievementId, $title)
 
 List customer achievements
 
@@ -7950,7 +8500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20052**](../Model/InlineResponse20052.md)
+[**\TalonOne\Client\Model\InlineResponse20054**](../Model/InlineResponse20054.md)
 
 ### Authorization
 
@@ -8203,7 +8753,7 @@ Name | Type | Description  | Notes
 
 ## getEventTypes
 
-> \TalonOne\Client\Model\InlineResponse20042 getEventTypes($name, $includeOldVersions, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20043 getEventTypes($name, $includeOldVersions, $pageSize, $skip, $sort)
 
 List event types
 
@@ -8266,7 +8816,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20042**](../Model/InlineResponse20042.md)
+[**\TalonOne\Client\Model\InlineResponse20043**](../Model/InlineResponse20043.md)
 
 ### Authorization
 
@@ -8359,7 +8909,7 @@ Name | Type | Description  | Notes
 
 ## getExports
 
-> \TalonOne\Client\Model\InlineResponse20045 getExports($pageSize, $skip, $applicationId, $campaignId, $entity)
+> \TalonOne\Client\Model\InlineResponse20046 getExports($pageSize, $skip, $applicationId, $campaignId, $entity)
 
 Get exports
 
@@ -8422,7 +8972,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20045**](../Model/InlineResponse20045.md)
+[**\TalonOne\Client\Model\InlineResponse20046**](../Model/InlineResponse20046.md)
 
 ### Authorization
 
@@ -8517,9 +9067,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse20021 getLoyaltyCardTransactionLogs($loyaltyProgramId, $loyaltyCardId, $startDate, $endDate, $pageSize, $skip, $subledgerId, $customerSessionIDs, $transactionUUIDs)
 
-List card's transactions
+List card's transactions (Management API)
 
-Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned.
+Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied.  > [!note] For most use cases, especially real-time integrations, use the Integration API endpoint: > [List card's transactions](https://docs.talon.one/integration-api#tag/Loyalty-cards/operation/getLoyaltyCardTransactions).  If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned.
 
 ### Example
 
@@ -8691,9 +9241,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\LoyaltyBalancesWithTiers getLoyaltyLedgerBalances($loyaltyProgramId, $integrationId, $endDate, $subledgerId, $includeTiers, $includeProjectedTier)
 
-Get customer's loyalty balances
+Get customer's loyalty balances (Management API)
 
-Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  > [!note] If no filtering options are applied, you retrieve all loyalty > balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data)
+Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  > [!note] **Note** > - For most use cases, especially real-time integrations, use the Integration API endpoint:     [Get customer's loyalty balances](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyBalances). > - If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data)
 
 ### Example
 
@@ -8922,9 +9472,9 @@ Name | Type | Description  | Notes
 
 > \TalonOne\Client\Model\InlineResponse2005 getLoyaltyProgramProfileLedgerTransactions($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip, $awaitsActivation)
 
-List customer's loyalty transactions
+List customer's loyalty transactions (Management API)
 
-Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  > [!note] To retrieve all loyalty program transaction logs in a given > loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) > endpoint.
+Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  > [!note] **Note** > - For most use cases, especially real-time integrations, use the Integration API endpoint: >   [List customer's loyalty transactions](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). > - To retrieve all loyalty program transaction logs in a given loyalty program, use the >   [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint.
 
 ### Example
 
@@ -9177,7 +9727,7 @@ This endpoint does not need any parameter.
 
 Get loyalty program statistics
 
-> [warning] This endpoint is deprecated.  To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points.
+> [!warning] This endpoint is deprecated.  To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points.
 
 ### Example
 
@@ -9246,7 +9796,7 @@ Name | Type | Description  | Notes
 
 ## getMessageLogs
 
-> \TalonOne\Client\Model\MessageLogEntries getMessageLogs($entityType, $messageID, $changeType, $notificationIDs, $createdBefore, $createdAfter, $cursor, $period, $isSuccessful, $applicationId, $campaignId, $loyaltyProgramId, $responseCode, $webhookIDs)
+> \TalonOne\Client\Model\MessageLogEntries getMessageLogs($entityType, $messageID, $changeType, $notificationIDs, $createdBefore, $createdAfter, $cursor, $pageSize, $period, $isSuccessful, $applicationId, $campaignId, $loyaltyProgramId, $responseCode, $webhookIDs)
 
 List message log entries
 
@@ -9288,6 +9838,7 @@ $notificationIDs = 'notificationIDs_example'; // string | Filter results by noti
 $createdBefore = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time.
 $createdAfter = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time.
 $cursor = 'cursor_example'; // string | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.
+$pageSize = 50; // int | The maximum number of message log entries to return.
 $period = 'period_example'; // string | Filter results by time period. Choose between the available relative time frames.
 $isSuccessful = True; // bool | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned.
 $applicationId = 3.4; // float | Filter results by Application ID.
@@ -9297,7 +9848,7 @@ $responseCode = 56; // int | Filter results by response status code.
 $webhookIDs = 'webhookIDs_example'; // string | Filter results by webhook ID (include up to 30 values, separated by a comma).
 
 try {
-    $result = $apiInstance->getMessageLogs($entityType, $messageID, $changeType, $notificationIDs, $createdBefore, $createdAfter, $cursor, $period, $isSuccessful, $applicationId, $campaignId, $loyaltyProgramId, $responseCode, $webhookIDs);
+    $result = $apiInstance->getMessageLogs($entityType, $messageID, $changeType, $notificationIDs, $createdBefore, $createdAfter, $cursor, $pageSize, $period, $isSuccessful, $applicationId, $campaignId, $loyaltyProgramId, $responseCode, $webhookIDs);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->getMessageLogs: ', $e->getMessage(), PHP_EOL;
@@ -9317,6 +9868,7 @@ Name | Type | Description  | Notes
  **createdBefore** | **\DateTime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. | [optional]
  **createdAfter** | **\DateTime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. | [optional]
  **cursor** | **string**| A specific unique value in the database. If this value is not given, the server fetches results starting with the first record. | [optional]
+ **pageSize** | **int**| The maximum number of message log entries to return. | [optional] [default to 50]
  **period** | **string**| Filter results by time period. Choose between the available relative time frames. | [optional]
  **isSuccessful** | **bool**| Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned. | [optional]
  **applicationId** | **float**| Filter results by Application ID. | [optional]
@@ -9586,6 +10138,83 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## getRulesetV2
+
+> \TalonOne\Client\Model\RulesetV2 getRulesetV2($applicationId, $campaignId, $rulesetId)
+
+Get ruleset (V2)
+
+Retrieve the specified ruleset as a JSON object.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+$campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+$rulesetId = 56; // int | The ID of the ruleset.
+
+try {
+    $result = $apiInstance->getRulesetV2($applicationId, $campaignId, $rulesetId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->getRulesetV2: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
+ **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
+ **rulesetId** | **int**| The ID of the ruleset. |
+
+### Return type
+
+[**\TalonOne\Client\Model\RulesetV2**](../Model/RulesetV2.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## getRulesets
 
 > \TalonOne\Client\Model\InlineResponse20010 getRulesets($applicationId, $campaignId, $pageSize, $skip, $sort)
@@ -9817,7 +10446,7 @@ Name | Type | Description  | Notes
 
 ## getUsers
 
-> \TalonOne\Client\Model\InlineResponse20043 getUsers($pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse20044 getUsers($pageSize, $skip, $sort)
 
 List users in account
 
@@ -9876,7 +10505,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20043**](../Model/InlineResponse20043.md)
+[**\TalonOne\Client\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
 
 ### Authorization
 
@@ -9967,7 +10596,7 @@ Name | Type | Description  | Notes
 
 ## getWebhooks
 
-> \TalonOne\Client\Model\InlineResponse20041 getWebhooks($applicationIds, $sort, $pageSize, $skip, $creationType, $visibility, $outgoingIntegrationsTypeId, $title)
+> \TalonOne\Client\Model\InlineResponse20042 getWebhooks($applicationIds, $sort, $pageSize, $skip, $creationType, $visibility, $outgoingIntegrationsTypeId, $title)
 
 List webhooks
 
@@ -10036,7 +10665,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20041**](../Model/InlineResponse20041.md)
+[**\TalonOne\Client\Model\InlineResponse20042**](../Model/InlineResponse20042.md)
 
 ### Authorization
 
@@ -10090,7 +10719,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
-$upFile = 'upFile_example'; // string | The file containing the data that is being imported.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
 
 try {
     $result = $apiInstance->importAccountCollection($collectionId, $upFile);
@@ -10107,7 +10736,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. |
- **upFile** | **string**| The file containing the data that is being imported. | [optional]
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
 
 ### Return type
 
@@ -10165,7 +10794,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $attributeId = 56; // int | The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
-$upFile = 'upFile_example'; // string | The file containing the data that is being imported.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
 
 try {
     $result = $apiInstance->importAllowedList($attributeId, $upFile);
@@ -10182,7 +10811,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributeId** | **int**| The ID of the attribute. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an attribute in **Account** &gt; **Tools** &gt; **Attributes**. |
- **upFile** | **string**| The file containing the data that is being imported. | [optional]
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
 
 ### Return type
 
@@ -10240,7 +10869,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $audienceId = 56; // int | The ID of the audience.
-$upFile = 'upFile_example'; // string | The file containing the data that is being imported.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
 
 try {
     $result = $apiInstance->importAudiencesMemberships($audienceId, $upFile);
@@ -10257,7 +10886,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **audienceId** | **int**| The ID of the audience. |
- **upFile** | **string**| The file containing the data that is being imported. | [optional]
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
 
 ### Return type
 
@@ -10318,7 +10947,7 @@ $applicationId = 56; // int | The ID of the Application. It is displayed in your
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 $action = 'action_example'; // string | The action that this budget is limiting.
 $period = 'period_example'; // string | The period to which the limit applies.  **Note**: For budgets with no period, set this to `overall`.
-$upFile = 'upFile_example'; // string | The file containing the data that is being imported.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
 
 try {
     $result = $apiInstance->importCampaignStoreBudget($applicationId, $campaignId, $action, $period, $upFile);
@@ -10338,7 +10967,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
  **action** | **string**| The action that this budget is limiting. | [optional]
  **period** | **string**| The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;. | [optional]
- **upFile** | **string**| The file containing the data that is being imported. | [optional]
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
 
 ### Return type
 
@@ -10397,7 +11026,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-$upFile = 'upFile_example'; // string | The file containing the data that is being imported.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
 
 try {
     $result = $apiInstance->importCampaignStores($applicationId, $campaignId, $upFile);
@@ -10415,7 +11044,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
- **upFile** | **string**| The file containing the data that is being imported. | [optional]
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
 
 ### Return type
 
@@ -10475,7 +11104,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 $collectionId = 56; // int | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
-$upFile = 'upFile_example'; // string | The file containing the data that is being imported.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
 
 try {
     $result = $apiInstance->importCollection($applicationId, $campaignId, $collectionId, $upFile);
@@ -10494,7 +11123,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
  **collectionId** | **int**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. |
- **upFile** | **string**| The file containing the data that is being imported. | [optional]
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
 
 ### Return type
 
@@ -10554,7 +11183,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 $skipDuplicates = True; // bool | An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when `skipDuplicates=true`.
-$upFile = 'upFile_example'; // string | The file containing the data that is being imported.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
 
 try {
     $result = $apiInstance->importCoupons($applicationId, $campaignId, $skipDuplicates, $upFile);
@@ -10573,7 +11202,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
  **skipDuplicates** | **bool**| An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when &#x60;skipDuplicates&#x3D;true&#x60;. | [optional]
- **upFile** | **string**| The file containing the data that is being imported. | [optional]
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
 
 ### Return type
 
@@ -10599,7 +11228,7 @@ Name | Type | Description  | Notes
 
 Import loyalty cards
 
-Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - `identifier` (required): The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`. - `state` (required): The state of the loyalty card. It can be `active` or `inactive`. - `customerprofileids` (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  > [!note] We recommend limiting your file size to 500MB.  ## Example  ```csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA ```
+Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - `identifier` (required): The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`. - `state` (required): The state of the loyalty card. It can be `active` or `inactive`. - `customerprofileids` (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;). - `attributes` (optional): A JSON object that contains the loyalty card's custom attributes and their values. These attributes must be created and connected to this loyalty program before they can be assigned to the cards through this endpoint.  > [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  ```csv identifier,state,customerprofileids,attributes 123-456-789AT,active,Alexa001;UserA,'{\"\"my_attributes\"\": \"\"10_off\"\"}\" ```
 
 ### Example
 
@@ -10631,7 +11260,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 56; // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
-$upFile = 'upFile_example'; // string | The file containing the data that is being imported.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
 
 try {
     $result = $apiInstance->importLoyaltyCards($loyaltyProgramId, $upFile);
@@ -10648,7 +11277,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
- **upFile** | **string**| The file containing the data that is being imported. | [optional]
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
 
 ### Return type
 
@@ -10674,7 +11303,7 @@ Name | Type | Description  | Notes
 
 Import customers into loyalty tiers
 
-Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  > [!important] This endpoint only works with loyalty programs with advanced > tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - `subledgerid` (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - `customerprofileid`: The integration ID of the customer profile to whom the tier should be assigned. - `tiername`: The name of an existing tier to assign to the customer. - `expirydate`: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn't already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that's specified in the CSV file, only the expiration date is updated.  > [!note] We recommend not using this endpoint to update the tier of a customer.  To update a customer's tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z ```
+Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  > [!important] This endpoint only works with loyalty programs with advanced > tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - `subledgerid` (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - `customerprofileid`: The integration ID of the customer profile to whom the tier should be assigned. - `tiername`: The name of an existing tier to assign to the customer. - `expirydate`: The expiry date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn't already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that's specified in the CSV file, only the expiry date is updated.  > [!note] We recommend importing customers into the tier that matches their > current balance. If a customer is imported into a lower tier, any session > or points update automatically upgrades them to the tier they qualify for.  To update a customer's tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z ```
 
 ### Example
 
@@ -10706,7 +11335,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $loyaltyProgramId = 56; // int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
-$upFile = 'upFile_example'; // string | The file containing the data that is being imported.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
 
 try {
     $result = $apiInstance->importLoyaltyCustomersTiers($loyaltyProgramId, $upFile);
@@ -10723,7 +11352,82 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
- **upFile** | **string**| The file containing the data that is being imported. | [optional]
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\Import**](../Model/Import.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## importLoyaltyJoinDates
+
+> \TalonOne\Client\Model\Import importLoyaltyJoinDates($loyaltyProgramId, $upFile)
+
+Import join dates for a loyalty program
+
+Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  > [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - `customerprofileid`: The integration ID of the customer profile whose join   date you want to update. - `newjoindate`: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a `400` error. - If a join date already exists for a profile, the uploaded date replaces it.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z ```
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$loyaltyProgramId = 56; // int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
+
+try {
+    $result = $apiInstance->importLoyaltyJoinDates($loyaltyProgramId, $upFile);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->importLoyaltyJoinDates: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loyaltyProgramId** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
 
 ### Return type
 
@@ -10782,7 +11486,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $loyaltyProgramId = 56; // int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
 $notificationsEnabled = True; // bool | Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer's tier or offsets their negative points balance.  This parameter is optional and defaults to `true`.
-$upFile = 'upFile_example'; // string | The file containing the data that is being imported.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
 
 try {
     $result = $apiInstance->importLoyaltyPoints($loyaltyProgramId, $notificationsEnabled, $upFile);
@@ -10800,7 +11504,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. |
  **notificationsEnabled** | **bool**| Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;. | [optional]
- **upFile** | **string**| The file containing the data that is being imported. | [optional]
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
 
 ### Return type
 
@@ -10858,7 +11562,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
     $config
 );
 $poolId = 56; // int | The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.
-$upFile = 'upFile_example'; // string | The file containing the data that is being imported.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
 
 try {
     $result = $apiInstance->importPoolGiveaways($poolId, $upFile);
@@ -10875,7 +11579,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **poolId** | **int**| The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. |
- **upFile** | **string**| The file containing the data that is being imported. | [optional]
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
 
 ### Return type
 
@@ -10934,7 +11638,7 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 );
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $campaignId = 56; // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-$upFile = 'upFile_example'; // string | The file containing the data that is being imported.
+$upFile = "/path/to/file.txt"; // \SplFileObject | The CSV file containing the data that is being imported.
 
 try {
     $result = $apiInstance->importReferrals($applicationId, $campaignId, $upFile);
@@ -10952,7 +11656,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. |
- **upFile** | **string**| The file containing the data that is being imported. | [optional]
+ **upFile** | **\SplFileObject****\SplFileObject**| The CSV file containing the data that is being imported. | [optional]
 
 ### Return type
 
@@ -11127,7 +11831,7 @@ Name | Type | Description  | Notes
 
 ## listAchievements
 
-> \TalonOne\Client\Model\InlineResponse20051 listAchievements($applicationId, $campaignId, $pageSize, $skip, $title)
+> \TalonOne\Client\Model\InlineResponse20052 listAchievements($applicationId, $campaignId, $pageSize, $skip, $title)
 
 List achievements
 
@@ -11190,7 +11894,88 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20051**](../Model/InlineResponse20051.md)
+[**\TalonOne\Client\Model\InlineResponse20052**](../Model/InlineResponse20052.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listAchievementsV2
+
+> \TalonOne\Client\Model\InlineResponse20053 listAchievementsV2($pageSize, $skip, $sort, $title, $applicationId)
+
+List achievements
+
+List all achievements.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$pageSize = 50; // int | The number of items in the response.
+$skip = 56; // int | The number of items to skip when paging through large result sets.
+$sort = 'sort_example'; // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.
+$title = 'title_example'; // string | Filter by the display name of the achievement.
+$applicationId = 56; // int | Filter by the ID of an Application connected to the achievement.
+
+try {
+    $result = $apiInstance->listAchievementsV2($pageSize, $skip, $sort, $title, $applicationId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->listAchievementsV2: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **int**| The number of items in the response. | [optional] [default to 50]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. | [optional]
+ **title** | **string**| Filter by the display name of the achievement. | [optional]
+ **applicationId** | **int**| Filter by the ID of an Application connected to the achievement. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\InlineResponse20053**](../Model/InlineResponse20053.md)
 
 ### Authorization
 
@@ -11208,7 +11993,7 @@ Name | Type | Description  | Notes
 
 ## listAllRolesV2
 
-> \TalonOne\Client\Model\InlineResponse20046 listAllRolesV2()
+> \TalonOne\Client\Model\InlineResponse20047 listAllRolesV2()
 
 List roles
 
@@ -11259,7 +12044,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20046**](../Model/InlineResponse20046.md)
+[**\TalonOne\Client\Model\InlineResponse20047**](../Model/InlineResponse20047.md)
 
 ### Authorization
 
@@ -11277,7 +12062,7 @@ This endpoint does not need any parameter.
 
 ## listApplicationCartItemFilters
 
-> \TalonOne\Client\Model\InlineResponse20048 listApplicationCartItemFilters($applicationId, $pageSize, $skip, $title)
+> \TalonOne\Client\Model\InlineResponse20049 listApplicationCartItemFilters($applicationId, $pageSize, $skip, $name)
 
 List Application cart item filters
 
@@ -11315,10 +12100,10 @@ $apiInstance = new TalonOne\Client\Api\ManagementApi(
 $applicationId = 56; // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 $pageSize = 50; // int | The number of items in the response.
 $skip = 56; // int | The number of items to skip when paging through large result sets.
-$title = 'title_example'; // string | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `title` is provided, all the Application cart item filters in the Application are returned.
+$name = 'name_example'; // string | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `name` is provided, all the Application cart item filters in the Application are returned.
 
 try {
-    $result = $apiInstance->listApplicationCartItemFilters($applicationId, $pageSize, $skip, $title);
+    $result = $apiInstance->listApplicationCartItemFilters($applicationId, $pageSize, $skip, $name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManagementApi->listApplicationCartItemFilters: ', $e->getMessage(), PHP_EOL;
@@ -11334,11 +12119,11 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. |
  **pageSize** | **int**| The number of items in the response. | [optional] [default to 50]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
- **title** | **string**| Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;title&#x60; is provided, all the Application cart item filters in the Application are returned. | [optional]
+ **name** | **string**| Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;name&#x60; is provided, all the Application cart item filters in the Application are returned. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20048**](../Model/InlineResponse20048.md)
+[**\TalonOne\Client\Model\InlineResponse20049**](../Model/InlineResponse20049.md)
 
 ### Authorization
 
@@ -11356,7 +12141,7 @@ Name | Type | Description  | Notes
 
 ## listCampaignStoreBudgetLimits
 
-> \TalonOne\Client\Model\InlineResponse20049 listCampaignStoreBudgetLimits($applicationId, $campaignId, $action, $period)
+> \TalonOne\Client\Model\InlineResponse20050 listCampaignStoreBudgetLimits($applicationId, $campaignId, $action, $period)
 
 List campaign store budget limits
 
@@ -11417,7 +12202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20049**](../Model/InlineResponse20049.md)
+[**\TalonOne\Client\Model\InlineResponse20050**](../Model/InlineResponse20050.md)
 
 ### Authorization
 
@@ -11435,7 +12220,7 @@ Name | Type | Description  | Notes
 
 ## listCatalogItems
 
-> \TalonOne\Client\Model\InlineResponse20039 listCatalogItems($catalogId, $pageSize, $skip, $withTotalResultSize, $sku, $productNames)
+> \TalonOne\Client\Model\InlineResponse20040 listCatalogItems($catalogId, $pageSize, $skip, $withTotalResultSize, $sku, $productNames)
 
 List items in a catalog
 
@@ -11500,7 +12285,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20039**](../Model/InlineResponse20039.md)
+[**\TalonOne\Client\Model\InlineResponse20040**](../Model/InlineResponse20040.md)
 
 ### Authorization
 
@@ -11765,7 +12550,7 @@ Name | Type | Description  | Notes
 
 ## listStores
 
-> \TalonOne\Client\Model\InlineResponse20047 listStores($applicationId, $pageSize, $skip, $sort, $withTotalResultSize, $campaignId, $name, $integrationId, $query)
+> \TalonOne\Client\Model\InlineResponse20048 listStores($applicationId, $pageSize, $skip, $sort, $withTotalResultSize, $campaignId, $name, $integrationId, $query)
 
 List stores
 
@@ -11836,7 +12621,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20047**](../Model/InlineResponse20047.md)
+[**\TalonOne\Client\Model\InlineResponse20048**](../Model/InlineResponse20048.md)
 
 ### Authorization
 
@@ -13429,7 +14214,7 @@ Name | Type | Description  | Notes
 
 ## summarizeCampaignStoreBudget
 
-> \TalonOne\Client\Model\InlineResponse20050 summarizeCampaignStoreBudget($applicationId, $campaignId)
+> \TalonOne\Client\Model\InlineResponse20051 summarizeCampaignStoreBudget($applicationId, $campaignId)
 
 Get summary of campaign store budgets
 
@@ -13486,7 +14271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20050**](../Model/InlineResponse20050.md)
+[**\TalonOne\Client\Model\InlineResponse20051**](../Model/InlineResponse20051.md)
 
 ### Authorization
 
@@ -13717,6 +14502,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\TalonOne\Client\Model\Achievement**](../Model/Achievement.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1), [management_key](../../README.md#management_key), [manager_auth](../../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## updateAchievementV2
+
+> \TalonOne\Client\Model\AchievementV2 updateAchievementV2($achievementId, $body)
+
+Update achievement
+
+Update the details of a specific achievement.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: management_key
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: manager_auth
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\ManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$achievementId = 56; // int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+$body = new \TalonOne\Client\Model\UpdateAchievementV2(); // \TalonOne\Client\Model\UpdateAchievementV2 | body
+
+try {
+    $result = $apiInstance->updateAchievementV2($achievementId, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManagementApi->updateAchievementV2: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **achievementId** | **int**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. |
+ **body** | [**\TalonOne\Client\Model\UpdateAchievementV2**](../Model/UpdateAchievementV2.md)| body |
+
+### Return type
+
+[**\TalonOne\Client\Model\AchievementV2**](../Model/AchievementV2.md)
 
 ### Authorization
 

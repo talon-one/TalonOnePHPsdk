@@ -59,10 +59,12 @@ class History implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'observedAt' => '\DateTime',
-        'contextId' => 'string',
+        'contextIds' => 'string[]',
         'price' => 'float',
         'metadata' => '\TalonOne\Client\Model\BestPriorPriceMetadata',
-        'target' => 'object'
+        'target' => 'object',
+        'excludedAt' => '\DateTime',
+        'exclusionReason' => 'string'
     ];
 
     /**
@@ -73,10 +75,12 @@ class History implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => 'int64',
         'observedAt' => 'date-time',
-        'contextId' => null,
+        'contextIds' => null,
         'price' => null,
         'metadata' => null,
-        'target' => null
+        'target' => null,
+        'excludedAt' => 'date-time',
+        'exclusionReason' => null
     ];
 
     /**
@@ -108,10 +112,12 @@ class History implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'observedAt' => 'observedAt',
-        'contextId' => 'contextId',
+        'contextIds' => 'contextIds',
         'price' => 'price',
         'metadata' => 'metadata',
-        'target' => 'target'
+        'target' => 'target',
+        'excludedAt' => 'excludedAt',
+        'exclusionReason' => 'exclusionReason'
     ];
 
     /**
@@ -122,10 +128,12 @@ class History implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'observedAt' => 'setObservedAt',
-        'contextId' => 'setContextId',
+        'contextIds' => 'setContextIds',
         'price' => 'setPrice',
         'metadata' => 'setMetadata',
-        'target' => 'setTarget'
+        'target' => 'setTarget',
+        'excludedAt' => 'setExcludedAt',
+        'exclusionReason' => 'setExclusionReason'
     ];
 
     /**
@@ -136,10 +144,12 @@ class History implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'observedAt' => 'getObservedAt',
-        'contextId' => 'getContextId',
+        'contextIds' => 'getContextIds',
         'price' => 'getPrice',
         'metadata' => 'getMetadata',
-        'target' => 'getTarget'
+        'target' => 'getTarget',
+        'excludedAt' => 'getExcludedAt',
+        'exclusionReason' => 'getExclusionReason'
     ];
 
     /**
@@ -204,10 +214,12 @@ class History implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['observedAt'] = isset($data['observedAt']) ? $data['observedAt'] : null;
-        $this->container['contextId'] = isset($data['contextId']) ? $data['contextId'] : null;
+        $this->container['contextIds'] = isset($data['contextIds']) ? $data['contextIds'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['target'] = isset($data['target']) ? $data['target'] : null;
+        $this->container['excludedAt'] = isset($data['excludedAt']) ? $data['excludedAt'] : null;
+        $this->container['exclusionReason'] = isset($data['exclusionReason']) ? $data['exclusionReason'] : null;
     }
 
     /**
@@ -225,8 +237,8 @@ class History implements ModelInterface, ArrayAccess
         if ($this->container['observedAt'] === null) {
             $invalidProperties[] = "'observedAt' can't be null";
         }
-        if ($this->container['contextId'] === null) {
-            $invalidProperties[] = "'contextId' can't be null";
+        if ($this->container['contextIds'] === null) {
+            $invalidProperties[] = "'contextIds' can't be null";
         }
         if ($this->container['price'] === null) {
             $invalidProperties[] = "'price' can't be null";
@@ -301,25 +313,25 @@ class History implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets contextId
+     * Gets contextIds
      *
-     * @return string
+     * @return string[]
      */
-    public function getContextId()
+    public function getContextIds()
     {
-        return $this->container['contextId'];
+        return $this->container['contextIds'];
     }
 
     /**
-     * Sets contextId
+     * Sets contextIds
      *
-     * @param string $contextId Identifier of the relevant context at the time the price was observed (e.g. summer sale).
+     * @param string[] $contextIds The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.
      *
      * @return $this
      */
-    public function setContextId($contextId)
+    public function setContextIds($contextIds)
     {
-        $this->container['contextId'] = $contextId;
+        $this->container['contextIds'] = $contextIds;
 
         return $this;
     }
@@ -392,6 +404,54 @@ class History implements ModelInterface, ArrayAccess
     public function setTarget($target)
     {
         $this->container['target'] = $target;
+
+        return $this;
+    }
+
+    /**
+     * Gets excludedAt
+     *
+     * @return \DateTime|null
+     */
+    public function getExcludedAt()
+    {
+        return $this->container['excludedAt'];
+    }
+
+    /**
+     * Sets excludedAt
+     *
+     * @param \DateTime|null $excludedAt The date and time when the historical price ID was excluded.
+     *
+     * @return $this
+     */
+    public function setExcludedAt($excludedAt)
+    {
+        $this->container['excludedAt'] = $excludedAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclusionReason
+     *
+     * @return string|null
+     */
+    public function getExclusionReason()
+    {
+        return $this->container['exclusionReason'];
+    }
+
+    /**
+     * Sets exclusionReason
+     *
+     * @param string|null $exclusionReason The reason for excluding this historical price ID.
+     *
+     * @return $this
+     */
+    public function setExclusionReason($exclusionReason)
+    {
+        $this->container['exclusionReason'] = $exclusionReason;
 
         return $this;
     }

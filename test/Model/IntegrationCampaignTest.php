@@ -79,16 +79,16 @@ class IntegrationCampaignTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "applicationId"
      */
-    public function testPropertyId()
+    public function testPropertyApplicationId()
     {
     }
 
     /**
-     * Test attribute "applicationId"
+     * Test attribute "id"
      */
-    public function testPropertyApplicationId()
+    public function testPropertyId()
     {
     }
 
@@ -145,6 +145,27 @@ class IntegrationCampaignTest extends TestCase
      * Test attribute "features"
      */
     public function testPropertyFeatures()
+    {
+    }
+
+    /**
+     * Test attribute "rules"
+     */
+    public function testPropertyRules()
+    {
+    }
+
+    /**
+     * Test attribute "linkedStoreIds"
+     */
+    public function testPropertyLinkedStoreIds()
+    {
+    }
+
+    /**
+     * Test attribute "linkedAudienceIds"
+     */
+    public function testPropertyLinkedAudienceIds()
     {
     }
 }

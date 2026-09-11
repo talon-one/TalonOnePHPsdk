@@ -58,9 +58,13 @@ class IntegrationHubFlowResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'applicationID' => 'int',
+        'integrationName' => 'string',
+        'instanceName' => 'string',
+        'createdAt' => '\DateTime',
+        'disabledUntil' => '\DateTime',
+        'applicationId' => 'int',
+        'loyaltyProgramId' => 'int',
         'eventType' => 'string',
-        'integrationHubFlowUrl' => 'string',
         'config' => '\TalonOne\Client\Model\IntegrationHubFlowConfigResponse'
     ];
 
@@ -71,9 +75,13 @@ class IntegrationHubFlowResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => 'int64',
-        'applicationID' => 'int64',
+        'integrationName' => null,
+        'instanceName' => null,
+        'createdAt' => 'date-time',
+        'disabledUntil' => 'date-time',
+        'applicationId' => 'int64',
+        'loyaltyProgramId' => 'int64',
         'eventType' => null,
-        'integrationHubFlowUrl' => null,
         'config' => null
     ];
 
@@ -104,11 +112,15 @@ class IntegrationHubFlowResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'applicationID' => 'ApplicationID',
-        'eventType' => 'EventType',
-        'integrationHubFlowUrl' => 'IntegrationHubFlowUrl',
-        'config' => 'Config'
+        'id' => 'id',
+        'integrationName' => 'integrationName',
+        'instanceName' => 'instanceName',
+        'createdAt' => 'createdAt',
+        'disabledUntil' => 'disabledUntil',
+        'applicationId' => 'applicationId',
+        'loyaltyProgramId' => 'loyaltyProgramId',
+        'eventType' => 'eventType',
+        'config' => 'config'
     ];
 
     /**
@@ -118,9 +130,13 @@ class IntegrationHubFlowResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'applicationID' => 'setApplicationID',
+        'integrationName' => 'setIntegrationName',
+        'instanceName' => 'setInstanceName',
+        'createdAt' => 'setCreatedAt',
+        'disabledUntil' => 'setDisabledUntil',
+        'applicationId' => 'setApplicationId',
+        'loyaltyProgramId' => 'setLoyaltyProgramId',
         'eventType' => 'setEventType',
-        'integrationHubFlowUrl' => 'setIntegrationHubFlowUrl',
         'config' => 'setConfig'
     ];
 
@@ -131,9 +147,13 @@ class IntegrationHubFlowResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'applicationID' => 'getApplicationID',
+        'integrationName' => 'getIntegrationName',
+        'instanceName' => 'getInstanceName',
+        'createdAt' => 'getCreatedAt',
+        'disabledUntil' => 'getDisabledUntil',
+        'applicationId' => 'getApplicationId',
+        'loyaltyProgramId' => 'getLoyaltyProgramId',
         'eventType' => 'getEventType',
-        'integrationHubFlowUrl' => 'getIntegrationHubFlowUrl',
         'config' => 'getConfig'
     ];
 
@@ -198,9 +218,13 @@ class IntegrationHubFlowResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['applicationID'] = isset($data['applicationID']) ? $data['applicationID'] : null;
+        $this->container['integrationName'] = isset($data['integrationName']) ? $data['integrationName'] : null;
+        $this->container['instanceName'] = isset($data['instanceName']) ? $data['instanceName'] : null;
+        $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
+        $this->container['disabledUntil'] = isset($data['disabledUntil']) ? $data['disabledUntil'] : null;
+        $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
+        $this->container['loyaltyProgramId'] = isset($data['loyaltyProgramId']) ? $data['loyaltyProgramId'] : null;
         $this->container['eventType'] = isset($data['eventType']) ? $data['eventType'] : null;
-        $this->container['integrationHubFlowUrl'] = isset($data['integrationHubFlowUrl']) ? $data['integrationHubFlowUrl'] : null;
         $this->container['config'] = isset($data['config']) ? $data['config'] : null;
     }
 
@@ -216,11 +240,11 @@ class IntegrationHubFlowResponse implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if ($this->container['createdAt'] === null) {
+            $invalidProperties[] = "'createdAt' can't be null";
+        }
         if ($this->container['eventType'] === null) {
             $invalidProperties[] = "'eventType' can't be null";
-        }
-        if ($this->container['integrationHubFlowUrl'] === null) {
-            $invalidProperties[] = "'integrationHubFlowUrl' can't be null";
         }
         if ($this->container['config'] === null) {
             $invalidProperties[] = "'config' can't be null";
@@ -265,25 +289,145 @@ class IntegrationHubFlowResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets applicationID
+     * Gets integrationName
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getApplicationID()
+    public function getIntegrationName()
     {
-        return $this->container['applicationID'];
+        return $this->container['integrationName'];
     }
 
     /**
-     * Sets applicationID
+     * Sets integrationName
      *
-     * @param int|null $applicationID ID of application the flow is registered for.
+     * @param string|null $integrationName Name of the integration.
      *
      * @return $this
      */
-    public function setApplicationID($applicationID)
+    public function setIntegrationName($integrationName)
     {
-        $this->container['applicationID'] = $applicationID;
+        $this->container['integrationName'] = $integrationName;
+
+        return $this;
+    }
+
+    /**
+     * Gets instanceName
+     *
+     * @return string|null
+     */
+    public function getInstanceName()
+    {
+        return $this->container['instanceName'];
+    }
+
+    /**
+     * Sets instanceName
+     *
+     * @param string|null $instanceName Name of the integration instance.
+     *
+     * @return $this
+     */
+    public function setInstanceName($instanceName)
+    {
+        $this->container['instanceName'] = $instanceName;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt Timestamp when the flow was created.
+     *
+     * @return $this
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets disabledUntil
+     *
+     * @return \DateTime|null
+     */
+    public function getDisabledUntil()
+    {
+        return $this->container['disabledUntil'];
+    }
+
+    /**
+     * Sets disabledUntil
+     *
+     * @param \DateTime|null $disabledUntil Timestamp until which the flow is disabled. Null when the flow is active.
+     *
+     * @return $this
+     */
+    public function setDisabledUntil($disabledUntil)
+    {
+        $this->container['disabledUntil'] = $disabledUntil;
+
+        return $this;
+    }
+
+    /**
+     * Gets applicationId
+     *
+     * @return int|null
+     */
+    public function getApplicationId()
+    {
+        return $this->container['applicationId'];
+    }
+
+    /**
+     * Sets applicationId
+     *
+     * @param int|null $applicationId ID of the application the flow is registered for.
+     *
+     * @return $this
+     */
+    public function setApplicationId($applicationId)
+    {
+        $this->container['applicationId'] = $applicationId;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyaltyProgramId
+     *
+     * @return int|null
+     */
+    public function getLoyaltyProgramId()
+    {
+        return $this->container['loyaltyProgramId'];
+    }
+
+    /**
+     * Sets loyaltyProgramId
+     *
+     * @param int|null $loyaltyProgramId ID of the loyalty program the flow is registered for.
+     *
+     * @return $this
+     */
+    public function setLoyaltyProgramId($loyaltyProgramId)
+    {
+        $this->container['loyaltyProgramId'] = $loyaltyProgramId;
 
         return $this;
     }
@@ -308,30 +452,6 @@ class IntegrationHubFlowResponse implements ModelInterface, ArrayAccess
     public function setEventType($eventType)
     {
         $this->container['eventType'] = $eventType;
-
-        return $this;
-    }
-
-    /**
-     * Gets integrationHubFlowUrl
-     *
-     * @return string
-     */
-    public function getIntegrationHubFlowUrl()
-    {
-        return $this->container['integrationHubFlowUrl'];
-    }
-
-    /**
-     * Sets integrationHubFlowUrl
-     *
-     * @param string $integrationHubFlowUrl The URL of the integration hub flow that we want to trigger for the event.
-     *
-     * @return $this
-     */
-    public function setIntegrationHubFlowUrl($integrationHubFlowUrl)
-    {
-        $this->container['integrationHubFlowUrl'] = $integrationHubFlowUrl;
 
         return $this;
     }

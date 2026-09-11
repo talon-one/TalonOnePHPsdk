@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ExtendLoyaltyPointsExpiryDateEffectPropsTest Class Doc Comment
  *
  * @category    Class
- * @description The properties specific to the \&quot;extendLoyaltyPointsExpiryDate\&quot; effect. This gets triggered when a validated rule contains the \&quot;extend expiry date\&quot; effect. The current expiry date gets extended by the time frame given in the effect.
+ * @description If loyalty points have an expiry date, this effect extends the expiry of all active and pending point transactions by a selected duration.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -69,13 +69,16 @@ class AchievementV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => '\DateTime',
         'endDate' => '\DateTime',
         'allowRollbackAfterCompletion' => 'bool',
-        'sandbox' => 'bool',
         'subscribedApplications' => 'int[]',
-        'timezone' => 'string',
         'userId' => 'int',
         'createdBy' => 'string',
+        'periodEndOverride' => '\TalonOne\Client\Model\TimePoint',
         'hasProgress' => 'bool',
-        'status' => 'string'
+        'status' => 'string',
+        'sandbox' => 'bool',
+        'timezone' => 'string',
+        'campaignId' => 'int',
+        'referencedByCampaigns' => '\TalonOne\Client\Model\CampaignReference[]'
     ];
 
     /**
@@ -96,13 +99,16 @@ class AchievementV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => 'date-time',
         'endDate' => 'date-time',
         'allowRollbackAfterCompletion' => null,
-        'sandbox' => null,
         'subscribedApplications' => 'int64',
-        'timezone' => null,
         'userId' => 'int64',
         'createdBy' => null,
+        'periodEndOverride' => null,
         'hasProgress' => null,
-        'status' => null
+        'status' => null,
+        'sandbox' => null,
+        'timezone' => null,
+        'campaignId' => 'int64',
+        'referencedByCampaigns' => null
     ];
 
     /**
@@ -144,13 +150,16 @@ class AchievementV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => 'fixedStartDate',
         'endDate' => 'endDate',
         'allowRollbackAfterCompletion' => 'allowRollbackAfterCompletion',
-        'sandbox' => 'sandbox',
         'subscribedApplications' => 'subscribedApplications',
-        'timezone' => 'timezone',
         'userId' => 'userId',
         'createdBy' => 'createdBy',
+        'periodEndOverride' => 'periodEndOverride',
         'hasProgress' => 'hasProgress',
-        'status' => 'status'
+        'status' => 'status',
+        'sandbox' => 'sandbox',
+        'timezone' => 'timezone',
+        'campaignId' => 'campaignId',
+        'referencedByCampaigns' => 'referencedByCampaigns'
     ];
 
     /**
@@ -171,13 +180,16 @@ class AchievementV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => 'setFixedStartDate',
         'endDate' => 'setEndDate',
         'allowRollbackAfterCompletion' => 'setAllowRollbackAfterCompletion',
-        'sandbox' => 'setSandbox',
         'subscribedApplications' => 'setSubscribedApplications',
-        'timezone' => 'setTimezone',
         'userId' => 'setUserId',
         'createdBy' => 'setCreatedBy',
+        'periodEndOverride' => 'setPeriodEndOverride',
         'hasProgress' => 'setHasProgress',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'sandbox' => 'setSandbox',
+        'timezone' => 'setTimezone',
+        'campaignId' => 'setCampaignId',
+        'referencedByCampaigns' => 'setReferencedByCampaigns'
     ];
 
     /**
@@ -198,13 +210,16 @@ class AchievementV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => 'getFixedStartDate',
         'endDate' => 'getEndDate',
         'allowRollbackAfterCompletion' => 'getAllowRollbackAfterCompletion',
-        'sandbox' => 'getSandbox',
         'subscribedApplications' => 'getSubscribedApplications',
-        'timezone' => 'getTimezone',
         'userId' => 'getUserId',
         'createdBy' => 'getCreatedBy',
+        'periodEndOverride' => 'getPeriodEndOverride',
         'hasProgress' => 'getHasProgress',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'sandbox' => 'getSandbox',
+        'timezone' => 'getTimezone',
+        'campaignId' => 'getCampaignId',
+        'referencedByCampaigns' => 'getReferencedByCampaigns'
     ];
 
     /**
@@ -253,10 +268,9 @@ class AchievementV2 implements ModelInterface, ArrayAccess
     const RECURRENCE_POLICY_ON_COMPLETION = 'on_completion';
     const ACTIVATION_POLICY_USER_ACTION = 'user_action';
     const ACTIVATION_POLICY_FIXED_SCHEDULE = 'fixed_schedule';
-    const STATUS_INPROGRESS = 'inprogress';
+    const STATUS_ACTIVE = 'active';
+    const STATUS_SCHEDULED = 'scheduled';
     const STATUS_EXPIRED = 'expired';
-    const STATUS_NOT_STARTED = 'not_started';
-    const STATUS_COMPLETED = 'completed';
     
 
     
@@ -295,10 +309,9 @@ class AchievementV2 implements ModelInterface, ArrayAccess
     public function getStatusAllowableValues()
     {
         return [
-            self::STATUS_INPROGRESS,
+            self::STATUS_ACTIVE,
+            self::STATUS_SCHEDULED,
             self::STATUS_EXPIRED,
-            self::STATUS_NOT_STARTED,
-            self::STATUS_COMPLETED,
         ];
     }
     
@@ -330,13 +343,16 @@ class AchievementV2 implements ModelInterface, ArrayAccess
         $this->container['fixedStartDate'] = isset($data['fixedStartDate']) ? $data['fixedStartDate'] : null;
         $this->container['endDate'] = isset($data['endDate']) ? $data['endDate'] : null;
         $this->container['allowRollbackAfterCompletion'] = isset($data['allowRollbackAfterCompletion']) ? $data['allowRollbackAfterCompletion'] : null;
-        $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['subscribedApplications'] = isset($data['subscribedApplications']) ? $data['subscribedApplications'] : null;
-        $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
         $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
+        $this->container['periodEndOverride'] = isset($data['periodEndOverride']) ? $data['periodEndOverride'] : null;
         $this->container['hasProgress'] = isset($data['hasProgress']) ? $data['hasProgress'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
+        $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
+        $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
+        $this->container['referencedByCampaigns'] = isset($data['referencedByCampaigns']) ? $data['referencedByCampaigns'] : null;
     }
 
     /**
@@ -400,19 +416,9 @@ class AchievementV2 implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['sandbox'] === null) {
-            $invalidProperties[] = "'sandbox' can't be null";
-        }
         if ($this->container['subscribedApplications'] === null) {
             $invalidProperties[] = "'subscribedApplications' can't be null";
         }
-        if ($this->container['timezone'] === null) {
-            $invalidProperties[] = "'timezone' can't be null";
-        }
-        if ((mb_strlen($this->container['timezone']) < 1)) {
-            $invalidProperties[] = "invalid value for 'timezone', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['userId'] === null) {
             $invalidProperties[] = "'userId' can't be null";
         }
@@ -424,6 +430,19 @@ class AchievementV2 implements ModelInterface, ArrayAccess
             );
         }
 
+        if ($this->container['sandbox'] === null) {
+            $invalidProperties[] = "'sandbox' can't be null";
+        }
+        if ($this->container['timezone'] === null) {
+            $invalidProperties[] = "'timezone' can't be null";
+        }
+        if ((mb_strlen($this->container['timezone']) < 1)) {
+            $invalidProperties[] = "invalid value for 'timezone', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['referencedByCampaigns'] === null) {
+            $invalidProperties[] = "'referencedByCampaigns' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -756,30 +775,6 @@ class AchievementV2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets sandbox
-     *
-     * @return bool
-     */
-    public function getSandbox()
-    {
-        return $this->container['sandbox'];
-    }
-
-    /**
-     * Sets sandbox
-     *
-     * @param bool $sandbox Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
-     *
-     * @return $this
-     */
-    public function setSandbox($sandbox)
-    {
-        $this->container['sandbox'] = $sandbox;
-
-        return $this;
-    }
-
-    /**
      * Gets subscribedApplications
      *
      * @return int[]
@@ -799,35 +794,6 @@ class AchievementV2 implements ModelInterface, ArrayAccess
     public function setSubscribedApplications($subscribedApplications)
     {
         $this->container['subscribedApplications'] = $subscribedApplications;
-
-        return $this;
-    }
-
-    /**
-     * Gets timezone
-     *
-     * @return string
-     */
-    public function getTimezone()
-    {
-        return $this->container['timezone'];
-    }
-
-    /**
-     * Sets timezone
-     *
-     * @param string $timezone A string containing an IANA timezone descriptor.
-     *
-     * @return $this
-     */
-    public function setTimezone($timezone)
-    {
-
-        if ((mb_strlen($timezone) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $timezone when calling AchievementV2., must be bigger than or equal to 1.');
-        }
-
-        $this->container['timezone'] = $timezone;
 
         return $this;
     }
@@ -881,6 +847,30 @@ class AchievementV2 implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets periodEndOverride
+     *
+     * @return \TalonOne\Client\Model\TimePoint|null
+     */
+    public function getPeriodEndOverride()
+    {
+        return $this->container['periodEndOverride'];
+    }
+
+    /**
+     * Sets periodEndOverride
+     *
+     * @param \TalonOne\Client\Model\TimePoint|null $periodEndOverride periodEndOverride
+     *
+     * @return $this
+     */
+    public function setPeriodEndOverride($periodEndOverride)
+    {
+        $this->container['periodEndOverride'] = $periodEndOverride;
+
+        return $this;
+    }
+
+    /**
      * Gets hasProgress
      *
      * @return bool|null
@@ -917,7 +907,7 @@ class AchievementV2 implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status The status of the achievement.
+     * @param string|null $status The status of the achievement.                                                                                               - `active`: The achievement is available to customers. - `scheduled`: The achievement has a `fixedStartDate` set in the future. - `expired`: The achievement's `endDate` is in the past.
      *
      * @return $this
      */
@@ -933,6 +923,107 @@ class AchievementV2 implements ModelInterface, ArrayAccess
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets sandbox
+     *
+     * @return bool
+     */
+    public function getSandbox()
+    {
+        return $this->container['sandbox'];
+    }
+
+    /**
+     * Sets sandbox
+     *
+     * @param bool $sandbox Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
+     *
+     * @return $this
+     */
+    public function setSandbox($sandbox)
+    {
+        $this->container['sandbox'] = $sandbox;
+
+        return $this;
+    }
+
+    /**
+     * Gets timezone
+     *
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->container['timezone'];
+    }
+
+    /**
+     * Sets timezone
+     *
+     * @param string $timezone A string containing an IANA timezone descriptor.
+     *
+     * @return $this
+     */
+    public function setTimezone($timezone)
+    {
+
+        if ((mb_strlen($timezone) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $timezone when calling AchievementV2., must be bigger than or equal to 1.');
+        }
+
+        $this->container['timezone'] = $timezone;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignId
+     *
+     * @return int|null
+     */
+    public function getCampaignId()
+    {
+        return $this->container['campaignId'];
+    }
+
+    /**
+     * Sets campaignId
+     *
+     * @param int|null $campaignId This property is **deprecated**. Use `referencedByCampaigns` instead. This field contains the first campaign ID from the related `referencedByCampaigns`, and is omitted when `referencedByCampaigns` is empty.
+     *
+     * @return $this
+     */
+    public function setCampaignId($campaignId)
+    {
+        $this->container['campaignId'] = $campaignId;
+
+        return $this;
+    }
+
+    /**
+     * Gets referencedByCampaigns
+     *
+     * @return \TalonOne\Client\Model\CampaignReference[]
+     */
+    public function getReferencedByCampaigns()
+    {
+        return $this->container['referencedByCampaigns'];
+    }
+
+    /**
+     * Sets referencedByCampaigns
+     *
+     * @param \TalonOne\Client\Model\CampaignReference[] $referencedByCampaigns The campaigns that reference this achievement. They are sorted in ascending order by their id.
+     *
+     * @return $this
+     */
+    public function setReferencedByCampaigns($referencedByCampaigns)
+    {
+        $this->container['referencedByCampaigns'] = $referencedByCampaigns;
 
         return $this;
     }

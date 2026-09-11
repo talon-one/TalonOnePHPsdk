@@ -128,6 +128,20 @@ class RuleFailureReasonTest extends TestCase
     }
 
     /**
+     * Test attribute "rewardId"
+     */
+    public function testPropertyRewardId()
+    {
+    }
+
+    /**
+     * Test attribute "rewardIntegrationId"
+     */
+    public function testPropertyRewardIntegrationId()
+    {
+    }
+
+    /**
      * Test attribute "ruleIndex"
      */
     public function testPropertyRuleIndex()

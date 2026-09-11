@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * CouponCreatedEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;couponCreated\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;create coupon\&quot; effect, and a coupon was created for a customer. See \&quot;createdCoupons\&quot; on the response for all details of this coupon.
+ * @description This effect indicates that a coupon was created.  For referrals and retention marketing, a common use case is to generate a coupon that can only be redeemed by one specific customer.  Handle this effect by notifying the recipient about their new coupon code.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
