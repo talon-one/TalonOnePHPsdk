@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * AwardGiveawayEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;awardGiveaway\&quot; effect. This effect contains information on the giveaway item, and which profile it was awarded to.
+ * @description This effect indicates the awarded giveaway item and to which profile the item was awarded. Learn more about [giveaways](https://docs.talon.one/docs/product/giveaways/overview).
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -261,7 +261,7 @@ class AwardGiveawayEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets poolId
      *
-     * @param int $poolId The ID of the giveaways pool the code was taken from.
+     * @param int $poolId The internal ID of the giveaway pool.
      *
      * @return $this
      */
@@ -285,7 +285,7 @@ class AwardGiveawayEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets poolName
      *
-     * @param string $poolName The name of the giveaways pool the code was taken from.
+     * @param string $poolName The name of the giveaway pool.
      *
      * @return $this
      */
@@ -309,7 +309,7 @@ class AwardGiveawayEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets recipientIntegrationId
      *
-     * @param string $recipientIntegrationId The integration ID of the profile that was awarded the giveaway.
+     * @param string $recipientIntegrationId The integration ID of the customer that receives the giveaway.
      *
      * @return $this
      */
@@ -337,7 +337,7 @@ class AwardGiveawayEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets giveawayId
      *
-     * @param int $giveawayId The internal ID for the giveaway that was awarded.
+     * @param int $giveawayId The internal ID of the giveaway.
      *
      * @return $this
      */
@@ -361,7 +361,7 @@ class AwardGiveawayEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets code
      *
-     * @param string $code The giveaway code that was awarded.
+     * @param string $code The giveaway code to be rewarded.
      *
      * @return $this
      */

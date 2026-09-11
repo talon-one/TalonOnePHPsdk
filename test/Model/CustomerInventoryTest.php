@@ -119,4 +119,11 @@ class CustomerInventoryTest extends TestCase
     public function testPropertyAchievements()
     {
     }
+
+    /**
+     * Test attribute "rewards"
+     */
+    public function testPropertyRewards()
+    {
+    }
 }

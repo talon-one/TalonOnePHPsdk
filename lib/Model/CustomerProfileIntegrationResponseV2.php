@@ -63,7 +63,9 @@ class CustomerProfileIntegrationResponseV2 implements ModelInterface, ArrayAcces
         'loyalty' => '\TalonOne\Client\Model\Loyalty',
         'triggeredCampaigns' => '\TalonOne\Client\Model\Campaign[]',
         'ruleFailureReasons' => '\TalonOne\Client\Model\RuleFailureReason[]',
+        'campaignEligibility' => '\TalonOne\Client\Model\CampaignEligibility[]',
         'awardedGiveaways' => '\TalonOne\Client\Model\Giveaway[]',
+        'rewards' => '\TalonOne\Client\Model\RewardWithUnlocks[]',
         'effects' => '\TalonOne\Client\Model\Effect[]',
         'createdCoupons' => '\TalonOne\Client\Model\Coupon[]',
         'createdReferrals' => '\TalonOne\Client\Model\Referral[]'
@@ -80,7 +82,9 @@ class CustomerProfileIntegrationResponseV2 implements ModelInterface, ArrayAcces
         'loyalty' => null,
         'triggeredCampaigns' => null,
         'ruleFailureReasons' => null,
+        'campaignEligibility' => null,
         'awardedGiveaways' => null,
+        'rewards' => null,
         'effects' => null,
         'createdCoupons' => null,
         'createdReferrals' => null
@@ -118,7 +122,9 @@ class CustomerProfileIntegrationResponseV2 implements ModelInterface, ArrayAcces
         'loyalty' => 'loyalty',
         'triggeredCampaigns' => 'triggeredCampaigns',
         'ruleFailureReasons' => 'ruleFailureReasons',
+        'campaignEligibility' => 'campaignEligibility',
         'awardedGiveaways' => 'awardedGiveaways',
+        'rewards' => 'rewards',
         'effects' => 'effects',
         'createdCoupons' => 'createdCoupons',
         'createdReferrals' => 'createdReferrals'
@@ -135,7 +141,9 @@ class CustomerProfileIntegrationResponseV2 implements ModelInterface, ArrayAcces
         'loyalty' => 'setLoyalty',
         'triggeredCampaigns' => 'setTriggeredCampaigns',
         'ruleFailureReasons' => 'setRuleFailureReasons',
+        'campaignEligibility' => 'setCampaignEligibility',
         'awardedGiveaways' => 'setAwardedGiveaways',
+        'rewards' => 'setRewards',
         'effects' => 'setEffects',
         'createdCoupons' => 'setCreatedCoupons',
         'createdReferrals' => 'setCreatedReferrals'
@@ -152,7 +160,9 @@ class CustomerProfileIntegrationResponseV2 implements ModelInterface, ArrayAcces
         'loyalty' => 'getLoyalty',
         'triggeredCampaigns' => 'getTriggeredCampaigns',
         'ruleFailureReasons' => 'getRuleFailureReasons',
+        'campaignEligibility' => 'getCampaignEligibility',
         'awardedGiveaways' => 'getAwardedGiveaways',
+        'rewards' => 'getRewards',
         'effects' => 'getEffects',
         'createdCoupons' => 'getCreatedCoupons',
         'createdReferrals' => 'getCreatedReferrals'
@@ -223,7 +233,9 @@ class CustomerProfileIntegrationResponseV2 implements ModelInterface, ArrayAcces
         $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
         $this->container['triggeredCampaigns'] = isset($data['triggeredCampaigns']) ? $data['triggeredCampaigns'] : null;
         $this->container['ruleFailureReasons'] = isset($data['ruleFailureReasons']) ? $data['ruleFailureReasons'] : null;
+        $this->container['campaignEligibility'] = isset($data['campaignEligibility']) ? $data['campaignEligibility'] : null;
         $this->container['awardedGiveaways'] = isset($data['awardedGiveaways']) ? $data['awardedGiveaways'] : null;
+        $this->container['rewards'] = isset($data['rewards']) ? $data['rewards'] : null;
         $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
         $this->container['createdCoupons'] = isset($data['createdCoupons']) ? $data['createdCoupons'] : null;
         $this->container['createdReferrals'] = isset($data['createdReferrals']) ? $data['createdReferrals'] : null;
@@ -383,6 +395,30 @@ class CustomerProfileIntegrationResponseV2 implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets campaignEligibility
+     *
+     * @return \TalonOne\Client\Model\CampaignEligibility[]|null
+     */
+    public function getCampaignEligibility()
+    {
+        return $this->container['campaignEligibility'];
+    }
+
+    /**
+     * Sets campaignEligibility
+     *
+     * @param \TalonOne\Client\Model\CampaignEligibility[]|null $campaignEligibility campaignEligibility
+     *
+     * @return $this
+     */
+    public function setCampaignEligibility($campaignEligibility)
+    {
+        $this->container['campaignEligibility'] = $campaignEligibility;
+
+        return $this;
+    }
+
+    /**
      * Gets awardedGiveaways
      *
      * @return \TalonOne\Client\Model\Giveaway[]|null
@@ -402,6 +438,30 @@ class CustomerProfileIntegrationResponseV2 implements ModelInterface, ArrayAcces
     public function setAwardedGiveaways($awardedGiveaways)
     {
         $this->container['awardedGiveaways'] = $awardedGiveaways;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewards
+     *
+     * @return \TalonOne\Client\Model\RewardWithUnlocks[]|null
+     */
+    public function getRewards()
+    {
+        return $this->container['rewards'];
+    }
+
+    /**
+     * Sets rewards
+     *
+     * @param \TalonOne\Client\Model\RewardWithUnlocks[]|null $rewards The rewards for the customer profile.
+     *
+     * @return $this
+     */
+    public function setRewards($rewards)
+    {
+        $this->container['rewards'] = $rewards;
 
         return $this;
     }

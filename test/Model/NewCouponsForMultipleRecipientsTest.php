@@ -114,6 +114,13 @@ class NewCouponsForMultipleRecipientsTest extends TestCase
     }
 
     /**
+     * Test attribute "batchId"
+     */
+    public function testPropertyBatchId()
+    {
+    }
+
+    /**
      * Test attribute "attributes"
      */
     public function testPropertyAttributes()

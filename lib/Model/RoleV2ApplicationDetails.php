@@ -60,8 +60,7 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         'application' => 'string',
         'campaign' => 'string',
         'draftCampaign' => 'string',
-        'tools' => 'string',
-        'thresholds' => '\TalonOne\Client\Model\RolesV2Thresholds'
+        'tools' => 'string'
     ];
 
     /**
@@ -73,8 +72,7 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         'application' => null,
         'campaign' => null,
         'draftCampaign' => null,
-        'tools' => null,
-        'thresholds' => null
+        'tools' => null
     ];
 
     /**
@@ -107,8 +105,7 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         'application' => 'application',
         'campaign' => 'campaign',
         'draftCampaign' => 'draftCampaign',
-        'tools' => 'tools',
-        'thresholds' => 'thresholds'
+        'tools' => 'tools'
     ];
 
     /**
@@ -120,8 +117,7 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         'application' => 'setApplication',
         'campaign' => 'setCampaign',
         'draftCampaign' => 'setDraftCampaign',
-        'tools' => 'setTools',
-        'thresholds' => 'setThresholds'
+        'tools' => 'setTools'
     ];
 
     /**
@@ -133,8 +129,7 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         'application' => 'getApplication',
         'campaign' => 'getCampaign',
         'draftCampaign' => 'getDraftCampaign',
-        'tools' => 'getTools',
-        'thresholds' => 'getThresholds'
+        'tools' => 'getTools'
     ];
 
     /**
@@ -201,7 +196,6 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
         $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
         $this->container['draftCampaign'] = isset($data['draftCampaign']) ? $data['draftCampaign'] : null;
         $this->container['tools'] = isset($data['tools']) ? $data['tools'] : null;
-        $this->container['thresholds'] = isset($data['thresholds']) ? $data['thresholds'] : null;
     }
 
     /**
@@ -320,30 +314,6 @@ class RoleV2ApplicationDetails implements ModelInterface, ArrayAccess
     public function setTools($tools)
     {
         $this->container['tools'] = $tools;
-
-        return $this;
-    }
-
-    /**
-     * Gets thresholds
-     *
-     * @return \TalonOne\Client\Model\RolesV2Thresholds|null
-     */
-    public function getThresholds()
-    {
-        return $this->container['thresholds'];
-    }
-
-    /**
-     * Sets thresholds
-     *
-     * @param \TalonOne\Client\Model\RolesV2Thresholds|null $thresholds thresholds
-     *
-     * @return $this
-     */
-    public function setThresholds($thresholds)
-    {
-        $this->container['thresholds'] = $thresholds;
 
         return $this;
     }

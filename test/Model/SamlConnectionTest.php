@@ -86,6 +86,13 @@ class SamlConnectionTest extends TestCase
     }
 
     /**
+     * Test attribute "certificateExpiry"
+     */
+    public function testPropertyCertificateExpiry()
+    {
+    }
+
+    /**
      * Test attribute "accountId"
      */
     public function testPropertyAccountId()

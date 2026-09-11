@@ -100,6 +100,13 @@ class IntegrationResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "campaignEligibility"
+     */
+    public function testPropertyCampaignEligibility()
+    {
+    }
+
+    /**
      * Test attribute "effects"
      */
     public function testPropertyEffects()
@@ -131,6 +138,20 @@ class IntegrationResponseTest extends TestCase
      * Test attribute "awardedGiveaways"
      */
     public function testPropertyAwardedGiveaways()
+    {
+    }
+
+    /**
+     * Test attribute "achievements"
+     */
+    public function testPropertyAchievements()
+    {
+    }
+
+    /**
+     * Test attribute "rewards"
+     */
+    public function testPropertyRewards()
     {
     }
 }

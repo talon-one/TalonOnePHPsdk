@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **activated** | [**\DateTime**](\DateTime.md) | The date and time the experiment was activated. | [optional] 
 **state** | **string** | A disabled experiment is not evaluated for rules or coupons. | [default to 'disabled']
 **variants** | [**\TalonOne\Client\Model\ExperimentVariant[]**](ExperimentVariant.md) |  | [optional] 
+**goalType** | **string** | The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. | 
+**goalDescription** | **string** | A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. | [optional] 
 **deletedat** | [**\DateTime**](\DateTime.md) | The date and time the experiment was deleted. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

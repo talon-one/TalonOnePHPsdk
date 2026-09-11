@@ -57,8 +57,8 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
         'applicationId' => 'int',
+        'id' => 'int',
         'name' => 'string',
         'description' => 'string',
         'startTime' => '\DateTime',
@@ -66,7 +66,10 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
         'attributes' => 'object',
         'state' => 'string',
         'tags' => 'string[]',
-        'features' => 'string[]'
+        'features' => 'string[]',
+        'rules' => '\TalonOne\Client\Model\RuleMetadata[]',
+        'linkedStoreIds' => 'int[]',
+        'linkedAudienceIds' => 'int[]'
     ];
 
     /**
@@ -75,8 +78,8 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
         'applicationId' => 'int64',
+        'id' => 'int64',
         'name' => null,
         'description' => null,
         'startTime' => 'date-time',
@@ -84,7 +87,10 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
         'attributes' => null,
         'state' => null,
         'tags' => null,
-        'features' => null
+        'features' => null,
+        'rules' => null,
+        'linkedStoreIds' => 'int64',
+        'linkedAudienceIds' => 'int64'
     ];
 
     /**
@@ -114,8 +120,8 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'applicationId' => 'applicationId',
+        'id' => 'id',
         'name' => 'name',
         'description' => 'description',
         'startTime' => 'startTime',
@@ -123,7 +129,10 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
         'attributes' => 'attributes',
         'state' => 'state',
         'tags' => 'tags',
-        'features' => 'features'
+        'features' => 'features',
+        'rules' => 'rules',
+        'linkedStoreIds' => 'linkedStoreIds',
+        'linkedAudienceIds' => 'linkedAudienceIds'
     ];
 
     /**
@@ -132,8 +141,8 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'applicationId' => 'setApplicationId',
+        'id' => 'setId',
         'name' => 'setName',
         'description' => 'setDescription',
         'startTime' => 'setStartTime',
@@ -141,7 +150,10 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
         'attributes' => 'setAttributes',
         'state' => 'setState',
         'tags' => 'setTags',
-        'features' => 'setFeatures'
+        'features' => 'setFeatures',
+        'rules' => 'setRules',
+        'linkedStoreIds' => 'setLinkedStoreIds',
+        'linkedAudienceIds' => 'setLinkedAudienceIds'
     ];
 
     /**
@@ -150,8 +162,8 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'applicationId' => 'getApplicationId',
+        'id' => 'getId',
         'name' => 'getName',
         'description' => 'getDescription',
         'startTime' => 'getStartTime',
@@ -159,7 +171,10 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
         'attributes' => 'getAttributes',
         'state' => 'getState',
         'tags' => 'getTags',
-        'features' => 'getFeatures'
+        'features' => 'getFeatures',
+        'rules' => 'getRules',
+        'linkedStoreIds' => 'getLinkedStoreIds',
+        'linkedAudienceIds' => 'getLinkedAudienceIds'
     ];
 
     /**
@@ -210,6 +225,7 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
     const FEATURES_GIVEAWAYS = 'giveaways';
     const FEATURES_STRIKETHROUGH = 'strikethrough';
     const FEATURES_ACHIEVEMENTS = 'achievements';
+    const FEATURES_ADVANCED_EVENTS = 'advancedEvents';
     
 
     
@@ -239,6 +255,7 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
             self::FEATURES_GIVEAWAYS,
             self::FEATURES_STRIKETHROUGH,
             self::FEATURES_ACHIEVEMENTS,
+            self::FEATURES_ADVANCED_EVENTS,
         ];
     }
     
@@ -258,8 +275,8 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
@@ -268,6 +285,9 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'enabled';
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['features'] = isset($data['features']) ? $data['features'] : null;
+        $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
+        $this->container['linkedStoreIds'] = isset($data['linkedStoreIds']) ? $data['linkedStoreIds'] : null;
+        $this->container['linkedAudienceIds'] = isset($data['linkedAudienceIds']) ? $data['linkedAudienceIds'] : null;
     }
 
     /**
@@ -279,11 +299,11 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['applicationId'] === null) {
             $invalidProperties[] = "'applicationId' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
@@ -309,6 +329,9 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
         if ($this->container['features'] === null) {
             $invalidProperties[] = "'features' can't be null";
         }
+        if ($this->container['rules'] === null) {
+            $invalidProperties[] = "'rules' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -323,30 +346,6 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id Unique ID of Campaign.
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets applicationId
@@ -373,6 +372,30 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id Unique ID of Campaign.
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -385,7 +408,7 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name A user-facing name for this campaign.
+     * @param string $name The name of the campaign.
      *
      * @return $this
      */
@@ -583,6 +606,78 @@ class IntegrationCampaign implements ModelInterface, ArrayAccess
             );
         }
         $this->container['features'] = $features;
+
+        return $this;
+    }
+
+    /**
+     * Gets rules
+     *
+     * @return \TalonOne\Client\Model\RuleMetadata[]
+     */
+    public function getRules()
+    {
+        return $this->container['rules'];
+    }
+
+    /**
+     * Sets rules
+     *
+     * @param \TalonOne\Client\Model\RuleMetadata[] $rules A list of rules containing customer-facing details of the rewards defined in the campaign.
+     *
+     * @return $this
+     */
+    public function setRules($rules)
+    {
+        $this->container['rules'] = $rules;
+
+        return $this;
+    }
+
+    /**
+     * Gets linkedStoreIds
+     *
+     * @return int[]|null
+     */
+    public function getLinkedStoreIds()
+    {
+        return $this->container['linkedStoreIds'];
+    }
+
+    /**
+     * Sets linkedStoreIds
+     *
+     * @param int[]|null $linkedStoreIds A list of store IDs linked to this campaign.
+     *
+     * @return $this
+     */
+    public function setLinkedStoreIds($linkedStoreIds)
+    {
+        $this->container['linkedStoreIds'] = $linkedStoreIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets linkedAudienceIds
+     *
+     * @return int[]|null
+     */
+    public function getLinkedAudienceIds()
+    {
+        return $this->container['linkedAudienceIds'];
+    }
+
+    /**
+     * Sets linkedAudienceIds
+     *
+     * @param int[]|null $linkedAudienceIds A list of audience IDs linked to this campaign.
+     *
+     * @return $this
+     */
+    public function setLinkedAudienceIds($linkedAudienceIds)
+    {
+        $this->container['linkedAudienceIds'] = $linkedAudienceIds;
 
         return $this;
     }

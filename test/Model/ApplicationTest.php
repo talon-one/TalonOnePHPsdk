@@ -226,6 +226,13 @@ class ApplicationTest extends TestCase
     }
 
     /**
+     * Test attribute "bestPriorPriceSettings"
+     */
+    public function testPropertyBestPriorPriceSettings()
+    {
+    }
+
+    /**
      * Test attribute "loyaltyPrograms"
      */
     public function testPropertyLoyaltyPrograms()

@@ -149,16 +149,16 @@ class CreateAchievementV2Test extends TestCase
     }
 
     /**
-     * Test attribute "sandbox"
+     * Test attribute "subscribedApplications"
      */
-    public function testPropertySandbox()
+    public function testPropertySubscribedApplications()
     {
     }
 
     /**
-     * Test attribute "subscribedApplications"
+     * Test attribute "sandbox"
      */
-    public function testPropertySubscribedApplications()
+    public function testPropertySandbox()
     {
     }
 

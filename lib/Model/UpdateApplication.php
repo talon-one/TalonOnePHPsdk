@@ -73,7 +73,8 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         'defaultDiscountAdditionalCostPerItemScope' => 'string',
         'defaultEvaluationGroupId' => 'int',
         'defaultCartItemFilterId' => 'int',
-        'enableCampaignStateManagement' => 'bool'
+        'enableCampaignStateManagement' => 'bool',
+        'bestPriorPriceSettings' => '\TalonOne\Client\Model\BestPriorPriceSettings'
     ];
 
     /**
@@ -98,7 +99,8 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         'defaultDiscountAdditionalCostPerItemScope' => null,
         'defaultEvaluationGroupId' => 'int64',
         'defaultCartItemFilterId' => 'int64',
-        'enableCampaignStateManagement' => null
+        'enableCampaignStateManagement' => null,
+        'bestPriorPriceSettings' => null
     ];
 
     /**
@@ -144,7 +146,8 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         'defaultDiscountAdditionalCostPerItemScope' => 'defaultDiscountAdditionalCostPerItemScope',
         'defaultEvaluationGroupId' => 'defaultEvaluationGroupId',
         'defaultCartItemFilterId' => 'defaultCartItemFilterId',
-        'enableCampaignStateManagement' => 'enableCampaignStateManagement'
+        'enableCampaignStateManagement' => 'enableCampaignStateManagement',
+        'bestPriorPriceSettings' => 'bestPriorPriceSettings'
     ];
 
     /**
@@ -169,7 +172,8 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         'defaultDiscountAdditionalCostPerItemScope' => 'setDefaultDiscountAdditionalCostPerItemScope',
         'defaultEvaluationGroupId' => 'setDefaultEvaluationGroupId',
         'defaultCartItemFilterId' => 'setDefaultCartItemFilterId',
-        'enableCampaignStateManagement' => 'setEnableCampaignStateManagement'
+        'enableCampaignStateManagement' => 'setEnableCampaignStateManagement',
+        'bestPriorPriceSettings' => 'setBestPriorPriceSettings'
     ];
 
     /**
@@ -194,7 +198,8 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         'defaultDiscountAdditionalCostPerItemScope' => 'getDefaultDiscountAdditionalCostPerItemScope',
         'defaultEvaluationGroupId' => 'getDefaultEvaluationGroupId',
         'defaultCartItemFilterId' => 'getDefaultCartItemFilterId',
-        'enableCampaignStateManagement' => 'getEnableCampaignStateManagement'
+        'enableCampaignStateManagement' => 'getEnableCampaignStateManagement',
+        'bestPriorPriceSettings' => 'getBestPriorPriceSettings'
     ];
 
     /**
@@ -325,6 +330,7 @@ class UpdateApplication implements ModelInterface, ArrayAccess
         $this->container['defaultEvaluationGroupId'] = isset($data['defaultEvaluationGroupId']) ? $data['defaultEvaluationGroupId'] : null;
         $this->container['defaultCartItemFilterId'] = isset($data['defaultCartItemFilterId']) ? $data['defaultCartItemFilterId'] : null;
         $this->container['enableCampaignStateManagement'] = isset($data['enableCampaignStateManagement']) ? $data['enableCampaignStateManagement'] : null;
+        $this->container['bestPriorPriceSettings'] = isset($data['bestPriorPriceSettings']) ? $data['bestPriorPriceSettings'] : null;
     }
 
     /**
@@ -842,6 +848,30 @@ class UpdateApplication implements ModelInterface, ArrayAccess
     public function setEnableCampaignStateManagement($enableCampaignStateManagement)
     {
         $this->container['enableCampaignStateManagement'] = $enableCampaignStateManagement;
+
+        return $this;
+    }
+
+    /**
+     * Gets bestPriorPriceSettings
+     *
+     * @return \TalonOne\Client\Model\BestPriorPriceSettings|null
+     */
+    public function getBestPriorPriceSettings()
+    {
+        return $this->container['bestPriorPriceSettings'];
+    }
+
+    /**
+     * Sets bestPriorPriceSettings
+     *
+     * @param \TalonOne\Client\Model\BestPriorPriceSettings|null $bestPriorPriceSettings bestPriorPriceSettings
+     *
+     * @return $this
+     */
+    public function setBestPriorPriceSettings($bestPriorPriceSettings)
+    {
+        $this->container['bestPriorPriceSettings'] = $bestPriorPriceSettings;
 
         return $this;
     }

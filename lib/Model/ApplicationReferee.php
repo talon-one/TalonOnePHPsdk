@@ -59,6 +59,7 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'applicationId' => 'int',
         'sessionId' => 'string',
+        'advancedEventIntegrationId' => 'string',
         'advocateIntegrationId' => 'string',
         'friendIntegrationId' => 'string',
         'code' => 'string',
@@ -73,6 +74,7 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'applicationId' => 'int64',
         'sessionId' => null,
+        'advancedEventIntegrationId' => null,
         'advocateIntegrationId' => null,
         'friendIntegrationId' => null,
         'code' => null,
@@ -108,6 +110,7 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'applicationId' => 'applicationId',
         'sessionId' => 'sessionId',
+        'advancedEventIntegrationId' => 'advancedEventIntegrationId',
         'advocateIntegrationId' => 'advocateIntegrationId',
         'friendIntegrationId' => 'friendIntegrationId',
         'code' => 'code',
@@ -122,6 +125,7 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
     protected static $setters = [
         'applicationId' => 'setApplicationId',
         'sessionId' => 'setSessionId',
+        'advancedEventIntegrationId' => 'setAdvancedEventIntegrationId',
         'advocateIntegrationId' => 'setAdvocateIntegrationId',
         'friendIntegrationId' => 'setFriendIntegrationId',
         'code' => 'setCode',
@@ -136,6 +140,7 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
     protected static $getters = [
         'applicationId' => 'getApplicationId',
         'sessionId' => 'getSessionId',
+        'advancedEventIntegrationId' => 'getAdvancedEventIntegrationId',
         'advocateIntegrationId' => 'getAdvocateIntegrationId',
         'friendIntegrationId' => 'getFriendIntegrationId',
         'code' => 'getCode',
@@ -204,6 +209,7 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
     {
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['sessionId'] = isset($data['sessionId']) ? $data['sessionId'] : null;
+        $this->container['advancedEventIntegrationId'] = isset($data['advancedEventIntegrationId']) ? $data['advancedEventIntegrationId'] : null;
         $this->container['advocateIntegrationId'] = isset($data['advocateIntegrationId']) ? $data['advocateIntegrationId'] : null;
         $this->container['friendIntegrationId'] = isset($data['friendIntegrationId']) ? $data['friendIntegrationId'] : null;
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
@@ -225,6 +231,10 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
         if ($this->container['sessionId'] === null) {
             $invalidProperties[] = "'sessionId' can't be null";
         }
+        if (!is_null($this->container['advancedEventIntegrationId']) && (mb_strlen($this->container['advancedEventIntegrationId']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'advancedEventIntegrationId', the character length must be smaller than or equal to 1000.";
+        }
+
         if ($this->container['advocateIntegrationId'] === null) {
             $invalidProperties[] = "'advocateIntegrationId' can't be null";
         }
@@ -304,6 +314,34 @@ class ApplicationReferee implements ModelInterface, ArrayAccess
     public function setSessionId($sessionId)
     {
         $this->container['sessionId'] = $sessionId;
+
+        return $this;
+    }
+
+    /**
+     * Gets advancedEventIntegrationId
+     *
+     * @return string|null
+     */
+    public function getAdvancedEventIntegrationId()
+    {
+        return $this->container['advancedEventIntegrationId'];
+    }
+
+    /**
+     * Sets advancedEventIntegrationId
+     *
+     * @param string|null $advancedEventIntegrationId The unique ID of the advanced event in which the customer redeemed the referral. Omitted when the referral was redeemed through a customer session rather than an advanced event.
+     *
+     * @return $this
+     */
+    public function setAdvancedEventIntegrationId($advancedEventIntegrationId)
+    {
+        if (!is_null($advancedEventIntegrationId) && (mb_strlen($advancedEventIntegrationId) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $advancedEventIntegrationId when calling ApplicationReferee., must be smaller than or equal to 1000.');
+        }
+
+        $this->container['advancedEventIntegrationId'] = $advancedEventIntegrationId;
 
         return $this;
     }

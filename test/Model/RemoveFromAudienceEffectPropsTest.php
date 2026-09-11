@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * RemoveFromAudienceEffectPropsTest Class Doc Comment
  *
  * @category    Class
- * @description The properties specific to the \&quot;removeFromAudience\&quot; effect. This gets triggered whenever a validated rule contains a \&quot;removeFromAudience\&quot; effect.
+ * @description This effect is triggered when a rule containing an [Update audience](https://docs.talon.one/docs/product/rules/effects/use-effects#update-an-audience) effect with **Remove customer from an audience** selected is validated. It indicates that a customer was removed from an audience and is returned when a customer session is opened, updated, or closed.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

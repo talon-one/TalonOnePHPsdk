@@ -67,9 +67,7 @@ class AchievementBaseV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => '\DateTime',
         'endDate' => '\DateTime',
         'allowRollbackAfterCompletion' => 'bool',
-        'sandbox' => 'bool',
-        'subscribedApplications' => 'int[]',
-        'timezone' => 'string'
+        'subscribedApplications' => 'int[]'
     ];
 
     /**
@@ -88,9 +86,7 @@ class AchievementBaseV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => 'date-time',
         'endDate' => 'date-time',
         'allowRollbackAfterCompletion' => null,
-        'sandbox' => null,
-        'subscribedApplications' => 'int64',
-        'timezone' => null
+        'subscribedApplications' => 'int64'
     ];
 
     /**
@@ -130,9 +126,7 @@ class AchievementBaseV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => 'fixedStartDate',
         'endDate' => 'endDate',
         'allowRollbackAfterCompletion' => 'allowRollbackAfterCompletion',
-        'sandbox' => 'sandbox',
-        'subscribedApplications' => 'subscribedApplications',
-        'timezone' => 'timezone'
+        'subscribedApplications' => 'subscribedApplications'
     ];
 
     /**
@@ -151,9 +145,7 @@ class AchievementBaseV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => 'setFixedStartDate',
         'endDate' => 'setEndDate',
         'allowRollbackAfterCompletion' => 'setAllowRollbackAfterCompletion',
-        'sandbox' => 'setSandbox',
-        'subscribedApplications' => 'setSubscribedApplications',
-        'timezone' => 'setTimezone'
+        'subscribedApplications' => 'setSubscribedApplications'
     ];
 
     /**
@@ -172,9 +164,7 @@ class AchievementBaseV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => 'getFixedStartDate',
         'endDate' => 'getEndDate',
         'allowRollbackAfterCompletion' => 'getAllowRollbackAfterCompletion',
-        'sandbox' => 'getSandbox',
-        'subscribedApplications' => 'getSubscribedApplications',
-        'timezone' => 'getTimezone'
+        'subscribedApplications' => 'getSubscribedApplications'
     ];
 
     /**
@@ -279,9 +269,7 @@ class AchievementBaseV2 implements ModelInterface, ArrayAccess
         $this->container['fixedStartDate'] = isset($data['fixedStartDate']) ? $data['fixedStartDate'] : null;
         $this->container['endDate'] = isset($data['endDate']) ? $data['endDate'] : null;
         $this->container['allowRollbackAfterCompletion'] = isset($data['allowRollbackAfterCompletion']) ? $data['allowRollbackAfterCompletion'] : null;
-        $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['subscribedApplications'] = isset($data['subscribedApplications']) ? $data['subscribedApplications'] : null;
-        $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
     }
 
     /**
@@ -319,10 +307,6 @@ class AchievementBaseV2 implements ModelInterface, ArrayAccess
                 "invalid value for 'activationPolicy', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
-        }
-
-        if (!is_null($this->container['timezone']) && (mb_strlen($this->container['timezone']) < 1)) {
-            $invalidProperties[] = "invalid value for 'timezone', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -609,30 +593,6 @@ class AchievementBaseV2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets sandbox
-     *
-     * @return bool|null
-     */
-    public function getSandbox()
-    {
-        return $this->container['sandbox'];
-    }
-
-    /**
-     * Sets sandbox
-     *
-     * @param bool|null $sandbox Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
-     *
-     * @return $this
-     */
-    public function setSandbox($sandbox)
-    {
-        $this->container['sandbox'] = $sandbox;
-
-        return $this;
-    }
-
-    /**
      * Gets subscribedApplications
      *
      * @return int[]|null
@@ -652,35 +612,6 @@ class AchievementBaseV2 implements ModelInterface, ArrayAccess
     public function setSubscribedApplications($subscribedApplications)
     {
         $this->container['subscribedApplications'] = $subscribedApplications;
-
-        return $this;
-    }
-
-    /**
-     * Gets timezone
-     *
-     * @return string|null
-     */
-    public function getTimezone()
-    {
-        return $this->container['timezone'];
-    }
-
-    /**
-     * Sets timezone
-     *
-     * @param string|null $timezone A string containing an IANA timezone descriptor.
-     *
-     * @return $this
-     */
-    public function setTimezone($timezone)
-    {
-
-        if (!is_null($timezone) && (mb_strlen($timezone) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $timezone when calling AchievementBaseV2., must be bigger than or equal to 1.');
-        }
-
-        $this->container['timezone'] = $timezone;
 
         return $this;
     }

@@ -196,4 +196,11 @@ class UpdateApplicationTest extends TestCase
     public function testPropertyEnableCampaignStateManagement()
     {
     }
+
+    /**
+     * Test attribute "bestPriorPriceSettings"
+     */
+    public function testPropertyBestPriorPriceSettings()
+    {
+    }
 }

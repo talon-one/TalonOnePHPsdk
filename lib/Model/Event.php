@@ -64,6 +64,7 @@ class Event implements ModelInterface, ArrayAccess
         'storeIntegrationId' => 'string',
         'type' => 'string',
         'attributes' => 'object',
+        'integrationId' => 'string',
         'sessionId' => 'string',
         'effects' => 'object[]',
         'ledgerEntries' => '\TalonOne\Client\Model\LedgerEntry[]',
@@ -83,6 +84,7 @@ class Event implements ModelInterface, ArrayAccess
         'storeIntegrationId' => null,
         'type' => null,
         'attributes' => null,
+        'integrationId' => null,
         'sessionId' => null,
         'effects' => null,
         'ledgerEntries' => null,
@@ -123,6 +125,7 @@ class Event implements ModelInterface, ArrayAccess
         'storeIntegrationId' => 'storeIntegrationId',
         'type' => 'type',
         'attributes' => 'attributes',
+        'integrationId' => 'integrationId',
         'sessionId' => 'sessionId',
         'effects' => 'effects',
         'ledgerEntries' => 'ledgerEntries',
@@ -142,6 +145,7 @@ class Event implements ModelInterface, ArrayAccess
         'storeIntegrationId' => 'setStoreIntegrationId',
         'type' => 'setType',
         'attributes' => 'setAttributes',
+        'integrationId' => 'setIntegrationId',
         'sessionId' => 'setSessionId',
         'effects' => 'setEffects',
         'ledgerEntries' => 'setLedgerEntries',
@@ -161,6 +165,7 @@ class Event implements ModelInterface, ArrayAccess
         'storeIntegrationId' => 'getStoreIntegrationId',
         'type' => 'getType',
         'attributes' => 'getAttributes',
+        'integrationId' => 'getIntegrationId',
         'sessionId' => 'getSessionId',
         'effects' => 'getEffects',
         'ledgerEntries' => 'getLedgerEntries',
@@ -234,6 +239,7 @@ class Event implements ModelInterface, ArrayAccess
         $this->container['storeIntegrationId'] = isset($data['storeIntegrationId']) ? $data['storeIntegrationId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['sessionId'] = isset($data['sessionId']) ? $data['sessionId'] : null;
         $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
         $this->container['ledgerEntries'] = isset($data['ledgerEntries']) ? $data['ledgerEntries'] : null;
@@ -276,6 +282,10 @@ class Event implements ModelInterface, ArrayAccess
         if ($this->container['attributes'] === null) {
             $invalidProperties[] = "'attributes' can't be null";
         }
+        if (!is_null($this->container['integrationId']) && (mb_strlen($this->container['integrationId']) < 1)) {
+            $invalidProperties[] = "invalid value for 'integrationId', the character length must be bigger than or equal to 1.";
+        }
+
         if ($this->container['effects'] === null) {
             $invalidProperties[] = "'effects' can't be null";
         }
@@ -434,7 +444,7 @@ class Event implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type A string representing the event. Must not be a reserved event name.
+     * @param string $type The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
      *
      * @return $this
      */
@@ -470,6 +480,35 @@ class Event implements ModelInterface, ArrayAccess
     public function setAttributes($attributes)
     {
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets integrationId
+     *
+     * @return string|null
+     */
+    public function getIntegrationId()
+    {
+        return $this->container['integrationId'];
+    }
+
+    /**
+     * Sets integrationId
+     *
+     * @param string|null $integrationId The unique ID of the event. Only one event with this ID can be registered.
+     *
+     * @return $this
+     */
+    public function setIntegrationId($integrationId)
+    {
+
+        if (!is_null($integrationId) && (mb_strlen($integrationId) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $integrationId when calling Event., must be bigger than or equal to 1.');
+        }
+
+        $this->container['integrationId'] = $integrationId;
 
         return $this;
     }

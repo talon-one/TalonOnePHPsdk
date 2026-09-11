@@ -57,8 +57,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification imp
       * @var string[]
       */
     protected static $openAPITypes = [
+        'eventId' => 'int',
         'profileIntegrationID' => 'string',
         'loyaltyProgramID' => 'int',
+        'loyaltyProgramName' => 'string',
         'subledgerID' => 'string',
         'sourceOfEvent' => 'string',
         'currentTier' => 'string',
@@ -75,8 +77,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification imp
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'eventId' => 'int64',
         'profileIntegrationID' => null,
         'loyaltyProgramID' => 'int64',
+        'loyaltyProgramName' => null,
         'subledgerID' => null,
         'sourceOfEvent' => null,
         'currentTier' => null,
@@ -114,8 +118,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification imp
      * @var string[]
      */
     protected static $attributeMap = [
+        'eventId' => 'EventId',
         'profileIntegrationID' => 'ProfileIntegrationID',
         'loyaltyProgramID' => 'LoyaltyProgramID',
+        'loyaltyProgramName' => 'LoyaltyProgramName',
         'subledgerID' => 'SubledgerID',
         'sourceOfEvent' => 'SourceOfEvent',
         'currentTier' => 'CurrentTier',
@@ -132,8 +138,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification imp
      * @var string[]
      */
     protected static $setters = [
+        'eventId' => 'setEventId',
         'profileIntegrationID' => 'setProfileIntegrationID',
         'loyaltyProgramID' => 'setLoyaltyProgramID',
+        'loyaltyProgramName' => 'setLoyaltyProgramName',
         'subledgerID' => 'setSubledgerID',
         'sourceOfEvent' => 'setSourceOfEvent',
         'currentTier' => 'setCurrentTier',
@@ -150,8 +158,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification imp
      * @var string[]
      */
     protected static $getters = [
+        'eventId' => 'getEventId',
         'profileIntegrationID' => 'getProfileIntegrationID',
         'loyaltyProgramID' => 'getLoyaltyProgramID',
+        'loyaltyProgramName' => 'getLoyaltyProgramName',
         'subledgerID' => 'getSubledgerID',
         'sourceOfEvent' => 'getSourceOfEvent',
         'currentTier' => 'getCurrentTier',
@@ -222,8 +232,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification imp
      */
     public function __construct(array $data = null)
     {
+        $this->container['eventId'] = isset($data['eventId']) ? $data['eventId'] : null;
         $this->container['profileIntegrationID'] = isset($data['profileIntegrationID']) ? $data['profileIntegrationID'] : null;
         $this->container['loyaltyProgramID'] = isset($data['loyaltyProgramID']) ? $data['loyaltyProgramID'] : null;
+        $this->container['loyaltyProgramName'] = isset($data['loyaltyProgramName']) ? $data['loyaltyProgramName'] : null;
         $this->container['subledgerID'] = isset($data['subledgerID']) ? $data['subledgerID'] : null;
         $this->container['sourceOfEvent'] = isset($data['sourceOfEvent']) ? $data['sourceOfEvent'] : null;
         $this->container['currentTier'] = isset($data['currentTier']) ? $data['currentTier'] : null;
@@ -243,11 +255,17 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification imp
     {
         $invalidProperties = [];
 
+        if ($this->container['eventId'] === null) {
+            $invalidProperties[] = "'eventId' can't be null";
+        }
         if ($this->container['profileIntegrationID'] === null) {
             $invalidProperties[] = "'profileIntegrationID' can't be null";
         }
         if ($this->container['loyaltyProgramID'] === null) {
             $invalidProperties[] = "'loyaltyProgramID' can't be null";
+        }
+        if ($this->container['loyaltyProgramName'] === null) {
+            $invalidProperties[] = "'loyaltyProgramName' can't be null";
         }
         if ($this->container['subledgerID'] === null) {
             $invalidProperties[] = "'subledgerID' can't be null";
@@ -275,6 +293,30 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification imp
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets eventId
+     *
+     * @return int
+     */
+    public function getEventId()
+    {
+        return $this->container['eventId'];
+    }
+
+    /**
+     * Sets eventId
+     *
+     * @param int $eventId The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.
+     *
+     * @return $this
+     */
+    public function setEventId($eventId)
+    {
+        $this->container['eventId'] = $eventId;
+
+        return $this;
+    }
 
     /**
      * Gets profileIntegrationID
@@ -320,6 +362,30 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification imp
     public function setLoyaltyProgramID($loyaltyProgramID)
     {
         $this->container['loyaltyProgramID'] = $loyaltyProgramID;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyaltyProgramName
+     *
+     * @return string
+     */
+    public function getLoyaltyProgramName()
+    {
+        return $this->container['loyaltyProgramName'];
+    }
+
+    /**
+     * Sets loyaltyProgramName
+     *
+     * @param string $loyaltyProgramName The name of the loyalty program.
+     *
+     * @return $this
+     */
+    public function setLoyaltyProgramName($loyaltyProgramName)
+    {
+        $this->container['loyaltyProgramName'] = $loyaltyProgramName;
 
         return $this;
     }
@@ -385,7 +451,7 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification imp
     /**
      * Sets currentTier
      *
-     * @param string|null $currentTier currentTier
+     * @param string|null $currentTier The name of the customer's current tier, or null if the customer was downgraded below all tiers.
      *
      * @return $this
      */

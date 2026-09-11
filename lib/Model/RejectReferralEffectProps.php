@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * RejectReferralEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;rejectReferral\&quot; effect. This gets triggered whenever the referral code was rejected. See rejectionReason for more info on why.
+ * @description This effect indicates that the provided referral code is invalid.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -254,7 +254,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The referral code that was rejected.
+     * @param string $value The referral code that was rejected
      *
      * @return $this
      */
@@ -278,7 +278,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets rejectionReason
      *
-     * @param string $rejectionReason The reason why this referral code was rejected.
+     * @param string $rejectionReason The reason why the code was rejected.  - `AdvocateNotFound`: The advocate was not found. - `CampaignLimitReached`: The campaign-wide referral code redemption limit has been reached. - `EffectCouldNotBeApplied`: One of the effects in the campaign wasn't applied because a limit for that effect was reached (most common use case will be `setDiscount` can not be applied because a discount limit is reached). - `ProfileLimitReached`: The profile-specific referral code redemption limit has been reached. - `ReferralCustomerAlreadyReferred`: The friend is already referred. - `ReferralExpired`: The transferred referral code is expired. - `ReferralLimitReached`: The referral code redemption limit has been reached. - `ReferralNotFound`: The transferred referral code is wrong. - `ReferralPartOfNotRunningCampaign`: The campaign the referral code belongs to is currently not active. The campaign ID field shows the ID of that campaign. - `ReferralRecipientDoesNotMatch`: The given referral code value does not match the recipient. - `ReferralRecipientIdSameAsAdvocate`: The recipient (friend) has the same id as the advocate. - `ReferralRejectedByCondition`: The referral code is valid and in an active campaign, but there were other conditions in that campaign's rules that were not met. - `ReferralStartDateInFuture`: The transferred referral code isn't active yet. - `ReferralPartOfNotTriggeredCampaign`: The campaign the referral code belongs to was not triggered during evaluation (an exclusive or stackable campaign). The campaign ID field shows the ID of that campaign.
      *
      * @return $this
      */
@@ -374,7 +374,7 @@ class RejectReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets campaignExclusionReason
      *
-     * @param string|null $campaignExclusionReason The reason why the campaign was not applied.
+     * @param string|null $campaignExclusionReason The reason why the campaign the referral belongs to was excluded during [campaign evaluation](https://docs.talon.one/docs/product/applications/manage-campaign-evaluation), when `rejectionReason` was `CouponPartOfNotTriggeredCampaign`. Its possible values are:  - `CampaignGaveLowerDiscount`: The required campaign and referral conditions were met, but another campaign in a [Highest discount value](https://docs.talon.one/docs/product/applications/manage-campaign-evaluation#set-campaign-evaluation-mode) group offered a higher discount value. - `CampaignIsNotFirst`: The campaign was not evaluated because another campaign in a [First campaign](https://docs.talon.one/docs/product/applications/manage-campaign-evaluation#set-campaign-evaluation-mode) group was picked and evaluated first. - `CampaignNotInEvaluationSet`: The campaign did not meet other evaluation requirements, for example, because the referral is part of an archived campaign.
      *
      * @return $this
      */

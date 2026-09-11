@@ -149,6 +149,13 @@ class CustomerSessionV2Test extends TestCase
     }
 
     /**
+     * Test attribute "rewardIntegrationIds"
+     */
+    public function testPropertyRewardIntegrationIds()
+    {
+    }
+
+    /**
      * Test attribute "state"
      */
     public function testPropertyState()
@@ -222,6 +229,13 @@ class CustomerSessionV2Test extends TestCase
      * Test attribute "additionalCostTotal"
      */
     public function testPropertyAdditionalCostTotal()
+    {
+    }
+
+    /**
+     * Test attribute "cartItemAdditionalCostTotal"
+     */
+    public function testPropertyCartItemAdditionalCostTotal()
     {
     }
 

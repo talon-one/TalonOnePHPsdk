@@ -79,6 +79,13 @@ class IntegrationHubEventPayloadCouponBasedNotificationsTest extends TestCase
     }
 
     /**
+     * Test attribute "eventId"
+     */
+    public function testPropertyEventId()
+    {
+    }
+
+    /**
      * Test attribute "id"
      */
     public function testPropertyId()

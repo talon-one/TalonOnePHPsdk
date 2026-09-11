@@ -65,6 +65,8 @@ class Experiment implements ModelInterface, ArrayAccess
         'activated' => '\DateTime',
         'state' => 'string',
         'variants' => '\TalonOne\Client\Model\ExperimentVariant[]',
+        'goalType' => 'string',
+        'goalDescription' => 'string',
         'deletedat' => '\DateTime'
     ];
 
@@ -82,6 +84,8 @@ class Experiment implements ModelInterface, ArrayAccess
         'activated' => 'date-time',
         'state' => null,
         'variants' => null,
+        'goalType' => null,
+        'goalDescription' => null,
         'deletedat' => 'date-time'
     ];
 
@@ -120,6 +124,8 @@ class Experiment implements ModelInterface, ArrayAccess
         'activated' => 'activated',
         'state' => 'state',
         'variants' => 'variants',
+        'goalType' => 'goalType',
+        'goalDescription' => 'goalDescription',
         'deletedat' => 'deletedat'
     ];
 
@@ -137,6 +143,8 @@ class Experiment implements ModelInterface, ArrayAccess
         'activated' => 'setActivated',
         'state' => 'setState',
         'variants' => 'setVariants',
+        'goalType' => 'setGoalType',
+        'goalDescription' => 'setGoalDescription',
         'deletedat' => 'setDeletedat'
     ];
 
@@ -154,6 +162,8 @@ class Experiment implements ModelInterface, ArrayAccess
         'activated' => 'getActivated',
         'state' => 'getState',
         'variants' => 'getVariants',
+        'goalType' => 'getGoalType',
+        'goalDescription' => 'getGoalDescription',
         'deletedat' => 'getDeletedat'
     ];
 
@@ -201,6 +211,10 @@ class Experiment implements ModelInterface, ArrayAccess
     const STATE_ENABLED = 'enabled';
     const STATE_DISABLED = 'disabled';
     const STATE_ARCHIVED = 'archived';
+    const GOAL_TYPE_OTHER = 'other';
+    const GOAL_TYPE_MAXIMIZE_REVENUE = 'maximize_revenue';
+    const GOAL_TYPE_OPTIMIZE_DISCOUNT_EFFICIENCY = 'optimize_discount_efficiency';
+    const GOAL_TYPE_MAXIMIZE_ITEMS_SOLD = 'maximize_items_sold';
     
 
     
@@ -215,6 +229,21 @@ class Experiment implements ModelInterface, ArrayAccess
             self::STATE_ENABLED,
             self::STATE_DISABLED,
             self::STATE_ARCHIVED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getGoalTypeAllowableValues()
+    {
+        return [
+            self::GOAL_TYPE_OTHER,
+            self::GOAL_TYPE_MAXIMIZE_REVENUE,
+            self::GOAL_TYPE_OPTIMIZE_DISCOUNT_EFFICIENCY,
+            self::GOAL_TYPE_MAXIMIZE_ITEMS_SOLD,
         ];
     }
     
@@ -242,6 +271,8 @@ class Experiment implements ModelInterface, ArrayAccess
         $this->container['activated'] = isset($data['activated']) ? $data['activated'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : 'disabled';
         $this->container['variants'] = isset($data['variants']) ? $data['variants'] : null;
+        $this->container['goalType'] = isset($data['goalType']) ? $data['goalType'] : null;
+        $this->container['goalDescription'] = isset($data['goalDescription']) ? $data['goalDescription'] : null;
         $this->container['deletedat'] = isset($data['deletedat']) ? $data['deletedat'] : null;
     }
 
@@ -270,6 +301,17 @@ class Experiment implements ModelInterface, ArrayAccess
         if (!is_null($this->container['state']) && !in_array($this->container['state'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'state', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['goalType'] === null) {
+            $invalidProperties[] = "'goalType' can't be null";
+        }
+        $allowedValues = $this->getGoalTypeAllowableValues();
+        if (!is_null($this->container['goalType']) && !in_array($this->container['goalType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'goalType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -486,6 +528,63 @@ class Experiment implements ModelInterface, ArrayAccess
     public function setVariants($variants)
     {
         $this->container['variants'] = $variants;
+
+        return $this;
+    }
+
+    /**
+     * Gets goalType
+     *
+     * @return string
+     */
+    public function getGoalType()
+    {
+        return $this->container['goalType'];
+    }
+
+    /**
+     * Sets goalType
+     *
+     * @param string $goalType The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to `other`, multiple metrics are used.
+     *
+     * @return $this
+     */
+    public function setGoalType($goalType)
+    {
+        $allowedValues = $this->getGoalTypeAllowableValues();
+        if (!in_array($goalType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'goalType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['goalType'] = $goalType;
+
+        return $this;
+    }
+
+    /**
+     * Gets goalDescription
+     *
+     * @return string|null
+     */
+    public function getGoalDescription()
+    {
+        return $this->container['goalDescription'];
+    }
+
+    /**
+     * Sets goalDescription
+     *
+     * @param string|null $goalDescription A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal.
+     *
+     * @return $this
+     */
+    public function setGoalDescription($goalDescription)
+    {
+        $this->container['goalDescription'] = $goalDescription;
 
         return $this;
     }

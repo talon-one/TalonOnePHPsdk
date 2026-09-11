@@ -65,6 +65,8 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
         'couponValue' => 'string',
         'referralID' => 'int',
         'referralValue' => 'string',
+        'rewardId' => 'int',
+        'rewardIntegrationId' => 'string',
         'ruleIndex' => 'int',
         'ruleName' => 'string',
         'conditionIndex' => 'int',
@@ -87,6 +89,8 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
         'couponValue' => null,
         'referralID' => 'int64',
         'referralValue' => null,
+        'rewardId' => 'int64',
+        'rewardIntegrationId' => null,
         'ruleIndex' => 'int64',
         'ruleName' => null,
         'conditionIndex' => 'int64',
@@ -130,6 +134,8 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
         'couponValue' => 'couponValue',
         'referralID' => 'referralID',
         'referralValue' => 'referralValue',
+        'rewardId' => 'rewardId',
+        'rewardIntegrationId' => 'rewardIntegrationId',
         'ruleIndex' => 'ruleIndex',
         'ruleName' => 'ruleName',
         'conditionIndex' => 'conditionIndex',
@@ -152,6 +158,8 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
         'couponValue' => 'setCouponValue',
         'referralID' => 'setReferralID',
         'referralValue' => 'setReferralValue',
+        'rewardId' => 'setRewardId',
+        'rewardIntegrationId' => 'setRewardIntegrationId',
         'ruleIndex' => 'setRuleIndex',
         'ruleName' => 'setRuleName',
         'conditionIndex' => 'setConditionIndex',
@@ -174,6 +182,8 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
         'couponValue' => 'getCouponValue',
         'referralID' => 'getReferralID',
         'referralValue' => 'getReferralValue',
+        'rewardId' => 'getRewardId',
+        'rewardIntegrationId' => 'getRewardIntegrationId',
         'ruleIndex' => 'getRuleIndex',
         'ruleName' => 'getRuleName',
         'conditionIndex' => 'getConditionIndex',
@@ -250,6 +260,8 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
         $this->container['couponValue'] = isset($data['couponValue']) ? $data['couponValue'] : null;
         $this->container['referralID'] = isset($data['referralID']) ? $data['referralID'] : null;
         $this->container['referralValue'] = isset($data['referralValue']) ? $data['referralValue'] : null;
+        $this->container['rewardId'] = isset($data['rewardId']) ? $data['rewardId'] : null;
+        $this->container['rewardIntegrationId'] = isset($data['rewardIntegrationId']) ? $data['rewardIntegrationId'] : null;
         $this->container['ruleIndex'] = isset($data['ruleIndex']) ? $data['ruleIndex'] : null;
         $this->container['ruleName'] = isset($data['ruleName']) ? $data['ruleName'] : null;
         $this->container['conditionIndex'] = isset($data['conditionIndex']) ? $data['conditionIndex'] : null;
@@ -462,6 +474,54 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     public function setReferralValue($referralValue)
     {
         $this->container['referralValue'] = $referralValue;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewardId
+     *
+     * @return int|null
+     */
+    public function getRewardId()
+    {
+        return $this->container['rewardId'];
+    }
+
+    /**
+     * Sets rewardId
+     *
+     * @param int|null $rewardId The ID of the reward that was being evaluated at the time of the rule failure.
+     *
+     * @return $this
+     */
+    public function setRewardId($rewardId)
+    {
+        $this->container['rewardId'] = $rewardId;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewardIntegrationId
+     *
+     * @return string|null
+     */
+    public function getRewardIntegrationId()
+    {
+        return $this->container['rewardIntegrationId'];
+    }
+
+    /**
+     * Sets rewardIntegrationId
+     *
+     * @param string|null $rewardIntegrationId The integration ID of the reward that was being evaluated at the time of the rule failure.
+     *
+     * @return $this
+     */
+    public function setRewardIntegrationId($rewardIntegrationId)
+    {
+        $this->container['rewardIntegrationId'] = $rewardIntegrationId;
 
         return $this;
     }

@@ -93,16 +93,23 @@ class IntegrationHubEventRecordTest extends TestCase
     }
 
     /**
-     * Test attribute "eventType"
+     * Test attribute "integrationName"
      */
-    public function testPropertyEventType()
+    public function testPropertyIntegrationName()
     {
     }
 
     /**
-     * Test attribute "eventData"
+     * Test attribute "instanceName"
      */
-    public function testPropertyEventData()
+    public function testPropertyInstanceName()
+    {
+    }
+
+    /**
+     * Test attribute "eventType"
+     */
+    public function testPropertyEventType()
     {
     }
 
@@ -121,9 +128,16 @@ class IntegrationHubEventRecordTest extends TestCase
     }
 
     /**
-     * Test attribute "processAfter"
+     * Test attribute "deliveredAt"
      */
-    public function testPropertyProcessAfter()
+    public function testPropertyDeliveredAt()
+    {
+    }
+
+    /**
+     * Test attribute "scheduledTo"
+     */
+    public function testPropertyScheduledTo()
     {
     }
 
@@ -131,6 +145,13 @@ class IntegrationHubEventRecordTest extends TestCase
      * Test attribute "retry"
      */
     public function testPropertyRetry()
+    {
+    }
+
+    /**
+     * Test attribute "payload"
+     */
+    public function testPropertyPayload()
     {
     }
 }

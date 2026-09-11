@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * SetDiscountEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;setDiscount\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set discount\&quot; effect. This is a discount that should be applied on the scope of defined with it.
+ * @description This effect indicates that a discount should be set on the total shopping cart value of the current order with the given label and amount.  The discount should overwrite any existing discount with the same name. The most recent integration state update always returns the latest values for **all** effects, effectively overwriting any previous effects.  Enabling [partial discounts](https://docs.talon.one/docs/product/applications/manage-general-settings#partial-discounts) allows a rule that would fail because of insufficient budget to pass. The rule still fails when the budget reaches &#x60;0&#x60;. Use the &#x60;desiredValue&#x60; property to identify the original value of the discount.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -242,7 +242,7 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name / description of this discount
+     * @param string $name The name or description of this discount.
      *
      * @return $this
      */
@@ -266,7 +266,7 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param float $value The total monetary value of the discount.
+     * @param float $value The monetary value of the effective discount.
      *
      * @return $this
      */
@@ -290,7 +290,7 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets scope
      *
-     * @param string|null $scope The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal).
+     * @param string|null $scope What the discount applies to. Possible values:  - `cartItems`: Discount on the price of the items. - `additionalCosts`: Discount on the [additional costs](https://docs.talon.one/docs/product/account/dev-tools/manage-additional-costs) of the items. - `sessionTotal`: Discount on the total value of the customer session.  **Note:** [Cascading discounts](https://docs.talon.one/docs/product/applications/manage-general-settings#cascading-discounts) must be enabled for this property to be returned.
      *
      * @return $this
      */
@@ -314,7 +314,7 @@ class SetDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets desiredValue
      *
-     * @param float|null $desiredValue The original value of the discount.
+     * @param float|null $desiredValue _(Partial discounts enabled only)_ The monetary value of the discount to be applied without considering budget limitations.
      *
      * @return $this
      */

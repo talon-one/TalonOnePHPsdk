@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**applicationID** | **int** | ID of application the flow is registered for. | [optional] 
-**eventType** | **string** | The event type we want to register a flow for. | 
+**applicationID** | **int** | ID of the application the flow is registered for. | [optional] 
+**loyaltyProgramID** | **int** | ID of the loyalty program the flow is registered for. | [optional] 
+**eventType** | [**\TalonOne\Client\Model\IntegrationHubEventType**](IntegrationHubEventType.md) |  | 
 **integrationHubFlowUrl** | **string** | The URL of the integration hub flow that we want to trigger for the event. | 
 **config** | [**\TalonOne\Client\Model\IntegrationHubFlowConfig**](IntegrationHubFlowConfig.md) |  | 
 

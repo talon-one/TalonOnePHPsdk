@@ -57,7 +57,8 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\TalonOne\Client\Model\ListCampaignStoreBudgets[]'
+        'hasMore' => 'bool',
+        'data' => '\TalonOne\Client\Model\ApplicationCIF[]'
     ];
 
     /**
@@ -66,6 +67,7 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'hasMore' => null,
         'data' => null
     ];
 
@@ -96,6 +98,7 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'hasMore' => 'hasMore',
         'data' => 'data'
     ];
 
@@ -105,6 +108,7 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'hasMore' => 'setHasMore',
         'data' => 'setData'
     ];
 
@@ -114,6 +118,7 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'hasMore' => 'getHasMore',
         'data' => 'getData'
     ];
 
@@ -177,6 +182,7 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -189,6 +195,9 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,9 +214,33 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets hasMore
+     *
+     * @return bool|null
+     */
+    public function getHasMore()
+    {
+        return $this->container['hasMore'];
+    }
+
+    /**
+     * Sets hasMore
+     *
+     * @param bool|null $hasMore hasMore
+     *
+     * @return $this
+     */
+    public function setHasMore($hasMore)
+    {
+        $this->container['hasMore'] = $hasMore;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\ListCampaignStoreBudgets[]|null
+     * @return \TalonOne\Client\Model\ApplicationCIF[]
      */
     public function getData()
     {
@@ -217,7 +250,7 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\ListCampaignStoreBudgets[]|null $data data
+     * @param \TalonOne\Client\Model\ApplicationCIF[] $data data
      *
      * @return $this
      */

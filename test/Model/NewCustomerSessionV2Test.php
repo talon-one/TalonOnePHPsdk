@@ -121,6 +121,13 @@ class NewCustomerSessionV2Test extends TestCase
     }
 
     /**
+     * Test attribute "rewardIntegrationIds"
+     */
+    public function testPropertyRewardIntegrationIds()
+    {
+    }
+
+    /**
      * Test attribute "state"
      */
     public function testPropertyState()

@@ -79,6 +79,13 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationTest
     }
 
     /**
+     * Test attribute "eventId"
+     */
+    public function testPropertyEventId()
+    {
+    }
+
+    /**
      * Test attribute "profileIntegrationID"
      */
     public function testPropertyProfileIntegrationID()
@@ -93,6 +100,13 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationTest
     }
 
     /**
+     * Test attribute "loyaltyProgramName"
+     */
+    public function testPropertyLoyaltyProgramName()
+    {
+    }
+
+    /**
      * Test attribute "subledgerID"
      */
     public function testPropertySubledgerID()
@@ -103,6 +117,20 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationTest
      * Test attribute "sourceOfEvent"
      */
     public function testPropertySourceOfEvent()
+    {
+    }
+
+    /**
+     * Test attribute "currentTier"
+     */
+    public function testPropertyCurrentTier()
+    {
+    }
+
+    /**
+     * Test attribute "sessionIntegrationID"
+     */
+    public function testPropertySessionIntegrationID()
     {
     }
 

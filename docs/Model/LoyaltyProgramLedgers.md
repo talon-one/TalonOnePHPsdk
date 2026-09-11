@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **name** | **string** | Internal name of loyalty program. | 
 **joinDate** | [**\DateTime**](\DateTime.md) | The date on which the customer joined the loyalty program in RFC3339.  **Note**: This is in the loyalty program&#39;s time zone. | [optional] 
 **ledger** | [**\TalonOne\Client\Model\LedgerInfo**](LedgerInfo.md) |  | 
-**subLedgers** | [**map[string,\TalonOne\Client\Model\LedgerInfo]**](LedgerInfo.md) | A map containing information about each loyalty subledger. | [optional] 
+**subLedgers** | [**map[string,\TalonOne\Client\Model\LedgerInfo]**](LedgerInfo.md) | A map containing information about each loyalty subledger. Subledgers for which all balances are zero are excluded from the response. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

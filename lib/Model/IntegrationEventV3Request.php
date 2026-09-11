@@ -60,11 +60,11 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         'profileId' => 'string',
         'storeIntegrationId' => 'string',
         'evaluableCampaignIds' => 'int[]',
-        'integrationId' => 'string',
         'type' => 'string',
         'attributes' => 'object',
-        'connectedSessionID' => 'string',
-        'previousEventID' => 'string',
+        'integrationId' => 'string',
+        'connectedSessionId' => 'string',
+        'referralCode' => 'string',
         'loyaltyCards' => 'string[]',
         'responseContent' => 'string[]'
     ];
@@ -78,11 +78,11 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         'profileId' => null,
         'storeIntegrationId' => null,
         'evaluableCampaignIds' => 'int64',
-        'integrationId' => null,
         'type' => null,
         'attributes' => null,
-        'connectedSessionID' => null,
-        'previousEventID' => null,
+        'integrationId' => null,
+        'connectedSessionId' => null,
+        'referralCode' => null,
         'loyaltyCards' => null,
         'responseContent' => null
     ];
@@ -117,11 +117,11 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         'profileId' => 'profileId',
         'storeIntegrationId' => 'storeIntegrationId',
         'evaluableCampaignIds' => 'evaluableCampaignIds',
-        'integrationId' => 'integrationId',
         'type' => 'type',
         'attributes' => 'attributes',
-        'connectedSessionID' => 'connectedSessionID',
-        'previousEventID' => 'previousEventID',
+        'integrationId' => 'integrationId',
+        'connectedSessionId' => 'connectedSessionId',
+        'referralCode' => 'referralCode',
         'loyaltyCards' => 'loyaltyCards',
         'responseContent' => 'responseContent'
     ];
@@ -135,11 +135,11 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         'profileId' => 'setProfileId',
         'storeIntegrationId' => 'setStoreIntegrationId',
         'evaluableCampaignIds' => 'setEvaluableCampaignIds',
-        'integrationId' => 'setIntegrationId',
         'type' => 'setType',
         'attributes' => 'setAttributes',
-        'connectedSessionID' => 'setConnectedSessionID',
-        'previousEventID' => 'setPreviousEventID',
+        'integrationId' => 'setIntegrationId',
+        'connectedSessionId' => 'setConnectedSessionId',
+        'referralCode' => 'setReferralCode',
         'loyaltyCards' => 'setLoyaltyCards',
         'responseContent' => 'setResponseContent'
     ];
@@ -153,11 +153,11 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         'profileId' => 'getProfileId',
         'storeIntegrationId' => 'getStoreIntegrationId',
         'evaluableCampaignIds' => 'getEvaluableCampaignIds',
-        'integrationId' => 'getIntegrationId',
         'type' => 'getType',
         'attributes' => 'getAttributes',
-        'connectedSessionID' => 'getConnectedSessionID',
-        'previousEventID' => 'getPreviousEventID',
+        'integrationId' => 'getIntegrationId',
+        'connectedSessionId' => 'getConnectedSessionId',
+        'referralCode' => 'getReferralCode',
         'loyaltyCards' => 'getLoyaltyCards',
         'responseContent' => 'getResponseContent'
     ];
@@ -203,12 +203,13 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const RESPONSE_CONTENT_CUSTOMER_PROFILE = 'customerProfile';
-    const RESPONSE_CONTENT_TRIGGERED_CAMPAIGNS = 'triggeredCampaigns';
-    const RESPONSE_CONTENT_LOYALTY = 'loyalty';
     const RESPONSE_CONTENT_ADVANCED_EVENT = 'advancedEvent';
     const RESPONSE_CONTENT_AWARDED_GIVEAWAYS = 'awardedGiveaways';
+    const RESPONSE_CONTENT_CUSTOMER_PROFILE = 'customerProfile';
+    const RESPONSE_CONTENT_LOYALTY = 'loyalty';
+    const RESPONSE_CONTENT_REFERRAL = 'referral';
     const RESPONSE_CONTENT_RULE_FAILURE_REASONS = 'ruleFailureReasons';
+    const RESPONSE_CONTENT_TRIGGERED_CAMPAIGNS = 'triggeredCampaigns';
     
 
     
@@ -220,12 +221,13 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
     public function getResponseContentAllowableValues()
     {
         return [
-            self::RESPONSE_CONTENT_CUSTOMER_PROFILE,
-            self::RESPONSE_CONTENT_TRIGGERED_CAMPAIGNS,
-            self::RESPONSE_CONTENT_LOYALTY,
             self::RESPONSE_CONTENT_ADVANCED_EVENT,
             self::RESPONSE_CONTENT_AWARDED_GIVEAWAYS,
+            self::RESPONSE_CONTENT_CUSTOMER_PROFILE,
+            self::RESPONSE_CONTENT_LOYALTY,
+            self::RESPONSE_CONTENT_REFERRAL,
             self::RESPONSE_CONTENT_RULE_FAILURE_REASONS,
+            self::RESPONSE_CONTENT_TRIGGERED_CAMPAIGNS,
         ];
     }
     
@@ -248,11 +250,11 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
         $this->container['storeIntegrationId'] = isset($data['storeIntegrationId']) ? $data['storeIntegrationId'] : null;
         $this->container['evaluableCampaignIds'] = isset($data['evaluableCampaignIds']) ? $data['evaluableCampaignIds'] : null;
-        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['connectedSessionID'] = isset($data['connectedSessionID']) ? $data['connectedSessionID'] : null;
-        $this->container['previousEventID'] = isset($data['previousEventID']) ? $data['previousEventID'] : null;
+        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
+        $this->container['connectedSessionId'] = isset($data['connectedSessionId']) ? $data['connectedSessionId'] : null;
+        $this->container['referralCode'] = isset($data['referralCode']) ? $data['referralCode'] : null;
         $this->container['loyaltyCards'] = isset($data['loyaltyCards']) ? $data['loyaltyCards'] : null;
         $this->container['responseContent'] = isset($data['responseContent']) ? $data['responseContent'] : null;
     }
@@ -277,13 +279,6 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'storeIntegrationId', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['integrationId'] === null) {
-            $invalidProperties[] = "'integrationId' can't be null";
-        }
-        if ((mb_strlen($this->container['integrationId']) < 1)) {
-            $invalidProperties[] = "invalid value for 'integrationId', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -291,12 +286,19 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'type', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['connectedSessionID']) && (mb_strlen($this->container['connectedSessionID']) < 1)) {
-            $invalidProperties[] = "invalid value for 'connectedSessionID', the character length must be bigger than or equal to 1.";
+        if ($this->container['integrationId'] === null) {
+            $invalidProperties[] = "'integrationId' can't be null";
+        }
+        if ((mb_strlen($this->container['integrationId']) < 1)) {
+            $invalidProperties[] = "invalid value for 'integrationId', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['previousEventID']) && (mb_strlen($this->container['previousEventID']) < 1)) {
-            $invalidProperties[] = "invalid value for 'previousEventID', the character length must be bigger than or equal to 1.";
+        if (!is_null($this->container['connectedSessionId']) && (mb_strlen($this->container['connectedSessionId']) < 1)) {
+            $invalidProperties[] = "invalid value for 'connectedSessionId', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['referralCode']) && (mb_strlen($this->container['referralCode']) > 100)) {
+            $invalidProperties[] = "invalid value for 'referralCode', the character length must be smaller than or equal to 100.";
         }
 
         return $invalidProperties;
@@ -394,35 +396,6 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets integrationId
-     *
-     * @return string
-     */
-    public function getIntegrationId()
-    {
-        return $this->container['integrationId'];
-    }
-
-    /**
-     * Sets integrationId
-     *
-     * @param string $integrationId The unique ID of the current event. Only one event with this ID could be activated, duplicated events are forbidden.
-     *
-     * @return $this
-     */
-    public function setIntegrationId($integrationId)
-    {
-
-        if ((mb_strlen($integrationId) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $integrationId when calling IntegrationEventV3Request., must be bigger than or equal to 1.');
-        }
-
-        $this->container['integrationId'] = $integrationId;
-
-        return $this;
-    }
-
-    /**
      * Gets type
      *
      * @return string
@@ -435,7 +408,7 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.
+     * @param string $type The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
      *
      * @return $this
      */
@@ -476,59 +449,87 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets connectedSessionID
+     * Gets integrationId
      *
-     * @return string|null
+     * @return string
      */
-    public function getConnectedSessionID()
+    public function getIntegrationId()
     {
-        return $this->container['connectedSessionID'];
+        return $this->container['integrationId'];
     }
 
     /**
-     * Sets connectedSessionID
+     * Sets integrationId
      *
-     * @param string|null $connectedSessionID The ID of the session that happened in the past.
+     * @param string $integrationId The unique ID of the event. Only one event with this ID can be registered.
      *
      * @return $this
      */
-    public function setConnectedSessionID($connectedSessionID)
+    public function setIntegrationId($integrationId)
     {
 
-        if (!is_null($connectedSessionID) && (mb_strlen($connectedSessionID) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $connectedSessionID when calling IntegrationEventV3Request., must be bigger than or equal to 1.');
+        if ((mb_strlen($integrationId) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $integrationId when calling IntegrationEventV3Request., must be bigger than or equal to 1.');
         }
 
-        $this->container['connectedSessionID'] = $connectedSessionID;
+        $this->container['integrationId'] = $integrationId;
 
         return $this;
     }
 
     /**
-     * Gets previousEventID
+     * Gets connectedSessionId
      *
      * @return string|null
      */
-    public function getPreviousEventID()
+    public function getConnectedSessionId()
     {
-        return $this->container['previousEventID'];
+        return $this->container['connectedSessionId'];
     }
 
     /**
-     * Sets previousEventID
+     * Sets connectedSessionId
      *
-     * @param string|null $previousEventID The unique identifier of the event that happened in the past.
+     * @param string|null $connectedSessionId The ID of the session to reference. The session must be in `closed` state. Otherwise, the API call will fail.
      *
      * @return $this
      */
-    public function setPreviousEventID($previousEventID)
+    public function setConnectedSessionId($connectedSessionId)
     {
 
-        if (!is_null($previousEventID) && (mb_strlen($previousEventID) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $previousEventID when calling IntegrationEventV3Request., must be bigger than or equal to 1.');
+        if (!is_null($connectedSessionId) && (mb_strlen($connectedSessionId) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $connectedSessionId when calling IntegrationEventV3Request., must be bigger than or equal to 1.');
         }
 
-        $this->container['previousEventID'] = $previousEventID;
+        $this->container['connectedSessionId'] = $connectedSessionId;
+
+        return $this;
+    }
+
+    /**
+     * Gets referralCode
+     *
+     * @return string|null
+     */
+    public function getReferralCode()
+    {
+        return $this->container['referralCode'];
+    }
+
+    /**
+     * Sets referralCode
+     *
+     * @param string|null $referralCode The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \"Referral code is valid\" condition in the Rule Builder to validate and redeem the code, or \"Referral code is valid (without redemption)\" to validate without redeeming.
+     *
+     * @return $this
+     */
+    public function setReferralCode($referralCode)
+    {
+        if (!is_null($referralCode) && (mb_strlen($referralCode) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $referralCode when calling IntegrationEventV3Request., must be smaller than or equal to 100.');
+        }
+
+        $this->container['referralCode'] = $referralCode;
 
         return $this;
     }

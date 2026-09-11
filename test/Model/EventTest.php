@@ -128,6 +128,13 @@ class EventTest extends TestCase
     }
 
     /**
+     * Test attribute "integrationId"
+     */
+    public function testPropertyIntegrationId()
+    {
+    }
+
+    /**
      * Test attribute "sessionId"
      */
     public function testPropertySessionId()

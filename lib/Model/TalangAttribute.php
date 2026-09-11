@@ -218,6 +218,8 @@ class TalangAttribute implements ModelInterface, ArrayAccess
     const ENTITY_SESSION = 'Session';
     const ENTITY_STORE = 'Store';
     const ENTITY_ACHIEVEMENTS = 'Achievements';
+    const ENTITY_ADVANCED_EVENT = 'AdvancedEvent';
+    const ENTITY_ADVANCED_EVENT_CONNECTED_SESSION = 'AdvancedEventConnectedSession';
     const KIND_BUILT_IN = 'built-in';
     const KIND_CUSTOM = 'custom';
     
@@ -251,6 +253,8 @@ class TalangAttribute implements ModelInterface, ArrayAccess
             self::ENTITY_SESSION,
             self::ENTITY_STORE,
             self::ENTITY_ACHIEVEMENTS,
+            self::ENTITY_ADVANCED_EVENT,
+            self::ENTITY_ADVANCED_EVENT_CONNECTED_SESSION,
         ];
     }
     

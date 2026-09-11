@@ -64,13 +64,16 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'expiryDate' => '\DateTime',
         'limits' => '\TalonOne\Client\Model\LimitConfig[]',
         'numberOfCoupons' => 'int',
+        'batchId' => 'string',
         'uniquePrefix' => 'string',
         'attributes' => 'object',
         'recipientIntegrationId' => 'string',
         'validCharacters' => 'string[]',
         'couponPattern' => 'string',
         'isReservationMandatory' => 'bool',
-        'implicitlyReserved' => 'bool'
+        'implicitlyReserved' => 'bool',
+        'supportRequestId' => 'int',
+        'supportRequestNote' => 'string'
     ];
 
     /**
@@ -86,13 +89,16 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'expiryDate' => 'date-time',
         'limits' => null,
         'numberOfCoupons' => 'int64',
+        'batchId' => null,
         'uniquePrefix' => null,
         'attributes' => null,
         'recipientIntegrationId' => null,
         'validCharacters' => null,
         'couponPattern' => null,
         'isReservationMandatory' => null,
-        'implicitlyReserved' => null
+        'implicitlyReserved' => null,
+        'supportRequestId' => 'int64',
+        'supportRequestNote' => null
     ];
 
     /**
@@ -129,13 +135,16 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'expiryDate' => 'expiryDate',
         'limits' => 'limits',
         'numberOfCoupons' => 'numberOfCoupons',
+        'batchId' => 'batchId',
         'uniquePrefix' => 'uniquePrefix',
         'attributes' => 'attributes',
         'recipientIntegrationId' => 'recipientIntegrationId',
         'validCharacters' => 'validCharacters',
         'couponPattern' => 'couponPattern',
         'isReservationMandatory' => 'isReservationMandatory',
-        'implicitlyReserved' => 'implicitlyReserved'
+        'implicitlyReserved' => 'implicitlyReserved',
+        'supportRequestId' => 'supportRequestId',
+        'supportRequestNote' => 'supportRequestNote'
     ];
 
     /**
@@ -151,13 +160,16 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'expiryDate' => 'setExpiryDate',
         'limits' => 'setLimits',
         'numberOfCoupons' => 'setNumberOfCoupons',
+        'batchId' => 'setBatchId',
         'uniquePrefix' => 'setUniquePrefix',
         'attributes' => 'setAttributes',
         'recipientIntegrationId' => 'setRecipientIntegrationId',
         'validCharacters' => 'setValidCharacters',
         'couponPattern' => 'setCouponPattern',
         'isReservationMandatory' => 'setIsReservationMandatory',
-        'implicitlyReserved' => 'setImplicitlyReserved'
+        'implicitlyReserved' => 'setImplicitlyReserved',
+        'supportRequestId' => 'setSupportRequestId',
+        'supportRequestNote' => 'setSupportRequestNote'
     ];
 
     /**
@@ -173,13 +185,16 @@ class NewCoupons implements ModelInterface, ArrayAccess
         'expiryDate' => 'getExpiryDate',
         'limits' => 'getLimits',
         'numberOfCoupons' => 'getNumberOfCoupons',
+        'batchId' => 'getBatchId',
         'uniquePrefix' => 'getUniquePrefix',
         'attributes' => 'getAttributes',
         'recipientIntegrationId' => 'getRecipientIntegrationId',
         'validCharacters' => 'getValidCharacters',
         'couponPattern' => 'getCouponPattern',
         'isReservationMandatory' => 'getIsReservationMandatory',
-        'implicitlyReserved' => 'getImplicitlyReserved'
+        'implicitlyReserved' => 'getImplicitlyReserved',
+        'supportRequestId' => 'getSupportRequestId',
+        'supportRequestNote' => 'getSupportRequestNote'
     ];
 
     /**
@@ -249,6 +264,7 @@ class NewCoupons implements ModelInterface, ArrayAccess
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['numberOfCoupons'] = isset($data['numberOfCoupons']) ? $data['numberOfCoupons'] : null;
+        $this->container['batchId'] = isset($data['batchId']) ? $data['batchId'] : null;
         $this->container['uniquePrefix'] = isset($data['uniquePrefix']) ? $data['uniquePrefix'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['recipientIntegrationId'] = isset($data['recipientIntegrationId']) ? $data['recipientIntegrationId'] : null;
@@ -256,6 +272,8 @@ class NewCoupons implements ModelInterface, ArrayAccess
         $this->container['couponPattern'] = isset($data['couponPattern']) ? $data['couponPattern'] : null;
         $this->container['isReservationMandatory'] = isset($data['isReservationMandatory']) ? $data['isReservationMandatory'] : false;
         $this->container['implicitlyReserved'] = isset($data['implicitlyReserved']) ? $data['implicitlyReserved'] : null;
+        $this->container['supportRequestId'] = isset($data['supportRequestId']) ? $data['supportRequestId'] : null;
+        $this->container['supportRequestNote'] = isset($data['supportRequestNote']) ? $data['supportRequestNote'] : null;
     }
 
     /**
@@ -517,6 +535,30 @@ class NewCoupons implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets batchId
+     *
+     * @return string|null
+     */
+    public function getBatchId()
+    {
+        return $this->container['batchId'];
+    }
+
+    /**
+     * Sets batchId
+     *
+     * @param string|null $batchId The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically.
+     *
+     * @return $this
+     */
+    public function setBatchId($batchId)
+    {
+        $this->container['batchId'] = $batchId;
+
+        return $this;
+    }
+
+    /**
      * Gets uniquePrefix
      *
      * @return string|null
@@ -691,6 +733,54 @@ class NewCoupons implements ModelInterface, ArrayAccess
     public function setImplicitlyReserved($implicitlyReserved)
     {
         $this->container['implicitlyReserved'] = $implicitlyReserved;
+
+        return $this;
+    }
+
+    /**
+     * Gets supportRequestId
+     *
+     * @return int|null
+     */
+    public function getSupportRequestId()
+    {
+        return $this->container['supportRequestId'];
+    }
+
+    /**
+     * Sets supportRequestId
+     *
+     * @param int|null $supportRequestId The identifier of the support request to link to the coupon creation. The request must exist and not yet be processed.
+     *
+     * @return $this
+     */
+    public function setSupportRequestId($supportRequestId)
+    {
+        $this->container['supportRequestId'] = $supportRequestId;
+
+        return $this;
+    }
+
+    /**
+     * Gets supportRequestNote
+     *
+     * @return string|null
+     */
+    public function getSupportRequestNote()
+    {
+        return $this->container['supportRequestNote'];
+    }
+
+    /**
+     * Sets supportRequestNote
+     *
+     * @param string|null $supportRequestNote A note recorded when the linked support request is approved or rejected. Applied when `supportRequestId` is provided.
+     *
+     * @return $this
+     */
+    public function setSupportRequestNote($supportRequestNote)
+    {
+        $this->container['supportRequestNote'] = $supportRequestNote;
 
         return $this;
     }

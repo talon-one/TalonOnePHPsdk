@@ -60,7 +60,9 @@ class IntegrationHubFlowConfig implements ModelInterface, ArrayAccess
         'apiKey' => 'string',
         'workerCount' => 'int',
         'maxEventsPerMessage' => 'int',
-        'maxRetries' => 'int'
+        'maxRetries' => 'int',
+        'instanceName' => 'string',
+        'integrationName' => 'string'
     ];
 
     /**
@@ -72,7 +74,9 @@ class IntegrationHubFlowConfig implements ModelInterface, ArrayAccess
         'apiKey' => null,
         'workerCount' => 'int64',
         'maxEventsPerMessage' => 'int64',
-        'maxRetries' => 'int64'
+        'maxRetries' => 'int64',
+        'instanceName' => null,
+        'integrationName' => null
     ];
 
     /**
@@ -105,7 +109,9 @@ class IntegrationHubFlowConfig implements ModelInterface, ArrayAccess
         'apiKey' => 'ApiKey',
         'workerCount' => 'WorkerCount',
         'maxEventsPerMessage' => 'MaxEventsPerMessage',
-        'maxRetries' => 'MaxRetries'
+        'maxRetries' => 'MaxRetries',
+        'instanceName' => 'InstanceName',
+        'integrationName' => 'IntegrationName'
     ];
 
     /**
@@ -117,7 +123,9 @@ class IntegrationHubFlowConfig implements ModelInterface, ArrayAccess
         'apiKey' => 'setApiKey',
         'workerCount' => 'setWorkerCount',
         'maxEventsPerMessage' => 'setMaxEventsPerMessage',
-        'maxRetries' => 'setMaxRetries'
+        'maxRetries' => 'setMaxRetries',
+        'instanceName' => 'setInstanceName',
+        'integrationName' => 'setIntegrationName'
     ];
 
     /**
@@ -129,7 +137,9 @@ class IntegrationHubFlowConfig implements ModelInterface, ArrayAccess
         'apiKey' => 'getApiKey',
         'workerCount' => 'getWorkerCount',
         'maxEventsPerMessage' => 'getMaxEventsPerMessage',
-        'maxRetries' => 'getMaxRetries'
+        'maxRetries' => 'getMaxRetries',
+        'instanceName' => 'getInstanceName',
+        'integrationName' => 'getIntegrationName'
     ];
 
     /**
@@ -196,6 +206,8 @@ class IntegrationHubFlowConfig implements ModelInterface, ArrayAccess
         $this->container['workerCount'] = isset($data['workerCount']) ? $data['workerCount'] : 10;
         $this->container['maxEventsPerMessage'] = isset($data['maxEventsPerMessage']) ? $data['maxEventsPerMessage'] : 1000;
         $this->container['maxRetries'] = isset($data['maxRetries']) ? $data['maxRetries'] : 10;
+        $this->container['instanceName'] = isset($data['instanceName']) ? $data['instanceName'] : null;
+        $this->container['integrationName'] = isset($data['integrationName']) ? $data['integrationName'] : null;
     }
 
     /**
@@ -351,6 +363,54 @@ class IntegrationHubFlowConfig implements ModelInterface, ArrayAccess
         }
 
         $this->container['maxRetries'] = $maxRetries;
+
+        return $this;
+    }
+
+    /**
+     * Gets instanceName
+     *
+     * @return string|null
+     */
+    public function getInstanceName()
+    {
+        return $this->container['instanceName'];
+    }
+
+    /**
+     * Sets instanceName
+     *
+     * @param string|null $instanceName Name of the Prismatic instance that registered this flow.
+     *
+     * @return $this
+     */
+    public function setInstanceName($instanceName)
+    {
+        $this->container['instanceName'] = $instanceName;
+
+        return $this;
+    }
+
+    /**
+     * Gets integrationName
+     *
+     * @return string|null
+     */
+    public function getIntegrationName()
+    {
+        return $this->container['integrationName'];
+    }
+
+    /**
+     * Sets integrationName
+     *
+     * @param string|null $integrationName Name of the Prismatic integration that registered this flow.
+     *
+     * @return $this
+     */
+    public function setIntegrationName($integrationName)
+    {
+        $this->container['integrationName'] = $integrationName;
 
         return $this;
     }

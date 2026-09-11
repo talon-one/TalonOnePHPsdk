@@ -91,4 +91,18 @@ class UpdateExperimentTest extends TestCase
     public function testPropertyCampaign()
     {
     }
+
+    /**
+     * Test attribute "goalType"
+     */
+    public function testPropertyGoalType()
+    {
+    }
+
+    /**
+     * Test attribute "goalDescription"
+     */
+    public function testPropertyGoalDescription()
+    {
+    }
 }

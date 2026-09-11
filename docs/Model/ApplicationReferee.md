@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **applicationId** | **int** | The ID of the Application that owns this entity. | 
 **sessionId** | **string** | Integration ID of the session in which the customer redeemed the referral. | 
+**advancedEventIntegrationId** | **string** | The unique ID of the advanced event in which the customer redeemed the referral. Omitted when the referral was redeemed through a customer session rather than an advanced event. | [optional] 
 **advocateIntegrationId** | **string** | Integration ID of the Advocate&#39;s Profile. | 
 **friendIntegrationId** | **string** | Integration ID of the Friend&#39;s Profile. | 
 **code** | **string** | Advocate&#39;s referral code. | 

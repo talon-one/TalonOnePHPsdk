@@ -112,4 +112,32 @@ class NewRewardTest extends TestCase
     public function testPropertySandbox()
     {
     }
+
+    /**
+     * Test attribute "eligibilityConditions"
+     */
+    public function testPropertyEligibilityConditions()
+    {
+    }
+
+    /**
+     * Test attribute "rule"
+     */
+    public function testPropertyRule()
+    {
+    }
+
+    /**
+     * Test attribute "bindings"
+     */
+    public function testPropertyBindings()
+    {
+    }
+
+    /**
+     * Test attribute "pointsRequired"
+     */
+    public function testPropertyPointsRequired()
+    {
+    }
 }

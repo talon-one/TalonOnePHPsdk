@@ -329,7 +329,7 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
     /**
      * Sets version
      *
-     * @param string|null $version The version of the strikethrough pricing notification.
+     * @param string|null $version The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only.
      *
      * @return $this
      */

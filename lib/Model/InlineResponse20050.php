@@ -57,7 +57,7 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\TalonOne\Client\Model\SummaryCampaignStoreBudget[]'
+        'data' => '\TalonOne\Client\Model\ListCampaignStoreBudgets[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\SummaryCampaignStoreBudget[]|null
+     * @return \TalonOne\Client\Model\ListCampaignStoreBudgets[]|null
      */
     public function getData()
     {
@@ -217,7 +217,7 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\SummaryCampaignStoreBudget[]|null $data data
+     * @param \TalonOne\Client\Model\ListCampaignStoreBudgets[]|null $data data
      *
      * @return $this
      */

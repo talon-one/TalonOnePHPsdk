@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **programId** | **int** | The ID of the loyalty program where these points were reimbursed. | 
 **subLedgerId** | **string** | The ID of the subledger within the loyalty program where these points were reimbursed. | 
-**value** | **float** | The amount of reimbursed points that were added. | 
+**value** | **float** | The amount of points that were reimbursed. | 
 **recipientIntegrationId** | **string** | The user for whom these points were reimbursed. | 
-**startDate** | [**\DateTime**](\DateTime.md) | Date after which the reimbursed points will be valid. | [optional] 
-**expiryDate** | [**\DateTime**](\DateTime.md) | Date after which the reimbursed points will expire. | [optional] 
-**transactionUUID** | **string** | The identifier of &#39;addition&#39; entries added to the ledger as the &#x60;deductLoyaltyPoints&#x60; effect is rolled back. | 
+**startDate** | [**\DateTime**](\DateTime.md) | The date after which the reimbursed points will be valid. | [optional] 
+**expiryDate** | [**\DateTime**](\DateTime.md) | The date after which the reimbursed points will expire. | [optional] 
+**transactionUUID** | **string** | The identifier of this loyalty point transaction. | 
 **cardIdentifier** | **string** | The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

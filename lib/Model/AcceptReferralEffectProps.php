@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * AcceptReferralEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;acceptReferral\&quot; effect. TThis gets triggered whenever the referral code is valid and all other conditions in the rules of its campaign are met.
+ * @description This effect indicates that the referral code supplied is valid.  You should handle this effect by informing the user that the referral code is valid.  The code is automatically redeemed when you close the session.  Other effects will provide more information about the actual reward.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -221,7 +221,7 @@ class AcceptReferralEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The referral code that was accepted.
+     * @param string $value The referral code provided in the session.
      *
      * @return $this
      */

@@ -177,6 +177,13 @@ class AchievementStatusEntryTest extends TestCase
     }
 
     /**
+     * Test attribute "campaignIds"
+     */
+    public function testPropertyCampaignIds()
+    {
+    }
+
+    /**
      * Test attribute "status"
      */
     public function testPropertyStatus()

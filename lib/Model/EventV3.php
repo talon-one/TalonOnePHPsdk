@@ -57,14 +57,17 @@ class EventV3 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'connectedSessionId' => 'string',
+        'id' => 'int',
+        'created' => '\DateTime',
+        'applicationId' => 'int',
         'profileId' => 'string',
         'storeIntegrationId' => 'string',
-        'evaluableCampaignIds' => 'int[]',
-        'integrationId' => 'string',
         'type' => 'string',
         'attributes' => 'object',
-        'connectedSessionID' => 'string',
-        'previousEventID' => 'string'
+        'integrationId' => 'string',
+        'referralCode' => 'string',
+        'effects' => 'object[]'
     ];
 
     /**
@@ -73,14 +76,17 @@ class EventV3 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'connectedSessionId' => null,
+        'id' => 'int64',
+        'created' => 'date-time',
+        'applicationId' => 'int64',
         'profileId' => null,
         'storeIntegrationId' => null,
-        'evaluableCampaignIds' => 'int64',
-        'integrationId' => null,
         'type' => null,
         'attributes' => null,
-        'connectedSessionID' => null,
-        'previousEventID' => null
+        'integrationId' => null,
+        'referralCode' => null,
+        'effects' => null
     ];
 
     /**
@@ -110,14 +116,17 @@ class EventV3 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'connectedSessionId' => 'connectedSessionId',
+        'id' => 'id',
+        'created' => 'created',
+        'applicationId' => 'applicationId',
         'profileId' => 'profileId',
         'storeIntegrationId' => 'storeIntegrationId',
-        'evaluableCampaignIds' => 'evaluableCampaignIds',
-        'integrationId' => 'integrationId',
         'type' => 'type',
         'attributes' => 'attributes',
-        'connectedSessionID' => 'connectedSessionID',
-        'previousEventID' => 'previousEventID'
+        'integrationId' => 'integrationId',
+        'referralCode' => 'referralCode',
+        'effects' => 'effects'
     ];
 
     /**
@@ -126,14 +135,17 @@ class EventV3 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'connectedSessionId' => 'setConnectedSessionId',
+        'id' => 'setId',
+        'created' => 'setCreated',
+        'applicationId' => 'setApplicationId',
         'profileId' => 'setProfileId',
         'storeIntegrationId' => 'setStoreIntegrationId',
-        'evaluableCampaignIds' => 'setEvaluableCampaignIds',
-        'integrationId' => 'setIntegrationId',
         'type' => 'setType',
         'attributes' => 'setAttributes',
-        'connectedSessionID' => 'setConnectedSessionID',
-        'previousEventID' => 'setPreviousEventID'
+        'integrationId' => 'setIntegrationId',
+        'referralCode' => 'setReferralCode',
+        'effects' => 'setEffects'
     ];
 
     /**
@@ -142,14 +154,17 @@ class EventV3 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'connectedSessionId' => 'getConnectedSessionId',
+        'id' => 'getId',
+        'created' => 'getCreated',
+        'applicationId' => 'getApplicationId',
         'profileId' => 'getProfileId',
         'storeIntegrationId' => 'getStoreIntegrationId',
-        'evaluableCampaignIds' => 'getEvaluableCampaignIds',
-        'integrationId' => 'getIntegrationId',
         'type' => 'getType',
         'attributes' => 'getAttributes',
-        'connectedSessionID' => 'getConnectedSessionID',
-        'previousEventID' => 'getPreviousEventID'
+        'integrationId' => 'getIntegrationId',
+        'referralCode' => 'getReferralCode',
+        'effects' => 'getEffects'
     ];
 
     /**
@@ -212,14 +227,17 @@ class EventV3 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['connectedSessionId'] = isset($data['connectedSessionId']) ? $data['connectedSessionId'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['profileId'] = isset($data['profileId']) ? $data['profileId'] : null;
         $this->container['storeIntegrationId'] = isset($data['storeIntegrationId']) ? $data['storeIntegrationId'] : null;
-        $this->container['evaluableCampaignIds'] = isset($data['evaluableCampaignIds']) ? $data['evaluableCampaignIds'] : null;
-        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['connectedSessionID'] = isset($data['connectedSessionID']) ? $data['connectedSessionID'] : null;
-        $this->container['previousEventID'] = isset($data['previousEventID']) ? $data['previousEventID'] : null;
+        $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
+        $this->container['referralCode'] = isset($data['referralCode']) ? $data['referralCode'] : null;
+        $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
     }
 
     /**
@@ -231,8 +249,18 @@ class EventV3 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['profileId'] === null) {
-            $invalidProperties[] = "'profileId' can't be null";
+        if (!is_null($this->container['connectedSessionId']) && (mb_strlen($this->container['connectedSessionId']) < 1)) {
+            $invalidProperties[] = "invalid value for 'connectedSessionId', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['created'] === null) {
+            $invalidProperties[] = "'created' can't be null";
+        }
+        if ($this->container['applicationId'] === null) {
+            $invalidProperties[] = "'applicationId' can't be null";
         }
         if (!is_null($this->container['storeIntegrationId']) && (mb_strlen($this->container['storeIntegrationId']) > 1000)) {
             $invalidProperties[] = "invalid value for 'storeIntegrationId', the character length must be smaller than or equal to 1000.";
@@ -242,13 +270,6 @@ class EventV3 implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'storeIntegrationId', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['integrationId'] === null) {
-            $invalidProperties[] = "'integrationId' can't be null";
-        }
-        if ((mb_strlen($this->container['integrationId']) < 1)) {
-            $invalidProperties[] = "invalid value for 'integrationId', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -256,14 +277,20 @@ class EventV3 implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'type', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['connectedSessionID']) && (mb_strlen($this->container['connectedSessionID']) < 1)) {
-            $invalidProperties[] = "invalid value for 'connectedSessionID', the character length must be bigger than or equal to 1.";
+        if ($this->container['attributes'] === null) {
+            $invalidProperties[] = "'attributes' can't be null";
+        }
+        if (!is_null($this->container['integrationId']) && (mb_strlen($this->container['integrationId']) < 1)) {
+            $invalidProperties[] = "invalid value for 'integrationId', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['previousEventID']) && (mb_strlen($this->container['previousEventID']) < 1)) {
-            $invalidProperties[] = "invalid value for 'previousEventID', the character length must be bigger than or equal to 1.";
+        if (!is_null($this->container['referralCode']) && (mb_strlen($this->container['referralCode']) > 100)) {
+            $invalidProperties[] = "invalid value for 'referralCode', the character length must be smaller than or equal to 100.";
         }
 
+        if ($this->container['effects'] === null) {
+            $invalidProperties[] = "'effects' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -280,9 +307,110 @@ class EventV3 implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets connectedSessionId
+     *
+     * @return string|null
+     */
+    public function getConnectedSessionId()
+    {
+        return $this->container['connectedSessionId'];
+    }
+
+    /**
+     * Sets connectedSessionId
+     *
+     * @param string|null $connectedSessionId The ID of the session to reference. The session must be in `closed` state. Otherwise, the API call will fail.
+     *
+     * @return $this
+     */
+    public function setConnectedSessionId($connectedSessionId)
+    {
+
+        if (!is_null($connectedSessionId) && (mb_strlen($connectedSessionId) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $connectedSessionId when calling EventV3., must be bigger than or equal to 1.');
+        }
+
+        $this->container['connectedSessionId'] = $connectedSessionId;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id The internal ID of this entity.
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     *
+     * @param \DateTime $created The time this entity was created.
+     *
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets applicationId
+     *
+     * @return int
+     */
+    public function getApplicationId()
+    {
+        return $this->container['applicationId'];
+    }
+
+    /**
+     * Sets applicationId
+     *
+     * @param int $applicationId The ID of the Application that owns this entity.
+     *
+     * @return $this
+     */
+    public function setApplicationId($applicationId)
+    {
+        $this->container['applicationId'] = $applicationId;
+
+        return $this;
+    }
+
+    /**
      * Gets profileId
      *
-     * @return string
+     * @return string|null
      */
     public function getProfileId()
     {
@@ -292,7 +420,7 @@ class EventV3 implements ModelInterface, ArrayAccess
     /**
      * Sets profileId
      *
-     * @param string $profileId ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known `profileId`, we recommend you use a guest `profileId`.
+     * @param string|null $profileId ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known `profileId`, we recommend you use a guest `profileId`.
      *
      * @return $this
      */
@@ -335,59 +463,6 @@ class EventV3 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets evaluableCampaignIds
-     *
-     * @return int[]|null
-     */
-    public function getEvaluableCampaignIds()
-    {
-        return $this->container['evaluableCampaignIds'];
-    }
-
-    /**
-     * Sets evaluableCampaignIds
-     *
-     * @param int[]|null $evaluableCampaignIds When using the `dry` query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them.
-     *
-     * @return $this
-     */
-    public function setEvaluableCampaignIds($evaluableCampaignIds)
-    {
-        $this->container['evaluableCampaignIds'] = $evaluableCampaignIds;
-
-        return $this;
-    }
-
-    /**
-     * Gets integrationId
-     *
-     * @return string
-     */
-    public function getIntegrationId()
-    {
-        return $this->container['integrationId'];
-    }
-
-    /**
-     * Sets integrationId
-     *
-     * @param string $integrationId The unique ID of the current event. Only one event with this ID could be activated, duplicated events are forbidden.
-     *
-     * @return $this
-     */
-    public function setIntegrationId($integrationId)
-    {
-
-        if ((mb_strlen($integrationId) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $integrationId when calling EventV3., must be bigger than or equal to 1.');
-        }
-
-        $this->container['integrationId'] = $integrationId;
-
-        return $this;
-    }
-
-    /**
      * Gets type
      *
      * @return string
@@ -400,7 +475,7 @@ class EventV3 implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.
+     * @param string $type The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
      *
      * @return $this
      */
@@ -419,7 +494,7 @@ class EventV3 implements ModelInterface, ArrayAccess
     /**
      * Gets attributes
      *
-     * @return object|null
+     * @return object
      */
     public function getAttributes()
     {
@@ -429,7 +504,7 @@ class EventV3 implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param object|null $attributes Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute).
+     * @param object $attributes Arbitrary additional JSON data associated with the event.
      *
      * @return $this
      */
@@ -441,59 +516,82 @@ class EventV3 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets connectedSessionID
+     * Gets integrationId
      *
      * @return string|null
      */
-    public function getConnectedSessionID()
+    public function getIntegrationId()
     {
-        return $this->container['connectedSessionID'];
+        return $this->container['integrationId'];
     }
 
     /**
-     * Sets connectedSessionID
+     * Sets integrationId
      *
-     * @param string|null $connectedSessionID The ID of the session that happened in the past.
+     * @param string|null $integrationId The unique ID of the event. Only one event with this ID can be registered.
      *
      * @return $this
      */
-    public function setConnectedSessionID($connectedSessionID)
+    public function setIntegrationId($integrationId)
     {
 
-        if (!is_null($connectedSessionID) && (mb_strlen($connectedSessionID) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $connectedSessionID when calling EventV3., must be bigger than or equal to 1.');
+        if (!is_null($integrationId) && (mb_strlen($integrationId) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $integrationId when calling EventV3., must be bigger than or equal to 1.');
         }
 
-        $this->container['connectedSessionID'] = $connectedSessionID;
+        $this->container['integrationId'] = $integrationId;
 
         return $this;
     }
 
     /**
-     * Gets previousEventID
+     * Gets referralCode
      *
      * @return string|null
      */
-    public function getPreviousEventID()
+    public function getReferralCode()
     {
-        return $this->container['previousEventID'];
+        return $this->container['referralCode'];
     }
 
     /**
-     * Sets previousEventID
+     * Sets referralCode
      *
-     * @param string|null $previousEventID The unique identifier of the event that happened in the past.
+     * @param string|null $referralCode The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \"Referral code is valid\" condition in the Rule Builder to validate and redeem the code, or \"Referral code is valid (without redemption)\" to validate without redeeming.
      *
      * @return $this
      */
-    public function setPreviousEventID($previousEventID)
+    public function setReferralCode($referralCode)
     {
-
-        if (!is_null($previousEventID) && (mb_strlen($previousEventID) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $previousEventID when calling EventV3., must be bigger than or equal to 1.');
+        if (!is_null($referralCode) && (mb_strlen($referralCode) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $referralCode when calling EventV3., must be smaller than or equal to 100.');
         }
 
-        $this->container['previousEventID'] = $previousEventID;
+        $this->container['referralCode'] = $referralCode;
+
+        return $this;
+    }
+
+    /**
+     * Gets effects
+     *
+     * @return object[]
+     */
+    public function getEffects()
+    {
+        return $this->container['effects'];
+    }
+
+    /**
+     * Sets effects
+     *
+     * @param object[] $effects An array of effects generated by the rules of the enabled campaigns of the Application.  You decide how to apply them in your system. See the list of [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
+     *
+     * @return $this
+     */
+    public function setEffects($effects)
+    {
+        $this->container['effects'] = $effects;
 
         return $this;
     }

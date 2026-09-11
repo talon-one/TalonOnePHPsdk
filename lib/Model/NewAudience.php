@@ -60,6 +60,7 @@ class NewAudience implements ModelInterface, ArrayAccess
         'name' => 'string',
         'sandbox' => 'bool',
         'description' => 'string',
+        'subscribedApplicationsIds' => 'int[]',
         'integration' => 'string',
         'integrationId' => 'string',
         'createdIn3rdParty' => 'bool',
@@ -75,6 +76,7 @@ class NewAudience implements ModelInterface, ArrayAccess
         'name' => null,
         'sandbox' => null,
         'description' => null,
+        'subscribedApplicationsIds' => 'int64',
         'integration' => null,
         'integrationId' => null,
         'createdIn3rdParty' => null,
@@ -111,6 +113,7 @@ class NewAudience implements ModelInterface, ArrayAccess
         'name' => 'name',
         'sandbox' => 'sandbox',
         'description' => 'description',
+        'subscribedApplicationsIds' => 'subscribedApplicationsIds',
         'integration' => 'integration',
         'integrationId' => 'integrationId',
         'createdIn3rdParty' => 'createdIn3rdParty',
@@ -126,6 +129,7 @@ class NewAudience implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'sandbox' => 'setSandbox',
         'description' => 'setDescription',
+        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds',
         'integration' => 'setIntegration',
         'integrationId' => 'setIntegrationId',
         'createdIn3rdParty' => 'setCreatedIn3rdParty',
@@ -141,6 +145,7 @@ class NewAudience implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'sandbox' => 'getSandbox',
         'description' => 'getDescription',
+        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds',
         'integration' => 'getIntegration',
         'integrationId' => 'getIntegrationId',
         'createdIn3rdParty' => 'getCreatedIn3rdParty',
@@ -210,6 +215,7 @@ class NewAudience implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['subscribedApplicationsIds'] = isset($data['subscribedApplicationsIds']) ? $data['subscribedApplicationsIds'] : null;
         $this->container['integration'] = isset($data['integration']) ? $data['integration'] : null;
         $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['createdIn3rdParty'] = isset($data['createdIn3rdParty']) ? $data['createdIn3rdParty'] : null;
@@ -328,6 +334,30 @@ class NewAudience implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscribedApplicationsIds
+     *
+     * @return int[]|null
+     */
+    public function getSubscribedApplicationsIds()
+    {
+        return $this->container['subscribedApplicationsIds'];
+    }
+
+    /**
+     * Sets subscribedApplicationsIds
+     *
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the Applications that are connected to this audience.
+     *
+     * @return $this
+     */
+    public function setSubscribedApplicationsIds($subscribedApplicationsIds)
+    {
+        $this->container['subscribedApplicationsIds'] = $subscribedApplicationsIds;
 
         return $this;
     }

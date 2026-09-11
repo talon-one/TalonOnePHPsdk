@@ -67,8 +67,8 @@ class CreateAchievementV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => '\DateTime',
         'endDate' => '\DateTime',
         'allowRollbackAfterCompletion' => 'bool',
-        'sandbox' => 'bool',
         'subscribedApplications' => 'int[]',
+        'sandbox' => 'bool',
         'timezone' => 'string'
     ];
 
@@ -88,8 +88,8 @@ class CreateAchievementV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => 'date-time',
         'endDate' => 'date-time',
         'allowRollbackAfterCompletion' => null,
-        'sandbox' => null,
         'subscribedApplications' => 'int64',
+        'sandbox' => null,
         'timezone' => null
     ];
 
@@ -130,8 +130,8 @@ class CreateAchievementV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => 'fixedStartDate',
         'endDate' => 'endDate',
         'allowRollbackAfterCompletion' => 'allowRollbackAfterCompletion',
-        'sandbox' => 'sandbox',
         'subscribedApplications' => 'subscribedApplications',
+        'sandbox' => 'sandbox',
         'timezone' => 'timezone'
     ];
 
@@ -151,8 +151,8 @@ class CreateAchievementV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => 'setFixedStartDate',
         'endDate' => 'setEndDate',
         'allowRollbackAfterCompletion' => 'setAllowRollbackAfterCompletion',
-        'sandbox' => 'setSandbox',
         'subscribedApplications' => 'setSubscribedApplications',
+        'sandbox' => 'setSandbox',
         'timezone' => 'setTimezone'
     ];
 
@@ -172,8 +172,8 @@ class CreateAchievementV2 implements ModelInterface, ArrayAccess
         'fixedStartDate' => 'getFixedStartDate',
         'endDate' => 'getEndDate',
         'allowRollbackAfterCompletion' => 'getAllowRollbackAfterCompletion',
-        'sandbox' => 'getSandbox',
         'subscribedApplications' => 'getSubscribedApplications',
+        'sandbox' => 'getSandbox',
         'timezone' => 'getTimezone'
     ];
 
@@ -279,8 +279,8 @@ class CreateAchievementV2 implements ModelInterface, ArrayAccess
         $this->container['fixedStartDate'] = isset($data['fixedStartDate']) ? $data['fixedStartDate'] : null;
         $this->container['endDate'] = isset($data['endDate']) ? $data['endDate'] : null;
         $this->container['allowRollbackAfterCompletion'] = isset($data['allowRollbackAfterCompletion']) ? $data['allowRollbackAfterCompletion'] : null;
-        $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['subscribedApplications'] = isset($data['subscribedApplications']) ? $data['subscribedApplications'] : null;
+        $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
     }
 
@@ -627,30 +627,6 @@ class CreateAchievementV2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets sandbox
-     *
-     * @return bool
-     */
-    public function getSandbox()
-    {
-        return $this->container['sandbox'];
-    }
-
-    /**
-     * Sets sandbox
-     *
-     * @param bool $sandbox Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
-     *
-     * @return $this
-     */
-    public function setSandbox($sandbox)
-    {
-        $this->container['sandbox'] = $sandbox;
-
-        return $this;
-    }
-
-    /**
      * Gets subscribedApplications
      *
      * @return int[]|null
@@ -670,6 +646,30 @@ class CreateAchievementV2 implements ModelInterface, ArrayAccess
     public function setSubscribedApplications($subscribedApplications)
     {
         $this->container['subscribedApplications'] = $subscribedApplications;
+
+        return $this;
+    }
+
+    /**
+     * Gets sandbox
+     *
+     * @return bool
+     */
+    public function getSandbox()
+    {
+        return $this->container['sandbox'];
+    }
+
+    /**
+     * Sets sandbox
+     *
+     * @param bool $sandbox Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
+     *
+     * @return $this
+     */
+    public function setSandbox($sandbox)
+    {
+        $this->container['sandbox'] = $sandbox;
 
         return $this;
     }

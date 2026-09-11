@@ -135,6 +135,41 @@ class RewardTest extends TestCase
     }
 
     /**
+     * Test attribute "eligibilityConditions"
+     */
+    public function testPropertyEligibilityConditions()
+    {
+    }
+
+    /**
+     * Test attribute "rule"
+     */
+    public function testPropertyRule()
+    {
+    }
+
+    /**
+     * Test attribute "bindings"
+     */
+    public function testPropertyBindings()
+    {
+    }
+
+    /**
+     * Test attribute "pointsRequired"
+     */
+    public function testPropertyPointsRequired()
+    {
+    }
+
+    /**
+     * Test attribute "modified"
+     */
+    public function testPropertyModified()
+    {
+    }
+
+    /**
      * Test attribute "status"
      */
     public function testPropertyStatus()

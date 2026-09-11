@@ -71,6 +71,7 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
         'endDate' => '\DateTime',
         'allowRollbackAfterCompletion' => 'bool',
         'campaignId' => 'int',
+        'campaignIds' => 'int[]',
         'status' => 'string',
         'currentProgress' => '\TalonOne\Client\Model\AchievementProgress'
     ];
@@ -95,6 +96,7 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
         'endDate' => 'date-time',
         'allowRollbackAfterCompletion' => null,
         'campaignId' => 'int64',
+        'campaignIds' => 'int64',
         'status' => null,
         'currentProgress' => null
     ];
@@ -140,6 +142,7 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
         'endDate' => 'endDate',
         'allowRollbackAfterCompletion' => 'allowRollbackAfterCompletion',
         'campaignId' => 'campaignId',
+        'campaignIds' => 'campaignIds',
         'status' => 'status',
         'currentProgress' => 'currentProgress'
     ];
@@ -164,6 +167,7 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
         'endDate' => 'setEndDate',
         'allowRollbackAfterCompletion' => 'setAllowRollbackAfterCompletion',
         'campaignId' => 'setCampaignId',
+        'campaignIds' => 'setCampaignIds',
         'status' => 'setStatus',
         'currentProgress' => 'setCurrentProgress'
     ];
@@ -188,6 +192,7 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
         'endDate' => 'getEndDate',
         'allowRollbackAfterCompletion' => 'getAllowRollbackAfterCompletion',
         'campaignId' => 'getCampaignId',
+        'campaignIds' => 'getCampaignIds',
         'status' => 'getStatus',
         'currentProgress' => 'getCurrentProgress'
     ];
@@ -313,6 +318,7 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
         $this->container['endDate'] = isset($data['endDate']) ? $data['endDate'] : null;
         $this->container['allowRollbackAfterCompletion'] = isset($data['allowRollbackAfterCompletion']) ? $data['allowRollbackAfterCompletion'] : null;
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
+        $this->container['campaignIds'] = isset($data['campaignIds']) ? $data['campaignIds'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['currentProgress'] = isset($data['currentProgress']) ? $data['currentProgress'] : null;
     }
@@ -748,13 +754,37 @@ class AchievementStatusEntry implements ModelInterface, ArrayAccess
     /**
      * Sets campaignId
      *
-     * @param int|null $campaignId The ID of the campaign the achievement belongs to.
+     * @param int|null $campaignId This property is **deprecated**. Use `referencedByCampaigns` instead. This field contains the first campaign ID from the related `referencedByCampaigns`, and is omitted when `referencedByCampaigns` is empty.
      *
      * @return $this
      */
     public function setCampaignId($campaignId)
     {
         $this->container['campaignId'] = $campaignId;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignIds
+     *
+     * @return int[]|null
+     */
+    public function getCampaignIds()
+    {
+        return $this->container['campaignIds'];
+    }
+
+    /**
+     * Sets campaignIds
+     *
+     * @param int[]|null $campaignIds The IDs of the campaigns that reference this achievement, in ascending order.
+     *
+     * @return $this
+     */
+    public function setCampaignIds($campaignIds)
+    {
+        $this->container['campaignIds'] = $campaignIds;
 
         return $this;
     }

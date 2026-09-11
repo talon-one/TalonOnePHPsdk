@@ -149,6 +149,20 @@ class AchievementProgressWithDefinitionTest extends TestCase
     }
 
     /**
+     * Test attribute "campaignIds"
+     */
+    public function testPropertyCampaignIds()
+    {
+    }
+
+    /**
+     * Test attribute "referencedByCampaigns"
+     */
+    public function testPropertyReferencedByCampaigns()
+    {
+    }
+
+    /**
      * Test attribute "target"
      */
     public function testPropertyTarget()

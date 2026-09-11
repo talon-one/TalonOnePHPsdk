@@ -57,6 +57,7 @@ class IntegrationHubEventPayloadCouponBasedNotifications implements ModelInterfa
       * @var string[]
       */
     protected static $openAPITypes = [
+        'eventId' => 'int',
         'id' => 'int',
         'created' => '\DateTime',
         'campaignId' => 'int',
@@ -86,6 +87,7 @@ class IntegrationHubEventPayloadCouponBasedNotifications implements ModelInterfa
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'eventId' => 'int64',
         'id' => 'int64',
         'created' => 'date-time',
         'campaignId' => 'int64',
@@ -136,6 +138,7 @@ class IntegrationHubEventPayloadCouponBasedNotifications implements ModelInterfa
      * @var string[]
      */
     protected static $attributeMap = [
+        'eventId' => 'EventId',
         'id' => 'Id',
         'created' => 'Created',
         'campaignId' => 'CampaignId',
@@ -165,6 +168,7 @@ class IntegrationHubEventPayloadCouponBasedNotifications implements ModelInterfa
      * @var string[]
      */
     protected static $setters = [
+        'eventId' => 'setEventId',
         'id' => 'setId',
         'created' => 'setCreated',
         'campaignId' => 'setCampaignId',
@@ -194,6 +198,7 @@ class IntegrationHubEventPayloadCouponBasedNotifications implements ModelInterfa
      * @var string[]
      */
     protected static $getters = [
+        'eventId' => 'getEventId',
         'id' => 'getId',
         'created' => 'getCreated',
         'campaignId' => 'getCampaignId',
@@ -277,6 +282,7 @@ class IntegrationHubEventPayloadCouponBasedNotifications implements ModelInterfa
      */
     public function __construct(array $data = null)
     {
+        $this->container['eventId'] = isset($data['eventId']) ? $data['eventId'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
@@ -309,6 +315,9 @@ class IntegrationHubEventPayloadCouponBasedNotifications implements ModelInterfa
     {
         $invalidProperties = [];
 
+        if ($this->container['eventId'] === null) {
+            $invalidProperties[] = "'eventId' can't be null";
+        }
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
@@ -350,6 +359,30 @@ class IntegrationHubEventPayloadCouponBasedNotifications implements ModelInterfa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets eventId
+     *
+     * @return int
+     */
+    public function getEventId()
+    {
+        return $this->container['eventId'];
+    }
+
+    /**
+     * Sets eventId
+     *
+     * @param int $eventId The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.
+     *
+     * @return $this
+     */
+    public function setEventId($eventId)
+    {
+        $this->container['eventId'] = $eventId;
+
+        return $this;
+    }
 
     /**
      * Gets id

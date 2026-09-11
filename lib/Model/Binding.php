@@ -313,7 +313,7 @@ class Binding implements ModelInterface, ArrayAccess
     /**
      * Sets expression
      *
-     * @param object[] $expression A Talang expression that will be evaluated and its result attached to the name of the binding.
+     * @param object[] $expression A Talang expression that is evaluated, and its result is bound to the name of the binding. The first element must be one of the functions or operators supported by Talang, followed by its arguments. The arguments can be strings, numbers, or nested expressions. For example: - `[\"list\", \"10014\", \"10015\"]` calls the `list` function to build a list of strings. - `[\"+\", 2, 0]` uses the `+` operator to add two numbers.
      *
      * @return $this
      */
@@ -337,7 +337,7 @@ class Binding implements ModelInterface, ArrayAccess
     /**
      * Sets valueType
      *
-     * @param string|null $valueType Can be one of the following: - `string` - `number` - `boolean`
+     * @param string|null $valueType The data type of the value. One of the following: - `string` - `number` - `boolean`
      *
      * @return $this
      */
@@ -409,7 +409,7 @@ class Binding implements ModelInterface, ArrayAccess
     /**
      * Sets attributeId
      *
-     * @param int|null $attributeId Id of the attribute attached to the placeholder.
+     * @param int|null $attributeId Identifier of the attribute attached to the placeholder.
      *
      * @return $this
      */
@@ -433,7 +433,7 @@ class Binding implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template.
+     * @param string|null $description Description of the placeholder field and its value in the template. This text can be shown when creating campaigns from this template.
      *
      * @return $this
      */

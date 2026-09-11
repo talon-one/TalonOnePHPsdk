@@ -68,6 +68,8 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         'title' => 'string',
         'description' => 'string',
         'campaignId' => 'int',
+        'campaignIds' => 'int[]',
+        'referencedByCampaigns' => '\TalonOne\Client\Model\CampaignReference[]',
         'target' => 'float',
         'achievementRecurrencePolicy' => 'string',
         'achievementActivationPolicy' => 'string',
@@ -92,6 +94,8 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         'title' => null,
         'description' => 'string',
         'campaignId' => 'int64',
+        'campaignIds' => 'int64',
+        'referencedByCampaigns' => null,
         'target' => null,
         'achievementRecurrencePolicy' => null,
         'achievementActivationPolicy' => null,
@@ -137,6 +141,8 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         'title' => 'title',
         'description' => 'description',
         'campaignId' => 'campaignId',
+        'campaignIds' => 'campaignIds',
+        'referencedByCampaigns' => 'referencedByCampaigns',
         'target' => 'target',
         'achievementRecurrencePolicy' => 'achievementRecurrencePolicy',
         'achievementActivationPolicy' => 'achievementActivationPolicy',
@@ -161,6 +167,8 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         'title' => 'setTitle',
         'description' => 'setDescription',
         'campaignId' => 'setCampaignId',
+        'campaignIds' => 'setCampaignIds',
+        'referencedByCampaigns' => 'setReferencedByCampaigns',
         'target' => 'setTarget',
         'achievementRecurrencePolicy' => 'setAchievementRecurrencePolicy',
         'achievementActivationPolicy' => 'setAchievementActivationPolicy',
@@ -185,6 +193,8 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         'title' => 'getTitle',
         'description' => 'getDescription',
         'campaignId' => 'getCampaignId',
+        'campaignIds' => 'getCampaignIds',
+        'referencedByCampaigns' => 'getReferencedByCampaigns',
         'target' => 'getTarget',
         'achievementRecurrencePolicy' => 'getAchievementRecurrencePolicy',
         'achievementActivationPolicy' => 'getAchievementActivationPolicy',
@@ -314,6 +324,8 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
+        $this->container['campaignIds'] = isset($data['campaignIds']) ? $data['campaignIds'] : null;
+        $this->container['referencedByCampaigns'] = isset($data['referencedByCampaigns']) ? $data['referencedByCampaigns'] : null;
         $this->container['target'] = isset($data['target']) ? $data['target'] : null;
         $this->container['achievementRecurrencePolicy'] = isset($data['achievementRecurrencePolicy']) ? $data['achievementRecurrencePolicy'] : null;
         $this->container['achievementActivationPolicy'] = isset($data['achievementActivationPolicy']) ? $data['achievementActivationPolicy'] : null;
@@ -369,8 +381,11 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
         if ($this->container['description'] === null) {
             $invalidProperties[] = "'description' can't be null";
         }
-        if ($this->container['campaignId'] === null) {
-            $invalidProperties[] = "'campaignId' can't be null";
+        if ($this->container['campaignIds'] === null) {
+            $invalidProperties[] = "'campaignIds' can't be null";
+        }
+        if ($this->container['referencedByCampaigns'] === null) {
+            $invalidProperties[] = "'referencedByCampaigns' can't be null";
         }
         if ($this->container['achievementRecurrencePolicy'] === null) {
             $invalidProperties[] = "'achievementRecurrencePolicy' can't be null";
@@ -647,7 +662,7 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
     /**
      * Gets campaignId
      *
-     * @return int
+     * @return int|null
      */
     public function getCampaignId()
     {
@@ -657,13 +672,61 @@ class AchievementProgressWithDefinition implements ModelInterface, ArrayAccess
     /**
      * Sets campaignId
      *
-     * @param int $campaignId The ID of the campaign the achievement belongs to.
+     * @param int|null $campaignId This property is **deprecated**. Use `campaignIds` (Integration API) or `referencedByCampaigns` (Management API) instead. This field contains the first campaign ID from the related `campaignIds`, and is omitted when `campaignIds` is empty.
      *
      * @return $this
      */
     public function setCampaignId($campaignId)
     {
         $this->container['campaignId'] = $campaignId;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignIds
+     *
+     * @return int[]
+     */
+    public function getCampaignIds()
+    {
+        return $this->container['campaignIds'];
+    }
+
+    /**
+     * Sets campaignIds
+     *
+     * @param int[] $campaignIds The IDs of the campaigns that reference this achievement, in ascending order.
+     *
+     * @return $this
+     */
+    public function setCampaignIds($campaignIds)
+    {
+        $this->container['campaignIds'] = $campaignIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets referencedByCampaigns
+     *
+     * @return \TalonOne\Client\Model\CampaignReference[]
+     */
+    public function getReferencedByCampaigns()
+    {
+        return $this->container['referencedByCampaigns'];
+    }
+
+    /**
+     * Sets referencedByCampaigns
+     *
+     * @param \TalonOne\Client\Model\CampaignReference[] $referencedByCampaigns The campaigns that reference this achievement, in ascending order of their `id`.
+     *
+     * @return $this
+     */
+    public function setReferencedByCampaigns($referencedByCampaigns)
+    {
+        $this->container['referencedByCampaigns'] = $referencedByCampaigns;
 
         return $this;
     }

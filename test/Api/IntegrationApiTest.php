@@ -233,6 +233,16 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for getEventV3
+     *
+     * Get advanced event.
+     *
+     */
+    public function testGetEventV3()
+    {
+    }
+
+    /**
      * Test case for getLoyaltyBalances
      *
      * Get customer's loyalty balances.
@@ -313,6 +323,26 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for integrationRewardsCatalog
+     *
+     * List rewards in the catalog.
+     *
+     */
+    public function testIntegrationRewardsCatalog()
+    {
+    }
+
+    /**
+     * Test case for joinLoyaltyProgram
+     *
+     * Join customer profile to loyalty program.
+     *
+     */
+    public function testJoinLoyaltyProgram()
+    {
+    }
+
+    /**
      * Test case for linkLoyaltyCardToProfile
      *
      * Link customer profile to card.
@@ -363,12 +393,32 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for trackEventV3
+     *
+     * Track advanced event.
+     *
+     */
+    public function testTrackEventV3()
+    {
+    }
+
+    /**
      * Test case for unlinkLoyaltyCardFromProfile
      *
      * Unlink customer profile from a loyalty card.
      *
      */
     public function testUnlinkLoyaltyCardFromProfile()
+    {
+    }
+
+    /**
+     * Test case for unlockReward
+     *
+     * Unlock a reward.
+     *
+     */
+    public function testUnlockReward()
     {
     }
 

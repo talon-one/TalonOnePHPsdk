@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * TriggerWebhookEffectPropsTest Class Doc Comment
  *
  * @category    Class
- * @description The properties specific to the \&quot;triggerWebhook\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;trigger webhook\&quot; effect. This is communicated as an FYI and should usually not require action on your side.
+ * @description This effect is triggered when a rule containing a [webhook effect](https://docs.talon.one/docs/product/rules/effects/available-effects#webhooks) is validated. The details are shared with you for your information only. It usually doesn&#39;t require an action on your side.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

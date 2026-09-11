@@ -236,7 +236,7 @@ class StrikethroughSetDiscountPerItemEffectProps implements ModelInterface, Arra
     /**
      * Sets name
      *
-     * @param string $name effect name.
+     * @param string $name The effect name.
      *
      * @return $this
      */
@@ -260,7 +260,7 @@ class StrikethroughSetDiscountPerItemEffectProps implements ModelInterface, Arra
     /**
      * Sets value
      *
-     * @param object $value discount value.
+     * @param object $value The discount value.
      *
      * @return $this
      */
@@ -284,7 +284,7 @@ class StrikethroughSetDiscountPerItemEffectProps implements ModelInterface, Arra
     /**
      * Sets excludedFromPriceHistory
      *
-     * @param bool|null $excludedFromPriceHistory excludedFromPriceHistory
+     * @param bool|null $excludedFromPriceHistory When set to `true`, the applied discount is excluded from the item's price history.
      *
      * @return $this
      */

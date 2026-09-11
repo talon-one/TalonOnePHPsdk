@@ -60,6 +60,7 @@ class MultipleAudiencesItem implements ModelInterface, ArrayAccess
         'id' => 'int',
         'created' => '\DateTime',
         'name' => 'string',
+        'subscribedApplicationsIds' => 'int[]',
         'integrationId' => 'string',
         'status' => 'string'
     ];
@@ -73,6 +74,7 @@ class MultipleAudiencesItem implements ModelInterface, ArrayAccess
         'id' => 'int64',
         'created' => 'date-time',
         'name' => null,
+        'subscribedApplicationsIds' => 'int64',
         'integrationId' => null,
         'status' => null
     ];
@@ -107,6 +109,7 @@ class MultipleAudiencesItem implements ModelInterface, ArrayAccess
         'id' => 'id',
         'created' => 'created',
         'name' => 'name',
+        'subscribedApplicationsIds' => 'subscribedApplicationsIds',
         'integrationId' => 'integrationId',
         'status' => 'status'
     ];
@@ -120,6 +123,7 @@ class MultipleAudiencesItem implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'created' => 'setCreated',
         'name' => 'setName',
+        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds',
         'integrationId' => 'setIntegrationId',
         'status' => 'setStatus'
     ];
@@ -133,6 +137,7 @@ class MultipleAudiencesItem implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'created' => 'getCreated',
         'name' => 'getName',
+        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds',
         'integrationId' => 'getIntegrationId',
         'status' => 'getStatus'
     ];
@@ -217,6 +222,7 @@ class MultipleAudiencesItem implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['subscribedApplicationsIds'] = isset($data['subscribedApplicationsIds']) ? $data['subscribedApplicationsIds'] : null;
         $this->container['integrationId'] = isset($data['integrationId']) ? $data['integrationId'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
@@ -353,6 +359,30 @@ class MultipleAudiencesItem implements ModelInterface, ArrayAccess
         }
 
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscribedApplicationsIds
+     *
+     * @return int[]|null
+     */
+    public function getSubscribedApplicationsIds()
+    {
+        return $this->container['subscribedApplicationsIds'];
+    }
+
+    /**
+     * Sets subscribedApplicationsIds
+     *
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the Applications that are connected to this audience.
+     *
+     * @return $this
+     */
+    public function setSubscribedApplicationsIds($subscribedApplicationsIds)
+    {
+        $this->container['subscribedApplicationsIds'] = $subscribedApplicationsIds;
 
         return $this;
     }

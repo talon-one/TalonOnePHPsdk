@@ -100,9 +100,9 @@ class BestPriorPriceTest extends TestCase
     }
 
     /**
-     * Test attribute "contextId"
+     * Test attribute "contextIds"
      */
-    public function testPropertyContextId()
+    public function testPropertyContextIds()
     {
     }
 

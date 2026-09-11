@@ -86,6 +86,13 @@ class NewMultipleAudiencesItemTest extends TestCase
     }
 
     /**
+     * Test attribute "subscribedApplicationsIds"
+     */
+    public function testPropertySubscribedApplicationsIds()
+    {
+    }
+
+    /**
      * Test attribute "integrationId"
      */
     public function testPropertyIntegrationId()

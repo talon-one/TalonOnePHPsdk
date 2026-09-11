@@ -86,9 +86,44 @@ class IntegrationHubFlowResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "applicationID"
+     * Test attribute "integrationName"
      */
-    public function testPropertyApplicationID()
+    public function testPropertyIntegrationName()
+    {
+    }
+
+    /**
+     * Test attribute "instanceName"
+     */
+    public function testPropertyInstanceName()
+    {
+    }
+
+    /**
+     * Test attribute "createdAt"
+     */
+    public function testPropertyCreatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "disabledUntil"
+     */
+    public function testPropertyDisabledUntil()
+    {
+    }
+
+    /**
+     * Test attribute "applicationId"
+     */
+    public function testPropertyApplicationId()
+    {
+    }
+
+    /**
+     * Test attribute "loyaltyProgramId"
+     */
+    public function testPropertyLoyaltyProgramId()
     {
     }
 
@@ -96,13 +131,6 @@ class IntegrationHubFlowResponseTest extends TestCase
      * Test attribute "eventType"
      */
     public function testPropertyEventType()
-    {
-    }
-
-    /**
-     * Test attribute "integrationHubFlowUrl"
-     */
-    public function testPropertyIntegrationHubFlowUrl()
     {
     }
 

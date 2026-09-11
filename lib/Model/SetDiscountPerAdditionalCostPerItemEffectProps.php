@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * SetDiscountPerAdditionalCostPerItemEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;setDiscountPerAdditionalCostPerItem\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set discount per additional cost per item\&quot; effect. This is a discount that should be applied on a specific additional cost in a specific item.
+ * @description This effect indicates that a discount of a specific additional cost within a specific item should be applied. It gets triggered whenever a rule containing a **Discount additional cost per item** effect is validated.  Use this effect when **all** items in the cart have an additional cost. If one of more items do not have an additional cost, the rule will fail.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -269,7 +269,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps implements ModelInterface, 
     /**
      * Sets name
      *
-     * @param string $name The name / description of this discount
+     * @param string $name The description of this discount. `#number` is appended to the name. It is equal to the `position` property.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps implements ModelInterface, 
     /**
      * Sets additionalCostId
      *
-     * @param int $additionalCostId The ID of the additional cost.
+     * @param int $additionalCostId The identifier of the additional cost to be discounted.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps implements ModelInterface, 
     /**
      * Sets value
      *
-     * @param float $value The total monetary value of the discount.
+     * @param float $value The monetary value of the effective discount applied to the item's additional cost.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps implements ModelInterface, 
     /**
      * Sets position
      *
-     * @param float $position The index of the item in the cart item list containing the additional cost to be discounted.
+     * @param float $position The index of the item in the `cartItem` object containing the additional cost that this discount applies to.
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps implements ModelInterface, 
     /**
      * Sets subPosition
      *
-     * @param float|null $subPosition For cart items with `quantity` > 1, the sub position indicates which item the discount applies to.
+     * @param float|null $subPosition The index of the item unit in its line item.
      *
      * @return $this
      */
@@ -389,7 +389,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps implements ModelInterface, 
     /**
      * Sets additionalCost
      *
-     * @param string $additionalCost The name of the additional cost.
+     * @param string $additionalCost The API name of the additional cost to be discounted.
      *
      * @return $this
      */
@@ -413,7 +413,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps implements ModelInterface, 
     /**
      * Sets desiredValue
      *
-     * @param float|null $desiredValue Only with [partial discounts enabled](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#partial-discounts). Represents the monetary value of the discount to be applied to additional discount without considering budget limitations.
+     * @param float|null $desiredValue _[(Partial discounts enabled only)](https://docs.talon.one/docs/product/applications/manage-general-settings#partial-discounts)_. The monetary value of the discount to be applied to the additional cost without considering budget limitations.
      *
      * @return $this
      */

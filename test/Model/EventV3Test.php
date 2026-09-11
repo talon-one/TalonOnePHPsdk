@@ -79,6 +79,34 @@ class EventV3Test extends TestCase
     }
 
     /**
+     * Test attribute "connectedSessionId"
+     */
+    public function testPropertyConnectedSessionId()
+    {
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+    }
+
+    /**
+     * Test attribute "created"
+     */
+    public function testPropertyCreated()
+    {
+    }
+
+    /**
+     * Test attribute "applicationId"
+     */
+    public function testPropertyApplicationId()
+    {
+    }
+
+    /**
      * Test attribute "profileId"
      */
     public function testPropertyProfileId()
@@ -89,20 +117,6 @@ class EventV3Test extends TestCase
      * Test attribute "storeIntegrationId"
      */
     public function testPropertyStoreIntegrationId()
-    {
-    }
-
-    /**
-     * Test attribute "evaluableCampaignIds"
-     */
-    public function testPropertyEvaluableCampaignIds()
-    {
-    }
-
-    /**
-     * Test attribute "integrationId"
-     */
-    public function testPropertyIntegrationId()
     {
     }
 
@@ -121,16 +135,23 @@ class EventV3Test extends TestCase
     }
 
     /**
-     * Test attribute "connectedSessionID"
+     * Test attribute "integrationId"
      */
-    public function testPropertyConnectedSessionID()
+    public function testPropertyIntegrationId()
     {
     }
 
     /**
-     * Test attribute "previousEventID"
+     * Test attribute "referralCode"
      */
-    public function testPropertyPreviousEventID()
+    public function testPropertyReferralCode()
+    {
+    }
+
+    /**
+     * Test attribute "effects"
+     */
+    public function testPropertyEffects()
     {
     }
 }

@@ -59,12 +59,15 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'flowId' => 'int',
-        'eventType' => 'string',
-        'eventData' => 'object',
+        'integrationName' => 'string',
+        'instanceName' => 'string',
+        'eventType' => '\TalonOne\Client\Model\IntegrationHubEventType',
         'publishedAt' => '\DateTime',
         'processedAt' => '\DateTime',
-        'processAfter' => '\DateTime',
-        'retry' => 'int'
+        'deliveredAt' => '\DateTime',
+        'scheduledTo' => '\DateTime',
+        'retry' => 'int',
+        'payload' => 'string'
     ];
 
     /**
@@ -75,12 +78,15 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => 'int64',
         'flowId' => 'int64',
+        'integrationName' => null,
+        'instanceName' => null,
         'eventType' => null,
-        'eventData' => null,
         'publishedAt' => 'date-time',
         'processedAt' => 'date-time',
-        'processAfter' => 'date-time',
-        'retry' => 'int64'
+        'deliveredAt' => 'date-time',
+        'scheduledTo' => 'date-time',
+        'retry' => 'int64',
+        'payload' => null
     ];
 
     /**
@@ -110,14 +116,17 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'flowId' => 'FlowId',
-        'eventType' => 'EventType',
-        'eventData' => 'EventData',
-        'publishedAt' => 'PublishedAt',
-        'processedAt' => 'ProcessedAt',
-        'processAfter' => 'ProcessAfter',
-        'retry' => 'Retry'
+        'id' => 'id',
+        'flowId' => 'flowId',
+        'integrationName' => 'integrationName',
+        'instanceName' => 'instanceName',
+        'eventType' => 'eventType',
+        'publishedAt' => 'publishedAt',
+        'processedAt' => 'processedAt',
+        'deliveredAt' => 'deliveredAt',
+        'scheduledTo' => 'scheduledTo',
+        'retry' => 'retry',
+        'payload' => 'payload'
     ];
 
     /**
@@ -128,12 +137,15 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'flowId' => 'setFlowId',
+        'integrationName' => 'setIntegrationName',
+        'instanceName' => 'setInstanceName',
         'eventType' => 'setEventType',
-        'eventData' => 'setEventData',
         'publishedAt' => 'setPublishedAt',
         'processedAt' => 'setProcessedAt',
-        'processAfter' => 'setProcessAfter',
-        'retry' => 'setRetry'
+        'deliveredAt' => 'setDeliveredAt',
+        'scheduledTo' => 'setScheduledTo',
+        'retry' => 'setRetry',
+        'payload' => 'setPayload'
     ];
 
     /**
@@ -144,12 +156,15 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'flowId' => 'getFlowId',
+        'integrationName' => 'getIntegrationName',
+        'instanceName' => 'getInstanceName',
         'eventType' => 'getEventType',
-        'eventData' => 'getEventData',
         'publishedAt' => 'getPublishedAt',
         'processedAt' => 'getProcessedAt',
-        'processAfter' => 'getProcessAfter',
-        'retry' => 'getRetry'
+        'deliveredAt' => 'getDeliveredAt',
+        'scheduledTo' => 'getScheduledTo',
+        'retry' => 'getRetry',
+        'payload' => 'getPayload'
     ];
 
     /**
@@ -214,12 +229,15 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['flowId'] = isset($data['flowId']) ? $data['flowId'] : null;
+        $this->container['integrationName'] = isset($data['integrationName']) ? $data['integrationName'] : null;
+        $this->container['instanceName'] = isset($data['instanceName']) ? $data['instanceName'] : null;
         $this->container['eventType'] = isset($data['eventType']) ? $data['eventType'] : null;
-        $this->container['eventData'] = isset($data['eventData']) ? $data['eventData'] : null;
         $this->container['publishedAt'] = isset($data['publishedAt']) ? $data['publishedAt'] : null;
         $this->container['processedAt'] = isset($data['processedAt']) ? $data['processedAt'] : null;
-        $this->container['processAfter'] = isset($data['processAfter']) ? $data['processAfter'] : null;
+        $this->container['deliveredAt'] = isset($data['deliveredAt']) ? $data['deliveredAt'] : null;
+        $this->container['scheduledTo'] = isset($data['scheduledTo']) ? $data['scheduledTo'] : null;
         $this->container['retry'] = isset($data['retry']) ? $data['retry'] : null;
+        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
     }
 
     /**
@@ -240,17 +258,17 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
         if ($this->container['eventType'] === null) {
             $invalidProperties[] = "'eventType' can't be null";
         }
-        if ($this->container['eventData'] === null) {
-            $invalidProperties[] = "'eventData' can't be null";
-        }
         if ($this->container['publishedAt'] === null) {
             $invalidProperties[] = "'publishedAt' can't be null";
         }
-        if ($this->container['processAfter'] === null) {
-            $invalidProperties[] = "'processAfter' can't be null";
+        if ($this->container['scheduledTo'] === null) {
+            $invalidProperties[] = "'scheduledTo' can't be null";
         }
         if ($this->container['retry'] === null) {
             $invalidProperties[] = "'retry' can't be null";
+        }
+        if ($this->container['payload'] === null) {
+            $invalidProperties[] = "'payload' can't be null";
         }
         return $invalidProperties;
     }
@@ -280,7 +298,7 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id ID of the event record.
      *
      * @return $this
      */
@@ -304,7 +322,7 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     /**
      * Sets flowId
      *
-     * @param int $flowId flowId
+     * @param int $flowId ID of the integration hub flow.
      *
      * @return $this
      */
@@ -316,9 +334,57 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets integrationName
+     *
+     * @return string|null
+     */
+    public function getIntegrationName()
+    {
+        return $this->container['integrationName'];
+    }
+
+    /**
+     * Sets integrationName
+     *
+     * @param string|null $integrationName Name of the integration.
+     *
+     * @return $this
+     */
+    public function setIntegrationName($integrationName)
+    {
+        $this->container['integrationName'] = $integrationName;
+
+        return $this;
+    }
+
+    /**
+     * Gets instanceName
+     *
+     * @return string|null
+     */
+    public function getInstanceName()
+    {
+        return $this->container['instanceName'];
+    }
+
+    /**
+     * Sets instanceName
+     *
+     * @param string|null $instanceName Name of the integration instance.
+     *
+     * @return $this
+     */
+    public function setInstanceName($instanceName)
+    {
+        $this->container['instanceName'] = $instanceName;
+
+        return $this;
+    }
+
+    /**
      * Gets eventType
      *
-     * @return string
+     * @return \TalonOne\Client\Model\IntegrationHubEventType
      */
     public function getEventType()
     {
@@ -328,37 +394,13 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     /**
      * Sets eventType
      *
-     * @param string $eventType eventType
+     * @param \TalonOne\Client\Model\IntegrationHubEventType $eventType eventType
      *
      * @return $this
      */
     public function setEventType($eventType)
     {
         $this->container['eventType'] = $eventType;
-
-        return $this;
-    }
-
-    /**
-     * Gets eventData
-     *
-     * @return object
-     */
-    public function getEventData()
-    {
-        return $this->container['eventData'];
-    }
-
-    /**
-     * Sets eventData
-     *
-     * @param object $eventData eventData
-     *
-     * @return $this
-     */
-    public function setEventData($eventData)
-    {
-        $this->container['eventData'] = $eventData;
 
         return $this;
     }
@@ -376,7 +418,7 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     /**
      * Sets publishedAt
      *
-     * @param \DateTime $publishedAt publishedAt
+     * @param \DateTime $publishedAt Timestamp when the event was published.
      *
      * @return $this
      */
@@ -400,7 +442,7 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     /**
      * Sets processedAt
      *
-     * @param \DateTime|null $processedAt processedAt
+     * @param \DateTime|null $processedAt Timestamp when the event was processed.
      *
      * @return $this
      */
@@ -412,25 +454,49 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets processAfter
+     * Gets deliveredAt
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getProcessAfter()
+    public function getDeliveredAt()
     {
-        return $this->container['processAfter'];
+        return $this->container['deliveredAt'];
     }
 
     /**
-     * Sets processAfter
+     * Sets deliveredAt
      *
-     * @param \DateTime $processAfter processAfter
+     * @param \DateTime|null $deliveredAt Timestamp when the event was delivered.
      *
      * @return $this
      */
-    public function setProcessAfter($processAfter)
+    public function setDeliveredAt($deliveredAt)
     {
-        $this->container['processAfter'] = $processAfter;
+        $this->container['deliveredAt'] = $deliveredAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets scheduledTo
+     *
+     * @return \DateTime
+     */
+    public function getScheduledTo()
+    {
+        return $this->container['scheduledTo'];
+    }
+
+    /**
+     * Sets scheduledTo
+     *
+     * @param \DateTime $scheduledTo Timestamp after which the event is scheduled to be processed.
+     *
+     * @return $this
+     */
+    public function setScheduledTo($scheduledTo)
+    {
+        $this->container['scheduledTo'] = $scheduledTo;
 
         return $this;
     }
@@ -448,13 +514,37 @@ class IntegrationHubEventRecord implements ModelInterface, ArrayAccess
     /**
      * Sets retry
      *
-     * @param int $retry retry
+     * @param int $retry Number of delivery retries attempted.
      *
      * @return $this
      */
     public function setRetry($retry)
     {
         $this->container['retry'] = $retry;
+
+        return $this;
+    }
+
+    /**
+     * Gets payload
+     *
+     * @return string
+     */
+    public function getPayload()
+    {
+        return $this->container['payload'];
+    }
+
+    /**
+     * Sets payload
+     *
+     * @param string $payload The event payload as a formatted JSON string.
+     *
+     * @return $this
+     */
+    public function setPayload($payload)
+    {
+        $this->container['payload'] = $payload;
 
         return $this;
     }

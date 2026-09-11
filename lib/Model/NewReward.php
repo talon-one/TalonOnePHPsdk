@@ -61,7 +61,11 @@ class NewReward implements ModelInterface, ArrayAccess
         'apiName' => 'string',
         'description' => 'string',
         'applicationIds' => 'int[]',
-        'sandbox' => 'bool'
+        'sandbox' => 'bool',
+        'eligibilityConditions' => '\TalonOne\Client\Model\Rule',
+        'rule' => '\TalonOne\Client\Model\Rule',
+        'bindings' => '\TalonOne\Client\Model\Binding[]',
+        'pointsRequired' => '\TalonOne\Client\Model\RewardPointsRequired[]'
     ];
 
     /**
@@ -74,7 +78,11 @@ class NewReward implements ModelInterface, ArrayAccess
         'apiName' => null,
         'description' => null,
         'applicationIds' => 'int64',
-        'sandbox' => null
+        'sandbox' => null,
+        'eligibilityConditions' => null,
+        'rule' => null,
+        'bindings' => null,
+        'pointsRequired' => null
     ];
 
     /**
@@ -108,7 +116,11 @@ class NewReward implements ModelInterface, ArrayAccess
         'apiName' => 'apiName',
         'description' => 'description',
         'applicationIds' => 'applicationIds',
-        'sandbox' => 'sandbox'
+        'sandbox' => 'sandbox',
+        'eligibilityConditions' => 'eligibilityConditions',
+        'rule' => 'rule',
+        'bindings' => 'bindings',
+        'pointsRequired' => 'pointsRequired'
     ];
 
     /**
@@ -121,7 +133,11 @@ class NewReward implements ModelInterface, ArrayAccess
         'apiName' => 'setApiName',
         'description' => 'setDescription',
         'applicationIds' => 'setApplicationIds',
-        'sandbox' => 'setSandbox'
+        'sandbox' => 'setSandbox',
+        'eligibilityConditions' => 'setEligibilityConditions',
+        'rule' => 'setRule',
+        'bindings' => 'setBindings',
+        'pointsRequired' => 'setPointsRequired'
     ];
 
     /**
@@ -134,7 +150,11 @@ class NewReward implements ModelInterface, ArrayAccess
         'apiName' => 'getApiName',
         'description' => 'getDescription',
         'applicationIds' => 'getApplicationIds',
-        'sandbox' => 'getSandbox'
+        'sandbox' => 'getSandbox',
+        'eligibilityConditions' => 'getEligibilityConditions',
+        'rule' => 'getRule',
+        'bindings' => 'getBindings',
+        'pointsRequired' => 'getPointsRequired'
     ];
 
     /**
@@ -202,6 +222,10 @@ class NewReward implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['applicationIds'] = isset($data['applicationIds']) ? $data['applicationIds'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
+        $this->container['eligibilityConditions'] = isset($data['eligibilityConditions']) ? $data['eligibilityConditions'] : null;
+        $this->container['rule'] = isset($data['rule']) ? $data['rule'] : null;
+        $this->container['bindings'] = isset($data['bindings']) ? $data['bindings'] : null;
+        $this->container['pointsRequired'] = isset($data['pointsRequired']) ? $data['pointsRequired'] : null;
     }
 
     /**
@@ -374,6 +398,102 @@ class NewReward implements ModelInterface, ArrayAccess
     public function setSandbox($sandbox)
     {
         $this->container['sandbox'] = $sandbox;
+
+        return $this;
+    }
+
+    /**
+     * Gets eligibilityConditions
+     *
+     * @return \TalonOne\Client\Model\Rule|null
+     */
+    public function getEligibilityConditions()
+    {
+        return $this->container['eligibilityConditions'];
+    }
+
+    /**
+     * Sets eligibilityConditions
+     *
+     * @param \TalonOne\Client\Model\Rule|null $eligibilityConditions eligibilityConditions
+     *
+     * @return $this
+     */
+    public function setEligibilityConditions($eligibilityConditions)
+    {
+        $this->container['eligibilityConditions'] = $eligibilityConditions;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule
+     *
+     * @return \TalonOne\Client\Model\Rule|null
+     */
+    public function getRule()
+    {
+        return $this->container['rule'];
+    }
+
+    /**
+     * Sets rule
+     *
+     * @param \TalonOne\Client\Model\Rule|null $rule rule
+     *
+     * @return $this
+     */
+    public function setRule($rule)
+    {
+        $this->container['rule'] = $rule;
+
+        return $this;
+    }
+
+    /**
+     * Gets bindings
+     *
+     * @return \TalonOne\Client\Model\Binding[]|null
+     */
+    public function getBindings()
+    {
+        return $this->container['bindings'];
+    }
+
+    /**
+     * Sets bindings
+     *
+     * @param \TalonOne\Client\Model\Binding[]|null $bindings A list of named variables created before the reward's rules are evaluated. Each binding pairs a name with a talang expression. The expression is evaluated once and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules.
+     *
+     * @return $this
+     */
+    public function setBindings($bindings)
+    {
+        $this->container['bindings'] = $bindings;
+
+        return $this;
+    }
+
+    /**
+     * Gets pointsRequired
+     *
+     * @return \TalonOne\Client\Model\RewardPointsRequired[]|null
+     */
+    public function getPointsRequired()
+    {
+        return $this->container['pointsRequired'];
+    }
+
+    /**
+     * Sets pointsRequired
+     *
+     * @param \TalonOne\Client\Model\RewardPointsRequired[]|null $pointsRequired The loyalty points required to activate the reward. Each object defines the specific loyalty program and subledger from which points are deducted when activating the reward.  **Note:** When creating a reward, the `id` of each entry is ignored and a new entry is always created.
+     *
+     * @return $this
+     */
+    public function setPointsRequired($pointsRequired)
+    {
+        $this->container['pointsRequired'] = $pointsRequired;
 
         return $this;
     }

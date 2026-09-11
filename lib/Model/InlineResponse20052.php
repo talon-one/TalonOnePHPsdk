@@ -58,7 +58,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\AchievementProgressWithDefinition[]'
+        'data' => '\TalonOne\Client\Model\Achievement[]'
     ];
 
     /**
@@ -195,9 +195,6 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['hasMore'] === null) {
-            $invalidProperties[] = "'hasMore' can't be null";
-        }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
@@ -219,7 +216,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
     /**
      * Gets hasMore
      *
-     * @return bool
+     * @return bool|null
      */
     public function getHasMore()
     {
@@ -229,7 +226,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
     /**
      * Sets hasMore
      *
-     * @param bool $hasMore hasMore
+     * @param bool|null $hasMore hasMore
      *
      * @return $this
      */
@@ -243,7 +240,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\AchievementProgressWithDefinition[]
+     * @return \TalonOne\Client\Model\Achievement[]
      */
     public function getData()
     {
@@ -253,7 +250,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\AchievementProgressWithDefinition[] $data data
+     * @param \TalonOne\Client\Model\Achievement[] $data data
      *
      * @return $this
      */

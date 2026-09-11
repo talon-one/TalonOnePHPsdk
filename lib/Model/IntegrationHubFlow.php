@@ -58,7 +58,8 @@ class IntegrationHubFlow implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'applicationID' => 'int',
-        'eventType' => 'string',
+        'loyaltyProgramID' => 'int',
+        'eventType' => '\TalonOne\Client\Model\IntegrationHubEventType',
         'integrationHubFlowUrl' => 'string'
     ];
 
@@ -69,6 +70,7 @@ class IntegrationHubFlow implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'applicationID' => 'int64',
+        'loyaltyProgramID' => 'int64',
         'eventType' => null,
         'integrationHubFlowUrl' => null
     ];
@@ -101,6 +103,7 @@ class IntegrationHubFlow implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'applicationID' => 'ApplicationID',
+        'loyaltyProgramID' => 'LoyaltyProgramID',
         'eventType' => 'EventType',
         'integrationHubFlowUrl' => 'IntegrationHubFlowUrl'
     ];
@@ -112,6 +115,7 @@ class IntegrationHubFlow implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'applicationID' => 'setApplicationID',
+        'loyaltyProgramID' => 'setLoyaltyProgramID',
         'eventType' => 'setEventType',
         'integrationHubFlowUrl' => 'setIntegrationHubFlowUrl'
     ];
@@ -123,6 +127,7 @@ class IntegrationHubFlow implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'applicationID' => 'getApplicationID',
+        'loyaltyProgramID' => 'getLoyaltyProgramID',
         'eventType' => 'getEventType',
         'integrationHubFlowUrl' => 'getIntegrationHubFlowUrl'
     ];
@@ -188,6 +193,7 @@ class IntegrationHubFlow implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['applicationID'] = isset($data['applicationID']) ? $data['applicationID'] : null;
+        $this->container['loyaltyProgramID'] = isset($data['loyaltyProgramID']) ? $data['loyaltyProgramID'] : null;
         $this->container['eventType'] = isset($data['eventType']) ? $data['eventType'] : null;
         $this->container['integrationHubFlowUrl'] = isset($data['integrationHubFlowUrl']) ? $data['integrationHubFlowUrl'] : null;
     }
@@ -235,7 +241,7 @@ class IntegrationHubFlow implements ModelInterface, ArrayAccess
     /**
      * Sets applicationID
      *
-     * @param int|null $applicationID ID of application the flow is registered for.
+     * @param int|null $applicationID ID of the application the flow is registered for.
      *
      * @return $this
      */
@@ -247,9 +253,33 @@ class IntegrationHubFlow implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets loyaltyProgramID
+     *
+     * @return int|null
+     */
+    public function getLoyaltyProgramID()
+    {
+        return $this->container['loyaltyProgramID'];
+    }
+
+    /**
+     * Sets loyaltyProgramID
+     *
+     * @param int|null $loyaltyProgramID ID of the loyalty program the flow is registered for.
+     *
+     * @return $this
+     */
+    public function setLoyaltyProgramID($loyaltyProgramID)
+    {
+        $this->container['loyaltyProgramID'] = $loyaltyProgramID;
+
+        return $this;
+    }
+
+    /**
      * Gets eventType
      *
-     * @return string
+     * @return \TalonOne\Client\Model\IntegrationHubEventType
      */
     public function getEventType()
     {
@@ -259,7 +289,7 @@ class IntegrationHubFlow implements ModelInterface, ArrayAccess
     /**
      * Sets eventType
      *
-     * @param string $eventType The event type we want to register a flow for.
+     * @param \TalonOne\Client\Model\IntegrationHubEventType $eventType eventType
      *
      * @return $this
      */

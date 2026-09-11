@@ -135,6 +135,20 @@ class ExperimentTest extends TestCase
     }
 
     /**
+     * Test attribute "goalType"
+     */
+    public function testPropertyGoalType()
+    {
+    }
+
+    /**
+     * Test attribute "goalDescription"
+     */
+    public function testPropertyGoalDescription()
+    {
+    }
+
+    /**
      * Test attribute "deletedat"
      */
     public function testPropertyDeletedat()

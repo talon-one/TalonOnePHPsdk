@@ -57,7 +57,8 @@ class UpdateAudience implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string'
+        'name' => 'string',
+        'subscribedApplicationsIds' => 'int[]'
     ];
 
     /**
@@ -66,7 +67,8 @@ class UpdateAudience implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'name' => null
+        'name' => null,
+        'subscribedApplicationsIds' => 'int64'
     ];
 
     /**
@@ -96,7 +98,8 @@ class UpdateAudience implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name'
+        'name' => 'name',
+        'subscribedApplicationsIds' => 'subscribedApplicationsIds'
     ];
 
     /**
@@ -105,7 +108,8 @@ class UpdateAudience implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName'
+        'name' => 'setName',
+        'subscribedApplicationsIds' => 'setSubscribedApplicationsIds'
     ];
 
     /**
@@ -114,7 +118,8 @@ class UpdateAudience implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName'
+        'name' => 'getName',
+        'subscribedApplicationsIds' => 'getSubscribedApplicationsIds'
     ];
 
     /**
@@ -178,6 +183,7 @@ class UpdateAudience implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['subscribedApplicationsIds'] = isset($data['subscribedApplicationsIds']) ? $data['subscribedApplicationsIds'] : null;
     }
 
     /**
@@ -236,6 +242,30 @@ class UpdateAudience implements ModelInterface, ArrayAccess
         }
 
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscribedApplicationsIds
+     *
+     * @return int[]|null
+     */
+    public function getSubscribedApplicationsIds()
+    {
+        return $this->container['subscribedApplicationsIds'];
+    }
+
+    /**
+     * Sets subscribedApplicationsIds
+     *
+     * @param int[]|null $subscribedApplicationsIds A list of the IDs of the Applications that are connected to this audience.
+     *
+     * @return $this
+     */
+    public function setSubscribedApplicationsIds($subscribedApplicationsIds)
+    {
+        $this->container['subscribedApplicationsIds'] = $subscribedApplicationsIds;
 
         return $this;
     }

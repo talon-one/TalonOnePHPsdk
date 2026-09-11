@@ -114,9 +114,23 @@ class CustomerProfileIntegrationResponseV2Test extends TestCase
     }
 
     /**
+     * Test attribute "campaignEligibility"
+     */
+    public function testPropertyCampaignEligibility()
+    {
+    }
+
+    /**
      * Test attribute "awardedGiveaways"
      */
     public function testPropertyAwardedGiveaways()
+    {
+    }
+
+    /**
+     * Test attribute "rewards"
+     */
+    public function testPropertyRewards()
     {
     }
 

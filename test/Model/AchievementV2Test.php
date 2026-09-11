@@ -163,23 +163,9 @@ class AchievementV2Test extends TestCase
     }
 
     /**
-     * Test attribute "sandbox"
-     */
-    public function testPropertySandbox()
-    {
-    }
-
-    /**
      * Test attribute "subscribedApplications"
      */
     public function testPropertySubscribedApplications()
-    {
-    }
-
-    /**
-     * Test attribute "timezone"
-     */
-    public function testPropertyTimezone()
     {
     }
 
@@ -198,6 +184,13 @@ class AchievementV2Test extends TestCase
     }
 
     /**
+     * Test attribute "periodEndOverride"
+     */
+    public function testPropertyPeriodEndOverride()
+    {
+    }
+
+    /**
      * Test attribute "hasProgress"
      */
     public function testPropertyHasProgress()
@@ -208,6 +201,34 @@ class AchievementV2Test extends TestCase
      * Test attribute "status"
      */
     public function testPropertyStatus()
+    {
+    }
+
+    /**
+     * Test attribute "sandbox"
+     */
+    public function testPropertySandbox()
+    {
+    }
+
+    /**
+     * Test attribute "timezone"
+     */
+    public function testPropertyTimezone()
+    {
+    }
+
+    /**
+     * Test attribute "campaignId"
+     */
+    public function testPropertyCampaignId()
+    {
+    }
+
+    /**
+     * Test attribute "referencedByCampaigns"
+     */
+    public function testPropertyReferencedByCampaigns()
     {
     }
 }

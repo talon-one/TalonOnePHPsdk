@@ -72,7 +72,8 @@ class NewApplication implements ModelInterface, ArrayAccess
         'enablePartialDiscounts' => 'bool',
         'defaultDiscountAdditionalCostPerItemScope' => 'string',
         'key' => 'string',
-        'enableCampaignStateManagement' => 'bool'
+        'enableCampaignStateManagement' => 'bool',
+        'bestPriorPriceSettings' => '\TalonOne\Client\Model\BestPriorPriceSettings'
     ];
 
     /**
@@ -96,7 +97,8 @@ class NewApplication implements ModelInterface, ArrayAccess
         'enablePartialDiscounts' => null,
         'defaultDiscountAdditionalCostPerItemScope' => null,
         'key' => null,
-        'enableCampaignStateManagement' => null
+        'enableCampaignStateManagement' => null,
+        'bestPriorPriceSettings' => null
     ];
 
     /**
@@ -141,7 +143,8 @@ class NewApplication implements ModelInterface, ArrayAccess
         'enablePartialDiscounts' => 'enablePartialDiscounts',
         'defaultDiscountAdditionalCostPerItemScope' => 'defaultDiscountAdditionalCostPerItemScope',
         'key' => 'key',
-        'enableCampaignStateManagement' => 'enableCampaignStateManagement'
+        'enableCampaignStateManagement' => 'enableCampaignStateManagement',
+        'bestPriorPriceSettings' => 'bestPriorPriceSettings'
     ];
 
     /**
@@ -165,7 +168,8 @@ class NewApplication implements ModelInterface, ArrayAccess
         'enablePartialDiscounts' => 'setEnablePartialDiscounts',
         'defaultDiscountAdditionalCostPerItemScope' => 'setDefaultDiscountAdditionalCostPerItemScope',
         'key' => 'setKey',
-        'enableCampaignStateManagement' => 'setEnableCampaignStateManagement'
+        'enableCampaignStateManagement' => 'setEnableCampaignStateManagement',
+        'bestPriorPriceSettings' => 'setBestPriorPriceSettings'
     ];
 
     /**
@@ -189,7 +193,8 @@ class NewApplication implements ModelInterface, ArrayAccess
         'enablePartialDiscounts' => 'getEnablePartialDiscounts',
         'defaultDiscountAdditionalCostPerItemScope' => 'getDefaultDiscountAdditionalCostPerItemScope',
         'key' => 'getKey',
-        'enableCampaignStateManagement' => 'getEnableCampaignStateManagement'
+        'enableCampaignStateManagement' => 'getEnableCampaignStateManagement',
+        'bestPriorPriceSettings' => 'getBestPriorPriceSettings'
     ];
 
     /**
@@ -319,6 +324,7 @@ class NewApplication implements ModelInterface, ArrayAccess
         $this->container['defaultDiscountAdditionalCostPerItemScope'] = isset($data['defaultDiscountAdditionalCostPerItemScope']) ? $data['defaultDiscountAdditionalCostPerItemScope'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
         $this->container['enableCampaignStateManagement'] = isset($data['enableCampaignStateManagement']) ? $data['enableCampaignStateManagement'] : null;
+        $this->container['bestPriorPriceSettings'] = isset($data['bestPriorPriceSettings']) ? $data['bestPriorPriceSettings'] : null;
     }
 
     /**
@@ -821,6 +827,30 @@ class NewApplication implements ModelInterface, ArrayAccess
     public function setEnableCampaignStateManagement($enableCampaignStateManagement)
     {
         $this->container['enableCampaignStateManagement'] = $enableCampaignStateManagement;
+
+        return $this;
+    }
+
+    /**
+     * Gets bestPriorPriceSettings
+     *
+     * @return \TalonOne\Client\Model\BestPriorPriceSettings|null
+     */
+    public function getBestPriorPriceSettings()
+    {
+        return $this->container['bestPriorPriceSettings'];
+    }
+
+    /**
+     * Sets bestPriorPriceSettings
+     *
+     * @param \TalonOne\Client\Model\BestPriorPriceSettings|null $bestPriorPriceSettings bestPriorPriceSettings
+     *
+     * @return $this
+     */
+    public function setBestPriorPriceSettings($bestPriorPriceSettings)
+    {
+        $this->container['bestPriorPriceSettings'] = $bestPriorPriceSettings;
 
         return $this;
     }

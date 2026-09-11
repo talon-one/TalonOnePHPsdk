@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * RollbackDiscountEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the \&quot;rollbackDiscount\&quot; effect. This gets triggered whenever previously closed session is now cancelled or partially returned and a setDiscount effect was cancelled on our internal discount limit counters.
+ * @description This effect indicates that a discounted session, cart item, or additional cost has been cancelled or partially returned. This effect can only happen when you set the status of a session to &#x60;cancel&#x60; or the status changes to &#x60;partially_returned&#x60;.  If the session contains some cart items with _quantity &gt; 1_, use the &#x60;cartItemSubPosition&#x60; property to identify the specific item unit in its line item. See the example below.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -260,7 +260,7 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of the \"setDiscount\" effect that was rolled back.
+     * @param string $name The name of the discount effect that was rolled back.
      *
      * @return $this
      */
@@ -284,7 +284,7 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param float $value The value of the discount that was rolled back.
+     * @param float $value The monetary value of the discount that was rolled back.
      *
      * @return $this
      */
@@ -308,7 +308,7 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets cartItemPosition
      *
-     * @param float|null $cartItemPosition The index of the item in the cart items for which the discount was rolled back.
+     * @param float|null $cartItemPosition The index of the item in the `cartItem` object whose discount was rolled back, or the unit containing the additional cost whose discount was rolled back.
      *
      * @return $this
      */
@@ -332,7 +332,7 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets cartItemSubPosition
      *
-     * @param float|null $cartItemSubPosition For cart items with `quantity` > 1, the subposition returns the index of the item unit in its line item.
+     * @param float|null $cartItemSubPosition The index of the item unit in its line item for which the discount was rolled back.
      *
      * @return $this
      */
@@ -356,7 +356,7 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets additionalCostId
      *
-     * @param int|null $additionalCostId The ID of the additional cost that was rolled back.
+     * @param int|null $additionalCostId _Only when rolling back [setDiscountPerAdditionalCost](https://docs.talon.one/docs/dev/integration-api/api-effects#setdiscountperadditionalcost) and [setDiscountPerAdditionalCostPerItem](https://docs.talon.one/docs/dev/integration-api/api-effects#setdiscountperadditionalcostperitem)_ The ID of the additional cost to be discounted.
      *
      * @return $this
      */
@@ -380,7 +380,7 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets additionalCost
      *
-     * @param string|null $additionalCost The name of the additional cost that was rolled back.
+     * @param string|null $additionalCost The API name of the additional cost whose discount was rolled back.
      *
      * @return $this
      */
@@ -404,7 +404,7 @@ class RollbackDiscountEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets scope
      *
-     * @param string|null $scope The scope of the rolled back discount - For a discount per session, it can be one of `cartItems`, `additionalCosts` or `sessionTotal` - For a discount per item, it can be one of `price`, `additionalCosts` or `itemTotal`
+     * @param string|null $scope The scope of the rolled back discount.  - For a discount per session, it can be one of `cartItems`, `additionalCosts` or `sessionTotal` - For a discount per item, it can be one of `price`, `additionalCosts` or `itemTotal`
      *
      * @return $this
      */

@@ -100,6 +100,13 @@ class IntegrationEventV3ResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "campaignEligibility"
+     */
+    public function testPropertyCampaignEligibility()
+    {
+    }
+
+    /**
      * Test attribute "effects"
      */
     public function testPropertyEffects()
@@ -135,9 +142,30 @@ class IntegrationEventV3ResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "achievements"
+     */
+    public function testPropertyAchievements()
+    {
+    }
+
+    /**
+     * Test attribute "rewards"
+     */
+    public function testPropertyRewards()
+    {
+    }
+
+    /**
      * Test attribute "advancedEvent"
      */
     public function testPropertyAdvancedEvent()
+    {
+    }
+
+    /**
+     * Test attribute "referral"
+     */
+    public function testPropertyReferral()
     {
     }
 }

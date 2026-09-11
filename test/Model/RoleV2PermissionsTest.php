@@ -91,4 +91,11 @@ class RoleV2PermissionsTest extends TestCase
     public function testPropertyRoles()
     {
     }
+
+    /**
+     * Test attribute "thresholds"
+     */
+    public function testPropertyThresholds()
+    {
+    }
 }

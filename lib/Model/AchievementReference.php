@@ -60,7 +60,9 @@ class AchievementReference implements ModelInterface, ArrayAccess
         'achievementId' => 'int',
         'applicationId' => 'int',
         'applicationName' => 'string',
-        'campaignId' => 'int'
+        'campaignId' => 'int',
+        'campaignName' => 'string',
+        'campaignState' => 'string'
     ];
 
     /**
@@ -72,7 +74,9 @@ class AchievementReference implements ModelInterface, ArrayAccess
         'achievementId' => 'int64',
         'applicationId' => 'int64',
         'applicationName' => null,
-        'campaignId' => 'int64'
+        'campaignId' => 'int64',
+        'campaignName' => null,
+        'campaignState' => null
     ];
 
     /**
@@ -105,7 +109,9 @@ class AchievementReference implements ModelInterface, ArrayAccess
         'achievementId' => 'achievementId',
         'applicationId' => 'applicationId',
         'applicationName' => 'applicationName',
-        'campaignId' => 'campaignId'
+        'campaignId' => 'campaignId',
+        'campaignName' => 'campaignName',
+        'campaignState' => 'campaignState'
     ];
 
     /**
@@ -117,7 +123,9 @@ class AchievementReference implements ModelInterface, ArrayAccess
         'achievementId' => 'setAchievementId',
         'applicationId' => 'setApplicationId',
         'applicationName' => 'setApplicationName',
-        'campaignId' => 'setCampaignId'
+        'campaignId' => 'setCampaignId',
+        'campaignName' => 'setCampaignName',
+        'campaignState' => 'setCampaignState'
     ];
 
     /**
@@ -129,7 +137,9 @@ class AchievementReference implements ModelInterface, ArrayAccess
         'achievementId' => 'getAchievementId',
         'applicationId' => 'getApplicationId',
         'applicationName' => 'getApplicationName',
-        'campaignId' => 'getCampaignId'
+        'campaignId' => 'getCampaignId',
+        'campaignName' => 'getCampaignName',
+        'campaignState' => 'getCampaignState'
     ];
 
     /**
@@ -173,8 +183,25 @@ class AchievementReference implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const CAMPAIGN_STATE_ENABLED = 'enabled';
+    const CAMPAIGN_STATE_DISABLED = 'disabled';
+    const CAMPAIGN_STATE_ARCHIVED = 'archived';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCampaignStateAllowableValues()
+    {
+        return [
+            self::CAMPAIGN_STATE_ENABLED,
+            self::CAMPAIGN_STATE_DISABLED,
+            self::CAMPAIGN_STATE_ARCHIVED,
+        ];
+    }
     
 
     /**
@@ -196,6 +223,8 @@ class AchievementReference implements ModelInterface, ArrayAccess
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['applicationName'] = isset($data['applicationName']) ? $data['applicationName'] : null;
         $this->container['campaignId'] = isset($data['campaignId']) ? $data['campaignId'] : null;
+        $this->container['campaignName'] = isset($data['campaignName']) ? $data['campaignName'] : null;
+        $this->container['campaignState'] = isset($data['campaignState']) ? $data['campaignState'] : null;
     }
 
     /**
@@ -219,6 +248,20 @@ class AchievementReference implements ModelInterface, ArrayAccess
         if ($this->container['campaignId'] === null) {
             $invalidProperties[] = "'campaignId' can't be null";
         }
+        if ($this->container['campaignName'] === null) {
+            $invalidProperties[] = "'campaignName' can't be null";
+        }
+        if ($this->container['campaignState'] === null) {
+            $invalidProperties[] = "'campaignState' can't be null";
+        }
+        $allowedValues = $this->getCampaignStateAllowableValues();
+        if (!is_null($this->container['campaignState']) && !in_array($this->container['campaignState'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'campaignState', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -326,6 +369,63 @@ class AchievementReference implements ModelInterface, ArrayAccess
     public function setCampaignId($campaignId)
     {
         $this->container['campaignId'] = $campaignId;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignName
+     *
+     * @return string
+     */
+    public function getCampaignName()
+    {
+        return $this->container['campaignName'];
+    }
+
+    /**
+     * Sets campaignName
+     *
+     * @param string $campaignName The name of the campaign that references this achievement.
+     *
+     * @return $this
+     */
+    public function setCampaignName($campaignName)
+    {
+        $this->container['campaignName'] = $campaignName;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaignState
+     *
+     * @return string
+     */
+    public function getCampaignState()
+    {
+        return $this->container['campaignState'];
+    }
+
+    /**
+     * Sets campaignState
+     *
+     * @param string $campaignState The state of the campaign that references this achievement.
+     *
+     * @return $this
+     */
+    public function setCampaignState($campaignState)
+    {
+        $allowedValues = $this->getCampaignStateAllowableValues();
+        if (!in_array($campaignState, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'campaignState', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['campaignState'] = $campaignState;
 
         return $this;
     }

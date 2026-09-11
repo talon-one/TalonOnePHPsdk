@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * SetDiscountPerItemEffectProps Class Doc Comment
  *
  * @category Class
- * @description The properties specific to the &#x60;setDiscountPerItem&#x60; effect, triggered whenever a validated rule contained a \&quot;set per item discount\&quot; effect. This is a discount that will be applied either on a specific item, on a specific item + additional cost or on all additional costs per item. This depends on the chosen scope.
+ * @description This effect schema is returned when you use the **Discount individual items**, **Discount individual items pro rata**, or **Discount individual item in bundles** effect in a rule.  It indicates that a discount per item should be applied on the specific item specified in the effect.  The properties it contains depends on:  - Whether you used a pro rata effect or not. - Whether you used an effect with bundles or not. - Whether the partial discount feature is enabled.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -299,7 +299,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of the discount. Contains a hashtag character indicating the index of the position of the item the discount applies to. It is identical to the value of the `position` property.
+     * @param string $name The description of this discount. `#number` is equal to the `position` property.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param float $value The total monetary value of the discount.
+     * @param float $value The monetary value of the effective discount applied to the item.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets position
      *
-     * @param float $position The index of the item in the cart items list on which this discount should be applied.
+     * @param float $position The index of the item in the `cartItem` object on which this discount should be applied.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets subPosition
      *
-     * @param float|null $subPosition For cart items with `quantity` > 1, the sub position indicates which item the discount applies to.
+     * @param float|null $subPosition The index of the item unit in its line item.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets desiredValue
      *
-     * @param float|null $desiredValue The original value of the discount.
+     * @param float|null $desiredValue _(Partial discounts enabled only)_ The monetary value of the discount to be applied to the item without considering budget limitations.
      *
      * @return $this
      */
@@ -419,7 +419,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets scope
      *
-     * @param string|null $scope The scope of the discount: - `additionalCosts`: The discount applies to all the additional costs of the item. - `itemTotal`: The discount applies to the price of the item + the additional costs of the item. - `price`: The discount applies to the price of the item.
+     * @param string|null $scope What the discount applies to. Possible values:  - `price`: discount on the price of the item. - `additionalCosts`: discount on the [additional cost](https://docs.talon.one/docs/product/account/dev-tools/manage-additional-costs) of the item. - `itemTotal`: discount on the sum of price + additional cost of the item.
      *
      * @return $this
      */
@@ -443,7 +443,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets totalDiscount
      *
-     * @param float|null $totalDiscount The total discount given if this effect is a result of a prorated discount.
+     * @param float|null $totalDiscount _(Pro rata discounts only)_ The monetary value of the total effective discount
      *
      * @return $this
      */
@@ -467,7 +467,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets desiredTotalDiscount
      *
-     * @param float|null $desiredTotalDiscount The original total discount to give if this effect is a result of a prorated discount.
+     * @param float|null $desiredTotalDiscount _(Pro rata discounts only)_ The monetary value of the total discount to be applied without considering budget limitations
      *
      * @return $this
      */
@@ -491,7 +491,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets bundleIndex
      *
-     * @param int|null $bundleIndex The position of the bundle in a list of item bundles created from the same bundle definition.
+     * @param int|null $bundleIndex _(Discounts with bundles only)_ The position of the specific item bundle in the list of bundles created from the same bundle definition.
      *
      * @return $this
      */
@@ -515,7 +515,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets bundleName
      *
-     * @param string|null $bundleName The name of the bundle definition.
+     * @param string|null $bundleName _(Discounts with bundles only)_ The name of the bundle definition.
      *
      * @return $this
      */
@@ -539,7 +539,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets targetedItemPosition
      *
-     * @param float|null $targetedItemPosition The index of the targeted bundle item on which the applied discount is based.
+     * @param float|null $targetedItemPosition _(Discounting individual item in bundles only)_ The index of the targeted bundle item on which the applied discount is based.
      *
      * @return $this
      */
@@ -563,7 +563,7 @@ class SetDiscountPerItemEffectProps implements ModelInterface, ArrayAccess
     /**
      * Sets targetedItemSubPosition
      *
-     * @param float|null $targetedItemSubPosition The sub-position of the targeted bundle item on which the applied discount is based.
+     * @param float|null $targetedItemSubPosition _(Discounting individual item in bundles only)_ The sub-position of the targeted bundle item on which the applied discount is based.
      *
      * @return $this
      */

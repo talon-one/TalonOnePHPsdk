@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * ScimBaseUserName Class Doc Comment
  *
  * @category Class
- * @description The components of the user’s real name.
+ * @description The components of the user&#39;s real name.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
