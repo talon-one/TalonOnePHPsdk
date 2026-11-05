@@ -47,16 +47,16 @@ print_r($integration_state);
 
 // Parsing the returned effects list, please consult https://developers.talon.one/Integration-API/handling-effects-v2 for the full list of effects and their corresponding properties
 foreach ($integration_state->getEffects() as $effect) {
-    if ("addLoyaltyPoints" == $effect->getEffectType()) {
+    if ("addLoyaltyPoints" == $effect['effectType']) {
         // Initiating right props instance according to the effect type
-        $props = new \TalonOne\Client\Model\AddLoyaltyPointsEffectProps((array) $effect->getProps());
+        $props = new \TalonOne\Client\Model\AddLoyaltyPointsEffectProps((array) $effect['props']);
 
         // Access the specific effect's properties
         echo $props->getName(), ':: ', $props->getRecipientIntegrationId(), ' just earned ',  $props->getValue(), ' points', PHP_EOL;
     }
-    if ("acceptCoupon" == $effect->getEffectType()) {
+    if ("acceptCoupon" == $effect['effectType']) {
         // Initiating right props instance according to the effect type
-        $props = new \TalonOne\Client\Model\AcceptCouponEffectProps((array) $effect->getProps());
+        $props = new \TalonOne\Client\Model\AcceptCouponEffectProps((array) $effect['props']);
         // work with AcceptCouponEffectProps' properties
         // ...
     }
