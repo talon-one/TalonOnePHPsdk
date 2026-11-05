@@ -315,6 +315,14 @@ class NewCoupons implements ModelInterface, ArrayAccess
         if ($this->container['numberOfCoupons'] === null) {
             $invalidProperties[] = "'numberOfCoupons' can't be null";
         }
+        if (($this->container['numberOfCoupons'] > 20000)) {
+            $invalidProperties[] = "invalid value for 'numberOfCoupons', must be smaller than or equal to 20000.";
+        }
+
+        if (($this->container['numberOfCoupons'] < 1)) {
+            $invalidProperties[] = "invalid value for 'numberOfCoupons', must be bigger than or equal to 1.";
+        }
+
         if (!is_null($this->container['recipientIntegrationId']) && (mb_strlen($this->container['recipientIntegrationId']) > 1000)) {
             $invalidProperties[] = "invalid value for 'recipientIntegrationId', the character length must be smaller than or equal to 1000.";
         }
@@ -529,6 +537,14 @@ class NewCoupons implements ModelInterface, ArrayAccess
      */
     public function setNumberOfCoupons($numberOfCoupons)
     {
+
+        if (($numberOfCoupons > 20000)) {
+            throw new \InvalidArgumentException('invalid value for $numberOfCoupons when calling NewCoupons., must be smaller than or equal to 20000.');
+        }
+        if (($numberOfCoupons < 1)) {
+            throw new \InvalidArgumentException('invalid value for $numberOfCoupons when calling NewCoupons., must be bigger than or equal to 1.');
+        }
+
         $this->container['numberOfCoupons'] = $numberOfCoupons;
 
         return $this;

@@ -100,6 +100,13 @@ class ExperimentTest extends TestCase
     }
 
     /**
+     * Test attribute "assignmentType"
+     */
+    public function testPropertyAssignmentType()
+    {
+    }
+
+    /**
      * Test attribute "isVariantAssignmentExternal"
      */
     public function testPropertyIsVariantAssignmentExternal()

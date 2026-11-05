@@ -64,7 +64,9 @@ class TierDowngradeData implements ModelInterface, ArrayAccess
         'currentPoints' => 'float',
         'oldTier' => 'string',
         'tierExpirationDate' => '\DateTime',
-        'timestampOfTierChange' => '\DateTime'
+        'timestampOfTierChange' => '\DateTime',
+        'source' => 'string',
+        'reason' => 'string'
     ];
 
     /**
@@ -80,7 +82,9 @@ class TierDowngradeData implements ModelInterface, ArrayAccess
         'currentPoints' => null,
         'oldTier' => null,
         'tierExpirationDate' => 'date-time',
-        'timestampOfTierChange' => 'date-time'
+        'timestampOfTierChange' => 'date-time',
+        'source' => null,
+        'reason' => null
     ];
 
     /**
@@ -117,7 +121,9 @@ class TierDowngradeData implements ModelInterface, ArrayAccess
         'currentPoints' => 'CurrentPoints',
         'oldTier' => 'OldTier',
         'tierExpirationDate' => 'TierExpirationDate',
-        'timestampOfTierChange' => 'TimestampOfTierChange'
+        'timestampOfTierChange' => 'TimestampOfTierChange',
+        'source' => 'Source',
+        'reason' => 'Reason'
     ];
 
     /**
@@ -133,7 +139,9 @@ class TierDowngradeData implements ModelInterface, ArrayAccess
         'currentPoints' => 'setCurrentPoints',
         'oldTier' => 'setOldTier',
         'tierExpirationDate' => 'setTierExpirationDate',
-        'timestampOfTierChange' => 'setTimestampOfTierChange'
+        'timestampOfTierChange' => 'setTimestampOfTierChange',
+        'source' => 'setSource',
+        'reason' => 'setReason'
     ];
 
     /**
@@ -149,7 +157,9 @@ class TierDowngradeData implements ModelInterface, ArrayAccess
         'currentPoints' => 'getCurrentPoints',
         'oldTier' => 'getOldTier',
         'tierExpirationDate' => 'getTierExpirationDate',
-        'timestampOfTierChange' => 'getTimestampOfTierChange'
+        'timestampOfTierChange' => 'getTimestampOfTierChange',
+        'source' => 'getSource',
+        'reason' => 'getReason'
     ];
 
     /**
@@ -193,8 +203,23 @@ class TierDowngradeData implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const SOURCE_BOOST = 'boost';
+    const SOURCE_POINTS = 'points';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSourceAllowableValues()
+    {
+        return [
+            self::SOURCE_BOOST,
+            self::SOURCE_POINTS,
+        ];
+    }
     
 
     /**
@@ -220,6 +245,8 @@ class TierDowngradeData implements ModelInterface, ArrayAccess
         $this->container['oldTier'] = isset($data['oldTier']) ? $data['oldTier'] : null;
         $this->container['tierExpirationDate'] = isset($data['tierExpirationDate']) ? $data['tierExpirationDate'] : null;
         $this->container['timestampOfTierChange'] = isset($data['timestampOfTierChange']) ? $data['timestampOfTierChange'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : 'points';
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
     }
 
     /**
@@ -253,6 +280,14 @@ class TierDowngradeData implements ModelInterface, ArrayAccess
         if ($this->container['timestampOfTierChange'] === null) {
             $invalidProperties[] = "'timestampOfTierChange' can't be null";
         }
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!is_null($this->container['source']) && !in_array($this->container['source'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'source', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -461,6 +496,63 @@ class TierDowngradeData implements ModelInterface, ArrayAccess
     public function setTimestampOfTierChange($timestampOfTierChange)
     {
         $this->container['timestampOfTierChange'] = $timestampOfTierChange;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string|null $source The source of the tier change, whether from a points change or boost.
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!is_null($source) && !in_array($source, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'source', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string|null
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string|null $reason The reason for the tier change.
+     *
+     * @return $this
+     */
+    public function setReason($reason)
+    {
+        $this->container['reason'] = $reason;
 
         return $this;
     }

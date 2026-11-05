@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **functions** | [**\TalonOne\Client\Model\FunctionDef[]**](FunctionDef.md) | The functions defined for this application. | 
 **templates** | [**\TalonOne\Client\Model\TemplateDef[]**](TemplateDef.md) | The templates defined for this application. | 
 **variables** | **string** | A stringified version of the environment&#39;s Talang variables scope. | 
-**giveawaysPools** | [**\TalonOne\Client\Model\GiveawaysPool[]**](GiveawaysPool.md) | The giveaways pools that the application is subscribed to. | [optional] 
+**giveawaysPools** | [**\TalonOne\Client\Model\GiveawaysPool[]**](GiveawaysPool.md) | The giveaway pools that the Application is subscribed to. | [optional] 
 **loyaltyPrograms** | [**\TalonOne\Client\Model\LoyaltyProgram[]**](LoyaltyProgram.md) | The loyalty programs that the application is subscribed to. | [optional] 
 **achievements** | [**\TalonOne\Client\Model\Achievement[]**](Achievement.md) | The achievements, linked to the campaigns, belonging to the application. | [optional] 
 **attributes** | [**\TalonOne\Client\Model\Attribute[]**](Attribute.md) | The attributes that the application is subscribed to. | [optional] 

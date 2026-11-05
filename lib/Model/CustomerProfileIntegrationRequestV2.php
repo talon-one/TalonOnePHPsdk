@@ -61,7 +61,8 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
         'attributes' => 'object',
         'evaluableCampaignIds' => 'int[]',
         'responseContent' => 'string[]',
-        'audiencesChanges' => '\TalonOne\Client\Model\ProfileAudiencesChanges'
+        'audiencesChanges' => '\TalonOne\Client\Model\ProfileAudiencesChanges',
+        'rewardIntegrationIds' => 'string[]'
     ];
 
     /**
@@ -73,7 +74,8 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
         'attributes' => null,
         'evaluableCampaignIds' => 'int64',
         'responseContent' => null,
-        'audiencesChanges' => null
+        'audiencesChanges' => null,
+        'rewardIntegrationIds' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
         'attributes' => 'attributes',
         'evaluableCampaignIds' => 'evaluableCampaignIds',
         'responseContent' => 'responseContent',
-        'audiencesChanges' => 'audiencesChanges'
+        'audiencesChanges' => 'audiencesChanges',
+        'rewardIntegrationIds' => 'rewardIntegrationIds'
     ];
 
     /**
@@ -118,7 +121,8 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
         'attributes' => 'setAttributes',
         'evaluableCampaignIds' => 'setEvaluableCampaignIds',
         'responseContent' => 'setResponseContent',
-        'audiencesChanges' => 'setAudiencesChanges'
+        'audiencesChanges' => 'setAudiencesChanges',
+        'rewardIntegrationIds' => 'setRewardIntegrationIds'
     ];
 
     /**
@@ -130,7 +134,8 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
         'attributes' => 'getAttributes',
         'evaluableCampaignIds' => 'getEvaluableCampaignIds',
         'responseContent' => 'getResponseContent',
-        'audiencesChanges' => 'getAudiencesChanges'
+        'audiencesChanges' => 'getAudiencesChanges',
+        'rewardIntegrationIds' => 'getRewardIntegrationIds'
     ];
 
     /**
@@ -226,6 +231,7 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
         $this->container['evaluableCampaignIds'] = isset($data['evaluableCampaignIds']) ? $data['evaluableCampaignIds'] : null;
         $this->container['responseContent'] = isset($data['responseContent']) ? $data['responseContent'] : null;
         $this->container['audiencesChanges'] = isset($data['audiencesChanges']) ? $data['audiencesChanges'] : null;
+        $this->container['rewardIntegrationIds'] = isset($data['rewardIntegrationIds']) ? $data['rewardIntegrationIds'] : null;
     }
 
     /**
@@ -353,6 +359,30 @@ class CustomerProfileIntegrationRequestV2 implements ModelInterface, ArrayAccess
     public function setAudiencesChanges($audiencesChanges)
     {
         $this->container['audiencesChanges'] = $audiencesChanges;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewardIntegrationIds
+     *
+     * @return string[]|null
+     */
+    public function getRewardIntegrationIds()
+    {
+        return $this->container['rewardIntegrationIds'];
+    }
+
+    /**
+     * Sets rewardIntegrationIds
+     *
+     * @param string[]|null $rewardIntegrationIds The integration IDs of the unlocked rewards that can be used in this request.
+     *
+     * @return $this
+     */
+    public function setRewardIntegrationIds($rewardIntegrationIds)
+    {
+        $this->container['rewardIntegrationIds'] = $rewardIntegrationIds;
 
         return $this;
     }

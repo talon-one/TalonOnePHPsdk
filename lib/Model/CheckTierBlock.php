@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * CheckTierBlock Class Doc Comment
  *
  * @category Class
- * @description A block that checks whether a user profile is a member of a specific tier within a loyalty program.
+ * @description A block that checks whether a customer profile is a member of a specific tier in a loyalty program.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,7 +63,7 @@ class CheckTierBlock implements ModelInterface, ArrayAccess
         'tags' => 'string[]',
         'operator' => 'string',
         'subledger' => 'string',
-        'tier' => '\TalonOne\Client\Model\CheckTierBlockTier',
+        'tier' => '\TalonOne\Client\Model\TierBlockReference',
         'onFailure' => 'object[]'
     ];
 
@@ -394,7 +394,7 @@ class CheckTierBlock implements ModelInterface, ArrayAccess
     /**
      * Sets subledger
      *
-     * @param string $subledger The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program's main ledger balance instead of a subledger.
+     * @param string $subledger The name of the subledger to check a customer's tier in. Can be empty if this block checks the loyalty program's main ledger instead of a subledger. A subledger can only be used when the loyalty program that the tier is in has subledgers enabled. To specify the main ledger, provide an empty string (\"\").
      *
      * @return $this
      */
@@ -408,7 +408,7 @@ class CheckTierBlock implements ModelInterface, ArrayAccess
     /**
      * Gets tier
      *
-     * @return \TalonOne\Client\Model\CheckTierBlockTier
+     * @return \TalonOne\Client\Model\TierBlockReference
      */
     public function getTier()
     {
@@ -418,7 +418,7 @@ class CheckTierBlock implements ModelInterface, ArrayAccess
     /**
      * Sets tier
      *
-     * @param \TalonOne\Client\Model\CheckTierBlockTier $tier tier
+     * @param \TalonOne\Client\Model\TierBlockReference $tier tier
      *
      * @return $this
      */

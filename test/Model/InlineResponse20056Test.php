@@ -79,16 +79,16 @@ class InlineResponse20056Test extends TestCase
     }
 
     /**
-     * Test attribute "catalog"
+     * Test attribute "hasMore"
      */
-    public function testPropertyCatalog()
+    public function testPropertyHasMore()
     {
     }
 
     /**
-     * Test attribute "loyalty"
+     * Test attribute "data"
      */
-    public function testPropertyLoyalty()
+    public function testPropertyData()
     {
     }
 }

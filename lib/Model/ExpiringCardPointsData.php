@@ -63,7 +63,10 @@ class ExpiringCardPointsData implements ModelInterface, ArrayAccess
         'subledgerID' => 'string',
         'cardIdentifier' => 'string',
         'usersPerCardLimit' => 'int',
-        'profiles' => 'string[]'
+        'profiles' => 'string[]',
+        'created' => '\DateTime',
+        'awaitsActivation' => 'bool',
+        'validityDuration' => 'string'
     ];
 
     /**
@@ -78,7 +81,10 @@ class ExpiringCardPointsData implements ModelInterface, ArrayAccess
         'subledgerID' => null,
         'cardIdentifier' => null,
         'usersPerCardLimit' => 'int64',
-        'profiles' => null
+        'profiles' => null,
+        'created' => 'date-time',
+        'awaitsActivation' => null,
+        'validityDuration' => null
     ];
 
     /**
@@ -114,7 +120,10 @@ class ExpiringCardPointsData implements ModelInterface, ArrayAccess
         'subledgerID' => 'SubledgerID',
         'cardIdentifier' => 'CardIdentifier',
         'usersPerCardLimit' => 'UsersPerCardLimit',
-        'profiles' => 'Profiles'
+        'profiles' => 'Profiles',
+        'created' => 'Created',
+        'awaitsActivation' => 'AwaitsActivation',
+        'validityDuration' => 'ValidityDuration'
     ];
 
     /**
@@ -129,7 +138,10 @@ class ExpiringCardPointsData implements ModelInterface, ArrayAccess
         'subledgerID' => 'setSubledgerID',
         'cardIdentifier' => 'setCardIdentifier',
         'usersPerCardLimit' => 'setUsersPerCardLimit',
-        'profiles' => 'setProfiles'
+        'profiles' => 'setProfiles',
+        'created' => 'setCreated',
+        'awaitsActivation' => 'setAwaitsActivation',
+        'validityDuration' => 'setValidityDuration'
     ];
 
     /**
@@ -144,7 +156,10 @@ class ExpiringCardPointsData implements ModelInterface, ArrayAccess
         'subledgerID' => 'getSubledgerID',
         'cardIdentifier' => 'getCardIdentifier',
         'usersPerCardLimit' => 'getUsersPerCardLimit',
-        'profiles' => 'getProfiles'
+        'profiles' => 'getProfiles',
+        'created' => 'getCreated',
+        'awaitsActivation' => 'getAwaitsActivation',
+        'validityDuration' => 'getValidityDuration'
     ];
 
     /**
@@ -214,6 +229,9 @@ class ExpiringCardPointsData implements ModelInterface, ArrayAccess
         $this->container['cardIdentifier'] = isset($data['cardIdentifier']) ? $data['cardIdentifier'] : null;
         $this->container['usersPerCardLimit'] = isset($data['usersPerCardLimit']) ? $data['usersPerCardLimit'] : null;
         $this->container['profiles'] = isset($data['profiles']) ? $data['profiles'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['awaitsActivation'] = isset($data['awaitsActivation']) ? $data['awaitsActivation'] : null;
+        $this->container['validityDuration'] = isset($data['validityDuration']) ? $data['validityDuration'] : null;
     }
 
     /**
@@ -443,6 +461,78 @@ class ExpiringCardPointsData implements ModelInterface, ArrayAccess
     public function setProfiles($profiles)
     {
         $this->container['profiles'] = $profiles;
+
+        return $this;
+    }
+
+    /**
+     * Gets created
+     *
+     * @return \DateTime|null
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     *
+     * @param \DateTime|null $created The timestamp when the loyalty transaction occurred.
+     *
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets awaitsActivation
+     *
+     * @return bool|null
+     */
+    public function getAwaitsActivation()
+    {
+        return $this->container['awaitsActivation'];
+    }
+
+    /**
+     * Sets awaitsActivation
+     *
+     * @param bool|null $awaitsActivation Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+     *
+     * @return $this
+     */
+    public function setAwaitsActivation($awaitsActivation)
+    {
+        $this->container['awaitsActivation'] = $awaitsActivation;
+
+        return $this;
+    }
+
+    /**
+     * Gets validityDuration
+     *
+     * @return string|null
+     */
+    public function getValidityDuration()
+    {
+        return $this->container['validityDuration'];
+    }
+
+    /**
+     * Sets validityDuration
+     *
+     * @param string|null $validityDuration The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `AwaitsActivation` is `true` and `ExpiryDate` is not set.
+     *
+     * @return $this
+     */
+    public function setValidityDuration($validityDuration)
+    {
+        $this->container['validityDuration'] = $validityDuration;
 
         return $this;
     }

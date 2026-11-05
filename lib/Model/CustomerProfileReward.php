@@ -71,7 +71,7 @@ class CustomerProfileReward implements ModelInterface, ArrayAccess
         'usedAt' => '\DateTime',
         'usedByProfileIntegrationId' => 'string',
         'loyaltyProgramId' => 'int',
-        'loyaltyCardIdentifier' => 'string'
+        'loyaltyCardId' => 'string'
     ];
 
     /**
@@ -93,7 +93,7 @@ class CustomerProfileReward implements ModelInterface, ArrayAccess
         'usedAt' => 'date-time',
         'usedByProfileIntegrationId' => null,
         'loyaltyProgramId' => 'int64',
-        'loyaltyCardIdentifier' => null
+        'loyaltyCardId' => null
     ];
 
     /**
@@ -136,7 +136,7 @@ class CustomerProfileReward implements ModelInterface, ArrayAccess
         'usedAt' => 'usedAt',
         'usedByProfileIntegrationId' => 'usedByProfileIntegrationId',
         'loyaltyProgramId' => 'loyaltyProgramId',
-        'loyaltyCardIdentifier' => 'loyaltyCardIdentifier'
+        'loyaltyCardId' => 'loyaltyCardId'
     ];
 
     /**
@@ -158,7 +158,7 @@ class CustomerProfileReward implements ModelInterface, ArrayAccess
         'usedAt' => 'setUsedAt',
         'usedByProfileIntegrationId' => 'setUsedByProfileIntegrationId',
         'loyaltyProgramId' => 'setLoyaltyProgramId',
-        'loyaltyCardIdentifier' => 'setLoyaltyCardIdentifier'
+        'loyaltyCardId' => 'setLoyaltyCardId'
     ];
 
     /**
@@ -180,7 +180,7 @@ class CustomerProfileReward implements ModelInterface, ArrayAccess
         'usedAt' => 'getUsedAt',
         'usedByProfileIntegrationId' => 'getUsedByProfileIntegrationId',
         'loyaltyProgramId' => 'getLoyaltyProgramId',
-        'loyaltyCardIdentifier' => 'getLoyaltyCardIdentifier'
+        'loyaltyCardId' => 'getLoyaltyCardId'
     ];
 
     /**
@@ -271,7 +271,7 @@ class CustomerProfileReward implements ModelInterface, ArrayAccess
         $this->container['usedAt'] = isset($data['usedAt']) ? $data['usedAt'] : null;
         $this->container['usedByProfileIntegrationId'] = isset($data['usedByProfileIntegrationId']) ? $data['usedByProfileIntegrationId'] : null;
         $this->container['loyaltyProgramId'] = isset($data['loyaltyProgramId']) ? $data['loyaltyProgramId'] : null;
-        $this->container['loyaltyCardIdentifier'] = isset($data['loyaltyCardIdentifier']) ? $data['loyaltyCardIdentifier'] : null;
+        $this->container['loyaltyCardId'] = isset($data['loyaltyCardId']) ? $data['loyaltyCardId'] : null;
     }
 
     /**
@@ -312,16 +312,16 @@ class CustomerProfileReward implements ModelInterface, ArrayAccess
         if ($this->container['unlockedAt'] === null) {
             $invalidProperties[] = "'unlockedAt' can't be null";
         }
-        if (!is_null($this->container['loyaltyCardIdentifier']) && (mb_strlen($this->container['loyaltyCardIdentifier']) > 108)) {
-            $invalidProperties[] = "invalid value for 'loyaltyCardIdentifier', the character length must be smaller than or equal to 108.";
+        if (!is_null($this->container['loyaltyCardId']) && (mb_strlen($this->container['loyaltyCardId']) > 108)) {
+            $invalidProperties[] = "invalid value for 'loyaltyCardId', the character length must be smaller than or equal to 108.";
         }
 
-        if (!is_null($this->container['loyaltyCardIdentifier']) && (mb_strlen($this->container['loyaltyCardIdentifier']) < 4)) {
-            $invalidProperties[] = "invalid value for 'loyaltyCardIdentifier', the character length must be bigger than or equal to 4.";
+        if (!is_null($this->container['loyaltyCardId']) && (mb_strlen($this->container['loyaltyCardId']) < 4)) {
+            $invalidProperties[] = "invalid value for 'loyaltyCardId', the character length must be bigger than or equal to 4.";
         }
 
-        if (!is_null($this->container['loyaltyCardIdentifier']) && !preg_match("/^[A-Za-z0-9._%+@-]+$/", $this->container['loyaltyCardIdentifier'])) {
-            $invalidProperties[] = "invalid value for 'loyaltyCardIdentifier', must be conform to the pattern /^[A-Za-z0-9._%+@-]+$/.";
+        if (!is_null($this->container['loyaltyCardId']) && !preg_match("/^[A-Za-z0-9._%+@-]+$/", $this->container['loyaltyCardId'])) {
+            $invalidProperties[] = "invalid value for 'loyaltyCardId', must be conform to the pattern /^[A-Za-z0-9._%+@-]+$/.";
         }
 
         return $invalidProperties;
@@ -661,35 +661,35 @@ class CustomerProfileReward implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets loyaltyCardIdentifier
+     * Gets loyaltyCardId
      *
      * @return string|null
      */
-    public function getLoyaltyCardIdentifier()
+    public function getLoyaltyCardId()
     {
-        return $this->container['loyaltyCardIdentifier'];
+        return $this->container['loyaltyCardId'];
     }
 
     /**
-     * Sets loyaltyCardIdentifier
+     * Sets loyaltyCardId
      *
-     * @param string|null $loyaltyCardIdentifier The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`.
+     * @param string|null $loyaltyCardId The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`.
      *
      * @return $this
      */
-    public function setLoyaltyCardIdentifier($loyaltyCardIdentifier)
+    public function setLoyaltyCardId($loyaltyCardId)
     {
-        if (!is_null($loyaltyCardIdentifier) && (mb_strlen($loyaltyCardIdentifier) > 108)) {
-            throw new \InvalidArgumentException('invalid length for $loyaltyCardIdentifier when calling CustomerProfileReward., must be smaller than or equal to 108.');
+        if (!is_null($loyaltyCardId) && (mb_strlen($loyaltyCardId) > 108)) {
+            throw new \InvalidArgumentException('invalid length for $loyaltyCardId when calling CustomerProfileReward., must be smaller than or equal to 108.');
         }
-        if (!is_null($loyaltyCardIdentifier) && (mb_strlen($loyaltyCardIdentifier) < 4)) {
-            throw new \InvalidArgumentException('invalid length for $loyaltyCardIdentifier when calling CustomerProfileReward., must be bigger than or equal to 4.');
+        if (!is_null($loyaltyCardId) && (mb_strlen($loyaltyCardId) < 4)) {
+            throw new \InvalidArgumentException('invalid length for $loyaltyCardId when calling CustomerProfileReward., must be bigger than or equal to 4.');
         }
-        if (!is_null($loyaltyCardIdentifier) && (!preg_match("/^[A-Za-z0-9._%+@-]+$/", $loyaltyCardIdentifier))) {
-            throw new \InvalidArgumentException("invalid value for $loyaltyCardIdentifier when calling CustomerProfileReward., must conform to the pattern /^[A-Za-z0-9._%+@-]+$/.");
+        if (!is_null($loyaltyCardId) && (!preg_match("/^[A-Za-z0-9._%+@-]+$/", $loyaltyCardId))) {
+            throw new \InvalidArgumentException("invalid value for $loyaltyCardId when calling CustomerProfileReward., must conform to the pattern /^[A-Za-z0-9._%+@-]+$/.");
         }
 
-        $this->container['loyaltyCardIdentifier'] = $loyaltyCardIdentifier;
+        $this->container['loyaltyCardId'] = $loyaltyCardId;
 
         return $this;
     }

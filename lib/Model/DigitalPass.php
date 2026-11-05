@@ -316,7 +316,7 @@ class DigitalPass implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status The status of the digital pass.
+     * @param string $status The status of the digital pass.  `created` indicates that the pass was generated and is ready to be added to a wallet.
      *
      * @return $this
      */

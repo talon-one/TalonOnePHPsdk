@@ -126,4 +126,18 @@ class UpdateRewardTest extends TestCase
     public function testPropertyPointsRequired()
     {
     }
+
+    /**
+     * Test attribute "validityDuration"
+     */
+    public function testPropertyValidityDuration()
+    {
+    }
+
+    /**
+     * Test attribute "expiryDate"
+     */
+    public function testPropertyExpiryDate()
+    {
+    }
 }

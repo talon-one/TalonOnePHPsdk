@@ -36,6 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * RoleV2 Class Doc Comment
  *
  * @category Class
+ * @description Represents a role with its associated permissions and members.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -469,7 +470,7 @@ class RoleV2 implements ModelInterface, ArrayAccess
     /**
      * Sets isReadonly
      *
-     * @param bool|null $isReadonly Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. The 'isReadonly' property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.
+     * @param bool|null $isReadonly Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. This property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.
      *
      * @return $this
      */

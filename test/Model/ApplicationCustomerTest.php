@@ -161,4 +161,11 @@ class ApplicationCustomerTest extends TestCase
     public function testPropertyAdvocateIntegrationId()
     {
     }
+
+    /**
+     * Test attribute "loyaltyProgramJoinDates"
+     */
+    public function testPropertyLoyaltyProgramJoinDates()
+    {
+    }
 }

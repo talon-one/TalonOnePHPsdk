@@ -60,7 +60,8 @@ class UpdateExperimentVariant implements ModelInterface, ArrayAccess
         'id' => 'int',
         'name' => 'string',
         'ruleset' => '\TalonOne\Client\Model\NewRuleset',
-        'weight' => 'int'
+        'weight' => 'int',
+        'audienceId' => 'int'
     ];
 
     /**
@@ -72,7 +73,8 @@ class UpdateExperimentVariant implements ModelInterface, ArrayAccess
         'id' => 'int64',
         'name' => null,
         'ruleset' => null,
-        'weight' => 'int64'
+        'weight' => 'int64',
+        'audienceId' => 'int64'
     ];
 
     /**
@@ -105,7 +107,8 @@ class UpdateExperimentVariant implements ModelInterface, ArrayAccess
         'id' => 'id',
         'name' => 'name',
         'ruleset' => 'ruleset',
-        'weight' => 'weight'
+        'weight' => 'weight',
+        'audienceId' => 'audienceId'
     ];
 
     /**
@@ -117,7 +120,8 @@ class UpdateExperimentVariant implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'name' => 'setName',
         'ruleset' => 'setRuleset',
-        'weight' => 'setWeight'
+        'weight' => 'setWeight',
+        'audienceId' => 'setAudienceId'
     ];
 
     /**
@@ -129,7 +133,8 @@ class UpdateExperimentVariant implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'name' => 'getName',
         'ruleset' => 'getRuleset',
-        'weight' => 'getWeight'
+        'weight' => 'getWeight',
+        'audienceId' => 'getAudienceId'
     ];
 
     /**
@@ -196,6 +201,7 @@ class UpdateExperimentVariant implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ruleset'] = isset($data['ruleset']) ? $data['ruleset'] : null;
         $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
+        $this->container['audienceId'] = isset($data['audienceId']) ? $data['audienceId'] : null;
     }
 
     /**
@@ -231,8 +237,8 @@ class UpdateExperimentVariant implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'weight', must be smaller than or equal to 99.";
         }
 
-        if (($this->container['weight'] < 1)) {
-            $invalidProperties[] = "invalid value for 'weight', must be bigger than or equal to 1.";
+        if (($this->container['weight'] < 0)) {
+            $invalidProperties[] = "invalid value for 'weight', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -342,7 +348,7 @@ class UpdateExperimentVariant implements ModelInterface, ArrayAccess
     /**
      * Sets weight
      *
-     * @param int $weight The percentage split of this variant. The sum of all variant percentages must be 100.
+     * @param int $weight The percentage split of this variant. For `random` assignment, the split must be between 1 and 99 and the sum across all variants must equal 100. Ignored for `audience` and `external` assignment.
      *
      * @return $this
      */
@@ -352,11 +358,35 @@ class UpdateExperimentVariant implements ModelInterface, ArrayAccess
         if (($weight > 99)) {
             throw new \InvalidArgumentException('invalid value for $weight when calling UpdateExperimentVariant., must be smaller than or equal to 99.');
         }
-        if (($weight < 1)) {
-            throw new \InvalidArgumentException('invalid value for $weight when calling UpdateExperimentVariant., must be bigger than or equal to 1.');
+        if (($weight < 0)) {
+            throw new \InvalidArgumentException('invalid value for $weight when calling UpdateExperimentVariant., must be bigger than or equal to 0.');
         }
 
         $this->container['weight'] = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Gets audienceId
+     *
+     * @return int|null
+     */
+    public function getAudienceId()
+    {
+        return $this->container['audienceId'];
+    }
+
+    /**
+     * Sets audienceId
+     *
+     * @param int|null $audienceId The ID of the audience this variant targets. Only used when the experiment `assignmentType` is `audience`.
+     *
+     * @return $this
+     */
+    public function setAudienceId($audienceId)
+    {
+        $this->container['audienceId'] = $audienceId;
 
         return $this;
     }

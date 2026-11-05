@@ -61,7 +61,10 @@ class ExpiringPointsData implements ModelInterface, ArrayAccess
         'loyaltyProgramID' => 'int',
         'customerProfileID' => 'string',
         'amountOfExpiringPoints' => 'float',
-        'subledgerID' => 'string'
+        'subledgerID' => 'string',
+        'created' => '\DateTime',
+        'awaitsActivation' => 'bool',
+        'validityDuration' => 'string'
     ];
 
     /**
@@ -74,7 +77,10 @@ class ExpiringPointsData implements ModelInterface, ArrayAccess
         'loyaltyProgramID' => 'int64',
         'customerProfileID' => null,
         'amountOfExpiringPoints' => null,
-        'subledgerID' => null
+        'subledgerID' => null,
+        'created' => 'date-time',
+        'awaitsActivation' => null,
+        'validityDuration' => null
     ];
 
     /**
@@ -108,7 +114,10 @@ class ExpiringPointsData implements ModelInterface, ArrayAccess
         'loyaltyProgramID' => 'LoyaltyProgramID',
         'customerProfileID' => 'CustomerProfileID',
         'amountOfExpiringPoints' => 'AmountOfExpiringPoints',
-        'subledgerID' => 'SubledgerID'
+        'subledgerID' => 'SubledgerID',
+        'created' => 'Created',
+        'awaitsActivation' => 'AwaitsActivation',
+        'validityDuration' => 'ValidityDuration'
     ];
 
     /**
@@ -121,7 +130,10 @@ class ExpiringPointsData implements ModelInterface, ArrayAccess
         'loyaltyProgramID' => 'setLoyaltyProgramID',
         'customerProfileID' => 'setCustomerProfileID',
         'amountOfExpiringPoints' => 'setAmountOfExpiringPoints',
-        'subledgerID' => 'setSubledgerID'
+        'subledgerID' => 'setSubledgerID',
+        'created' => 'setCreated',
+        'awaitsActivation' => 'setAwaitsActivation',
+        'validityDuration' => 'setValidityDuration'
     ];
 
     /**
@@ -134,7 +146,10 @@ class ExpiringPointsData implements ModelInterface, ArrayAccess
         'loyaltyProgramID' => 'getLoyaltyProgramID',
         'customerProfileID' => 'getCustomerProfileID',
         'amountOfExpiringPoints' => 'getAmountOfExpiringPoints',
-        'subledgerID' => 'getSubledgerID'
+        'subledgerID' => 'getSubledgerID',
+        'created' => 'getCreated',
+        'awaitsActivation' => 'getAwaitsActivation',
+        'validityDuration' => 'getValidityDuration'
     ];
 
     /**
@@ -202,6 +217,9 @@ class ExpiringPointsData implements ModelInterface, ArrayAccess
         $this->container['customerProfileID'] = isset($data['customerProfileID']) ? $data['customerProfileID'] : null;
         $this->container['amountOfExpiringPoints'] = isset($data['amountOfExpiringPoints']) ? $data['amountOfExpiringPoints'] : null;
         $this->container['subledgerID'] = isset($data['subledgerID']) ? $data['subledgerID'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['awaitsActivation'] = isset($data['awaitsActivation']) ? $data['awaitsActivation'] : null;
+        $this->container['validityDuration'] = isset($data['validityDuration']) ? $data['validityDuration'] : null;
     }
 
     /**
@@ -368,6 +386,78 @@ class ExpiringPointsData implements ModelInterface, ArrayAccess
     public function setSubledgerID($subledgerID)
     {
         $this->container['subledgerID'] = $subledgerID;
+
+        return $this;
+    }
+
+    /**
+     * Gets created
+     *
+     * @return \DateTime|null
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     *
+     * @param \DateTime|null $created The timestamp when the loyalty transaction occurred.
+     *
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets awaitsActivation
+     *
+     * @return bool|null
+     */
+    public function getAwaitsActivation()
+    {
+        return $this->container['awaitsActivation'];
+    }
+
+    /**
+     * Sets awaitsActivation
+     *
+     * @param bool|null $awaitsActivation Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+     *
+     * @return $this
+     */
+    public function setAwaitsActivation($awaitsActivation)
+    {
+        $this->container['awaitsActivation'] = $awaitsActivation;
+
+        return $this;
+    }
+
+    /**
+     * Gets validityDuration
+     *
+     * @return string|null
+     */
+    public function getValidityDuration()
+    {
+        return $this->container['validityDuration'];
+    }
+
+    /**
+     * Sets validityDuration
+     *
+     * @param string|null $validityDuration The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `AwaitsActivation` is `true` and `ExpiryDate` is not set.
+     *
+     * @return $this
+     */
+    public function setValidityDuration($validityDuration)
+    {
+        $this->container['validityDuration'] = $validityDuration;
 
         return $this;
     }

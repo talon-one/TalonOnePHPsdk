@@ -128,6 +128,20 @@ class RuleEligibilityFailureDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "ruleIndex"
+     */
+    public function testPropertyRuleIndex()
+    {
+    }
+
+    /**
+     * Test attribute "rulesetId"
+     */
+    public function testPropertyRulesetId()
+    {
+    }
+
+    /**
      * Test attribute "details"
      */
     public function testPropertyDetails()

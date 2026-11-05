@@ -62,8 +62,8 @@ class UpdateAchievementProgressBlock implements ModelInterface, ArrayAccess
         'type' => 'string',
         'tags' => 'string[]',
         'operator' => 'string',
-        'value' => 'string',
-        'achievement' => '\TalonOne\Client\Model\UpdateAchievementProgressBlockAchievement'
+        'value' => 'object',
+        'achievement' => '\TalonOne\Client\Model\AchievementBlockReference'
     ];
 
     /**
@@ -376,7 +376,7 @@ class UpdateAchievementProgressBlock implements ModelInterface, ArrayAccess
     /**
      * Gets value
      *
-     * @return string
+     * @return object
      */
     public function getValue()
     {
@@ -386,7 +386,7 @@ class UpdateAchievementProgressBlock implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The value to update the progress by. Supports template placeholders (e.g. \"{{$Session.Total / 2}}\") for dynamic quantities.
+     * @param object $value The value to update the progress by. Either a numeric scalar or a `{{expression}}` string that resolves to a number at evaluation time.
      *
      * @return $this
      */
@@ -400,7 +400,7 @@ class UpdateAchievementProgressBlock implements ModelInterface, ArrayAccess
     /**
      * Gets achievement
      *
-     * @return \TalonOne\Client\Model\UpdateAchievementProgressBlockAchievement
+     * @return \TalonOne\Client\Model\AchievementBlockReference
      */
     public function getAchievement()
     {
@@ -410,7 +410,7 @@ class UpdateAchievementProgressBlock implements ModelInterface, ArrayAccess
     /**
      * Sets achievement
      *
-     * @param \TalonOne\Client\Model\UpdateAchievementProgressBlockAchievement $achievement achievement
+     * @param \TalonOne\Client\Model\AchievementBlockReference $achievement achievement
      *
      * @return $this
      */

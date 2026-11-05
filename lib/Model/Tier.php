@@ -61,7 +61,9 @@ class Tier implements ModelInterface, ArrayAccess
         'name' => 'string',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
-        'downgradePolicy' => 'string'
+        'downgradePolicy' => 'string',
+        'source' => 'string',
+        'reason' => 'string'
     ];
 
     /**
@@ -74,7 +76,9 @@ class Tier implements ModelInterface, ArrayAccess
         'name' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'downgradePolicy' => null
+        'downgradePolicy' => null,
+        'source' => null,
+        'reason' => null
     ];
 
     /**
@@ -108,7 +112,9 @@ class Tier implements ModelInterface, ArrayAccess
         'name' => 'name',
         'startDate' => 'startDate',
         'expiryDate' => 'expiryDate',
-        'downgradePolicy' => 'downgradePolicy'
+        'downgradePolicy' => 'downgradePolicy',
+        'source' => 'source',
+        'reason' => 'reason'
     ];
 
     /**
@@ -121,7 +127,9 @@ class Tier implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
-        'downgradePolicy' => 'setDowngradePolicy'
+        'downgradePolicy' => 'setDowngradePolicy',
+        'source' => 'setSource',
+        'reason' => 'setReason'
     ];
 
     /**
@@ -134,7 +142,9 @@ class Tier implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
-        'downgradePolicy' => 'getDowngradePolicy'
+        'downgradePolicy' => 'getDowngradePolicy',
+        'source' => 'getSource',
+        'reason' => 'getReason'
     ];
 
     /**
@@ -180,6 +190,8 @@ class Tier implements ModelInterface, ArrayAccess
 
     const DOWNGRADE_POLICY_ONE_DOWN = 'one_down';
     const DOWNGRADE_POLICY_BALANCE_BASED = 'balance_based';
+    const SOURCE_BOOST = 'boost';
+    const SOURCE_POINTS = 'points';
     
 
     
@@ -193,6 +205,19 @@ class Tier implements ModelInterface, ArrayAccess
         return [
             self::DOWNGRADE_POLICY_ONE_DOWN,
             self::DOWNGRADE_POLICY_BALANCE_BASED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSourceAllowableValues()
+    {
+        return [
+            self::SOURCE_BOOST,
+            self::SOURCE_POINTS,
         ];
     }
     
@@ -217,6 +242,8 @@ class Tier implements ModelInterface, ArrayAccess
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['downgradePolicy'] = isset($data['downgradePolicy']) ? $data['downgradePolicy'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : 'points';
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
     }
 
     /**
@@ -238,6 +265,14 @@ class Tier implements ModelInterface, ArrayAccess
         if (!is_null($this->container['downgradePolicy']) && !in_array($this->container['downgradePolicy'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'downgradePolicy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!is_null($this->container['source']) && !in_array($this->container['source'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'source', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -382,6 +417,63 @@ class Tier implements ModelInterface, ArrayAccess
             );
         }
         $this->container['downgradePolicy'] = $downgradePolicy;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string|null $source Indicates whether the customer's current tier was determined based on their points balance or a temporary boost.  - `points`: The tier reflects the customer's current point balance. - `boost`: A temporary tier boost is in effect where the customer is in a higher tier than their points-based tier. The boost expires after a set duration and the customer returns to their points-based tier.
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!is_null($source) && !in_array($source, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'source', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string|null
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string|null $reason The reason for the tier assignment.
+     *
+     * @return $this
+     */
+    public function setReason($reason)
+    {
+        $this->container['reason'] = $reason;
 
         return $this;
     }

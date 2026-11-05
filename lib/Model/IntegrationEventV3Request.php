@@ -66,6 +66,7 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         'connectedSessionId' => 'string',
         'referralCode' => 'string',
         'loyaltyCards' => 'string[]',
+        'rewardIntegrationIds' => 'string[]',
         'responseContent' => 'string[]'
     ];
 
@@ -84,6 +85,7 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         'connectedSessionId' => null,
         'referralCode' => null,
         'loyaltyCards' => null,
+        'rewardIntegrationIds' => null,
         'responseContent' => null
     ];
 
@@ -123,6 +125,7 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         'connectedSessionId' => 'connectedSessionId',
         'referralCode' => 'referralCode',
         'loyaltyCards' => 'loyaltyCards',
+        'rewardIntegrationIds' => 'rewardIntegrationIds',
         'responseContent' => 'responseContent'
     ];
 
@@ -141,6 +144,7 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         'connectedSessionId' => 'setConnectedSessionId',
         'referralCode' => 'setReferralCode',
         'loyaltyCards' => 'setLoyaltyCards',
+        'rewardIntegrationIds' => 'setRewardIntegrationIds',
         'responseContent' => 'setResponseContent'
     ];
 
@@ -159,6 +163,7 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         'connectedSessionId' => 'getConnectedSessionId',
         'referralCode' => 'getReferralCode',
         'loyaltyCards' => 'getLoyaltyCards',
+        'rewardIntegrationIds' => 'getRewardIntegrationIds',
         'responseContent' => 'getResponseContent'
     ];
 
@@ -210,6 +215,7 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
     const RESPONSE_CONTENT_REFERRAL = 'referral';
     const RESPONSE_CONTENT_RULE_FAILURE_REASONS = 'ruleFailureReasons';
     const RESPONSE_CONTENT_TRIGGERED_CAMPAIGNS = 'triggeredCampaigns';
+    const RESPONSE_CONTENT_UNLOCKED_REWARDS = 'unlockedRewards';
     
 
     
@@ -228,6 +234,7 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
             self::RESPONSE_CONTENT_REFERRAL,
             self::RESPONSE_CONTENT_RULE_FAILURE_REASONS,
             self::RESPONSE_CONTENT_TRIGGERED_CAMPAIGNS,
+            self::RESPONSE_CONTENT_UNLOCKED_REWARDS,
         ];
     }
     
@@ -256,6 +263,7 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
         $this->container['connectedSessionId'] = isset($data['connectedSessionId']) ? $data['connectedSessionId'] : null;
         $this->container['referralCode'] = isset($data['referralCode']) ? $data['referralCode'] : null;
         $this->container['loyaltyCards'] = isset($data['loyaltyCards']) ? $data['loyaltyCards'] : null;
+        $this->container['rewardIntegrationIds'] = isset($data['rewardIntegrationIds']) ? $data['rewardIntegrationIds'] : null;
         $this->container['responseContent'] = isset($data['responseContent']) ? $data['responseContent'] : null;
     }
 
@@ -554,6 +562,30 @@ class IntegrationEventV3Request implements ModelInterface, ArrayAccess
     public function setLoyaltyCards($loyaltyCards)
     {
         $this->container['loyaltyCards'] = $loyaltyCards;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewardIntegrationIds
+     *
+     * @return string[]|null
+     */
+    public function getRewardIntegrationIds()
+    {
+        return $this->container['rewardIntegrationIds'];
+    }
+
+    /**
+     * Sets rewardIntegrationIds
+     *
+     * @param string[]|null $rewardIntegrationIds The integration IDs of the unlocked rewards that can be used in this event.
+     *
+     * @return $this
+     */
+    public function setRewardIntegrationIds($rewardIntegrationIds)
+    {
+        $this->container['rewardIntegrationIds'] = $rewardIntegrationIds;
 
         return $this;
     }

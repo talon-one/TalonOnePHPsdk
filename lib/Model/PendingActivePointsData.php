@@ -63,7 +63,10 @@ class PendingActivePointsData implements ModelInterface, ArrayAccess
         'points' => 'float',
         'activeOn' => '\DateTime',
         'expireOn' => '\DateTime',
-        'sessionIntegrationID' => 'string'
+        'sessionIntegrationID' => 'string',
+        'created' => '\DateTime',
+        'awaitsActivation' => 'bool',
+        'validityDuration' => 'string'
     ];
 
     /**
@@ -78,7 +81,10 @@ class PendingActivePointsData implements ModelInterface, ArrayAccess
         'points' => null,
         'activeOn' => 'date-time',
         'expireOn' => 'date-time',
-        'sessionIntegrationID' => null
+        'sessionIntegrationID' => null,
+        'created' => 'date-time',
+        'awaitsActivation' => null,
+        'validityDuration' => null
     ];
 
     /**
@@ -114,7 +120,10 @@ class PendingActivePointsData implements ModelInterface, ArrayAccess
         'points' => 'Points',
         'activeOn' => 'ActiveOn',
         'expireOn' => 'ExpireOn',
-        'sessionIntegrationID' => 'SessionIntegrationID'
+        'sessionIntegrationID' => 'SessionIntegrationID',
+        'created' => 'Created',
+        'awaitsActivation' => 'AwaitsActivation',
+        'validityDuration' => 'ValidityDuration'
     ];
 
     /**
@@ -129,7 +138,10 @@ class PendingActivePointsData implements ModelInterface, ArrayAccess
         'points' => 'setPoints',
         'activeOn' => 'setActiveOn',
         'expireOn' => 'setExpireOn',
-        'sessionIntegrationID' => 'setSessionIntegrationID'
+        'sessionIntegrationID' => 'setSessionIntegrationID',
+        'created' => 'setCreated',
+        'awaitsActivation' => 'setAwaitsActivation',
+        'validityDuration' => 'setValidityDuration'
     ];
 
     /**
@@ -144,7 +156,10 @@ class PendingActivePointsData implements ModelInterface, ArrayAccess
         'points' => 'getPoints',
         'activeOn' => 'getActiveOn',
         'expireOn' => 'getExpireOn',
-        'sessionIntegrationID' => 'getSessionIntegrationID'
+        'sessionIntegrationID' => 'getSessionIntegrationID',
+        'created' => 'getCreated',
+        'awaitsActivation' => 'getAwaitsActivation',
+        'validityDuration' => 'getValidityDuration'
     ];
 
     /**
@@ -214,6 +229,9 @@ class PendingActivePointsData implements ModelInterface, ArrayAccess
         $this->container['activeOn'] = isset($data['activeOn']) ? $data['activeOn'] : null;
         $this->container['expireOn'] = isset($data['expireOn']) ? $data['expireOn'] : null;
         $this->container['sessionIntegrationID'] = isset($data['sessionIntegrationID']) ? $data['sessionIntegrationID'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['awaitsActivation'] = isset($data['awaitsActivation']) ? $data['awaitsActivation'] : null;
+        $this->container['validityDuration'] = isset($data['validityDuration']) ? $data['validityDuration'] : null;
     }
 
     /**
@@ -425,6 +443,78 @@ class PendingActivePointsData implements ModelInterface, ArrayAccess
     public function setSessionIntegrationID($sessionIntegrationID)
     {
         $this->container['sessionIntegrationID'] = $sessionIntegrationID;
+
+        return $this;
+    }
+
+    /**
+     * Gets created
+     *
+     * @return \DateTime|null
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     *
+     * @param \DateTime|null $created The timestamp when the loyalty transaction occurred.
+     *
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets awaitsActivation
+     *
+     * @return bool|null
+     */
+    public function getAwaitsActivation()
+    {
+        return $this->container['awaitsActivation'];
+    }
+
+    /**
+     * Sets awaitsActivation
+     *
+     * @param bool|null $awaitsActivation Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+     *
+     * @return $this
+     */
+    public function setAwaitsActivation($awaitsActivation)
+    {
+        $this->container['awaitsActivation'] = $awaitsActivation;
+
+        return $this;
+    }
+
+    /**
+     * Gets validityDuration
+     *
+     * @return string|null
+     */
+    public function getValidityDuration()
+    {
+        return $this->container['validityDuration'];
+    }
+
+    /**
+     * Sets validityDuration
+     *
+     * @param string|null $validityDuration The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `AwaitsActivation` is `true` and `ExpireOn` is not set.
+     *
+     * @return $this
+     */
+    public function setValidityDuration($validityDuration)
+    {
+        $this->container['validityDuration'] = $validityDuration;
 
         return $this;
     }

@@ -79,16 +79,16 @@ class InlineResponse20048Test extends TestCase
     }
 
     /**
-     * Test attribute "hasMore"
+     * Test attribute "totalResultSize"
      */
-    public function testPropertyHasMore()
+    public function testPropertyTotalResultSize()
     {
     }
 
     /**
-     * Test attribute "totalResultSize"
+     * Test attribute "hasMore"
      */
-    public function testPropertyTotalResultSize()
+    public function testPropertyHasMore()
     {
     }
 

@@ -58,7 +58,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\Achievement[]'
+        'data' => '\TalonOne\Client\Model\ApplicationCIF[]'
     ];
 
     /**
@@ -240,7 +240,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\Achievement[]
+     * @return \TalonOne\Client\Model\ApplicationCIF[]
      */
     public function getData()
     {
@@ -250,7 +250,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\Achievement[] $data data
+     * @param \TalonOne\Client\Model\ApplicationCIF[] $data data
      *
      * @return $this
      */

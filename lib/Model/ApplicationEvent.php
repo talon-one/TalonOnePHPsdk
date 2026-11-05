@@ -67,7 +67,7 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
         'sessionId' => 'int',
         'type' => 'string',
         'attributes' => 'object',
-        'effects' => '\TalonOne\Client\Model\Effect[]',
+        'effects' => 'object[]',
         'ruleFailureReasons' => '\TalonOne\Client\Model\RuleFailureReason[]'
     ];
 
@@ -555,7 +555,7 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     /**
      * Gets effects
      *
-     * @return \TalonOne\Client\Model\Effect[]
+     * @return object[]
      */
     public function getEffects()
     {
@@ -565,7 +565,7 @@ class ApplicationEvent implements ModelInterface, ArrayAccess
     /**
      * Sets effects
      *
-     * @param \TalonOne\Client\Model\Effect[] $effects An array containing the effects that were applied as a result of this event.
+     * @param object[] $effects An array containing the effects that were applied as a result of this event.
      *
      * @return $this
      */

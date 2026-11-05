@@ -223,6 +223,16 @@ class IntegrationApiTest extends TestCase
     }
 
     /**
+     * Test case for getCustomerRewards
+     *
+     * List customer's rewards.
+     *
+     */
+    public function testGetCustomerRewards()
+    {
+    }
+
+    /**
      * Test case for getCustomerSession
      *
      * Get customer session.

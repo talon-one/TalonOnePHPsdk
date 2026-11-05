@@ -63,7 +63,8 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'type' => 'string',
         'attributes' => 'object',
         'responseContent' => 'string[]',
-        'loyaltyCards' => 'string[]'
+        'loyaltyCards' => 'string[]',
+        'rewardIntegrationIds' => 'string[]'
     ];
 
     /**
@@ -78,7 +79,8 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'type' => null,
         'attributes' => null,
         'responseContent' => null,
-        'loyaltyCards' => null
+        'loyaltyCards' => null,
+        'rewardIntegrationIds' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'type' => 'type',
         'attributes' => 'attributes',
         'responseContent' => 'responseContent',
-        'loyaltyCards' => 'loyaltyCards'
+        'loyaltyCards' => 'loyaltyCards',
+        'rewardIntegrationIds' => 'rewardIntegrationIds'
     ];
 
     /**
@@ -129,7 +132,8 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'type' => 'setType',
         'attributes' => 'setAttributes',
         'responseContent' => 'setResponseContent',
-        'loyaltyCards' => 'setLoyaltyCards'
+        'loyaltyCards' => 'setLoyaltyCards',
+        'rewardIntegrationIds' => 'setRewardIntegrationIds'
     ];
 
     /**
@@ -144,7 +148,8 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         'type' => 'getType',
         'attributes' => 'getAttributes',
         'responseContent' => 'getResponseContent',
-        'loyaltyCards' => 'getLoyaltyCards'
+        'loyaltyCards' => 'getLoyaltyCards',
+        'rewardIntegrationIds' => 'getRewardIntegrationIds'
     ];
 
     /**
@@ -243,6 +248,7 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['responseContent'] = isset($data['responseContent']) ? $data['responseContent'] : null;
         $this->container['loyaltyCards'] = isset($data['loyaltyCards']) ? $data['loyaltyCards'] : null;
+        $this->container['rewardIntegrationIds'] = isset($data['rewardIntegrationIds']) ? $data['rewardIntegrationIds'] : null;
     }
 
     /**
@@ -469,6 +475,30 @@ class IntegrationEventV2Request implements ModelInterface, ArrayAccess
     public function setLoyaltyCards($loyaltyCards)
     {
         $this->container['loyaltyCards'] = $loyaltyCards;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewardIntegrationIds
+     *
+     * @return string[]|null
+     */
+    public function getRewardIntegrationIds()
+    {
+        return $this->container['rewardIntegrationIds'];
+    }
+
+    /**
+     * Sets rewardIntegrationIds
+     *
+     * @param string[]|null $rewardIntegrationIds The integration IDs of the unlocked rewards that can be used in this event.
+     *
+     * @return $this
+     */
+    public function setRewardIntegrationIds($rewardIntegrationIds)
+    {
+        $this->container['rewardIntegrationIds'] = $rewardIntegrationIds;
 
         return $this;
     }

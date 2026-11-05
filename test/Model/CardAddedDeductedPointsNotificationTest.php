@@ -189,4 +189,25 @@ class CardAddedDeductedPointsNotificationTest extends TestCase
     public function testPropertyTransactionUUID()
     {
     }
+
+    /**
+     * Test attribute "created"
+     */
+    public function testPropertyCreated()
+    {
+    }
+
+    /**
+     * Test attribute "awaitsActivation"
+     */
+    public function testPropertyAwaitsActivation()
+    {
+    }
+
+    /**
+     * Test attribute "validityDuration"
+     */
+    public function testPropertyValidityDuration()
+    {
+    }
 }

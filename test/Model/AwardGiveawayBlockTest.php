@@ -114,13 +114,6 @@ class AwardGiveawayBlockTest extends TestCase
     }
 
     /**
-     * Test attribute "onFailure"
-     */
-    public function testPropertyOnFailure()
-    {
-    }
-
-    /**
      * Test attribute "onError"
      */
     public function testPropertyOnError()

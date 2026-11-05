@@ -496,7 +496,7 @@ class Environment implements ModelInterface, ArrayAccess
     /**
      * Sets giveawaysPools
      *
-     * @param \TalonOne\Client\Model\GiveawaysPool[]|null $giveawaysPools The giveaways pools that the application is subscribed to.
+     * @param \TalonOne\Client\Model\GiveawaysPool[]|null $giveawaysPools The giveaway pools that the Application is subscribed to.
      *
      * @return $this
      */

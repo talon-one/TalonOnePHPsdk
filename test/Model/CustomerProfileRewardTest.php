@@ -170,9 +170,9 @@ class CustomerProfileRewardTest extends TestCase
     }
 
     /**
-     * Test attribute "loyaltyCardIdentifier"
+     * Test attribute "loyaltyCardId"
      */
-    public function testPropertyLoyaltyCardIdentifier()
+    public function testPropertyLoyaltyCardId()
     {
     }
 }

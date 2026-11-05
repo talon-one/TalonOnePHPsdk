@@ -58,7 +58,7 @@ class IntegrationCustomerSessionResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'customerSession' => '\TalonOne\Client\Model\CustomerSessionV2',
-        'effects' => '\TalonOne\Client\Model\Effect[]'
+        'effects' => 'object[]'
     ];
 
     /**
@@ -237,7 +237,7 @@ class IntegrationCustomerSessionResponse implements ModelInterface, ArrayAccess
     /**
      * Gets effects
      *
-     * @return \TalonOne\Client\Model\Effect[]|null
+     * @return object[]|null
      */
     public function getEffects()
     {
@@ -247,7 +247,7 @@ class IntegrationCustomerSessionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets effects
      *
-     * @param \TalonOne\Client\Model\Effect[]|null $effects The returned effects.  **Note:** This endpoint returns only the effects that are valid after any rollback effects and their corresponding non-rollback effects are removed.
+     * @param object[]|null $effects The returned effects.  **Note:** This endpoint returns only the effects that are valid after any rollback effects and their corresponding non-rollback effects are removed.
      *
      * @return $this
      */

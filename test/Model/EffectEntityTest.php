@@ -196,4 +196,11 @@ class EffectEntityTest extends TestCase
     public function testPropertyRewardId()
     {
     }
+
+    /**
+     * Test attribute "rewardIntegrationId"
+     */
+    public function testPropertyRewardIntegrationId()
+    {
+    }
 }

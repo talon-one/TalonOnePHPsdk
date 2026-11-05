@@ -126,4 +126,25 @@ class PendingActivePointsDataTest extends TestCase
     public function testPropertySessionIntegrationID()
     {
     }
+
+    /**
+     * Test attribute "created"
+     */
+    public function testPropertyCreated()
+    {
+    }
+
+    /**
+     * Test attribute "awaitsActivation"
+     */
+    public function testPropertyAwaitsActivation()
+    {
+    }
+
+    /**
+     * Test attribute "validityDuration"
+     */
+    public function testPropertyValidityDuration()
+    {
+    }
 }

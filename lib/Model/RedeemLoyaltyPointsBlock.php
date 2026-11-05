@@ -64,8 +64,7 @@ class RedeemLoyaltyPointsBlock implements ModelInterface, ArrayAccess
         'program' => '\TalonOne\Client\Model\RedeemLoyaltyPointsBlockProgram',
         'subledger' => 'string',
         'value' => 'object',
-        'name' => 'string',
-        'onFailure' => 'object[]'
+        'name' => 'string'
     ];
 
     /**
@@ -80,8 +79,7 @@ class RedeemLoyaltyPointsBlock implements ModelInterface, ArrayAccess
         'program' => null,
         'subledger' => null,
         'value' => null,
-        'name' => null,
-        'onFailure' => null
+        'name' => null
     ];
 
     /**
@@ -117,8 +115,7 @@ class RedeemLoyaltyPointsBlock implements ModelInterface, ArrayAccess
         'program' => 'program',
         'subledger' => 'subledger',
         'value' => 'value',
-        'name' => 'name',
-        'onFailure' => 'onFailure'
+        'name' => 'name'
     ];
 
     /**
@@ -133,8 +130,7 @@ class RedeemLoyaltyPointsBlock implements ModelInterface, ArrayAccess
         'program' => 'setProgram',
         'subledger' => 'setSubledger',
         'value' => 'setValue',
-        'name' => 'setName',
-        'onFailure' => 'setOnFailure'
+        'name' => 'setName'
     ];
 
     /**
@@ -149,8 +145,7 @@ class RedeemLoyaltyPointsBlock implements ModelInterface, ArrayAccess
         'program' => 'getProgram',
         'subledger' => 'getSubledger',
         'value' => 'getValue',
-        'name' => 'getName',
-        'onFailure' => 'getOnFailure'
+        'name' => 'getName'
     ];
 
     /**
@@ -220,7 +215,6 @@ class RedeemLoyaltyPointsBlock implements ModelInterface, ArrayAccess
         $this->container['subledger'] = isset($data['subledger']) ? $data['subledger'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['onFailure'] = isset($data['onFailure']) ? $data['onFailure'] : null;
     }
 
     /**
@@ -423,30 +417,6 @@ class RedeemLoyaltyPointsBlock implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets onFailure
-     *
-     * @return object[]|null
-     */
-    public function getOnFailure()
-    {
-        return $this->container['onFailure'];
-    }
-
-    /**
-     * Sets onFailure
-     *
-     * @param object[]|null $onFailure Promotion blocks evaluated when this block fails or returns false.
-     *
-     * @return $this
-     */
-    public function setOnFailure($onFailure)
-    {
-        $this->container['onFailure'] = $onFailure;
 
         return $this;
     }

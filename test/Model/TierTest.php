@@ -112,4 +112,18 @@ class TierTest extends TestCase
     public function testPropertyDowngradePolicy()
     {
     }
+
+    /**
+     * Test attribute "source"
+     */
+    public function testPropertySource()
+    {
+    }
+
+    /**
+     * Test attribute "reason"
+     */
+    public function testPropertyReason()
+    {
+    }
 }

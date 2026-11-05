@@ -65,6 +65,8 @@ class RuleEligibilityFailureDetails implements ModelInterface, ArrayAccess
         'referralValue' => 'string',
         'conditionIndex' => 'int',
         'effectIndex' => 'int',
+        'ruleIndex' => 'int',
+        'rulesetId' => 'int',
         'details' => 'string'
     ];
 
@@ -81,6 +83,8 @@ class RuleEligibilityFailureDetails implements ModelInterface, ArrayAccess
         'referralValue' => null,
         'conditionIndex' => 'int64',
         'effectIndex' => 'int64',
+        'ruleIndex' => 'int64',
+        'rulesetId' => 'int64',
         'details' => null
     ];
 
@@ -118,6 +122,8 @@ class RuleEligibilityFailureDetails implements ModelInterface, ArrayAccess
         'referralValue' => 'referralValue',
         'conditionIndex' => 'conditionIndex',
         'effectIndex' => 'effectIndex',
+        'ruleIndex' => 'ruleIndex',
+        'rulesetId' => 'rulesetId',
         'details' => 'details'
     ];
 
@@ -134,6 +140,8 @@ class RuleEligibilityFailureDetails implements ModelInterface, ArrayAccess
         'referralValue' => 'setReferralValue',
         'conditionIndex' => 'setConditionIndex',
         'effectIndex' => 'setEffectIndex',
+        'ruleIndex' => 'setRuleIndex',
+        'rulesetId' => 'setRulesetId',
         'details' => 'setDetails'
     ];
 
@@ -150,6 +158,8 @@ class RuleEligibilityFailureDetails implements ModelInterface, ArrayAccess
         'referralValue' => 'getReferralValue',
         'conditionIndex' => 'getConditionIndex',
         'effectIndex' => 'getEffectIndex',
+        'ruleIndex' => 'getRuleIndex',
+        'rulesetId' => 'getRulesetId',
         'details' => 'getDetails'
     ];
 
@@ -235,6 +245,8 @@ class RuleEligibilityFailureDetails implements ModelInterface, ArrayAccess
         $this->container['referralValue'] = isset($data['referralValue']) ? $data['referralValue'] : null;
         $this->container['conditionIndex'] = isset($data['conditionIndex']) ? $data['conditionIndex'] : null;
         $this->container['effectIndex'] = isset($data['effectIndex']) ? $data['effectIndex'] : null;
+        $this->container['ruleIndex'] = isset($data['ruleIndex']) ? $data['ruleIndex'] : null;
+        $this->container['rulesetId'] = isset($data['rulesetId']) ? $data['rulesetId'] : null;
         $this->container['details'] = isset($data['details']) ? $data['details'] : null;
     }
 
@@ -449,6 +461,54 @@ class RuleEligibilityFailureDetails implements ModelInterface, ArrayAccess
     public function setEffectIndex($effectIndex)
     {
         $this->container['effectIndex'] = $effectIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets ruleIndex
+     *
+     * @return int|null
+     */
+    public function getRuleIndex()
+    {
+        return $this->container['ruleIndex'];
+    }
+
+    /**
+     * Sets ruleIndex
+     *
+     * @param int|null $ruleIndex The index of the rule that failed within the ruleset.
+     *
+     * @return $this
+     */
+    public function setRuleIndex($ruleIndex)
+    {
+        $this->container['ruleIndex'] = $ruleIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets rulesetId
+     *
+     * @return int|null
+     */
+    public function getRulesetId()
+    {
+        return $this->container['rulesetId'];
+    }
+
+    /**
+     * Sets rulesetId
+     *
+     * @param int|null $rulesetId The ID of the ruleset containing the rule that failed.
+     *
+     * @return $this
+     */
+    public function setRulesetId($rulesetId)
+    {
+        $this->container['rulesetId'] = $rulesetId;
 
         return $this;
     }

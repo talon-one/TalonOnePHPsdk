@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * LabelTargetAudience Class Doc Comment
  *
  * @category Class
- * @description Represents the targeted audience.
+ * @description Target type when a specific audience is selected.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

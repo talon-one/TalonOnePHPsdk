@@ -36,7 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * ShowNotificationBlock Class Doc Comment
  *
  * @category Class
- * @description A block that displays a notification to the customer with a configurable type, title, and optional body message.
+ * @description A block that displays a notification to the customer with a configurable type, title, and body message.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -64,7 +64,6 @@ class ShowNotificationBlock implements ModelInterface, ArrayAccess
         'notificationType' => 'string',
         'title' => 'string',
         'body' => 'string',
-        'onFailure' => 'object[]',
         'onError' => 'map[string,object[]]'
     ];
 
@@ -80,7 +79,6 @@ class ShowNotificationBlock implements ModelInterface, ArrayAccess
         'notificationType' => null,
         'title' => null,
         'body' => null,
-        'onFailure' => null,
         'onError' => null
     ];
 
@@ -117,7 +115,6 @@ class ShowNotificationBlock implements ModelInterface, ArrayAccess
         'notificationType' => 'notificationType',
         'title' => 'title',
         'body' => 'body',
-        'onFailure' => 'onFailure',
         'onError' => 'onError'
     ];
 
@@ -133,7 +130,6 @@ class ShowNotificationBlock implements ModelInterface, ArrayAccess
         'notificationType' => 'setNotificationType',
         'title' => 'setTitle',
         'body' => 'setBody',
-        'onFailure' => 'setOnFailure',
         'onError' => 'setOnError'
     ];
 
@@ -149,7 +145,6 @@ class ShowNotificationBlock implements ModelInterface, ArrayAccess
         'notificationType' => 'getNotificationType',
         'title' => 'getTitle',
         'body' => 'getBody',
-        'onFailure' => 'getOnFailure',
         'onError' => 'getOnError'
     ];
 
@@ -219,7 +214,6 @@ class ShowNotificationBlock implements ModelInterface, ArrayAccess
         $this->container['notificationType'] = isset($data['notificationType']) ? $data['notificationType'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['body'] = isset($data['body']) ? $data['body'] : null;
-        $this->container['onFailure'] = isset($data['onFailure']) ? $data['onFailure'] : null;
         $this->container['onError'] = isset($data['onError']) ? $data['onError'] : null;
     }
 
@@ -240,6 +234,9 @@ class ShowNotificationBlock implements ModelInterface, ArrayAccess
         }
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['body'] === null) {
+            $invalidProperties[] = "'body' can't be null";
         }
         return $invalidProperties;
     }
@@ -379,7 +376,7 @@ class ShowNotificationBlock implements ModelInterface, ArrayAccess
     /**
      * Gets body
      *
-     * @return string|null
+     * @return string
      */
     public function getBody()
     {
@@ -389,37 +386,13 @@ class ShowNotificationBlock implements ModelInterface, ArrayAccess
     /**
      * Sets body
      *
-     * @param string|null $body The notification body text. Supports template placeholders (e.g. \"{{$Session.Total}}\") evaluated at rule execution time.
+     * @param string $body The notification body text. Supports template placeholders (e.g. \"{{$Session.Total}}\") evaluated at rule execution time.
      *
      * @return $this
      */
     public function setBody($body)
     {
         $this->container['body'] = $body;
-
-        return $this;
-    }
-
-    /**
-     * Gets onFailure
-     *
-     * @return object[]|null
-     */
-    public function getOnFailure()
-    {
-        return $this->container['onFailure'];
-    }
-
-    /**
-     * Sets onFailure
-     *
-     * @param object[]|null $onFailure Blocks evaluated when this block fails or returns false.
-     *
-     * @return $this
-     */
-    public function setOnFailure($onFailure)
-    {
-        $this->container['onFailure'] = $onFailure;
 
         return $this;
     }

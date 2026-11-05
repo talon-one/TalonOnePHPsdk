@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | An identifier derived from the bundle content. | 
+**id** | **string** | An identifier derived from the bundle content. | [optional] [readonly] 
 **name** | **string** | The name of the bundle. | 
 **type** | **string** | A binding of type &#x60;bundle&#x60;. | 
 **sources** | **string[]** | The selector sources of bundle items. Each source is expressed as a &#x60;{{$selectorName}}&#x60; reference. | 

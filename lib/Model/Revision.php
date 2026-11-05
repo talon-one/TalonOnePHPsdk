@@ -313,7 +313,7 @@ class Revision implements ModelInterface, ArrayAccess
     /**
      * Sets activateAt
      *
-     * @param \DateTime|null $activateAt activateAt
+     * @param \DateTime|null $activateAt Timestamp when the revision will be activated.
      *
      * @return $this
      */
@@ -337,7 +337,7 @@ class Revision implements ModelInterface, ArrayAccess
     /**
      * Sets accountId
      *
-     * @param int $accountId accountId
+     * @param int $accountId The ID of the account that owns this entity.
      *
      * @return $this
      */
@@ -361,7 +361,7 @@ class Revision implements ModelInterface, ArrayAccess
     /**
      * Sets applicationId
      *
-     * @param int $applicationId applicationId
+     * @param int $applicationId The ID of the Application that owns this entity.
      *
      * @return $this
      */
@@ -385,7 +385,7 @@ class Revision implements ModelInterface, ArrayAccess
     /**
      * Sets campaignId
      *
-     * @param int $campaignId campaignId
+     * @param int $campaignId The ID of the campaign that the revision was created from.
      *
      * @return $this
      */
@@ -409,7 +409,7 @@ class Revision implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created created
+     * @param \DateTime $created Timestamp when the revision was created.
      *
      * @return $this
      */
@@ -433,7 +433,7 @@ class Revision implements ModelInterface, ArrayAccess
     /**
      * Sets createdBy
      *
-     * @param int $createdBy createdBy
+     * @param int $createdBy The ID of the user who created this revision.
      *
      * @return $this
      */
@@ -457,7 +457,7 @@ class Revision implements ModelInterface, ArrayAccess
     /**
      * Sets activatedAt
      *
-     * @param \DateTime|null $activatedAt activatedAt
+     * @param \DateTime|null $activatedAt Timestamp when this revision was activated.
      *
      * @return $this
      */
@@ -481,7 +481,7 @@ class Revision implements ModelInterface, ArrayAccess
     /**
      * Sets activatedBy
      *
-     * @param int|null $activatedBy activatedBy
+     * @param int|null $activatedBy The ID of the user who activated this revision.
      *
      * @return $this
      */

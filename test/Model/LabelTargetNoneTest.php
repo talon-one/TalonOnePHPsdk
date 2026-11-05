@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * LabelTargetNoneTest Class Doc Comment
  *
  * @category    Class
- * @description Represents the target type when no entity is selected.
+ * @description Target type when no specific audience is selected. Targets all customers who are not members of an audience.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

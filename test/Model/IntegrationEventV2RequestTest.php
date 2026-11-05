@@ -126,4 +126,11 @@ class IntegrationEventV2RequestTest extends TestCase
     public function testPropertyLoyaltyCards()
     {
     }
+
+    /**
+     * Test attribute "rewardIntegrationIds"
+     */
+    public function testPropertyRewardIntegrationIds()
+    {
+    }
 }

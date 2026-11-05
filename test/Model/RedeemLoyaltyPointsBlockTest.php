@@ -126,11 +126,4 @@ class RedeemLoyaltyPointsBlockTest extends TestCase
     public function testPropertyName()
     {
     }
-
-    /**
-     * Test attribute "onFailure"
-     */
-    public function testPropertyOnFailure()
-    {
-    }
 }

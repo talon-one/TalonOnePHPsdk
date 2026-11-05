@@ -36,6 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * RoleV2ApplicationDetails Class Doc Comment
  *
  * @category Class
+ * @description Details of the permission sets configured for an Application.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

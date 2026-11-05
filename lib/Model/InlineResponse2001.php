@@ -58,7 +58,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\CustomerProfile[]'
+        'data' => '\TalonOne\Client\Model\CustomerReservation[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\CustomerProfile[]
+     * @return \TalonOne\Client\Model\CustomerReservation[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\CustomerProfile[] $data data
+     * @param \TalonOne\Client\Model\CustomerReservation[] $data data
      *
      * @return $this
      */

@@ -189,4 +189,11 @@ class LoyaltyLedgerEntryTest extends TestCase
     public function testPropertyValidityDuration()
     {
     }
+
+    /**
+     * Test attribute "awaitsActivation"
+     */
+    public function testPropertyAwaitsActivation()
+    {
+    }
 }

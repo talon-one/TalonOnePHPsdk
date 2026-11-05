@@ -60,6 +60,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'id' => 'int',
         'created' => '\DateTime',
         'applicationId' => 'int',
+        'assignmentType' => 'string',
         'isVariantAssignmentExternal' => 'bool',
         'campaign' => '\TalonOne\Client\Model\Campaign',
         'activated' => '\DateTime',
@@ -79,6 +80,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'id' => 'int64',
         'created' => 'date-time',
         'applicationId' => 'int64',
+        'assignmentType' => null,
         'isVariantAssignmentExternal' => null,
         'campaign' => null,
         'activated' => 'date-time',
@@ -119,6 +121,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'id' => 'id',
         'created' => 'created',
         'applicationId' => 'applicationId',
+        'assignmentType' => 'assignmentType',
         'isVariantAssignmentExternal' => 'isVariantAssignmentExternal',
         'campaign' => 'campaign',
         'activated' => 'activated',
@@ -138,6 +141,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'created' => 'setCreated',
         'applicationId' => 'setApplicationId',
+        'assignmentType' => 'setAssignmentType',
         'isVariantAssignmentExternal' => 'setIsVariantAssignmentExternal',
         'campaign' => 'setCampaign',
         'activated' => 'setActivated',
@@ -157,6 +161,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'created' => 'getCreated',
         'applicationId' => 'getApplicationId',
+        'assignmentType' => 'getAssignmentType',
         'isVariantAssignmentExternal' => 'getIsVariantAssignmentExternal',
         'campaign' => 'getCampaign',
         'activated' => 'getActivated',
@@ -208,6 +213,9 @@ class Experiment implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const ASSIGNMENT_TYPE_RANDOM = 'random';
+    const ASSIGNMENT_TYPE_EXTERNAL = 'external';
+    const ASSIGNMENT_TYPE_AUDIENCE = 'audience';
     const STATE_ENABLED = 'enabled';
     const STATE_DISABLED = 'disabled';
     const STATE_ARCHIVED = 'archived';
@@ -217,6 +225,20 @@ class Experiment implements ModelInterface, ArrayAccess
     const GOAL_TYPE_MAXIMIZE_ITEMS_SOLD = 'maximize_items_sold';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAssignmentTypeAllowableValues()
+    {
+        return [
+            self::ASSIGNMENT_TYPE_RANDOM,
+            self::ASSIGNMENT_TYPE_EXTERNAL,
+            self::ASSIGNMENT_TYPE_AUDIENCE,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -266,6 +288,7 @@ class Experiment implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
+        $this->container['assignmentType'] = isset($data['assignmentType']) ? $data['assignmentType'] : null;
         $this->container['isVariantAssignmentExternal'] = isset($data['isVariantAssignmentExternal']) ? $data['isVariantAssignmentExternal'] : null;
         $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
         $this->container['activated'] = isset($data['activated']) ? $data['activated'] : null;
@@ -294,6 +317,14 @@ class Experiment implements ModelInterface, ArrayAccess
         if ($this->container['applicationId'] === null) {
             $invalidProperties[] = "'applicationId' can't be null";
         }
+        $allowedValues = $this->getAssignmentTypeAllowableValues();
+        if (!is_null($this->container['assignmentType']) && !in_array($this->container['assignmentType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'assignmentType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['state'] === null) {
             $invalidProperties[] = "'state' can't be null";
         }
@@ -404,6 +435,39 @@ class Experiment implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets assignmentType
+     *
+     * @return string|null
+     */
+    public function getAssignmentType()
+    {
+        return $this->container['assignmentType'];
+    }
+
+    /**
+     * Sets assignmentType
+     *
+     * @param string|null $assignmentType Controls how customers are assigned to experiment variants. - `random`: Talon.One assigns customers randomly based on variant weights. - `external`: Variant assignment is handled externally. - `audience`: Each variant targets a specific audience; customers are assigned based on audience membership.
+     *
+     * @return $this
+     */
+    public function setAssignmentType($assignmentType)
+    {
+        $allowedValues = $this->getAssignmentTypeAllowableValues();
+        if (!is_null($assignmentType) && !in_array($assignmentType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'assignmentType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['assignmentType'] = $assignmentType;
+
+        return $this;
+    }
+
+    /**
      * Gets isVariantAssignmentExternal
      *
      * @return bool|null
@@ -416,7 +480,7 @@ class Experiment implements ModelInterface, ArrayAccess
     /**
      * Sets isVariantAssignmentExternal
      *
-     * @param bool|null $isVariantAssignmentExternal The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally.
+     * @param bool|null $isVariantAssignmentExternal Deprecated. Use `assignmentType` instead. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally.
      *
      * @return $this
      */
