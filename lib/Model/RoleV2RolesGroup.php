@@ -36,6 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * RoleV2RolesGroup Class Doc Comment
  *
  * @category Class
+ * @description A map of target entities to their permission sets.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -259,7 +260,7 @@ class RoleV2RolesGroup implements ModelInterface, ArrayAccess
     /**
      * Sets loyaltyPrograms
      *
-     * @param map[string,string]|null $loyaltyPrograms A map of the link between the loyalty program-related permission set and the Application ID the permissions apply to.
+     * @param map[string,string]|null $loyaltyPrograms A map of the link between the loyalty program-related permission set and the loyalty program ID the permissions apply to.
      *
      * @return $this
      */
@@ -283,7 +284,7 @@ class RoleV2RolesGroup implements ModelInterface, ArrayAccess
     /**
      * Sets campaignAccessGroups
      *
-     * @param map[string,string]|null $campaignAccessGroups A map of the link between the campaign access group-related permission set and the Application ID the permissions apply to.
+     * @param map[string,string]|null $campaignAccessGroups A map of the link between the campaign access group-related permission set and the campaign access group ID the permissions apply to.
      *
      * @return $this
      */
@@ -307,7 +308,7 @@ class RoleV2RolesGroup implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string|null $account Name of the account-level permission set
+     * @param string|null $account Name of the account-level permission set.
      *
      * @return $this
      */

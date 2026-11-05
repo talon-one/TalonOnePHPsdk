@@ -350,7 +350,7 @@ class BestPriorPriceRequest implements ModelInterface, ArrayAccess
     /**
      * Sets timeframeEndDateType
      *
-     * @param string $timeframeEndDateType Sets the timeframe for retrieving historical pricing data. Can be one of the following values: - `strict`: The timeframe ends at the `timeframeEndDate` value. - `price`: The timeframe ends at the start of current price value and takes the prices prior to the start of the current price value into account. - `sale`:  The timeframe ends at the start of current `contextId` and takes the prices prior to the start of the `contextId` into account.
+     * @param string $timeframeEndDateType Sets the timeframe for retrieving historical pricing data. Can be one of the following values: - `strict`: The timeframe ends at the `timeframeEndDate` value. - `price`: The timeframe ends at the start of current price value and takes the prices prior to the start of the current price value into account. - `sale`:  The timeframe ends at the start of the current sales event, as defined by the `contextId`. It takes the prices prior to the current sale event into account.
      *
      * @return $this
      */

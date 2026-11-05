@@ -133,4 +133,18 @@ class TierWillDowngradeDataTest extends TestCase
     public function testPropertyTierExpirationDate()
     {
     }
+
+    /**
+     * Test attribute "source"
+     */
+    public function testPropertySource()
+    {
+    }
+
+    /**
+     * Test attribute "reason"
+     */
+    public function testPropertyReason()
+    {
+    }
 }

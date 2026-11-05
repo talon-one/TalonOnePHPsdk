@@ -346,7 +346,7 @@ class BestPriorPrice implements ModelInterface, ArrayAccess
     /**
      * Sets contextIds
      *
-     * @param string[] $contextIds The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.
+     * @param string[] $contextIds The identifiers of the relevant context (the sales events, e.g. \"Spring Sale\", \"Summer Sale\") at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.
      *
      * @return $this
      */

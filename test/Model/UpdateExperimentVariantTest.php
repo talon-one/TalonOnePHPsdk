@@ -105,4 +105,11 @@ class UpdateExperimentVariantTest extends TestCase
     public function testPropertyWeight()
     {
     }
+
+    /**
+     * Test attribute "audienceId"
+     */
+    public function testPropertyAudienceId()
+    {
+    }
 }

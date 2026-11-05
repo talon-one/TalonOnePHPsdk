@@ -57,8 +57,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'catalog' => '\TalonOne\Client\Model\InlineResponse20056Catalog',
-        'loyalty' => 'map[string,\TalonOne\Client\Model\LoyaltyBalances]'
+        'hasMore' => 'bool',
+        'data' => '\TalonOne\Client\Model\AchievementV2[]'
     ];
 
     /**
@@ -67,8 +67,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'catalog' => null,
-        'loyalty' => null
+        'hasMore' => null,
+        'data' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'catalog' => 'catalog',
-        'loyalty' => 'loyalty'
+        'hasMore' => 'hasMore',
+        'data' => 'data'
     ];
 
     /**
@@ -108,8 +108,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'catalog' => 'setCatalog',
-        'loyalty' => 'setLoyalty'
+        'hasMore' => 'setHasMore',
+        'data' => 'setData'
     ];
 
     /**
@@ -118,8 +118,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'catalog' => 'getCatalog',
-        'loyalty' => 'getLoyalty'
+        'hasMore' => 'getHasMore',
+        'data' => 'getData'
     ];
 
     /**
@@ -182,8 +182,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['catalog'] = isset($data['catalog']) ? $data['catalog'] : null;
-        $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
+        $this->container['hasMore'] = isset($data['hasMore']) ? $data['hasMore'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -195,8 +195,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['catalog'] === null) {
-            $invalidProperties[] = "'catalog' can't be null";
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
         }
         return $invalidProperties;
     }
@@ -214,49 +214,49 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets catalog
+     * Gets hasMore
      *
-     * @return \TalonOne\Client\Model\InlineResponse20056Catalog
+     * @return bool|null
      */
-    public function getCatalog()
+    public function getHasMore()
     {
-        return $this->container['catalog'];
+        return $this->container['hasMore'];
     }
 
     /**
-     * Sets catalog
+     * Sets hasMore
      *
-     * @param \TalonOne\Client\Model\InlineResponse20056Catalog $catalog catalog
+     * @param bool|null $hasMore hasMore
      *
      * @return $this
      */
-    public function setCatalog($catalog)
+    public function setHasMore($hasMore)
     {
-        $this->container['catalog'] = $catalog;
+        $this->container['hasMore'] = $hasMore;
 
         return $this;
     }
 
     /**
-     * Gets loyalty
+     * Gets data
      *
-     * @return map[string,\TalonOne\Client\Model\LoyaltyBalances]|null
+     * @return \TalonOne\Client\Model\AchievementV2[]
      */
-    public function getLoyalty()
+    public function getData()
     {
-        return $this->container['loyalty'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets loyalty
+     * Sets data
      *
-     * @param map[string,\TalonOne\Client\Model\LoyaltyBalances]|null $loyalty The customer's loyalty balances for the specified loyalty program. Returned only when `loyaltyProgramId` is provided together with `profileIntegrationId` or `loyaltyCardId`.
+     * @param \TalonOne\Client\Model\AchievementV2[] $data data
      *
      * @return $this
      */
-    public function setLoyalty($loyalty)
+    public function setData($data)
     {
-        $this->container['loyalty'] = $loyalty;
+        $this->container['data'] = $data;
 
         return $this;
     }

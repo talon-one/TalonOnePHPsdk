@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **trigger** | [**\TalonOne\Client\Model\StrikethroughTrigger**](StrikethroughTrigger.md) |  | 
 **changedItems** | [**\TalonOne\Client\Model\StrikethroughChangedItem[]**](StrikethroughChangedItem.md) |  | 
 **notificationType** | **string** | The type of notification. | 
-**sentAt** | [**\DateTime**](\DateTime.md) | Timestamp at which the notification was sent. | 
+**sentAt** | [**\DateTime**](\DateTime.md) | Timestamp when the notification was sent by Talon.One. There may be a delay before the notification is delivered to the user. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -61,7 +61,7 @@ class TriggerWebhookBlock implements ModelInterface, ArrayAccess
         'id' => 'string',
         'type' => 'string',
         'tags' => 'string[]',
-        'webhook' => '\TalonOne\Client\Model\TriggerWebhookBlockWebhook',
+        'webhook' => '\TalonOne\Client\Model\WebhookBlockReference',
         'params' => 'object',
         'onError' => 'map[string,object[]]'
     ];
@@ -316,7 +316,7 @@ class TriggerWebhookBlock implements ModelInterface, ArrayAccess
     /**
      * Gets webhook
      *
-     * @return \TalonOne\Client\Model\TriggerWebhookBlockWebhook
+     * @return \TalonOne\Client\Model\WebhookBlockReference
      */
     public function getWebhook()
     {
@@ -326,7 +326,7 @@ class TriggerWebhookBlock implements ModelInterface, ArrayAccess
     /**
      * Sets webhook
      *
-     * @param \TalonOne\Client\Model\TriggerWebhookBlockWebhook $webhook webhook
+     * @param \TalonOne\Client\Model\WebhookBlockReference $webhook webhook
      *
      * @return $this
      */

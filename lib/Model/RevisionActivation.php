@@ -217,7 +217,7 @@ class RevisionActivation implements ModelInterface, ArrayAccess
     /**
      * Sets activateAt
      *
-     * @param \DateTime|null $activateAt activateAt
+     * @param \DateTime|null $activateAt Timestamp when the revision will be activated.
      *
      * @return $this
      */

@@ -62,7 +62,7 @@ class UpdateAttributeValueBlock implements ModelInterface, ArrayAccess
         'type' => 'string',
         'tags' => 'string[]',
         'operator' => 'string',
-        'attribute' => '\TalonOne\Client\Model\UpdateAttributeValueBlockAttribute',
+        'attribute' => '\TalonOne\Client\Model\AttributeBlockReference',
         'value' => 'object',
         'target' => '\TalonOne\Client\Model\UpdateAttributeValueBlockTarget'
     ];
@@ -396,7 +396,7 @@ class UpdateAttributeValueBlock implements ModelInterface, ArrayAccess
     /**
      * Gets attribute
      *
-     * @return \TalonOne\Client\Model\UpdateAttributeValueBlockAttribute
+     * @return \TalonOne\Client\Model\AttributeBlockReference
      */
     public function getAttribute()
     {
@@ -406,7 +406,7 @@ class UpdateAttributeValueBlock implements ModelInterface, ArrayAccess
     /**
      * Sets attribute
      *
-     * @param \TalonOne\Client\Model\UpdateAttributeValueBlockAttribute $attribute attribute
+     * @param \TalonOne\Client\Model\AttributeBlockReference $attribute attribute
      *
      * @return $this
      */

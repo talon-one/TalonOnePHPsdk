@@ -173,6 +173,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for createCampaign
+     *
+     * Create campaign.
+     *
+     */
+    public function testCreateCampaign()
+    {
+    }
+
+    /**
      * Test case for createCampaignFromTemplate
      *
      * Create campaign from campaign template.
@@ -1083,6 +1093,16 @@ class ManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for getCurrentRevision
+     *
+     * Get current revision version.
+     *
+     */
+    public function testGetCurrentRevision()
+    {
+    }
+
+    /**
      * Test case for getCustomerActivityReport
      *
      * Get customer's activity report.
@@ -1189,6 +1209,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testGetExports()
+    {
+    }
+
+    /**
+     * Test case for getGiveawaysPool
+     *
+     * Get giveaway pool.
+     *
+     */
+    public function testGetGiveawaysPool()
     {
     }
 
@@ -1639,6 +1669,16 @@ class ManagementApiTest extends TestCase
      *
      */
     public function testListExperiments()
+    {
+    }
+
+    /**
+     * Test case for listGiveawaysPool
+     *
+     * List giveaway pools.
+     *
+     */
+    public function testListGiveawaysPool()
     {
     }
 

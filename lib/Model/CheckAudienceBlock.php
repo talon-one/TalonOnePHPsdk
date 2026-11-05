@@ -63,7 +63,7 @@ class CheckAudienceBlock implements ModelInterface, ArrayAccess
         'tags' => 'string[]',
         'operator' => 'string',
         'profile' => 'string',
-        'audience' => '\TalonOne\Client\Model\CheckAudienceBlockAudience',
+        'audience' => '\TalonOne\Client\Model\AudienceBlockReference',
         'onFailure' => 'object[]'
     ];
 
@@ -274,9 +274,6 @@ class CheckAudienceBlock implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['profile'] === null) {
-            $invalidProperties[] = "'profile' can't be null";
-        }
         $allowedValues = $this->getProfileAllowableValues();
         if (!is_null($this->container['profile']) && !in_array($this->container['profile'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -411,7 +408,7 @@ class CheckAudienceBlock implements ModelInterface, ArrayAccess
     /**
      * Gets profile
      *
-     * @return string
+     * @return string|null
      */
     public function getProfile()
     {
@@ -421,14 +418,14 @@ class CheckAudienceBlock implements ModelInterface, ArrayAccess
     /**
      * Sets profile
      *
-     * @param string $profile The customer profile to check against the audience. `Current` targets the customer in the current session; `Advocate` targets the person who invited their friend via referral program.
+     * @param string|null $profile The customer profile to check against the audience. `Current` targets the customer in the current session; `Advocate` targets the person who invited their friend via referral program. Only applies to the `member` and `not(member)` operators; ignored for `justJoined` and `justLeft`.
      *
      * @return $this
      */
     public function setProfile($profile)
     {
         $allowedValues = $this->getProfileAllowableValues();
-        if (!in_array($profile, $allowedValues, true)) {
+        if (!is_null($profile) && !in_array($profile, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'profile', must be one of '%s'",
@@ -444,7 +441,7 @@ class CheckAudienceBlock implements ModelInterface, ArrayAccess
     /**
      * Gets audience
      *
-     * @return \TalonOne\Client\Model\CheckAudienceBlockAudience
+     * @return \TalonOne\Client\Model\AudienceBlockReference
      */
     public function getAudience()
     {
@@ -454,7 +451,7 @@ class CheckAudienceBlock implements ModelInterface, ArrayAccess
     /**
      * Sets audience
      *
-     * @param \TalonOne\Client\Model\CheckAudienceBlockAudience $audience audience
+     * @param \TalonOne\Client\Model\AudienceBlockReference $audience audience
      *
      * @return $this
      */

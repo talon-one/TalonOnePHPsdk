@@ -57,6 +57,7 @@ class ExperimentCopyExperiment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'assignmentType' => 'string',
         'isVariantAssignmentExternal' => 'bool',
         'campaign' => '\TalonOne\Client\Model\ExperimentCampaignCopy',
         'goalType' => 'string',
@@ -69,6 +70,7 @@ class ExperimentCopyExperiment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'assignmentType' => null,
         'isVariantAssignmentExternal' => null,
         'campaign' => null,
         'goalType' => null,
@@ -102,6 +104,7 @@ class ExperimentCopyExperiment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'assignmentType' => 'assignmentType',
         'isVariantAssignmentExternal' => 'isVariantAssignmentExternal',
         'campaign' => 'campaign',
         'goalType' => 'goalType',
@@ -114,6 +117,7 @@ class ExperimentCopyExperiment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'assignmentType' => 'setAssignmentType',
         'isVariantAssignmentExternal' => 'setIsVariantAssignmentExternal',
         'campaign' => 'setCampaign',
         'goalType' => 'setGoalType',
@@ -126,6 +130,7 @@ class ExperimentCopyExperiment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'assignmentType' => 'getAssignmentType',
         'isVariantAssignmentExternal' => 'getIsVariantAssignmentExternal',
         'campaign' => 'getCampaign',
         'goalType' => 'getGoalType',
@@ -173,12 +178,29 @@ class ExperimentCopyExperiment implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const ASSIGNMENT_TYPE_RANDOM = 'random';
+    const ASSIGNMENT_TYPE_EXTERNAL = 'external';
+    const ASSIGNMENT_TYPE_AUDIENCE = 'audience';
     const GOAL_TYPE_OTHER = 'other';
     const GOAL_TYPE_MAXIMIZE_REVENUE = 'maximize_revenue';
     const GOAL_TYPE_MAXIMIZE_ITEMS_SOLD = 'maximize_items_sold';
     const GOAL_TYPE_OPTIMIZE_DISCOUNT_EFFICIENCY = 'optimize_discount_efficiency';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAssignmentTypeAllowableValues()
+    {
+        return [
+            self::ASSIGNMENT_TYPE_RANDOM,
+            self::ASSIGNMENT_TYPE_EXTERNAL,
+            self::ASSIGNMENT_TYPE_AUDIENCE,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -211,6 +233,7 @@ class ExperimentCopyExperiment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['assignmentType'] = isset($data['assignmentType']) ? $data['assignmentType'] : null;
         $this->container['isVariantAssignmentExternal'] = isset($data['isVariantAssignmentExternal']) ? $data['isVariantAssignmentExternal'] : null;
         $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
         $this->container['goalType'] = isset($data['goalType']) ? $data['goalType'] : null;
@@ -226,9 +249,14 @@ class ExperimentCopyExperiment implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['isVariantAssignmentExternal'] === null) {
-            $invalidProperties[] = "'isVariantAssignmentExternal' can't be null";
+        $allowedValues = $this->getAssignmentTypeAllowableValues();
+        if (!is_null($this->container['assignmentType']) && !in_array($this->container['assignmentType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'assignmentType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         if ($this->container['campaign'] === null) {
             $invalidProperties[] = "'campaign' can't be null";
         }
@@ -256,9 +284,42 @@ class ExperimentCopyExperiment implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets assignmentType
+     *
+     * @return string|null
+     */
+    public function getAssignmentType()
+    {
+        return $this->container['assignmentType'];
+    }
+
+    /**
+     * Sets assignmentType
+     *
+     * @param string|null $assignmentType Controls how customers are assigned to experiment variants in the copied experiment. - `random`: Talon.One assigns customers randomly based on variant weights. - `external`: The variant assignment is handled externally. - `audience`: Each variant targets a specific audience; customers are assigned based on audience membership. This is the source of truth. When omitted, it is derived from the deprecated `isVariantAssignmentExternal` flag (`true` maps to `external`, otherwise `random`).
+     *
+     * @return $this
+     */
+    public function setAssignmentType($assignmentType)
+    {
+        $allowedValues = $this->getAssignmentTypeAllowableValues();
+        if (!is_null($assignmentType) && !in_array($assignmentType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'assignmentType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['assignmentType'] = $assignmentType;
+
+        return $this;
+    }
+
+    /**
      * Gets isVariantAssignmentExternal
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIsVariantAssignmentExternal()
     {
@@ -268,7 +329,7 @@ class ExperimentCopyExperiment implements ModelInterface, ArrayAccess
     /**
      * Sets isVariantAssignmentExternal
      *
-     * @param bool $isVariantAssignmentExternal The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally.
+     * @param bool|null $isVariantAssignmentExternal The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. Deprecated: use `assignmentType` instead. Kept for backwards compatibility with older clients; when set and `assignmentType` is omitted, `true` maps to `external`.
      *
      * @return $this
      */

@@ -412,7 +412,7 @@ class NewPriceAdjustment implements ModelInterface, ArrayAccess
     /**
      * Sets contextId
      *
-     * @param string|null $contextId Identifier of the context of this price adjustment (e.g. summer sale).
+     * @param string|null $contextId Identifier of the context of this price adjustment (the sales event, e.g. \"Summer Sale\").
      *
      * @return $this
      */

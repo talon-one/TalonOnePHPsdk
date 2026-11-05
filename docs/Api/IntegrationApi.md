@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**getCustomerAchievementHistory**](IntegrationApi.md#getCustomerAchievementHistory) | **GET** /v1/customer_profiles/{integrationId}/achievements/{achievementId} | List customer&#39;s achievement history
 [**getCustomerAchievements**](IntegrationApi.md#getCustomerAchievements) | **GET** /v1/customer_profiles/{integrationId}/achievements | List customer&#39;s available achievements
 [**getCustomerInventory**](IntegrationApi.md#getCustomerInventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | List customer data
+[**getCustomerRewards**](IntegrationApi.md#getCustomerRewards) | **GET** /v1/customer_profiles/{integrationId}/rewards | List customer&#39;s rewards
 [**getCustomerSession**](IntegrationApi.md#getCustomerSession) | **GET** /v2/customer_sessions/{customerSessionId} | Get customer session
 [**getEventV3**](IntegrationApi.md#getEventV3) | **GET** /v3/events/{integrationId} | Get advanced event
 [**getLoyaltyBalances**](IntegrationApi.md#getLoyaltyBalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/balances | Get customer&#39;s loyalty balances
@@ -251,7 +252,7 @@ Name | Type | Description  | Notes
 
 ## createCouponReservation
 
-> \TalonOne\Client\Model\Coupon createCouponReservation($couponValue, $body)
+> \TalonOne\Client\Model\CouponWithReservations createCouponReservation($couponValue, $body)
 
 Create coupon reservation
 
@@ -298,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\Coupon**](../Model/Coupon.md)
+[**\TalonOne\Client\Model\CouponWithReservations**](../Model/CouponWithReservations.md)
 
 ### Authorization
 
@@ -1050,6 +1051,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## getCustomerRewards
+
+> \TalonOne\Client\Model\InlineResponse2004 getCustomerRewards($integrationId, $status, $pageSize, $skip, $withTotalResultSize)
+
+List customer's rewards
+
+List the rewards held by a given customer profile. This includes shared rewards unlocked with a loyalty card linked to the customer.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_v1
+$config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = TalonOne\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new TalonOne\Client\Api\IntegrationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$integrationId = 'integrationId_example'; // string | The integration identifier for this customer profile. Must be:  - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.
+$status = array('status_example'); // string[] | Filter results by one or more customer reward statuses.  **Note:** If no status is specified, rewards of all statuses are returned.
+$pageSize = 1000; // int | The number of items in the response.
+$skip = 56; // int | The number of items to skip when paging through large result sets.
+$withTotalResultSize = True; // bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.   - When `true`: `totalResultSize` contains the total number of results for this query.  - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.
+
+try {
+    $result = $apiInstance->getCustomerRewards($integrationId, $status, $pageSize, $skip, $withTotalResultSize);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling IntegrationApi->getCustomerRewards: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integrationId** | **string**| The integration identifier for this customer profile. Must be:  - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID. |
+ **status** | [**string[]**](../Model/string.md)| Filter results by one or more customer reward statuses.  **Note:** If no status is specified, rewards of all statuses are returned. | [optional]
+ **pageSize** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional]
+ **withTotalResultSize** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.   - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query.  - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page. | [optional]
+
+### Return type
+
+[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+
+### Authorization
+
+[api_key_v1](../../README.md#api_key_v1)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## getCustomerSession
 
 > \TalonOne\Client\Model\IntegrationCustomerSessionResponse getCustomerSession($customerSessionId)
@@ -1320,7 +1392,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyCardPoints
 
-> \TalonOne\Client\Model\InlineResponse2006 getLoyaltyCardPoints($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2008 getLoyaltyCardPoints($loyaltyProgramId, $loyaltyCardId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort)
 
 List card's unused loyalty points
 
@@ -1381,7 +1453,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\TalonOne\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
 
 ### Authorization
 
@@ -1399,7 +1471,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyCardTransactions
 
-> \TalonOne\Client\Model\InlineResponse2004 getLoyaltyCardTransactions($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $awaitsActivation)
+> \TalonOne\Client\Model\InlineResponse2005 getLoyaltyCardTransactions($loyaltyProgramId, $loyaltyCardId, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $awaitsActivation)
 
 List card's transactions
 
@@ -1464,7 +1536,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\TalonOne\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
 
 ### Authorization
 
@@ -1482,7 +1554,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyProgramProfilePoints
 
-> \TalonOne\Client\Model\InlineResponse2007 getLoyaltyProgramProfilePoints($loyaltyProgramId, $integrationId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort)
+> \TalonOne\Client\Model\InlineResponse2009 getLoyaltyProgramProfilePoints($loyaltyProgramId, $integrationId, $status, $subledgerId, $customerSessionIDs, $transactionUUIDs, $pageSize, $skip, $sort)
 
 List customer's unused loyalty points
 
@@ -1543,7 +1615,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\TalonOne\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
 
 ### Authorization
 
@@ -1561,7 +1633,7 @@ Name | Type | Description  | Notes
 
 ## getLoyaltyProgramProfileTransactions
 
-> \TalonOne\Client\Model\InlineResponse2005 getLoyaltyProgramProfileTransactions($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip, $awaitsActivation)
+> \TalonOne\Client\Model\InlineResponse2006 getLoyaltyProgramProfileTransactions($loyaltyProgramId, $integrationId, $customerSessionIDs, $transactionUUIDs, $subledgerId, $loyaltyTransactionType, $startDate, $endDate, $pageSize, $skip, $awaitsActivation)
 
 List customer's loyalty transactions
 
@@ -1626,7 +1698,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\TalonOne\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
 
 ### Authorization
 
@@ -1786,7 +1858,7 @@ Name | Type | Description  | Notes
 
 ## integrationRewardsCatalog
 
-> \TalonOne\Client\Model\InlineResponse20056 integrationRewardsCatalog($pageSize, $skip, $pointsFrom, $pointsTo, $includeFree, $loyaltyProgramId, $subledgerId, $profileIntegrationId, $loyaltyCardId)
+> \TalonOne\Client\Model\InlineResponse20059 integrationRewardsCatalog($pageSize, $skip, $pointsFrom, $pointsTo, $includeFree, $loyaltyProgramId, $subledgerId, $profileIntegrationId, $loyaltyCardId)
 
 List rewards in the catalog
 
@@ -1818,8 +1890,8 @@ $pointsTo = 3.4; // float | Return only rewards whose points required is less th
 $includeFree = true; // bool | Whether to include rewards that have no `pointsRequired`. These rewards are treated as free and available to all customers.
 $loyaltyProgramId = 56; // int | Return only rewards available in this loyalty program.
 $subledgerId = 'subledgerId_example'; // string | Return only rewards available in this subledger. Must be combined with `loyaltyProgramId`. To specify the main ledger, provide an empty string (\"\").
-$profileIntegrationId = 'profileIntegrationId_example'; // string | The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  **Note:** `profileIntegrationId` and `loyaltyCardId` are mutually exclusive. Do not send both in the same request.
-$loyaltyCardId = 'loyaltyCardId_example'; // string | The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  **Note:** `profileIntegrationId` and `loyaltyCardId` are mutually exclusive. Do not send both in the same request.
+$profileIntegrationId = 'profileIntegrationId_example'; // string | The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  For a reward with `pointsRequired` configured for a card-based loyalty program, eligibility can be evaluated based on both `profileIntegrationId` and `loyaltyCardId`, if both are provided. The required points are then checked against the card's balance.
+$loyaltyCardId = 'loyaltyCardId_example'; // string | The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  For a reward with `pointsRequired` configured for a card-based loyalty program, eligibility can be evaluated based on both `profileIntegrationId` and `loyaltyCardId`, if both are provided. The card must also be linked to that customer profile. - If `loyaltyCardId` is not provided, the reward returns the `CARD_REQUIRED` failure code, because there is no card balance to compare `pointsRequired` against. - If `profileIntegrationId` is not provided, the reward returns the `PROFILE_REQUIRED` failure code, because its eligibility cannot be evaluated without a customer profile.
 
 try {
     $result = $apiInstance->integrationRewardsCatalog($pageSize, $skip, $pointsFrom, $pointsTo, $includeFree, $loyaltyProgramId, $subledgerId, $profileIntegrationId, $loyaltyCardId);
@@ -1842,12 +1914,12 @@ Name | Type | Description  | Notes
  **includeFree** | **bool**| Whether to include rewards that have no &#x60;pointsRequired&#x60;. These rewards are treated as free and available to all customers. | [optional] [default to true]
  **loyaltyProgramId** | **int**| Return only rewards available in this loyalty program. | [optional]
  **subledgerId** | **string**| Return only rewards available in this subledger. Must be combined with &#x60;loyaltyProgramId&#x60;. To specify the main ledger, provide an empty string (\&quot;\&quot;). | [optional]
- **profileIntegrationId** | **string**| The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request. | [optional]
- **loyaltyCardId** | **string**| The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request. | [optional]
+ **profileIntegrationId** | **string**| The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The required points are then checked against the card&#39;s balance. | [optional]
+ **loyaltyCardId** | **string**| The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The card must also be linked to that customer profile. - If &#x60;loyaltyCardId&#x60; is not provided, the reward returns the &#x60;CARD_REQUIRED&#x60; failure code, because there is no card balance to compare &#x60;pointsRequired&#x60; against. - If &#x60;profileIntegrationId&#x60; is not provided, the reward returns the &#x60;PROFILE_REQUIRED&#x60; failure code, because its eligibility cannot be evaluated without a customer profile. | [optional]
 
 ### Return type
 
-[**\TalonOne\Client\Model\InlineResponse20056**](../Model/InlineResponse20056.md)
+[**\TalonOne\Client\Model\InlineResponse20059**](../Model/InlineResponse20059.md)
 
 ### Authorization
 
@@ -2398,11 +2470,11 @@ Name | Type | Description  | Notes
 
 ## unlockReward
 
-> \TalonOne\Client\Model\IntegrationStateV2 unlockReward($rewardId, $body, $dry)
+> \TalonOne\Client\Model\IntegrationUnlockRewardResponse unlockReward($rewardId, $body, $dry)
 
 Unlock a reward
 
-Unlock a reward for a customer. If the reward has `pointsRequired` configured, the corresponding loyalty points are deducted from the customer's balance.  To unlock a reward with the points of a loyalty card, provide the card in `cardIdentifier`. The points are then deducted from the card, and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card.
+Unlock a reward for a customer. If the reward has `pointsRequired` configured, the corresponding loyalty points are deducted from the customer's balance.  To unlock a reward with the points of a loyalty card, provide the card in `loyaltyCardId`. The points are then deducted from the card, and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card.
 
 ### Example
 
@@ -2447,7 +2519,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TalonOne\Client\Model\IntegrationStateV2**](../Model/IntegrationStateV2.md)
+[**\TalonOne\Client\Model\IntegrationUnlockRewardResponse**](../Model/IntegrationUnlockRewardResponse.md)
 
 ### Authorization
 

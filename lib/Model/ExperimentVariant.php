@@ -63,7 +63,8 @@ class ExperimentVariant implements ModelInterface, ArrayAccess
         'experimentId' => 'int',
         'ruleset' => '\TalonOne\Client\Model\Ruleset',
         'weight' => 'int',
-        'isPrimary' => 'bool'
+        'isPrimary' => 'bool',
+        'audienceId' => 'int'
     ];
 
     /**
@@ -78,7 +79,8 @@ class ExperimentVariant implements ModelInterface, ArrayAccess
         'experimentId' => 'int64',
         'ruleset' => null,
         'weight' => 'int64',
-        'isPrimary' => null
+        'isPrimary' => null,
+        'audienceId' => 'int64'
     ];
 
     /**
@@ -114,7 +116,8 @@ class ExperimentVariant implements ModelInterface, ArrayAccess
         'experimentId' => 'experimentId',
         'ruleset' => 'ruleset',
         'weight' => 'weight',
-        'isPrimary' => 'isPrimary'
+        'isPrimary' => 'isPrimary',
+        'audienceId' => 'audienceId'
     ];
 
     /**
@@ -129,7 +132,8 @@ class ExperimentVariant implements ModelInterface, ArrayAccess
         'experimentId' => 'setExperimentId',
         'ruleset' => 'setRuleset',
         'weight' => 'setWeight',
-        'isPrimary' => 'setIsPrimary'
+        'isPrimary' => 'setIsPrimary',
+        'audienceId' => 'setAudienceId'
     ];
 
     /**
@@ -144,7 +148,8 @@ class ExperimentVariant implements ModelInterface, ArrayAccess
         'experimentId' => 'getExperimentId',
         'ruleset' => 'getRuleset',
         'weight' => 'getWeight',
-        'isPrimary' => 'getIsPrimary'
+        'isPrimary' => 'getIsPrimary',
+        'audienceId' => 'getAudienceId'
     ];
 
     /**
@@ -214,6 +219,7 @@ class ExperimentVariant implements ModelInterface, ArrayAccess
         $this->container['ruleset'] = isset($data['ruleset']) ? $data['ruleset'] : null;
         $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
         $this->container['isPrimary'] = isset($data['isPrimary']) ? $data['isPrimary'] : null;
+        $this->container['audienceId'] = isset($data['audienceId']) ? $data['audienceId'] : null;
     }
 
     /**
@@ -416,6 +422,30 @@ class ExperimentVariant implements ModelInterface, ArrayAccess
     public function setIsPrimary($isPrimary)
     {
         $this->container['isPrimary'] = $isPrimary;
+
+        return $this;
+    }
+
+    /**
+     * Gets audienceId
+     *
+     * @return int|null
+     */
+    public function getAudienceId()
+    {
+        return $this->container['audienceId'];
+    }
+
+    /**
+     * Sets audienceId
+     *
+     * @param int|null $audienceId The ID of the audience this variant targets. Only used when the experiment `assignmentType` is `audience`.
+     *
+     * @return $this
+     */
+    public function setAudienceId($audienceId)
+    {
+        $this->container['audienceId'] = $audienceId;
 
         return $this;
     }

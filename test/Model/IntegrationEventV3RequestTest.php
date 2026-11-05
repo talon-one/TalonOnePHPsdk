@@ -142,6 +142,13 @@ class IntegrationEventV3RequestTest extends TestCase
     }
 
     /**
+     * Test attribute "rewardIntegrationIds"
+     */
+    public function testPropertyRewardIntegrationIds()
+    {
+    }
+
+    /**
      * Test attribute "responseContent"
      */
     public function testPropertyResponseContent()

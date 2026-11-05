@@ -61,9 +61,8 @@ class AwardGiveawayBlock implements ModelInterface, ArrayAccess
         'id' => 'string',
         'type' => 'string',
         'tags' => 'string[]',
-        'giveawayPool' => '\TalonOne\Client\Model\GiveawayPoolReference',
+        'giveawayPool' => '\TalonOne\Client\Model\GiveawayPoolBlockReference',
         'profile' => 'string',
-        'onFailure' => 'object[]',
         'onError' => 'map[string,object[]]'
     ];
 
@@ -78,7 +77,6 @@ class AwardGiveawayBlock implements ModelInterface, ArrayAccess
         'tags' => null,
         'giveawayPool' => null,
         'profile' => null,
-        'onFailure' => null,
         'onError' => null
     ];
 
@@ -114,7 +112,6 @@ class AwardGiveawayBlock implements ModelInterface, ArrayAccess
         'tags' => 'tags',
         'giveawayPool' => 'giveawayPool',
         'profile' => 'profile',
-        'onFailure' => 'onFailure',
         'onError' => 'onError'
     ];
 
@@ -129,7 +126,6 @@ class AwardGiveawayBlock implements ModelInterface, ArrayAccess
         'tags' => 'setTags',
         'giveawayPool' => 'setGiveawayPool',
         'profile' => 'setProfile',
-        'onFailure' => 'setOnFailure',
         'onError' => 'setOnError'
     ];
 
@@ -144,7 +140,6 @@ class AwardGiveawayBlock implements ModelInterface, ArrayAccess
         'tags' => 'getTags',
         'giveawayPool' => 'getGiveawayPool',
         'profile' => 'getProfile',
-        'onFailure' => 'getOnFailure',
         'onError' => 'getOnError'
     ];
 
@@ -228,7 +223,6 @@ class AwardGiveawayBlock implements ModelInterface, ArrayAccess
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['giveawayPool'] = isset($data['giveawayPool']) ? $data['giveawayPool'] : null;
         $this->container['profile'] = isset($data['profile']) ? $data['profile'] : null;
-        $this->container['onFailure'] = isset($data['onFailure']) ? $data['onFailure'] : null;
         $this->container['onError'] = isset($data['onError']) ? $data['onError'] : null;
     }
 
@@ -348,7 +342,7 @@ class AwardGiveawayBlock implements ModelInterface, ArrayAccess
     /**
      * Gets giveawayPool
      *
-     * @return \TalonOne\Client\Model\GiveawayPoolReference
+     * @return \TalonOne\Client\Model\GiveawayPoolBlockReference
      */
     public function getGiveawayPool()
     {
@@ -358,7 +352,7 @@ class AwardGiveawayBlock implements ModelInterface, ArrayAccess
     /**
      * Sets giveawayPool
      *
-     * @param \TalonOne\Client\Model\GiveawayPoolReference $giveawayPool giveawayPool
+     * @param \TalonOne\Client\Model\GiveawayPoolBlockReference $giveawayPool giveawayPool
      *
      * @return $this
      */
@@ -398,30 +392,6 @@ class AwardGiveawayBlock implements ModelInterface, ArrayAccess
             );
         }
         $this->container['profile'] = $profile;
-
-        return $this;
-    }
-
-    /**
-     * Gets onFailure
-     *
-     * @return object[]|null
-     */
-    public function getOnFailure()
-    {
-        return $this->container['onFailure'];
-    }
-
-    /**
-     * Sets onFailure
-     *
-     * @param object[]|null $onFailure Blocks evaluated when this block fails or returns false.
-     *
-     * @return $this
-     */
-    public function setOnFailure($onFailure)
-    {
-        $this->container['onFailure'] = $onFailure;
 
         return $this;
     }

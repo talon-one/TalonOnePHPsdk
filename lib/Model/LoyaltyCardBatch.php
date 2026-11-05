@@ -225,6 +225,14 @@ class LoyaltyCardBatch implements ModelInterface, ArrayAccess
         if ($this->container['numberOfCards'] === null) {
             $invalidProperties[] = "'numberOfCards' can't be null";
         }
+        if (($this->container['numberOfCards'] > 20000)) {
+            $invalidProperties[] = "invalid value for 'numberOfCards', must be smaller than or equal to 20000.";
+        }
+
+        if (($this->container['numberOfCards'] < 1)) {
+            $invalidProperties[] = "invalid value for 'numberOfCards', must be bigger than or equal to 1.";
+        }
+
         if (!is_null($this->container['batchId']) && (mb_strlen($this->container['batchId']) > 20)) {
             $invalidProperties[] = "invalid value for 'batchId', the character length must be smaller than or equal to 20.";
         }
@@ -279,6 +287,14 @@ class LoyaltyCardBatch implements ModelInterface, ArrayAccess
      */
     public function setNumberOfCards($numberOfCards)
     {
+
+        if (($numberOfCards > 20000)) {
+            throw new \InvalidArgumentException('invalid value for $numberOfCards when calling LoyaltyCardBatch., must be smaller than or equal to 20000.');
+        }
+        if (($numberOfCards < 1)) {
+            throw new \InvalidArgumentException('invalid value for $numberOfCards when calling LoyaltyCardBatch., must be bigger than or equal to 1.');
+        }
+
         $this->container['numberOfCards'] = $numberOfCards;
 
         return $this;

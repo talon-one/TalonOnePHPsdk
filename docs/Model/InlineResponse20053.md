@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hasMore** | **bool** |  | [optional] 
-**data** | [**\TalonOne\Client\Model\AchievementV2[]**](AchievementV2.md) |  | 
+**data** | [**\TalonOne\Client\Model\ListCampaignStoreBudgets[]**](ListCampaignStoreBudgets.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

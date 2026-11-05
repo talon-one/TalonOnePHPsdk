@@ -105,4 +105,11 @@ class NewExperimentVariantTest extends TestCase
     public function testPropertyIsPrimary()
     {
     }
+
+    /**
+     * Test attribute "audienceId"
+     */
+    public function testPropertyAudienceId()
+    {
+    }
 }

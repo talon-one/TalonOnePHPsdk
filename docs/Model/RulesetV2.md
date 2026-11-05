@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **promotionRules** | [**\TalonOne\Client\Model\RuleV2[]**](RuleV2.md) | Set of promotion rules. | 
 **strikethroughRules** | [**\TalonOne\Client\Model\RuleV2[]**](RuleV2.md) | Set of strikethrough rules. | [optional] 
 **selectors** | [**\TalonOne\Client\Model\Selector[]**](Selector.md) | Variable bindings of type selector. | [optional] [readonly] 
-**bundles** | [**\TalonOne\Client\Model\Bundle[]**](Bundle.md) | Variable bindings of type bundle. | [optional] [readonly] 
-**parameters** | [**\TalonOne\Client\Model\TemplateParameter[]**](TemplateParameter.md) | Variable bindings of type template parameter. | [optional] [readonly] 
+**bundles** | [**\TalonOne\Client\Model\Bundle[]**](Bundle.md) | Variable bindings of type bundle. | [optional] 
+**parameters** | [**\TalonOne\Client\Model\TemplateParameter[]**](TemplateParameter.md) | Variable bindings of type template parameter. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

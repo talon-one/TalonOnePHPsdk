@@ -233,9 +233,6 @@ class Bundle implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -274,7 +271,7 @@ class Bundle implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -284,7 +281,7 @@ class Bundle implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id An identifier derived from the bundle content.
+     * @param string|null $id An identifier derived from the bundle content.
      *
      * @return $this
      */

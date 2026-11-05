@@ -539,7 +539,7 @@ class StrikethroughLabelingNotification implements ModelInterface, ArrayAccess
     /**
      * Sets sentAt
      *
-     * @param \DateTime $sentAt Timestamp at which the notification was sent.
+     * @param \DateTime $sentAt Timestamp when the notification was sent by Talon.One. There may be a delay before the notification is delivered to the user.
      *
      * @return $this
      */

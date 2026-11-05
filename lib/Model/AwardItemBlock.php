@@ -422,7 +422,7 @@ class AwardItemBlock implements ModelInterface, ArrayAccess
     /**
      * Sets partial
      *
-     * @param bool|null $partial When set to `true`, applies a partial item reward if the remaining budget is insufficient to award the full reward.
+     * @param bool|null $partial When set to `true`, applies a partial item reward if the remaining budget is insufficient to award the full reward. When omitted, the Application's partial discounts setting applies.
      *
      * @return $this
      */

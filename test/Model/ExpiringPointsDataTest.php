@@ -112,4 +112,25 @@ class ExpiringPointsDataTest extends TestCase
     public function testPropertySubledgerID()
     {
     }
+
+    /**
+     * Test attribute "created"
+     */
+    public function testPropertyCreated()
+    {
+    }
+
+    /**
+     * Test attribute "awaitsActivation"
+     */
+    public function testPropertyAwaitsActivation()
+    {
+    }
+
+    /**
+     * Test attribute "validityDuration"
+     */
+    public function testPropertyValidityDuration()
+    {
+    }
 }

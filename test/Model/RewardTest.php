@@ -163,6 +163,20 @@ class RewardTest extends TestCase
     }
 
     /**
+     * Test attribute "validityDuration"
+     */
+    public function testPropertyValidityDuration()
+    {
+    }
+
+    /**
+     * Test attribute "expiryDate"
+     */
+    public function testPropertyExpiryDate()
+    {
+    }
+
+    /**
      * Test attribute "modified"
      */
     public function testPropertyModified()

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **sku** | **string** | The stock keeping unit of the item to award. | 
 **name** | **string** | The display name of the item to award. | 
 **quantity** | **string** | The number of items to award. Supports template placeholders (e.g. \&quot;{{$Session.Total / 2}}\&quot;) for dynamic quantities. | 
-**partial** | **bool** | When set to &#x60;true&#x60;, applies a partial item reward if the remaining budget is insufficient to award the full reward. | [optional] 
+**partial** | **bool** | When set to &#x60;true&#x60;, applies a partial item reward if the remaining budget is insufficient to award the full reward. When omitted, the Application&#39;s partial discounts setting applies. | [optional] 
 **onFailure** | **object[]** | Blocks evaluated when this block fails or returns false. | [optional] 
 **onError** | [**map[string,object[]]**](array.md) | Named error handlers evaluated when a specific error occurs. | [optional] 
 

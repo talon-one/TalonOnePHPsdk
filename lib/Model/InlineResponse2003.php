@@ -58,7 +58,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'totalResultSize' => 'int',
-        'data' => '\TalonOne\Client\Model\AchievementProgress[]'
+        'data' => '\TalonOne\Client\Model\CustomerAchievementHistoryEntry[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\AchievementProgress[]
+     * @return \TalonOne\Client\Model\CustomerAchievementHistoryEntry[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\AchievementProgress[] $data data
+     * @param \TalonOne\Client\Model\CustomerAchievementHistoryEntry[] $data data
      *
      * @return $this
      */

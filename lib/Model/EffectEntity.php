@@ -74,7 +74,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'selectedPriceType' => 'string',
         'selectedPrice' => 'float',
         'adjustmentReferenceId' => 'string',
-        'rewardId' => 'int'
+        'rewardId' => 'int',
+        'rewardIntegrationId' => 'string'
     ];
 
     /**
@@ -99,7 +100,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'selectedPriceType' => null,
         'selectedPrice' => null,
         'adjustmentReferenceId' => 'uuid',
-        'rewardId' => 'int64'
+        'rewardId' => 'int64',
+        'rewardIntegrationId' => null
     ];
 
     /**
@@ -145,7 +147,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'selectedPriceType' => 'selectedPriceType',
         'selectedPrice' => 'selectedPrice',
         'adjustmentReferenceId' => 'adjustmentReferenceId',
-        'rewardId' => 'rewardId'
+        'rewardId' => 'rewardId',
+        'rewardIntegrationId' => 'rewardIntegrationId'
     ];
 
     /**
@@ -170,7 +173,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'selectedPriceType' => 'setSelectedPriceType',
         'selectedPrice' => 'setSelectedPrice',
         'adjustmentReferenceId' => 'setAdjustmentReferenceId',
-        'rewardId' => 'setRewardId'
+        'rewardId' => 'setRewardId',
+        'rewardIntegrationId' => 'setRewardIntegrationId'
     ];
 
     /**
@@ -195,7 +199,8 @@ class EffectEntity implements ModelInterface, ArrayAccess
         'selectedPriceType' => 'getSelectedPriceType',
         'selectedPrice' => 'getSelectedPrice',
         'adjustmentReferenceId' => 'getAdjustmentReferenceId',
-        'rewardId' => 'getRewardId'
+        'rewardId' => 'getRewardId',
+        'rewardIntegrationId' => 'getRewardIntegrationId'
     ];
 
     /**
@@ -275,6 +280,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
         $this->container['selectedPrice'] = isset($data['selectedPrice']) ? $data['selectedPrice'] : null;
         $this->container['adjustmentReferenceId'] = isset($data['adjustmentReferenceId']) ? $data['adjustmentReferenceId'] : null;
         $this->container['rewardId'] = isset($data['rewardId']) ? $data['rewardId'] : null;
+        $this->container['rewardIntegrationId'] = isset($data['rewardIntegrationId']) ? $data['rewardIntegrationId'] : null;
     }
 
     /**
@@ -449,7 +455,7 @@ class EffectEntity implements ModelInterface, ArrayAccess
     /**
      * Sets effectType
      *
-     * @param string $effectType The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
+     * @param string $effectType See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
      *
      * @return $this
      */
@@ -720,6 +726,30 @@ class EffectEntity implements ModelInterface, ArrayAccess
     public function setRewardId($rewardId)
     {
         $this->container['rewardId'] = $rewardId;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewardIntegrationId
+     *
+     * @return string|null
+     */
+    public function getRewardIntegrationId()
+    {
+        return $this->container['rewardIntegrationId'];
+    }
+
+    /**
+     * Sets rewardIntegrationId
+     *
+     * @param string|null $rewardIntegrationId The integration ID of the specific customer reward whose usage produced this effect.
+     *
+     * @return $this
+     */
+    public function setRewardIntegrationId($rewardIntegrationId)
+    {
+        $this->container['rewardIntegrationId'] = $rewardIntegrationId;
 
         return $this;
     }

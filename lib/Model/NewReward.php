@@ -65,7 +65,9 @@ class NewReward implements ModelInterface, ArrayAccess
         'eligibilityConditions' => '\TalonOne\Client\Model\Rule',
         'rule' => '\TalonOne\Client\Model\Rule',
         'bindings' => '\TalonOne\Client\Model\Binding[]',
-        'pointsRequired' => '\TalonOne\Client\Model\RewardPointsRequired[]'
+        'pointsRequired' => '\TalonOne\Client\Model\RewardPointsRequired[]',
+        'validityDuration' => 'string',
+        'expiryDate' => '\DateTime'
     ];
 
     /**
@@ -82,7 +84,9 @@ class NewReward implements ModelInterface, ArrayAccess
         'eligibilityConditions' => null,
         'rule' => null,
         'bindings' => null,
-        'pointsRequired' => null
+        'pointsRequired' => null,
+        'validityDuration' => null,
+        'expiryDate' => 'date-time'
     ];
 
     /**
@@ -120,7 +124,9 @@ class NewReward implements ModelInterface, ArrayAccess
         'eligibilityConditions' => 'eligibilityConditions',
         'rule' => 'rule',
         'bindings' => 'bindings',
-        'pointsRequired' => 'pointsRequired'
+        'pointsRequired' => 'pointsRequired',
+        'validityDuration' => 'validityDuration',
+        'expiryDate' => 'expiryDate'
     ];
 
     /**
@@ -137,7 +143,9 @@ class NewReward implements ModelInterface, ArrayAccess
         'eligibilityConditions' => 'setEligibilityConditions',
         'rule' => 'setRule',
         'bindings' => 'setBindings',
-        'pointsRequired' => 'setPointsRequired'
+        'pointsRequired' => 'setPointsRequired',
+        'validityDuration' => 'setValidityDuration',
+        'expiryDate' => 'setExpiryDate'
     ];
 
     /**
@@ -154,7 +162,9 @@ class NewReward implements ModelInterface, ArrayAccess
         'eligibilityConditions' => 'getEligibilityConditions',
         'rule' => 'getRule',
         'bindings' => 'getBindings',
-        'pointsRequired' => 'getPointsRequired'
+        'pointsRequired' => 'getPointsRequired',
+        'validityDuration' => 'getValidityDuration',
+        'expiryDate' => 'getExpiryDate'
     ];
 
     /**
@@ -226,6 +236,8 @@ class NewReward implements ModelInterface, ArrayAccess
         $this->container['rule'] = isset($data['rule']) ? $data['rule'] : null;
         $this->container['bindings'] = isset($data['bindings']) ? $data['bindings'] : null;
         $this->container['pointsRequired'] = isset($data['pointsRequired']) ? $data['pointsRequired'] : null;
+        $this->container['validityDuration'] = isset($data['validityDuration']) ? $data['validityDuration'] : null;
+        $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
     }
 
     /**
@@ -494,6 +506,54 @@ class NewReward implements ModelInterface, ArrayAccess
     public function setPointsRequired($pointsRequired)
     {
         $this->container['pointsRequired'] = $pointsRequired;
+
+        return $this;
+    }
+
+    /**
+     * Gets validityDuration
+     *
+     * @return string|null
+     */
+    public function getValidityDuration()
+    {
+        return $this->container['validityDuration'];
+    }
+
+    /**
+     * Sets validityDuration
+     *
+     * @param string|null $validityDuration The duration for which the customer rewards unlocked from this reward remain active, relative to when the customer reward was unlocked.  The time format is an **integer** followed by one letter indicating the time unit.  Examples: `5D`, `7W`, `10M`, `15Y`.  Available units:  - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can round certain units up or down: - `_D` for rounding down days only. Signifies the start of the day. - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.  This field cannot be used in combination with `expiryDate`. If both `validityDuration` and `expiryDate` are not set, customer rewards have unlimited validity.
+     *
+     * @return $this
+     */
+    public function setValidityDuration($validityDuration)
+    {
+        $this->container['validityDuration'] = $validityDuration;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiryDate
+     *
+     * @return \DateTime|null
+     */
+    public function getExpiryDate()
+    {
+        return $this->container['expiryDate'];
+    }
+
+    /**
+     * Sets expiryDate
+     *
+     * @param \DateTime|null $expiryDate Expiry date of the customer rewards unlocked from this reward. Customer rewards never expire if this is omitted and `validityDuration` is not set.  **Note:** - The date must be in the future. - This field cannot be used in combination with `validityDuration`.
+     *
+     * @return $this
+     */
+    public function setExpiryDate($expiryDate)
+    {
+        $this->container['expiryDate'] = $expiryDate;
 
         return $this;
     }

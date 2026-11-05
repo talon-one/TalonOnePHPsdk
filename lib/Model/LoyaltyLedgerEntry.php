@@ -73,7 +73,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'userID' => 'int',
         'archived' => 'bool',
         'flags' => '\TalonOne\Client\Model\LoyaltyLedgerEntryFlags',
-        'validityDuration' => 'string'
+        'validityDuration' => 'string',
+        'awaitsActivation' => 'bool'
     ];
 
     /**
@@ -97,7 +98,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'userID' => 'int64',
         'archived' => null,
         'flags' => null,
-        'validityDuration' => null
+        'validityDuration' => null,
+        'awaitsActivation' => null
     ];
 
     /**
@@ -142,7 +144,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'userID' => 'userID',
         'archived' => 'archived',
         'flags' => 'flags',
-        'validityDuration' => 'validityDuration'
+        'validityDuration' => 'validityDuration',
+        'awaitsActivation' => 'awaitsActivation'
     ];
 
     /**
@@ -166,7 +169,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'userID' => 'setUserID',
         'archived' => 'setArchived',
         'flags' => 'setFlags',
-        'validityDuration' => 'setValidityDuration'
+        'validityDuration' => 'setValidityDuration',
+        'awaitsActivation' => 'setAwaitsActivation'
     ];
 
     /**
@@ -190,7 +194,8 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         'userID' => 'getUserID',
         'archived' => 'getArchived',
         'flags' => 'getFlags',
-        'validityDuration' => 'getValidityDuration'
+        'validityDuration' => 'getValidityDuration',
+        'awaitsActivation' => 'getAwaitsActivation'
     ];
 
     /**
@@ -269,6 +274,7 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
         $this->container['archived'] = isset($data['archived']) ? $data['archived'] : null;
         $this->container['flags'] = isset($data['flags']) ? $data['flags'] : null;
         $this->container['validityDuration'] = isset($data['validityDuration']) ? $data['validityDuration'] : null;
+        $this->container['awaitsActivation'] = isset($data['awaitsActivation']) ? $data['awaitsActivation'] : null;
     }
 
     /**
@@ -693,6 +699,30 @@ class LoyaltyLedgerEntry implements ModelInterface, ArrayAccess
     public function setValidityDuration($validityDuration)
     {
         $this->container['validityDuration'] = $validityDuration;
+
+        return $this;
+    }
+
+    /**
+     * Gets awaitsActivation
+     *
+     * @return bool|null
+     */
+    public function getAwaitsActivation()
+    {
+        return $this->container['awaitsActivation'];
+    }
+
+    /**
+     * Sets awaitsActivation
+     *
+     * @param bool|null $awaitsActivation Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+     *
+     * @return $this
+     */
+    public function setAwaitsActivation($awaitsActivation)
+    {
+        $this->container['awaitsActivation'] = $awaitsActivation;
 
         return $this;
     }

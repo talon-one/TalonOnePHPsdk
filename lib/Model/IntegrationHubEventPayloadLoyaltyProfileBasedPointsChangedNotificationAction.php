@@ -62,7 +62,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationActi
         'operation' => 'string',
         'startDate' => '\DateTime',
         'expiryDate' => '\DateTime',
-        'transactionUUID' => 'string'
+        'transactionUUID' => 'string',
+        'created' => '\DateTime',
+        'awaitsActivation' => 'bool',
+        'validityDuration' => 'string'
     ];
 
     /**
@@ -76,7 +79,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationActi
         'operation' => null,
         'startDate' => 'date-time',
         'expiryDate' => 'date-time',
-        'transactionUUID' => 'uuid'
+        'transactionUUID' => 'uuid',
+        'created' => 'date-time',
+        'awaitsActivation' => null,
+        'validityDuration' => null
     ];
 
     /**
@@ -111,7 +117,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationActi
         'operation' => 'Operation',
         'startDate' => 'StartDate',
         'expiryDate' => 'ExpiryDate',
-        'transactionUUID' => 'TransactionUUID'
+        'transactionUUID' => 'TransactionUUID',
+        'created' => 'Created',
+        'awaitsActivation' => 'AwaitsActivation',
+        'validityDuration' => 'ValidityDuration'
     ];
 
     /**
@@ -125,7 +134,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationActi
         'operation' => 'setOperation',
         'startDate' => 'setStartDate',
         'expiryDate' => 'setExpiryDate',
-        'transactionUUID' => 'setTransactionUUID'
+        'transactionUUID' => 'setTransactionUUID',
+        'created' => 'setCreated',
+        'awaitsActivation' => 'setAwaitsActivation',
+        'validityDuration' => 'setValidityDuration'
     ];
 
     /**
@@ -139,7 +151,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationActi
         'operation' => 'getOperation',
         'startDate' => 'getStartDate',
         'expiryDate' => 'getExpiryDate',
-        'transactionUUID' => 'getTransactionUUID'
+        'transactionUUID' => 'getTransactionUUID',
+        'created' => 'getCreated',
+        'awaitsActivation' => 'getAwaitsActivation',
+        'validityDuration' => 'getValidityDuration'
     ];
 
     /**
@@ -223,6 +238,9 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationActi
         $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
         $this->container['expiryDate'] = isset($data['expiryDate']) ? $data['expiryDate'] : null;
         $this->container['transactionUUID'] = isset($data['transactionUUID']) ? $data['transactionUUID'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['awaitsActivation'] = isset($data['awaitsActivation']) ? $data['awaitsActivation'] : null;
+        $this->container['validityDuration'] = isset($data['validityDuration']) ? $data['validityDuration'] : null;
     }
 
     /**
@@ -415,6 +433,78 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationActi
     public function setTransactionUUID($transactionUUID)
     {
         $this->container['transactionUUID'] = $transactionUUID;
+
+        return $this;
+    }
+
+    /**
+     * Gets created
+     *
+     * @return \DateTime|null
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     *
+     * @param \DateTime|null $created The timestamp when the loyalty transaction occurred.
+     *
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets awaitsActivation
+     *
+     * @return bool|null
+     */
+    public function getAwaitsActivation()
+    {
+        return $this->container['awaitsActivation'];
+    }
+
+    /**
+     * Sets awaitsActivation
+     *
+     * @param bool|null $awaitsActivation Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+     *
+     * @return $this
+     */
+    public function setAwaitsActivation($awaitsActivation)
+    {
+        $this->container['awaitsActivation'] = $awaitsActivation;
+
+        return $this;
+    }
+
+    /**
+     * Gets validityDuration
+     *
+     * @return string|null
+     */
+    public function getValidityDuration()
+    {
+        return $this->container['validityDuration'];
+    }
+
+    /**
+     * Sets validityDuration
+     *
+     * @param string|null $validityDuration The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `AwaitsActivation` is `true` and `ExpiryDate` is not set.
+     *
+     * @return $this
+     */
+    public function setValidityDuration($validityDuration)
+    {
+        $this->container['validityDuration'] = $validityDuration;
 
         return $this;
     }

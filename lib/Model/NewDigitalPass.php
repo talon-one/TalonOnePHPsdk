@@ -405,7 +405,7 @@ class NewDigitalPass implements ModelInterface, ArrayAccess
     /**
      * Sets platform
      *
-     * @param string $platform The wallet platform the pass is generated for.
+     * @param string $platform The wallet platform the pass is generated for. Possible values:  - `apple`: The digital pass is generated for Apple Wallet. - `google`: The digital pass is generated for Google Wallet.
      *
      * @return $this
      */

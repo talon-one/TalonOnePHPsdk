@@ -36,6 +36,7 @@ use \TalonOne\Client\ObjectSerializer;
  * RolesV2Thresholds Class Doc Comment
  *
  * @category Class
+ * @description Support user limits for actions that require admin approval within the given loyalty program.
  * @package  TalonOne\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ShowNotificationBlockTest Class Doc Comment
  *
  * @category    Class
- * @description A block that displays a notification to the customer with a configurable type, title, and optional body message.
+ * @description A block that displays a notification to the customer with a configurable type, title, and body message.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -117,13 +117,6 @@ class ShowNotificationBlockTest extends TestCase
      * Test attribute "body"
      */
     public function testPropertyBody()
-    {
-    }
-
-    /**
-     * Test attribute "onFailure"
-     */
-    public function testPropertyOnFailure()
     {
     }
 

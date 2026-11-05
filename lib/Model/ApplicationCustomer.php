@@ -68,7 +68,8 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         'audienceMemberships' => '\TalonOne\Client\Model\AudienceMembership[]',
         'lastActivity' => '\DateTime',
         'sandbox' => 'bool',
-        'advocateIntegrationId' => 'string'
+        'advocateIntegrationId' => 'string',
+        'loyaltyProgramJoinDates' => '\TalonOne\Client\Model\LoyaltyMembership[]'
     ];
 
     /**
@@ -88,7 +89,8 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         'audienceMemberships' => null,
         'lastActivity' => 'date-time',
         'sandbox' => null,
-        'advocateIntegrationId' => null
+        'advocateIntegrationId' => null,
+        'loyaltyProgramJoinDates' => null
     ];
 
     /**
@@ -129,7 +131,8 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         'audienceMemberships' => 'audienceMemberships',
         'lastActivity' => 'lastActivity',
         'sandbox' => 'sandbox',
-        'advocateIntegrationId' => 'advocateIntegrationId'
+        'advocateIntegrationId' => 'advocateIntegrationId',
+        'loyaltyProgramJoinDates' => 'loyaltyProgramJoinDates'
     ];
 
     /**
@@ -149,7 +152,8 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         'audienceMemberships' => 'setAudienceMemberships',
         'lastActivity' => 'setLastActivity',
         'sandbox' => 'setSandbox',
-        'advocateIntegrationId' => 'setAdvocateIntegrationId'
+        'advocateIntegrationId' => 'setAdvocateIntegrationId',
+        'loyaltyProgramJoinDates' => 'setLoyaltyProgramJoinDates'
     ];
 
     /**
@@ -169,7 +173,8 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         'audienceMemberships' => 'getAudienceMemberships',
         'lastActivity' => 'getLastActivity',
         'sandbox' => 'getSandbox',
-        'advocateIntegrationId' => 'getAdvocateIntegrationId'
+        'advocateIntegrationId' => 'getAdvocateIntegrationId',
+        'loyaltyProgramJoinDates' => 'getLoyaltyProgramJoinDates'
     ];
 
     /**
@@ -244,6 +249,7 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         $this->container['lastActivity'] = isset($data['lastActivity']) ? $data['lastActivity'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['advocateIntegrationId'] = isset($data['advocateIntegrationId']) ? $data['advocateIntegrationId'] : null;
+        $this->container['loyaltyProgramJoinDates'] = isset($data['loyaltyProgramJoinDates']) ? $data['loyaltyProgramJoinDates'] : null;
     }
 
     /**
@@ -594,6 +600,30 @@ class ApplicationCustomer implements ModelInterface, ArrayAccess
         }
 
         $this->container['advocateIntegrationId'] = $advocateIntegrationId;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyaltyProgramJoinDates
+     *
+     * @return \TalonOne\Client\Model\LoyaltyMembership[]|null
+     */
+    public function getLoyaltyProgramJoinDates()
+    {
+        return $this->container['loyaltyProgramJoinDates'];
+    }
+
+    /**
+     * Sets loyaltyProgramJoinDates
+     *
+     * @param \TalonOne\Client\Model\LoyaltyMembership[]|null $loyaltyProgramJoinDates The dates on which the customer joined the profile-based loyalty programs they are part of. Returned only when the `withLoyaltyMemberships` query parameter is `true`.
+     *
+     * @return $this
+     */
+    public function setLoyaltyProgramJoinDates($loyaltyProgramJoinDates)
+    {
+        $this->container['loyaltyProgramJoinDates'] = $loyaltyProgramJoinDates;
 
         return $this;
     }

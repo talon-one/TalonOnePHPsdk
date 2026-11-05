@@ -105,4 +105,11 @@ class CustomerProfileIntegrationRequestV2Test extends TestCase
     public function testPropertyAudiencesChanges()
     {
     }
+
+    /**
+     * Test attribute "rewardIntegrationIds"
+     */
+    public function testPropertyRewardIntegrationIds()
+    {
+    }
 }

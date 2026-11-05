@@ -133,4 +133,18 @@ class TierDowngradeDataTest extends TestCase
     public function testPropertyTimestampOfTierChange()
     {
     }
+
+    /**
+     * Test attribute "source"
+     */
+    public function testPropertySource()
+    {
+    }
+
+    /**
+     * Test attribute "reason"
+     */
+    public function testPropertyReason()
+    {
+    }
 }

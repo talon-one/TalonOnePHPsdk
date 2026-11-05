@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CheckTierBlockTest Class Doc Comment
  *
  * @category    Class
- * @description A block that checks whether a user profile is a member of a specific tier within a loyalty program.
+ * @description A block that checks whether a customer profile is a member of a specific tier in a loyalty program.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

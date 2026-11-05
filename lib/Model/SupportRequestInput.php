@@ -60,7 +60,7 @@ class SupportRequestInput implements ModelInterface, ArrayAccess
         'applicationId' => 'int',
         'campaignId' => 'int',
         'loyaltyProgramId' => 'int',
-        'subledgerId' => 'int',
+        'subledgerId' => 'string',
         'customerProfileId' => 'string',
         'requestType' => 'string',
         'requestValue' => 'float',
@@ -76,7 +76,7 @@ class SupportRequestInput implements ModelInterface, ArrayAccess
         'applicationId' => 'int64',
         'campaignId' => 'int64',
         'loyaltyProgramId' => 'int64',
-        'subledgerId' => 'int64',
+        'subledgerId' => null,
         'customerProfileId' => null,
         'requestType' => null,
         'requestValue' => 'float',
@@ -360,7 +360,7 @@ class SupportRequestInput implements ModelInterface, ArrayAccess
     /**
      * Gets subledgerId
      *
-     * @return int|null
+     * @return string|null
      */
     public function getSubledgerId()
     {
@@ -370,7 +370,7 @@ class SupportRequestInput implements ModelInterface, ArrayAccess
     /**
      * Sets subledgerId
      *
-     * @param int|null $subledgerId Identifier of the subledger the points are added to or deducted from. If there is no existing subledger with this ID, the subledger is created automatically.
+     * @param string|null $subledgerId ID of the subledger the points are added to or deducted from. Must be combined with `loyaltyProgramId`. The subledger must already exist in the given loyalty program.
      *
      * @return $this
      */

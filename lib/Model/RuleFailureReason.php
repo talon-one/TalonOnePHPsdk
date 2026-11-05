@@ -683,7 +683,7 @@ class RuleFailureReason implements ModelInterface, ArrayAccess
     /**
      * Sets evaluationGroupMode
      *
-     * @param string|null $evaluationGroupMode The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-
+     * @param string|null $evaluationGroupMode The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
      *
      * @return $this
      */

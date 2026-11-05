@@ -62,7 +62,7 @@ class CheckAchievementBlock implements ModelInterface, ArrayAccess
         'type' => 'string',
         'tags' => 'string[]',
         'operator' => 'string',
-        'achievement' => '\TalonOne\Client\Model\CheckAchievementBlockAchievement',
+        'achievement' => '\TalonOne\Client\Model\AchievementBlockReference',
         'onFailure' => 'object[]'
     ];
 
@@ -385,7 +385,7 @@ class CheckAchievementBlock implements ModelInterface, ArrayAccess
     /**
      * Gets achievement
      *
-     * @return \TalonOne\Client\Model\CheckAchievementBlockAchievement
+     * @return \TalonOne\Client\Model\AchievementBlockReference
      */
     public function getAchievement()
     {
@@ -395,7 +395,7 @@ class CheckAchievementBlock implements ModelInterface, ArrayAccess
     /**
      * Sets achievement
      *
-     * @param \TalonOne\Client\Model\CheckAchievementBlockAchievement $achievement achievement
+     * @param \TalonOne\Client\Model\AchievementBlockReference $achievement achievement
      *
      * @return $this
      */

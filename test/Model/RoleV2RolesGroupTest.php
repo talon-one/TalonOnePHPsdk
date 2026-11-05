@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * RoleV2RolesGroupTest Class Doc Comment
  *
  * @category    Class
- * @description RoleV2RolesGroup
+ * @description A map of target entities to their permission sets.
  * @package     TalonOne\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

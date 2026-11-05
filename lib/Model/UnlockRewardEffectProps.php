@@ -63,7 +63,7 @@ class UnlockRewardEffectProps implements ModelInterface, ArrayAccess
         'applicationId' => 'int',
         'profileIntegrationId' => 'string',
         'unlockedAt' => '\DateTime',
-        'cardIdentifier' => 'string'
+        'loyaltyCardId' => 'string'
     ];
 
     /**
@@ -77,7 +77,7 @@ class UnlockRewardEffectProps implements ModelInterface, ArrayAccess
         'applicationId' => 'int64',
         'profileIntegrationId' => null,
         'unlockedAt' => 'date-time',
-        'cardIdentifier' => null
+        'loyaltyCardId' => null
     ];
 
     /**
@@ -112,7 +112,7 @@ class UnlockRewardEffectProps implements ModelInterface, ArrayAccess
         'applicationId' => 'applicationId',
         'profileIntegrationId' => 'profileIntegrationId',
         'unlockedAt' => 'unlockedAt',
-        'cardIdentifier' => 'cardIdentifier'
+        'loyaltyCardId' => 'loyaltyCardId'
     ];
 
     /**
@@ -126,7 +126,7 @@ class UnlockRewardEffectProps implements ModelInterface, ArrayAccess
         'applicationId' => 'setApplicationId',
         'profileIntegrationId' => 'setProfileIntegrationId',
         'unlockedAt' => 'setUnlockedAt',
-        'cardIdentifier' => 'setCardIdentifier'
+        'loyaltyCardId' => 'setLoyaltyCardId'
     ];
 
     /**
@@ -140,7 +140,7 @@ class UnlockRewardEffectProps implements ModelInterface, ArrayAccess
         'applicationId' => 'getApplicationId',
         'profileIntegrationId' => 'getProfileIntegrationId',
         'unlockedAt' => 'getUnlockedAt',
-        'cardIdentifier' => 'getCardIdentifier'
+        'loyaltyCardId' => 'getLoyaltyCardId'
     ];
 
     /**
@@ -208,7 +208,7 @@ class UnlockRewardEffectProps implements ModelInterface, ArrayAccess
         $this->container['applicationId'] = isset($data['applicationId']) ? $data['applicationId'] : null;
         $this->container['profileIntegrationId'] = isset($data['profileIntegrationId']) ? $data['profileIntegrationId'] : null;
         $this->container['unlockedAt'] = isset($data['unlockedAt']) ? $data['unlockedAt'] : null;
-        $this->container['cardIdentifier'] = isset($data['cardIdentifier']) ? $data['cardIdentifier'] : null;
+        $this->container['loyaltyCardId'] = isset($data['loyaltyCardId']) ? $data['loyaltyCardId'] : null;
     }
 
     /**
@@ -235,16 +235,16 @@ class UnlockRewardEffectProps implements ModelInterface, ArrayAccess
         if ($this->container['unlockedAt'] === null) {
             $invalidProperties[] = "'unlockedAt' can't be null";
         }
-        if (!is_null($this->container['cardIdentifier']) && (mb_strlen($this->container['cardIdentifier']) > 108)) {
-            $invalidProperties[] = "invalid value for 'cardIdentifier', the character length must be smaller than or equal to 108.";
+        if (!is_null($this->container['loyaltyCardId']) && (mb_strlen($this->container['loyaltyCardId']) > 108)) {
+            $invalidProperties[] = "invalid value for 'loyaltyCardId', the character length must be smaller than or equal to 108.";
         }
 
-        if (!is_null($this->container['cardIdentifier']) && (mb_strlen($this->container['cardIdentifier']) < 4)) {
-            $invalidProperties[] = "invalid value for 'cardIdentifier', the character length must be bigger than or equal to 4.";
+        if (!is_null($this->container['loyaltyCardId']) && (mb_strlen($this->container['loyaltyCardId']) < 4)) {
+            $invalidProperties[] = "invalid value for 'loyaltyCardId', the character length must be bigger than or equal to 4.";
         }
 
-        if (!is_null($this->container['cardIdentifier']) && !preg_match("/^[A-Za-z0-9._%+@-]+$/", $this->container['cardIdentifier'])) {
-            $invalidProperties[] = "invalid value for 'cardIdentifier', must be conform to the pattern /^[A-Za-z0-9._%+@-]+$/.";
+        if (!is_null($this->container['loyaltyCardId']) && !preg_match("/^[A-Za-z0-9._%+@-]+$/", $this->container['loyaltyCardId'])) {
+            $invalidProperties[] = "invalid value for 'loyaltyCardId', must be conform to the pattern /^[A-Za-z0-9._%+@-]+$/.";
         }
 
         return $invalidProperties;
@@ -383,35 +383,35 @@ class UnlockRewardEffectProps implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cardIdentifier
+     * Gets loyaltyCardId
      *
      * @return string|null
      */
-    public function getCardIdentifier()
+    public function getLoyaltyCardId()
     {
-        return $this->container['cardIdentifier'];
+        return $this->container['loyaltyCardId'];
     }
 
     /**
-     * Sets cardIdentifier
+     * Sets loyaltyCardId
      *
-     * @param string|null $cardIdentifier The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`.
+     * @param string|null $loyaltyCardId The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`.
      *
      * @return $this
      */
-    public function setCardIdentifier($cardIdentifier)
+    public function setLoyaltyCardId($loyaltyCardId)
     {
-        if (!is_null($cardIdentifier) && (mb_strlen($cardIdentifier) > 108)) {
-            throw new \InvalidArgumentException('invalid length for $cardIdentifier when calling UnlockRewardEffectProps., must be smaller than or equal to 108.');
+        if (!is_null($loyaltyCardId) && (mb_strlen($loyaltyCardId) > 108)) {
+            throw new \InvalidArgumentException('invalid length for $loyaltyCardId when calling UnlockRewardEffectProps., must be smaller than or equal to 108.');
         }
-        if (!is_null($cardIdentifier) && (mb_strlen($cardIdentifier) < 4)) {
-            throw new \InvalidArgumentException('invalid length for $cardIdentifier when calling UnlockRewardEffectProps., must be bigger than or equal to 4.');
+        if (!is_null($loyaltyCardId) && (mb_strlen($loyaltyCardId) < 4)) {
+            throw new \InvalidArgumentException('invalid length for $loyaltyCardId when calling UnlockRewardEffectProps., must be bigger than or equal to 4.');
         }
-        if (!is_null($cardIdentifier) && (!preg_match("/^[A-Za-z0-9._%+@-]+$/", $cardIdentifier))) {
-            throw new \InvalidArgumentException("invalid value for $cardIdentifier when calling UnlockRewardEffectProps., must conform to the pattern /^[A-Za-z0-9._%+@-]+$/.");
+        if (!is_null($loyaltyCardId) && (!preg_match("/^[A-Za-z0-9._%+@-]+$/", $loyaltyCardId))) {
+            throw new \InvalidArgumentException("invalid value for $loyaltyCardId when calling UnlockRewardEffectProps., must conform to the pattern /^[A-Za-z0-9._%+@-]+$/.");
         }
 
-        $this->container['cardIdentifier'] = $cardIdentifier;
+        $this->container['loyaltyCardId'] = $loyaltyCardId;
 
         return $this;
     }

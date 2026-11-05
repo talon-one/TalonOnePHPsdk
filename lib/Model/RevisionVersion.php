@@ -414,7 +414,7 @@ class RevisionVersion implements ModelInterface, ArrayAccess
     /**
      * Sets accountId
      *
-     * @param int $accountId accountId
+     * @param int $accountId The ID of the account that owns this entity.
      *
      * @return $this
      */
@@ -438,7 +438,7 @@ class RevisionVersion implements ModelInterface, ArrayAccess
     /**
      * Sets applicationId
      *
-     * @param int $applicationId applicationId
+     * @param int $applicationId The ID of the Application that owns this entity.
      *
      * @return $this
      */
@@ -462,7 +462,7 @@ class RevisionVersion implements ModelInterface, ArrayAccess
     /**
      * Sets campaignId
      *
-     * @param int $campaignId campaignId
+     * @param int $campaignId The ID of the campaign that the revision was created from.
      *
      * @return $this
      */
@@ -486,7 +486,7 @@ class RevisionVersion implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \DateTime $created created
+     * @param \DateTime $created Timestamp when the revision was created.
      *
      * @return $this
      */
@@ -510,7 +510,7 @@ class RevisionVersion implements ModelInterface, ArrayAccess
     /**
      * Sets createdBy
      *
-     * @param int $createdBy createdBy
+     * @param int $createdBy The ID of the user who created this revision.
      *
      * @return $this
      */
@@ -534,7 +534,7 @@ class RevisionVersion implements ModelInterface, ArrayAccess
     /**
      * Sets revisionId
      *
-     * @param int $revisionId revisionId
+     * @param int $revisionId The ID of the revision.
      *
      * @return $this
      */
@@ -558,7 +558,7 @@ class RevisionVersion implements ModelInterface, ArrayAccess
     /**
      * Sets version
      *
-     * @param int $version version
+     * @param int $version Incrementing number representing how many revisions have been activated on this campaign. Starts from `0` for a new campaign.
      *
      * @return $this
      */

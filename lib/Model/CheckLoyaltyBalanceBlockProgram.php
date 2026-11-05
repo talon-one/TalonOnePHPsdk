@@ -205,12 +205,6 @@ class CheckLoyaltyBalanceBlockProgram implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -253,7 +247,7 @@ class CheckLoyaltyBalanceBlockProgram implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -263,7 +257,7 @@ class CheckLoyaltyBalanceBlockProgram implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The internal name of the loyalty program.
+     * @param string|null $name The internal name of the loyalty program.
      *
      * @return $this
      */
@@ -277,7 +271,7 @@ class CheckLoyaltyBalanceBlockProgram implements ModelInterface, ArrayAccess
     /**
      * Gets title
      *
-     * @return string
+     * @return string|null
      */
     public function getTitle()
     {
@@ -287,7 +281,7 @@ class CheckLoyaltyBalanceBlockProgram implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title The display name of the loyalty program.
+     * @param string|null $title The display name of the loyalty program.
      *
      * @return $this
      */

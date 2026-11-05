@@ -58,7 +58,7 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'hasMore' => 'bool',
-        'data' => '\TalonOne\Client\Model\CardLedgerPointsEntryIntegrationAPI[]'
+        'data' => '\TalonOne\Client\Model\LedgerTransactionLogEntryIntegrationAPI[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \TalonOne\Client\Model\CardLedgerPointsEntryIntegrationAPI[]
+     * @return \TalonOne\Client\Model\LedgerTransactionLogEntryIntegrationAPI[]
      */
     public function getData()
     {
@@ -253,7 +253,7 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \TalonOne\Client\Model\CardLedgerPointsEntryIntegrationAPI[] $data data
+     * @param \TalonOne\Client\Model\LedgerTransactionLogEntryIntegrationAPI[] $data data
      *
      * @return $this
      */
